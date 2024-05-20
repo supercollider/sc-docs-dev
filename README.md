@@ -1,7 +1,9 @@
-# SuperCollider documentation
+# SuperCollider development documentation
 
-This repository builds the official documentation of SuperCollider on the web which is located at [docs.supercollider.online](https://docs.supercollider.online).
-It is built and deployed every week based on the source files of the latest major version of SuperCollider.
+This repository builds the official development documentation of SuperCollider on the web which is located at [dev.docs.supercollider.online](https://dev.docs.supercollider.online).
+It is built and deployed every week based on the source files of the develop branch of SuperCollider.
+
+Use [docs.supercollider.online](https://docs.supercollider.online) to access the documentation of the latest major version.
 
 The following enhancements and adjustments have been made to the documentation:
 
