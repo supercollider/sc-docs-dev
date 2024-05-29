@@ -39,6 +39,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#*loadCollection'>loadCollection</a> </li>
 <li class='toc3'><a href='#*sendCollection'>sendCollection</a> </li>
 <li class='toc3'><a href='#*loadDialog'>loadDialog</a> </li>
+<li class='toc3'><a href='#*loadChannelDialog'>loadChannelDialog</a> </li>
 </ul><li class='toc2'><a href='#Creation%20without%20Immediate%20Memory%20Allocation'>Creation without Immediate Memory Allocation</a></li>
 <ul class='toc'><li class='toc3'><a href='#*new'>new</a> </li>
 </ul><li class='toc2'><a href='#Cached%20Buffers'>Cached Buffers</a></li>
@@ -367,7 +368,7 @@ b.get(1999999, { |msg| (msg == a[1999999]).postln });
 b.free;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>Buffer.</span><a class='method-name' name='*loadDialog' href='./../Overviews/Methods.html#loadDialog'>loadDialog</a>(<span class='argstr'>server</span>, <span class='argstr'>startFrame: 0</span>, <span class='argstr'>numFrames</span>, <span class='argstr'>action</span>, <span class='argstr'>bufnum</span>)</h3>
 <div class='method'>
-<p>As <a href="#*read">*read</a> above, but gives you a load dialog window to browse for a file. Cocoa compatible.<h4>Arguments:</h4>
+<p>As <a href="#*read">*read</a> above, but gives you a load dialog window to browse for a file.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>server<td class='argumentdesc'>
 <p>The server on which to allocate the buffer.<tr><td class='argumentname'>startFrame<td class='argumentdesc'>
@@ -378,6 +379,24 @@ b.free;</textarea>
 <textarea class='editor'>s.boot;
 (
 b = Buffer.loadDialog(s, action: { |buffer|
+    x = { PlayBuf.ar(buffer.numChannels, buffer, BufRateScale.kr(buffer)) }.play;
+});
+)
+x.free; b.free;</textarea>
+</div><h3 class='method-code'><span class='method-prefix'>Buffer.</span><a class='method-name' name='*loadChannelDialog' href='./../Overviews/Methods.html#loadChannelDialog'>loadChannelDialog</a>(<span class='argstr'>server</span>, <span class='argstr'>startFrame: 0</span>, <span class='argstr'>numFrames</span>, <span class='argstr'>channels</span>, <span class='argstr'>action</span>, <span class='argstr'>bufnum</span>)</h3>
+<div class='method'>
+<p>As <a href="#*readChannel">*readChannel</a> above, but gives you a load dialog window to browse for a file.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>server<td class='argumentdesc'>
+<p>The server on which to allocate the buffer.<tr><td class='argumentname'>startFrame<td class='argumentdesc'>
+<p>The first frame of the soundfile to read. The default is 0, which is the beginning of the file.<tr><td class='argumentname'>numFrames<td class='argumentdesc'>
+<p>The number of frames to read. The default is -1, which will read the whole file.<tr><td class='argumentname'>channels<td class='argumentdesc'>
+<p>An Array of channels to be read from the soundfile. Indices start from zero. These will be read in the order provided. If absent or an empty array all channels will be read from soundfile in order.<tr><td class='argumentname'>action<td class='argumentdesc'>
+<p>A Function to be evaluated once the file has been read and this Buffer's instance variables have been updated. The function will be passed this Buffer as an argument.<tr><td class='argumentname'>bufnum<td class='argumentdesc'>
+<p>An explicitly specified buffer number. Supplying a number bypasses the server's buffer allocator, which can lead to conflicts. The best practice is to leave this unset and let the buffer number allocator choose the next available bufnum.</table><h4>Discussion:</h4>
+<textarea class='editor'>s.boot;
+(
+b = Buffer.loadChannelDialog(s, channels: [0], action: { arg buffer;
     x = { PlayBuf.ar(buffer.numChannels, buffer, BufRateScale.kr(buffer)) }.play;
 });
 )
