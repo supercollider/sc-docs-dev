@@ -41,6 +41,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-cycle'>cycle</a> </li>
 </ul><li class='toc2'><a href='#Display'>Display</a></li>
 <ul class='toc'><li class='toc3'><a href='#-window'>window</a> </li>
+<li class='toc3'><a href='#-bounds'>bounds</a> </li>
 <li class='toc3'><a href='#-size'>size</a> </li>
 <li class='toc3'><a href='#-toggleSize'>toggleSize</a> </li>
 <li class='toc3'><a href='#-zoom'>zoom</a> </li>
@@ -139,7 +140,20 @@ Stethoscope.ugenScopes; // returns the ugen scopes</textarea>
 <p> If you are scoping a periodic signal, setting <code>cycle</code> to match the signal's period will keep the waveform locked in place.</div><h3><a class='anchor' name='Display'>Display</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-window' href='./../Overviews/Methods.html#window'>window</a></h3>
 <div class='method'>
-<p> The (parent) Window of the scope.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-size' href='./../Overviews/Methods.html#size'>size</a></h3>
+<p> The (parent) Window of the scope.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-bounds' href='./../Overviews/Methods.html#bounds'>bounds</a></h3>
+<div class='method'>
+<p> The position and size of the window. The position is relative to the bottom-left corner of the screen.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'><td class='argumentdesc'>
+<p> A <a href="./../Classes/Rect.html">Rect</a>, or any object responding to the <a href="./../Search.html#asRect">.asRect</a> method. The width less than 264 will be changed to 264, the minimum width.</table><h4>Returns:</h4>
+<div class='returnvalue'>
+<p>A Rect.<textarea class='editor'>s.scope.bounds_(Rect(100, 200, 500, 600));
+s.scope.bounds_([100, 200, 500, 600]);
+s.scope.bounds_(Size(500, 600));</textarea>
+
+<p><textarea class='editor'>s.scope.bounds_(Rect(0, 0, 500, 600));
+s.scope.bounds_(500@600);</textarea>
+</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-size' href='./../Overviews/Methods.html#size'>size</a></h3>
 <div class='method'>
 <p> Sets the width and the height of the scope window.<h4>Arguments:</h4>
 <table class='arguments'>
