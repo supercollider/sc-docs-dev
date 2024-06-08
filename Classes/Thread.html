@@ -2,6 +2,7 @@
 <link rel='stylesheet' href='./../scdoc.css' type='text/css' />
 <link rel='stylesheet' href='./../codemirror.css' type='text/css' />
 <link rel='stylesheet' href='./../editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -82,7 +83,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>When code on a Thread starts or resumes another Thread (Routine), the former Thread becomes the latter's <strong>parent</strong>, and the latter its <strong>child</strong>. The parent Thread's execution is <strong>blocked</strong> until the child Thread finishes or is suspended, at which point the parent Thread continues execution. The <strong>current</strong> Thread may be accessed using <a href="#thisThread">thisThread</a>, while a Thread's parent may be accessed using <a href="#-parent">-parent</a>.
 <p>A Thread has<ul>
 <li>associated <a href="#-beats">logical time</a><li>an associated <a href="#-clock">Clock</a><li>own <a href="#-randSeed">random number seed</a><li>own <a href="#-exceptionHandler">exception handler</a></ul>
-<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='thisThread' href='./../Overviews/Methods.html#thisThread'>thisThread</a></h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.thisThread' href='./../Overviews/Methods.html#thisThread'>thisThread</a></h3>
 <div class='method'>
 <p>The global pseudo-variable <code>thisThread</code> always represents the current Thread, i.e. the context in which the current code is running. It can be either the <a href="./../Classes/Process.html#-mainThread">main Thread</a> or the <a href="./../Classes/Routine.html">Routine</a> running the current code.
 <p>See also: <a href="./../Classes/Clock.html#Scheduling%20and%20Threads">Clock: Scheduling and Threads</a>.<textarea class='editor'>// example

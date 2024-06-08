@@ -2,6 +2,7 @@
 <link rel='stylesheet' href='./../scdoc.css' type='text/css' />
 <link rel='stylesheet' href='./../codemirror.css' type='text/css' />
 <link rel='stylesheet' href='./../editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -37,7 +38,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='subheader'>
 <div id='related'>See also: <a href="./../Classes/ObjectGui.html">ObjectGui</a></div>
 </div>
-<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='gui' href='./../Overviews/Methods.html#gui'>gui</a></h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.gui' href='./../Overviews/Methods.html#gui'>gui</a></h3>
 <div class='method'>
 <p>The <code>gui</code> message is of common use in SC. It originated in the crucial library where it is used to create an <a href="./../Classes/ObjectGui.html">ObjectGui</a> or an ObjectGui subclass as part of a Model View Controller system.
 <p>The implementation and accepted arguments to .gui varies. This helpfile explains the default behavior of Object and hence of all Object subclasses that haven't implemented their own .gui method. This helpfile and the implementation come from the original crucial library.
@@ -68,7 +69,7 @@ things.gui(parent,bounds,arg1,arg2,...argN)</textarea>
     "2".gui(f);
     2.gui(f);
 )</textarea>
-<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='guiClass' href='./../Overviews/Methods.html#guiClass'>guiClass</a></h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.guiClass' href='./../Overviews/Methods.html#guiClass'>guiClass</a></h3>
 <div class='method'>
 <p>Each class can specify an associated guiClass, which is a subclass of ObjectGui. Writing useful subclasses is the purpose of the ObjectGui system and many can be found in the crucial library.
 <p>Examples specifying guiClass:<textarea class='editor'>    Object-guiClass {  ^ObjectGui }

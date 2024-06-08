@@ -2,6 +2,7 @@
 <link rel='stylesheet' href='./../scdoc.css' type='text/css' />
 <link rel='stylesheet' href='./../codemirror.css' type='text/css' />
 <link rel='stylesheet' href='./../editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -91,7 +92,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td>+ / -<td>vertical zoom<tr><td>=<td>compare plot channels<tr><td>n<td>toggle normalize display (0..1) / (-1..1), or fit range<tr><td>s<td>toggle superposition (see: superpose)<tr><td>m<td>switch plot mode (see: <a href="./../Classes/Plotter.html#-plotMode">Plotter: -plotMode</a>)<tr><td>e<td>toggle editing (see: <a href="./../Classes/Plotter.html#-editMode">Plotter: -editMode</a>)<tr><td>g<td>toggle horizontal (domain) grid<tr><td>G<td>toggle vertical (codomain) grid<tr><td>p<td>print curve<tr><td>ctrl-+ / -<td>zoom font<tr><td>alt-click<td>post value</table>
 <h3><a class='anchor' name='Method%20extensions'>Method extensions</a></h3>
 
-<p>Plotter extends other classes with methods. To see what classes implements plot, see <a href="./../Overviews/Methods.html#plot">Methods: plot</a><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='plot' href='./../Overviews/Methods.html#plot'>plot</a>(args)</h3>
+<p>Plotter extends other classes with methods. To see what classes implements plot, see <a href="./../Overviews/Methods.html#plot">Methods: plot</a><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.plot' href='./../Overviews/Methods.html#plot'>plot</a>(args)</h3>
 <div class='method'>
 <p><textarea class='editor'>// plot array
 [1, 6, 2, -5, 2].plot;
@@ -109,7 +110,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 // Env
 Env.perc(0.4, 0.6).plot;</textarea>
-</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='plotGraph' href='./../Overviews/Methods.html#plotGraph'>plotGraph</a>(n,from,to,...)</h3>
+</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.plotGraph' href='./../Overviews/Methods.html#plotGraph'>plotGraph</a>(n,from,to,...)</h3>
 <div class='method'>
 <p><textarea class='editor'>{ |x| sin(x) }.plotGraph(300, 0, 2*pi);
 { |x| sin(1/x) * x }.plotGraph(from: 0.0001, to: 0.2);</textarea>

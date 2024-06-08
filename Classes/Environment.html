@@ -2,6 +2,7 @@
 <link rel='stylesheet' href='./../scdoc.css' type='text/css' />
 <link rel='stylesheet' href='./../codemirror.css' type='text/css' />
 <link rel='stylesheet' href='./../editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -106,9 +107,9 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-eventAt' href='./../Overviews/Methods.html#eventAt'>eventAt</a>(<span class='argstr'>key</span>)</h3>
 <h2><a class='anchor' name='PseudoVariables%20(global%20variables)'>PseudoVariables (global variables)</a></h2>
 
-<p>These are not methods, but global variables.<div class='warning'><span class='warninglabel'>WARNING:</span> In general, you should not manipulate these variables directly. Instead, use the <a href="#-use">-use</a>, <a href="#-push">-push</a> and <a href="#*pop">*pop</a> methods.</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='currentEnvironment' href='./../Overviews/Methods.html#currentEnvironment'>currentEnvironment</a></h3>
+<p>These are not methods, but global variables.<div class='warning'><span class='warninglabel'>WARNING:</span> In general, you should not manipulate these variables directly. Instead, use the <a href="#-use">-use</a>, <a href="#-push">-push</a> and <a href="#*pop">*pop</a> methods.</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.currentEnvironment' href='./../Overviews/Methods.html#currentEnvironment'>currentEnvironment</a></h3>
 <div class='method'>
-<p>determines environment used by "~" syntax, <a href="#valueEnvir">valueEnvir</a>, and <a href="#valueArrayEnvir">valueArrayEnvir</a></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='topEnvironment' href='./../Overviews/Methods.html#topEnvironment'>topEnvironment</a></h3>
+<p>determines environment used by "~" syntax, <a href="#valueEnvir">valueEnvir</a>, and <a href="#valueArrayEnvir">valueArrayEnvir</a></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.topEnvironment' href='./../Overviews/Methods.html#topEnvironment'>topEnvironment</a></h3>
 <div class='method'>
 <p>initial value of <a href="#currentEnvironment">currentEnvironment</a>. <code>~environmentVariables</code> placed here can be used as "global variables," as long as the topEnvironment remains the currentEnvironment.<textarea class='editor'>~abc = 10;  // Environment variable (acting like a global var)
 
@@ -133,9 +134,9 @@ e.pop;  // return to the previous currentEnvironment
 ~abc  // it's back!</textarea>
 
 <p>Thus, ~abc is not truly a global variable because it is inaccessible if its environment is not current.</div><h2><a class='anchor' name='Related%20Messages'>Related Messages</a></h2>
-<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='valueEnvir' href='./../Overviews/Methods.html#valueEnvir'>valueEnvir</a>(arg1, arg2...)</h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.valueEnvir' href='./../Overviews/Methods.html#valueEnvir'>valueEnvir</a>(arg1, arg2...)</h3>
 <div class='method'>
-<p>evaluates a function, looking up unspecified arguments in <a href="#currentEnvironment">currentEnvironment</a></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='valueArrayEnvir' href='./../Overviews/Methods.html#valueArrayEnvir'>valueArrayEnvir</a>(argArray)</h3>
+<p>evaluates a function, looking up unspecified arguments in <a href="#currentEnvironment">currentEnvironment</a></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.valueArrayEnvir' href='./../Overviews/Methods.html#valueArrayEnvir'>valueArrayEnvir</a>(argArray)</h3>
 <div class='method'>
 <p>same as <a href="#valueEnvir">valueEnvir</a>, but with arguments in an array</div><h2><a class='anchor' name='Overview'>Overview</a></h2>
 <h3><a class='anchor' name='topEnvironment,%20currentEnvironment,%20make%20and%20use'>topEnvironment, currentEnvironment, make and use</a></h3>

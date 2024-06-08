@@ -2,6 +2,7 @@
 <link rel='stylesheet' href='./../scdoc.css' type='text/css' />
 <link rel='stylesheet' href='./../codemirror.css' type='text/css' />
 <link rel='stylesheet' href='./../editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -452,7 +453,7 @@ Pbind(*[
 
 <p>Events also specify timing within a <a href="./../Classes/Pattern.html">Pattern</a>. Event's <code>delta</code> method returns the value of <code>~delta</code> or, if that is nil, <code>~dur * ~stretch</code>.
 <p>Patterns are played by <a href="./../Classes/TempoClock.html">TempoClock</a>s, which have their own tempo controls. This tempo which can be controlled through <code>~tempo</code> in the event. Changes to the tempo affect everything else scheduled by the TempoClock, so <code>tempo</code> provides a global tempo control while <code>stretch</code> provides a control limited to the one pattern.<h3><a class='anchor' name='The%20structure%20of%20defaultParentEvent'>The structure of defaultParentEvent</a></h3>
-<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='defaultParentEvent' href='./../Overviews/Methods.html#defaultParentEvent'>defaultParentEvent</a></h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.defaultParentEvent' href='./../Overviews/Methods.html#defaultParentEvent'>defaultParentEvent</a></h3>
 <div class='method'>
 <p>The default event used in most cases. This is a private class variable. See <a href="#*default">*default</a>.
 <p>The default parent event provides the collection of default values and functions needed for the different uses of an Event. These defaults are defined in partialEvents that specify distinct aspects of default parent Event:<textarea class='editor'>playerEvent    // defines ~play, ~type and ~eventTypes

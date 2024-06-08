@@ -2,6 +2,7 @@
 <link rel='stylesheet' href='./../scdoc.css' type='text/css' />
 <link rel='stylesheet' href='./../codemirror.css' type='text/css' />
 <link rel='stylesheet' href='./../editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -41,7 +42,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='Introduction'>Introduction</a></h2>
 
 <p>Every <a href="./../Classes/Thread.html">Thread</a> in sclang has a (pseudo-) random number generator that is responsible for all randomization within this thread. Each random number generator has its own seed (starting point) from which the series of values is generated. This seed can be set and after that, the randgen (being strictly deterministic) produces exactly the same numbers again.
-<p>In order to save disk space, you can reproduce any sequence of randomized data just by one Integer number that you can write down in your notebook.<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='randSeed' href='./../Overviews/Methods.html#randSeed'>randSeed</a></h3>
+<p>In order to save disk space, you can reproduce any sequence of randomized data just by one Integer number that you can write down in your notebook.<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.randSeed' href='./../Overviews/Methods.html#randSeed'>randSeed</a></h3>
 <div class='method'>
 <p><textarea class='editor'>// every thread, also a Routine, has a random generator seed:
 (

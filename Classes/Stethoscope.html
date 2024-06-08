@@ -2,6 +2,7 @@
 <link rel='stylesheet' href='./../scdoc.css' type='text/css' />
 <link rel='stylesheet' href='./../codemirror.css' type='text/css' />
 <link rel='stylesheet' href='./../editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -56,6 +57,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </ul><li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 </ul><li class='toc1'><a href='#examples'>Examples</a></li>
 <ul class='toc'><li class='toc2'><a href='#A%20step-by-step%20example'>A step-by-step example</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Multi-channel%20Lissajou%20plots'>Multi-channel Lissajou plots</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Embedded%20use'>Embedded use</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
@@ -176,7 +178,7 @@ s.scope.bounds_(500@600);</textarea>
 <p> A Float.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-style' href='./../Overviews/Methods.html#style'>style</a></h3>
 <div class='method'>
 <p> The plotting style:<ul>
-<li>0 = the channels are vertically spaced<li>1 = the channels are overlaid<li>2 = lissajou; the first two channels are used for 2D plotting (as streams of x and y coordinates).</ul>
+<li>0 = the channels are vertically spaced<li>1 = the channels are overlaid<li>2 = lissajou; each pair of channels is used for 2D plotting (as streams of x and y coordinates).</ul>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'><td class='argumentdesc'>
@@ -226,6 +228,18 @@ c.scope;
 
 // note that scoping control rate buses shows block size interpolation (this is due to the
 // fact that ScopeOut.kr doesn't work yet.)</textarea>
+<h3><a class='anchor' name='Multi-channel%20Lissajou%20plots'>Multi-channel Lissajou plots</a></h3>
+<textarea class='editor'>(
+{ 
+    var f = { |l,h| SinOsc.kr(0.1, {pi.rand}).range(l, h) } ;
+    Pulse.ar({ f.(20, 1000) }!6, { f.(0.0, 1) }!6, { f.(0.0, 1.0) }!6) 
+}.play;
+)
+
+c = s.scope;
+c.numChannels = 6;
+c.scopeView.waveColors = [Color.red, Color.red, Color.cyan, Color.cyan, Color.white, Color.white];
+c.style = 2;</textarea>
 <h3><a class='anchor' name='Embedded%20use'>Embedded use</a></h3>
 
 <p>You can pass your own view in to add a stethoscope to it:<textarea class='editor'>w = Window.new("my own scope", Rect(20, 20, 400, 500));

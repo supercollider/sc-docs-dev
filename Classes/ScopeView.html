@@ -2,6 +2,7 @@
 <link rel='stylesheet' href='./../scdoc.css' type='text/css' />
 <link rel='stylesheet' href='./../codemirror.css' type='text/css' />
 <link rel='stylesheet' href='./../editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -79,7 +80,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p> Tells the ScopeView object to stop plotting. Plotting can be resumed anytime with the <a href="#start">start</a> method.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-style' href='./../Overviews/Methods.html#style'>style</a></h3>
 <div class='method'>
 <p> The plotting style:<ul>
-<li>0 = the channels are vertically spaced<li>1 = the channels are overlaid<li>2 = lissajou; the first two channels are used for 2D plotting (as streams of x and y coordinates).</ul>
+<li>0 = the channels are vertically spaced<li>1 = the channels are overlaid<li>2 = lissajou; each pair of channels is used for 2D plotting (as streams of x and y coordinates).</ul>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'><td class='argumentdesc'>

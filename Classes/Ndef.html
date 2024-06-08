@@ -2,6 +2,7 @@
 <link rel='stylesheet' href='./../scdoc.css' type='text/css' />
 <link rel='stylesheet' href='./../codemirror.css' type='text/css' />
 <link rel='stylesheet' href='./../editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -282,7 +283,7 @@ Ndef(\filter).xset(\multFreq, Array.rand(~numChans, 20, 10000));
 Ndef.clear;
 Pdef.clear;</textarea>
 <h3><a class='anchor' name='Making%20Copies'>Making Copies</a></h3>
-<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='copy' href='./../Overviews/Methods.html#copy'>copy</a></h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.copy' href='./../Overviews/Methods.html#copy'>copy</a></h3>
 <div class='method'>
 <p>Because an Ndef is a unique instance for a given key, it can be copied only by supplying a new key. See also: <a href="./../Classes/NodeProxy.html#-copy">NodeProxy: -copy</a>.<textarea class='editor'>Ndef(\x, { SinOsc.ar(Rand(500, 900)) * 0.1 }).play;
 Ndef(\x).copy(\y);

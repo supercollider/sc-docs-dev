@@ -2,6 +2,7 @@
 <link rel='stylesheet' href='./../scdoc.css' type='text/css' />
 <link rel='stylesheet' href='./../codemirror.css' type='text/css' />
 <link rel='stylesheet' href='./../editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -42,7 +43,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p><code>softSet</code> is an extension method to <a href="./../Classes/NodeProxy.html">NodeProxy</a> and <a href="./../Classes/Ndef.html">Ndef</a> that sets a nodeproxy param value only in two conditions:<ul>
 <li>if the new value is close enough to the current param value;<li>or if the setting controller knows the previous value and sends it along. the idea here is that if the controller knows it did the last value change, it has authority to jump now.</ul>
 
-<p>Typical uses would be switching to a preset, then using a faderbox, and avoiding sudden controller jumps that could occur (soft takeover).<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='softSet' href='./../Overviews/Methods.html#softSet'>softSet</a>(param, val, within = 0.025, mapped=false, lastVal, spec)</h3>
+<p>Typical uses would be switching to a preset, then using a faderbox, and avoiding sudden controller jumps that could occur (soft takeover).<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.softSet' href='./../Overviews/Methods.html#softSet'>softSet</a>(param, val, within = 0.025, mapped=false, lastVal, spec)</h3>
 <div class='method'><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>param<td class='argumentdesc'>

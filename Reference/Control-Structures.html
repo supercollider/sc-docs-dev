@@ -2,6 +2,7 @@
 <link rel='stylesheet' href='./../scdoc.css' type='text/css' />
 <link rel='stylesheet' href='./../codemirror.css' type='text/css' />
 <link rel='stylesheet' href='./../editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -48,7 +49,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 
 <p>Control structures in SuperCollider are implemented via message sends. Here are a few of those available. See <a href="./../Reference/Syntax-Shortcuts.html">Syntax Shortcuts</a> for the various ways expressions can be written.<h2><a class='anchor' name='Basic%20Control%20Structures'>Basic Control Structures</a></h2>
-<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='if' href='./../Overviews/Methods.html#if'>if</a></h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.if' href='./../Overviews/Methods.html#if'>if</a></h3>
 <div class='method'>
 <p>Conditional execution is implemented via the <code>if</code> message. The <code>if</code> message is sent to an expression which must return a <a href="./../Classes/Boolean.html">Boolean</a> value.
 <p>In addition it takes two arguments: a function to execute if the expression is true and another optional function to execute if the expression is false. The <code>if</code> message returns the value of the function which is executed. If the falseFunc is not present and the expression is false then the result of the if message is nil.<h4>Discussion:</h4>
@@ -79,7 +80,7 @@ var x;
 if(x.isNil) { x = 99 };
 x.postln;
 )</textarea>
-</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='while' href='./../Overviews/Methods.html#while'>while</a></h3>
+</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.while' href='./../Overviews/Methods.html#while'>while</a></h3>
 <div class='method'>
 <p>The while message implements conditional execution of a loop. If the testFunc answers true when evaluated, then the loopFunc is evaluated and the process is repeated. Once the testFunc returns false, the loop terminates.<h4>Discussion:</h4>
 
@@ -96,7 +97,7 @@ i = 0;
 while { i &lt; 5 } { i = i + 1; "boing".postln };
 )</textarea>
 
-<p>while expressions are also optimized by the compiler if they do not contain variable declarations in the testFunc and the loopFunc.</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='for' href='./../Overviews/Methods.html#for'>for</a></h3>
+<p>while expressions are also optimized by the compiler if they do not contain variable declarations in the testFunc and the loopFunc.</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.for' href='./../Overviews/Methods.html#for'>for</a></h3>
 <div class='method'>
 <p>The for message implements iteration over an integer series from a starting value to an end value stepping by one each time. A function is evaluated each iteration and is passed the iterated numeric value as an argument.<h4>Discussion:</h4>
 
@@ -109,7 +110,7 @@ for(startValue, endValue, function)
 startValue.for ( endValue, function )</textarea>
 
 <p>Example<textarea class='editor'>for(3, 7) { arg i; i.postln };  // prints values 3 through 7</textarea>
-</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='forBy' href='./../Overviews/Methods.html#forBy'>forBy</a></h3>
+</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.forBy' href='./../Overviews/Methods.html#forBy'>forBy</a></h3>
 <div class='method'>
 <p>The forBy selector implements iteration over an integer series with a variable step size. A function is evaluated each iteration and is passed the iterated numeric value as an argument.<h4>Discussion:</h4>
 
@@ -121,7 +122,7 @@ forBy(startValue, endValue, stepValue, function);
 startValue.forBy(endValue, stepValue, function);</textarea>
 
 <p>Example<textarea class='editor'>forBy(0, 8, 2) { arg i; i.postln };  // prints values 0 through 8 by 2's</textarea>
-</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='do' href='./../Overviews/Methods.html#do'>do</a></h3>
+</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.do' href='./../Overviews/Methods.html#do'>do</a></h3>
 <div class='method'>
 <p>Do is used to iterate over a <a href="./../Classes/Collection.html">Collection</a>. Positive Integers also respond to <code>do</code> by iterating from zero up to their value. Collections iterate, calling the function for each object they contain. Other kinds of Objects respond to do by passing themselves to the function one time. The function is called with two arguments, the item, and an iteration counter.<h4>Discussion:</h4>
 
@@ -176,7 +177,7 @@ r.next;
 
 ERROR: Primitive '_SimpleNumberSeries' failed.
 Wrong type.</textarea>
-</div></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='switch' href='./../Overviews/Methods.html#switch'>switch</a></h3>
+</div></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.switch' href='./../Overviews/Methods.html#switch'>switch</a></h3>
 <div class='method'>
 <p>Object implements a switch method which allows for conditional evaluation with multiple cases. These are implemented as pairs of test objects (tested using if this == test.value) and corresponding functions to be evaluated if true.
 <p>The switch statement will be inlined if the test objects are all Floats, Integers, Symbols, Chars, nil, false, true and if the functions have no variable or argument declarations. The inlined switch uses a hash lookup (which is faster than nested if statements), so it should be very fast and scale to any number of clauses.<div class='note'><span class='notelabel'>NOTE:</span> Hash lookup by definition implies testing <em>identity</em> rather than equality: a <code>switch</code> construction that is not inlined will test <code>==</code>, while one that is inlined will test <code>===</code>. See the examples. One implication is that strings should be avoided: <code>switch(text) { "abc" } { ... }</code> may not match, even if <code>text == "abc"</code>. Symbols are preferred.</div><div class='note'><span class='notelabel'>NOTE:</span> Floating point numbers may sometimes appear to be equal while differing slightly in their binary representation: <code>(2/3) == (1 - (1/3))</code> is false. Therefore floats should be avoided in <code>switch</code> constructions.</div><h4>Discussion:</h4>
@@ -250,7 +251,7 @@ switch(1.0)
 
 WARNING: Float:switch is unsafe, rounding via Float:asInteger:switch
 -&gt; yes</textarea>
-</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='case' href='./../Overviews/Methods.html#case'>case</a></h3>
+</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.case' href='./../Overviews/Methods.html#case'>case</a></h3>
 <div class='method'>
 <p>Function implements a case method which allows for conditional evaluation with multiple cases. Since the receiver represents the first case this can be simply written as pairs of test functions and corresponding functions to be evaluated if true. Case is inlined and is therefore just as efficient as nested if statements.<h4>Discussion:</h4>
 
@@ -267,7 +268,7 @@ x = case
     { i == 0 }   { \true };
 x.postln;
 )</textarea>
-</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='try' href='./../Overviews/Methods.html#try'>try</a></h3>
+</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.try' href='./../Overviews/Methods.html#try'>try</a></h3>
 <div class='method'>
 <p>Function implements a <code>try</code> method which allows catching exceptions thrown by code and run the exception handler. For more information see <a href="./../Classes/Exception.html">Exception</a>.<h4>Discussion:</h4>
 
@@ -276,7 +277,7 @@ x.postln;
 } { |error|
     ...exception handler...
 };</textarea>
-</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='protect' href='./../Overviews/Methods.html#protect'>protect</a></h3>
+</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.protect' href='./../Overviews/Methods.html#protect'>protect</a></h3>
 <div class='method'>
 <p>Function implements a <code>protect</code> method which allows protecting code from exceptions thrown by code. The difference with <code>try</code> is the exception handler code is always run, even if there is no exception. If an exception occurs, it is rethrown after the exception handler block is run. For more information see <a href="./../Classes/Exception.html">Exception</a>.<h4>Discussion:</h4>
 
