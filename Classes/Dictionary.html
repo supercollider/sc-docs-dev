@@ -5,11 +5,13 @@
 <link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
+<link rel='stylesheet' href='./../lib/katex/katex.min.css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <script src='./../lib/jquery.min.js'></script>
 <script src='./../lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
 <script src='./../lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../lib/katex/katex.min.js' type='text/javascript'></script>
 <script>
 var helpRoot = './..';
 var scdoc_title = 'Dictionary';
@@ -227,20 +229,22 @@ d.matchAt(4)
 d.matchAt(\abc)</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-trueAt' href='./../Overviews/Methods.html#trueAt'>trueAt</a>(<span class='argstr'>key</span>)</h3>
 <div class='method'>
-<p>Returns <a href="./../Classes/True.html">True</a> if the item's booleanValue at the key is true, otherwise false. This method is also valid in <a href="./../Classes/Object.html">Object</a>.<textarea class='editor'>d = (x:true, y:false);
-d.trueAt(\x) // true
-d.trueAt(\y) // false
+<p>Returns <a href="./../Classes/True.html">True</a> if the item's <code>booleanValue</code> at the key is <code>true</code>, otherwise <code>false</code>.<textarea class='editor'>// using binary value equivalents
+d = (x:1, y:0);
+d.trueAt(\x)   // true
+d.trueAt(\y)   // false
 d.trueAt(\foo) // false
 
-// using binary value equivalents
-d = (x:1, y:0);
-d.trueAt(\x) // true
-d.trueAt(\y) // false
-d.trueAt(\foo) // false</textarea>
+// other kinds of objects
+d = (num: 23.7, yes:true, no:false, sym:\foo);
+d.trueAt(\num) // true
+d.trueAt(\yes) // true
+d.trueAt(\no)  // false
+d.trueAt(\sym) // false
+d.trueAt(\bar) // false (d[\bar] is nil)</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-falseAt' href='./../Overviews/Methods.html#falseAt'>falseAt</a>(<span class='argstr'>key</span>)</h3>
-<div class='supmethod'>From superclass: <a href='./../Classes/Object.html'>Object</a></div>
 <div class='method'>
-<p>Returns <a href="./../Classes/False.html">False</a> if the item's booleanValue at the key is not true, otherwise true. This method is inherited from <a href="./../Classes/Object.html">Object</a>.</div><h3><a class='anchor' name='Testing'>Testing</a></h3>
+<p>Returns <a href="./../Classes/True.html">True</a> if the item's <code>booleanValue</code> at the key is <code>false</code>, otherwise <code>true</code>. See <a href="#-trueAt">-trueAt</a> for examples.</div><h3><a class='anchor' name='Testing'>Testing</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-includes' href='./../Overviews/Methods.html#includes'>includes</a>(<span class='argstr'>item1</span>)</h3>
 <div class='method'>
 <p>Returns true if the specified item is stored in the Dictionary as a value. Element is checked for equality (not for identity). For identity matching see subclasses: <a href="./../Classes/IdentityDictionary.html">IdentityDictionary</a> or <a href="./../Classes/Event.html">Event</a>.<textarea class='editor'>var d = Dictionary.newFrom([\a, "hey", \b, "hello"]);

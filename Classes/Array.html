@@ -5,11 +5,13 @@
 <link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
+<link rel='stylesheet' href='./../lib/katex/katex.min.css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <script src='./../lib/jquery.min.js'></script>
 <script src='./../lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
 <script src='./../lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../lib/katex/katex.min.js' type='text/javascript'></script>
 <script>
 var helpRoot = './..';
 var scdoc_title = 'Array';
@@ -375,7 +377,7 @@ a.deepCollect(3, {|item| item.isArray}).postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reshape' href='./../Overviews/Methods.html#reshape'>reshape</a>( <span class='argstr'>... shape</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
-<p>For a multidimensional array, rearranges the data using the desired number of elements along each dimension. The data may be extended using wrapExtend if needed.<textarea class='editor'>a = [4,7,6,8];
+<p>For a multidimensional array, rearranges the data using the desired number of elements along each dimension. The data may be extended using <a href="./../Classes/Array.html#-wrapExtend">Array: -wrapExtend</a> if needed. This will always return a rectangular array, see <a href="#-isRectangular">-isRectangular</a>.<textarea class='editor'>a = [4,7,6,8];
 a.reshape(2,2);
 a.reshape(2,3);</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-windex' href='./../Overviews/Methods.html#windex'>windex</a></h3>

@@ -5,11 +5,13 @@
 <link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
+<link rel='stylesheet' href='./../lib/katex/katex.min.css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <script src='./../lib/jquery.min.js'></script>
 <script src='./../lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
 <script src='./../lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../lib/katex/katex.min.js' type='text/javascript'></script>
 <script>
 var helpRoot = './..';
 var scdoc_title = 'ArrayedCollection';
@@ -34,6 +36,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#-size'>size</a> </li>
 <li class='toc3'><a href='#-maxSize'>maxSize</a> </li>
+<li class='toc3'><a href='#-isRectangular'>isRectangular</a> </li>
 <li class='toc3'><a href='#-at'>at</a> </li>
 <li class='toc3'><a href='#-clipAt'>clipAt</a> </li>
 <li class='toc3'><a href='#-wrapAt'>wrapAt</a> </li>
@@ -154,6 +157,15 @@ Array.iota(2, 3, 4);</textarea>
 <p>Return the number of elements the ArrayedCollection.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-maxSize' href='./../Overviews/Methods.html#maxSize'>maxSize</a></h3>
 <div class='method'>
 <p>Return the maximum number of elements the ArrayedCollection can hold. For example, <a href="./../Classes/Array.html">Array</a>s may initialise themselves with a larger capacity than the number of elements added.<textarea class='editor'>[4, 5, 6].maxSize; // gosh</textarea>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isRectangular' href='./../Overviews/Methods.html#isRectangular'>isRectangular</a></h3>
+<div class='method'>
+<p>Returns true if all nested sub arrays are the same size and all elements have the same depth. This is a requirement of several nested array algorithms and formats, notably multichannel audio files.
+<p>Example:<textarea class='editor'>[1, 2, 3].isRectangular // true
+[[1, 2], [3, 4]].isRectangular // true
+
+[1, 2, [3]].isRectangular // false
+[[1, 2], [3]].isRectangular // false
+[[1, 2], [3, [4, 5]]].isRectangular // false</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-at' href='./../Overviews/Methods.html#at'>at</a>(<span class='argstr'>index</span>)</h3>
 <div class='method'>
 <p>Return the item at <strong>index</strong>.
@@ -415,19 +427,20 @@ y.postln;
 a.performInPlace(\normalizeSum, 3, 6);</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rank' href='./../Overviews/Methods.html#rank'>rank</a></h3>
 <div class='method'>
-<p>Rank is the number of dimensions in a multidimensional array.<textarea class='editor'>a = [4,7,6,8];
-a.rank;
-a = [[4,7],[6,8]];
-a.rank;</textarea>
+<p>Returns the number of dimensions of the collection. <code>rank</code> inspects the size of the left-most elements of sub-arrays only, i.e. it's assumed that the collection <a href="#-isRectangular">-isRectangular</a>, so subarrays of mismatched sizes may not return an expected result. A single value has a rank of <code>0</code>. An empty array has a rank of <code>1</code>.<textarea class='editor'>0.rank // 0
+[].rank // 1
+[4, 7, 6, 8].rank // 1
+[[4, 7], [6, 8]].rank // 2
+[1 ,2, [3, 4]].rank // 1, this array is not rectangular and returns a meaningless value.</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-shape' href='./../Overviews/Methods.html#shape'>shape</a></h3>
 <div class='method'>
-<p>For a multidimensional array, returns the number of elements along each dimension.<textarea class='editor'>a = [4,7,6,8];
-a.shape;
-a = [[4,7],[6,8]];
-a.shape;</textarea>
+<p>Returns an array describing the dimension of each nested array. Requires <a href="#-isRectangular">-isRectangular</a> as a precondition.<textarea class='editor'>[4, 7, 6, 8].shape // [4]
+[[4, 7], [6, 8]].shape // [2, 2]
+[[[4, 7]], [[6, 8]]].shape // [2, 1, 2]
+[1, 2, [3, 4]].shape // [3], this array is not rectangular and returns a meaningless value.</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reshape' href='./../Overviews/Methods.html#reshape'>reshape</a>( <span class='argstr'>... shape</span>)</h3>
 <div class='method'>
-<p>For a multidimensional array, rearranges the data using the desired number of elements along each dimension. The data may be extended using wrapExtend if needed.<textarea class='editor'>a = [4,7,6,8];
+<p>For a multidimensional array, rearranges the data using the desired number of elements along each dimension. The data may be extended using <a href="./../Classes/Array.html#-wrapExtend">Array: -wrapExtend</a> if needed. This will always return a rectangular array, see <a href="#-isRectangular">-isRectangular</a>.<textarea class='editor'>a = [4,7,6,8];
 a.reshape(2,2);
 a.reshape(2,3);</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-find' href='./../Overviews/Methods.html#find'>find</a>(<span class='argstr'>sublist</span>, <span class='argstr'>offset: 0</span>)</h3>

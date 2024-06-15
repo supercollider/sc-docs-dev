@@ -5,11 +5,13 @@
 <link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
+<link rel='stylesheet' href='./../lib/katex/katex.min.css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <script src='./../lib/jquery.min.js'></script>
 <script src='./../lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
 <script src='./../lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../lib/katex/katex.min.js' type='text/javascript'></script>
 <script>
 var helpRoot = './..';
 var scdoc_title = 'Object';
@@ -41,6 +43,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-isMemberOf'>isMemberOf</a> </li>
 </ul><li class='toc2'><a href='#Accessing'>Accessing</a></li>
 <ul class='toc'><li class='toc3'><a href='#-size'>size</a> </li>
+<li class='toc3'><a href='#-rank'>rank</a> </li>
+<li class='toc3'><a href='#-shape'>shape</a> </li>
 </ul><li class='toc2'><a href='#Copying'>Copying</a></li>
 <ul class='toc'><li class='toc3'><a href='#-copy'>copy</a> </li>
 <li class='toc3'><a href='#-shallowCopy'>shallowCopy</a> </li>
@@ -271,7 +275,6 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-primitiveFailed'>primitiveFailed</a> </li>
 <li class='toc3'><a href='#-printClassNameOn'>printClassNameOn</a> </li>
 <li class='toc3'><a href='#-proxyControlClass'>proxyControlClass</a> </li>
-<li class='toc3'><a href='#-rank'>rank</a> </li>
 <li class='toc3'><a href='#-reduceFuncProxy'>reduceFuncProxy</a> </li>
 <li class='toc3'><a href='#-reference'>reference</a> </li>
 <li class='toc3'><a href='#-releaseDependants'>releaseDependants</a> </li>
@@ -280,7 +283,6 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-replaceFunc'>replaceFunc</a> </li>
 <li class='toc3'><a href='#-reportError'>reportError</a> </li>
 <li class='toc3'><a href='#-setSlots'>setSlots</a> </li>
-<li class='toc3'><a href='#-shape'>shape</a> </li>
 <li class='toc3'><a href='#-simplifyStoreArgs'>simplifyStoreArgs</a> </li>
 <li class='toc3'><a href='#-slice'>slice</a> </li>
 <li class='toc3'><a href='#-slotAt'>slotAt</a> </li>
@@ -396,7 +398,11 @@ f.writeArchive(PathName.tmp ++ "myFunc"); // fails
 </div><h3><a class='anchor' name='Accessing'>Accessing</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-size' href='./../Overviews/Methods.html#size'>size</a></h3>
 <div class='method'>
-<p>Different classes respond to this message differently. Object always returns 0.</div><h3><a class='anchor' name='Copying'>Copying</a></h3>
+<p>Different classes respond to this message differently. Object always returns 0.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rank' href='./../Overviews/Methods.html#rank'>rank</a></h3>
+<div class='method'>
+<p>Returns the number of dimensions the value has. A single value (scalar) has rank of zero. See <a href="./../Classes/ArrayedCollection.html#-rank">ArrayedCollection: -rank</a> for cases where this is useful.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-shape' href='./../Overviews/Methods.html#shape'>shape</a></h3>
+<div class='method'>
+<p>For a multidimensional array, returns an array of the number of elements along each consecutive dimension, see <a href="./../Classes/ArrayedCollection.html#-shape">ArrayedCollection: -shape</a>. For a scalar value (most objects) returns nil.</div><h3><a class='anchor' name='Copying'>Copying</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-copy' href='./../Overviews/Methods.html#copy'>copy</a></h3>
 <div class='method'>
 <p>Make a copy of the receiver. The implementation of this message depends on the object's class. In class Object, copy calls shallowCopy.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-shallowCopy' href='./../Overviews/Methods.html#shallowCopy'>shallowCopy</a></h3>
@@ -933,7 +939,7 @@ blend((a: 6, b: 7), (a: 0, b: [1, 2], c: 9), 0.5);</textarea>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/JITLib/ProxySpace/extStoreOn.sc'>/usr/local/share/SuperCollider/SCClassLibrary/JITLib/ProxySpace/extStoreOn.sc</a></div>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-equals' href='./../Overviews/Methods.html#equals'>equals</a>(<span class='argstr'>that</span>, <span class='argstr'>properties</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-eventAt' href='./../Overviews/Methods.html#eventAt'>eventAt</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-falseAt' href='./../Overviews/Methods.html#falseAt'>falseAt</a>(<span class='argstr'>key</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-falseAt' href='./../Overviews/Methods.html#falseAt'>falseAt</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-finishEvent' href='./../Overviews/Methods.html#finishEvent'>finishEvent</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-first' href='./../Overviews/Methods.html#first'>first</a>(<span class='argstr'>inval</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-flatSize' href='./../Overviews/Methods.html#flatSize'>flatSize</a></h3>
@@ -1005,7 +1011,6 @@ blend((a: 6, b: 7), (a: 0, b: [1, 2], c: 9), 0.5);</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-printClassNameOn' href='./../Overviews/Methods.html#printClassNameOn'>printClassNameOn</a>(<span class='argstr'>stream</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-proxyControlClass' href='./../Overviews/Methods.html#proxyControlClass'>proxyControlClass</a></h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/JITLib/ProxySpace/wrapForNodeProxy.sc'>/usr/local/share/SuperCollider/SCClassLibrary/JITLib/ProxySpace/wrapForNodeProxy.sc</a></div>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rank' href='./../Overviews/Methods.html#rank'>rank</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reduceFuncProxy' href='./../Overviews/Methods.html#reduceFuncProxy'>reduceFuncProxy</a></h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/JITLib/Patterns/extFunction.sc'>/usr/local/share/SuperCollider/SCClassLibrary/JITLib/Patterns/extFunction.sc</a></div>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reference' href='./../Overviews/Methods.html#reference'>reference</a></h3>
@@ -1016,7 +1021,6 @@ blend((a: 6, b: 7), (a: 0, b: [1, 2], c: 9), 0.5);</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-replaceFunc' href='./../Overviews/Methods.html#replaceFunc'>replaceFunc</a>(<span class='argstr'>find</span>, <span class='argstr'>replace</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reportError' href='./../Overviews/Methods.html#reportError'>reportError</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-setSlots' href='./../Overviews/Methods.html#setSlots'>setSlots</a>(<span class='argstr'>array</span>)</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-shape' href='./../Overviews/Methods.html#shape'>shape</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-simplifyStoreArgs' href='./../Overviews/Methods.html#simplifyStoreArgs'>simplifyStoreArgs</a>(<span class='argstr'>args</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-slice' href='./../Overviews/Methods.html#slice'>slice</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-slotAt' href='./../Overviews/Methods.html#slotAt'>slotAt</a>(<span class='argstr'>index</span>)</h3>

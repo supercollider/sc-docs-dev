@@ -5,11 +5,13 @@
 <link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
+<link rel='stylesheet' href='./../lib/katex/katex.min.css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <script src='./../lib/jquery.min.js'></script>
 <script src='./../lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
 <script src='./../lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../lib/katex/katex.min.js' type='text/javascript'></script>
 <script>
 var helpRoot = './..';
 var scdoc_title = 'SoundFile';
@@ -26,6 +28,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#description'>Description</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#*new'>new</a> </li>
+<li class='toc3'><a href='#*writeArray'>writeArray</a> </li>
 <li class='toc3'><a href='#*openRead'>openRead</a> </li>
 <li class='toc3'><a href='#*openWrite'>openWrite</a> </li>
 <li class='toc3'><a href='#*collect'>collect</a> </li>
@@ -97,7 +100,18 @@ f.close;
 <p>When creating a new SoundFile, the format will be monophonic, 44.1 kHz, AIFF, floating-point by default. Users may override the defaults by passing the desired format strings to <a href="./../Classes/SoundFile.html#*openWrite">SoundFile: *openWrite</a>, or by using <a href="./../Classes/SoundFile.html#-headerFormat">SoundFile: -headerFormat</a>, <a href="./../Classes/SoundFile.html#-sampleFormat">SoundFile: -sampleFormat</a>, <a href="./../Classes/SoundFile.html#-numChannels">SoundFile: -numChannels</a> and <a href="./../Classes/SoundFile.html#-sampleRate">SoundFile: -sampleRate</a> <em>before</em> calling <a href="./../Classes/SoundFile.html#-openWrite">SoundFile: -openWrite</a>.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>SoundFile.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>pathName</span>)</h3>
 <div class='method'>
-<p>Creates a new SoundFile instance.</div><h3 class='method-code'><span class='method-prefix'>SoundFile.</span><a class='method-name' name='*openRead' href='./../Overviews/Methods.html#openRead'>openRead</a>(<span class='argstr'>pathName</span>)</h3>
+<p>Creates a new SoundFile instance.</div><h3 class='method-code'><span class='method-prefix'>SoundFile.</span><a class='method-name' name='*writeArray' href='./../Overviews/Methods.html#writeArray'>writeArray</a>(<span class='argstr'>array</span>, <span class='argstr'>pathName</span>, <span class='argstr'>headerFormat</span>, <span class='argstr'>sampleFormat</span>, <span class='argstr'>sampleRate</span>)</h3>
+<div class='method'>
+<p>Writes an array (or nested array) to a path as a sound file.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>array<td class='argumentdesc'>
+<p>The data to write. Can be an array of numbers for a mono audio file, or an array of arrays-of-numbers for a multichannel audio file. Does not accept further nested arrays. Please note, that supercollider does not currently support very large arrays, roughly speaking, mono sound files longer than 45 mins at a sampling rate of 44100 will cause supercollider to fail silently.<tr><td class='argumentname'>pathName<td class='argumentdesc'>
+<p>The path as a <a href="./../Classes/String.html">String</a>.<tr><td class='argumentname'>headerFormat<td class='argumentdesc'>
+<p>See <a href="./../Classes/SoundFile.html#-headerFormat">SoundFile: -headerFormat</a>.<tr><td class='argumentname'>sampleFormat<td class='argumentdesc'>
+<p>See <a href="./../Classes/SoundFile.html#-sampleFormat">SoundFile: -sampleFormat</a>.<tr><td class='argumentname'>sampleRate<td class='argumentdesc'>
+<p>A number, defaults to 44100.</table><h4>Returns:</h4>
+<div class='returnvalue'>
+<p>The path if successful, or throws if unsuccessful.</div></div><h3 class='method-code'><span class='method-prefix'>SoundFile.</span><a class='method-name' name='*openRead' href='./../Overviews/Methods.html#openRead'>openRead</a>(<span class='argstr'>pathName</span>)</h3>
 <div class='method'>
 <p>Try to open the audio file at the given path.<h4>Arguments:</h4>
 <table class='arguments'>

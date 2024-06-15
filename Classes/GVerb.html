@@ -5,11 +5,13 @@
 <link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
+<link rel='stylesheet' href='./../lib/katex/katex.min.css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <script src='./../lib/jquery.min.js'></script>
 <script src='./../lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
 <script src='./../lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../lib/katex/katex.min.js' type='text/javascript'></script>
 <script>
 var helpRoot = './..';
 var scdoc_title = 'GVerb';
@@ -48,7 +50,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>A two-channel reverb <a href="./../Classes/UGen.html">UGen</a>, based on the "GVerb" LADSPA effect by Juhana Sadeharju (kouhia at nic.funet.fi).<h3><a class='anchor' name='Known%20issues'>Known issues</a></h3>
 <ul>
-<li>There is a large CPU spike when the synth is instantiated while all the delay lines are zeroed out.<li>Quick changes in roomsize result in zipper noise.<li><em>Changing the roomsize does not work properly! Still trying to look for the bug... (-josh)</em></ul>
+<li>There is a large CPU spike when the synth is instantiated while all the delay lines are zeroed out.<li>Changes in roomsize result in pitch shifting and noise.</ul>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>GVerb.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>in</span>, <span class='argstr'>roomsize: 10</span>, <span class='argstr'>revtime: 3</span>, <span class='argstr'>damping: 0.5</span>, <span class='argstr'>inputbw: 0.5</span>, <span class='argstr'>spread: 15</span>, <span class='argstr'>drylevel: 1</span>, <span class='argstr'>earlyreflevel: 0.7</span>, <span class='argstr'>taillevel: 0.5</span>, <span class='argstr'>maxroomsize: 300</span>, <span class='argstr'>mul: 1</span>, <span class='argstr'>add: 0</span>)</h3>
 <div class='method'><h4>Arguments:</h4>

@@ -5,11 +5,13 @@
 <link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
+<link rel='stylesheet' href='./../lib/katex/katex.min.css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <script src='./../lib/jquery.min.js'></script>
 <script src='./../lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
 <script src='./../lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../lib/katex/katex.min.js' type='text/javascript'></script>
 <script>
 var helpRoot = './..';
 var scdoc_title = 'Score';
@@ -42,13 +44,13 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-write'>write</a> </li>
 <li class='toc3'><a href='#-score'>score</a> </li>
 <li class='toc3'><a href='#-add'>add</a> </li>
+<li class='toc3'><a href='#-addSystemSynthDefs'>addSystemSynthDefs</a> </li>
 <li class='toc3'><a href='#-sort'>sort</a> </li>
 <li class='toc3'><a href='#-recordNRT'>recordNRT</a> </li>
 <li class='toc3'><a href='#-saveToFile'>saveToFile</a> </li>
 <li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 <li class='toc2'><a href='#Undocumented%20instance%20methods'>Undocumented instance methods</a></li>
-<ul class='toc'><li class='toc3'><a href='#-addSystemSynthDefs'>addSystemSynthDefs</a> </li>
-<li class='toc3'><a href='#-asScore'>asScore</a> </li>
+<ul class='toc'><li class='toc3'><a href='#-asScore'>asScore</a> </li>
 <li class='toc3'><a href='#-endTime'>endTime</a> </li>
 <li class='toc3'><a href='#-section'>section</a> </li>
 <li class='toc3'><a href='#-startTime'>startTime</a> </li>
@@ -146,7 +148,12 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>get or set the list.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-add' href='./../Overviews/Methods.html#add'>add</a>(<span class='argstr'>bundle</span>)</h3>
 <div class='method'>
-<p>adds bundle to the list.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sort' href='./../Overviews/Methods.html#sort'>sort</a></h3>
+<p>adds bundle to the list.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-addSystemSynthDefs' href='./../Overviews/Methods.html#addSystemSynthDefs'>addSystemSynthDefs</a></h3>
+<div class='method'>
+<p>Some code requires a number of SynthDefs that are assumed to exist on the server (<a href="./../Classes/SystemSynthDefs.html">SystemSynthDefs</a>). When booting a server in realtime mode, they are sent automatically. In non-realtime mode, they need to be added to the score explicitly:<textarea class='editor'>x = Score.new;
+x.addSystemSynthDefs;
+x.score</textarea>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sort' href='./../Overviews/Methods.html#sort'>sort</a></h3>
 <div class='method'>
 <p>sort the score time order. This is recommended to do <strong>before recordNRT or write</strong> when you are not sure about the packet order.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-recordNRT' href='./../Overviews/Methods.html#recordNRT'>recordNRT</a>(<span class='argstr'>oscFilePath</span>, <span class='argstr'>outputFilePath</span>, <span class='argstr'>inputFilePath</span>, <span class='argstr'>sampleRate: 44100</span>, <span class='argstr'>headerFormat: "AIFF"</span>, <span class='argstr'>sampleFormat: "int16"</span>, <span class='argstr'>options</span>, <span class='argstr'>completionString: ""</span>, <span class='argstr'>duration</span>, <span class='argstr'>action</span>)</h3>
 <div class='method'>
@@ -154,7 +161,6 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>save the score list as a text file to <strong>path</strong>.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-addSystemSynthDefs' href='./../Overviews/Methods.html#addSystemSynthDefs'>addSystemSynthDefs</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asScore' href='./../Overviews/Methods.html#asScore'>asScore</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-endTime' href='./../Overviews/Methods.html#endTime'>endTime</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-section' href='./../Overviews/Methods.html#section'>section</a>(<span class='argstr'>start: 0</span>, <span class='argstr'>end</span>, <span class='argstr'>configevents</span>)</h3>
