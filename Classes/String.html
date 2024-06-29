@@ -218,20 +218,20 @@ y = "this is a\n"
 <p>Strings respond to .at in a manner similar to other indexed collections. Each element is a <a href="./../Classes/Char.html">Char</a>.<textarea class='editor'>"ABCDEFG".at(2)</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-ascii' href='./../Overviews/Methods.html#ascii'>ascii</a></h3>
 <div class='method'>
-<p>Returns an Array of ASCII values of the Strings's characters.<textarea class='editor'>"wertvoll".ascii // [ 119, 101, 114, 116, 118, 111, 108, 108 ]</textarea>
+<p>Returns an Array of ASCII values of the Strings's characters.<textarea class='editor'>"wertvoll".ascii // [119, 101, 114, 116, 118, 111, 108, 108]</textarea>
 
 <p>Note that if a string contains multi-byte UTF-8 characters, this array will not be of the same length as the number of visible characters, nor will it necessarily be an array of valid 7-bit ASCII values.<textarea class='editor'>// "face with tears of joy" is Unicode codepoint U+1F602, which is encoded in UTF-8 as hex value 0xF09F9882
 a = "😂";
 
 // although this is one UTF-8 character, it must be stored as 4 Chars because Chars can only hold 1 byte each
 a.size // 4 (!)
-a.ascii // [ -16, -97, -104, -126 ]
+a.ascii // [-16, -97, -104, -126]
 
 // "wrap(0, 255)" converts these numbers to their unsigned 8-bit values
-b = a.ascii.wrap(0, 255) // [ 240, 159, 152, 130 ]
+b = a.ascii.wrap(0, 255) // [240, 159, 152, 130]
 
 // if we represent these values in hexidecmial, it's the same as the UTF-8 above: 0xF09F9882
-b.collect(_.asHexString(2)) // [ F0, 9F, 98, 82 ]</textarea>
+b.collect(_.asHexString(2)) // [F0, 9F, 98, 82]</textarea>
 </div><h3><a class='anchor' name='Comparing%20strings'>Comparing strings</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-compare' href='./../Overviews/Methods.html#compare'>compare</a>(<span class='argstr'>aString</span>, <span class='argstr'>ignoreCase: false</span>)</h3>
 <div class='method'>
@@ -269,10 +269,10 @@ b.collect(_.asHexString(2)) // [ F0, 9F, 98, 82 ]</textarea>
 <h3><a class='anchor' name='Posting%20strings'>Posting strings</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-post' href='./../Overviews/Methods.html#post'>post</a></h3>
 <div class='method'>
-<p>Prints the string to the current post window.<textarea class='editor'>"One".post; "Two".post;"";</textarea>
+<p>Prints the string to the current post window.<textarea class='editor'>"One".post; "Two".post; "";</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-postln' href='./../Overviews/Methods.html#postln'>postln</a></h3>
 <div class='method'>
-<p>Prints the string and a carriage return to the current post window.<textarea class='editor'>"One".postln; "Two".postln;"";</textarea>
+<p>Prints the string and a carriage return to the current post window.<textarea class='editor'>"One".postln; "Two".postln; "";</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-postc' href='./../Overviews/Methods.html#postc'>postc</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-postcln' href='./../Overviews/Methods.html#postcln'>postcln</a></h3>
 <div class='method'>
@@ -281,7 +281,7 @@ b.collect(_.asHexString(2)) // [ F0, 9F, 98, 82 ]</textarea>
 <div class='method'>
 <p>Prints a formatted string with arguments to the current post window. The % character in the format string is replaced by a string representation of an argument. To print a % character use \\% .<textarea class='editor'>postf("this % a %. pi = %, list = %\n", "is", "test", pi.round(1e-4), (1..4))
 
-this is a test. pi = 3.1416, list = [ 1, 2, 3, 4 ]</textarea>
+this is a test. pi = 3.1416, list = [1, 2, 3, 4]</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-postcs' href='./../Overviews/Methods.html#postcs'>postcs</a></h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Object.html'>Object</a></div>
 <div class='method'>
@@ -374,18 +374,18 @@ z.class.postln;
 "foo" +/+ 'bar'</textarea>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-catArgs' href='./../Overviews/Methods.html#catArgs'>catArgs</a>( <span class='argstr'>... items</span>)</h3>
 <div class='method'>
-<p>Concatenate this string with the following args.<textarea class='editor'>"These are some args: ".catArgs(\fish, SinOsc.ar, {4 + 3}).postln;</textarea>
+<p>Concatenate this string with the following args.<textarea class='editor'>"These are some args: ".catArgs(\fish, SinOsc.ar, { 4 + 3 }).postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-scatArgs' href='./../Overviews/Methods.html#scatArgs'>scatArgs</a>( <span class='argstr'>... items</span>)</h3>
 <div class='method'>
-<p>Same as <a href="#-catArgs">-catArgs</a>, but with spaces in between.<textarea class='editor'>"These are some args: ".scatArgs(\fish, SinOsc.ar, {4 + 3}).postln;</textarea>
+<p>Same as <a href="#-catArgs">-catArgs</a>, but with spaces in between.<textarea class='editor'>"These are some args: ".scatArgs(\fish, SinOsc.ar, { 4 + 3 }).postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-ccatArgs' href='./../Overviews/Methods.html#ccatArgs'>ccatArgs</a>( <span class='argstr'>... items</span>)</h3>
 <div class='method'>
-<p>Same as <a href="#-catArgs">-catArgs</a>, but with commas in between.<textarea class='editor'>"a String".ccatArgs(\fish, SinOsc.ar, {4 + 3}).postln;</textarea>
+<p>Same as <a href="#-catArgs">-catArgs</a>, but with commas in between.<textarea class='editor'>"a String".ccatArgs(\fish, SinOsc.ar, { 4 + 3 }).postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-catList' href='./../Overviews/Methods.html#catList'>catList</a>(<span class='argstr'>list</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-scatList' href='./../Overviews/Methods.html#scatList'>scatList</a>(<span class='argstr'>list</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-ccatList' href='./../Overviews/Methods.html#ccatList'>ccatList</a>(<span class='argstr'>list</span>)</h3>
 <div class='method'>
-<p>As <a href="#-catArgs">-catArgs</a>, <a href="#-scatArgs">-scatArgs</a> and <a href="#-ccatArgs">-ccatArgs</a> above, but takes a Collection (usually a <a href="./../Classes/List.html">List</a> or an <a href="./../Classes/Array.html">Array</a>) as an argument.<textarea class='editor'>"a String".ccatList([\fish, SinOsc.ar, {4 + 3}]).postln;</textarea>
+<p>As <a href="#-catArgs">-catArgs</a>, <a href="#-scatArgs">-scatArgs</a> and <a href="#-ccatArgs">-ccatArgs</a> above, but takes a Collection (usually a <a href="./../Classes/List.html">List</a> or an <a href="./../Classes/Array.html">Array</a>) as an argument.<textarea class='editor'>"a String".ccatList([\fish, SinOsc.ar, { 4 + 3 }]).postln;</textarea>
 </div><h3><a class='anchor' name='Regular%20expressions'>Regular expressions</a></h3>
 
 <p>The String class provides access to the boost library's regular expression functions. Boost's default uses Perl settings. (Currently, there is no hook to override the regex style.) Syntax details may be found at <a href="https://www.boost.org/doc/libs/1_69_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html">https://www.boost.org/doc/libs/1_69_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html</a>.
@@ -415,9 +415,9 @@ z.class.postln;
 <div class='method'>
 <p>Perl regular expression search (see <a href="./../Classes/String.html#Regular%20expressions">String: Regular expressions</a>). This method searches exhaustively for matches and collects them into an array of pairs, in the format <code>[character index, matching string]</code>.
 <p>"Leftmost largest match": As in most flavors of regular expressions, <code>*</code> and <code>+</code> are greedy; if it is possible to have more than one overlapping match for a part of the regular expression, the match list will include only the leftmost and largest of them. In <code>"foobar".findRegexp("o+")</code>, <code>"o+"</code> may potentially have three matches: <code>"o"</code> at index 1 (second character), <code>"o"</code> at index 2, and <code>"oo"</code> at index 1. <code>findRegexp</code> will return only the last of these (<code>"oo"</code>), because it begins in the leftmost-possible matching position, and it is the longest possible match at that position.
-<p>Note, though, that parentheses for grouping (a "marked sub-expression" or "capturing group") will produce a separate result: <code>"aaa".findRegexp("(a+)");</code> appears to produce duplicated results <code>[ [ 0, aaa ], [ 0, aaa ] ]</code>, but this is because the first match is for the parentheses and the second is for <code>a+</code>.
+<p>Note, though, that parentheses for grouping (a "marked sub-expression" or "capturing group") will produce a separate result: <code>"aaa".findRegexp("(a+)");</code> appears to produce duplicated results <code>[[0, aaa], [0, aaa]]</code>, but this is because the first match is for the parentheses and the second is for <code>a+</code>.
 <p>To see the marked sub-expression results more clearly, consider:<textarea class='editor'>"foobar".findRegexp("(o*)(bar)");
--&gt; [ [ 1, oobar ], [ 1, oo ], [ 3, bar ] ]</textarea>
+-&gt; [[1, oobar], [1, oo], [3, bar]]</textarea>
 
 <p><code>"oobar"</code> matches the entire regular expression. <code>"oo"</code> and <code>"bar"</code> match the first and second parenthesized sub-expressions, respectively.<textarea class='editor'>"foobar".findRegexp("o*bar");
 "32424 334 /**aaaaaa*/".findRegexp("/\\*\\*a*\\*/");
@@ -435,13 +435,13 @@ z.class.postln;
 <p>An array of integer character indices pointing to all the possible matches.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findRegexpAt' href='./../Overviews/Methods.html#findRegexpAt'>findRegexpAt</a>(<span class='argstr'>regexp</span>, <span class='argstr'>offset: 0</span>)</h3>
 <div class='method'>
 <p>Match a regular expression (see <a href="./../Classes/String.html#Regular%20expressions">String: Regular expressions</a>) at the given offset, returning the match and the length of the match in an Array, or nil if it doesn't match. The match must begin right at the offset.<textarea class='editor'>"foobaroob".findRegexpAt("o*b+", 0); // nil
-"foobaroob".findRegexpAt("o*b+", 1); // [ oob, 3 ]
-"foobaroob".findRegexpAt("o*b+", 2); // [ ob,  2 ]
-"foobaroob".findRegexpAt("o*b+", 3); // [ b,   1 ]
+"foobaroob".findRegexpAt("o*b+", 1); // [oob, 3]
+"foobaroob".findRegexpAt("o*b+", 2); // [ob,  2]
+"foobaroob".findRegexpAt("o*b+", 3); // [b,   1]
 "foobaroob".findRegexpAt("o*b+", 4); // nil
 "foobaroob".findRegexpAt("o*b+", 5); // nil
-"foobaroob".findRegexpAt("o*b+", 6); // [ oob, 3 ]
-"foobaroob".findRegexpAt("o*b+", 7); // [ ob,  2 ]</textarea>
+"foobaroob".findRegexpAt("o*b+", 6); // [oob, 3]
+"foobaroob".findRegexpAt("o*b+", 7); // [ob,  2]</textarea>
 <h4>Returns:</h4>
 <div class='returnvalue'>
 <p>An array <code>[matching string, length]</code> if a match is found at the specified offset; <code>nil</code> if the offset doesn't match.</div></div><h3><a class='anchor' name='Searching%20strings'>Searching strings</a></h3>
@@ -492,24 +492,24 @@ z.class.postln;
 <div class='method'>
 <p>Returns a formatted string with arguments. The % character in the format string is replaced by a string representation of an argument. To print a % character use \\% .<textarea class='editor'>format("this % a %. pi = %, list = %\n", "is", "test", pi.round(1e-4), (1..4))
 
-this is a test. pi = 3.1416, list = [ 1, 2, 3, 4 ]</textarea>
+this is a test. pi = 3.1416, list = [1, 2, 3, 4]</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-escapeChar' href='./../Overviews/Methods.html#escapeChar'>escapeChar</a>(<span class='argstr'>charToEscape</span>)</h3>
 <div class='method'>
 <p>Add the escape character (\) before any character of your choice.<textarea class='editor'>// escape spaces:
 "This will become a Unix friendly string".escapeChar($ ).postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-quote' href='./../Overviews/Methods.html#quote'>quote</a></h3>
 <div class='method'>
-<p>Return this string enclosed in double-quote ( <code>"</code> ) characters.<textarea class='editor'>"tell your" + "friends".quote + "not to tread onto the lawn"</textarea>
+<p>Return this string enclosed in double-quote (<code>"</code>) characters.<textarea class='editor'>"tell your" + "friends".quote + "not to tread onto the lawn"</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-zeroPad' href='./../Overviews/Methods.html#zeroPad'>zeroPad</a></h3>
 <div class='method'>
 <p>Return this string enclosed in space characters.<textarea class='editor'>"spaces".zeroPad.postcs;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-underlined' href='./../Overviews/Methods.html#underlined'>underlined</a>(<span class='argstr'>char: $-</span>)</h3>
 <div class='method'>
-<p>Return this string followed by dashes in the next line ( <code>-</code> ).<textarea class='editor'>"underlined".underlined;
+<p>Return this string followed by dashes in the next line (<code>-</code>).<textarea class='editor'>"underlined".underlined;
 "underlined".underlined($~);</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-tr' href='./../Overviews/Methods.html#tr'>tr</a>(<span class='argstr'>from</span>, <span class='argstr'>to</span>)</h3>
 <div class='method'>
-<p>Transliteration. Replace all instances of <strong>from</strong> with <strong>to</strong>.<textarea class='editor'>":-(:-(:-(".tr($(, $)); //turn the frowns upside down</textarea>
+<p>Transliteration. Replace all instances of <strong>from</strong> with <strong>to</strong>.<textarea class='editor'>":-(:-(:-(".tr($(, $)); // turn the frowns upside down</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-padLeft' href='./../Overviews/Methods.html#padLeft'>padLeft</a>(<span class='argstr'>size</span>, <span class='argstr'>string: " "</span>)</h3>
 <div class='method'></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-padRight' href='./../Overviews/Methods.html#padRight'>padRight</a>(<span class='argstr'>size</span>, <span class='argstr'>string: " "</span>)</h3>
 <div class='method'>
@@ -530,7 +530,7 @@ this is a test. pi = 3.1416, list = [ 1, 2, 3, 4 ]</textarea>
 <div class='method'>
 <p>Returns a new String with all RTF formatting removed.<textarea class='editor'>(
 // same as File-readAllStringRTF
-g = File("/code/SuperCollider3/build/Help/UGens/Chaos/HenonC.help.rtf","r");
+g = File("/code/SuperCollider3/build/Help/UGens/Chaos/HenonC.help.rtf", "r");
 g.readAllString.stripRTF.postln;
 g.close;
 )</textarea>
@@ -617,7 +617,7 @@ Post &lt;&lt;&lt; "Store this on Post";</textarea>
 <div class='method'>
 <p>Load and execute the file at the path represented by the receiver.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-loadPaths' href='./../Overviews/Methods.html#loadPaths'>loadPaths</a>(<span class='argstr'>warn: true</span>, <span class='argstr'>action</span>)</h3>
 <div class='method'>
-<p>Perform <a href="#-pathMatch">-pathMatch</a> on this String, then load and execute all paths in the resultant <a href="./../Classes/Array.html">Array</a>.<textarea class='editor'>//first prepare a file with some code...
+<p>Perform <a href="#-pathMatch">-pathMatch</a> on this String, then load and execute all paths in the resultant <a href="./../Classes/Array.html">Array</a>.<textarea class='editor'>// first prepare a file with some code...
 (
 File.use("/tmp/loadPaths_example.scd", "w", { |file|
     file &lt;&lt; "\"This text is the result of a postln command which was loaded and executed by loadPaths\".postln;";
@@ -642,7 +642,7 @@ File.use("/tmp/loadPaths_example.scd", "w", { |file|
 <div class='method'>
 <p>Convert the receiver from a relative path to an absolute path, relative to the current document or text file. Requires that the current text file has been saved. Absolute paths are left untransformed.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-standardizePath' href='./../Overviews/Methods.html#standardizePath'>standardizePath</a></h3>
 <div class='method'>
-<p>Expand ~ to your home directory, and resolve aliases on macOS. See <a href="./../Classes/PathName.html">PathName</a> for more complex needs. See <a href="./../Classes/File.html#*realpath">File: *realpath</a> if you want to resolve symlinks.<textarea class='editor'>"~/".standardizePath; //This will print your home directory</textarea>
+<p>Expand ~ to your home directory, and resolve aliases on macOS. See <a href="./../Classes/PathName.html">PathName</a> for more complex needs. See <a href="./../Classes/File.html#*realpath">File: *realpath</a> if you want to resolve symlinks.<textarea class='editor'>"~/".standardizePath; // This will print your home directory</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-openOS' href='./../Overviews/Methods.html#openOS'>openOS</a></h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Collections/linux/extString_linux.sc'>/usr/local/share/SuperCollider/SCClassLibrary/Common/Collections/linux/extString_linux.sc</a></div>
 <div class='method'>
@@ -653,7 +653,7 @@ File.use("/tmp/loadPaths_example.scd", "w", { |file|
 <p>Also see <a href="#-+/+">-+/+</a> for path concatenation.
 <p>The term "path separator" is a platform-independent term for the character(s) that can be used to separate components of a path. On Windows, both forward slash "/" and backward slash "\\" are path separators. On POSIX-based systems like macOS and Linux, only forward slash is allowed.<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-shellQuote' href='./../Overviews/Methods.html#shellQuote'>shellQuote</a></h3>
 <div class='method'>
-<p>Return a new string suitable for use as a filename in a shell command, by enclosing it in single quotes ( <code>'</code> ). If the string contains any single quotes they will be escaped.<h4>Discussion:</h4>
+<p>Return a new string suitable for use as a filename in a shell command, by enclosing it in single quotes (<code>'</code>). If the string contains any single quotes they will be escaped.<h4>Discussion:</h4>
 
 <p>You should use this method on a path before embedding it in a string executed by <a href="#-unixCmd">-unixCmd</a> or <a href="#-systemCmd">-systemCmd</a>.<textarea class='editor'>unixCmd("ls " + Platform.userExtensionDir.shellQuote)</textarea>
 
@@ -690,8 +690,8 @@ File.use("/tmp/loadPaths_example.scd", "w", { |file|
 <div class='method'>
 <p>This method is currently just an alias for <a href="#-parseYAML">-parseYAML</a>, in the future it will only accept valid JSON.<h4>Returns:</h4>
 <div class='returnvalue'>
-<p>A nested structure of <a href="./../Classes/Array.html">Array</a>s (for sequences), <a href="./../Classes/Dictionary.html">Dictionaries</a> (for maps) and <a href="./../Classes/String.html">String</a>s (for scalars).<textarea class='editor'>"{\"a\": 1}".parseYAML;
-"{\"a\": 1}".parseJSON;</textarea>
+<p>A nested structure of <a href="./../Classes/Array.html">Array</a>s (for sequences), <a href="./../Classes/Dictionary.html">Dictionaries</a> (for maps) and <a href="./../Classes/String.html">String</a>s (for scalars).<textarea class='editor'>"{ \"a\": 1 }".parseYAML;
+"{ \"a\": 1 }".parseJSON;</textarea>
 </div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-parseJSONFile' href='./../Overviews/Methods.html#parseJSONFile'>parseJSONFile</a></h3>
 <div class='method'>
 <p>This method is currently just an alias for <a href="#-parseYAMLFile">-parseYAMLFile</a>, in the future it will only accept valid JSON files.</div><h3><a class='anchor' name='Document%20Support'>Document Support</a></h3>

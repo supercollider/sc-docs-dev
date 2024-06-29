@@ -112,7 +112,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 // Env
 Env.perc(0.4, 0.6).plot;</textarea>
-</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.plotGraph' href='./../Overviews/Methods.html#plotGraph'>plotGraph</a>(n,from,to,...)</h3>
+</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.plotGraph' href='./../Overviews/Methods.html#plotGraph'>plotGraph</a>(n, from, to, ...)</h3>
 <div class='method'>
 <p><textarea class='editor'>{ |x| sin(x) }.plotGraph(300, 0, 2*pi);
 { |x| sin(1/x) * x }.plotGraph(from: 0.0001, to: 0.2);</textarea>
@@ -181,7 +181,7 @@ s.waitForBoot{
 
 /* Mixed modes */
 (
-d = 4.collect({ |i| 100.collect({ |j| sinPi(1+i.squared*j * 50.reciprocal) })});
+d = 4.collect({ |i| 100.collect({ |j| sinPi(1+i.squared*j * 50.reciprocal) }) });
 p = d.plot;
 p.plotColor_([Color.red, Color.cyan, Color.green, Color.blue]);
 p.plotMode_([\steps, \linear, \plines, \points]);
@@ -244,8 +244,8 @@ a.superpose = true;</textarea>
 <p>Set properties of all plot views. Defaults are taken from <code>GUI.skins.at(\plot);</code><div class='warning'><span class='warninglabel'>WARNING:</span> It's preferrable to use Plotter's instance methods when possible to set Plot properties to ensure proper behavior when using <a href="#-superpose">-superpose</a>.</div><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>... pairs<td class='argumentdesc'>
-<p>A list of symbol,value pairs. Supported properties:<ul>
-<li>font<li>fontColor<li>gridColorX<li>gridColorY<li>plotColor (an <a href="./../Classes/Array.html">Array</a>)<li>backgroundColor<li>gridLinePattern<li>gridLineSmoothing ( <a href="./../Classes/Boolean.html">Boolean</a> )<li>labelX<li>labelY<li>gridOnX ( <a href="./../Classes/Boolean.html">Boolean</a> )<li>gridOnY ( <a href="./../Classes/Boolean.html">Boolean</a> )</ul>
+<p>A list of symbol, value pairs. Supported properties:<ul>
+<li>font<li>fontColor<li>gridColorX<li>gridColorY<li>plotColor (an <a href="./../Classes/Array.html">Array</a>)<li>backgroundColor<li>gridLinePattern<li>gridLineSmoothing (<a href="./../Classes/Boolean.html">Boolean</a>)<li>labelX<li>labelY<li>gridOnX (<a href="./../Classes/Boolean.html">Boolean</a>)<li>gridOnY (<a href="./../Classes/Boolean.html">Boolean</a>)</ul>
 </table><h4>Discussion:</h4>
 
 <p>Example:<textarea class='editor'>(
@@ -277,11 +277,11 @@ GUI.skins.at(\plot); // defaults</textarea>
 <p>Any of setters of <code>DrawGridX</code> or <code>DrawGridY</code> can be used. Here is a subset of useful properties:<table>
 <tr><td><code>\labelAnchor</code><td>A <code>Symbol</code> denoting the point on the label's bounding <a href="./../Classes/Rect.html">Rect</a> that anchors to the point where the grid line meets the base of the axis. <code>\center, \top, \bottom, \left, \right, \topLeft, \topRight, \bottomLeft, \bottomRight, \leftTop, \rightTop, \leftBottom, \rightBottom</code>.<tr><td><code>\labelOffset</code><td>A <a href="./../Classes/Point.html">Point</a> describing the offset of the <code>\labelAnchor</code> from the point where the grid line meets the base of the axis. The positive direction for the <code>x</code> and <code>y</code> dimensions is right and down, respectively.<tr><td><code>\labelAlign</code><td>Alignment of the text within its bounding <code>Rect</code>: <code>\left</code>, <code>\center</code>, or <code>\right</code>.<tr><td><code>\constrainLabelExtents</code><td>A <code>Boolean</code> specifying whether the tick labels at either end of the axis are constrained by, or can extend beyond, the grid bounds.<tr><td><code>\drawBaseLine</code><td>A <code>Boolean</code> whether a line is drawn at the minimum extent of this <strong>axis</strong>.<tr><td><code>\drawBoundingLines</code><td>A <code>Boolean</code> whether a line is drawn at both ends of the extent of this <strong>axis</strong>.<tr><td><code>\drawBoundingRect</code><td>A <code>Boolean</code> whether a <code>Rect</code> is drawn around the bounds of the grid area.<tr><td><code>\labelAppendString</code><td>A string to append to all of the axis's tick labels.<tr><td><code>\tickSpacing</code><td>Set the <em>minimum</em> spacing between grid lines ("ticks") for each axis. See <a href="./../Classes/DrawGrid.html#-tickSpacing">DrawGrid: -tickSpacing</a> for details.<tr><td><code>\numTicks</code><td>Set the <em>approximate</em> number of grid lines ("ticks") for each axis. See <a href="./../Classes/DrawGrid.html#-numTicks">DrawGrid: -numTicks</a> for details.<tr><td><code>\font</code><td>A <a href="./../Classes/Font.html">Font</a> (including size) to be used for the tick labels.<tr><td><code>\fontColor</code><td>The <a href="./../Classes/Color.html">Color</a> of the tick labels.<tr><td><code>\gridColor</code><td>The <a href="./../Classes/Color.html">Color</a> of the axis grid lines.</table>
 
-<p>The properties <code>\drawBaseLine</code>,  <code>\drawBoundingLines</code>, or <code>\drawBoundingRect</code> are mutually exlusive — setting any of them to true will set the others two to <code>false</code>. In the context of <code>Plotter</code>, setting <code>\drawBoundingRect</code> on one axis to <code>true</code> has the same appearance of setting <code>\drawBoundingLines</code> on <em>both</em> axes to <code>true</code>.</table><h4>Discussion:</h4>
+<p>The properties <code>\drawBaseLine</code>, <code>\drawBoundingLines</code>, or <code>\drawBoundingRect</code> are mutually exlusive — setting any of them to true will set the others two to <code>false</code>. In the context of <code>Plotter</code>, setting <code>\drawBoundingRect</code> on one axis to <code>true</code> has the same appearance of setting <code>\drawBoundingLines</code> on <em>both</em> axes to <code>true</code>.</table><h4>Discussion:</h4>
 
 <p>This is a convenience method to set the grid properties for <em>all</em> <code>Plot</code>s to the same values. An Example:<textarea class='editor'>(
 var plotter = [10, 34, 167].collect({ |freq|
-    101.collect{|i| sin((i/1000) * 2pi * freq)}
+    101.collect{ |i| sin((i/1000) * 2pi * freq) }
 }).plot;
 plotter.setGridProperties(\x,
     \labelAnchor, \topLeft,
@@ -299,7 +299,7 @@ plotter.setGridProperties(\x,
 <p>To set the properties of grids on each <code>Plot</code> separately, iterate over the plots:<textarea class='editor'>(
 var plotter, labelAnchors;
 plotter = [10, 34, 167].collect({ |freq|
-    101.collect{|i| sin((i/1000) * 2pi * freq)}
+    101.collect{ |i| sin((i/1000) * 2pi * freq) }
 }).plot;
 
 labelAnchors = [\topLeft, \top, \bottomLeft];
@@ -321,7 +321,7 @@ plotter.updatePlotBounds;
 
 <p>As a convenience method, <code>getGridProperty</code> assumes that properties across all <code>Plot</code>s are the same (as would be the case if set by <a href="#-setGridProperties">-setGridProperties</a>) so returns a single value. Alternatively, properties from individual plot grids can be collected by iterating over the plots:<textarea class='editor'>( // inspect the \labelAnchor of each DrawGridX
 var plotter  = [10, 34, 167].collect({ |freq|
-    101.collect{|i| sin((i/1000) * 2pi * freq)}
+    101.collect{ |i| sin((i/1000) * 2pi * freq) }
 }).plot;
 
 plotter.plots.collect({ |plot|
@@ -358,7 +358,7 @@ a.domainSpecs = \freq.asSpec;</textarea>
 <div class='method'>
 <p>Set/get the x-axis positions of your data points. The size of the <code>domainArray</code> must equal the size of your <a href="#-value">-value</a> array, i.e. a domain value specified for each data point.<textarea class='editor'>(
 var data, domain, plot;
-domain = 25.collect({rrand(0, 50)}).sort;
+domain = 25.collect({ rrand(0, 50) }).sort;
 data = domain.linlin(0, 50, 0, 1);
 
 plot = data.plot.plotMode_(\points);
@@ -440,7 +440,7 @@ a = Plotter("the plot", Rect(600, 30, 600, 400));
 a.value = (0..100).normalize(0, 8pi).sin;
 )
 
-a.value = { |i| (0..90) % (i + 12) + ( (0..90) % (i + 2 * 1) ) }.dup(3);
+a.value = { |i| (0..90) % (i + 12) + ((0..90) % (i + 2 * 1)) }.dup(3);
 a.value = (0..12).squared;
 a.plotMode = \points;
 a.plotMode = \levels;
@@ -531,8 +531,8 @@ var rs = 0, plt2;
 // xs are the sample points over a 2pi range
 
 // sample locations, normalized
-xs = 50.collect({rrand(0.05, 1)}).normalizeSum;
-xs.do{ |me, i| xs[i] = me + rs; rs = rs + me; };
+xs = 50.collect({ rrand(0.05, 1) }).normalizeSum;
+xs.do{ |me, i| xs[i] = me + rs; rs = rs + me };
 
 // force beginning/end to land on 0/2pi
 xs[0] = 0;
@@ -573,8 +573,8 @@ p.domainSpecs_([1, 1000, \exp].asSpec);</textarea>
 <h3><a class='anchor' name='Axis%20labels'>Axis labels</a></h3>
 <textarea class='editor'>(
 p = 4.collect({
-    100.collect({ rrand(0,1.0) })
-}).plot(bounds: Rect(50,50,500,650));
+    100.collect({ rrand(0, 1.0) })
+}).plot(bounds: Rect(50, 50, 500, 650));
 p.plotColor_([Color.red, Color.blue, Color.green, Color.cyan]);
 )
 

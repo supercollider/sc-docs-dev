@@ -59,7 +59,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>list<td class='argumentdesc'>
-<p>list of pairs of times and patterns or streams: [time, pat, time, pat .. ].<div class='note'><span class='notelabel'>NOTE:</span> times are in beats and depend on the tempo of the <a href="./../Classes/TempoClock.html">TempoClock</a> in use.</div><tr><td class='argumentname'>repeats<td class='argumentdesc'>
+<p>list of pairs of times and patterns or streams: [time, pat, time, pat ..].<div class='note'><span class='notelabel'>NOTE:</span> times are in beats and depend on the tempo of the <a href="./../Classes/TempoClock.html">TempoClock</a> in use.</div><tr><td class='argumentname'>repeats<td class='argumentdesc'>
 <p>repeat the whole pattern n times.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Pgtpar.</span><a class='method-name' name='*implClass' href='./../Overviews/Methods.html#implClass'>implClass</a></h3>
@@ -72,7 +72,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <textarea class='editor'>// synthdef
 (
 SynthDef(\help_sinegrain,
-    { arg out=0, freq=440, sustain=0.05;
+    { |out = 0, freq = 440, sustain = 0.05|
         var env;
         env = EnvGen.kr(Env.perc(0.01, sustain, 0.2), doneAction: Done.freeSelf);
         Out.ar(out, SinOsc.ar(freq, 0, env))

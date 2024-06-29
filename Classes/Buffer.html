@@ -335,6 +335,7 @@ b = Buffer.loadCollection(s, a);
 
 // test it
 b.get(20000, { |msg| (msg == a[20000]).postln });
+
 // play it
 x = { PlayBuf.ar(1, b, BufRateScale.kr(b), loop: 0) * 0.5 }.play;
 b.free; x.free;
@@ -547,7 +548,7 @@ x.free; b.free;</textarea>
 <p>The first frame of the soundfile to read. The default is 0, which is the beginning of the file. (A floating-point value is truncated to integer.)<tr><td class='argumentname'>completionMessage<td class='argumentdesc'>
 <p>A valid OSC message or a Function which will return one. A Function will be passed this Buffer as an argument when evaluated.</table><h4>Discussion:</h4>
 <textarea class='editor'>s.boot;
-//create with cueSoundFile class method
+// create with cueSoundFile class method
 b = Buffer.cueSoundFile(s, Platform.resourceDir +/+ "sounds/a11wlk01-44_1.aiff", 0, 1);
 x = { DiskIn.ar(1, b) }.play;
 b.close;    // must call close in between cueing

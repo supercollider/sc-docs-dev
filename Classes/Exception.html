@@ -74,7 +74,7 @@ catch { ...exception handler... }</textarea>
 <p>Specific languages may have other variants. The SuperCollider compiler doesn't have room for the "catch" keyword, so the syntax is simpler:<textarea class='editor'>try { ...code... } { ...exception handler... };</textarea>
 
 <p>With "try", "if" the error cannot be handled, you have to re-throw the error explicitly:<textarea class='editor'>try { ...code... } { |error|
-    if( test: can I handle the error? ) {
+    if(test: can I handle the error?) {
         handle gracefully
     } { error.throw }
 };</textarea>
@@ -89,13 +89,13 @@ protect {
 <p>With "protect" the second function will execute even if there is no error, and any error will be passed up the chain.
 <p>In Java, you can catch specific classes of exception. You can simulate this usage with the following construction:<textarea class='editor'>// Java-style
 
-try {  }
+try { }
 catch { FileNotFoundException e } { console.printLine("File not found: " + e.path) }
 catch { EmptyFileException e } { console.printLine("File is empty: " + e.path) };
 
 // SuperCollider-style (hypothetical; these specific exceptions do not exist in the main library
 
-try {  } { |error|
+try { } { |error|
     switch(error.species.name)
         { 'FileNotFoundException' } { postln("File not found:" + e.path) }
         { 'EmptyFileException' } { postln("File is empty:" + e.path) }
@@ -119,10 +119,10 @@ try {  } { |error|
                 if(error.what.find("immutable").notNil) {
                     "caught ImmutableError".postln;
                     ~inPlaceSub.(array.copy, find, replace)
-                } { "unknown primitive exception".postln; error.throw; }
+                } { "unknown primitive exception".postln; error.throw }
             }
                 // default case: unhandled exception, should die so re-throw error
-            { "unknown exception".postln; error.throw; }
+            { "unknown exception".postln; error.throw }
     };
 };
 )

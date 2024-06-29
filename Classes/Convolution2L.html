@@ -57,7 +57,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>processing target<tr><td class='argumentname'>kernel<td class='argumentdesc'>
 <p>buffer index for the fixed kernel, may be modulated in combination with the trigger<tr><td class='argumentname'>trigger<td class='argumentdesc'>
 <p>update the kernel on a change from &lt;=0 to &gt;0<tr><td class='argumentname'>framesize<td class='argumentdesc'>
-<p>size of FFT frame, must be a power of two (512, 1024, 2048, 4096 are standard choices). Convolution uses twice this number internally. Note that the convolution gets progressively more expensive to run for higher powers! The maximum value you can use is 2^16=16384. (This upper limit is half of "SC_FFT_MAXSIZE" defined in the SC source code.) Larger convolutions than this can be done using <a href="./../Classes/PartConv.html">PartConv</a>.<tr><td class='argumentname'>crossfade<td class='argumentdesc'>
+<p>size of FFT frame, must be a power of two (512, 1024, 2048, 4096 are standard choices). Convolution uses twice this number internally. Note that the convolution gets progressively more expensive to run for higher powers! The maximum value you can use is 2^16 = 16384. (This upper limit is half of "SC_FFT_MAXSIZE" defined in the SC source code.) Larger convolutions than this can be done using <a href="./../Classes/PartConv.html">PartConv</a>.<tr><td class='argumentname'>crossfade<td class='argumentdesc'>
 <p>The number of periods over which a crossfade is made. The default is 1. This must be an integer.<tr><td class='argumentname'>mul<td class='argumentdesc'><tr><td class='argumentname'>add<td class='argumentdesc'></table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
@@ -80,7 +80,7 @@ d.zero;
 )</textarea>
 
 <p><textarea class='editor'>(
-SynthDef(\conv_test, { |out, kernel, t_trig=0|
+SynthDef(\conv_test, { |out, kernel, t_trig = 0|
     var input = Impulse.ar(1);
     var framesize = 2048; // must have power of two
     var result = Convolution2L.ar(input, kernel, t_trig, framesize, 1, 0.5);
@@ -97,7 +97,7 @@ x.set(\kernel, d);
 x.set(\t_trig, 1); // after this trigger, the change will take effect.
 
 d.zero;
-40.do { |it| d.set(20 * it + 10, 1) };// changing the buffers' contents
+40.do { |it| d.set(20 * it + 10, 1) }; // changing the buffers' contents
 x.set(\t_trig, 1); // after this trigger, the change will take effect.
 
 x.set(\kernel, b);
@@ -106,7 +106,7 @@ x.set(\t_trig, 1); // after this trigger, the change will take effect.
 x.free;</textarea>
 <textarea class='editor'>// longer crossfade
 (
-SynthDef(\conv_test2, { |out, kernel, t_trig=0|
+SynthDef(\conv_test2, { |out, kernel, t_trig = 0|
     var input = Impulse.ar(1);
     var framesize = 2048; // must have power of two
     var result = Convolution2L.ar(input, kernel, t_trig, 2048, 5, 0.5);
@@ -124,7 +124,7 @@ x.set(\t_trig, 1); // after this trigger, the change will take effect.
 
 d.zero;
 
-40.do { |it| d.set(20 * it + 10, 1) };// changing the buffers' contents
+40.do { |it| d.set(20 * it + 10, 1) }; // changing the buffers' contents
 
 x.set(\t_trig, 1); // after this trigger, the change will take effect.
 
@@ -147,7 +147,7 @@ b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
 
 (
 // must have power of two framesize- FFT size will be sorted by Convolution2 to be double this
-// maximum is currently a=8192 for FFT of size 16384
+// maximum is currently a = 8192 for FFT of size 16384
 a = 2048;
 // kernel buffer
 g = Buffer.alloc(s, a, 1);

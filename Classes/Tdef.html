@@ -86,8 +86,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>Tdef registers tasks by key. All accesses to the registered tasks go through the Tdef class via that key. Registered tasks can be replaced with other tasks while playing. The old task and its replacement can automatically crossfade and the replacement time can be quantized.
-<p>Tdef provides an interface to its superclass TaskProxy. Tdef keeps a reference to a task ( <strong>time pattern</strong> ) that can be replaced while playing. It continues playing when the old stream ended and a new stream is set and schedules the changes to the beat. One Tdef may be used in many tasks in different places. A change in the task definition Tdef propagates through all tasks.<textarea class='editor'>Tdef(key)    //returns the instance
-Tdef(key, func)    //defines the task and returns the instance, like Pdef and Ndef.</textarea>
+<p>Tdef provides an interface to its superclass TaskProxy. Tdef keeps a reference to a task (<strong>time pattern</strong>) that can be replaced while playing. It continues playing when the old stream ended and a new stream is set and schedules the changes to the beat. One Tdef may be used in many tasks in different places. A change in the task definition Tdef propagates through all tasks.<textarea class='editor'>Tdef(key)    // returns the instance
+Tdef(key, func)    // defines the task and returns the instance, like Pdef and Ndef.</textarea>
 
 <p>Graphical overview over all current Tdefs: <a href="./../Classes/TdefAllGui.html">TdefAllGui</a>. Overview: <a href="./../Overviews/JITLib.html">JITLib</a><h3><a class='anchor' name='First%20Example'>First Example</a></h3>
 <textarea class='editor'>Tdef(\x, { loop { 0.5.wait; "aaaaaaaaaaaaaazz".scramble.postln } }).play;
@@ -115,13 +115,13 @@ Tdef(\x).clear;</textarea>
 <p>Default source, if none is given. The default task has a function that waits in 1.0 beat steps and does nothing.</div><h3 class='method-code'><span class='method-prefix'>Tdef.</span><a class='method-name' name='*removeAll' href='./../Overviews/Methods.html#removeAll'>removeAll</a></h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/PatternProxy.html'>PatternProxy</a></div>
 <div class='method'>
-<p>Remove all proxies from the global dictionary ( <a href="#*all">*all</a> )</div><h3 class='method-code'><span class='method-prefix'>Tdef.</span><a class='method-name' name='*clear' href='./../Overviews/Methods.html#clear'>clear</a></h3>
+<p>Remove all proxies from the global dictionary (<a href="#*all">*all</a>)</div><h3 class='method-code'><span class='method-prefix'>Tdef.</span><a class='method-name' name='*clear' href='./../Overviews/Methods.html#clear'>clear</a></h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/PatternProxy.html'>PatternProxy</a></div>
 <div class='method'>
 <p>Clear all proxies, setting their source to silence.</div><h3 class='method-code'><span class='method-prefix'>Tdef.</span><a class='method-name' name='*all' href='./../Overviews/Methods.html#all'>all</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Tdef.</span><a class='method-name' name='*all' href='./../Overviews/Methods.html#all'>all</a> = value</h3>
 <div class='method'>
-<p>Set or return the environment ( <a href="./../Classes/IdentityDictionary.html">IdentityDictionary</a> ) that stores all instances.</div><h3 class='method-code'><span class='method-prefix'>Tdef.</span><a class='method-name' name='*defaultQuant' href='./../Overviews/Methods.html#defaultQuant'>defaultQuant</a></h3>
+<p>Set or return the environment (<a href="./../Classes/IdentityDictionary.html">IdentityDictionary</a>) that stores all instances.</div><h3 class='method-code'><span class='method-prefix'>Tdef.</span><a class='method-name' name='*defaultQuant' href='./../Overviews/Methods.html#defaultQuant'>defaultQuant</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Tdef.</span><a class='method-name' name='*defaultQuant' href='./../Overviews/Methods.html#defaultQuant'>defaultQuant</a> = value</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/TaskProxy.html'>TaskProxy</a></div>
 <div class='method'>
@@ -217,19 +217,19 @@ Tdef(\x).clear;</textarea>
 <h3><a class='anchor' name='Tdef%20as%20a%20Task%20player'>Tdef as a Task player</a></h3>
 <textarea class='editor'>Tdef(\x).play; // create an empty Tdef and play it.
 
-Tdef(\x, { loop({ "ggggggggggggggggg9999ggg999ggg999gg".scramble.postln; 0.5.wait; }) });
+Tdef(\x, { loop({ "ggggggggggggggggg9999ggg999ggg999gg".scramble.postln; 0.5.wait }) });
 
 
-Tdef(\x, { loop({ "---------////----------------------".scramble.postln; 0.25.wait; }) });
-Tdef(\x, { loop({ thisThread.seconds.postln; 1.wait; }) });
-Tdef(\x, { loop({ thisThread.seconds.postln; 1.01.wait; }) });
+Tdef(\x, { loop({ "---------////----------------------".scramble.postln; 0.25.wait }) });
+Tdef(\x, { loop({ thisThread.seconds.postln; 1.wait }) });
+Tdef(\x, { loop({ thisThread.seconds.postln; 1.01.wait }) });
 
 TempoClock.default.tempo = 2;
 
 Tdef(\x, { "the end".postln });
 Tdef(\x, { "one more".postln });
-Tdef(\x, { 10.do({ "ten more".scramble.postln; 0.25.wait; }) });
-Tdef(\x, { loop({ "lots more".scramble.postln; 0.25.wait; }) });
+Tdef(\x, { 10.do({ "ten more".scramble.postln; 0.25.wait }) });
+Tdef(\x, { loop({ "lots more".scramble.postln; 0.25.wait }) });
 
 TempoClock.default.tempo = 1;
 
@@ -243,7 +243,7 @@ Tdef(\x).clear;</textarea>
 // load a synthdef
 s.boot;
 SynthDef(\pdef_grainlet,
-    { arg out=0, freq=440, sustain=0.05;
+    { |out = 0, freq = 440, sustain = 0.05|
         var env;
         env = EnvGen.kr(Env.perc(0.01, sustain, 0.3), doneAction: Done.freeSelf);
         Out.ar(out, SinOsc.ar(freq, 0, env))
@@ -254,7 +254,7 @@ Tdef(\x).play;
 (
 Tdef(\x, {
     loop({
-        s.sendMsg("/s_new", "pdef_grainlet", -1,0,0, \freq, rrand(600, 640));
+        s.sendMsg("/s_new", "pdef_grainlet", -1, 0, 0, \freq, rrand(600, 640));
         0.1.wait;
     })
 })
@@ -265,7 +265,7 @@ Tdef(\x, {
     var x;
     x = Pseries(300, 20, 100).loop.asStream;
     loop({
-        s.sendMsg("/s_new", "pdef_grainlet", -1,0,0, \freq, x.next);
+        s.sendMsg("/s_new", "pdef_grainlet", -1, 0, 0, \freq, x.next);
         0.05.wait;
     })
 })
@@ -276,14 +276,14 @@ Tdef(\x, {
     var x;
     x = Plazy({ Pseries(300 + 300.rand, 10 + 30.rand, 10 + 30.rand) }).loop.asStream;
     loop({
-        s.sendMsg("/s_new", "pdef_grainlet", -1,0,0, \freq, x.next);
+        s.sendMsg("/s_new", "pdef_grainlet", -1, 0, 0, \freq, x.next);
         0.05.wait;
     })
 })
 )
 
 // metronome
-Tdef(\y, { loop({ s.sendMsg("/s_new", "pdef_grainlet", -1,0,0, \freq, 1500); 1.wait; }) }).play;
+Tdef(\y, { loop({ s.sendMsg("/s_new", "pdef_grainlet", -1, 0, 0, \freq, 1500); 1.wait }) }).play;
 
 // play ending stream once
 (
@@ -291,8 +291,8 @@ Tdef(\x, {
     var x, dt;
     dt = [0.1, 0.125, 0.05].choose;
     x = Plazy({ Pseries(1300 + 300.rand, 110 + 130.rand, 16) }).asStream;
-    x.do({ arg item;
-        s.sendMsg("/s_new", "pdef_grainlet", -1,0,0, \freq, item);
+    x.do({ |item|
+        s.sendMsg("/s_new", "pdef_grainlet", -1, 0, 0, \freq, item);
         dt.wait;
     })
 })
@@ -326,9 +326,9 @@ r.play;
 
 // of course Tdefs can be used in other Tdefs:
 (
-Tdef(\a, { 10.do { |i| (" a: " + i).postln; 0.3.wait; } });
-Tdef(\b, { 15.do { |i| ("\t\t b: " + i).postln; 0.2.wait; } });
-Tdef(\c, { 5.do { |i| ("\t\t\t\t c: " + i).postln; 0.5.wait; } });
+Tdef(\a, { 10.do { |i| (" a: " + i).postln; 0.3.wait } });
+Tdef(\b, { 15.do { |i| ("\t\t b: " + i).postln; 0.2.wait } });
+Tdef(\c, { 5.do { |i| ("\t\t\t\t c: " + i).postln; 0.5.wait } });
 
 Tdef(\d, {
     "embed - sequence.".postln;
@@ -347,9 +347,9 @@ Tdef(\d).play;
 // to start a tdef in its own separate thread, thus branching into parallel threads,
 // one can use .fork, or .playOnce
 (
-Tdef(\a, { 10.do { |i| (" a: " + i).postln; 0.3.wait; } });
-Tdef(\b, { 15.do { |i| ("\t\t b: " + i).postln; 0.2.wait; } });
-Tdef(\c, { 5.do { |i| ("\t\t\t\t c: " + i).postln; 0.5.wait; } });
+Tdef(\a, { 10.do { |i| (" a: " + i).postln; 0.3.wait } });
+Tdef(\b, { 15.do { |i| ("\t\t b: " + i).postln; 0.2.wait } });
+Tdef(\c, { 5.do { |i| ("\t\t\t\t c: " + i).postln; 0.5.wait } });
 
 Tdef(\d, {
     "fork - parallel.".postln;
@@ -369,7 +369,7 @@ Tdef(\d, {
 // load a synthdef
 s.boot;
 SynthDef("pdef_grainlet",
-    { arg out=0, freq=440, sustain=0.05;
+    { |out = 0, freq = 440, sustain = 0.05|
         var env;
         env = EnvGen.kr(Env.perc(0.01, sustain, 0.3), doneAction: Done.freeSelf);
         Out.ar(out, SinOsc.ar(freq, 0, env))
@@ -394,7 +394,7 @@ Pset(\instrument, \pdef_grainlet,
             \note, 8
         )
     ])
-).play(quant:1);
+).play(quant: 1);
 )
 
 

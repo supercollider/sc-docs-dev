@@ -48,7 +48,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>This is the same as <a href="./../Classes/Resonz.html">Resonz</a> , except that it is a constant skirt gain filter, meaning that the peak gain depends on the value of Q. Also, instead of the resonance parameter in Resonz, the bandwidth is specified in a 60dB ring decay time. One Ringz is equivalent to one component of the <a href="./../Classes/Klank.html">Klank</a> UGen.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>This is the same as <a href="./../Classes/Resonz.html">Resonz</a>, except that it is a constant skirt gain filter, meaning that the peak gain depends on the value of Q. Also, instead of the resonance parameter in Resonz, the bandwidth is specified in a 60dB ring decay time. One Ringz is equivalent to one component of the <a href="./../Classes/Klank.html">Klank</a> UGen.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Ringz.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>in: 0.0</span>, <span class='argstr'>freq: 440.0</span>, <span class='argstr'>decaytime: 1.0</span>, <span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>Ringz.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>in: 0.0</span>, <span class='argstr'>freq: 440.0</span>, <span class='argstr'>decaytime: 1.0</span>, <span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
 <div class='method'>
@@ -68,9 +68,9 @@ var scdoc_sc_version = '3.14.0-dev';
 { Ringz.ar(WhiteNoise.ar(0.005), 2000, 0.5) }.play
 
 // modulate frequency
-{ Ringz.ar(WhiteNoise.ar(0.005), XLine.kr(100,3000,10), 0.5) }.play
+{ Ringz.ar(WhiteNoise.ar(0.005), XLine.kr(100, 3000, 10), 0.5) }.play
 
-{ Ringz.ar(Impulse.ar(6, 0, 0.3), XLine.kr(100,3000,10), 0.5) }.play
+{ Ringz.ar(Impulse.ar(6, 0, 0.3), XLine.kr(100, 3000, 10), 0.5) }.play
 
 // modulate ring time
 { Ringz.ar(Impulse.ar(6, 0, 0.3), 2000, XLine.kr(4, 0.04, 8)) }.play
@@ -84,7 +84,7 @@ var scdoc_sc_version = '3.14.0-dev';
     exciter = WhiteNoise.ar(0.001);
     Mix.arFill(10, {
         Ringz.ar(exciter,
-        XLine.kr(exprand(100.0,5000.0), exprand(100.0,5000.0), 20),
+        XLine.kr(exprand(100.0, 5000.0), exprand(100.0, 5000.0), 20),
         0.5)
     })
 }.play

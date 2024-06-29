@@ -158,10 +158,10 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>UGens represent calculations with signals. They are the basic building blocks of synth definitions on the server, and are used to generate or process both audio and control signals. The many subclasses of UGen are the client-side representations of unit generators, and are used to specify their parameters when constructing synth definitions (see <a href="./../Classes/SynthDef.html">SynthDef</a>).<h3><a class='anchor' name='Interface'>Interface</a></h3>
 
 <p>All UGens respond to one or more of the following class methods:<ul>
-<li><code>ar(arg1, arg2, ... )</code><li><code>kr(arg1, arg2, ... )</code><li><code>ir(arg1, arg2, ... )</code></ul>
+<li><code>ar(arg1, arg2, ...)</code><li><code>kr(arg1, arg2, ...)</code><li><code>ir(arg1, arg2, ...)</code></ul>
 
 <p>They return a new instance of UGen that calculates at audio/control rate or at initialization only (ir). Some UGens, like <a href="./../Classes/Rand.html">Rand</a>, use the <code>*new</code> method instead. These methods are implemented in subclasses, where argument names and their meaning depend on the case.
-<p>If any argument is an array, they return an array of UGens ( see: <a href="./../Guides/Multichannel-Expansion.html">Multichannel Expansion</a> ). If the combination of rates between arguments and ugen are not allowed, calling the methods will throw an error. This method adds the UGen to the current SynthDef, so it only fully works inside a UGen function.<textarea class='editor'>{ Blip.ar(Blip.kr(4, 5, 500, 60), 59, 0.1) }.play;</textarea>
+<p>If any argument is an array, they return an array of UGens (see: <a href="./../Guides/Multichannel-Expansion.html">Multichannel Expansion</a>). If the combination of rates between arguments and ugen are not allowed, calling the methods will throw an error. This method adds the UGen to the current SynthDef, so it only fully works inside a UGen function.<textarea class='editor'>{ Blip.ar(Blip.kr(4, 5, 500, 60), 59, 0.1) }.play;</textarea>
 <h3><a class='anchor' name='Documentation%20of%20mul%20and%20add%20arguments'>Documentation of mul and add arguments</a></h3>
 
 <p>A great number of UGens take arguments for <code>mul</code> and <code>add</code> in their <code>*ar</code> and <code>*kr</code> methods. Because these arguments are so ubiquitous, they are not general documented in the individual help files. Mul and add simply refer to a constant or signal by which to multiply the output of the UGen, and a constant or signal to add to the output of the UGen. (mul happens before add.) They thus correspond in many cases to scaling the amplitude of the UGen signal in the case of mul, and adding a constant or DC offset in the case of add. In most cases the defaults for mul and add are 1 and 0 respectively, and they are commonly implemented using a automatically generated <a href="./../Classes/MulAdd.html">MulAdd</a> UGen for efficiency. See also the <code>range</code> and <code>madd</code> methods below.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
@@ -190,7 +190,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>rate<td class='argumentdesc'>
 <p>A <a href="./../Classes/Symbol.html">Symbol</a>, <code>\audio, \control, \scalar</code></table><h4>Returns:</h4>
 <div class='returnvalue'>
-<p>An appropriate message selector ( <a href="./../Classes/Symbol.html">Symbol</a> like <code>\ar, \kr, \ir</code> ) for the given rate.</div></div><h3 class='method-code'><span class='method-prefix'>UGen.</span><a class='method-name' name='*replaceZeroesWithSilence' href='./../Overviews/Methods.html#replaceZeroesWithSilence'>replaceZeroesWithSilence</a>(<span class='argstr'>array</span>)</h3>
+<p>An appropriate message selector (<a href="./../Classes/Symbol.html">Symbol</a> like <code>\ar, \kr, \ir</code>) for the given rate.</div></div><h3 class='method-code'><span class='method-prefix'>UGen.</span><a class='method-name' name='*replaceZeroesWithSilence' href='./../Overviews/Methods.html#replaceZeroesWithSilence'>replaceZeroesWithSilence</a>(<span class='argstr'>array</span>)</h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
 <p>A new <a href="./../Classes/Array.html">Array</a>, where every zero is replaced by a <a href="./../Classes/Silent.html">Silent</a> UGen.</div><h4>Discussion:</h4>
@@ -294,7 +294,7 @@ s.scope; // can still separately scope the output of the server</textarea>
 <div class='method'>
 <p>Wraps the receiver so that its values are rounded within <code>margin</code> distance from a multiple of <code>resolution</code> to a multiple of resolution. By using <code>margin</code> and <code>strength</code> you can control when values will be rounded, and by how much. See <a href="./../Classes/SimpleNumber.html#-snap">SimpleNumber: -snap</a> for more details.
 <p>This can be used to make control signals (e.g. from sensors) "snap" to defined resolution. Example:<textarea class='editor'>s.boot;
-x = {SinOsc.ar((Line.kr(0, 10, 10).snap(1, 0.3, 1) + 60).poll.midicps, 0, -24.dbamp)}.play</textarea>
+x = { SinOsc.ar((Line.kr(0, 10, 10).snap(1, 0.3, 1) + 60).poll.midicps, 0, -24.dbamp) }.play</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-softRound' href='./../Overviews/Methods.html#softRound'>softRound</a>(<span class='argstr'>resolution: 1.0</span>, <span class='argstr'>margin: 0.05</span>, <span class='argstr'>strength: 1.0</span>)</h3>
 <div class='method'>
 <p>Wraps the receiver so that its values are rounded outside of <code>margin</code> distance from a multiple of <code>resolution</code> to a multiple of resolution. By using <code>margin</code> and <code>strength</code> you can control when values will be rounded, and by how much. See <a href="./../Classes/SimpleNumber.html#-softRound">SimpleNumber: -softRound</a> for more details.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-linlin' href='./../Overviews/Methods.html#linlin'>linlin</a>(<span class='argstr'>inMin</span>, <span class='argstr'>inMax</span>, <span class='argstr'>outMin</span>, <span class='argstr'>outMax</span>, <span class='argstr'>clip: 'minmax'</span>)</h3>
@@ -350,7 +350,7 @@ x = {SinOsc.ar((Line.kr(0, 10, 10).snap(1, 0.3, 1) + 60).poll.midicps, 0, -24.db
 <p>output minimum<tr><td class='argumentname'>outMax<td class='argumentdesc'>
 <p>output maximum<tr><td class='argumentname'>clip<td class='argumentdesc'>
 <p>nil (don't clip) \max (clip ceiling) \min (clip floor) \minmax (clip both - this is default).</table><h4>Discussion:</h4>
-<textarea class='editor'>{Line.kr(0, 10, 0.1).bilin(1, 0, 10, 0.6, 0, 1)}.plot(0.1)</textarea>
+<textarea class='editor'>{ Line.kr(0, 10, 0.1).bilin(1, 0, 10, 0.6, 0, 1) }.plot(0.1)</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-prune' href='./../Overviews/Methods.html#prune'>prune</a>(<span class='argstr'>min</span>, <span class='argstr'>max</span>, <span class='argstr'>type</span>)</h3>
 <div class='method'>
 <p>Limits the receiver range to one of the four clip modes, see <code>linlin</code> above.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-checkBadValues' href='./../Overviews/Methods.html#checkBadValues'>checkBadValues</a>(<span class='argstr'>id: 0</span>, <span class='argstr'>post: 2</span>)</h3>
@@ -361,7 +361,7 @@ x = {SinOsc.ar((Line.kr(0, 10, 10).snap(1, 0.3, 1) + 60).poll.midicps, 0, -24.db
 
 <p>This is implemented as: <code>(this * (trueUGen - falseUGen)) + falseUGen)</code>
 <p>Note that both trueUGen and falseUGen will be calculated regardless of whether they are output, so this may not be the most efficient approach.<textarea class='editor'>// note different syntax in these two examples
-{ if( LFNoise1.kr(1.0, 0.5, 0.5) , SinOsc.ar, Saw.ar ) * 0.1 }.play;
+{ if(LFNoise1.kr(1.0, 0.5, 0.5), SinOsc.ar, Saw.ar) * 0.1 }.play;
 
 { Trig1.ar(Dust.ar(3), 0.2).lag(0.1).if(FSinOsc.ar(440), FSinOsc.ar(880)) * 0.1 }.play;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-binaryValue' href='./../Overviews/Methods.html#binaryValue'>binaryValue</a></h3>

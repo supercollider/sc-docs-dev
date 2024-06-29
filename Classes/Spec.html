@@ -78,7 +78,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-gridClass' href='./../Overviews/Methods.html#gridClass'>gridClass</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-hash' href='./../Overviews/Methods.html#hash'>hash</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>Spec.add(\helpExp, ControlSpec( 0.01, 1.0, \exp) );
+<textarea class='editor'>Spec.add(\helpExp, ControlSpec(0.01, 1.0, \exp));
 
 // the array will be converted to a control spec
 Spec.add(\helpLin, [0, 1, \lin, 0.011, 0.01]);
@@ -111,7 +111,7 @@ Spec.add(\helpLin, ControlSpec(0.ampdb, 1.ampdb, \db, units: " dB"));
 
 \db -&gt; ControlSpec(0.ampdb, 1.ampdb, \db, units: " dB"),
 \amp -&gt; ControlSpec(0, 1, \amp, 0, 0),
-\boostcut -&gt; ControlSpec(-20, 20, units: " dB",default: 0),
+\boostcut -&gt; ControlSpec(-20, 20, units: " dB", default: 0),
 
 \pan -&gt; ControlSpec(-1, 1, default: 0),
 \detune -&gt; ControlSpec(-20, 20, default: 0, units: " Hz"),

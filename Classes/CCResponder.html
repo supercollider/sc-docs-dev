@@ -84,8 +84,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>Wait for the next CC message, reset to match src, chan, cc num.<textarea class='editor'>(
 
-c = CCResponder({ |src,chan,num,value|
-        [src,chan,num,value].postln;
+c = CCResponder({ |src, chan, num, value|
+        [src, chan, num, value].postln;
     });
     c.learn; // wait for the first controller
 )
@@ -97,8 +97,8 @@ CCResponder.removeAll</textarea>
 <div class='supmethod'>From superclass: <a href='./../Classes/MIDIResponder.html'>MIDIResponder</a></div>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-    c = CCResponder({ |src,chan,num,value|
-        [src,chan,num,value].postln;
+    c = CCResponder({ |src, chan, num, value|
+        [src, chan, num, value].postln;
         },
         nil, // any source
         nil, // any channel
@@ -109,8 +109,8 @@ CCResponder.removeAll</textarea>
 
 c.remove</textarea>
 <textarea class='editor'>(
-    c = CCResponder({ |src,chan,num,value|
-        [src,chan,num,value].postln;
+    c = CCResponder({ |src, chan, num, value|
+        [src, chan, num, value].postln;
         },
         nil, // any source
         nil, // any channel

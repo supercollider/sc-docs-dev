@@ -110,14 +110,14 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>NOTE: if you have trouble opening a device, e.g. when you get the message <code>ERROR: LID: Could not open device</code>, please check the <a href="./../Guides/LID_permissions.html">LID permissions</a><h3><a class='anchor' name='First%20example:'>First example:</a></h3>
 <textarea class='editor'>LID.findAvailable;
 LID.postAvailable; // pick one that you want to open, and fill in the vendor and product id in the next line:
-d = LID.open( 2, 10 ); // trackpoint
+d = LID.open(2, 10); // trackpoint
 
 d.postInfo;
 d.postSlots;
 
-d.debug_( true ); // wiggle a little and see the data coming in
+d.debug_(true); // wiggle a little and see the data coming in
 
-d.debug_( false );
+d.debug_(false);
 
 // create a GUI:
 d.makeGui;
@@ -135,7 +135,7 @@ LID.postAvailable;
 
 // look for the one you want and find it:
 
-LID.findBy( 2, 10 ) // by vendor and product</textarea>
+LID.findBy(2, 10) // by vendor and product</textarea>
 <h3 class='method-code'><span class='method-prefix'>LID.</span><a class='method-name' name='*findAvailable' href='./../Overviews/Methods.html#findAvailable'>findAvailable</a>(<span class='argstr'>name</span>)</h3>
 <div class='method'>
 <p>queries the operating system which LID devices are attached to the system and can be accessed. When using LID this is the first method you need to execute, before you can access any device.<h4>Arguments:</h4>
@@ -165,18 +165,18 @@ LID.findBy( 2, 10 ) // by vendor and product</textarea>
 <p>The physical location of the device, this is a path defined by the operating system.<tr><td class='argumentname'>unique<td class='argumentdesc'>
 <p>A unique identifier for the device, defined by the operating system.</table><h4>Returns:</h4>
 <div class='returnvalue'>
-<p>an IdentityDictionary of devices the match the search query, or nil if no arguments are given<textarea class='editor'>LID.findBy( 2 ); // by vendorID
-LID.findBy( 2, 10 ) // by vendor and product
-LID.findBy( productID: 10 );
-LID.findBy( path: "/dev/input/event4" );
-LID.findBy( version: 0 );
-LID.findBy( physical: 'synaptics-pt/serio0/input0' )
-LID.findBy( physical: "synaptics-pt/serio0/input0" ) // argument is converted to symbol for check
-LID.findBy( unique: '' )
-LID.findBy( unique: "" ) // argument is converted to symbol for check
+<p>an IdentityDictionary of devices the match the search query, or nil if no arguments are given<textarea class='editor'>LID.findBy(2); // by vendorID
+LID.findBy(2, 10) // by vendor and product
+LID.findBy(productID: 10);
+LID.findBy(path: "/dev/input/event4");
+LID.findBy(version: 0);
+LID.findBy(physical: 'synaptics-pt/serio0/input0')
+LID.findBy(physical: "synaptics-pt/serio0/input0") // argument is converted to symbol for check
+LID.findBy(unique: '')
+LID.findBy(unique: "") // argument is converted to symbol for check
 
 // using all possible arguments:
-LID.findBy( 2, 10, "/dev/input/event4", 0x0000, 'synaptics-pt/serio0/input0' )</textarea>
+LID.findBy(2, 10, "/dev/input/event4", 0x0000, 'synaptics-pt/serio0/input0')</textarea>
 </div></div><h3><a class='anchor' name='Opening%20devices'>Opening devices</a></h3>
 <h3 class='method-code'><span class='method-prefix'>LID.</span><a class='method-name' name='*open' href='./../Overviews/Methods.html#open'>open</a>(<span class='argstr'>vendorID</span>, <span class='argstr'>productID</span>, <span class='argstr'>path</span>, <span class='argstr'>version</span>, <span class='argstr'>physical</span>, <span class='argstr'>unique</span>)</h3>
 <div class='method'>
@@ -313,18 +313,18 @@ d.isOpen;</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-debug' href='./../Overviews/Methods.html#debug'>debug</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-debug' href='./../Overviews/Methods.html#debug'>debug</a> = <span class='argstr'>onoff</span></h3>
 <div class='method'>
-<p>When set to true, the incoming data from this LID device will be printed to the post window.<textarea class='editor'>d.debug_( true );
-d.debug_( false );</textarea>
+<p>When set to true, the incoming data from this LID device will be printed to the post window.<textarea class='editor'>d.debug_(true);
+d.debug_(false);</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-closeAction' href='./../Overviews/Methods.html#closeAction'>closeAction</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-closeAction' href='./../Overviews/Methods.html#closeAction'>closeAction</a> = value</h3>
 <div class='method'>
-<p>Function to be performed when device is closed.<textarea class='editor'>d.closeAction_( { "hey, I got closed!".postln; } );
+<p>Function to be performed when device is closed.<textarea class='editor'>d.closeAction_({ "hey, I got closed!".postln });
 d.close;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-action' href='./../Overviews/Methods.html#action'>action</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-action' href='./../Overviews/Methods.html#action'>action</a> = value</h3>
 <div class='method'>
-<p>Set or get the action to be performed upon receiving data from the device. The function will be passed in the evtType, the evtCode, the value (mapped according to the slot's spec), and the raw value.<textarea class='editor'>d.action_( { arg ...args; ("my action" + args ).postln; } );
-d.action_( nil );</textarea>
+<p>Set or get the action to be performed upon receiving data from the device. The function will be passed in the evtType, the evtCode, the value (mapped according to the slot's spec), and the raw value.<textarea class='editor'>d.action_({ |...args| ("my action" + args).postln });
+d.action_(nil);</textarea>
 </div><h3><a class='anchor' name='Properties%20of%20the%20device'>Properties of the device</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-slots' href='./../Overviews/Methods.html#slots'>slots</a></h3>
 <div class='method'>
@@ -359,51 +359,51 @@ d.isGrabbed;</textarea>
 <h3><a class='anchor' name='Finding%20and%20opening%20the%20device'>Finding and opening the device</a></h3>
 <textarea class='editor'>LID.findAvailable;
 LID.postAvailable; // pick one that you want to open, and fill in the vendor and product id in the next line:
-d = LID.open( 2, 10 ); // trackpoint
+d = LID.open(2, 10); // trackpoint
 
 d.postInfo;
 d.postSlots;
 
-d.debug_( true ); // wiggle a little and see the data coming in
-d.debug_( false );</textarea>
+d.debug_(true); // wiggle a little and see the data coming in
+d.debug_(false);</textarea>
 <h3><a class='anchor' name='Event%20actions%20(raw%20events)'>Event actions (raw events)</a></h3>
 
 <p>The device's 'action' instance variable can be used for event notifications. it is passed the event type, code and current value.<textarea class='editor'>(
-d.action = { | evtType, evtCode, evtValue |
+d.action = { |evtType, evtCode, evtValue|
     [evtType.asHexString(4), evtCode.asHexString(4), evtValue].postln
 }
 )
 
 d.action = nil;</textarea>
 
-<p>If a device is detached LID will detect this, and close the device. It will execute a closeAction, which can be defined by the user:<textarea class='editor'>d.closeAction = { "device was detached".postln; };</textarea>
+<p>If a device is detached LID will detect this, and close the device. It will execute a closeAction, which can be defined by the user:<textarea class='editor'>d.closeAction = { "device was detached".postln };</textarea>
 <h3><a class='anchor' name='Event%20actions%20(raw%20slot%20events)'>Event actions (raw slot events)</a></h3>
 
 <p>When 'action' is nil, actions can be bound to specific events.<textarea class='editor'>(
-d.slot(0x0002, 0x0001).action = { | slot |
+d.slot(0x0002, 0x0001).action = { |slot|
     [slot.type.asHexString(4), slot.code.asHexString(4), slot.value].postln;
 }
 )</textarea>
 
 <p>Relative slots can have deltaActions:<textarea class='editor'>(
-d.slot(0x0002, 0x0001).deltaAction = { | slot |
+d.slot(0x0002, 0x0001).deltaAction = { |slot|
     [slot.type.asHexString(4), slot.code.asHexString(4), slot.delta].postln;
 }
 )</textarea>
 <h3><a class='anchor' name='Event%20actions%20(symbolic%20slot%20events)'>Event actions (symbolic slot events)</a></h3>
 
-<p>When a device spec was registered for a given device name, slot actions can be assigned by using the symbolic control name.<textarea class='editor'>    d[\x].action = { | slot | [\x, slot.value].postln };</textarea>
+<p>When a device spec was registered for a given device name, slot actions can be assigned by using the symbolic control name.<textarea class='editor'>    d[\x].action = { |slot| [\x, slot.value].postln };</textarea>
 <h3><a class='anchor' name='LED's'>LED's</a></h3>
 
 <p>some devices have LEDs which can be turned on and off. These show up with d.caps as events of type 0x0011<textarea class='editor'>d = LID("/dev/input/event0");
 // LED's can be turned on:
-d.setLEDState( 0x0, 1 )
+d.setLEDState(0x0, 1)
 // (LED 0x0 should be available on any keyboard)
 // and off:
-d.setLEDState( 0x0, 0 )
+d.setLEDState(0x0, 0)
 d.close;
 
-// setLEDState( evtCode, evtValue ): value should be 1 or 0</textarea>
+// setLEDState(evtCode, evtValue): value should be 1 or 0</textarea>
 <h3><a class='anchor' name='Closing%20devices'>Closing devices</a></h3>
 <textarea class='editor'>d.close;
 LID.closeAll;</textarea>
@@ -418,7 +418,7 @@ LID.closeAll;</textarea>
 
 <p>build a list of the available devices:<textarea class='editor'>LID.findAvailable;</textarea>
 
-<p>buildDeviceList builds a table of the devices found in LID.deviceRoot+"/event", trying to open all that it finds, looking up its name and closing them again. The result is returned and can later be accessed by LID.deviceList. You can query another name than "/event" by passing an argument. (the search will be: LID.deviceRoot++"/"++name++"*")<textarea class='editor'>LID.findAvailable( "mouse" );</textarea>
+<p>buildDeviceList builds a table of the devices found in LID.deviceRoot+"/event", trying to open all that it finds, looking up its name and closing them again. The result is returned and can later be accessed by LID.deviceList. You can query another name than "/event" by passing an argument. (the search will be: LID.deviceRoot++"/"++name++"*")<textarea class='editor'>LID.findAvailable("mouse");</textarea>
 
 <p><div class='note'><span class='notelabel'>NOTE:</span> this is likely to give the info that the devices could not be opened, as "mouse" uses another interface (you can of course access mice via the "event" interface)</div><div class='note'><span class='notelabel'>NOTE:</span> if you cannot open the devices at all, please look in the helpfile for: <a href="./../Guides/LID_permissions.html">LID permissions</a></div>
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LID.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LID.schelp</a><br>link::Classes/LID::<br></div></div><script src='./../editor.js' type='text/javascript'></script>

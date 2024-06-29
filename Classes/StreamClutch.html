@@ -80,15 +80,15 @@ b.connected = false;
 6.do({ b.next.postln });
 
 
-//statistical clutch
+// statistical clutch
 a = Pseq([1, 2, 3], inf);
 b = StreamClutch(a, { 0.5.coin });
 12.do({ b.next.postln });</textarea>
 <textarea class='editor'>s.boot;
-//sound example:
+// sound example:
 (
 var clutch, pat, decision;
-decision = Pseq([Pn(true,10), Prand([true, false], 10)], inf).asStream;
+decision = Pseq([Pn(true, 10), Prand([true, false], 10)], inf).asStream;
 pat = Pbind(\freq, Pseq([200, [300, 302], 400, 450], inf), \dur, 0.3);
 clutch = StreamClutch(pat, decision);
 clutch.asEventStreamPlayer.play;

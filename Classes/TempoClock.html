@@ -189,7 +189,7 @@ t = TempoClock.new(2, 0, thisThread.seconds - 5);
 <p>A Boolean, true if the clock is active or false if the clock has been stopped.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-tempo' href='./../Overviews/Methods.html#tempo'>tempo</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-tempo' href='./../Overviews/Methods.html#tempo'>tempo</a> = <span class='argstr'>newTempo</span></h3>
 <div class='method'>
-<p>Sets or gets the current tempo in beats per second at the current <strong>logical time</strong>.<textarea class='editor'>t= TempoClock.new;
+<p>Sets or gets the current tempo in beats per second at the current <strong>logical time</strong>.<textarea class='editor'>t = TempoClock.new;
 t.tempo_(2.0); // equivalent to t.tempo = 2.0;
 t.tempo;
 t.tempo_(72/60) // 72 beats per minute
@@ -236,8 +236,8 @@ c.beats = 100;</textarea>
 <p>When the scheduling time is up, the task's <code>awake</code> method is called. If the method returns a number, the task will be rescheduled for the time equal to the last scheduling time plus the returned value.
 <p>See also: <a href="./../Classes/Clock.html#Scheduling">Clock: Scheduling</a>, <a href="./../Classes/Object.html#-awake">Object: -awake</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-play' href='./../Overviews/Methods.html#play'>play</a>(<span class='argstr'>task</span>, <span class='argstr'>quant: 1</span>)</h3>
 <div class='method'>
-<p>Plays task (a function) at the next beat, where <strong>quant</strong> is 1 by default. Shortcut for <a href="#-schedAbs">-schedAbs</a>; see <a href="#-seconds">-seconds</a> and <a href="#-nextTimeOnGrid">-nextTimeOnGrid</a> for further details on time and quant.<textarea class='editor'>t= TempoClock.default;
-t.play({arg beats, time, clock; [beats, time, clock].postln});</textarea>
+<p>Plays task (a function) at the next beat, where <strong>quant</strong> is 1 by default. Shortcut for <a href="#-schedAbs">-schedAbs</a>; see <a href="#-seconds">-seconds</a> and <a href="#-nextTimeOnGrid">-nextTimeOnGrid</a> for further details on time and quant.<textarea class='editor'>t = TempoClock.default;
+t.play({ |beats, time, clock| [beats, time, clock].postln });</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-playNextBar' href='./../Overviews/Methods.html#playNextBar'>playNextBar</a>(<span class='argstr'>task</span>)</h3>
 <div class='method'>
 <p>Plays task (a function) at the next bar using <a href="#-schedAbs">-schedAbs</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-queue' href='./../Overviews/Methods.html#queue'>queue</a></h3>
@@ -294,13 +294,13 @@ r = Routine {
 <div class='method'>
 <p>Returns a bar as a float relative to <a href="#-baseBarBeat">-baseBarBeat</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-bars2beats' href='./../Overviews/Methods.html#bars2beats'>bars2beats</a>(<span class='argstr'>bars</span>)</h3>
 <div class='method'>
-<p>Returns a beat relative to <a href="#-baseBar">-baseBar</a>.<textarea class='editor'>t= TempoClock.default;
+<p>Returns a beat relative to <a href="#-baseBar">-baseBar</a>.<textarea class='editor'>t = TempoClock.default;
 t.bars2beats(t.bar) // downbeat of the current bar</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-timeToNextBeat' href='./../Overviews/Methods.html#timeToNextBeat'>timeToNextBeat</a>(<span class='argstr'>quant: 1.0</span>)</h3>
 <div class='method'>
 <p>Returns the logical time to next beat. <strong>quant</strong> is 1 by default, relative to baseBarBeat, see <a href="#-nextTimeOnGrid">-nextTimeOnGrid</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-nextTimeOnGrid' href='./../Overviews/Methods.html#nextTimeOnGrid'>nextTimeOnGrid</a>(<span class='argstr'>quant: 1</span>, <span class='argstr'>phase: 0</span>, <span class='argstr'>referenceBeat</span>)</h3>
 <div class='method'>
-<p>With default values, returns the next whole beat. <strong>quant</strong> is 1 by default, <strong>phase</strong> is 0. quant is relative to <a href="#-baseBarBeat">-baseBarBeat</a>, such that<textarea class='editor'>t= TempoClock.default;
+<p>With default values, returns the next whole beat. <strong>quant</strong> is 1 by default, <strong>phase</strong> is 0. quant is relative to <a href="#-baseBarBeat">-baseBarBeat</a>, such that<textarea class='editor'>t = TempoClock.default;
 t.nextTimeOnGrid(t.beatsPerBar) == t.nextBar // =&gt; true</textarea>
 
 <p>Together <strong>quant</strong> and <strong>phase</strong> are useful for finding the next n beat in a bar, e.g. <code>nextTimeOnGrid(4, 2)</code> will return the next 3rd beat of a bar (of 4 beats), whereas <code>nextBar-2</code> may return an elapsed beat.
@@ -310,7 +310,7 @@ t.nextTimeOnGrid(t.beatsPerBar) == t.nextBar // =&gt; true</textarea>
 <div class='method'>
 <p>Returns the current elapsed time. (This method is inherited from <a href="./../Classes/Clock.html">Clock</a>.)</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-beats2secs' href='./../Overviews/Methods.html#beats2secs'>beats2secs</a>(<span class='argstr'>beats</span>)</h3>
 <div class='method'>
-<p>Converts absolute <strong>beats</strong> to absolute <strong>seconds</strong>, returning the elapsed time of the clock at the given <strong>beats</strong>. Only works for times in the current tempo. If the tempo changes any computed time in future will be wrong.<textarea class='editor'>t= TempoClock.default;
+<p>Converts absolute <strong>beats</strong> to absolute <strong>seconds</strong>, returning the elapsed time of the clock at the given <strong>beats</strong>. Only works for times in the current tempo. If the tempo changes any computed time in future will be wrong.<textarea class='editor'>t = TempoClock.default;
 t.beats2secs(t.beats) // equivalent to t.seconds
 t.beats2secs(0) // how many seconds after startup did beat 0 occur?</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-secs2beats' href='./../Overviews/Methods.html#secs2beats'>secs2beats</a>(<span class='argstr'>secs</span>)</h3>
@@ -325,7 +325,7 @@ t.beats2secs(0) // how many seconds after startup did beat 0 occur?</textarea>
 <textarea class='editor'>t = TempoClock(1); // create a TempoClock
 
 // schedule an event at next whole beat
-t.schedAbs(t.beats.ceil, { arg beat, sec; [beat, sec].postln; 1 });
+t.schedAbs(t.beats.ceil, { |beat, sec| [beat, sec].postln; 1 });
 
 t.tempo = 2;
 t.tempo = 4;
@@ -334,7 +334,7 @@ t.tempo = 1;
 
 t.clear;
 
-t.schedAbs(t.beats.ceil, { arg beat, sec; [beat, sec].postln; 1 });
+t.schedAbs(t.beats.ceil, { |beat, sec| [beat, sec].postln; 1 });
 
 t.stop;</textarea>
 
@@ -347,8 +347,8 @@ t = TempoClock(1, 0, v);
 u = TempoClock(0.4, 0, v);
 
 // start two functions at beat zero in each clock.
-t.schedAbs(0, { arg beat, sec; [\t, beat, sec].postln; 1 });
-u.schedAbs(0, { arg beat, sec; [\u, beat, sec].postln; 1 });
+t.schedAbs(0, { |beat, sec| [\t, beat, sec].postln; 1 });
+u.schedAbs(0, { |beat, sec| [\u, beat, sec].postln; 1 });
 )
 
 (
@@ -376,8 +376,8 @@ u = TempoClock(1, 0, v);
 
 // start two functions at beat zero in each clock.
 // t controls u's tempo. They should stay in sync.
-t.schedAbs(0, { arg beat, sec; u.tempo = t.tempo * [1,2,3,4,5].choose; [\t, beat, sec].postln; 1 });
-u.schedAbs(0, { arg beat, sec; [\u, beat, sec].postln; 1 });
+t.schedAbs(0, { |beat, sec| u.tempo = t.tempo * [1, 2, 3, 4, 5].choose; [\t, beat, sec].postln; 1 });
+u.schedAbs(0, { |beat, sec| [\u, beat, sec].postln; 1 });
 )
 
 (

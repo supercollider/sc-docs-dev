@@ -78,7 +78,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-optimizeGraph' href='./../Overviews/Methods.html#optimizeGraph'>optimizeGraph</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-SynthDef("detectSilence-help", { arg out;
+SynthDef("detectSilence-help", { |out|
     var z;
     z = SinOsc.ar(Rand(400, 700), 0, LFDNoise3.kr(8).max(0)).softclip * 0.3;
     DetectSilence.ar(z, doneAction: Done.freeSelf);

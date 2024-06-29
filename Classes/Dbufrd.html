@@ -59,7 +59,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>b = Buffer.alloc(s, 24, 1);
 b.setn(0, { exprand(200, 500) } ! b.numFrames);
-b.getn(0, b.numFrames, {|x| x.postln })
+b.getn(0, b.numFrames, { |x| x.postln })
 
 (
 { var indexPattern;
@@ -74,7 +74,7 @@ b.getn(0, b.numFrames, {|x| x.postln })
 
 c = Buffer.alloc(s, 24, 1);
 c.setn(0, { [1, 0.5, 0.25].choose } ! c.numFrames);
-c.getn(0, c.numFrames, {|x| x.postln })
+c.getn(0, c.numFrames, { |x| x.postln })
 
 (
 { var indexPattern;

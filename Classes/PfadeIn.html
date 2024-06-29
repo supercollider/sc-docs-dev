@@ -80,10 +80,10 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
 // Create a pattern that you want to fade
-var pat = Pbind(\dur, 0.125, \degree, Pwhite(1,10));
+var pat = Pbind(\dur, 0.125, \degree, Pwhite(1, 10));
 
 // Fade it in over 30 beats
-pat = PfadeIn.new(pattern:pat, fadeTime:30.0, holdTime:1.0, tolerance:0.0001);
+pat = PfadeIn.new(pattern: pat, fadeTime: 30.0, holdTime: 1.0, tolerance: 0.0001);
 
 // Play it
 pat.play;

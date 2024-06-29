@@ -143,7 +143,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>For handling <strong>multidimensional arrays</strong>, there are specific methods which are covered in the helpfile <a href="./../Guides/J-concepts-in-SC.html">J concepts in SC</a>.<div class='note'><span class='notelabel'>NOTE:</span> For Arrays, the <code>add</code> method may or may not return the same Array object. It will add the argument to the receiver if there is space, otherwise it returns a new Array object with the argument added. Thus the proper usage of <code>add</code> with an Array is to always assign the result as follows:<textarea class='editor'>    z = z.add(obj);</textarea>
 
 <p>This allows an efficient use of resources, only growing the array when it needs to. The <a href="./../Classes/List.html">List</a> class manages the Array internally, and in many cases is more suitable.</div>
-<p>Elements can be put into an existing slot with <code>a.put(2,obj)</code> and accessed with <code>a.at(2)</code> or <code>a[2]</code>
+<p>Elements can be put into an existing slot with <code>a.put(2, obj)</code> and accessed with <code>a.at(2)</code> or <code>a[2]</code>
 <p>See <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> for the principal methods: at, put, clipAt, wrapAt, etc...<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Array.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>maxSize: 0</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Object.html'>Object</a></div>
@@ -159,31 +159,31 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>indexedSize<td class='argumentdesc'>
 <p>The size of the array.</table></div><h3 class='method-code'><span class='method-prefix'>Array.</span><a class='method-name' name='*with' href='./../Overviews/Methods.html#with'>with</a>( <span class='argstr'>... args</span>)</h3>
 <div class='method'>
-<p>Create a new Array whose slots are filled with the given arguments. This is the same as the method in ArrayedCollection, but is reimplemented here to be more efficient.<textarea class='editor'>Array.with(7, 'eight',  9).postln;</textarea>
+<p>Create a new Array whose slots are filled with the given arguments. This is the same as the method in ArrayedCollection, but is reimplemented here to be more efficient.<textarea class='editor'>Array.with(7, 'eight', 9).postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>Array.</span><a class='method-name' name='*fill' href='./../Overviews/Methods.html#fill'>fill</a>(<span class='argstr'>size</span>, <span class='argstr'>function</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Collection.html'>Collection</a></div>
 <div class='method'>
-<p>Creates a Collection of the given size, the elements of which are determined by evaluation the given function. The function is passed the index as an argument.<textarea class='editor'>Array.fill(4, { arg i; i * 2 });
-Bag.fill(14, { arg i; i.rand });</textarea>
+<p>Creates a Collection of the given size, the elements of which are determined by evaluation the given function. The function is passed the index as an argument.<textarea class='editor'>Array.fill(4, { |i| i * 2 });
+Bag.fill(14, { |i| i.rand });</textarea>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>size<td class='argumentdesc'>
-<p>The size of the collection which is returned. If nil, it returns an empty collection. If an array of sizes is given, the resulting collection has the appropriate dimensions (see: <a href="#*fillND).">*fillND).</a><textarea class='editor'>Array.fill([2, 2, 3], { arg i, j, k;  i * 100 + (j * 10) + k });</textarea>
+<p>The size of the collection which is returned. If nil, it returns an empty collection. If an array of sizes is given, the resulting collection has the appropriate dimensions (see: <a href="#*fillND).">*fillND).</a><textarea class='editor'>Array.fill([2, 2, 3], { |i, j, k|  i * 100 + (j * 10) + k });</textarea>
 <tr><td class='argumentname'>function<td class='argumentdesc'>
-<p>The function which is called for each new element - the index is passed in as a first argument. The function be anything that responds to the message "value".<textarea class='editor'>Array.fill(10, { arg i; 2 ** i });
+<p>The function which is called for each new element - the index is passed in as a first argument. The function be anything that responds to the message "value".<textarea class='editor'>Array.fill(10, { |i| 2 ** i });
 Array.fill(10, Pxrand([0, 1, 2], inf).iter);
 Array.fill(10, 7); // an object that doesn't respond with a new value is just repeatedly added.</textarea>
 </table></div><h3 class='method-code'><span class='method-prefix'>Array.</span><a class='method-name' name='*fill2D' href='./../Overviews/Methods.html#fill2D'>fill2D</a>(<span class='argstr'>rows</span>, <span class='argstr'>cols</span>, <span class='argstr'>function</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Collection.html'>Collection</a></div>
 <div class='method'>
 <p>Creates a 2 dimensional Collection of the given sizes. The items are determined by evaluation of the supplied function. The function is passed row and column indexes as arguments. See <a href="./../Guides/J-concepts-in-SC.html">J concepts in SC</a><textarea class='editor'>Array.fill2D(2, 4, 0);
-Array.fill2D(3, 4, { arg r, c; r*c+c; });</textarea>
+Array.fill2D(3, 4, { |r, c| r*c+c });</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>Array.</span><a class='method-name' name='*fillND' href='./../Overviews/Methods.html#fillND'>fillND</a>(<span class='argstr'>dimensions</span>, <span class='argstr'>function</span>, <span class='argstr'>args: []</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Collection.html'>Collection</a></div>
 <div class='method'>
-<p>Creates a N dimensional Collection where N is the size of the array <strong>dimensions</strong>. The items are determined by evaluation of the supplied function. The function is passed N number of indexes as arguments. See <a href="./../Guides/J-concepts-in-SC.html">J concepts in SC</a><textarea class='editor'>Array.fillND([4, 4], { arg a, b; a+b; });                // 2D
-Array.fillND([4, 4, 4], { arg a, b, c; a+b*c; });        // 3D
-Array.fillND([1, 2, 3, 4], { arg a, b, c, d; b+d; });    // 4D</textarea>
+<p>Creates a N dimensional Collection where N is the size of the array <strong>dimensions</strong>. The items are determined by evaluation of the supplied function. The function is passed N number of indexes as arguments. See <a href="./../Guides/J-concepts-in-SC.html">J concepts in SC</a><textarea class='editor'>Array.fillND([4, 4], { |a, b| a+b });                // 2D
+Array.fillND([4, 4, 4], { |a, b, c| a+b*c });        // 3D
+Array.fillND([1, 2, 3, 4], { |a, b, c, d| b+d });    // 4D</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>Array.</span><a class='method-name' name='*newFrom' href='./../Overviews/Methods.html#newFrom'>newFrom</a>(<span class='argstr'>aCollection</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Collection.html'>Collection</a></div>
 <div class='method'>
@@ -240,9 +240,9 @@ Array.fib(5, 2, 32); // start from 32 with step 2.</textarea>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
 <p>Return the item at <strong>index</strong>.
-<p>The index can also be an Array of indices to extract specified elements. Example:<textarea class='editor'>x = [10,20,30];
-y = [0,0,2,2,1];
-x[y]; // returns [ 10, 10, 30, 30, 20 ]</textarea>
+<p>The index can also be an Array of indices to extract specified elements. Example:<textarea class='editor'>x = [10, 20, 30];
+y = [0, 0, 2, 2, 1];
+x[y]; // returns [10, 10, 30, 30, 20]</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-put' href='./../Overviews/Methods.html#put'>put</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
@@ -260,19 +260,19 @@ y.postln;
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clipAt' href='./../Overviews/Methods.html#clipAt'>clipAt</a>(<span class='argstr'>index</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
-<p>Same as <a href="#-at">-at</a>, but values for <strong>index</strong> greater than the size of the ArrayedCollection will be clipped to the last index.<textarea class='editor'>y = [ 1, 2, 3 ];
+<p>Same as <a href="#-at">-at</a>, but values for <strong>index</strong> greater than the size of the ArrayedCollection will be clipped to the last index.<textarea class='editor'>y = [1, 2, 3];
 y.clipAt(13).postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wrapAt' href='./../Overviews/Methods.html#wrapAt'>wrapAt</a>(<span class='argstr'>index</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
-<p>Same as <a href="#-at">-at</a>, but values for <strong>index</strong> greater than the size of the ArrayedCollection will be wrapped around to 0.<textarea class='editor'>y = [ 1, 2, 3 ];
+<p>Same as <a href="#-at">-at</a>, but values for <strong>index</strong> greater than the size of the ArrayedCollection will be wrapped around to 0.<textarea class='editor'>y = [1, 2, 3];
 y.wrapAt(3).postln; // this returns the value at index 0
 y.wrapAt(4).postln; // this returns the value at index 1
 y.wrapAt([-2, 1])   // index can also be a collection or negative numbers</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-foldAt' href='./../Overviews/Methods.html#foldAt'>foldAt</a>(<span class='argstr'>index</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
-<p>Same as <a href="#-at">-at</a>, but values for <strong>index</strong> greater than the size of the ArrayedCollection will be folded back.<textarea class='editor'>y = [ 1, 2, 3 ];
+<p>Same as <a href="#-at">-at</a>, but values for <strong>index</strong> greater than the size of the ArrayedCollection will be folded back.<textarea class='editor'>y = [1, 2, 3];
 y.foldAt(3).postln; // this returns the value at index 1
 y.foldAt(4).postln; // this returns the value at index 0
 y.foldAt(5).postln; // this returns the value at index 1</textarea>
@@ -288,7 +288,7 @@ y.foldAt(5).postln; // this returns the value at index 1</textarea>
 <p>Same as <a href="#-put">-put</a>, but values for <strong>index</strong> greater than the size of the ArrayedCollection will be folded back.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-swap' href='./../Overviews/Methods.html#swap'>swap</a>(<span class='argstr'>i</span>, <span class='argstr'>j</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
-<p>Swap the values at indices i and j.<textarea class='editor'>[ 1, 2, 3 ].swap(0, 2).postln;</textarea>
+<p>Swap the values at indices i and j.<textarea class='editor'>[1, 2, 3].swap(0, 2).postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-replace' href='./../Overviews/Methods.html#replace'>replace</a>(<span class='argstr'>find</span>, <span class='argstr'>replace</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
@@ -353,7 +353,7 @@ y.postln;
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-removeAt' href='./../Overviews/Methods.html#removeAt'>removeAt</a>(<span class='argstr'>index</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
-<p>Remove and return the element at <strong>index</strong>, shrinking the size of the ArrayedCollection.<textarea class='editor'>y = [ 1, 2, 3 ];
+<p>Remove and return the element at <strong>index</strong>, shrinking the size of the ArrayedCollection.<textarea class='editor'>y = [1, 2, 3];
 y.removeAt(1);
 y.postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-collect' href='./../Overviews/Methods.html#collect'>collect</a>(<span class='argstr'>function</span>)</h3>
@@ -362,24 +362,24 @@ y.postln;</textarea>
 <p>Answer a new collection which consists of the results of function evaluated for each item in the collection. The function is passed two arguments, the item and an integer index. See <a href="./../Classes/Collection.html">Collection</a> helpfile for examples.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-do' href='./../Overviews/Methods.html#do'>do</a>(<span class='argstr'>function</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
-<p>Iterate over the elements in order, calling the function for each element. The function is passed two arguments, the element and an index.<textarea class='editor'>['a', 'b', 'c'].do({ arg item, i; [i, item].postln; });</textarea>
+<p>Iterate over the elements in order, calling the function for each element. The function is passed two arguments, the element and an index.<textarea class='editor'>['a', 'b', 'c'].do({ |item, i| [i, item].postln });</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reverseDo' href='./../Overviews/Methods.html#reverseDo'>reverseDo</a>(<span class='argstr'>function</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
-<p>Iterate over the elements in reverse order, calling the function for each element. The function is passed two arguments, the element and an index.<textarea class='editor'>['a', 'b', 'c'].reverseDo({ arg item, i; [i, item].postln; });</textarea>
+<p>Iterate over the elements in reverse order, calling the function for each element. The function is passed two arguments, the element and an index.<textarea class='editor'>['a', 'b', 'c'].reverseDo({ |item, i| [i, item].postln });</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-deepCollect' href='./../Overviews/Methods.html#deepCollect'>deepCollect</a>(<span class='argstr'>depth: 1</span>, <span class='argstr'>function</span>, <span class='argstr'>index: 0</span>, <span class='argstr'>rank: 0</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
-<p>The same as <a href="#-collect">-collect</a>, but can look inside sub-arrays up to the specified <strong>depth</strong>.<textarea class='editor'>a = [99, [4,6,5], [[32]]];
-a.deepCollect(1, {|item| item.isArray}).postln;
-a.deepCollect(2, {|item| item.isArray}).postln;
-a.deepCollect(3, {|item| item.isArray}).postln;</textarea>
+<p>The same as <a href="#-collect">-collect</a>, but can look inside sub-arrays up to the specified <strong>depth</strong>.<textarea class='editor'>a = [99, [4, 6, 5], [[32]]];
+a.deepCollect(1, { |item| item.isArray }).postln;
+a.deepCollect(2, { |item| item.isArray }).postln;
+a.deepCollect(3, { |item| item.isArray }).postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reshape' href='./../Overviews/Methods.html#reshape'>reshape</a>( <span class='argstr'>... shape</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
-<p>For a multidimensional array, rearranges the data using the desired number of elements along each dimension. The data may be extended using <a href="./../Classes/Array.html#-wrapExtend">Array: -wrapExtend</a> if needed. This will always return a rectangular array, see <a href="#-isRectangular">-isRectangular</a>.<textarea class='editor'>a = [4,7,6,8];
-a.reshape(2,2);
-a.reshape(2,3);</textarea>
+<p>For a multidimensional array, rearranges the data using the desired number of elements along each dimension. The data may be extended using <a href="./../Classes/Array.html#-wrapExtend">Array: -wrapExtend</a> if needed. This will always return a rectangular array, see <a href="#-isRectangular">-isRectangular</a>.<textarea class='editor'>a = [4, 7, 6, 8];
+a.reshape(2, 2);
+a.reshape(2, 3);</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-windex' href='./../Overviews/Methods.html#windex'>windex</a></h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
@@ -394,7 +394,7 @@ Array.fill(10, {
 <p>Return the number of elements the ArrayedCollection.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-normalize' href='./../Overviews/Methods.html#normalize'>normalize</a>(<span class='argstr'>min: 0.0</span>, <span class='argstr'>max: 1.0</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
 <div class='method'>
-<p>Returns a new Array with the receiver items normalized between <strong>min</strong> and <strong>max</strong>.<textarea class='editor'>[1, 2, 3].normalize;            //default min=0, max= 1
+<p>Returns a new Array with the receiver items normalized between <strong>min</strong> and <strong>max</strong>.<textarea class='editor'>[1, 2, 3].normalize;            // default min = 0, max = 1
 [1, 2, 3].normalize(-20, 10);</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-normalizeSum' href='./../Overviews/Methods.html#normalizeSum'>normalizeSum</a></h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/ArrayedCollection.html'>ArrayedCollection</a></div>
@@ -448,7 +448,7 @@ z.postln;</textarea>
 <tr><td class='argumentname'>n<td class='argumentdesc'>
 <p>Number of elements to rotate. Negative n values rotate left, positive n values rotate right.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pyramid' href='./../Overviews/Methods.html#pyramid'>pyramid</a>(<span class='argstr'>patternType: 1</span>)</h3>
 <div class='method'>
-<p>Return a new Array whose elements have been reordered via one of 10 "counting" algorithms. Run the examples to see the algorithms.<textarea class='editor'>10.do({ arg i;
+<p>Return a new Array whose elements have been reordered via one of 10 "counting" algorithms. Run the examples to see the algorithms.<textarea class='editor'>10.do({ |i|
     [1, 2, 3, 4].pyramid(i + 1).postcs;
 });</textarea>
 
@@ -472,33 +472,33 @@ z.postln;</textarea>
 <p>Probability of repeat.<tr><td class='argumentname'>maxlen<td class='argumentdesc'>
 <p>The length of the new Array.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-lace' href='./../Overviews/Methods.html#lace'>lace</a>(<span class='argstr'>length</span>)</h3>
 <div class='method'>
-<p>Returns a new Array whose elements are interlaced sequences of the elements of the receiver's subcollections, up to size length. The receiver is unchanged.<textarea class='editor'>x = [ [1, 2, 3], 6, List["foo", 'bar']];
+<p>Returns a new Array whose elements are interlaced sequences of the elements of the receiver's subcollections, up to size length. The receiver is unchanged.<textarea class='editor'>x = [[1, 2, 3], 6, List["foo", 'bar']];
 y = x.lace(12);
 x.postln;
 y.postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-permute' href='./../Overviews/Methods.html#permute'>permute</a>(<span class='argstr'>nthPermutation</span>)</h3>
 <div class='method'>
-<p>Returns a new Array whose elements are the nthPermutation of the elements of the receiver. The receiver is unchanged.<textarea class='editor'>x = [ 1, 2, 3];
-6.do({|i| x.permute(i).postln;});</textarea>
+<p>Returns a new Array whose elements are the nthPermutation of the elements of the receiver. The receiver is unchanged.<textarea class='editor'>x = [1, 2, 3];
+6.do({ |i| x.permute(i).postln });</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-allTuples' href='./../Overviews/Methods.html#allTuples'>allTuples</a>(<span class='argstr'>maxTuples: 16384</span>)</h3>
 <div class='method'>
 <p>Returns a new Array whose elements contain all possible combinations of the receiver's subcollections.<textarea class='editor'>[[1, 2, 3, 4, 5], [10, 20, 30]].allTuples;
 [[1, 2, 3, 4, 5], [10, 20, 30], [5, 6]].allTuples;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wrapExtend' href='./../Overviews/Methods.html#wrapExtend'>wrapExtend</a>(<span class='argstr'>length</span>)</h3>
 <div class='method'>
-<p>Returns a new Array whose elements are repeated sequences of the receiver, up to size length. The receiver is unchanged.<textarea class='editor'>x = [ 1, 2, 3, "foo", 'bar' ];
+<p>Returns a new Array whose elements are repeated sequences of the receiver, up to size length. The receiver is unchanged.<textarea class='editor'>x = [1, 2, 3, "foo", 'bar'];
 y = x.wrapExtend(9);
 x.postln;
 y.postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-foldExtend' href='./../Overviews/Methods.html#foldExtend'>foldExtend</a>(<span class='argstr'>length</span>)</h3>
 <div class='method'>
-<p>Same as wrapExtend but the sequences fold back on the list elements.<textarea class='editor'>x = [ 1, 2, "foo"];
+<p>Same as wrapExtend but the sequences fold back on the list elements.<textarea class='editor'>x = [1, 2, "foo"];
 y = x.foldExtend(9);
 x.postln;
 y.postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clipExtend' href='./../Overviews/Methods.html#clipExtend'>clipExtend</a>(<span class='argstr'>length</span>)</h3>
 <div class='method'>
-<p>Same as wrapExtend but the sequences "clip" (return their last element) rather than wrapping.<textarea class='editor'>x = [ 1, 2, "foo"];
+<p>Same as wrapExtend but the sequences "clip" (return their last element) rather than wrapping.<textarea class='editor'>x = [1, 2, "foo"];
 y = x.clipExtend(9);
 x.postln;
 y.postln;</textarea>

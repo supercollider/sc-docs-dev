@@ -168,7 +168,7 @@ f.(18.0) // float is ok.
 // check the ratio between adjacent factorials:
 f.(18.0) / f.(17.0) == 18 // true
 // 18 is already the largest possible factorial representable in 64-bit float (&lt; 2^53)
-{:x, x&lt;-(1.0..40), f.(x) &lt; (2 ** 53) }.all.last</textarea>
+{ :x, x&lt;-(1.0..40), f.(x) &lt; (2 ** 53) }.all.last</textarea>
 
 <p>Here is a classical example for an algorithm:<textarea class='editor'>// euclidean algorithm
 (
@@ -204,7 +204,7 @@ c - a // incorrect (also 1)
 // here we divide two numbers that follow each other
 // and it is correct up to f.(170), about 7.25e+306.
 f = { |x| if(x &lt; 2) { x } { x * f.(x - 1) } };
-{:x, x&lt;-(1.0..180), f.(x) / f.(x - 1) == x }.all.last</textarea>
+{ :x, x&lt;-(1.0..180), f.(x) / f.(x - 1) == x }.all.last</textarea>
 
 <p><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>

@@ -59,7 +59,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-SynthDef("help-Rand", { arg out=0;
+SynthDef("help-Rand", { |out = 0|
     Out.ar(out,
         FSinOsc.ar(
             Rand(200.0, 400.0),

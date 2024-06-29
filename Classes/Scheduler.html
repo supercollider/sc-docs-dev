@@ -61,7 +61,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <table class='arguments'>
 <tr><td class='argumentname'>clock<td class='argumentdesc'>
 <p>A clock, like SystemClock.<tr><td class='argumentname'>drift<td class='argumentdesc'>
-<p>If <code>true</code>, <a href="#-sched">-sched</a> will schedule tasks relative to the current absolute time ( <a href="./../Classes/Process.html#*elapsedTime">Main.elapsedTime</a> ), otherwise to the current logical time of the scheduler ( <a href="#-seconds">-seconds</a> ).<tr><td class='argumentname'>recursive<td class='argumentdesc'>
+<p>If <code>true</code>, <a href="#-sched">-sched</a> will schedule tasks relative to the current absolute time (<a href="./../Classes/Process.html#*elapsedTime">Main.elapsedTime</a>), otherwise to the current logical time of the scheduler (<a href="#-seconds">-seconds</a>).<tr><td class='argumentname'>recursive<td class='argumentdesc'>
 <p>Sets <a href="#-recursive">-recursive</a>.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-play' href='./../Overviews/Methods.html#play'>play</a>(<span class='argstr'>task</span>)</h3>
@@ -101,7 +101,7 @@ a.advance(2);
 a.advance(2);
 
 // the beats, seconds and clock are passed into the task function:
-a.sched(1, { arg beats, secs, clock; [beats, secs, clock].postln });
+a.sched(1, { |beats, secs, clock| [beats, secs, clock].postln });
 a.advance(1);
 
 // the scheduling is relative to "now":
@@ -115,7 +115,7 @@ a.advance(2);
 a.advance(2);
 
 // play a Routine or a task:
-a.play(Routine { 5.do { arg i; i.postln; 1.yield } });
+a.play(Routine { 5.do { |i| i.postln; 1.yield } });
 a.advance(0.9);</textarea>
 <textarea class='editor'>// scheduling tasks
 (

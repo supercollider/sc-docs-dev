@@ -47,7 +47,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Write to a buffer at an index.<div class='note'><span class='notelabel'>NOTE:</span> BufWr (in difference to <a href="./../Classes/BufRd.html">BufRd</a> ) does not do multichannel expansion, because input is an array.</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>Write to a buffer at an index.<div class='note'><span class='notelabel'>NOTE:</span> BufWr (in difference to <a href="./../Classes/BufRd.html">BufRd</a>) does not do multichannel expansion, because input is an array.</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>BufWr.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>inputArray</span>, <span class='argstr'>bufnum: 0</span>, <span class='argstr'>phase: 0.0</span>, <span class='argstr'>loop: 1.0</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>BufWr.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>inputArray</span>, <span class='argstr'>bufnum: 0</span>, <span class='argstr'>phase: 0.0</span>, <span class='argstr'>loop: 1.0</span>)</h3>
 <div class='method'>
@@ -68,19 +68,19 @@ s.sendMsg("/b_alloc", 0, 44100 * 2);
 )
 
 
-//write into the buffer with a BufWr
+// write into the buffer with a BufWr
 (
-y = { arg rate=1;
+y = { |rate = 1|
     var in;
     in = SinOsc.ar(LFNoise1.kr(2, 300, 400), 0, 0.1);
     BufWr.ar(in, 0, Phasor.ar(0, BufRateScale.kr(0) * rate, 0, BufFrames.kr(0)));
-    0.0 //quiet
+    0.0 // quiet
 }.play;
 )
 
-//read it with a BufRd
+// read it with a BufRd
 (
-x = { arg rate=1;
+x = { |rate = 1|
     BufRd.ar(1, 0, Phasor.ar(0, BufRateScale.kr(0) * rate, 0, BufFrames.kr(0)))
 }.play(s);
 )

@@ -78,11 +78,11 @@ x.all;
 nil</textarea>
 
 <p>Note that the Ppatlace has an infinite number of repeats, but the resulting stream is finite because the member streams are all finite. When the first stream (Pwhite) comes to an end, it is skipped and you see only the second stream until it stops.
-<p>If even one member stream is infinite and Ppatlace has infinite repeats, the Ppatlace stream will also be infinite.<textarea class='editor'>//Ppatlace as a sequence of pitches:
+<p>If even one member stream is infinite and Ppatlace has infinite repeats, the Ppatlace stream will also be infinite.<textarea class='editor'>// Ppatlace as a sequence of pitches:
 
 (
 SynthDef(\help_sinegrain,
-    { arg out=0, freq=440, sustain=0.05;
+    { |out = 0, freq = 440, sustain = 0.05|
         var env;
         env = EnvGen.kr(Env.perc(0.01, sustain, 0.2), doneAction: Done.freeSelf);
         Out.ar(out, SinOsc.ar(freq, 0, env))

@@ -49,7 +49,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Linear interpolating wavetable lookup oscillator with frequency and phase modulation inputs.
 <p>This oscillator requires a buffer to be filled with a wavetable format signal. This preprocesses the Signal into a form which can be used efficiently by the Oscillator. The buffer size must be a power of 2.
-<p>This can be achieved by creating a Buffer object and sending it one of the "b_gen" messages ( <a href="./../Classes/Buffer.html#-sine1">Buffer: -sine1</a>, <a href="./../Classes/Buffer.html#-sine2">Buffer: -sine2</a>, <a href="./../Classes/Buffer.html#-sine3">Buffer: -sine3</a> ) with the wavetable flag set to true.
+<p>This can be achieved by creating a Buffer object and sending it one of the "b_gen" messages (<a href="./../Classes/Buffer.html#-sine1">Buffer: -sine1</a>, <a href="./../Classes/Buffer.html#-sine2">Buffer: -sine2</a>, <a href="./../Classes/Buffer.html#-sine3">Buffer: -sine3</a>) with the wavetable flag set to true.
 <p>This can also be achieved by creating a <a href="./../Classes/Signal.html">Signal</a> object and sending it the 'asWavetable' message, thereby creating a Wavetable object in the required format. Then, the wavetable data may be transmitted to the server using the <a href="./../Classes/Buffer.html#*sendCollection">Buffer: *sendCollection</a> or <a href="./../Classes/Buffer.html#*loadCollection">Buffer: *loadCollection</a> methods.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Osc.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>bufnum</span>, <span class='argstr'>freq: 440.0</span>, <span class='argstr'>phase: 0.0</span>, <span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>Osc.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>bufnum</span>, <span class='argstr'>freq: 440.0</span>, <span class='argstr'>phase: 0.0</span>, <span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
@@ -68,25 +68,25 @@ var scdoc_sc_version = '3.14.0-dev';
 <textarea class='editor'>(
 s = Server.local;
 b = Buffer.alloc(s, 512, 1);
-b.sine1(1.0/[1,2,3,4,5,6], true, true, true);
+b.sine1(1.0/[1, 2, 3, 4, 5, 6], true, true, true);
 
-SynthDef("help-Osc",{ arg out=0,bufnum=0;
+SynthDef("help-Osc", { |out = 0, bufnum = 0|
     Out.ar(out,
         Osc.ar(bufnum, 200, 0, 0.5)
     )
-}).play(s,[\out, 0, \bufnum, b.bufnum]);
+}).play(s, [\out, 0, \bufnum, b.bufnum]);
 )
 
 (
 s = Server.local;
 b = Buffer.alloc(s, 512, 1);
-b.sine1(1.0/[1,2,3,4,5,6], true, true, true);
+b.sine1(1.0/[1, 2, 3, 4, 5, 6], true, true, true);
 
-SynthDef("help-Osc",{ arg out=0,bufnum=0;
+SynthDef("help-Osc", { |out = 0, bufnum = 0|
     Out.ar(out,
-        Osc.ar(bufnum, XLine.kr(2000,200), 0, 0.5)// modulate freq
+        Osc.ar(bufnum, XLine.kr(2000, 200), 0, 0.5) // modulate freq
     )
-}).play(s,[\out, 0, \bufnum, b.bufnum]);
+}).play(s, [\out, 0, \bufnum, b.bufnum]);
 )
 
 
@@ -95,18 +95,18 @@ s = Server.local;
 b = Buffer.alloc(s, 512, 1);
 b.sine1([1.0], true, true, true);
 
-SynthDef("help-Osc",{ arg out=0,bufnum=0;
+SynthDef("help-Osc", { |out = 0, bufnum = 0|
     Out.ar(out,
         Osc.ar(bufnum,
             Osc.ar(bufnum,
-                XLine.kr(1,1000,9),
+                XLine.kr(1, 1000, 9),
                 0,
                 200,
                 800),
             0,
             0.25)
     )
-}).play(s,[\out, 0, \bufnum, b.bufnum]);
+}).play(s, [\out, 0, \bufnum, b.bufnum]);
 )
 
 
@@ -116,17 +116,17 @@ s = Server.local;
 b = Buffer.alloc(s, 512, 1);
 b.sine1([1.0], true, true, true);
 
-SynthDef("help-Osc",{ arg out=0,bufnum=0;
+SynthDef("help-Osc", { |out = 0, bufnum = 0|
     Out.ar(out,
         Osc.ar(bufnum,
                 800,
                 Osc.ar(bufnum,
-                        XLine.kr(20,8000,10),
+                        XLine.kr(20, 8000, 10),
                         0,
                         2pi),
                 0.25)
     )
-}).play(s,[\out, 0, \bufnum, b.bufnum]);
+}).play(s, [\out, 0, \bufnum, b.bufnum]);
 )
 
 
@@ -135,20 +135,20 @@ SynthDef("help-Osc",{ arg out=0,bufnum=0;
 // change the buffer while its playing
 s = Server.local;
 b = Buffer.alloc(s, 4096, 1);
-b.sine1(1.0/[1,2,3,4,5,6], true, true, true);
+b.sine1(1.0/[1, 2, 3, 4, 5, 6], true, true, true);
 
-SynthDef("help-Osc",{ arg out=0,bufnum=0;
+SynthDef("help-Osc", { |out = 0, bufnum = 0|
     Out.ar(out,
-        Osc.ar(bufnum, [80,80.2], 0, 0.2)
+        Osc.ar(bufnum, [80, 80.2], 0, 0.2)
     )
-}).play(s,[\out, 0, \bufnum, b.bufnum]);
+}).play(s, [\out, 0, \bufnum, b.bufnum]);
 )
 
 (
 fork {
     var n = 32;
     50.do {
-        b.sine1(Array.rand(n,0,1).cubed, true, true, true);
+        b.sine1(Array.rand(n, 0, 1).cubed, true, true, true);
         0.25.wait;
     };
 };

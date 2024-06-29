@@ -57,7 +57,7 @@ var scdoc_sc_version = '3.14.0-dev';
 var a, b;
 a = Pset(\freq, 801, Pbind(\dur, 0.5));
 x = a.asStream;
-9.do({ x.next(Event.new).postln; });
+9.do({ x.next(Event.new).postln });
 )</textarea>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Pset.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>name</span>, <span class='argstr'>value</span>, <span class='argstr'>pattern</span>)</h3>
@@ -78,13 +78,13 @@ x = a.asStream;
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>//Pset overrides incoming values:
+<textarea class='editor'>// Pset overrides incoming values:
 
 (
 var a, b;
 a = Pset(\freq, 801, Pbind(\freq, 108));
 x = a.asStream;
-9.do({ x.next(Event.new).postln; });
+9.do({ x.next(Event.new).postln });
 )
 
 
@@ -92,15 +92,15 @@ x = a.asStream;
 var a, b;
 a = Pset(\freq, Pseq([401, 801], 2), Pbind(\dur, 0.5));
 x = a.asStream;
-9.do({ x.next(Event.new).postln; });
+9.do({ x.next(Event.new).postln });
 )
 
 
-//sound example
+// sound example
 
 (
 SynthDef(\sinegrain,
-    { arg out=0, freq=440, sustain=0.02;
+    { |out = 0, freq = 440, sustain = 0.02|
         var env;
         env = EnvGen.kr(Env.perc(0.001, sustain), 1, doneAction: Done.freeSelf);
         Out.ar(out, SinOsc.ar(freq, 0, env * 0.1))
@@ -110,7 +110,7 @@ SynthDef(\sinegrain,
 (
 a = Pbind(\dur, 0.5, \instrument, \sinegrain);
 a = Pset(\freq, Pseq([500, 600, 700], inf), a);
-a = Pset(\legato, Pseq([0.01, 1],inf), a);
+a = Pset(\legato, Pseq([0.01, 1], inf), a);
 a.play;
 )</textarea>
 

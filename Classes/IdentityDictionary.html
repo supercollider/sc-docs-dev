@@ -75,7 +75,7 @@ a.put(\foo, 2.718);
 a.at(\foo);</textarea>
 <div class='note'><span class='notelabel'>NOTE:</span> Keys match only if they are <strong>identical objects</strong>. (i.e. === returns true. In Dictionary, keys match if they are equal valued. This makes IdentityDictionary faster than <a href="./../Classes/Dictionary.html">Dictionary</a>)
 <p>The contents of a Dictionary are <strong>unordered</strong>. You must not depend on the order of items in a Dictionary.</div>
-<p>IdentityDictionary is often used to assign names to instances of a particular class. For example, the proxy classes ( <a href="./../Classes/Pdef.html">Pdef</a>, <a href="./../Classes/Pdefn.html">Pdefn</a>, <a href="./../Classes/Tdef.html">Tdef</a>, <a href="./../Classes/Ndef.html">Ndef</a> ), and <a href="./../Classes/NodeWatcher.html">NodeWatcher</a> all have class variables named all implemented as IdentityDictionaries.<h3><a class='anchor' name=''parent'%20and%20'proto'%20variables'>'parent' and 'proto' variables</a></h3>
+<p>IdentityDictionary is often used to assign names to instances of a particular class. For example, the proxy classes (<a href="./../Classes/Pdef.html">Pdef</a>, <a href="./../Classes/Pdefn.html">Pdefn</a>, <a href="./../Classes/Tdef.html">Tdef</a>, <a href="./../Classes/Ndef.html">Ndef</a>), and <a href="./../Classes/NodeWatcher.html">NodeWatcher</a> all have class variables named all implemented as IdentityDictionaries.<h3><a class='anchor' name=''parent'%20and%20'proto'%20variables'>'parent' and 'proto' variables</a></h3>
 
 <p>IdentityDictionary has three levels of content: the dictionary itself, a <code>proto</code>, and a <code>parent</code>. <code>proto</code> and <code>parent</code> exist primarily for IdentityDictionary's subclass <a href="./../Classes/Event.html">Event</a>, which uses the <code>parent</code> to store action functions that will be used when an event is played. Users may put additional default values into the <code>proto</code>.
 <p>Looking up a key within a dictionary first checks the dictionary itself. If the key is not found at this level, it looks in the <code>proto</code>, and if still not found, it looks in the parent.
@@ -85,7 +85,7 @@ a.at(\foo);</textarea>
 e = IdentityDictionary(8,
     parent: IdentityDictionary[\b -&gt; 10]
 ).put(\a, 5);
--&gt; IdentityDictionary[ (a -&gt; 5) ]
+-&gt; IdentityDictionary[(a -&gt; 5)]
 
 // But 'b' is still there
 e[\a] + e[\b]
@@ -93,11 +93,11 @@ e[\a] + e[\b]
 
 // Iteration touches 'a' only
 e.keysValuesDo { |key, value| [key, value].postln };
--&gt; [ a, 5 ]
+-&gt; [a, 5]
 
 // 'collect' is also an iteration, and doesn't touch the parent
 g = e.collect { |x| x * 5 };
--&gt; IdentityDictionary[ (a -&gt; 25) ]
+-&gt; IdentityDictionary[(a -&gt; 25)]
 g[\b]
 -&gt; 10
 
@@ -114,7 +114,7 @@ e[\b]
 <div class='method'>
 <p>The <a href="#-parent">-parent</a> and <a href="#-proto">-proto</a> instance variables allow additional IdentityDictionary's to provide default values. The precedence order for determining the value of a key is the IdentityDictionary, its prototype, its parent.
 <p>When the instance variable <a href="#-know">-know</a> is <a href="./../Classes/True.html">True</a>, the IdentityDictionary responds to unknown messages by looking up the selector and evaluating the result with the dictionary as an argument. For example:<textarea class='editor'>a = IdentityDictionary(know: true);
-a.put(\foo, { | x, y | "--".postln; ("x:" ++ x).postln;  ("y:" ++ y).postln; y.squared });
+a.put(\foo, { |x, y| "--".postln; ("x:" ++ x).postln;  ("y:" ++ y).postln; y.squared });
 a.foo(-10.01);</textarea>
 <div class='warning'><span class='warninglabel'>WARNING:</span> Only keys that are not already instance methods of IdentityDictionary (or its superclasses) can be used in such a way. E.g. the key "free" will not work, because it is implemented in Object. This means that class extensions (see: <a href="./../Guides/WritingClasses.html">Writing Classes</a>) can break code. It is advisable to use underscores in method names to make this improbable.</div>
 <p>In the subclass <a href="./../Classes/Event.html">Event</a>, "know" is true by default, so that it can be instantly used for prototype objects. The first argument passed to the functions is in such cases always the dictionary/event itself (here denoted by "self").<textarea class='editor'>a = (some_value: 7, fuzzy_plus: { |self, a, b| a + b * rrand(0.9, 1.1) });
@@ -175,17 +175,16 @@ a.cs;</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-timingOffset' href='./../Overviews/Methods.html#timingOffset'>timingOffset</a></h3>
 <div class='method'>
 <p>Use a dictionary to represent timing information.<textarea class='editor'>(
-SynthDef(\help_sinegrain,
-    { arg out=0, freq=440, sustain=0.05;
-        var env;
-        env = EnvGen.kr(Env.perc(0.01, sustain, 0.2), doneAction: Done.freeSelf);
-        Out.ar(out, SinOsc.ar(freq, 0.5pi, env))
-    }).add;
+SynthDef(\help_sinegrain, { |out = 0, freq = 440, sustain = 0.05|
+    var env;
+    env = EnvGen.kr(Env.perc(0.01, sustain, 0.2), doneAction: Done.freeSelf);
+    Out.ar(out, SinOsc.ar(freq, 0.5pi, env))
+}).add;
 
 a = Pbind(\instrument, \help_sinegrain, \note, Pseq([0, 7, 2, 9, 11, 10, 9, 8], inf), \dur, 1);
-a.play(quant:(quant: 1, phase: 0));
-a.play(quant:(quant: 1, phase: 1/3));
-a.play(quant:(quant: 1, phase: 1.0.rand));
+a.play(quant: (quant: 1, phase: 0));
+a.play(quant: (quant: 1, phase: 1/3));
+a.play(quant: (quant: 1, phase: 1.0.rand));
 )</textarea>
 </div><h3><a class='anchor' name='Garbage%20collection'>Garbage collection</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-freezeAsParent' href='./../Overviews/Methods.html#freezeAsParent'>freezeAsParent</a></h3>

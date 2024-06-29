@@ -595,26 +595,26 @@ f.choose.postcs.applyTo(3, 4);
 (
 var f, g, product;
 f = { SinOsc.ar(400) };
-g = { LFPulse.kr(8)  };
+g = { LFPulse.kr(8) };
 product = f * g * 0.1;
 { Pan2.ar(product, SinOsc.kr(0.3)) }.play;
 )</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sampled' href='./../Overviews/Methods.html#sampled'>sampled</a>(<span class='argstr'>n: 80</span>, <span class='argstr'>from: 0.0</span>, <span class='argstr'>to: 1.0</span>)</h3>
 <div class='method'>
 <p>Sample a function.<h4>Discussion:</h4>
-<textarea class='editor'>//sample a function
+<textarea class='editor'>// sample a function
 f = { |x| sin(3*x)*cos(8*x) }
-f.plotGraph(from:0,to:2);
-f.sampled(10,0,2).plotGraph(from:0,to:2);
-f.sampled(80,0,2).plotGraph(from:0,to:2);
+f.plotGraph(from: 0, to: 2);
+f.sampled(10, 0, 2).plotGraph(from: 0, to: 2);
+f.sampled(80, 0, 2).plotGraph(from: 0, to: 2);
 
-//on complicated functions a sampled function is less cpy heavy.
-f = { |x| 60.collect{ 2**((x-rrand(0.0,1.0))) }.sum/60 };
-f.plotGraph(from:0,to:1);
+// on complicated functions a sampled function is less cpy heavy.
+f = { |x| 60.collect{ 2**((x-rrand(0.0, 1.0))) }.sum/60 };
+f.plotGraph(from: 0, to: 1);
 g = f.sampled(200);
-g.plotGraph(from:0,to:1);
-{ 200.collect{ f.(rand(0.0,1.0)) } }.bench;
-{ 200.collect{ g.(rand(0.0,1.0)) } }.bench;</textarea>
+g.plotGraph(from: 0, to: 1);
+{ 200.collect{ f.(rand(0.0, 1.0)) } }.bench;
+{ 200.collect{ g.(rand(0.0, 1.0)) } }.bench;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plotGraph' href='./../Overviews/Methods.html#plotGraph'>plotGraph</a>: METHOD NOT FOUND!</h3>
 <div class='method'>
 <p>Sample the function with n points, in the range [from, to], and plot it in a Plotter. Returns a <a href="./../Classes/Plotter.html">Plotter</a>.<h4>Arguments:</h4>
@@ -730,16 +730,16 @@ y = { 8 } + { 1.0.rand };
 y.value;</textarea>
 <textarea class='editor'>// arguments are passed into both functions
 
-y = { |x=0| x } + { 1.0.rand };
+y = { |x = 0| x } + { 1.0.rand };
 y.value(10);
 
 
-y = { |x=0| x * 3 } + { |x=0| x + 1.0.rand };
+y = { |x = 0| x * 3 } + { |x = 0| x + 1.0.rand };
 y.value(10);
 
 y.postcs;
 
-y = { |x=0| x * 3 } + { |x=0| x + 1.0.rand } * { |x=0| [50, 100].choose + x } + 1.0;
+y = { |x = 0| x * 3 } + { |x = 0| x + 1.0.rand } * { |x = 0| [50, 100].choose + x } + 1.0;
 y.value(10);</textarea>
 <textarea class='editor'>// environments can be used as a lookup with valueEnvir:
 
@@ -747,7 +747,7 @@ y.value(10);</textarea>
 Environment.use {
     ~y = 10;
     ~x = 2;
-    ~z = { |x=8| x } + { |y=0| y + 1.0.rand };
+    ~z = { |x = 8| x } + { |y = 0| y + 1.0.rand };
     ~z.valueEnvir;
 }
 )</textarea>

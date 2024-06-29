@@ -80,8 +80,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a>(<span class='argstr'>src</span>, <span class='argstr'>chan</span>, <span class='argstr'>val</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-    c = ProgramChangeResponder({ |src,chan,val|
-        [src,chan,val].postln;
+    c = ProgramChangeResponder({ |src, chan, val|
+        [src, chan, val].postln;
         },
         nil, // any source
         nil, // any channel
@@ -91,8 +91,8 @@ var scdoc_sc_version = '3.14.0-dev';
 
 c.remove</textarea>
 <textarea class='editor'>(
-    c = ProgramChangeResponder({ |src,chan,val|
-        [src,chan,val].postln;
+    c = ProgramChangeResponder({ |src, chan, val|
+        [src, chan, val].postln;
         },
         nil, // any source
         nil, // any channel

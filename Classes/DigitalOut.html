@@ -74,8 +74,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <textarea class='editor'>// write a sine oscillator's output to a pin
 
 (
-SynthDef("help-DigitalOut",{ arg out=0;
-    DigitalOut.ar( 0, SinOsc.ar( 10 ) );
+SynthDef("help-DigitalOut", { |out = 0|
+    DigitalOut.ar(0, SinOsc.ar(10));
 }).play;
 )</textarea>
 

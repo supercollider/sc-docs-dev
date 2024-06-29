@@ -98,18 +98,18 @@ Bag["abc", "def", "ghi"].add("def").postln;</textarea>
 </div><h3><a class='anchor' name='Iteration'>Iteration</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-do' href='./../Overviews/Methods.html#do'>do</a>(<span class='argstr'>function</span>)</h3>
 <div class='method'>
-<p>Evaluates <strong>function</strong> for each item in the Bag. The function is passed two arguments, the item and an integer index.<textarea class='editor'>Bag[1, 2, 3, 300].do({ arg item, i; item.postln });
+<p>Evaluates <strong>function</strong> for each item in the Bag. The function is passed two arguments, the item and an integer index.<textarea class='editor'>Bag[1, 2, 3, 300].do({ |item, i| item.postln });
 
-Bag[1, 2, 2, 3, 300].do({ arg item, i; item.postln });</textarea>
+Bag[1, 2, 2, 3, 300].do({ |item, i| item.postln });</textarea>
 
 <p><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>function<td class='argumentdesc'>
 <p>args to function: item, i</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-countsDo' href='./../Overviews/Methods.html#countsDo'>countsDo</a>(<span class='argstr'>function</span>)</h3>
 <div class='method'>
-<p>Evaluates <strong>function</strong> for each unique item in the Bag along with that item's count. The function is passed two arguments, the item, the quantity of that item in the Bag and an integer index.<textarea class='editor'>Bag[1, 2, 3, 300].countsDo({ arg item, count, i; [item,count].postln });
+<p>Evaluates <strong>function</strong> for each unique item in the Bag along with that item's count. The function is passed two arguments, the item, the quantity of that item in the Bag and an integer index.<textarea class='editor'>Bag[1, 2, 3, 300].countsDo({ |item, count, i| [item, count].postln });
 
-Bag[1, 2, 2, 3, 300].countsDo({ arg item, count, i; [item,count].postln });</textarea>
+Bag[1, 2, 2, 3, 300].countsDo({ |item, count, i| [item, count].postln });</textarea>
 </div><h3><a class='anchor' name='Testing'>Testing</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-includes' href='./../Overviews/Methods.html#includes'>includes</a>(<span class='argstr'>item</span>)</h3>
 <div class='method'>

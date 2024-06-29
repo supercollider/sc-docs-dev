@@ -58,7 +58,7 @@ b = RootNode(s);
 
 a === b; // identical object</textarea>
 
-<p>sending <code>"/s_new"</code> messages to the server, the target 0 is what is represented by this object.<textarea class='editor'>s.sendMsg("/s_new", "default", -1, 0, 0);//the last argument is the target id</textarea>
+<p>sending <code>"/s_new"</code> messages to the server, the target 0 is what is represented by this object.<textarea class='editor'>s.sendMsg("/s_new", "default", -1, 0, 0); // the last argument is the target id</textarea>
 
 <p>IMPORTANT: In general one should <strong>not</strong> add nodes to the RootNode unless one has a specific reason to do so. Instead one should add nodes to the default_group. This provides a known basic node order and protects functionality like Server.record, Server.scope, etc. The default group is the default target for all new nodes, so when using object style nodes will normally not be added to the RootNode unless that is explicitly specified. See <a href="./../Reference/default_group.html">Default Group</a> for more information.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>

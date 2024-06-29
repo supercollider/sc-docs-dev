@@ -113,7 +113,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Layout%20management%20on%20the%20canvas'>Layout management on the canvas</a></h3>
 
 <p>By replacing the canvas of the ScrollView with a View, and installing a layout on it, the contents will expand to the edge of the ScrollView, and only exceed the edge if necessary.<textarea class='editor'>(
-var scroll = ScrollView(bounds:Rect(0,0,300,300).center_(Window.availableBounds.center));
+var scroll = ScrollView(bounds: Rect(0, 0, 300, 300).center_(Window.availableBounds.center));
 var canvas = View();
 var layout;
 var i = 0;
@@ -121,8 +121,8 @@ var i = 0;
 var makeEntry = {
     var view = View().background_(Color.rand).layout_(
         HLayout(
-            TextField().string_( ("This is entry number " + i.asString) ),
-            Button().states_([["Delete"]]).action_({view.remove; i = i - 1;})
+            TextField().string_(("This is entry number " + i.asString)),
+            Button().states_([["Delete"]]).action_({ view.remove; i = i - 1 })
         )
     );
     i = i + 1;
@@ -130,7 +130,7 @@ var makeEntry = {
 };
 
 layout = VLayout();
-layout.add ( View().background_(Color.black).layout_(
+layout.add (View().background_(Color.black).layout_(
     HLayout(
         Button().states_([["Add"]]).action_({ layout.insert(makeEntry.(), i) }),
         nil // stretch remaining empty space
@@ -138,7 +138,7 @@ layout.add ( View().background_(Color.black).layout_(
 ));
 
 canvas.layout = layout;
-10.do { canvas.layout.add( makeEntry.() ) };
+10.do { canvas.layout.add(makeEntry.()) };
 canvas.layout.add(nil); // stretch remaining empty space
 
 scroll.canvas = canvas;
@@ -181,7 +181,7 @@ a.action = { var origin;
 };
 
 drawFunc = {
-    30.do({arg i;
+    30.do({ |i|
         (i+1).asString.drawAtPoint((i+1 * 20)@0, Font("Courier", 9), Color.black);
     });
 };

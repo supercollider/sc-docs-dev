@@ -153,13 +153,13 @@ c.value.postln;    // evaluate c and print the result
 <h3><a class='anchor' name='Access'>Access</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-def' href='./../Overviews/Methods.html#def'>def</a></h3>
 <div class='method'>
-<p>Get the definition ( FunctionDef ) of the Function.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isClosed' href='./../Overviews/Methods.html#isClosed'>isClosed</a></h3>
+<p>Get the definition (FunctionDef) of the Function.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isClosed' href='./../Overviews/Methods.html#isClosed'>isClosed</a></h3>
 <div class='method'>
 <p>returns true if the function is closed, i.e. has no external references and can thus be converted to a compile string safely.</div><h3><a class='anchor' name='Evaluation'>Evaluation</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a>( <span class='argstr'>... args</span>)</h3>
 <div class='method'>
 <p>Evaluates the FunctionDef referred to by the Function. The Function is passed the args given.<textarea class='editor'>{ |a, b| (a * b).postln }.value(3, 10);
-{ arg a, b; (a * b).postln }.value(3, 10); // different way of expressing the same</textarea>
+{ |a, b| (a * b).postln }.value(3, 10); // different way of expressing the same</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-valueArray' href='./../Overviews/Methods.html#valueArray'>valueArray</a>( <span class='argstr'>... args</span>)</h3>
 <div class='method'>
 <p>Evaluates the FunctionDef referred to by the Function. If the last argument is an Array or List, then it is unpacked and appended to the other arguments (if any) to the Function. If the last argument is not an Array or List then this is the same as the 'value' method.<textarea class='editor'>{ |a, b, c| ((a * b) + c).postln }.valueArray([3, 10, 7]);
@@ -208,13 +208,13 @@ a.performKeyValuePairs(\value, [\a, 1, \b, 2, \c, 3, \d, 4]);</textarea>
 <p>A Symbol representing a method selector.<tr><td class='argumentname'>pairs<td class='argumentdesc'>
 <p>Array or List with key-value pairs.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-loop' href='./../Overviews/Methods.html#loop'>loop</a></h3>
 <div class='method'>
-<p>Repeat this function. Useful with Task and Clocks.<textarea class='editor'>t = Task({ { "I'm loopy".postln; 1.wait;}.loop });
+<p>Repeat this function. Useful with Task and Clocks.<textarea class='editor'>t = Task({ { "I'm loopy".postln; 1.wait }.loop });
 t.start;
 t.stop;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-defer' href='./../Overviews/Methods.html#defer'>defer</a>(<span class='argstr'>delta</span>)</h3>
 <div class='method'>
 <p>Delay the evaluation of this Function by <code>delta</code> in seconds on AppClock.
-<p>This is equivalent to <code>AppClock.sched(0, function)</code> unless <code>delta</code> is <code>nil</code>. In that case the function is only scheduled if current code is not running on AppClock, otherwise the function is evaluated immediately.<textarea class='editor'>{ "2 seconds have passed.".postln; }.defer(2);
+<p>This is equivalent to <code>AppClock.sched(0, function)</code> unless <code>delta</code> is <code>nil</code>. In that case the function is only scheduled if current code is not running on AppClock, otherwise the function is evaluated immediately.<textarea class='editor'>{ "2 seconds have passed.".postln }.defer(2);
 
 (
 { "chicken".postln }.defer(0); // schedules on the AppClock
@@ -229,7 +229,7 @@ fork { // schedules on a TempoClock
 )</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dup' href='./../Overviews/Methods.html#dup'>dup</a>(<span class='argstr'>n: 2</span>)</h3>
 <div class='method'>
-<p>Return an Array consisting of the results of n evaluations of this Function.<textarea class='editor'>x = { 4.rand; }.dup(4);
+<p>Return an Array consisting of the results of n evaluations of this Function.<textarea class='editor'>x = { 4.rand }.dup(4);
 x.postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-!' href='./../Overviews/Methods.html#!'>!</a>(<span class='argstr'>n</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Object.html'>Object</a></div>
@@ -244,19 +244,19 @@ x.postln;</textarea>
 <p>evaluates the function. This makes it polymorphic to SequenceableCollection, Bag and Set.<textarea class='editor'>[{ 100.rand }, [20, 30, 40]].collect(_.choose);</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-bench' href='./../Overviews/Methods.html#bench'>bench</a>(<span class='argstr'>print: true</span>)</h3>
 <div class='method'>
-<p>Returns the amount of time this function takes to evaluate. print is a boolean indicating whether the result is posted. The default is true.<textarea class='editor'>{ 1000000.do({ 1.0.rand }); }.bench;</textarea>
+<p>Returns the amount of time this function takes to evaluate. print is a boolean indicating whether the result is posted. The default is true.<textarea class='editor'>{ 1000000.do({ 1.0.rand }) }.bench;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-fork' href='./../Overviews/Methods.html#fork'>fork</a>(<span class='argstr'>clock</span>, <span class='argstr'>quant</span>, <span class='argstr'>stackSize</span>)</h3>
 <div class='method'>
-<p>Returns a Routine using the receiver as it's function, and plays it in a TempoClock.<textarea class='editor'>{ 4.do({ "Threading...".postln; 1.wait;}) }.fork;</textarea>
+<p>Returns a Routine using the receiver as it's function, and plays it in a TempoClock.<textarea class='editor'>{ 4.do({ "Threading...".postln; 1.wait }) }.fork;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-forkIfNeeded' href='./../Overviews/Methods.html#forkIfNeeded'>forkIfNeeded</a>(<span class='argstr'>clock</span>, <span class='argstr'>quant</span>, <span class='argstr'>stackSize</span>)</h3>
 <div class='method'>
-<p>If needed, creates a new Routine to evaluate the function in, if the message is called within a routine already, it simply evaluates it.<textarea class='editor'>f = { 4.do({ "Threading...".postln; 1.wait;}) };
+<p>If needed, creates a new Routine to evaluate the function in, if the message is called within a routine already, it simply evaluates it.<textarea class='editor'>f = { 4.do({ "Threading...".postln; 1.wait }) };
 f.forkIfNeeded;
 { "we are now in a routine".postln; 1.wait; f.forkIfNeeded }.fork;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-block' href='./../Overviews/Methods.html#block'>block</a></h3>
 <div class='method'>
-<p>Break from a loop. Calls the receiver with an argument which is a function that returns from the method block. To exit the loop, call .value on the function passed in. You can pass a value to this function and that value will be returned from the block method.<textarea class='editor'>block {|break|
-    100.do {|i|
+<p>Break from a loop. Calls the receiver with an argument which is a function that returns from the method block. To exit the loop, call .value on the function passed in. You can pass a value to this function and that value will be returned from the block method.<textarea class='editor'>block { |break|
+    100.do { |i|
         i.postln;
         if (i == 7) { break.value(999) }
     };
@@ -270,24 +270,24 @@ x.value;</textarea>
 <div class='method'>
 <p>Return a function that, when evaluated with nested arguments, does multichannel expansion by evaluating the receiver function for each channel. A flopped function responds like the "map" function in languages like Lisp. The new function always returns an array.<textarea class='editor'>// multichannel expansion for if, here to protect from division by zero:
 f = { |a, b| if(b != 0) { a / b } { 0 } }.flop;
-f.value([1, 2, 3, 4], [0, 10, 1000]); //  -&gt; [ 0, 0.2, 0.003, 0 ]
-f.value(2, 4); // [ 0.5 ] (always returns an array)
+f.value([1, 2, 3, 4], [0, 10, 1000]); //  -&gt; [0, 0.2, 0.003, 0]
+f.value(2, 4); // [0.5] (always returns an array)
 
 // strings don't expand
 f = { |a, b| a + b }.flop;
-f.("hello", ["world", "algorithm"]); // -&gt; [ hello world, hello algorithm ]
-f.("hello", "world"); // -&gt; [ hello world ]</textarea>
+f.("hello", ["world", "algorithm"]); // -&gt; [hello world, hello algorithm]
+f.("hello", "world"); // -&gt; [hello world]</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-flop1' href='./../Overviews/Methods.html#flop1'>flop1</a></h3>
 <div class='method'>
 <p>Same as <a href="#flop">flop</a>, return only an array if the arguments also contains an array. This can be used to implement <a href="./../Guides/Multichannel-Expansion.html">Multichannel Expansion</a>.<textarea class='editor'>// multichannel expansion for if, here to protect from division by zero:
 f = { |a, b| if(b != 0) { a / b } { 0 } }.flop1;
-f.value([1, 2, 3, 4], [0, 10, 1000]); //  -&gt; [ 0, 0.2, 0.003, 0 ]
+f.value([1, 2, 3, 4], [0, 10, 1000]); //  -&gt; [0, 0.2, 0.003, 0]
 f.value([2], 4); // -&gt; [0.5]
 f.value(2, 4); // -&gt; 0.5
 
 // strings don't expand, like in flop
 f = { |a, b| a + b }.flop1;
-f.("hello", ["world", "algorithm"]); // -&gt; [ hello world, hello algorithm ]
+f.("hello", ["world", "algorithm"]); // -&gt; [hello world, hello algorithm]
 f.("hello", "world"); // -&gt; hello world</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-envirFlop' href='./../Overviews/Methods.html#envirFlop'>envirFlop</a></h3>
 <div class='method'>
@@ -338,7 +338,7 @@ x.postln;
 <div class='method'>
 <p>use a function as a conversion from scale degree to note number. See also SequenceableCollection and Scale<textarea class='editor'>// a strange mapping
 (
-var f = {|degree, stepsPerOctave, acc|
+var f = { |degree, stepsPerOctave, acc|
     (1.8 ** (degree % stepsPerOctave) + acc).postln
 };
 Pbind(
@@ -386,7 +386,7 @@ x.release(4); // fadeout over 4 seconds</textarea>
 
 <p>Many of the examples make use of the Function.play syntax. Note that reusing such code in a SynthDef requires the addition of an Out ugen.<textarea class='editor'>// the following two lines produce equivalent results
 { SinOsc.ar(440, 0, 0.3) }.play(fadeTime: 0.0);
-SynthDef(\help_FuncPlay, { Out.ar(0, SinOsc.ar(440, 0, 0.3))}).play;</textarea>
+SynthDef(\help_FuncPlay, { Out.ar(0, SinOsc.ar(440, 0, 0.3)) }).play;</textarea>
 
 <p>Function.play is often more convenient than SynthDef.play, particularly for short examples and quick testing. The latter does have some additional options, such as lagtimes for controls, etc. Where reuse and maximum flexibility are of greater importance, SynthDef and its various methods are usually the better choice.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-scope' href='./../Overviews/Methods.html#scope'>scope</a>: METHOD NOT FOUND!</h3>
 <div class='method'>
@@ -403,7 +403,7 @@ SynthDef(\help_FuncPlay, { Out.ar(0, SinOsc.ar(440, 0, 0.3))}).play;</textarea>
 <p><div class='note'><span class='notelabel'>NOTE:</span> See <a href="./../Reference/plot.html">plot</a> for a general reference on plotting</div>
 <p>Calculates duration in seconds worth of the output of this function asynchronously, and plots it in a GUI window. Unlike play and scope it will not work with explicit Out UGens, so your function should return a UGen or an Array of them. The plot will be calculated in realtime.<textarea class='editor'>{ SinOsc.ar(440) }.plot(0.01, bounds: Window.screenBounds);
 
-{ {|i| SinOsc.ar(1 + i)}.dup(7) }.plot(1);</textarea>
+{ { |i| SinOsc.ar(1 + i) }.dup(7) }.plot(1);</textarea>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>duration<td class='argumentdesc'>
@@ -426,10 +426,10 @@ var synth = { Out.ar(99, SinOsc.ar([300, 700])) }.play;
 <p>A function that is called when the buffer is filled. It is passed the buffer as argument.<tr><td class='argumentname'>fadeTime<td class='argumentdesc'>
 <p>A fade in and out time in seconds. Only when greater than zero, an envelope is applied to the signal to avoid clicks (default: 0).</table><h4>Discussion:</h4>
 <textarea class='editor'>// record a buffer
-b = { Blip.ar(XLine.kr(10000, 4, 3) * [1, 1.2], 20) * 0.1 }.asBuffer(3, fadeTime:0.1)
+b = { Blip.ar(XLine.kr(10000, 4, 3) * [1, 1.2], 20) * 0.1 }.asBuffer(3, fadeTime: 0.1)
 b.plot; // after 3 seconds, you can see it.
 // play the soundfile back
-{ PlayBuf.ar(b.numChannels, b, LFNoise2.kr(2 ! 8).exprange(0.15, 1), loop:1).sum }.play;</textarea>
+{ PlayBuf.ar(b.numChannels, b, LFNoise2.kr(2 ! 8).exprange(0.15, 1), loop: 1).sum }.play;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-loadToFloatArray' href='./../Overviews/Methods.html#loadToFloatArray'>loadToFloatArray</a>(<span class='argstr'>duration: 0.01</span>, <span class='argstr'>target</span>, <span class='argstr'>action</span>)</h3>
 <div class='method'>
 <p>Write a UGen function to a file and then load it into a FloatArray.<h4>Arguments:</h4>
@@ -438,13 +438,13 @@ b.plot; // after 3 seconds, you can see it.
 <p>Amount of data to record in seconds<tr><td class='argumentname'>target<td class='argumentdesc'>
 <p>A server, synth, or group where to place the synth that plays the function<tr><td class='argumentname'>action<td class='argumentdesc'>
 <p>A function to call when writing is finished.<textarea class='editor'>// get some data from the synth audio
-{ SinOsc.ar + GrayNoise.ar(0.1) }.loadToFloatArray(0.01, action: { arg array; a = array });
+{ SinOsc.ar + GrayNoise.ar(0.1) }.loadToFloatArray(0.01, action: { |array| a = array });
 a.postln;
 a.plot;
 
 // place it after some other node:
 z = { WhiteNoise.ar * 0.1 }.play; // play some noise
-{ BPF.ar(In.ar(0), 7000, 0.01) * 10 }.loadToFloatArray(0.01, z, action: { arg array; a = array });
+{ BPF.ar(In.ar(0), 7000, 0.01) * 10 }.loadToFloatArray(0.01, z, action: { |array| a = array });
 a.postln;</textarea>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-getToFloatArray' href='./../Overviews/Methods.html#getToFloatArray'>getToFloatArray</a>(<span class='argstr'>duration: 0.01</span>, <span class='argstr'>target</span>, <span class='argstr'>action</span>, <span class='argstr'>wait: 0.01</span>, <span class='argstr'>timeout: 3</span>)</h3>
 <div class='method'>
@@ -459,7 +459,7 @@ a.postln;</textarea>
 
 <p>For a discussion of the difference between getToFloatArray and loadToFloatArray, see <a href="./../Classes/Buffer.html#-getToFloatArray">Buffer: -getToFloatArray</a> and <a href="./../Classes/Buffer.html#-loadToFloatArray">Buffer: -loadToFloatArray</a>.<textarea class='editor'>// get some data from the synth audio
 
-{ SinOsc.ar + GrayNoise.ar(0.1) }.getToFloatArray(0.01, action: { arg array; a = array });
+{ SinOsc.ar + GrayNoise.ar(0.1) }.getToFloatArray(0.01, action: { |array| a = array });
 a.postln;
 a.plot;</textarea>
 </div><h3><a class='anchor' name='Conversion'>Conversion</a></h3>
@@ -490,7 +490,7 @@ a.nextN(8);</textarea>
 x = a.asStream;
 x.nextN(8);</textarea>
 
-<p>This is useful for using ListComprehensions in Patterns:<textarea class='editor'>Pbind(\degree, p {:[x, y].postln, x&lt;-(0..10), y&lt;-(0..10), (x + y).isPrime }, \dur, 0.3).play;</textarea>
+<p>This is useful for using ListComprehensions in Patterns:<textarea class='editor'>Pbind(\degree, p { :[x, y].postln, x&lt;-(0..10), y&lt;-(0..10), (x + y).isPrime }, \dur, 0.3).play;</textarea>
 </div><h3><a class='anchor' name='Bela'>Bela</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-belaScope' href='./../Overviews/Methods.html#belaScope'>belaScope</a>(<span class='argstr'>scopeChannel</span>, <span class='argstr'>target</span>, <span class='argstr'>numChannels</span>, <span class='argstr'>outbus: 0</span>, <span class='argstr'>fadeTime: 0.02</span>, <span class='argstr'>addAction: 'addToHead'</span>, <span class='argstr'>args</span>)</h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Audio/Bela/BelaScope.sc'>/usr/local/share/SuperCollider/SCClassLibrary/Common/Audio/Bela/BelaScope.sc</a></div>
@@ -546,25 +546,25 @@ x.nextN(8);</textarea>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <h3><a class='anchor' name='Exception%20Handling%20Examples'>Exception Handling Examples</a></h3>
 <textarea class='editor'>// no exception handler
-value { 8.zorg; \didnt_continue.postln; }
+value { 8.zorg; \didnt_continue.postln }
 
-try { 8.zorg } {|error| error.postln; \cleanup.postln; }; \continued.postln;
+try { 8.zorg } { |error| error.postln; \cleanup.postln }; \continued.postln;
 
-protect { 8.zorg } {|error| error.postln; }; \didnt_continue.postln;</textarea>
-<textarea class='editor'>try { 123.postln; 456.throw; 789.postln } {|error| [\catch, error].postln };
+protect { 8.zorg } { |error| error.postln }; \didnt_continue.postln;</textarea>
+<textarea class='editor'>try { 123.postln; 456.throw; 789.postln } { |error| [\catch, error].postln };
 
-try { 123.postln; 789.postln } {|error| [\catch, error].postln };
+try { 123.postln; 789.postln } { |error| [\catch, error].postln };
 
-try { 123.postln; nil.throw; 789.postln } {|error| [\catch, error].postln };
+try { 123.postln; nil.throw; 789.postln } { |error| [\catch, error].postln };
 
-protect { 123.postln; 456.throw; 789.postln } {|error| [\onExit, error].postln };
+protect { 123.postln; 456.throw; 789.postln } { |error| [\onExit, error].postln };
 
-protect { 123.postln; 789.postln } {|error| [\onExit, error].postln };
+protect { 123.postln; 789.postln } { |error| [\onExit, error].postln };
 
 (
 try {
-    protect { 123.postln; 456.throw; 789.postln } {|error| [\onExit, error].postln };
-} {|error| [\catch, error].postln };
+    protect { 123.postln; 456.throw; 789.postln } { |error| [\onExit, error].postln };
+} { |error| [\catch, error].postln };
 )
 
 value { 123.postln; 456.throw; 789.postln }
@@ -583,7 +583,7 @@ try {
     a[1].postln;
     a[\x].postln;
     a[2].postln;
-} {|error| \caught.postln; error.dump }
+} { |error| \caught.postln; error.dump }
 )
 
 (
@@ -592,7 +592,7 @@ try {
     a[1].postln;
     a[\x].postln;
     a[2].postln;
-} {|error| \caught.postln; error.dump; error.throw }
+} { |error| \caught.postln; error.dump; error.throw }
 )
 
 (
@@ -601,7 +601,7 @@ protect {
     a[1].postln;
     a[\x].postln;
     a[2].postln;
-} {|error| \caught.postln; error.dump }
+} { |error| \caught.postln; error.dump }
 )</textarea>
 <div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Function.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Function.schelp</a><br>link::Classes/Function::<br></div></div><script src='./../editor.js' type='text/javascript'></script>
 </body></html>

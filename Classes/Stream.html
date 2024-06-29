@@ -104,7 +104,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <textarea class='editor'>// Example 2: the reset function
 (
     f = { 33.rand };
-    x = FuncStream(f, {thisThread.randSeed_(345)});
+    x = FuncStream(f, { thisThread.randSeed_(345) });
     x.reset;
     10.do({ [f.next, x.next].postln });
     x.reset;
@@ -126,7 +126,7 @@ var scdoc_sc_version = '3.14.0-dev';
 (
     x = Routine({
         4.do({
-            [1,2,3,4].do({ arg i; i.yield; });
+            [1, 2, 3, 4].do({ |i| i.yield });
         });
     });
     17.do({ x.next.postln });
@@ -166,13 +166,13 @@ SystemClock.sched(0.0,
 Routine({ loop {
     "***".postln; 0.5.wait;
     "_*_".postln; 0.1.wait;
-} }).play(quant:[1, 0.4]);
+} }).play(quant: [1, 0.4]);
 )</textarea>
 
 <p>Streams that return <strong>Events</strong> need to be wrapped in an <a href="./../Classes/EventStreamPlayer.html">EventStreamPlayer</a>. The Event's <strong>delta</strong> (can also be set by <strong>dur</strong>) is used as a scheduling beats value:<textarea class='editor'>// play at the next beat, with offset 0.4
 (
 Routine({ loop {
-    "///".postln; (delta:0.5).yield;
+    "///".postln; (delta: 0.5).yield;
     "_/_".postln; (delta: 0.1).wait;
 } }).asEventStreamPlayer.play;
 )</textarea>
@@ -185,7 +185,7 @@ Routine({ loop {
 (
 x = Routine({
     2.do({
-        [1,2,3,4].do({ arg i; i.yield; });
+        [1, 2, 3, 4].do({ |i| i.yield });
     });
 });
 y = Routine({
@@ -201,7 +201,7 @@ y = Routine({
 <p>Routines can be <strong>concatenated</strong> just like Streams:<textarea class='editor'>(
 x = Routine({
     2.do({
-        [1,2,3,4].do({ arg i; i.yield; });
+        [1, 2, 3, 4].do({ |i| i.yield });
     });
 });
 y = Routine({
@@ -213,9 +213,9 @@ z = x ++ y;
 )</textarea>
 
 <p>Routines can be <strong>combined</strong> with the composition operator &lt;&gt;<textarea class='editor'>(
-x = Routine({ arg inval;
+x = Routine({ |inval|
     2.do({
-        [1,2,3,4].do({ arg i;
+        [1, 2, 3, 4].do({ |i|
             if(inval.isNil) { nil.alwaysYield };
             inval = (i * inval).yield;
         });
@@ -234,7 +234,7 @@ z = x &lt;&gt; y;
 
 <p>Streams support most of the unary messages defined in <a href="./../Classes/AbstractFunction.html">AbstractFunction</a> :<textarea class='editor'>(
 a = Routine({ 20.do({ 33.rand.yield }) });
-b = Routine({ [-100,00,300,400].do({ arg v; v.yield}) });
+b = Routine({ [-100, 00, 300, 400].do({ |v| v.yield }) });
 
 c = b.neg; // define a composite stream
 
@@ -248,9 +248,9 @@ c = b.neg; // define a composite stream
     \distort, \softclip, \coin, \even, \odd, \isPositive, \isNegative,
     \isStrictlyPositive
 ]
-.do({ arg msg;
+.do({ |msg|
     postf("\n msg: % \n", msg);
-    b.reset.perform(msg).do({arg v; v.post; " ".post;});
+    b.reset.perform(msg).do({ |v| v.post; " ".post });
 });
 nil;
 )</textarea>
@@ -258,17 +258,18 @@ nil;
 
 <p>Streams support the following binary messages defined in <a href="./../Classes/AbstractFunction.html">AbstractFunction</a> :<textarea class='editor'>(
 a = Routine({ 20.do({ 33.rand.yield }) });
-b = Routine({ [-100,00,300,400].do({ arg v; v.yield}) });
+b = Routine({ [-100, 00, 300, 400].do({ |v| v.yield }) });
 [
-    '+' , '-' , '*', '/', \div, '%', '**', \min, \max, '&lt;', '&lt;=', '&gt;', '&gt;=', '&amp;', '|',
+    '+', '-', '*', '/', \div, '%', '**', 
+    '&lt;', '&lt;=', '&gt;', '&gt;=', '&amp;', '|', \min, \max,
     \bitXor, \lcm, \gcd, \round, \trunc, \atan2,
     \hypot, '&gt;&gt;', '+&gt;&gt;', \ring1, \ring2, \ring3, \ring4,
     \difsqr, \sumsqr, \sqrdif, \absdif, \amclip,
     \scaleneg, \clip2, \excess, '&lt;!', \rrand, \exprand
 ]
-.do({ arg msg;
+.do({ |msg|
     postf("\n msg: % \n", msg);
-    b.reset.perform(msg).do({ arg v; v.post; " ".post; });
+    b.reset.perform(msg).do({ |v| v.post; " ".post });
 });
 nil;
 )</textarea>

@@ -77,7 +77,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 // transparent usage in chains:
 // scoping LFNoise0 before and after .range, while still using it to modulate SinOsc
-{ SinOsc.ar(LFNoise0.kr(10).belaScope(0).range(20,100).belaScope(1)) }.play</textarea>
+{ SinOsc.ar(LFNoise0.kr(10).belaScope(0).range(20, 100).belaScope(1)) }.play</textarea>
 </div></div><h3 class='method-code'><span class='method-prefix'>BelaScope.</span><a class='method-name' name='*monitorBus' href='./../Overviews/Methods.html#monitorBus'>monitorBus</a>(<span class='argstr'>channelOffset</span>, <span class='argstr'>busindex</span>, <span class='argstr'>numChannels</span>, <span class='argstr'>target</span>, <span class='argstr'>rate: 'audio'</span>)</h3>
 <div class='method'>
 <p>Scope a Bus on Bela's oscilloscope<h4>Arguments:</h4>
@@ -110,14 +110,14 @@ Bus(\audio, 4, 2, ~belaServer).belaScope(3)</textarea>
 
 // UGens: usage like .poll
 // scope the LFNoise0, and still use it to modulate a SinOsc
-{ var freq = LFNoise0.kr.range(20,2000); SinOsc.ar(freq.belaScope(0)) }.play(~belaServer)
+{ var freq = LFNoise0.kr.range(20, 2000); SinOsc.ar(freq.belaScope(0)) }.play(~belaServer)
 
 // scope an Array of UGens:
-{ var freq = LFNoise0.kr.range(20,2000) ! 4; SinOsc.ar(freq.belaScope(0)) }.play(~belaServer)
+{ var freq = LFNoise0.kr.range(20, 2000) ! 4; SinOsc.ar(freq.belaScope(0)) }.play(~belaServer)
 
 // Bus: scope 3 channels from bus number 10 on Bela Oscilloscope's channel 4
 b = Bus(\audio, 10, 6, ~belaServer);
-{ SinOsc.ar }.play(~belaServer, outbus:b);
+{ SinOsc.ar }.play(~belaServer, outbus: b);
 b.belaScope(4);
 
 // Server: usage like .scope
@@ -128,7 +128,7 @@ b.belaScope(4);
 
 // Function: usage like .scope
 // play and scope a multi-output function; scope starting on BelaScope channel 4
-{ SinOsc.ar(LFNoise0.ar([1,2,3]).exprange(20,20000)) * LFNoise1.ar([1,2,3]).exprange(0.001, 0.1) }.belaScope(4, ~belaServer)</textarea>
+{ SinOsc.ar(LFNoise0.ar([1, 2, 3]).exprange(20, 20000)) * LFNoise1.ar([1, 2, 3]).exprange(0.001, 0.1) }.belaScope(4, ~belaServer)</textarea>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/BelaScope.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/BelaScope.schelp</a><br>link::Classes/BelaScope::<br></div></div><script src='./../editor.js' type='text/javascript'></script>
 </body></html>

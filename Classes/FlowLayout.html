@@ -73,15 +73,15 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Example:<textarea class='editor'>(
 w = Window.new.front;
-//change the gaps and margins to see how they work
-w.view.decorator = FlowLayout( w.view.bounds, 10@10, 20@5 );
-16.do{ Slider2D( w.view,80@80 ).background_( Color.rand ) };
+// change the gaps and margins to see how they work
+w.view.decorator = FlowLayout(w.view.bounds, 10@10, 20@5);
+16.do{ Slider2D(w.view, 80@80).background_(Color.rand) };
 )</textarea>
 
 <p>You can also write:<textarea class='editor'>(
 w = Window.new.front;
-w.addFlowLayout( 10@10, 20@5 ); // a shortcut method, see SCContainerView
-16.do{ Slider2D( w.view,80@80 ).background_( Color.rand ) };
+w.addFlowLayout(10@10, 20@5); // a shortcut method, see SCContainerView
+16.do{ Slider2D(w.view, 80@80).background_(Color.rand) };
 )</textarea>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
@@ -90,32 +90,32 @@ w.addFlowLayout( 10@10, 20@5 ); // a shortcut method, see SCContainerView
 <div class='method'>
 <p>Forces the decorator to start a new line:<textarea class='editor'>(
 w = Window.new;
-q = w.addFlowLayout( 10@10, 20@5 );
-Slider2D( w.view,140@140 ).background_( Color.rand );
+q = w.addFlowLayout(10@10, 20@5);
+Slider2D(w.view, 140@140).background_(Color.rand);
 q.nextLine;
-Slider2D( w.view,140@140 ).background_( Color.rand );
+Slider2D(w.view, 140@140).background_(Color.rand);
 w.front;
 )</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-indentedRemaining' href='./../Overviews/Methods.html#indentedRemaining'>indentedRemaining</a></h3>
 <div class='method'>
 <p>Returns and instance of <a href="./../Classes/Rect.html">Rect</a>. This is a very useful method which tells you how much space is left in a row, before the next row starts. The height of <code>indentedRemaining</code>, is the full height remaining in the FlowLayout.<textarea class='editor'>(
-//normally you will only use the width of indentedRemaining
+// normally you will only use the width of indentedRemaining
 w = Window.new;
-w.view.decorator = d = FlowLayout.new( w.view.bounds, 10@10, 20@5 );
-Slider2D( w.view,150@150 ).background_( Color.rand );
-Slider2D( w.view,150@150 ).background_( Color.rand );
-Slider( w.view, d.indentedRemaining.width@150) //fits this view perfectly to the right innerBounds
-    .background_( Color.rand );
+w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
+Slider2D(w.view, 150@150).background_(Color.rand);
+Slider2D(w.view, 150@150).background_(Color.rand);
+Slider(w.view, d.indentedRemaining.width@150) // fits this view perfectly to the right innerBounds
+    .background_(Color.rand);
 w.front;
 )</textarea>
 
-<p>Compare this with:<textarea class='editor'>( //here the third view is fit to both the right and bottom innerBounds
+<p>Compare this with:<textarea class='editor'>( // here the third view is fit to both the right and bottom innerBounds
 w = Window.new;
-w.view.decorator = d = FlowLayout.new( w.view.bounds, 10@10, 20@5 );
-Slider2D( w.view,140@140 ).background_( Color.rand );
-Slider2D( w.view,140@140 ).background_( Color.rand );
+w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
+Slider2D(w.view, 140@140).background_(Color.rand);
+Slider2D(w.view, 140@140).background_(Color.rand);
 d.nextLine;
-Slider2D( w.view, d.indentedRemaining ).background_( Color.rand );
+Slider2D(w.view, d.indentedRemaining).background_(Color.rand);
 w.front;
 )</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-bounds' href='./../Overviews/Methods.html#bounds'>bounds</a></h3>
@@ -145,10 +145,10 @@ w.front;
 <p>A number.</table><h4>Discussion:</h4>
 <textarea class='editor'>(
 w = Window.new;
-w.view.decorator = d = FlowLayout.new( w.view.bounds, 10@10, 20@5 );
-Slider2D( w.view,150@150 ).background_( Color.rand );
-d.left_(220); //manually set the new indentation
-Slider2D( w.view,150@150 ).background_( Color.rand );
+w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
+Slider2D(w.view, 150@150).background_(Color.rand);
+d.left_(220); // manually set the new indentation
+Slider2D(w.view, 150@150).background_(Color.rand);
 w.front;
 )</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-top' href='./../Overviews/Methods.html#top'>top</a></h3>
@@ -159,11 +159,11 @@ w.front;
 <p>A number.</table><h4>Discussion:</h4>
 <textarea class='editor'>(
 w = Window.new;
-w.view.decorator = d = FlowLayout.new( w.view.bounds, 10@10, 20@5 );
-Slider2D( w.view,150@150 ).background_( Color.rand );
-d.top_(50); //manually set the new indentation
-Slider2D( w.view,150@150 ).background_( Color.rand );
-Slider2D( w.view,150@150 ).background_( Color.rand );
+w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
+Slider2D(w.view, 150@150).background_(Color.rand);
+d.top_(50); // manually set the new indentation
+Slider2D(w.view, 150@150).background_(Color.rand);
+Slider2D(w.view, 150@150).background_(Color.rand);
 w.front;
 )</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-shift' href='./../Overviews/Methods.html#shift'>shift</a></h3>
@@ -176,11 +176,11 @@ w.front;
 <p>A number.</table><h4>Discussion:</h4>
 <textarea class='editor'>(
 w = Window.new;
-w.view.decorator = d = FlowLayout.new( w.view.bounds, 10@10, 20@5 );
-Slider2D( w.view,100@160 ).background_( Color.rand );
-Slider2D( w.view,150@150 ).background_( Color.rand );
+w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
+Slider2D(w.view, 100@160).background_(Color.rand);
+Slider2D(w.view, 150@150).background_(Color.rand);
 "first row maxHeight: " ++ d.maxHeight.postln;
-Slider2D( w.view,150@150 ).background_( Color.rand );
+Slider2D(w.view, 150@150).background_(Color.rand);
 "second row maxHeight: " ++ d.maxHeight.postln;
 w.front;
 )</textarea>
@@ -192,11 +192,11 @@ w.front;
 <p>A number.</table><h4>Discussion:</h4>
 <textarea class='editor'>(
 w = Window.new;
-w.view.decorator = d = FlowLayout.new( w.view.bounds, 10@10, 20@5 );
-Slider2D( w.view,100@160 ).background_( Color.rand );
+w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
+Slider2D(w.view, 100@160).background_(Color.rand);
 "first row maxRight: " ++ d.maxRight.postln;
-Slider2D( w.view,150@150 ).background_( Color.rand );
-Slider2D( w.view,150@150 ).background_( Color.rand );
+Slider2D(w.view, 150@150).background_(Color.rand);
+Slider2D(w.view, 150@150).background_(Color.rand);
 "second row maxRight: " ++ d.maxRight.postln;
 w.front;
 )</textarea>
@@ -205,12 +205,12 @@ w.front;
 <p>Gets a <a href="./../Classes/Rect.html">Rect</a> with <code>bounds.width</code> and <code>height = top + maxHeight</code>.<h4>Discussion:</h4>
 <textarea class='editor'>(
 w = Window.new;
-w.view.decorator = d = FlowLayout.new( w.view.bounds, 10@10, 10@5 );
-Slider2D( w.view,100@160 ).background_( Color.rand );
+w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 10@5);
+Slider2D(w.view, 100@160).background_(Color.rand);
 d.currentBounds.postln;
-Slider2D( w.view,150@150 ).background_( Color.rand );
+Slider2D(w.view, 150@150).background_(Color.rand);
 d.currentBounds.postln;
-Slider2D( w.view,150@150 ).background_( Color.rand );
+Slider2D(w.view, 150@150).background_(Color.rand);
 d.currentBounds.postln;
 w.front;
 )</textarea>
@@ -219,12 +219,12 @@ w.front;
 <p>Gets a <a href="./../Classes/Rect.html">Rect</a> with the space actually used.<h4>Discussion:</h4>
 <textarea class='editor'>(
 w = Window.new;
-w.view.decorator = d = FlowLayout.new( w.view.bounds, 10@10, 20@5 );
-Slider2D( w.view,100@160 ).background_( Color.rand );
+w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
+Slider2D(w.view, 100@160).background_(Color.rand);
 d.used.postln;
-Slider2D( w.view,150@150 ).background_( Color.rand );
+Slider2D(w.view, 150@150).background_(Color.rand);
 d.used.postln;
-Slider2D( w.view,150@150 ).background_( Color.rand );
+Slider2D(w.view, 150@150).background_(Color.rand);
 d.used.postln;
 w.front;
 )</textarea>

@@ -56,9 +56,9 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>AppClock.</span><a class='method-name' name='*sched' href='./../Overviews/Methods.html#sched'>sched</a>(<span class='argstr'>delta</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
 <p>The float you return specifies the delta to resched the function for. Returning nil will stop the task from being rescheduled.<textarea class='editor'>(
-AppClock.sched(0.0,{ arg time;
-    ["AppClock has been playing for ",time].postln;
-    rrand(0.1,0.9);
+AppClock.sched(0.0, { |time|
+    ["AppClock has been playing for ", time].postln;
+    rrand(0.1, 0.9);
 });
 )</textarea>
 
@@ -86,9 +86,9 @@ AppClock.schedAbs(t + 1.0, { "It is now % sec later".format(Main.elapsedTime - t
 var w, r;
 w = Window.new("trem", Rect(512, 256, 360, 130));
 w.front;
-r = Routine({ arg appClockTime;
-    ["AppClock has been playing for secs:",appClockTime].postln;
-    60.do({ arg i;
+r = Routine({ |appClockTime|
+    ["AppClock has been playing for secs:", appClockTime].postln;
+    60.do({ |i|
         0.05.yield;
         w.bounds = w.bounds.moveBy(10.rand2, 10.rand2);
         w.alpha = cos(i*0.1pi)*0.5+0.5;

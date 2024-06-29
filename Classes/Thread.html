@@ -159,18 +159,18 @@ thisThread.clock;</textarea>
 <p>Set the random number generator seed using a single integer.<h4>Discussion:</h4>
 
 <p>Example:<textarea class='editor'>g = thisThread.randSeed = 4;
-10.do{1.0.rand2.postln};</textarea>
+10.do{ 1.0.rand2.postln };</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-randData' href='./../Overviews/Methods.html#randData'>randData</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-randData' href='./../Overviews/Methods.html#randData'>randData</a> = <span class='argstr'>data</span></h3>
 <div class='method'>
 <p>Get or set the three integer array which defines the internal basis for the random number generator. You can use this to get back the exact same random number sequence, and it provides a mechanism for automatic replay for generative music.<h4>Discussion:</h4>
 
 <p>Example:<textarea class='editor'>g = thisThread.randData;
-10.do{1.0.rand2.postln};</textarea>
+10.do{ 1.0.rand2.postln };</textarea>
 
 <p><textarea class='editor'>// each time the seed is reset, the random number generation should give the same sequence
-thisThread.randData_(Int32Array[ -662787342, 1546785953, 1661466823 ]);
-10.do{1.0.rand2.postln};</textarea>
+thisThread.randData_(Int32Array[-662787342, 1546785953, 1661466823]);
+10.do{ 1.0.rand2.postln };</textarea>
 </div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-archiveAsCompileString' href='./../Overviews/Methods.html#archiveAsCompileString'>archiveAsCompileString</a></h3>

@@ -63,7 +63,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>A general purpose class for monitoring or crosslinking between busses. It supports multichannel expansion and crossfading between settings. It provides optimizations for playing contiguous channels to other contiguous busses (<a href="#-play">-play</a>) and for more complex routings, such as splitting, spreading etc to multiple channels (<a href="#-playN">-playN</a>). Monitor uses the existing set of <a href="./../Classes/SystemSynthDefs.html">SystemSynthDefs</a> to do this.<textarea class='editor'>{ Out.ar(87, SinOsc.ar(MouseX.kr(240, 1000, 1) * [1, 2, 3], 0, 0.2)) }.play; // play three sine tone on channels 87, 88, and 89
 x = Monitor.new; // create a new monitor
-x.play(fromIndex: 87, fromNumChannels: 3, toIndex:0, toNumChannels:2); // play them back to the stereo hardware channels</textarea>
+x.play(fromIndex: 87, fromNumChannels: 3, toIndex: 0, toNumChannels: 2); // play them back to the stereo hardware channels</textarea>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
@@ -93,9 +93,9 @@ x.play(89, 1, 0, 2); // in &lt; out : now distributes to 2 channels
 x.stop;
 
 // multiple play
-x.play(87, 1, 0, 2, multi:true);
-x.play(88, 1, 0, 2, multi:true);
-x.play(89, 1, 0, 2, multi:true);
+x.play(87, 1, 0, 2, multi: true);
+x.play(88, 1, 0, 2, multi: true);
+x.play(89, 1, 0, 2, multi: true);
 x.stop;</textarea>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-playN' href='./../Overviews/Methods.html#playN'>playN</a>(<span class='argstr'>out</span>, <span class='argstr'>amp</span>, <span class='argstr'>in</span>, <span class='argstr'>vol</span>, <span class='argstr'>fadeTime</span>, <span class='argstr'>target</span>, <span class='argstr'>addAction</span>, <span class='argstr'>multi: false</span>)</h3>
 <div class='method'>
@@ -129,7 +129,7 @@ x.playN(
     [87, 88, 89]);             // reading from these ins
 )
 // can also set global volume and fadetime
-x.playN(vol: 0.0, fadeTime:4);</textarea>
+x.playN(vol: 0.0, fadeTime: 4);</textarea>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-stop' href='./../Overviews/Methods.html#stop'>stop</a>(<span class='argstr'>argFadeTime</span>)</h3>
 <div class='method'>
 <p>Stops within the fadeTime.<div class='note'><span class='notelabel'>NOTE:</span> this keeps all the settings, so when using <code>play</code> next time, it will play in the same configuration, overriding only values provided.</div>

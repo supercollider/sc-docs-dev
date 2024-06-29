@@ -72,7 +72,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-setTempoAtSec' href='./../Overviews/Methods.html#setTempoAtSec'>setTempoAtSec</a>(<span class='argstr'>newTempo</span>, <span class='argstr'>secs</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-a = { |tempo=1| Ringz.ar(Impulse.ar(tempo), [501, 500], 1/tempo) }.play;
+a = { |tempo = 1| Ringz.ar(Impulse.ar(tempo), [501, 500], 1/tempo) }.play;
 t = TempoBusClock(a);
 Task { loop { "klink".postln; 1.wait } }.play(t);
 );

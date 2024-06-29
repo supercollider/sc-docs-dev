@@ -60,13 +60,13 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>buffer index for the fixed kernel of the left channel, may be modulated in combination with the trigger.<tr><td class='argumentname'>kernelR<td class='argumentdesc'>
 <p>buffer index for the fixed kernel of the right channel, may be modulated in combination with the trigger.<tr><td class='argumentname'>trigger<td class='argumentdesc'>
 <p>update the kernel on a change from &lt;= 0 to &gt; 0.<tr><td class='argumentname'>framesize<td class='argumentdesc'>
-<p>size of FFT frame, must be a power of two (512, 1024, 2048, 4096 are standard choices). Convolution uses twice this number internally. Note that the convolution gets progressively more expensive to run for higher powers! The maximum value you can use is 2^16=16384. (This upper limit is half of "SC_FFT_MAXSIZE" defined in the SC source code.) Larger convolutions than this can be done using <a href="./../Classes/PartConv.html">PartConv</a>.<tr><td class='argumentname'>crossfade<td class='argumentdesc'>
+<p>size of FFT frame, must be a power of two (512, 1024, 2048, 4096 are standard choices). Convolution uses twice this number internally. Note that the convolution gets progressively more expensive to run for higher powers! The maximum value you can use is 2^16 = 16384. (This upper limit is half of "SC_FFT_MAXSIZE" defined in the SC source code.) Larger convolutions than this can be done using <a href="./../Classes/PartConv.html">PartConv</a>.<tr><td class='argumentname'>crossfade<td class='argumentdesc'>
 <p>The number of periods over which a crossfade is made. The default is 1. This must be an integer.<tr><td class='argumentname'>mul<td class='argumentdesc'><tr><td class='argumentname'>add<td class='argumentdesc'></table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-//allocate three buffers
+// allocate three buffers
 b = Buffer.alloc(s, 2048);
 c = Buffer.alloc(s, 2048);
 d = Buffer.alloc(s, 2048);
@@ -77,9 +77,9 @@ d.zero;
 )
 
 (
-50.do({ |it| c.set(20 * it + 10, 1.0.rand); });
-3.do({ |it| b.set(400 * it + 100, 1); });
-20.do({ |it| d.set(40 * it + 20, 1); });
+50.do({ |it| c.set(20 * it + 10, 1.0.rand) });
+3.do({ |it| b.set(400 * it + 100, 1) });
+20.do({ |it| d.set(40 * it + 20, 1) });
 )
 
 
@@ -103,7 +103,7 @@ x.set(\kernel2, d);
 x.set(\t_trig, 1); // after this trigger, the change will take effect.
 
 d.zero;
-40.do({ |it| d.set(20 * it + 10, 1); }); // changing the buffers' contents
+40.do({ |it| d.set(20 * it + 10, 1) }); // changing the buffers' contents
 x.set(\t_trig, 1); // after this trigger, the change will take effect.
 
 x.set(\kernel1, b);

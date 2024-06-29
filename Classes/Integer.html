@@ -113,7 +113,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Math/Integer.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Math/Integer.sc'>Integer.sc</a></div></div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>A 32 bit integer. Integer inherits most of its behaviour from its superclass.<div class='note'><span class='notelabel'>NOTE:</span> A 32 bit signed integer can represent values in the range -2147483648 to 2147483647. Adding up further returns in a wrapped result, so that and 2147483647+1= -2147483648. For a larger range, one can use <a href="./../Classes/Float.html">Float</a>, which is 64 bit and supports many (but not all) numerical methods that int does.</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>A 32 bit integer. Integer inherits most of its behaviour from its superclass.<div class='note'><span class='notelabel'>NOTE:</span> A 32 bit signed integer can represent values in the range -2147483648 to 2147483647. Adding up further returns in a wrapped result, so that and 2147483647+1 = -2147483648. For a larger range, one can use <a href="./../Classes/Float.html">Float</a>, which is 64 bit and supports many (but not all) numerical methods that int does.</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Iteration'>Iteration</a></h3>
@@ -201,7 +201,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
 <p>a string with <code>width</code>-rightmost digits in base <code>base</code>.</div><h4>Discussion:</h4>
-<textarea class='editor'>15.asStringToBase(3,5); // returns 00120</textarea>
+<textarea class='editor'>15.asStringToBase(3, 5); // returns 00120</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asUnicode' href='./../Overviews/Methods.html#asUnicode'>asUnicode</a></h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
@@ -252,7 +252,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
 <p>the nth prime number. The receiver must be from 0 to 6541.</div><h4>Discussion:</h4>
-<textarea class='editor'>[0,1,2,3,4,5].collect({ arg i; i.nthPrime; }).postln;</textarea>
+<textarea class='editor'>[0, 1, 2, 3, 4, 5].collect({ |i| i.nthPrime }).postln;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-prevPrime' href='./../Overviews/Methods.html#prevPrime'>prevPrime</a></h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
@@ -288,9 +288,9 @@ var scdoc_sc_version = '3.14.0-dev';
 <li>the receiver if it is between <code>lo</code> and <code>hi</code><li><code>lo</code> if the receiver is less than <code>lo</code><li><code>hi</code> if the receiver is greater than <code>hi</code></ul>
 
 <p>The result is an Integer only if both <code>lo</code> and <code>hi</code> are Integers.</div><h4>Discussion:</h4>
-<textarea class='editor'>4.clip(2,5); // returns 4
-0.clip(2,5); // returns 2
-7.clip(2,5); // returns 5</textarea>
+<textarea class='editor'>4.clip(2, 5); // returns 4
+0.clip(2, 5); // returns 2
+7.clip(2, 5); // returns 5</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-factorial' href='./../Overviews/Methods.html#factorial'>factorial</a></h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
@@ -302,7 +302,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Folds in to a value between <code>lo</code> and <code>hi</code>.<h4>Returns:</h4>
 <div class='returnvalue'>
 <p>an Integer between <code>lo</code> and <code>hi</code>.</div><h4>Discussion:</h4>
-<textarea class='editor'>(0..12).fold(0,3); // returns [ 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1, 0 ]</textarea>
+<textarea class='editor'>(0..12).fold(0, 3); // returns [0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1, 0]</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-log2Ceil' href='./../Overviews/Methods.html#log2Ceil'>log2Ceil</a></h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
@@ -315,7 +315,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Wraps in to a value between <code>lo</code> and <code>hi</code>.<h4>Returns:</h4>
 <div class='returnvalue'>
 <p>an Integer between <code>lo</code> and <code>hi</code>.</div><h4>Discussion:</h4>
-<textarea class='editor'>(0..12).wrap(0,3); // returns [ 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0 ]</textarea>
+<textarea class='editor'>(0..12).wrap(0, 3); // returns [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0]</textarea>
 </div><h3><a class='anchor' name='Range%20Limiting'>Range Limiting</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clip' href='./../Overviews/Methods.html#clip'>clip</a>(<span class='argstr'>lo</span>, <span class='argstr'>hi</span>)</h3>
 <div class='method'>
@@ -345,7 +345,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
 <p>calls <code>function.value(receiver)</code> but returns the receiver.</div><h4>Discussion:</h4>
-<textarea class='editor'>f = { arg i; "foo".postln; i*2 }
+<textarea class='editor'>f = { |i| "foo".postln; i*2 }
 3.generate(f) // returns 3 but the function f is executed
 f.value(3) // returns 6</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isInteger' href='./../Overviews/Methods.html#isInteger'>isInteger</a></h3>

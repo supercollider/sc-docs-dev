@@ -65,7 +65,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-signalRange' href='./../Overviews/Methods.html#signalRange'>signalRange</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-SynthDef("help-Dust", { arg out=0;
+SynthDef("help-Dust", { |out = 0|
     Out.ar(out,
         Dust.ar(200, 0.5)
     )
@@ -73,7 +73,7 @@ SynthDef("help-Dust", { arg out=0;
 )
 
 (
-SynthDef("help-Dust", { arg out=0;
+SynthDef("help-Dust", { |out = 0|
     Out.ar(out,
         Dust.ar(XLine.kr(20000, 2, 10), 0.5)
     )

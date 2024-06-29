@@ -64,7 +64,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>See <a href="./../Guides/OSC_communication.html">OSC Communication</a> for more details.<h3><a class='anchor' name='Command%20paths'>Command paths</a></h3>
 
 <p>OSC commands sometimes include additional parameters to specify the right responder.
-<p>For example <code>/tr</code> commands, which are generated on the server by the <a href="./../Classes/SendTrig.html">SendTrig</a> UGen create an OSC packet consisting of: <code>[ /tr, nodeID, triggerID, value]</code>. This array actually specifies the source of value: <code>[ /tr, nodeID, triggerID]</code>. We will refer to that array as a command path.
+<p>For example <code>/tr</code> commands, which are generated on the server by the <a href="./../Classes/SendTrig.html">SendTrig</a> UGen create an OSC packet consisting of: <code>[/tr, nodeID, triggerID, value]</code>. This array actually specifies the source of value: <code>[/tr, nodeID, triggerID]</code>. We will refer to that array as a command path.
 <p>To create an OSCpathResponder for a specific trigger, the <strong>cmdName</strong> parameter is simply replaced by the complete command path.<h3><a class='anchor' name='Path%20defaults'>Path defaults</a></h3>
 
 <p>Any element of the command path array can be set to nil to create a responder that will handle multiple command paths.
@@ -76,7 +76,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>addr<td class='argumentdesc'>
 <p>An instance of <a href="./../Classes/NetAddr.html">NetAddr</a>, usually obtained from your server: server-addr. An address of nil will respond to messages from anywhere.<tr><td class='argumentname'>cmdPath<td class='argumentdesc'>
 <p>A command path, such as ['\c_set', bus index].<tr><td class='argumentname'>action<td class='argumentdesc'>
-<p>A <a href="./../Classes/Function.html">Function</a> that will be evaluated when a cmd of that name is received from addr. arguments: time, theResponder, message<div class='note'><span class='notelabel'>NOTE:</span> OSCresponderNode evaluates its function in the system process. In order to access the application process (e.g. for GUI access ) use { ... }.defer; within the action function, e.g., <code>{ |time, resp, msg| { gui.value_(msg[3]) }.defer }</code></div></table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p>A <a href="./../Classes/Function.html">Function</a> that will be evaluated when a cmd of that name is received from addr. arguments: time, theResponder, message<div class='note'><span class='notelabel'>NOTE:</span> OSCresponderNode evaluates its function in the system process. In order to access the application process (e.g. for GUI access) use { ... }.defer; within the action function, e.g., <code>{ |time, resp, msg| { gui.value_(msg[3]) }.defer }</code></div></table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
@@ -95,12 +95,12 @@ var scdoc_sc_version = '3.14.0-dev';
 (
     var commandpath, response, aSynth, nodeID, triggerID;
     triggerID = 1;
-    aSynth = { arg freq = 1, triggerID = 1;
+    aSynth = { |freq = 1, triggerID = 1|
         SendTrig.kr(SinOsc.kr(freq), triggerID, 666)
     }.play;
     nodeID = aSynth.nodeID;
     commandpath = ['/tr', nodeID, triggerID];
-    response = { arg time, responder, message; message.postln };
+    response = { |time, responder, message| message.postln };
 
     o = OSCpathResponder(s.addr, commandpath, response);
     o.add;
@@ -116,12 +116,12 @@ o.add;
 (
     var commandpath, response, aSynth, nodeID, triggerID;
     triggerID = 1;
-    aSynth = { arg freq = 1, triggerID = 1;
+    aSynth = { |freq = 1, triggerID = 1|
         SendTrig.kr(SinOsc.kr(freq), triggerID, 666)
     }.play;
     nodeID = aSynth.nodeID;
     commandpath = [nodeID, triggerID];
-    response = { arg message; message.postln };
+    response = { |message| message.postln };
 
     o = OSCFunc(response, '/tr', s.addr, argTemplate: commandpath);
 

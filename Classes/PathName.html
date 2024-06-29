@@ -173,7 +173,7 @@ myPath.isFolder.postln;
 <p>Iterates over all files found in the pathname, including ones in subfolders.<textarea class='editor'>(
 var myPath;
 myPath = PathName.new("./");
-myPath.filesDo{|afile| afile.postln};
+myPath.filesDo{ |afile| afile.postln };
 )</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-allFolders' href='./../Overviews/Methods.html#allFolders'>allFolders</a></h3>
 <div class='method'>
@@ -229,7 +229,7 @@ PathName("floating12_3A4X_56.7").nextName.postln;</textarea>
 
 <p>Here is an example that uses many instance methods. Just pick any file to see all the parts of its path.<textarea class='editor'>(
 FileDialog.new(
-    { arg ok, path;
+    { |ok, path|
     var myPathName;
     if (ok,
         {
@@ -254,7 +254,7 @@ FileDialog.new(
 
 <p>Choose a soundfile to put into the library, using its foldername and filename.<textarea class='editor'>(
 FileDialog.new(
-    { arg ok, path;
+    { |ok, path|
     var myPathName, myFile;
     if (ok,
         {
@@ -266,11 +266,11 @@ FileDialog.new(
             if (myFile.openRead(path),
                 {
                     Library.put(
-                        [ myPathName.folderName.asSymbol, myPathName.fileName.asSymbol ],
+                        [myPathName.folderName.asSymbol, myPathName.fileName.asSymbol],
                         myFile);
                     ("Check Library.global" + myPathName.folderName + "please.").postln;
                 },
-                { ("Could not read soundfile" + path ++ ".").postln; }
+                { ("Could not read soundfile" + path ++ ".").postln }
             );
             myFile.close;
         }
@@ -282,12 +282,12 @@ FileDialog.new(
 <p>Save three tables in the same folder. Note: The file name chosen in the dialog is ignored! The files are always named table1, table2, table3.<textarea class='editor'>(
 var table1, table2, table3;
 
-table1 = Wavetable.sineFill(1024, [1,2,3]);
+table1 = Wavetable.sineFill(1024, [1, 2, 3]);
 table2 = Signal.newClear.asWavetable;
 table3 = Wavetable.sineFill(1024, Array.rand(64, 0.0, 1.0));
 
 FileDialog.new(
-    { arg ok, path;
+    { |ok, path|
     var myPathName, myPathOnly;
     if (ok,
         {

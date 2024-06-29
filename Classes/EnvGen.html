@@ -130,7 +130,7 @@ var scdoc_sc_version = '3.14.0-dev';
 // an envelope in a SynthDef can be used to limit the synth's lifetime (doneAction: Done.freeSelf)
 
 (
-SynthDef(\env_help, { | out, gate = 0, freq = 440 |
+SynthDef(\env_help, { |out, gate = 0, freq = 440|
     var z;
     z = EnvGen.kr(Env.perc, doneAction: Done.freeSelf) * SinOsc.ar(freq, 0, 0.1);
     Out.ar(out, z)
@@ -149,7 +149,7 @@ fork {
 
 // using a gated envelope to gate a sound:
 (
-SynthDef(\env_help, { | out, gate = 0, freq = 440, doneAction = 0 |
+SynthDef(\env_help, { |out, gate = 0, freq = 440, doneAction = 0|
     var z = EnvGen.kr(Env.adsr, gate, doneAction: doneAction) * SinOsc.ar(freq, 0, 0.1);
     Out.ar(out, z)
 }).add;
@@ -184,18 +184,18 @@ SynthDef(\help_Env_newClear, { |out = 0|
 }).add;
 )
 
-Synth(\help_Env_newClear, [\gate, 1, \env, Env([700,900,900,800], [1,1,1], \exp)]); // 3 segments
+Synth(\help_Env_newClear, [\gate, 1, \env, Env([700, 900, 900, 800], [1, 1, 1], \exp)]); // 3 segments
 
 // reset then play again:
-Synth(\help_Env_newClear, [\gate, 1, \env, Env({ rrand(60, 70).midicps } ! 4, [1,1,1], \exp)]);
+Synth(\help_Env_newClear, [\gate, 1, \env, Env({ rrand(60, 70).midicps } ! 4, [1, 1, 1], \exp)]);
 
 // the same written as an event:
-(instrument: \help_Env_newClear, gate: 1, env: Env({ rrand(60, 70).midicps } ! 4, [1,1,1], \exp)).play;</textarea>
+(instrument: \help_Env_newClear, gate: 1, env: Env({ rrand(60, 70).midicps } ! 4, [1, 1, 1], \exp)).play;</textarea>
 <h3><a class='anchor' name='Forced%20release'>Forced release</a></h3>
 
 <p>If the gate of an EnvGen is set to -1 or below, then the envelope will cutoff immediately. The time for it to cutoff is the amount less than -1, with -1 being as fast as possible, -1.5 being a cutoff in 0.5 seconds, etc. The cutoff shape and final value are read from the Env's last node.<textarea class='editor'>(
 SynthDef(\stealMe, { |out, gate = 1|
-    Out.ar(out, {BrownNoise.ar}.dup * EnvGen.kr(Env.asr, gate, doneAction: Done.freeSelf))
+    Out.ar(out, { BrownNoise.ar }.dup * EnvGen.kr(Env.asr, gate, doneAction: Done.freeSelf))
 }).add;
 )
 
@@ -206,14 +206,14 @@ a.release(3); //  // cutoff in 3 seconds
 s.sendMsg(\s_new, \stealMe, 1001, 1, 0);
 s.sendMsg(\n_set, 1001, \gate, -1.1); // cutoff in 0.1 seconds</textarea>
 
-<p>If the synthDef has an arg named "gate", the convenience method of Node can be used: <code>node.release(releaseTime)</code><textarea class='editor'>d = { arg gate=1; {BrownNoise.ar}.dup * EnvGen.kr(Env.asr, gate, doneAction: Done.freeSelf) }.play;
+<p>If the synthDef has an arg named "gate", the convenience method of Node can be used: <code>node.release(releaseTime)</code><textarea class='editor'>d = { |gate = 1| { BrownNoise.ar }.dup * EnvGen.kr(Env.asr, gate, doneAction: Done.freeSelf) }.play;
 d.release(3);</textarea>
 
 <p>Forced release ignores multi-node release stages, always performing a one-node release, reading curve and end value from the Env's last node, and overwriting its duration.<textarea class='editor'>(
 // a Synth with a multi-node release stage
-d = { arg gate=1;
-    var env = Env([0,1,0,0.5,0],0.5,-4,releaseNode:1);
-    {BrownNoise.ar}.dup * EnvGen.kr(env, gate, doneAction: Done.freeSelf)
+d = { |gate = 1|
+    var env = Env([0, 1, 0, 0.5, 0], 0.5, -4, releaseNode: 1);
+    { BrownNoise.ar }.dup * EnvGen.kr(env, gate, doneAction: Done.freeSelf)
 }.play;
 )
 // forced release in 2 seconds:
@@ -226,7 +226,7 @@ d.release();</textarea>
 <textarea class='editor'>(
 {
     EnvGen.kr(
-        Env.new([ 0.001, 1, 0.5, 0 ], [ 0.01, 0.3, 1 ], -4, 2, nil),
+        Env.new([0.001, 1, 0.5, 0], [0.01, 0.3, 1], -4, 2, nil),
         Impulse.kr(10)
     ) * SinOsc.ar(440, 0, 0.1)
 }.play;
@@ -235,7 +235,7 @@ d.release();</textarea>
 (
 {
     EnvGen.kr(
-        Env.perc( 0.1, 0.0, 0.5, 1, \welch ),
+        Env.perc(0.1, 0.0, 0.5, 1, \welch),
         Impulse.kr(100),
         timeScale: 0.1
     ) * SinOsc.ar(440, 0, 0.3)
@@ -246,7 +246,7 @@ d.release();</textarea>
 (
 {
     EnvGen.kr(
-        Env.asr( 0.1, 1.0, 0.5, \welch ),
+        Env.asr(0.1, 1.0, 0.5, \welch),
         1.0,
         FSinOsc.ar(1.0).range(0.0, 1.0),
         timeScale: 0.1
@@ -258,7 +258,7 @@ d.release();</textarea>
 (
 {
     EnvGen.kr(
-        Env.asr( 0.1, 1.0, 0.5, \welch ),
+        Env.asr(0.1, 1.0, 0.5, \welch),
         1.0,
         Rand(0.1, 1.0),
         timeScale: 0.1
@@ -269,14 +269,14 @@ d.release();</textarea>
 
 <p>For more information about the <em>control bus mapping</em> used in the line <code>a = Synth(\sine, [freq: f.asMap]);</code>, see <a href="./../Classes/Node.html#-map">Node: -map</a> and <a href="./../Classes/Bus.html#-asMap">Bus: -asMap</a>.<textarea class='editor'>// Changing an Env while playing
 (
-SynthDef(\env, { arg i_outbus=0;
+SynthDef(\env, { |i_outbus = 0|
     var env, envctl;
 
     // make a dummy 8 segment envelope
     env = Env.newClear(8);
 
     // create a control argument array
-    envctl = \env.kr( env.asArray );
+    envctl = \env.kr(env.asArray);
 
     ReplaceOut.kr(i_outbus, EnvGen.kr(envctl, doneAction: Done.freeSelf));
 }).add;

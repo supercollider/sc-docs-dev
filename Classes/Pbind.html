@@ -89,10 +89,10 @@ Pbind(\freq, Prand([300, 500, 231.2, 399.2], inf), \dur, Prand([0.1, 0.3], inf))
 Pbind(\freq, Prand([1, 1.2, 2, 2.5, 3, 4], inf) * 200, \dur, 0.1).play;</textarea>
 <textarea class='editor'>(
 // a SynthDef
-SynthDef(\test, { | out, freq = 440, amp = 0.1, nharms = 10, pan = 0, gate = 1 |
+SynthDef(\test, { |out, freq = 440, amp = 0.1, nharms = 10, pan = 0, gate = 1|
     var audio = Blip.ar(freq, nharms, amp);
     var env = Linen.kr(gate, doneAction: Done.freeSelf);
-    OffsetOut.ar(out, Pan2.ar(audio, pan, env) );
+    OffsetOut.ar(out, Pan2.ar(audio, pan, env));
 }).add;
 )
 
@@ -107,7 +107,7 @@ Pbind(
     \nharms,             Pseq([4, 10, 40], inf),
     \dur,                Pseq([1, 1, 2, 1]/10, inf),
     #[freq, sustain],    Ptuple([ // assignment to multiple keys
-                            Pseq( (1..16) * 50, 4),
+                            Pseq((1..16) * 50, 4),
                              Pseq([1/10, 0.5, 1, 2], inf)
                         ])
 ).play;
@@ -120,7 +120,7 @@ Pbind(*[
     nharms:                Pseq([4, 10, 40], inf),
     dur:                Pseq([1, 1, 2, 1]/10, inf),
     #[freq, sustain]:    Ptuple([
-                            Pseq( (1..16) * 50, 4),
+                            Pseq((1..16) * 50, 4),
                             Pseq([1/10, 0.5, 1, 2], inf)
                         ])
 ]).play;
@@ -128,10 +128,10 @@ Pbind(*[
 <h3><a class='anchor' name='SynthDef%20and%20Event'>SynthDef and Event</a></h3>
 
 <p>The keys used in a Pbind are determined by the <a href="./../Classes/SynthDef.html">SynthDef</a> used and the structure of the extensive default mechanism provided by <a href="./../Classes/Event.html">Event</a>. This section provides a brief review of both.
-<p>A <a href="./../Classes/SynthDef.html">SynthDef</a> assigns a name to an interconnection of unit generators to be run as a synth on a server. It also assigns <strong>control names</strong> to the synth's control inputs. In the following example the SynthDef \test has control inputs <strong>out</strong>, <strong>freq</strong>, <strong>amp</strong>, <strong>nharms</strong>, <strong>pan</strong>, and <strong>gate</strong>.<textarea class='editor'>SynthDef(\test, { | out, freq = 440, amp = 0.1, nharms = 10, pan = 0, gate = 1 |
+<p>A <a href="./../Classes/SynthDef.html">SynthDef</a> assigns a name to an interconnection of unit generators to be run as a synth on a server. It also assigns <strong>control names</strong> to the synth's control inputs. In the following example the SynthDef \test has control inputs <strong>out</strong>, <strong>freq</strong>, <strong>amp</strong>, <strong>nharms</strong>, <strong>pan</strong>, and <strong>gate</strong>.<textarea class='editor'>SynthDef(\test, { |out, freq = 440, amp = 0.1, nharms = 10, pan = 0, gate = 1|
     var audio = Blip.ar(freq, nharms, amp);
     var env = Linen.kr(gate, doneAction: Done.freeSelf);
-    OffsetOut.ar(out, Pan2.ar(audio, pan, env) );
+    OffsetOut.ar(out, Pan2.ar(audio, pan, env));
 }).add;</textarea>
 
 <p>The SynthDef needs to be downloaded to the server upon which it is to be run. Use <strong>.add</strong> instead of .send to ensure that any patterns using this SynthDef have information about the available control inputs (see <a href="./../Classes/SynthDesc.html">SynthDesc</a>). Alternately, <strong>.store</strong> may be used to save the SynthDef to disk and add the SynthDesc to the library.
@@ -168,10 +168,10 @@ Pbind(*[
 </dl>
 <textarea class='editor'>(
 // the SynthDef
-SynthDef(\test, { | out, freq = 440, amp = 0.1, nharms = 10, pan = 0, gate = 1 |
+SynthDef(\test, { |out, freq = 440, amp = 0.1, nharms = 10, pan = 0, gate = 1|
     var audio = Blip.ar(freq, nharms, amp);
     var env = Linen.kr(gate, doneAction: Done.freeSelf);
-    OffsetOut.ar(out, Pan2.ar(audio, pan, env) );
+    OffsetOut.ar(out, Pan2.ar(audio, pan, env));
 }).add;
 
 // Events are written as parantheses enclosing key/value pairs
@@ -186,10 +186,10 @@ See <a href="./../Classes/Rest.html">Rest</a> for a discussion of marking events
 <h3><a class='anchor' name='Realtime%20Control%20with%20EventStreamPlayer'>Realtime Control with EventStreamPlayer</a></h3>
 
 <p>The <a href="./../Classes/EventStreamPlayer.html">EventStreamPlayer</a> provides realtime control through <strong>mute</strong>, <strong>unmute</strong>, <strong>stop</strong>, <strong>play</strong> and <strong>reset</strong>.<textarea class='editor'>(
-SynthDef(\cfstring1, { arg i_out, freq = 360, gate = 1, pan, amp=0.1;
+SynthDef(\cfstring1, { |i_out, freq = 360, gate = 1, pan, amp = 0.1|
     var out, eg, fc, osc, a, b, w;
     fc = LinExp.kr(LFNoise1.kr(Rand(0.25, 0.4)), -1, 1, 500, 2000);
-    osc = Mix.fill(8, {LFSaw.ar(freq * [Rand(0.99, 1.01), Rand(0.99, 1.01)], 0, amp) }).distort * 0.2;
+    osc = Mix.fill(8, { LFSaw.ar(freq * [Rand(0.99, 1.01), Rand(0.99, 1.01)], 0, amp) }).distort * 0.2;
     eg = EnvGen.kr(Env.asr(1, 1, 1), gate, doneAction: Done.freeSelf);
     out = eg * RLPF.ar(osc, fc, 0.1);
     #a, b = out;
@@ -254,7 +254,7 @@ e.stream = Pbind(
 <h3><a class='anchor' name='Additional%20arguments'>Additional arguments</a></h3>
 
 <p>Here is an example with more bindings. Here we have added a filter with cutoff and resonance arguments. You will need to hit command '.' before executing the next few pbind ex. without having them stack up. also, due to the synthdef's and synthdeclib, if the server is shut down you will have to reload the synthdef and re-read the synthdesclib.<textarea class='editor'>(
-SynthDef(\acid, { arg out, freq = 1000, gate = 1, pan = 1, cut = 4000, rez = 0.8, amp = 1;
+SynthDef(\acid, { |out, freq = 1000, gate = 1, pan = 1, cut = 4000, rez = 0.8, amp = 1|
     Out.ar(out,
         Pan2.ar(
             RLPF.ar(
@@ -267,18 +267,18 @@ SynthDef(\acid, { arg out, freq = 1000, gate = 1, pan = 1, cut = 4000, rez = 0.8
 
 (
 Pbind(\instrument, \acid, \dur, Pseq([0.25, 0.5, 0.25], inf), \root, -12,
-    \degree, Pseq([0, 3, 5, 7, 9, 11, 5, 1], inf), \pan, Pfunc({1.0.rand2}),
-    \cut, Pxrand([1000, 500, 2000, 300], inf), \rez, Pfunc({0.7.rand +0.3}), \amp, 0.2).play;
+    \degree, Pseq([0, 3, 5, 7, 9, 11, 5, 1], inf), \pan, Pfunc({ 1.0.rand2 }),
+    \cut, Pxrand([1000, 500, 2000, 300], inf), \rez, Pfunc({ 0.7.rand +0.3 }), \amp, 0.2).play;
 )</textarea>
 
 <p>The <a href="./../Classes/ListPattern.html">ListPattern</a>s can be put around Event Streams to create sequences of Event Streams.<textarea class='editor'>(
 Pseq([
     Pbind(\instrument, \acid, \dur, Pseq([0.25, 0.5, 0.25], 4), \root, -24,
-        \degree, Pseq([0, 3, 5, 7, 9, 11, 5, 1], inf), \pan, Pfunc({1.0.rand2}),
-        \cut, Pxrand([1000, 500, 2000, 300], inf), \rez, Pfunc({0.7.rand +0.3}), \amp, 0.2),
+        \degree, Pseq([0, 3, 5, 7, 9, 11, 5, 1], inf), \pan, Pfunc({ 1.0.rand2 }),
+        \cut, Pxrand([1000, 500, 2000, 300], inf), \rez, Pfunc({ 0.7.rand +0.3 }), \amp, 0.2),
 
     Pbind(\instrument, \acid, \dur, Pseq([0.25], 6), \root, -24, \degree, Pseq([18, 17, 11, 9], inf),
-        \pan, Pfunc({1.0.rand2}), \cut, 1500, \rez, Pfunc({0.7.rand +0.3}), \amp, 0.16)
+        \pan, Pfunc({ 1.0.rand2 }), \cut, 1500, \rez, Pfunc({ 0.7.rand +0.3 }), \amp, 0.16)
 
 ], inf).play;
 )</textarea>
@@ -286,12 +286,12 @@ Pseq([
 <p>'Pseq' in the above ex. can be any pattern object:<textarea class='editor'>(
 Prand([
     Pbind(\instrument, \acid, \dur, Pseq([0.25, 0.5, 0.25], 4), \root, -24,
-        \degree, Pseq([0, 3, 5, 7, 9, 11, 5, 1], inf), \pan, Pfunc({1.0.rand2}),
-        \cut, Pxrand([1000, 500, 2000, 300], inf), \rez, Pfunc({0.7.rand +0.3}),
+        \degree, Pseq([0, 3, 5, 7, 9, 11, 5, 1], inf), \pan, Pfunc({ 1.0.rand2 }),
+        \cut, Pxrand([1000, 500, 2000, 300], inf), \rez, Pfunc({ 0.7.rand +0.3 }),
         \amp, 0.2),
 
     Pbind(\instrument, \acid, \dur, Pseq([0.25], 6), \root, -24, \degree, Pseq([18, 17, 11, 9], inf),
-        \pan, Pfunc({1.0.rand2}), \cut, 1500, \rez, Pfunc({0.7.rand +0.3}), \amp, 0.16)
+        \pan, Pfunc({ 1.0.rand2 }), \cut, 1500, \rez, Pfunc({ 0.7.rand +0.3 }), \amp, 0.16)
 
 ], inf).play;
 )</textarea>
@@ -303,7 +303,7 @@ Prand([
 (
 Pbind(
     \instrument, \acid, \dur, Pseq([0.25, 0.5, 0.25], inf),
-    \root, [-24, -17],  // expand root
+    \root, [-24, -17], // expand root
     \degree, Pseq([0, 3, 5, 7, 9, 11, 5, 1], inf),
     \pan, Pfunc { 1.0.rand2 },
     \cut, Pxrand([1000, 500, 2000, 300], inf),
@@ -327,7 +327,7 @@ Pbind(
 Pbind(\degree, [Pseq([0, 2, 3], inf), Pseq([2, 4, 5, 6], inf)]).play;
 
 // but this does:
-Pbind(\degree, Pseq([ [ 0, 2 ], [ 2, 4 ], [ 3, 5 ], [ 0, 6 ] ], inf)).play;</textarea>
+Pbind(\degree, Pseq([[0, 2], [2, 4], [3, 5], [0, 6]], inf)).play;</textarea>
 <textarea class='editor'>// transform an array of patterns into a pattern that returns arrays, use Ptuple:
 a = [Pseq([1, 2, 3], inf), Prand([100, 299, 399], inf), Pseries(0, 6, inf)];
 b = Ptuple(a);
@@ -353,31 +353,31 @@ Pdef(\buckyball).play;
 
 (
 Pdef(\buckyball, Pbind(\instrument, \acid, \dur, Pseq([0.25, 0.5, 0.25], inf), \root, [-24, -17],
-    \degree, Pseq([0, 3, 5, 7, 9, 11, [5, 17], 1], inf), \pan, Pfunc({[1.0.rand2, 1.0.rand2]}),
-    \cut, Pxrand([1000, 500, 2000, 300], inf), \rez, Pfunc({0.7.rand +0.3}), \amp, [0.15, 0.22]));
+    \degree, Pseq([0, 3, 5, 7, 9, 11, [5, 17], 1], inf), \pan, Pfunc({ [1.0.rand2, 1.0.rand2] }),
+    \cut, Pxrand([1000, 500, 2000, 300], inf), \rez, Pfunc({ 0.7.rand +0.3 }), \amp, [0.15, 0.22]));
 )
 (
 Pdef(\buckyball, Pbind(\instrument, \acid, \dur, Pseq([0.25, 0.5, 0.25], inf), \root, [-24, -17],
-    \degree, Pseq([0b, 3b, 5b, 7b, 9b, 11b, 5b, 0b], inf), \pan, Pfunc({1.0.rand2}), //notice the flats
-    \cut, Pxrand([1000, 500, 2000, 300], inf), \rez, Pfunc({0.7.rand +0.3}), \amp, 0.2));
+    \degree, Pseq([0b, 3b, 5b, 7b, 9b, 11b, 5b, 0b], inf), \pan, Pfunc({ 1.0.rand2 }), // notice the flats
+    \cut, Pxrand([1000, 500, 2000, 300], inf), \rez, Pfunc({ 0.7.rand +0.3 }), \amp, 0.2));
 )
 
-//stop the Pdef
+// stop the Pdef
 Pdef(\buckyball).stop;
 
-//start the Pdef
+// start the Pdef
 Pdef(\buckyball).resume;
 
-//removing the Pdef
+// removing the Pdef
 Pdef.remove(\buckyball);</textarea>
 <h3><a class='anchor' name='Sending%20to%20effects'>Sending to effects</a></h3>
 
 <p>Assignment to effect processors can be achieved by setting the 'out' argument to the desired efx's input bus. The effect Synth must also be created. Synth.new is one way of doing this.<textarea class='editor'>(
 // efx synthdef- dig the timing on the delay and the pbind. :-P
-SynthDef(\pbindefx, { arg out, in, time1=0.25, time2=0.5;
+SynthDef(\pbindefx, { |out, in, time1 = 0.25, time2 = 0.5|
     var audio, efx;
     audio = In.ar([20, 21], 2);
-    efx=CombN.ar(audio, 0.5, [time1, time2], 10, 1, audio);
+    efx = CombN.ar(audio, 0.5, [time1, time2], 10, 1, audio);
     Out.ar(out, efx);
 }).add;
 
@@ -387,7 +387,7 @@ a = Synth.after(1, \pbindefx);
 // if you don't like the beats change to 0.4, 0.24
 // a.set(\time1, 0.4, \time2, 0.24);
 
-SynthDef(\acid, { arg out, freq = 1000, gate = 1, pan = 0, cut = 4000, rez = 0.8, amp = 1;
+SynthDef(\acid, { |out, freq = 1000, gate = 1, pan = 0, cut = 4000, rez = 0.8, amp = 1|
     Out.ar(out,
         Pan2.ar(
             RLPF.ar(
@@ -400,12 +400,12 @@ SynthDef(\acid, { arg out, freq = 1000, gate = 1, pan = 0, cut = 4000, rez = 0.8
 
 (
 Pbind(\instrument, \acid, \out, 20, \dur, Pseq([0.25, 0.5, 0.25], inf), \root, [-24, -17],
-    \degree, Pseq([0, 3, 5, 7, 9, 11, 5, 1], inf), \pan, Pfunc({1.0.rand2}),
-    \cut, Pxrand([1000, 500, 2000, 300], inf), \rez, Pfunc({0.7.rand +0.3}), \amp, 0.12).play;
+    \degree, Pseq([0, 3, 5, 7, 9, 11, 5, 1], inf), \pan, Pfunc({ 1.0.rand2 }),
+    \cut, Pxrand([1000, 500, 2000, 300], inf), \rez, Pfunc({ 0.7.rand +0.3 }), \amp, 0.12).play;
 )</textarea>
 <h3><a class='anchor' name='Additional%20examples'>Additional examples</a></h3>
 <textarea class='editor'>(
-SynthDef(\berlinb, { arg out=0, freq = 80, amp = 0.01, pan=0, gate=1;
+SynthDef(\berlinb, { |out = 0, freq = 80, amp = 0.01, pan = 0, gate = 1|
     var synth, env;
     env = Decay2.kr(gate, 0.05, 8, 0.0003);
     synth = RLPF.ar(
@@ -431,7 +431,7 @@ f.stream = Pbind(
     \degree, Pseq([0, 1, 2, 4, 6, 3, 4, 8], inf),
     \dur, 0.5, \octave, [2, 1],
     \instrument, \berlinb,
-    \pan, Pfunc({1.0.rand2})
+    \pan, Pfunc({ 1.0.rand2 })
 ).asStream;
 )</textarea>
 

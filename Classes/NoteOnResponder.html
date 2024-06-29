@@ -80,8 +80,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-learn' href='./../Overviews/Methods.html#learn'>learn</a></h3>
 <div class='method'>
 <p>Wait for the next noteOn message, reset self to match src, chan.<textarea class='editor'>(
-c = NoteOnResponder({ |src,chan,note,vel|
-        [src,chan,note,vel].postln;
+c = NoteOnResponder({ |src, chan, note, vel|
+        [src, chan, note, vel].postln;
     });
     c.learn; // wait for the first note
 )
@@ -89,8 +89,8 @@ NoteOnResponder.removeAll</textarea>
 </div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-    c = NoteOnResponder({ |src,chan,note,vel|
-        [src,chan,note,vel].postln;
+    c = NoteOnResponder({ |src, chan, note, vel|
+        [src, chan, note, vel].postln;
         },
         nil, // any source
         nil, // any channel
@@ -101,8 +101,8 @@ NoteOnResponder.removeAll</textarea>
 
 c.remove</textarea>
 <textarea class='editor'>(
-    c = NoteOnResponder({ |src,chan,note,vel|
-        [src,chan,note,vel].postln;
+    c = NoteOnResponder({ |src, chan, note, vel|
+        [src, chan, note, vel].postln;
         },
         nil, // any source
         nil, // any channel

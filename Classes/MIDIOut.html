@@ -90,12 +90,12 @@ var scdoc_sc_version = '3.14.0-dev';
 <dt>macOS / Windows<dd>uid is optional; if specified, it should be the uid of that port ie. MIDIClient.destinations[port].uid. If you don't provide a uid, the correct uid will be filled in for you (easier).<dt>Linux<dd>using the uid is optional as described below.</dl>
 </table></div><h3 class='method-code'><span class='method-prefix'>MIDIOut.</span><a class='method-name' name='*newByName' href='./../Overviews/Methods.html#newByName'>newByName</a>(<span class='argstr'>deviceName</span>, <span class='argstr'>portName</span>, <span class='argstr'>dieIfNotFound: true</span>)</h3>
 <div class='method'>
-<p>Searches for the MIDI output device, by a name found in the <code>MIDIClient.destinations</code> array. This is safer then depending on the index which will change if your studio setup changes. It is also Linux compatible.<textarea class='editor'>//list connected out ports with names:
+<p>Searches for the MIDI output device, by a name found in the <code>MIDIClient.destinations</code> array. This is safer then depending on the index which will change if your studio setup changes. It is also Linux compatible.<textarea class='editor'>// list connected out ports with names:
 MIDIClient.init;
 MIDIClient.destinations;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>MIDIOut.</span><a class='method-name' name='*findPort' href='./../Overviews/Methods.html#findPort'>findPort</a>(<span class='argstr'>deviceName</span>, <span class='argstr'>portName</span>)</h3>
 <div class='method'>
-<p>Searches for a connected MIDIEndPoint by name.<textarea class='editor'>//list connected out ports with names:
+<p>Searches for a connected MIDIEndPoint by name.<textarea class='editor'>// list connected out ports with names:
 MIDIClient.init;
 MIDIClient.destinations;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>MIDIOut.</span><a class='method-name' name='*connect' href='./../Overviews/Methods.html#connect'>connect</a>(<span class='argstr'>outport: 0</span>, <span class='argstr'>device: 0</span>)</h3>
@@ -156,9 +156,9 @@ m.allNotesOff(16);
 
 
 MIDIIn.connect; // 1 port midi interface
-MIDIIn.sysex = { arg uid, packet; [uid,packet].postln };
-MIDIIn.sysrt = { arg src, chan, val;  [src, chan, val].postln; };
-MIDIIn.smpte = { arg src, chan, val;  [src, chan, val].postln; };
+MIDIIn.sysex = { |uid, packet| [uid, packet].postln };
+MIDIIn.sysrt = { |src, chan, val|  [src, chan, val].postln };
+MIDIIn.smpte = { |src, chan, val|  [src, chan, val].postln };
 
 m.sysex(Int8Array[0xF0, 0, 0, 27, 11, 0, 0xF7])
 
@@ -202,9 +202,9 @@ m.connect(1);  // connect to MIDIClient.destinations[1]</textarea>
 
 <p>Open the Audio MIDI Setup application. Double-click on IAC Driver and check "device is online".
 <p>reinitialize:
-<p>MIDIClient.init(numIns,numOuts)
+<p>MIDIClient.init(numIns, numOuts)
 <p>The IAC Bus will now appear in MIDIClient.destinations. It will appear first, which means that any code that you have written that addresses the first physical bus as 0 will now have to be changed.
-<p>For this reason, it is always safer to find the port by name :<textarea class='editor'>MIDIOut.newByName("RemoteSL IN","Port 1");</textarea>
+<p>For this reason, it is always safer to find the port by name :<textarea class='editor'>MIDIOut.newByName("RemoteSL IN", "Port 1");</textarea>
 
 <p>The IAC Bus will now also appear to other applications.
 <p>MIDIMonitor (freeware) can be very useful for troubleshooting:

@@ -98,7 +98,7 @@ x.value.doSomething;    // retrieve value and use it</textarea>
 <p>Executes value.put(index, value)</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-seq' href='./../Overviews/Methods.html#seq'>seq</a>(<span class='argstr'>pat</span>)</h3>
 <div class='method'>
 <p>this method is used to return values from within a Routine definition<h4>Discussion:</h4>
-<textarea class='editor'>{ this.value = output.embedInStream(this.value); }</textarea>
+<textarea class='editor'>{ this.value = output.embedInStream(this.value) }</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asUGenInput' href='./../Overviews/Methods.html#asUGenInput'>asUGenInput</a></h3>
 <div class='method'>
 <p>Returns the Ref - this prevents multi-channel expansion in a SynthDef</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asControlInput' href='./../Overviews/Methods.html#asControlInput'>asControlInput</a></h3>
@@ -120,7 +120,7 @@ x.value.doSomething;    // retrieve value and use it</textarea>
 <p>Refs prevent multi-channel expansion in a SynthDef, so the array below defines one Klank UGen rather than three.<textarea class='editor'>{ Klank.ar(`[[800, 1071, 1153, 1723], nil, [1, 1, 1, 1]], Impulse.ar(2, 0, 0.1)) }.play;</textarea>
 
 <p>Refs cannot be used reliably to suppress multi-channel expansion within Events and Patterns. Instead, it is necessary to enclose the array of values in another array:<textarea class='editor'>(
-    SynthDef(\multi, { | out, freq = #[100,200,300], amp = 0.1, pan = 0, sustain = 1|
+    SynthDef(\multi, { |out, freq = #[100, 200, 300], amp = 0.1, pan = 0, sustain = 1|
         var audio, env;
         env = EnvGen.kr(Env.perc(0.01, sustain), doneAction: Done.freeSelf);
         audio = Mix(Saw.ar(freq));
@@ -128,16 +128,16 @@ x.value.doSomething;    // retrieve value and use it</textarea>
         OffsetOut.ar(out, audio)
     }).add;
 
-    ( instrument: \multi, freq: [ [500, 501, 700] ], sustain: 2).play
+    (instrument: \multi, freq: [[500, 501, 700]], sustain: 2).play
 
 )</textarea>
 <textarea class='editor'>(
     Pbind(*[
         instrument: \multi,
         freq:     Prand([
-                        [[100, 141, 103] ],
-                        [[100, 310, 190] ],
-                        [[100, 100.1, 110] ],
+                        [[100, 141, 103]],
+                        [[100, 310, 190]],
+                        [[100, 100.1, 110]],
                 ], inf),
         dur: 0.2,
         sustain: 0.3

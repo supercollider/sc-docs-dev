@@ -359,14 +359,14 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>SequenceableCollection.</span><a class='method-name' name='*fill' href='./../Overviews/Methods.html#fill'>fill</a>(<span class='argstr'>size</span>, <span class='argstr'>function</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Collection.html'>Collection</a></div>
 <div class='method'>
-<p>Creates a Collection of the given size, the elements of which are determined by evaluation the given function. The function is passed the index as an argument.<textarea class='editor'>Array.fill(4, { arg i; i * 2 });
-Bag.fill(14, { arg i; i.rand });</textarea>
+<p>Creates a Collection of the given size, the elements of which are determined by evaluation the given function. The function is passed the index as an argument.<textarea class='editor'>Array.fill(4, { |i| i * 2 });
+Bag.fill(14, { |i| i.rand });</textarea>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>size<td class='argumentdesc'>
-<p>The size of the collection which is returned. If nil, it returns an empty collection. If an array of sizes is given, the resulting collection has the appropriate dimensions (see: <a href="#*fillND).">*fillND).</a><textarea class='editor'>Array.fill([2, 2, 3], { arg i, j, k;  i * 100 + (j * 10) + k });</textarea>
+<p>The size of the collection which is returned. If nil, it returns an empty collection. If an array of sizes is given, the resulting collection has the appropriate dimensions (see: <a href="#*fillND).">*fillND).</a><textarea class='editor'>Array.fill([2, 2, 3], { |i, j, k|  i * 100 + (j * 10) + k });</textarea>
 <tr><td class='argumentname'>function<td class='argumentdesc'>
-<p>The function which is called for each new element - the index is passed in as a first argument. The function be anything that responds to the message "value".<textarea class='editor'>Array.fill(10, { arg i; 2 ** i });
+<p>The function which is called for each new element - the index is passed in as a first argument. The function be anything that responds to the message "value".<textarea class='editor'>Array.fill(10, { |i| 2 ** i });
 Array.fill(10, Pxrand([0, 1, 2], inf).iter);
 Array.fill(10, 7); // an object that doesn't respond with a new value is just repeatedly added.</textarea>
 </table></div><h3 class='method-code'><span class='method-prefix'>SequenceableCollection.</span><a class='method-name' name='*series' href='./../Overviews/Methods.html#series'>series</a>(<span class='argstr'>size</span>, <span class='argstr'>start: 0</span>, <span class='argstr'>step: 1</span>)</h3>
@@ -441,31 +441,31 @@ y.indicesOfEqual(7);
 y.indicesOfEqual(5);</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-indexOfGreaterThan' href='./../Overviews/Methods.html#indexOfGreaterThan'>indexOfGreaterThan</a>(<span class='argstr'>val</span>)</h3>
 <div class='method'>
-<p>Return the first index containing an <strong>item</strong> which is greater than <strong>item</strong>.<textarea class='editor'>y = List[ 10, 5, 77, 55, 12, 123];
+<p>Return the first index containing an <strong>item</strong> which is greater than <strong>item</strong>.<textarea class='editor'>y = List[10, 5, 77, 55, 12, 123];
 y.indexOfGreaterThan(70);</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-selectIndices' href='./../Overviews/Methods.html#selectIndices'>selectIndices</a>(<span class='argstr'>function</span>)</h3>
 <div class='method'>
-<p>Return a new collection of same type as receiver which consists of all indices of those elements of the receiver for which function answers <code>true</code>. The function is passed two arguments, the item and an integer index.<textarea class='editor'>#[a, b, c, g, h, h, j, h].selectIndices({|item, i| item === \h})</textarea>
+<p>Return a new collection of same type as receiver which consists of all indices of those elements of the receiver for which function answers <code>true</code>. The function is passed two arguments, the item and an integer index.<textarea class='editor'>#[a, b, c, g, h, h, j, h].selectIndices({ |item, i| item === \h })</textarea>
 
 <p>If you want to control what type of collection is returned, use <a href="#-selectIndicesAs">-selectIndicesAs</a></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-selectIndicesAs' href='./../Overviews/Methods.html#selectIndicesAs'>selectIndicesAs</a>(<span class='argstr'>function</span>, <span class='argstr'>class</span>)</h3>
 <div class='method'>
-<p>Return a new collection of type <em>class</em> which consists of all indices of those elements of the receiver for which function answers <code>true</code>. The function is passed two arguments, the item and an integer index.<textarea class='editor'>#[a, b, c, g, h, h, j, h].selectIndicesAs({|item, i| item === \h}, Set)</textarea>
+<p>Return a new collection of type <em>class</em> which consists of all indices of those elements of the receiver for which function answers <code>true</code>. The function is passed two arguments, the item and an integer index.<textarea class='editor'>#[a, b, c, g, h, h, j, h].selectIndicesAs({ |item, i| item === \h }, Set)</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rejectIndices' href='./../Overviews/Methods.html#rejectIndices'>rejectIndices</a>(<span class='argstr'>function</span>)</h3>
 <div class='method'>
-<p>Return a new collection of same type as receiver which consists of all indices of those elements of the receiver for which function answers <code>false</code>. The function is passed two arguments, the item and an integer index.<textarea class='editor'>#[a, b, c, g, h, h, j, h].rejectIndices({|item, i| item === \h})</textarea>
+<p>Return a new collection of same type as receiver which consists of all indices of those elements of the receiver for which function answers <code>false</code>. The function is passed two arguments, the item and an integer index.<textarea class='editor'>#[a, b, c, g, h, h, j, h].rejectIndices({ |item, i| item === \h })</textarea>
 
 <p>If you want to control what type of collection is returned, use <a href="#-rejectIndicesAs">-rejectIndicesAs</a></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rejectIndicesAs' href='./../Overviews/Methods.html#rejectIndicesAs'>rejectIndicesAs</a>(<span class='argstr'>function</span>, <span class='argstr'>class</span>)</h3>
 <div class='method'>
-<p>Return a new collection of type <em>class</em> which consists of all indices of those elements of the receiver for which function answers <code>false</code>. The function is passed two arguments, the item and an integer index.<textarea class='editor'>#[a, b, c, g, h, h, j, h].rejectIndicesAs({|item, i| item === \h}, Set)</textarea>
+<p>Return a new collection of type <em>class</em> which consists of all indices of those elements of the receiver for which function answers <code>false</code>. The function is passed two arguments, the item and an integer index.<textarea class='editor'>#[a, b, c, g, h, h, j, h].rejectIndicesAs({ |item, i| item === \h }, Set)</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-maxIndex' href='./../Overviews/Methods.html#maxIndex'>maxIndex</a>(<span class='argstr'>function</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Collection.html'>Collection</a></div>
 <div class='method'>
-<p>Answer the index of the maximum of the results of <strong>function</strong> evaluated for each item in the receiver. The function is passed two arguments, the item and an integer index. If function is nil, then answer the maximum of all items in the receiver.<textarea class='editor'>List[1, 2, 3, 4].maxIndex({ arg item, i; item + 10 });
+<p>Answer the index of the maximum of the results of <strong>function</strong> evaluated for each item in the receiver. The function is passed two arguments, the item and an integer index. If function is nil, then answer the maximum of all items in the receiver.<textarea class='editor'>List[1, 2, 3, 4].maxIndex({ |item, i| item + 10 });
 [3.2, 12.2, 13, 0.4].maxIndex;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-minIndex' href='./../Overviews/Methods.html#minIndex'>minIndex</a>(<span class='argstr'>function</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Collection.html'>Collection</a></div>
 <div class='method'>
-<p>Answer the index of the minimum of the results of <strong>function</strong> evaluated for each item in the receiver. The function is passed two arguments, the item and an integer index. If function is nil, then answer the minimum of all items in the receiver.<textarea class='editor'>List[1, 2, 3, 4].minIndex({ arg item, i; item + 10 });
+<p>Answer the index of the minimum of the results of <strong>function</strong> evaluated for each item in the receiver. The function is passed two arguments, the item and an integer index. If function is nil, then answer the minimum of all items in the receiver.<textarea class='editor'>List[1, 2, 3, 4].minIndex({ |item, i| item + 10 });
 List[3.2, 12.2, 13, 0.4].minIndex;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-find' href='./../Overviews/Methods.html#find'>find</a>(<span class='argstr'>sublist</span>, <span class='argstr'>offset: 0</span>)</h3>
 <div class='method'>
@@ -558,48 +558,48 @@ a.drop(-3);</textarea>
 "mississippi".split("i").postcs;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-flat' href='./../Overviews/Methods.html#flat'>flat</a></h3>
 <div class='method'>
-<p>Returns a collection from which all nesting has been flattened.<textarea class='editor'>[[1, 2, 3], [[4, 5], [[6]]]].flat; // [ 1, 2, 3, 4, 5, 6 ]
-[1, 2, [3, 4, [5, 6, [7, 8, [9, 0]]]]].flat; // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]</textarea>
+<p>Returns a collection from which all nesting has been flattened.<textarea class='editor'>[[1, 2, 3], [[4, 5], [[6]]]].flat; // [1, 2, 3, 4, 5, 6]
+[1, 2, [3, 4, [5, 6, [7, 8, [9, 0]]]]].flat; // [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-flatten' href='./../Overviews/Methods.html#flatten'>flatten</a>(<span class='argstr'>numLevels: 1</span>)</h3>
 <div class='method'>
 <p>Returns a collection from which <strong>numLevels</strong> of nesting has been flattened.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>numLevels<td class='argumentdesc'>
 <p>Specifies how many levels downward (inward) to flatten. Zero returns the original.<textarea class='editor'>a = [1, 2, [3, 4, [5, 6, [7, 8, [9, 0]]]]];
-a.flatten(1); // [ 1, 2, [ 3, 4, [ 5, 6, [ 7, 8, [ 9, 0 ] ] ] ] ]
-a.flatten(2); // [ 1, 2, 3, 4, 5, 6, [ 7, 8, [ 9, 0 ] ] ]
-a.flatten(3); // [ 1, 2, 3, 4, 5, 6, 7, 8, [ 9, 0 ] ]
-a.flatten(4); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]</textarea>
+a.flatten(1); // [ 1, 2, [ 3, 4, [ 5, 6, [ 7, 8, [9, 0] ] ] ] ]
+a.flatten(2); // [ 1, 2, 3, 4, 5, 6, [ 7, 8, [9, 0] ] ]
+a.flatten(3); // [ 1, 2, 3, 4, 5, 6, 7, 8, [9, 0] ]
+a.flatten(4); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]</textarea>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-flatten2' href='./../Overviews/Methods.html#flatten2'>flatten2</a>(<span class='argstr'>numLevels: 1</span>)</h3>
 <div class='method'>
 <p>A symmetric version of <a href="#-flatten">-flatten</a>. For a negative <code>numLevels</code>, it flattens starting from the innermost arrays.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>numLevels<td class='argumentdesc'>
 <p>Specifies how many levels downward (inward) or upward (outward) to flatten.<textarea class='editor'>a = [1, 2, [3, 4, [5, 6, [7, 8, [9, 0]]]]];
-a.flatten2(4);  // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]
-a.flatten2(3);  // [ 1, 2, 3, 4, 5, 6, 7, 8, [ 9, 0 ] ]
-a.flatten2(2);  // [ 1, 2, 3, 4, 5, 6, [ 7, 8, [ 9, 0 ] ] ]
-a.flatten2(1);  // [ 1, 2, 3, 4, [ 5, 6, [ 7, 8, [ 9, 0 ] ] ] ]
-a.flatten2(0);  // [ 1, 2, [ 3, 4, [ 5, 6, [ 7, 8, [ 9, 0 ] ] ] ] ]
-a.flatten2(-1); // [ 1, 2, [ 3, 4, [ 5, 6, [ 7, 8, 9, 0 ] ] ] ]
-a.flatten2(-2); // [ 1, 2, [ 3, 4, [ 5, 6, 7, 8, 9, 0 ] ] ]
-a.flatten2(-3); // [ 1, 2, [ 3, 4, 5, 6, 7, 8, 9, 0 ] ]
-a.flatten2(-4); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]</textarea>
+a.flatten2(4);  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+a.flatten2(3);  // [ 1, 2, 3, 4, 5, 6, 7, 8, [9, 0] ]
+a.flatten2(2);  // [ 1, 2, 3, 4, 5, 6, [ 7, 8, [9, 0] ] ]
+a.flatten2(1);  // [ 1, 2, 3, 4, [ 5, 6, [ 7, 8, [9, 0] ] ] ]
+a.flatten2(0);  // [ 1, 2, [ 3, 4, [ 5, 6, [ 7, 8, [9, 0] ] ] ] ]
+a.flatten2(-1); // [ 1, 2, [ 3, 4, [ 5, 6, [7, 8, 9, 0] ] ] ]
+a.flatten2(-2); // [ 1, 2, [ 3, 4, [5, 6, 7, 8, 9, 0] ] ]
+a.flatten2(-3); // [ 1, 2, [3, 4, 5, 6, 7, 8, 9, 0] ]
+a.flatten2(-4); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]</textarea>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-flatBelow' href='./../Overviews/Methods.html#flatBelow'>flatBelow</a>(<span class='argstr'>level: 1</span>)</h3>
 <div class='method'>
 <p>Flatten all subarrays deeper than <strong>level</strong>.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>level<td class='argumentdesc'>
 <p>Specifies from what level onward to flatten. level 0 is outermost, so flatBelow(0) is like flat.<textarea class='editor'>a = [1, 2, [3, 4, [5, 6, [7, 8, [9, 0]]]]];
-a.flatBelow(0); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]
-a.flatBelow(1); // [ 1, 2, [ 3, 4, 5, 6, 7, 8, 9, 0 ] ]
-a.flatBelow(2); // [ 1, 2, [ 3, 4, [ 5, 6, 7, 8, 9, 0 ] ] ]
+a.flatBelow(0); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+a.flatBelow(1); // [ 1, 2, [3, 4, 5, 6, 7, 8, 9, 0] ]
+a.flatBelow(2); // [ 1, 2, [ 3, 4, [5, 6, 7, 8, 9, 0] ] ]
 
 // to set the level below which to flatten from the deepest level up,
 // one can use coll.maxDepth. E.g. to flatten only the innermost level:
-a.flatBelow( (a.maxDepth - 1) - 1);
+a.flatBelow((a.maxDepth - 1) - 1);
 // for lowest two levels:
-a.flatBelow( (a.maxDepth - 1) - 2);</textarea>
+a.flatBelow((a.maxDepth - 1) - 2);</textarea>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-flop' href='./../Overviews/Methods.html#flop'>flop</a></h3>
 <div class='method'>
 <p>Invert rows and columns in a two dimensional Collection (turn inside out). See also: <a href="./../Classes/Function.html">Function</a>.<textarea class='editor'>[[1, 2, 3], [4, 5, 6]].flop;
@@ -613,10 +613,10 @@ x // pi is everywhere</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-flopWith' href='./../Overviews/Methods.html#flopWith'>flopWith</a>(<span class='argstr'>func</span>)</h3>
 <div class='method'>
 <p>Flop with a user defined function. Can be used to collect over several collections in parallel.<textarea class='editor'>[[1, 2, 3], [4, 5, 6]].flopWith(_+_);
-[[1, 2, 3], 1, [7, 8]].flopWith{ |a,b,c| a+b+c }; // shorter array wraps
+[[1, 2, 3], 1, [7, 8]].flopWith{ |a, b, c| a+b+c }; // shorter array wraps
 
 // typical use case (pseudocode)
-[synths, buffers].flopWith{ |a,b| a.set(\buf, b) }</textarea>
+[synths, buffers].flopWith{ |a, b| a.set(\buf, b) }</textarea>
 
 <p><h4>Arguments:</h4>
 <table class='arguments'>
@@ -674,13 +674,13 @@ x // pi is everywhere</textarea>
 <p>Returns true if the collection is an arithmetic series.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>step<td class='argumentdesc'>
-<p>Step size to look for. If none is given, any step size will match.<textarea class='editor'>[ 0, 1, 2, 3, 4, 5 ].isSeries; // true
-[ 1.5, 2.5, 3.5, 4.5, 5.5, 6.5 ].isSeries; // true
-[ 0, 1, 4, 5 ].isSeries; // false
-[ 0, 3, 6, 9, 12, 15 ].isSeries; // true
-[ 0, 3, 6, 9, 12, 15 ].isSeries(1); // false
-[ 2 ] // true
-[ ] // true (empty sequence)</textarea>
+<p>Step size to look for. If none is given, any step size will match.<textarea class='editor'>[0, 1, 2, 3, 4, 5].isSeries; // true
+[1.5, 2.5, 3.5, 4.5, 5.5, 6.5].isSeries; // true
+[0, 1, 4, 5].isSeries; // false
+[0, 3, 6, 9, 12, 15].isSeries; // true
+[0, 3, 6, 9, 12, 15].isSeries(1); // false
+[2] // true
+[] // true (empty sequence)</textarea>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-resamp0' href='./../Overviews/Methods.html#resamp0'>resamp0</a>(<span class='argstr'>newSize</span>)</h3>
 <div class='method'>
 <p>Returns a new Collection of the desired length, with values resampled evenly-spaced from the receiver without interpolation.<textarea class='editor'>[1, 2, 3, 4].resamp0(12);
@@ -697,8 +697,8 @@ x // pi is everywhere</textarea>
 <p>Choose an element from the collection at random using a list of probabilities or weights. The weights must sum to 1.0.<textarea class='editor'>[1, 2, 3, 4].wchoose([0.1, 0.2, 0.3, 0.4]);</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sort' href='./../Overviews/Methods.html#sort'>sort</a>(<span class='argstr'>function</span>)</h3>
 <div class='method'>
-<p>Sort the contents of the collection using the comparison function argument. The function should take two elements as arguments and return true if the first argument should be sorted before the second argument. If the function is nil, the following default function is used. { arg a, b; a &lt; b }<textarea class='editor'>[6, 2, 1, 7, 5].sort;
-[6, 2, 1, 7, 5].sort({ arg a, b; a &gt; b }); // reverse sort</textarea>
+<p>Sort the contents of the collection using the comparison function argument. The function should take two elements as arguments and return true if the first argument should be sorted before the second argument. If the function is nil, the following default function is used. { |a, b| a &lt; b }<textarea class='editor'>[6, 2, 1, 7, 5].sort;
+[6, 2, 1, 7, 5].sort({ |a, b| a &gt; b }); // reverse sort</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sortBy' href='./../Overviews/Methods.html#sortBy'>sortBy</a>(<span class='argstr'>key</span>)</h3>
 <div class='method'>
 <p>Sort the contents of the collection using the key <strong>key</strong>, which is assumed to be found inside each element of the receiver.<textarea class='editor'>(
@@ -719,13 +719,13 @@ a.sortBy(\c);</textarea>
 <div class='method'>
 <p>Swap two elements in the collection at indices <strong>i</strong> and <strong>j</strong>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pairsDo' href='./../Overviews/Methods.html#pairsDo'>pairsDo</a>(<span class='argstr'>function</span>)</h3>
 <div class='method'>
-<p>Calls function for each subsequent pair of elements in the SequentialCollection. The function is passed the two elements and an index.<textarea class='editor'>[1, 2, 3, 4, 5].pairsDo({ arg a, b; [a, b].postln; });</textarea>
+<p>Calls function for each subsequent pair of elements in the SequentialCollection. The function is passed the two elements and an index.<textarea class='editor'>[1, 2, 3, 4, 5].pairsDo({ |a, b| [a, b].postln });</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-doAdjacentPairs' href='./../Overviews/Methods.html#doAdjacentPairs'>doAdjacentPairs</a>(<span class='argstr'>function</span>)</h3>
 <div class='method'>
-<p>Calls function for every adjacent pair of elements in the SequenceableCollection. The function is passed the two adjacent elements and an index.<textarea class='editor'>[1, 2, 3, 4, 5].doAdjacentPairs({ arg a, b; [a, b].postln; });</textarea>
+<p>Calls function for every adjacent pair of elements in the SequenceableCollection. The function is passed the two adjacent elements and an index.<textarea class='editor'>[1, 2, 3, 4, 5].doAdjacentPairs({ |a, b| [a, b].postln });</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-separate' href='./../Overviews/Methods.html#separate'>separate</a>(<span class='argstr'>function: true</span>)</h3>
 <div class='method'>
-<p>Separates the collection into sub-collections by calling the function for each adjacent pair of elements. If the function returns true, then a separation is made between the elements.<textarea class='editor'>[1, 2, 3, 5, 6, 8, 10].separate({ arg a, b; (b - a) &gt; 1 }).postcs;</textarea>
+<p>Separates the collection into sub-collections by calling the function for each adjacent pair of elements. If the function returns true, then a separation is made between the elements.<textarea class='editor'>[1, 2, 3, 5, 6, 8, 10].separate({ |a, b| (b - a) &gt; 1 }).postcs;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clump' href='./../Overviews/Methods.html#clump'>clump</a>(<span class='argstr'>groupSize</span>)</h3>
 <div class='method'>
 <p>Separates the collection into sub-collections by separating every groupSize elements.<textarea class='editor'>[1, 2, 3, 4, 5, 6, 7, 8].clump(3).postcs;</textarea>
@@ -789,7 +789,7 @@ a.sortBy(\c);</textarea>
 <table class='arguments'>
 <tr><td class='argumentname'>other<td class='argumentdesc'>
 <p>The <code>SequenceableCollection</code> to compare against<tr><td class='argumentname'>compareFunc<td class='argumentdesc'>
-<p>An optional comparison function to use for each element. It will be provided two arguments, and the function must return a boolean as to whether or not they are the same. Default value is <code>nil</code>, which will use <strong>identity</strong> (not equality) to compare elements.<textarea class='editor'>[1,2,3,4].editDistance([2,3,4,5], { | a, b |
+<p>An optional comparison function to use for each element. It will be provided two arguments, and the function must return a boolean as to whether or not they are the same. Default value is <code>nil</code>, which will use <strong>identity</strong> (not equality) to compare elements.<textarea class='editor'>[1, 2, 3, 4].editDistance([2, 3, 4, 5], { |a, b|
     a == b;
 });</textarea>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-similarity' href='./../Overviews/Methods.html#similarity'>similarity</a>(<span class='argstr'>other</span>, <span class='argstr'>compareFunc</span>)</h3>
@@ -1024,7 +1024,7 @@ a.sortBy(\c);</textarea>
 <p>Returns a value <code>b</code> such that: <code>q = ibetaC(a, b, x)</code>.
 <p>Requires <code>a</code> &gt; 0, 0 &lt; <code>x</code> &lt; 1, and 0 &lt;= <code>q</code> &lt;= 1.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-ibetaDerivative' href='./../Overviews/Methods.html#ibetaDerivative'>ibetaDerivative</a>( <span class='argstr'>... args</span>)</h3>
 <div class='method'>
-<p>Returns the partial derivative with respect to <code>x</code> of the incomplete beta function <code>ibeta(a,b,x)</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-erf' href='./../Overviews/Methods.html#erf'>erf</a></h3>
+<p>Returns the partial derivative with respect to <code>x</code> of the incomplete beta function <code>ibeta(a, b, x)</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-erf' href='./../Overviews/Methods.html#erf'>erf</a></h3>
 <div class='method'>
 <p>Returns the error function of <code>z</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-erfC' href='./../Overviews/Methods.html#erfC'>erfC</a></h3>
 <div class='method'>
@@ -1064,7 +1064,7 @@ a.sortBy(\c);</textarea>
 <p>Returns the roots (zeros) of the <code>n</code>-th Chebyshev polynomial of the first kind.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sphericalHarmonic' href='./../Overviews/Methods.html#sphericalHarmonic'>sphericalHarmonic</a>( <span class='argstr'>... args</span>)</h3>
 <div class='method'>
 <p>Returns the (<code>Complex</code>) value of the Spherical Harmonic.
-<p><code>theta</code> is taken as the polar (colatitudinal) coordinate within <code>[0, pi]</code>, and <code>phi</code> as the azimuthal (longitudinal) coordinate within <code>[0,2pi]</code>.
+<p><code>theta</code> is taken as the polar (colatitudinal) coordinate within <code>[0, pi]</code>, and <code>phi</code> as the azimuthal (longitudinal) coordinate within <code>[0, 2pi]</code>.
 <p>See boost documentation for further information, including a note about the Condon-Shortley phase term of <code>(-1)^m</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sphericalHarmonicR' href='./../Overviews/Methods.html#sphericalHarmonicR'>sphericalHarmonicR</a>( <span class='argstr'>... args</span>)</h3>
 <div class='method'>
 <p>Returns the real part of the Spherical Harmonic.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sphericalHarmonicI' href='./../Overviews/Methods.html#sphericalHarmonicI'>sphericalHarmonicI</a>( <span class='argstr'>... args</span>)</h3>
@@ -1204,7 +1204,7 @@ a.sortBy(\c);</textarea>
 <p>Requires <code>z != 1</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-expintEn' href='./../Overviews/Methods.html#expintEn'>expintEn</a>(<span class='argstr'>n</span>, <span class='argstr'>z</span>)</h3>
 <div class='method'>
 <p>Returns the exponential integral En of <code>z</code>.
-<p>Requires that when <code>n == 1</code>, <code>z !=0</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-expintEi' href='./../Overviews/Methods.html#expintEi'>expintEi</a></h3>
+<p>Requires that when <code>n == 1</code>, <code>z != 0</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-expintEi' href='./../Overviews/Methods.html#expintEi'>expintEi</a></h3>
 <div class='method'>
 <p>Returns the exponential integral of <code>z</code>.
 <p>Requires <code>z != 0</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sinPi' href='./../Overviews/Methods.html#sinPi'>sinPi</a></h3>
@@ -1283,7 +1283,7 @@ a.sortBy(\c);</textarea>
 <p>supports a variation of Mikael Laurson's rhythm list RTM-notation.<a class='footnote anchor' name='footnote_org_1' href='#footnote_1'><sup>1</sup></a> 
 <p>The method converts a collection of the form <code>[beat-count, [rtm-list], repeats]</code> to a <a href="./../Classes/List.html">List</a> of <a href="./../Classes/Float.html">Float</a>s. A negative integer within the rtm-list equates to a value tied over to the duration following. The method is recursive in that any subdivision within the rtm-list can itself be a nested convertRhythm collection (see example below). The repeats integer has a default value of 1.
 <p>If the divisions in the rtm-list are events, the event durations are interpreted as relative durations, and a list of events is returned.<textarea class='editor'>// using numbers as score
-[3, [1, 2, 1], 1].convertRhythm; // List[ 0.75, 1.5, 0.75 ]
+[3, [1, 2, 1], 1].convertRhythm; // List[0.75, 1.5, 0.75]
 [2, [1, 3, [1, [2, 1, 1, 1]], 1, 3], 1].convertRhythm;
 [2, [1, [1, [2, 1, 1, 1]]], 1].convertRhythm;
 [2, [1, [1, [2, 1, 1, 1]]], 2].convertRhythm; // repeat
@@ -1302,10 +1302,10 @@ Pbind(\degree, Pseries(0, 1, inf), \dur, Pseq([2, [1, [1, [2, 1, 1, -1]]], 2].co
 <div class='returnvalue'>
 <p>An <a href="./../Classes/Integer.html">Integer</a> - the pid of the newly created process. Use <a href="./../Classes/Integer.html#-pidRunning">Integer: -pidRunning</a> to test if a process is alive.</div><h4>Discussion:</h4>
 
-<p>Example:<textarea class='editor'>["ls","/"].unixCmd;</textarea>
+<p>Example:<textarea class='editor'>["ls", "/"].unixCmd;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-unixCmdGetStdOut' href='./../Overviews/Methods.html#unixCmdGetStdOut'>unixCmdGetStdOut</a>(<span class='argstr'>maxLineLength: 1024</span>)</h3>
 <div class='method'>
-<p>Similar to <a href="#-unixCmd">-unixCmd</a> except that the stdout of the process is returned (<strong>synchronously</strong>) rather than sent to the post window. This object should be an array of strings where the first string is the path to the executable to be run and all other strings are passed as arguments to the executable. This method starts the process directly without using a shell.<textarea class='editor'>~listing = ["ls","/"].unixCmdGetStdOut; // Grab
+<p>Similar to <a href="#-unixCmd">-unixCmd</a> except that the stdout of the process is returned (<strong>synchronously</strong>) rather than sent to the post window. This object should be an array of strings where the first string is the path to the executable to be run and all other strings are passed as arguments to the executable. This method starts the process directly without using a shell.<textarea class='editor'>~listing = ["ls", "/"].unixCmdGetStdOut; // Grab
 ~listing.reverse.as(Array).dupEach.join.postln; // Mangle</textarea>
 </div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>

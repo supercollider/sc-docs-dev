@@ -74,8 +74,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>Ndef registers synths by key. All accesses to the registered synths go through the Ndef class via that key. Registered synths can be replaced with other synths while playing. A synth and its replacement can automatically crossfade and the replacement time can be quantized.
-<p>Ndef is a reference to a proxy, forms an alternative to <a href="./../Classes/ProxySpace.html">ProxySpace</a>. All methods are inherited from <a href="./../Classes/NodeProxy.html">NodeProxy</a>.<textarea class='editor'>Ndef(key)    //returns the instance
-Ndef(key, obj)    //stores the object and returns the instance, like Tdef and Pdef.</textarea>
+<p>Ndef is a reference to a proxy, forms an alternative to <a href="./../Classes/ProxySpace.html">ProxySpace</a>. All methods are inherited from <a href="./../Classes/NodeProxy.html">NodeProxy</a>.<textarea class='editor'>Ndef(key)    // returns the instance
+Ndef(key, obj)    // stores the object and returns the instance, like Tdef and Pdef.</textarea>
 
 <p>Graphical editor overviewing all current Ndefs: <a href="./../Classes/NdefMixer.html">NdefMixer</a>. A general overview: <a href="./../Overviews/JITLib.html">JITLib</a>.<h3><a class='anchor' name='First%20Example'>First Example</a></h3>
 <textarea class='editor'>s.boot;
@@ -142,14 +142,14 @@ Ndef(\sound).fadeTime = 1;
 Ndef(\sound, { SinOsc.ar([600, 635], 0, SinOsc.kr(2).max(0) * 0.2) });
 Ndef(\sound, { SinOsc.ar([600, 635] * 3, 0, SinOsc.kr(2 * 3).max(0) * 0.2) });
 Ndef(\sound, { SinOsc.ar([600, 635] * 2, 0, SinOsc.kr(2 * 3).max(0) * 0.2) });
-Ndef(\sound, Pbind(\dur, 0.17, \freq, Pfunc({ rrand(300, 700) })) );
+Ndef(\sound, Pbind(\dur, 0.17, \freq, Pfunc({ rrand(300, 700) })));
 
 Ndef(\lfo, { LFNoise1.kr(3, 400, 800) });
 Ndef(\sound).map(\freq, Ndef(\lfo));
-Ndef(\sound, { arg freq; SinOsc.ar([600, 635] + freq, 0, SinOsc.kr(2 * 3).max(0) * 0.2) });
+Ndef(\sound, { |freq| SinOsc.ar([600, 635] + freq, 0, SinOsc.kr(2 * 3).max(0) * 0.2) });
 Ndef(\lfo, { LFNoise1.kr(300, 400, 800) });
 
-Ndef.clear; //clear all Ndefs</textarea>
+Ndef.clear; // clear all Ndefs</textarea>
 <h3><a class='anchor' name='using%20Ndef%20inside%20other%20Ndefs'>using Ndef inside other Ndefs</a></h3>
 <textarea class='editor'>Ndef(\lfo2, { LFNoise1.kr(LFNoise1.kr(0.1).exprange(1, 300) ! 2, 400, 800) });
 Ndef(\sound, { Blip.ar(Ndef.kr(\lfo2), 30) * 0.2 }).play;
@@ -202,7 +202,7 @@ Ndef.clear(3);        // fade out and clear all Ndefs</textarea>
 
 <p>Controlling multi-channeled sequenced streams and having independent control over filtering and node ordering is a difficult topic in SuperCollider. However, using Ndefs (or their superclass <a href="./../Classes/NodeProxy.html">NodeProxy</a> or a <a href="./../Classes/ProxySpace.html">ProxySpace</a>) may provide a convenient solution.<textarea class='editor'>// a SynthDef, creating single-channel grain when instantiated
 (
-SynthDef(\grain, { |out=0, freq=300, amp=0.3|
+SynthDef(\grain, { |out = 0, freq = 300, amp = 0.3|
     OffsetOut.ar(out, Pulse.ar(freq) * EnvGen.kr(Env.perc, doneAction: Done.freeSelf) * amp)
 }).add;
 )
@@ -221,7 +221,7 @@ SynthDef(\grain, { |out=0, freq=300, amp=0.3|
 ~freqs = Bus.control(s, ~numChans);
 ~freqs.setn(Array.geom(~numChans, 300, 1.1));
 ~amps = Bus.control(s, ~numChans);
-~amps.setn(0.2!~numChans);
+~amps.setn(0.2 ! ~numChans);
 
 // the Pattern: a Ppar holding one Pbind for each channel,
 // all wrapped in a Pdef
@@ -238,7 +238,7 @@ Pdef(\ppar,
             // we only want to make sure the offset is right
             \channelOffset, i,
         )
-    }!~numChans)
+    } ! ~numChans)
 )
 )
 
@@ -250,7 +250,7 @@ Ndef(\ppar)[0] = Pdef(\ppar);
 // mix the 5 channel audio coming from Ndef(\ppar) down to stereo
 // Splay will spread the channels over the stereo panorama
 // possibly use headphones to clearly identify the effect
-Ndef(\stereo, { Splay.ar(\in.ar(0!~numChans)) });
+Ndef(\stereo, { Splay.ar(\in.ar(0 ! ~numChans)) });
 
 // concatenate the Ndefs, so Ndef(\ppar)'s out will feed into Ndef(\stereo)'s in
 Ndef(\stereo) &lt;&lt;&gt; Ndef(\ppar);
@@ -269,8 +269,8 @@ Ndef(\stereo).play;
 (
 Ndef(\filter, {
     HPF.ar(
-        \in.ar(0!~numChans),
-        SinOsc.ar({|i| 2 + i}!~numChans) + 1 * \multFreq.kr(Array.geom(~numChans, 400, 2))
+        \in.ar(0 ! ~numChans),
+        SinOsc.ar({ |i| 2 + i }  ! ~numChans) + 1 * \multFreq.kr(Array.geom(~numChans, 400, 2))
     )
 }).mold(~numChans, \audio, \elastic);
 )
@@ -304,7 +304,7 @@ Ndef.clear;</textarea>
 <textarea class='editor'>// create a new server
 a = Server(\foo, NetAddr("127.0.0.1", 57123)).boot.makeWindow;
 Ndef(\sound, { SinOsc.ar([600, 635]) * SinOsc.kr(2).max(0) * 0.2 }).play; // play on default
-Ndef(\sound -&gt; \foo, { SinOsc.ar([700, 745]) * SinOsc.kr(2).max(0) * 0.2 }).play;// play on foo
+Ndef(\sound -&gt; \foo, { SinOsc.ar([700, 745]) * SinOsc.kr(2).max(0) * 0.2 }).play; // play on foo
 
 // clear definitions
 Ndef(\sound -&gt; \foo).clear(3);
@@ -335,9 +335,9 @@ NdefMixer(s);</textarea>
 Ndef(\x,
     \setsrc -&gt; Pbind(\source,
         Pseq([
-            { LFTri.ar(280 * Line.kr(1.1, 0.4, rrand(2, 3)) + [0,1]) * 0.1 },
-            { Pulse.ar(40 + [0,1]) * 0.1 },
-            { LFTri.ar(LFTri.kr(1).round(1.0.rand) + 1 * 180 + [0,1], 0.04) * 0.3 },
+            { LFTri.ar(280 * Line.kr(1.1, 0.4, rrand(2, 3)) + [0, 1]) * 0.1 },
+            { Pulse.ar(40 + [0, 1]) * 0.1 },
+            { LFTri.ar(LFTri.kr(1).round(1.0.rand) + 1 * 180 + [0, 1], 0.04) * 0.3 },
         ], inf),
         \dur, Prand([3, 2, 4], inf)
     )

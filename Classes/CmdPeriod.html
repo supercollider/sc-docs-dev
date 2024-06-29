@@ -89,8 +89,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-f = {"foo".postln };
-g = {"bar".postln };
+f = { "foo".postln };
+g = { "bar".postln };
 CmdPeriod.add(f);
 CmdPeriod.add(g);
 )
@@ -134,9 +134,9 @@ CmdPeriod.doOnce { w.close };
 
 
 // in some cases you might need to defer the function by a short amount of time
-a = { Synth(\default)};
+a = { Synth(\default) };
 a.value;
-CmdPeriod.add({{a.value}.defer(0.01)});
+CmdPeriod.add({ { a.value }.defer(0.01) });
 
 // remove all
 CmdPeriod.removeAll</textarea>

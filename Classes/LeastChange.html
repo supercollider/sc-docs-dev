@@ -62,7 +62,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-d = { arg amp=1.0;
+d = { |amp = 1.0|
     var in1, in2;
     in1 = LFNoise0.ar(800, amp);
     in2 = SinOsc.ar(800);
@@ -76,7 +76,7 @@ d.set(\amp, 3);
 d.free;</textarea>
 
 <p>the control that changed least is used as output:<textarea class='editor'>(
-d = { arg freq=440;
+d = { |freq = 440|
     var internalFreq;
     internalFreq = LFNoise0.ar(0.3, 300, 800);
     SinOsc.ar(

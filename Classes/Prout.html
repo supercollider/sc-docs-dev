@@ -70,7 +70,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
 var a;
-a = Prout({ loop { 1.yield; 2.yield; 7.yield; 10.do { 1.0.rand.yield } }});
+a = Prout({ loop { 1.yield; 2.yield; 7.yield; 10.do { 1.0.rand.yield } } });
 a.asStream.nextN(100).plot;
 )
 
@@ -78,7 +78,7 @@ a.asStream.nextN(100).plot;
 // sound example
 (
 SynthDef(\help_sinegrain,
-    { arg out=0, freq=440, sustain=0.05;
+    { |out = 0, freq = 440, sustain = 0.05|
         var env;
         env = EnvGen.kr(Env.perc(0.01, sustain, 0.1), doneAction: Done.freeSelf);
         Out.ar(out, SinOsc.ar(freq, 0, env))
@@ -88,7 +88,7 @@ SynthDef(\help_sinegrain,
 
 (
 var a;
-a = Prout({ loop { 1.yield; 2.yield; 7.yield; 10.do { 1.0.rand.yield } }}).asStream;
+a = Prout({ loop { 1.yield; 2.yield; 7.yield; 10.do { 1.0.rand.yield } } }).asStream;
 {
     a.do { |val|
         Synth(\help_sinegrain, [\freq, val * 100 + 300]);

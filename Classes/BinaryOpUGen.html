@@ -106,12 +106,12 @@ b.operator; // +
 {
     var trig;
     trig = SinOsc.ar(1) &gt; 0.1;
-    EnvGen.kr(Env.perc, trig, doneAction: Done.none) * SinOsc.ar(440,0,0.1)
+    EnvGen.kr(Env.perc, trig, doneAction: Done.none) * SinOsc.ar(440, 0, 0.1)
 }.play
 ) // &gt; outputs 0 or 1</textarea>
 
 <p>See <a href="./../Overviews/Operators.html">Operators</a> or the implementation of these in <a href="./../Classes/AbstractFunction.html">AbstractFunction</a> for more detail.
-<p>Since the equality operator ( <code>==</code> ) is used to distinguish objects including UGens, it cannot be used to create a BinaryOpUGen by application. Instead, to get a trigger value each time two signals are the same (instead of just finding out whether two UGens are the same), one can instantiate a BinaryOpUGen directly:<textarea class='editor'>(
+<p>Since the equality operator (<code>==</code>) is used to distinguish objects including UGens, it cannot be used to create a BinaryOpUGen by application. Instead, to get a trigger value each time two signals are the same (instead of just finding out whether two UGens are the same), one can instantiate a BinaryOpUGen directly:<textarea class='editor'>(
 {
     var a = SinOsc.ar(1).round(0.1);
     var b = SinOsc.ar(1.2).round(0.1);

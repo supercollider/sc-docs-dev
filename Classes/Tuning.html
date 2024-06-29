@@ -77,15 +77,15 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>Represents a musical tuning (e.g. equal temperament, just intonation, etc.). Used in conjunction with <a href="./../Classes/Scale.html">Scale</a> to generate pitch information.<textarea class='editor'>t = Tuning.et12;
-t.semitones;        // [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
-t.ratios;        // [ 1, 1.0594630943591, 1.1224620483089, 1.1892071150019, etc. ]
+t.semitones;        // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+t.ratios;        // [1, 1.0594630943591, 1.1224620483089, 1.1892071150019, etc.]
 
 Pbind(\scale, Scale.major(t), \degree, Pseq((0..7) ++ (6..0) ++ [\rest], 1), \dur, 0.25).play;
 
 // use non-standard tuning
 t = Tuning.just;
-t.semitones;        // [ 0, 1.1173128526978, 2.0391000173077, 3.1564128700055, etc. ]
-t.ratios.collect(_.round(0.001));    // [ 1, 1.067, 1.125, 1.2, 1.25, 1.333, 1.406, 1.5, etc. ]
+t.semitones;        // [0, 1.1173128526978, 2.0391000173077, 3.1564128700055, etc.]
+t.ratios.collect(_.round(0.001));    // [1, 1.067, 1.125, 1.2, 1.25, 1.333, 1.406, 1.5, etc.]
 
 Pbind(\scale, Scale.major(t), \degree, Pseq((0..7) ++ (6..0) ++ [\rest], 1), \dur, 0.25).play;</textarea>
 <h3><a class='anchor' name='Creation'>Creation</a></h3>
@@ -102,7 +102,7 @@ Pbind(\scale, Scale.major(t), \degree, Pseq((0..7) ++ (6..0) ++ [\rest], 1), \du
 <div class='method'>
 <p>Creates a Tuning using some or all of the parameters as follows: <strong>tuning</strong> can be the name of a library tuning (in which case that tuning is returned); an array of floats representing the semitone values of the tuning (in which case pitchesPerOctave will be set to the size of the array regardless of the second parameter); or nil (in which case the default tuning for <strong>pitchesPerOctave</strong> will be returned). <strong>octaveRatio</strong> defaults to 2.0, but can be set differently for stretched or compressed tunings.<textarea class='editor'>Tuning.new(\et12);    // standard equal temperament
 // custom tuning
-Tuning.new(#[ 0, 0.795, 2.251, 3.251, 4.036, 4.680, 5.915, 7.221, 8.013, 9.29, 9.930, 11.032 ]);
+Tuning.new(#[0, 0.795, 2.251, 3.251, 4.036, 4.680, 5.915, 7.221, 8.013, 9.29, 9.930, 11.032]);
 Tuning.new((0..11).collect(_ * (2.08 ** (1/12))), 2.08, "Stretched ET12");</textarea>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>

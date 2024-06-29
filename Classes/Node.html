@@ -187,7 +187,7 @@ x = SynthDef("help-node-set", { |freq = #[440, 450, 460], out = 0|
     Out.ar(out, Mix(SinOsc.ar(freq, 0, 0.1)))
 }).play
 )
-x.set(\freq, [1,2,3] * 400 + [1, 2, 3], \out, 1); // two pairs
+x.set(\freq, [1, 2, 3] * 400 + [1, 2, 3], \out, 1); // two pairs
 x.set(\freq, [3] * 400 + [1, 2, 3], \out, 1); // two pairs
 x.set(0, [660, 680, 720], 1, 0); // freq is the first argument, so it's index is 0. out is index 1.
 x.free;</textarea>
@@ -253,7 +253,7 @@ x.free; b.free;</textarea>
 <tr><td class='argumentname'>releaseTime<td class='argumentdesc'>
 <p>The amount of time in seconds during which the node will release. If set to a value <code>&lt;= 0</code>, the synth will release immediately. A <code>nil</code> value will cause the synth to release using its envelope's normal release stage(s).<div class='note'><span class='notelabel'>NOTE:</span> Providing a releaseTime != nil doesn't trigger a normal release, but a different behavior called forced release. This difference is particularly important for envelopes with a multi-node release stage, i.e. whose releaseNode is not their last node. See <a href="./../Classes/EnvGen.html#Forced%20release">EnvGen: Forced release</a>.</div></table><h4>Discussion:</h4>
 
-<p>If the receiver is a Group, all nodes within the group will be released.<textarea class='editor'>x = { arg gate=1; BrownNoise.ar(0.5) * EnvGen.kr(Env.cutoff(1), gate, doneAction: Done.freeSelf) }.play;
+<p>If the receiver is a Group, all nodes within the group will be released.<textarea class='editor'>x = { |gate = 1| BrownNoise.ar(0.5) * EnvGen.kr(Env.cutoff(1), gate, doneAction: Done.freeSelf) }.play;
 x.release(5); // override the Env's specified 1 second release time</textarea>
 
 <p></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-query' href='./../Overviews/Methods.html#query'>query</a>(<span class='argstr'>action</span>)</h3>
@@ -282,18 +282,18 @@ x.free; g.free;</textarea>
 
 <p>This will enable two variables, isPlaying and isRunning, which you can use for checking purposes.<textarea class='editor'>(
 b = s.makeBundle(false, {
-    a = Group.new(s); //create a node object
+    a = Group.new(s); // create a node object
     a.register // register before creating on the server
 })
 )
 
 a.isPlaying;
-s.listSendBundle(nil, b); //start the node on the server
+s.listSendBundle(nil, b); // start the node on the server
 a.isPlaying;
 a.isRunning;
 a.run(false);
 a.isRunning;
-s.freeAll; //free all nodes
+s.freeAll; // free all nodes
 a.isPlaying;
 a.isRunning;</textarea>
 </div><h3><a class='anchor' name='Changing%20the%20order%20of%20execution'>Changing the order of execution</a></h3>
@@ -332,14 +332,14 @@ g === h;    // false</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-onFree' href='./../Overviews/Methods.html#onFree'>onFree</a>(<span class='argstr'>func</span>)</h3>
 <div class='method'>
 <p>Evaluate function when this Node is freed.<h4>Discussion:</h4>
-<textarea class='editor'>{PinkNoise.ar(1) * Line.kr(1,0,2,doneAction: Done.freeSelf)}.play.onFree {"done".postln};</textarea>
+<textarea class='editor'>{ PinkNoise.ar(1) * Line.kr(1, 0, 2, doneAction: Done.freeSelf) }.play.onFree { "done".postln };</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-waitForFree' href='./../Overviews/Methods.html#waitForFree'>waitForFree</a></h3>
 <div class='method'>
 <p>Wait until this Node is freed. Should be used inside a Routine or similar.<h4>Discussion:</h4>
 <textarea class='editor'>(
 fork {
     { SinOsc.ar(440 ! 2) * Line.kr(0, 1, 5, doneAction: Done.freeSelf) }.play.waitForFree;
-    { PinkNoise.ar(1) * Line.kr(1, 0, 2, doneAction: Done.freeSelf) }.play.onFree {"done".postln};
+    { PinkNoise.ar(1) * Line.kr(1, 0, 2, doneAction: Done.freeSelf) }.play.onFree { "done".postln };
 }
 )</textarea>
 <textarea class='editor'>(

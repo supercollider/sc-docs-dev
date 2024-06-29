@@ -78,13 +78,13 @@ var scdoc_sc_version = '3.14.0-dev';
 <table class='arguments'>
 <tr><td class='argumentname'>commandLine<td class='argumentdesc'>
 <p>A command line <a href="./../Classes/String.html">String</a> passed to popen.<tr><td class='argumentname'>mode<td class='argumentdesc'>
-<p>A <a href="./../Classes/String.html">String</a> passed to popen, so should be one of: "r","w"</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-openArgv' href='./../Overviews/Methods.html#openArgv'>openArgv</a>(<span class='argstr'>args</span>, <span class='argstr'>mode</span>)</h3>
+<p>A <a href="./../Classes/String.html">String</a> passed to popen, so should be one of: "r", "w"</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-openArgv' href='./../Overviews/Methods.html#openArgv'>openArgv</a>(<span class='argstr'>args</span>, <span class='argstr'>mode</span>)</h3>
 <div class='method'>
 <p>Open the file.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>args<td class='argumentdesc'>
 <p>A <a href="./../Classes/SequenceableCollection.html">SequenceableCollection</a> containining strings where the first string is the path to the executable to be run and all other strings are passed as arguments to the executable. This method starts the process directly without using a shell.<tr><td class='argumentname'>mode<td class='argumentdesc'>
-<p>A <a href="./../Classes/String.html">String</a> passed to popen, so should be one of: "r","w"</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-close' href='./../Overviews/Methods.html#close'>close</a></h3>
+<p>A <a href="./../Classes/String.html">String</a> passed to popen, so should be one of: "r", "w"</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-close' href='./../Overviews/Methods.html#close'>close</a></h3>
 <div class='method'>
 <p>Closes the pipe, waiting for the command to finish. You must do this explicitly before the Pipe object is garbage collected.<h4>Returns:</h4>
 <div class='returnvalue'>
@@ -95,16 +95,16 @@ var scdoc_sc_version = '3.14.0-dev';
 var p, l;
 p = Pipe.new("ls -l", "r");            // list directory contents in long format
 l = p.getLine;                    // get the first line
-while({l.notNil}, {l.postln; l = p.getLine; });    // post until l = nil
+while({ l.notNil }, { l.postln; l = p.getLine });    // post until l = nil
 p.close;                    // close the pipe to avoid that nasty buildup
 )</textarea>
 
 <p>without using a shell:<textarea class='editor'>// this pipes in stdout from ls
 (
 var p, l;
-p = Pipe.argv(["ls","-l"], "r");            // list directory contents in long format
+p = Pipe.argv(["ls", "-l"], "r");            // list directory contents in long format
 l = p.getLine;                    // get the first line
-while({l.notNil}, {l.postln; l = p.getLine; });    // post until l = nil
+while({ l.notNil }, { l.postln; l = p.getLine });    // post until l = nil
 p.close;                    // close the pipe to avoid that nasty buildup
 )</textarea>
 
@@ -112,7 +112,7 @@ p.close;                    // close the pipe to avoid that nasty buildup
 var p, l;
 p = Pipe.new("ping -c10 sourceforge.net", "r");    // list directory contents in long format
 l = p.getLine;                    // get the first line
-while({l.notNil}, {l.postln; l = p.getLine; });    // post until l = nil
+while({ l.notNil }, { l.postln; l = p.getLine });    // post until l = nil
 p.close;                    // close the pipe to avoid that nasty buildup
 )</textarea>
 

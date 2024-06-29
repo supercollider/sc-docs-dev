@@ -61,9 +61,9 @@ var scdoc_sc_version = '3.14.0-dev';
 <p> A string. The dialog will initially display the contents of this path. The default is the current  user's home directory.</table><h4>Discussion:</h4>
 
 <p>Example:<textarea class='editor'>(
-Dialog.openPanel({ arg path;
+Dialog.openPanel({ |path|
     path.postln;
-},{
+}, {
     "cancelled".postln;
 });
 )</textarea>
@@ -77,9 +77,9 @@ Dialog.openPanel({ arg path;
 <p> A string. The dialog will initially display the contents of this path. The default is the current  user's home directory.</table><h4>Discussion:</h4>
 
 <p>Example:<textarea class='editor'>(
-Dialog.savePanel({ arg path;
+Dialog.savePanel({ |path|
     path.postln;
-},{
+}, {
     "cancelled".postln;
 });
 )</textarea>

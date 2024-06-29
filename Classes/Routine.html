@@ -81,7 +81,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>func<td class='argumentdesc'>
 <p>A Function with code for the Thread to run.<tr><td class='argumentname'>stackSize<td class='argumentdesc'>
 <p>Call stack size (an Integer).</table><h4>Discussion:</h4>
-<textarea class='editor'>a = Routine.new({ 1.yield; 2.yield; });
+<textarea class='editor'>a = Routine.new({ 1.yield; 2.yield });
 a.next.postln;
 a.next.postln;
 a.next.postln;</textarea>
@@ -103,12 +103,12 @@ a.next.postln;</textarea>
 <li>Either the value that the Routine yields (the Object on which <a href="./../Classes/Object.html#-yield">yield</a> is called within the Routine Function),<li>...or <code>nil</code>, if the Routine has stopped.</ul>
 </div><h4>Discussion:</h4>
 
-<p>When a Routine is started by a call to this method (or one of its synonyms), the method's argument is passed on as the argument to the Routine Function:<textarea class='editor'>Routine { arg inval;
+<p>When a Routine is started by a call to this method (or one of its synonyms), the method's argument is passed on as the argument to the Routine Function:<textarea class='editor'>Routine { |inval|
     inval.postln;
 }.value("hello routine");</textarea>
 
 <p>After the Routine has yielded (it has been suspended at the point in its Function where <code>yield</code> is called on an Object), a call to this method (or its synonyms) resumes executing the Function and the argument to this method becomes the return value of <code>yield</code>. To access that value within the Function, you have to assign it to a variable - typically, the argument of the Function is reused:<textarea class='editor'>(
-r = Routine { arg inval;
+r = Routine { |inval|
     inval.postln;
     inval = 123.yield;
     inval.postln;
@@ -119,9 +119,9 @@ r.value("hello routine");
 r.value("goodbye routine");</textarea>
 
 <p>Typically, a Routine yields multiple times, and each time the result of the yield is reassigning to the argument of its Function.<textarea class='editor'>(
-r = Routine { arg inval;
+r = Routine { |inval|
     inval.postln; // Post the value passed in when started.
-    5.do { arg i;
+    5.do { |i|
         inval = (i + 10).yield;
         inval.postln; // Post the value passed in when resumed.
     }
@@ -279,35 +279,35 @@ r.next.postln;    // "bye" because r kept its own state, separate from q
 <div class='note'><span class='notelabel'>NOTE:</span> New routines produced by <code>.p.asStream</code> run the original routine's function from the beginning. There is no copy of the internal state of the original routine, only its function is copied. On a related note, <code>Routine.copy</code> (inherited from <code>Thread</code>) does not create a new, separate Routine; it just returns the receiver.</div>
 <p>The Routine method <code>p</code> is mostly useful in the context of using the result of Routine-returning expressions as arguments to Patterns, when the intent is to use the Routine's result as a pattern, i.e. multiple occurrences acting independently of each other.<textarea class='editor'>(
 r = (:2..5); // a seriesIter Routine
-Ptuple([r, r]).asStream.all.postln; // posts [ [ 2, 3 ], [ 4, 5 ] ]
+Ptuple([r, r]).asStream.all.postln; // posts [[2, 3], [4, 5]]
 r.next.postln; // nil
 
 p = r.p; // make a Pattern from r; it doesn't matter that r has ended
 Ptuple([p, p]).asStream.all.postln;
-// posts [ [ 2, 2 ], [ 3, 3 ], [ 4, 4 ], [ 5, 5 ] ]
+// posts [[2, 2], [3, 3], [4, 4], [5, 5]]
 
 // Obviously, explicitly writing the same Routine-valued subexpression twice
 // also creates separate Routines.
 Ptuple([(:2..5), (:2..5)]).asStream.all.postln;
-// posts [ [ 2, 2 ], [ 3, 3 ], [ 4, 4 ], [ 5, 5 ] ]
+// posts [[2, 2], [3, 3], [4, 4], [5, 5]]
 )</textarea>
 
 <p>In the following example, directly reusing the same Routine object twice in a <code>Pseq</code> fails to duplicate its output, because the first embedding fully consumes the routine's (non-nil) output.<textarea class='editor'>(
 r = (:2..6);
 Pseq([r, r]).asStream.all.postln;
-// [ 2, 3, 4, 5, 6 ]
+// [2, 3, 4, 5, 6]
 
 p = r.p;
 Pseq([p, p]).asStream.all.postln;
-// [ 2, 3, 4, 5, 6, 2, 3, 4, 5, 6 ]
+// [2, 3, 4, 5, 6, 2, 3, 4, 5, 6]
 
 Pseq([(:2..6), (:2..6)]).asStream.all.postln;
-// [ 2, 3, 4, 5, 6, 2, 3, 4, 5, 6 ]
+// [2, 3, 4, 5, 6, 2, 3, 4, 5, 6]
 )</textarea>
 </div><h3><a class='anchor' name='Accessible%20instance%20variables'>Accessible instance variables</a></h3>
 
 <p>Routine inherits from <a href="./../Classes/Thread.html">Thread</a>, which allows access to some of its state:<textarea class='editor'>(
-r = Routine { arg inval;
+r = Routine { |inval|
     loop {
         // thisThread refers to the routine.
         postf("beats: % seconds: % time: % \n",
@@ -350,7 +350,7 @@ r.clock;</textarea>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
 var r, outval;
-r = Routine.new({ arg inval;
+r = Routine.new({ |inval|
     ("-&gt;inval was " ++ inval).postln;
     inval = 1.yield;
     ("-&gt;inval was " ++ inval).postln;
@@ -378,7 +378,7 @@ outval = r.next('f');
 (
 var r;
 r = Routine {
-    10.do({ arg a;
+    10.do({ |a|
         a.postln;
         // Often you might see Wait being used to pause a routine
         // This waits for one second between each number
@@ -396,7 +396,7 @@ var r;
 r = Routine {
     var times = { rrand(1.0, 10.0) }.dup(10) + thisThread.beats;
     times = times.sort;
-    times.do({ arg a;
+    times.do({ |a|
         waitUntil(a);
         a.postln;
     });
@@ -408,7 +408,7 @@ r = Routine {
 <textarea class='editor'>// Using Routine to set button states on the fly.
 (
 var update, w, b;
-w = SCWindow.new("State Window", Rect(150,SCWindow.screenBounds.height-140,380,60));
+w = SCWindow.new("State Window", Rect(150, SCWindow.screenBounds.height-140, 380, 60));
 
 // a convenient way to set the button label
 update = {
@@ -416,7 +416,7 @@ update = {
     but.refresh;
 };
 
-b = SCButton(w, Rect(10,10,360,40));
+b = SCButton(w, Rect(10, 10, 360, 40));
 b.font_(Font("Impact", 24));
 
 update.value(b, "there is only one state");
@@ -466,7 +466,7 @@ w.drawFunc = Routine {
     }
 };
 
-fork { while { w.isClosed.not } { defer { w.refresh }; 0.04.wait; } };
+fork { while { w.isClosed.not } { defer { w.refresh }; 0.04.wait } };
 
 w.front;
 

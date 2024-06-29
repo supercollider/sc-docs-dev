@@ -620,7 +620,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>clips receiver to +/- aNumber</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-excess' href='./../Overviews/Methods.html#excess'>excess</a>(<span class='argstr'>aNumber: 1</span>, <span class='argstr'>adverb</span>)</h3>
 <div class='method'>
 <p>Returns the difference of the receiver and its clipped form.<h4>Discussion:</h4>
-<textarea class='editor'>(a - clip2(a,b))</textarea>
+<textarea class='editor'>(a - clip2(a, b))</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-madd' href='./../Overviews/Methods.html#madd'>madd</a>(<span class='argstr'>mul</span>, <span class='argstr'>add</span>)</h3>
 <div class='method'><textarea class='editor'>this * a + b</textarea>
 </div><h3><a class='anchor' name='testing'>testing</a></h3>
@@ -633,7 +633,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Answer if the number is &gt; 0.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-booleanValue' href='./../Overviews/Methods.html#booleanValue'>booleanValue</a></h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
-<p>true, if strictly positive ( &gt; 0), otherwise false (see <a href="./../Classes/Boolean.html">Boolean</a>)</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isNaN' href='./../Overviews/Methods.html#isNaN'>isNaN</a></h3>
+<p>true, if strictly positive (&gt; 0), otherwise false (see <a href="./../Classes/Boolean.html">Boolean</a>)</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isNaN' href='./../Overviews/Methods.html#isNaN'>isNaN</a></h3>
 <div class='method'></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-==' href='./../Overviews/Methods.html#=='>==</a>(<span class='argstr'>aNumber</span>, <span class='argstr'>adverb</span>)</h3>
 <div class='method'>
 <p></div><h3><a class='anchor' name='conversion'>conversion</a></h3>
@@ -801,11 +801,11 @@ r.nextN(8); // run repeatedly</textarea>
 )</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-scurve' href='./../Overviews/Methods.html#scurve'>scurve</a></h3>
 <div class='method'>
-<p>Map receiver in the onto an S-curve bound to [0,1]. Implements:<pre>this * this * (3.0 - (2.0 * this))</pre>
-<p>with <code>this</code> clipped to [0,1].<textarea class='editor'>((-100..200) / 100 ).collect(_.scurve).plot</textarea>
+<p>Map receiver in the onto an S-curve bound to [0, 1]. Implements:<pre>this * this * (3.0 - (2.0 * this))</pre>
+<p>with <code>this</code> clipped to [0, 1].<textarea class='editor'>((-100..200) / 100).collect(_.scurve).plot</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-ramp' href='./../Overviews/Methods.html#ramp'>ramp</a></h3>
 <div class='method'>
-<p>Map the receiver onto a ramp starting at <code>0.0</code>, ending at <code>1.0</code>, effectively clipping the receiver at [0,1].<h4>Discussion:</h4>
+<p>Map the receiver onto a ramp starting at <code>0.0</code>, ending at <code>1.0</code>, effectively clipping the receiver at [0, 1].<h4>Discussion:</h4>
 <textarea class='editor'>(
     var vals = (-100..200) / 100;
     vals.collect(_.ramp).plot
@@ -830,7 +830,7 @@ r.nextN(8); // run repeatedly</textarea>
 
 <p>the value is truncated to an integer and used as an index into an octave repeating table of note values. Indices wrap around the table and shift octaves as they do.<textarea class='editor'>(
 l = [0, 1, 5, 9, 11]; // pentatonic scale
-(1, 2..15).collect{|i|
+(1, 2..15).collect{ |i|
     i.degreeToKey(l, 12)
 };
 )</textarea>
@@ -1229,7 +1229,7 @@ a.action = {
 <p>Returns a value <code>b</code> such that: <code>q = ibetaC(a, b, x)</code>.
 <p>Requires <code>a</code> &gt; 0, 0 &lt; <code>x</code> &lt; 1, and 0 &lt;= <code>q</code> &lt;= 1.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-ibetaDerivative' href='./../Overviews/Methods.html#ibetaDerivative'>ibetaDerivative</a>(<span class='argstr'>b</span>, <span class='argstr'>x</span>)</h3>
 <div class='method'>
-<p>Returns the partial derivative with respect to <code>x</code> of the incomplete beta function <code>ibeta(a,b,x)</code>.</div><h3><a class='anchor' name='Error%20Functions'>Error Functions</a></h3>
+<p>Returns the partial derivative with respect to <code>x</code> of the incomplete beta function <code>ibeta(a, b, x)</code>.</div><h3><a class='anchor' name='Error%20Functions'>Error Functions</a></h3>
 
 <p>Take a tour of <a href="./../Guides/Tour-of-Special-Functions.html#Error%20Functions">Error Functions</a>.<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-erf' href='./../Overviews/Methods.html#erf'>erf</a></h3>
 <div class='method'>
@@ -1273,7 +1273,7 @@ a.action = {
 <p>Returns the roots (zeros) of the <code>n</code>-th Chebyshev polynomial of the first kind.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sphericalHarmonic' href='./../Overviews/Methods.html#sphericalHarmonic'>sphericalHarmonic</a>(<span class='argstr'>m</span>, <span class='argstr'>theta</span>, <span class='argstr'>phi</span>)</h3>
 <div class='method'>
 <p>Returns the (<code>Complex</code>) value of the Spherical Harmonic.
-<p><code>theta</code> is taken as the polar (colatitudinal) coordinate within <code>[0, pi]</code>, and <code>phi</code> as the azimuthal (longitudinal) coordinate within <code>[0,2pi]</code>.
+<p><code>theta</code> is taken as the polar (colatitudinal) coordinate within <code>[0, pi]</code>, and <code>phi</code> as the azimuthal (longitudinal) coordinate within <code>[0, 2pi]</code>.
 <p>See boost documentation for further information, including a note about the Condon-Shortley phase term of <code>(-1)^m</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sphericalHarmonicR' href='./../Overviews/Methods.html#sphericalHarmonicR'>sphericalHarmonicR</a>(<span class='argstr'>m</span>, <span class='argstr'>theta</span>, <span class='argstr'>phi</span>)</h3>
 <div class='method'>
 <p>Returns the real part of the Spherical Harmonic.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sphericalHarmonicI' href='./../Overviews/Methods.html#sphericalHarmonicI'>sphericalHarmonicI</a>(<span class='argstr'>m</span>, <span class='argstr'>theta</span>, <span class='argstr'>phi</span>)</h3>
@@ -1431,7 +1431,7 @@ a.action = {
 <p>Take a tour of <a href="./../Guides/Tour-of-Special-Functions.html#Exponential%20Integrals">Exponential Integrals</a>.<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-expintEn' href='./../Overviews/Methods.html#expintEn'>expintEn</a>(<span class='argstr'>z</span>)</h3>
 <div class='method'>
 <p>Returns the exponential integral En of <code>z</code>.
-<p>Requires that when <code>n == 1</code>, <code>z !=0</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-expintEi' href='./../Overviews/Methods.html#expintEi'>expintEi</a></h3>
+<p>Requires that when <code>n == 1</code>, <code>z != 0</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-expintEi' href='./../Overviews/Methods.html#expintEi'>expintEi</a></h3>
 <div class='method'>
 <p>Returns the exponential integral of <code>z</code>.
 <p>Requires <code>z != 0</code>.</div><h3><a class='anchor' name='Basic%20Functions'>Basic Functions</a></h3>

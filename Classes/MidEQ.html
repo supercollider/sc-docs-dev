@@ -63,7 +63,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>// mixer parametric eq as wahwah
-{ MidEQ.ar(Saw.ar(200,0.2), FSinOsc.kr(1, 0, 24, 84).midicps, 0.3, 12) }.play
+{ MidEQ.ar(Saw.ar(200, 0.2), FSinOsc.kr(1, 0, 24, 84).midicps, 0.3, 12) }.play
 
 
 // notch filter
@@ -77,9 +77,9 @@ var scdoc_sc_version = '3.14.0-dev';
 /////
 // first start the synth
 (
-x = {| freq=400, db=0, rq=0.1 |
+x = { |freq = 400, db = 0, rq = 0.1|
      var in;
-     in =  SinOsc.ar([ 400, 420 ], 0, 0.4);
+     in =  SinOsc.ar([400, 420], 0, 0.4);
      MidEQ.ar(in, freq, Lag.kr(rq, 0.3), db)
     }.play
 )

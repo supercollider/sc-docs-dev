@@ -97,8 +97,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <p> The optional parent view. Default is nil. If nil, then it will open in its own Window.<tr><td class='argumentname'>bufnum<td class='argumentdesc'>
 <p> The id number of the Buffer to analyze. Default value is nil. If nil, then a Buffer of size bufSize is allocated.
 <p> discussion:  Example:<textarea class='editor'>s.boot
-{SinOsc.ar([330,440], 0, 0.4)}.play;
-Stethoscope(s,2);</textarea>
+{ SinOsc.ar([330, 440], 0, 0.4) }.play;
+Stethoscope(s, 2);</textarea>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*isValidServer' href='./../Overviews/Methods.html#isValidServer'>isValidServer</a></h3>
 <div class='method'>
 <p> Tests whether Stethoscope can operate on the given server (any local server. See <a href="./../Classes/Server.html#-isLocal">Server: -isLocal</a>).<h4>Arguments:</h4>
@@ -109,7 +109,7 @@ Stethoscope(s,2);</textarea>
 <p>A Boolean.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*ugenScopes' href='./../Overviews/Methods.html#ugenScopes'>ugenScopes</a></h3>
 <div class='method'>
 <p> Returns an array of the running ugen scopes.<textarea class='editor'>s.boot
-{[SinOsc.ar.scope,WhiteNoise.ar(0.5).scope]*0.1}.scope(2);
+{ [SinOsc.ar.scope, WhiteNoise.ar(0.5).scope]*0.1 }.scope(2);
 Stethoscope.ugenScopes; // returns the ugen scopes</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*tileBounds' href='./../Overviews/Methods.html#tileBounds'>tileBounds</a></h3>
 <div class='method'>
@@ -200,7 +200,7 @@ s.scope.bounds_(500@600);</textarea>
 {
     SinOsc.ar([225, 450, 900], 0, 0.2)
     + LPF.ar(
-        LFPulse.ar(226 * [1, 2, 5],[0,0.1,0.1],0.2, 0.2),
+        LFPulse.ar(226 * [1, 2, 5], [0, 0.1, 0.1], 0.2, 0.2),
         MouseX.kr(20, 10000, 1)
         )
 }.scope;
@@ -208,10 +208,10 @@ s.scope.bounds_(500@600);</textarea>
 
 // server.scope only changes the properies explicitly given:
 
-s.scope(numChannels:5);
-s.scope(index:12);
-s.scope(zoom:4);
-s.scope(index:0);
+s.scope(numChannels: 5);
+s.scope(index: 12);
+s.scope(zoom: 4);
+s.scope(index: 0);
 
 s.scopeWindow.size = 600;
 s.scopeWindow.size = 222;
@@ -246,7 +246,7 @@ c.style = 2;</textarea>
 
 <p>You can pass your own view in to add a stethoscope to it:<textarea class='editor'>w = Window.new("my own scope", Rect(20, 20, 400, 500));
 w.view.decorator = FlowLayout(w.view.bounds);
-c = Stethoscope.new(s, view:w.view);
+c = Stethoscope.new(s, view: w.view);
 w.onClose = { c.free }; // don't forget this
 w.front;</textarea>
 

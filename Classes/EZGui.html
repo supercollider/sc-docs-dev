@@ -112,7 +112,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>EZGui provides a standard and basic tools for most EZ classes. If you make a new EZ class, then subclass EZGui, and override the necessary methods. If your class only has a label and a widget, chances are, you need to override nothing, but only need to write the new and init class methods. See existing subclasses of EZGui for examples of this. You may also want to override the following:<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-widget' href='./../Overviews/Methods.html#widget'>widget</a></h3>
 <div class='method'>
 <p>Returns the active widget. Subclasses will typically refer to it or ignore it, e.g.:<textarea class='editor'>MyEZClass{
-    myOtherMethods{}
+    myOtherMethods{ }
     ....
     listView{ ^widget }
 }</textarea>

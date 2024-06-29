@@ -55,7 +55,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>A Rest may be used in event patterns to indicate that the resulting event should be a rest (i.e., silent). It should be used in one of the child patterns belonging to a Pbind, for instance.<textarea class='editor'>// do nothing for 2 seconds
-(note:Rest(), dur:2).play;
+(note: Rest(), dur: 2).play;
 
 // intersperse pauses in pattern
 Pbind(\note, Pseq([0, 4, 7, 11], inf), \dur, Pseq([2, 1, Rest(1)], inf) / 5).play;</textarea>

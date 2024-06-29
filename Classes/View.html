@@ -403,7 +403,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>image<td class='argumentdesc'>
 <p> the Image to use. <tr><td class='argumentname'>tileMode<td class='argumentdesc'>
 <p> the mode to use. By default 1 (fixed to left, fixed to top).<table>
-<tr><td>1<td>fixed to left, fixed to top<tr><td>2<td>horizontally tile, fixed to top<tr><td>3<td>fixed to right, fixed to top<tr><td>4<td>fixed to left, vertically tile<tr><td>5<td>horizontally tile, vertically tile<tr><td>6<td>fixed to right, vertically tile<tr><td>7<td>fixed to left, fixed to bottom<tr><td>8<td>horizontally tile, fixed to bottom<tr><td>9<td>fixed to right, fixed to bottom<tr><td>10<td>fit<tr><td>11<td>center, center (scale)<tr><td>12<td>center , fixed to top<tr><td>13<td>center , fixed to bottom<tr><td>14<td>fixed to left, center<tr><td>15<td>fixed to right, center<tr><td>16<td>center, center (no scale)</table>
+<tr><td>1<td>fixed to left, fixed to top<tr><td>2<td>horizontally tile, fixed to top<tr><td>3<td>fixed to right, fixed to top<tr><td>4<td>fixed to left, vertically tile<tr><td>5<td>horizontally tile, vertically tile<tr><td>6<td>fixed to right, vertically tile<tr><td>7<td>fixed to left, fixed to bottom<tr><td>8<td>horizontally tile, fixed to bottom<tr><td>9<td>fixed to right, fixed to bottom<tr><td>10<td>fit<tr><td>11<td>center, center (scale)<tr><td>12<td>center, fixed to top<tr><td>13<td>center, fixed to bottom<tr><td>14<td>fixed to left, center<tr><td>15<td>fixed to right, center<tr><td>16<td>center, center (no scale)</table>
 <tr><td class='argumentname'>alpha<td class='argumentdesc'>
 <p> opacity of the image. 0 &lt;= alpha &lt;= 1, and values outside of that range will be clipped<tr><td class='argumentname'>fromRect<td class='argumentdesc'>
 <p> the portion of the image to use. If nil, use the full image.</table><h4>Discussion:</h4>
@@ -444,7 +444,7 @@ var scdoc_sc_version = '3.14.0-dev';
     ~image = Image.new(SCDoc.helpSourceDir +/+ "images/Swamp.png");
     ~window = Window.new("Image background");
     ~slider = Slider2D.new(~window, Rect(10, 10, 200, 200))
-        .setBackgroundImage(~image, 5, 1, Rect(0, 0, 100, 100) );
+        .setBackgroundImage(~image, 5, 1, Rect(0, 0, 100, 100));
     ~window.front;
 )</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-focusColor' href='./../Overviews/Methods.html#focusColor'>focusColor</a></h3>
@@ -456,16 +456,16 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p> Get or set the palette to be used by the view.
 <p> When setting a palette, only those colors that have been set on the palette will take effect, other colors will be inherited from the parent view's palette. See also <a href="./../Classes/QPalette.html#-hasColor">QPalette: -hasColor</a>.
-<p> When getting a palette, it will return a new copy of the view's palette every time. Therefore, if you wish to change the view's palette, you have to set the changed palette back on the view:<textarea class='editor'>    w = Window().front.layout_( HLayout( a = Slider() ) );
+<p> When getting a palette, it will return a new copy of the view's palette every time. Therefore, if you wish to change the view's palette, you have to set the changed palette back on the view:<textarea class='editor'>    w = Window().front.layout_(HLayout(a = Slider()));
     a.action = { |a|
-        a.palette = a.palette.buttonText_( if(a.value &gt; 0.5){Color.red}{Color.green} );
+        a.palette = a.palette.buttonText_(if(a.value &gt; 0.5){ Color.red }{ Color.green });
     };
     a.valueAction = 0.0;</textarea>
 
-<p> To dynamically modify the view's palette, it is thus more efficient, if possible, to keep a palette instance to operate on. Note that this is also more efficient than using methods like <a href="./../Classes/Slider.html#-knobColor">Slider: -knobColor</a>, since internally they use the above approach:<textarea class='editor'>    w = Window().front.layout_( HLayout( a = Slider() ) );
+<p> To dynamically modify the view's palette, it is thus more efficient, if possible, to keep a palette instance to operate on. Note that this is also more efficient than using methods like <a href="./../Classes/Slider.html#-knobColor">Slider: -knobColor</a>, since internally they use the above approach:<textarea class='editor'>    w = Window().front.layout_(HLayout(a = Slider()));
     p = QPalette();
     a.action = { |a|
-        a.palette = p.buttonText_( if(a.value &gt; 0.5){Color.red}{Color.green} );
+        a.palette = p.buttonText_(if(a.value &gt; 0.5){ Color.red }{ Color.green });
     };
     a.valueAction = 0.0;</textarea>
 
@@ -572,7 +572,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Use the methods below to set or get the view's actions in response to keyboard interaction when the view has the keyboard focus.<div class='note'><span class='notelabel'>NOTE:</span> Key actions are subject to <em>event propagation</em>. See <a href="#Key%20and%20mouse%20event%20processing">Key and mouse event processing</a> for details.</div>
 <p>When the key action object is evaluated, it is passed one or more arguments from the following list (in that order):<ul>
-<li><strong>view</strong> - The view.<li><strong>char</strong> - The character (<a href="./../Classes/Char.html">Char</a>) associated with the key, possibly unprintable. Character sequences (for example é) get passed as two characters, the first one blank ( ), the second one is the unmodified character (e). This will also vary depending on the nationality the keyboard is set to.<div class='note'><span class='notelabel'>NOTE:</span> Only characters with an ASCII code are passed. Non-ASCII keys (Ctrl/Alt/Cmd/Shift modifiers, arrow keys and other control sequences) will pass a <a href="./../Classes/Char.html">Char</a> with ASCII code 0. (Ctrl-characters <em>do</em> have ASCII codes, and are passed as a Char. The Ctrl key by itself also triggers the key action, but with ASCII code 0.) A useful test is <a href="./../Classes/Char.html#-isPrint">Char: -isPrint</a>.</div><li><strong>modifiers</strong> - A bitwise or of integers indicating the modifier keys in effect. You can examine individual flag settings using the C bitwise AND operator. For a list of these, see <a href="./../Reference/Modifiers.html">Modifier Keys</a>.<li><strong>unicode</strong> - The Integer unicode number associated with the 'char' passed.<li><strong>keycode</strong> - The hardware dependent keycode indicating the physical key. This will vary from machine to machine, but is useful for building musical interfaces using the computer keyboard.<div class='warning'><span class='warninglabel'>WARNING:</span> Function key modifier in combination with another key may change the latter's keycode.</div><li><strong>key</strong> - An Integer denoting a key, corresponding to the "Key" enum of the Qt C++ API. Comparing this value is the most reliable way to check which key was pressed. For a list of possible values, see: <a href="http://qt-project.org/doc/qt-4.8/qt.html#Key-enum">http://qt-project.org/doc/qt-4.8/qt.html#Key-enum</a>.</ul>
+<li><strong>view</strong> - The view.<li><strong>char</strong> - The character (<a href="./../Classes/Char.html">Char</a>) associated with the key, possibly unprintable. Character sequences (for example é) get passed as two characters, the first one blank (), the second one is the unmodified character (e). This will also vary depending on the nationality the keyboard is set to.<div class='note'><span class='notelabel'>NOTE:</span> Only characters with an ASCII code are passed. Non-ASCII keys (Ctrl/Alt/Cmd/Shift modifiers, arrow keys and other control sequences) will pass a <a href="./../Classes/Char.html">Char</a> with ASCII code 0. (Ctrl-characters <em>do</em> have ASCII codes, and are passed as a Char. The Ctrl key by itself also triggers the key action, but with ASCII code 0.) A useful test is <a href="./../Classes/Char.html#-isPrint">Char: -isPrint</a>.</div><li><strong>modifiers</strong> - A bitwise or of integers indicating the modifier keys in effect. You can examine individual flag settings using the C bitwise AND operator. For a list of these, see <a href="./../Reference/Modifiers.html">Modifier Keys</a>.<li><strong>unicode</strong> - The Integer unicode number associated with the 'char' passed.<li><strong>keycode</strong> - The hardware dependent keycode indicating the physical key. This will vary from machine to machine, but is useful for building musical interfaces using the computer keyboard.<div class='warning'><span class='warninglabel'>WARNING:</span> Function key modifier in combination with another key may change the latter's keycode.</div><li><strong>key</strong> - An Integer denoting a key, corresponding to the "Key" enum of the Qt C++ API. Comparing this value is the most reliable way to check which key was pressed. For a list of possible values, see: <a href="http://qt-project.org/doc/qt-4.8/qt.html#Key-enum">http://qt-project.org/doc/qt-4.8/qt.html#Key-enum</a>.</ul>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-keyDownAction' href='./../Overviews/Methods.html#keyDownAction'>keyDownAction</a></h3>
 <div class='method'>
 <p> The object to be evaluated when a key is pressed.

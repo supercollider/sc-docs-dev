@@ -85,7 +85,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Both <a href="./../Classes/NodeProxy.html">NodeProxy</a> and <a href="./../Classes/Ndef.html">Ndef</a> implement a <strong>.gui</strong> message, which returns a NdefGui for that NodeProxy. Overview: <a href="./../Overviews/JITLib.html">JITLib</a>.<textarea class='editor'>(
 s.boot;
-Ndef(\a, { |freq=300, dens=20, amp=0.1, pan|
+Ndef(\a, { |freq = 300, dens = 20, amp = 0.1, pan|
     Pan2.ar(Ringz.ar(Dust.ar(dens, amp / (dens.max(1).sqrt)), freq, 0.2), pan)
 }).gui;
 )</textarea>
@@ -196,7 +196,7 @@ g = Ndef(\1).gui(30);</textarea>
 s.boot;
 (
 Ndef(\lfo, { |lofreq| SinOsc.kr(lofreq) });
-Ndef(\a, { |freq=300, dens=20, amp=0.1, pan|
+Ndef(\a, { |freq = 300, dens = 20, amp = 0.1, pan|
     Pan2.ar(Ringz.ar(Dust.ar(dens, amp / (dens.max(1).sqrt)), freq, 0.2), pan)
 });
 )
@@ -213,7 +213,7 @@ Ndef(\a).set(\freq, 120);</textarea>
 s.boot;
 (
 Ndef(\lfo, { |lofreq| SinOsc.kr(lofreq) });
-Ndef(\a, { |freq=300, dens=20, amp=0.1, pan|
+Ndef(\a, { |freq = 300, dens = 20, amp = 0.1, pan|
     Pan2.ar(Ringz.ar(Dust.ar(dens, amp / (dens.max(1).sqrt)), freq, 0.2), pan)
 });
 )
@@ -226,10 +226,10 @@ Ndef(\lfo).set(\lofreq, 12);
 n.object_(Ndef(\a));
 Ndef(\a).set(\freq, 120);</textarea>
 <h3><a class='anchor' name='Some%20configuration%20options'>Some configuration options</a></h3>
-<textarea class='editor'>    // numItems - sliders for setting parameters
+<textarea class='editor'>// numItems - sliders for setting parameters
 n = NdefGui(Ndef(\a), 8);
 
-    // 4 sets of configurations are provided:
+// 4 sets of configurations are provided:
 n = NdefGui(Ndef(\a), 0, options: NdefGui.control);
 n = NdefGui(Ndef(\a), 0, options: NdefGui.audio);
 n = NdefGui(Ndef(\a), 0, options: NdefGui.big);
@@ -237,19 +237,17 @@ n = NdefGui(Ndef(\a), 0, options: NdefGui.full);
 
 
 NdefGui.control;    // used for control proxies in ProxyMixer/NdefMixer
--&gt;    [ \name, \pausR, \sendR, \poll, \ed ]
+// -&gt; [\name, \pausR, \sendR, \poll, \ed]
 
 NdefGui.audio;        // used for audio proxies in ProxyMixer/NdefMixer
--&gt;    [ \monitor, \playN, \name, \pausR, \sendR, \ed ]
+// -&gt; [\monitor, \playN, \name, \pausR, \sendR, \ed]
 
 NdefGui.big;        // used for the big NdefGui in ProxyMixer/NdefMixer
--&gt;    [ \name, \type, \CLR, \reset, \scope, \doc, \end, \fade,
-        \monitor, \playN, \pausR, \sendR, \poll ]
+// -&gt; [\name, \type, \CLR, \reset, \scope, \doc, \end, \fade, \monitor, \playN, \pausR, \sendR, \poll]
 
-            // all of 'em
+// all of 'em
 NdefGui.full;
--&gt;    [     name, \type, \CLR, \reset, \scope, \doc, \end, \fade, \rip,
-        monitor, \playN, \pausR, \sendR, \poll, \ed ]
+// -&gt; [\name, \type, \CLR, \reset, \scope, \doc, \end, \fade, \rip, \monitor, \playN, \pausR, \sendR, \poll, \ed]
 /*
     // the choice of elements is:
     \name        a dragboth for the proxy's name
@@ -281,7 +279,7 @@ NdefGui.buttonFuncs.put(\zoink, { |ndgui| Button(ndgui.zone, 60@20).states_([["z
 n = NdefGui(Ndef(\a), 4, options: NdefGui.big ++ [\zoink]);
 
 
-    // make one and watch how the elements change
+// make one and watch how the elements change
 n = NdefGui(Ndef(\a), 4, options: NdefGui.big);
 
 Ndef(\a).stop;
@@ -293,19 +291,19 @@ Ndef(\a).playN([2, 5]);   // does not display fully on outNumberBox
 Ndef(\a).playN([2, 5], vol: 0.34);
 
 
-    // as in ProxyMixer, left side
+// as in ProxyMixer, left side
 n = NdefGui(Ndef(\a), options: NdefGui.audio);
 
 // as in ProxyMixer control zone
 n = NdefGui(Ndef(\a), 4, options: NdefGui.control);
 
-    // NdefGui default
+// NdefGui default
 n = NdefGui(options: NdefGui.big);
 
-    // and a few more
+// and a few more
 n = NdefGui(bounds: 400@20, options: NdefGui.full);
 
-    // put in a window - then no margin is added
+// put in a window - then no margin is added
 (
 w = Window().front;
 w.addFlowLayout;
@@ -321,7 +319,7 @@ Ndef(\a, { |freq = 10, amp = 0.1, harm = 20| Blip.ar(freq, harm) * amp })</texta
 <h3><a class='anchor' name='Test%20-%20drag%20and%20drop%20proxies%20between%20NdefGuis'>Test - drag and drop proxies between NdefGuis</a></h3>
 
 <p>This seems broken in 3.7.0 - drags are sticky and can't be dropped.<textarea class='editor'>(
-    p = ProxySpace.push(s.boot);
+p = ProxySpace.push(s.boot);
 
 l = NdefGui(nil, 3).moveTo(10, 120);
 m = NdefGui(nil, 3).moveTo(10, 240);
@@ -330,29 +328,29 @@ o = NdefGui(nil, 3).moveTo(10, 480);
 
 Spec.add(\dens, [0.1, 300, \exp]);
 
-    // make 3 kinds of proxies: using tilde/proxyspace, Ndef, and unnamed.
-~spacy = {|dens=5| Formlet.ar(Dust.ar(dens ! 2), LFDNoise0.kr(20 ! 2).lag(0.1).linexp(-1, 1, 300, 5000), 0.003, 0.03) };
-Ndef(\ndeffy, { GrayNoise.ar( 0.1 ! 2) });
+// make 3 kinds of proxies: using tilde/proxyspace, Ndef, and unnamed.
+~spacy = { |dens = 5| Formlet.ar(Dust.ar(dens ! 2), LFDNoise0.kr(20 ! 2).lag(0.1).linexp(-1, 1, 300, 5000), 0.003, 0.03) };
+Ndef(\ndeffy, { GrayNoise.ar(0.1 ! 2) });
 c = NodeProxy.audio.source_({ PinkNoise.ar(0.1 ! 2) });
 
-    // put one in each editor
+// put one in each editor
 l.object_(~spacy);
 m.object_(Ndef(\ndeffy));
 n.object_(c);
 )
-    // One should also be able to drag and drop text into the drag,
-    // but this is also not working yet.
+// One should also be able to drag and drop text into the drag,
+// but this is also not working yet.
 (    Ndef(\a)    )</textarea>
 <h3><a class='anchor' name='Test%20-%20replacing%20keys'>Test - replacing keys</a></h3>
 
 <p>This is used in ProxyChain (JITLibExtensions).<textarea class='editor'>(
-Ndef(\a, { |freq=300, dens=20, amp=0.1, pan|
+Ndef(\a, { |freq = 300, dens = 20, amp = 0.1, pan|
     Pan2.ar(Ringz.ar(Dust.ar(dens, amp / (dens.max(1).sqrt)), freq, 0.2), pan)
 });
 n = NdefGui(Ndef(\a));
 )
 n.addReplaceKey(\freq, \myFreak);
-    // ATM needs an extra update:
+// ATM needs an extra update:
 x = n.object; n.object_(nil); n.object_(x);</textarea>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NdefGui.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NdefGui.schelp</a><br>link::Classes/NdefGui::<br></div></div><script src='./../editor.js' type='text/javascript'></script>

@@ -59,7 +59,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 <div class='note'><span class='notelabel'>NOTE:</span> This class is deprecated and will be removed in a future version of SC. Use <a href="./../Classes/OSCFunc.html">OSCFunc</a> and <a href="./../Classes/OSCdef.html">OSCdef</a> instead. They are faster, safer, and have more logical argument order than the old responder classes, and they support pattern matching and custom listening ports. Use of the older classes OSCresponder, OSCresponderNode, and OSCpathResponder can be unsafe, since responders in user and class code can override each other unintentionally.</div>
 <p>Register a function to be called upon receiving a specific command from a specific OSC address. Same interface like <a href="./../Classes/OSCresponder.html">OSCresponder</a>, but allows <strong>multiple responders to the same command</strong>.
-<p>Note that OSCresponderNode evaluates its function in the system process. In order to access the application process (e.g. for GUI access ) use { ... }.defer;
+<p>Note that OSCresponderNode evaluates its function in the system process. In order to access the application process (e.g. for GUI access) use { ... }.defer;
 <p>Other applications sending messages to SuperCollider should distinguish between sending messages to the server or the language. Server messages are documented in the <a href="./../Reference/Server-Command-Reference.html">Server Command Reference</a> and should be sent to the server's port - <code>s.addr.port</code> - which is <strong>57110</strong> by default. Messages sent to the server will not be processed by any OSCresponder in the language.
 <p>Messages from external clients that should be processed by OSCresponders must be sent to the language port, <strong>57120</strong> by default. Use <code>NetAddr.langPort</code> to confirm which port the SuperCollider language is listening on.
 <p>See <a href="./../Guides/OSC_communication.html">OSC Communication</a> for more details.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
@@ -114,15 +114,15 @@ s.notify;
 )
 
 (
-SynthDef("help-SendTrig",{
+SynthDef("help-SendTrig", {
     SendTrig.kr(Dust.kr(1.0), 0, 0.9);
 }).add;
 
 // register to receive this message
-a = OSCresponderNode(s.addr, '/tr', { arg time, responder, msg;
+a = OSCresponderNode(s.addr, '/tr', { |time, responder, msg|
     [time, responder, msg].postln;
 }).add;
-b = OSCresponderNode(s.addr, '/tr', { arg time, responder, msg;
+b = OSCresponderNode(s.addr, '/tr', { |time, responder, msg|
     "this is another call".postln;
 }).add;
 )
@@ -136,9 +136,9 @@ x.free;</textarea>
 
 s.boot;
 
-a = OSCresponderNode(s.addr,'/n_end',{ arg time,responder,msg;
+a = OSCresponderNode(s.addr, '/n_end', { |time, responder, msg|
     [time, responder, msg].postln;
-    if(msg[1] == g.nodeID,{
+    if(msg[1] == g.nodeID, {
         "g is dead !".postln;
         // g = Group.new;
     });
@@ -152,15 +152,15 @@ a.remove;</textarea>
 <h3><a class='anchor' name='Watching%20for%20errors'>Watching for errors</a></h3>
 <textarea class='editor'>// example from ServerErrorGui in crucial lib
 
-f = OSCresponderNode(s.addr, '/fail', { arg time, responder, msg;
+f = OSCresponderNode(s.addr, '/fail', { |time, responder, msg|
     {
-        var mins,secs;
+        var mins, secs;
         mins = (time/60).round(1);
         secs = (time%60).round(0.1);
-        if(secs&lt;10,{ secs = "0"++secs.asString; },{ secs=secs.asString;});
+        if(secs&lt;10, { secs = "0"++secs.asString }, { secs = secs.asString });
         // put this on a gui
-        //errors.label = "% % (%:%)".format(msg[1], msg[2], mins, secs);
-        //errors.stringColor = Color.white;
+        // errors.label = "% % (%:%)".format(msg[1], msg[2], mins, secs);
+        // errors.stringColor = Color.white;
         "% % (%:%)".format(msg[1], msg[2], mins, secs).postln;
     }.defer
 });

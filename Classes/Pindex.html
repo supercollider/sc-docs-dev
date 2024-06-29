@@ -64,7 +64,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-embedInStream' href='./../Overviews/Methods.html#embedInStream'>embedInStream</a>(<span class='argstr'>inval</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-SynthDef(\help_pindex, { | out, amp=0.1, freq=440, gate=1 |
+SynthDef(\help_pindex, { |out, amp = 0.1, freq = 440, gate = 1|
     var son = Saw.ar(freq * [0.99, 1, 1.01]).mean;
     son = son * EnvGen.ar(Env.adsr, gate: gate, doneAction: Done.freeSelf);
     Out.ar(out, son.dup * amp);

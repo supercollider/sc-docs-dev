@@ -106,7 +106,7 @@ w = Window("Simple QC Test").front;
 b = Button(w, Rect(0, 0, 150, 20))
     .states_([["pick another QC file"]])
     .action_({ File.openDialog("", { |path| m.path_(path) }) });
-m = QuartzComposerView(w, Rect(0,20,400, 260));
+m = QuartzComposerView(w, Rect(0, 20, 400, 260));
 m.path = Platform.helpDir +/+ "QC/Cells.qtz";
 )
 m.start;
@@ -115,7 +115,7 @@ m.stop;
 ////////// Set and get inputs and outputs
 (
 w = Window("SCTV").front;
-m = QuartzComposerView(w, Rect(0,20,400, 260));
+m = QuartzComposerView(w, Rect(0, 20, 400, 260));
 m.path = Platform.helpDir +/+ "QC/QuartzComposerViewTest.qtz";
 m.start;
 )
@@ -151,7 +151,7 @@ m.endColor == Color.white;
 // probably more efficient to do this in QC, but...
 {
 c = Color.blue;
-100.do({ m.startColor_(c = c.vary(1)); 0.1.wait; });
+100.do({ m.startColor_(c = c.vary(1)); 0.1.wait });
 }.fork(AppClock);
 )
 
@@ -162,11 +162,11 @@ m.stop;
 ///////////// Fullscreen
 
 (
-w = Window("SCTV", Rect(0,0,360, 280), border: false).front;
+w = Window("SCTV", Rect(0, 0, 360, 280), border: false).front;
 b = SCButton(w, Rect(0, 0, 150, 20))
     .states_([["Close Me"]])
-    .action_({w.close});
-m = QuartzComposerView(w, Rect(0,20,360, 260));
+    .action_({ w.close });
+m = QuartzComposerView(w, Rect(0, 20, 360, 260));
 m.path = Platform.helpDir +/+ "QC/QuartzComposerViewTest.qtz";
 
 m.resize = 5;
@@ -179,7 +179,7 @@ w.fullScreen;
 ////////// Structure test
 (
 w = Window("SCTV").front;
-m = QuartzComposerView(w, Rect(0,20,400, 260));
+m = QuartzComposerView(w, Rect(0, 20, 400, 260));
 m.path = Platform.helpDir +/+ "QC/QuartzComposerViewStructureTest.qtz";
 m.start;
 )
@@ -211,7 +211,7 @@ x[\2][\0];
 (
 // convert to array
 y = Array.newClear(x.size);
-x.keysValuesDo({|i, elem| y[i.asInteger] = elem});
+x.keysValuesDo({ |i, elem| y[i.asInteger] = elem });
 y.postln;
 )
 
@@ -226,7 +226,7 @@ w = Window("Simple QC Test").front;
 b = Button(w, Rect(0, 0, 150, 20))
     .states_([["pick another QC file"]])
     .action_({ File.openDialog("", { |path| m.path_(path) }) });
-m = QuartzComposerView(w, Rect(0,20,400, 260));
+m = QuartzComposerView(w, Rect(0, 20, 400, 260));
 m.path = Platform.helpDir +/+ "QC/ImageFilter.qtz";
 )
 m.start;
@@ -242,8 +242,8 @@ m.setInputValue(\_protocolInput_Image, j);
 ////////// Control some audio: Stupid Pan Example
 
 (
-w = Window("Stupid Pan Example", Rect(0,20,600, 150)).front;
-m = QuartzComposerView(w, Rect(0,20,600, 100));
+w = Window("Stupid Pan Example", Rect(0, 20, 600, 150)).front;
+m = QuartzComposerView(w, Rect(0, 20, 600, 100));
 m.path = Platform.helpDir +/+ "QC/Stupid Pan.qtz";
 m.resize = 5;
 m.start;
@@ -264,8 +264,8 @@ loop({
 
 // could be better optimised, but proves the concept
 (
-w = Window("Sonogram", Rect(0,20,600, 300)).front;
-m = QuartzComposerView(w, Rect(0,20,600, 256));
+w = Window("Sonogram", Rect(0, 20, 600, 300)).front;
+m = QuartzComposerView(w, Rect(0, 20, 600, 256));
 m.path = Platform.helpDir +/+ "QC/SCQCsonogramCount2.qtz";
 m.start;
 m.setInputValue(\framesPerView, 300);
@@ -273,21 +273,21 @@ m.setInputValue(\magnitudes, (0, 0.01..1));
 )
 
 s.boot;
-b = Buffer.alloc(s,256);
+b = Buffer.alloc(s, 256);
 (
 a = { FFT(b, LFSaw.ar(4000)); 0.0 }.play; // sawtooth
 
 p = 0.25; i = 0;
-//m.setInputValue(\period, p);
-//m.maxFPS_(p.reciprocal * 2);
+// m.setInputValue(\period, p);
+// m.maxFPS_(p.reciprocal * 2);
 SystemClock.sched(0.0, {
-b.getn(0, 256, { arg buf;
+b.getn(0, 256, { |buf|
     var z, x;
     z = buf.clump(2).flop;
     z = [Signal.newFrom(z[0]), Signal.newFrom(z[1])];
     x = Complex(z[0], z[1]);
-    //{m.setInputValue(\magnitudes, x.magnitude.resamp1(m.bounds.height * 0.5));}.defer
-    {m.setInputValue(\magnitudes, x.magnitude * 0.025); m.setInputValue(\count, i);}.defer;
+    // { m.setInputValue(\magnitudes, x.magnitude.resamp1(m.bounds.height * 0.5)) }.defer
+    { m.setInputValue(\magnitudes, x.magnitude * 0.025); m.setInputValue(\count, i) }.defer;
     i = i + 1;
 }); p
 });
@@ -311,8 +311,8 @@ a = { var colum;
 (
 w = Window("Level Meters", Rect(128, 64, 200, 400)).front;
 
-m = QuartzComposerView(w, Rect(20,20,50, 360));
-n = QuartzComposerView(w, Rect(130,20,50, 360));
+m = QuartzComposerView(w, Rect(20, 20, 50, 360));
+n = QuartzComposerView(w, Rect(130, 20, 50, 360));
 m.path = Platform.helpDir +/+ "QC/SCLevelMeter.qtz";
 n.path = Platform.helpDir +/+ "QC/SCLevelMeter.qtz";
 m.maxFPS_(20); n.maxFPS_(20);
@@ -324,8 +324,8 @@ s.boot;
 
 // MouseX controls noise amp
 (
-o = OSCresponder(s.addr, '/tr', {arg time, resp, msg;
-    {~meters[msg[2]].level = (msg[3] + 0.01).explin(0.01,1.01, 0, 1);}.defer;
+o = OSCresponder(s.addr, '/tr', { |time, resp, msg|
+    { ~meters[msg[2]].level = (msg[3] + 0.01).explin(0.01, 1.01, 0, 1) }.defer;
 }).add;
 b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
 a = { var colum, noise, imp, delimp;
@@ -356,7 +356,7 @@ Event.addEventType(\quartz, { |server|
 (
 w = Window("Level Meters", Rect(128, 64, 200, 400)).front;
 
-m = QuartzComposerView(w, Rect(20,20,50, 360));
+m = QuartzComposerView(w, Rect(20, 20, 50, 360));
 m.path = "Help/GUI/Cocoa-GUI/QuartzComposerView/SCLevelMeter.qtz".standardizePath;
 m.maxFPS_(20);
 m.start;
@@ -367,7 +367,7 @@ Pbind(
     \type, \quartz,
     \view, m,
     \key, \level,
-    \value, Pwhite(0, 1.0, inf).explin(0.01,1.01, 0, 1),
+    \value, Pwhite(0, 1.0, inf).explin(0.01, 1.01, 0, 1),
     \dur, 0.1
 ).play;
 )

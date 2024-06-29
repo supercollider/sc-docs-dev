@@ -67,10 +67,10 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-operator' href='./../Overviews/Methods.html#operator'>operator</a> = value</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reset' href='./../Overviews/Methods.html#reset'>reset</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>x = Routine { 6.do { arg i; i.yield; } }.squared;
+<textarea class='editor'>x = Routine { 6.do { |i| i.yield } }.squared;
 x.dump;</textarea>
 <textarea class='editor'>(
-x = Routine { 6.do { arg i; i.yield; } }.squared;
+x = Routine { 6.do { |i| i.yield } }.squared;
 x.next.postln;
 x.next.postln;
 x.next.postln;

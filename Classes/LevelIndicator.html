@@ -76,7 +76,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Set the warning and critical thresholds. If meter value is above either threshold, <a href="#-warningColor">-warningColor</a> or <a href="#-criticalColor">-criticalColor</a> will be shown, respectively (by default, yellow and red). If <a href="#-drawsPeak">-drawsPeak</a> is true warning color will be displayed based on <a href="#-peakLevel">-peakLevel</a> rather than value.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>val<td class='argumentdesc'>
-<p>A <a href="./../Classes/Float.html">Float</a>.<textarea class='editor'>a = LevelIndicator(bounds:Rect(10, 10, 20, 160)).front;
+<p>A <a href="./../Classes/Float.html">Float</a>.<textarea class='editor'>a = LevelIndicator(bounds: Rect(10, 10, 20, 160)).front;
 a.value = 0.5;
 a.warning = 0.6; a.critical = 0.9;
 a.value = 0.7;
@@ -113,7 +113,7 @@ w = Window().front.layout_(HLayout(
 <table class='arguments'>
 <tr><td class='argumentname'>val<td class='argumentdesc'>
 <p>An positive <a href="./../Classes/Integer.html">Integer</a>.<textarea class='editor'>(
-a = LevelIndicator(bounds:Rect(10, 10, 80, 400)).front();
+a = LevelIndicator(bounds: Rect(10, 10, 80, 400)).front();
 a.value = 1;
 a.style = \led;
 a.numSteps = 4;
@@ -128,7 +128,7 @@ a.numSteps = 4;
 <table class='arguments'>
 <tr><td class='argumentname'>number<td class='argumentdesc'>
 <p>An <a href="./../Classes/Integer.html">Integer</a> &gt;= 0.<textarea class='editor'>(
-w = Window(bounds:100@400).front().background_(Color.black);
+w = Window(bounds: 100@400).front().background_(Color.black);
 w.layout_(HLayout(
     LevelIndicator()
         .numTicks_(16)
@@ -141,7 +141,7 @@ w.layout_(HLayout(
 <table class='arguments'>
 <tr><td class='argumentname'>number<td class='argumentdesc'>
 <p>An <a href="./../Classes/Integer.html">Integer</a> &gt;= 0.<textarea class='editor'>(
-w = Window(bounds:100@400).front().background_(Color.black);
+w = Window(bounds: 100@400).front().background_(Color.black);
 w.layout_(HLayout(
     LevelIndicator()
         .numMajorTicks_(16)
@@ -181,7 +181,7 @@ w = Window().front().layout_(HLayout(
 <table class='arguments'>
 <tr><td class='argumentname'>color<td class='argumentdesc'>
 <p>A <a href="./../Classes/Color.html">Color</a>.<textarea class='editor'>(
-l = LevelIndicator(bounds:Rect(100, 100, 100, 400)).front().value_(1).style_(\led);
+l = LevelIndicator(bounds: Rect(100, 100, 100, 400)).front().value_(1).style_(\led);
 l.meterColor = Color.blue(0.9);
 l.warningColor = Color.blue(0.7);
 l.criticalColor = Color.blue(0.5);
@@ -211,9 +211,9 @@ b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
     colum;
 }.play;
 
-    a = LevelIndicator(bounds:Rect(100, 100, 100, 400)).front;
-    a.onClose_({ x.free; o.free; });
-o = OSCFunc({arg msg;
+    a = LevelIndicator(bounds: Rect(100, 100, 100, 400)).front;
+    a.onClose_({ x.free; o.free });
+o = OSCFunc({ |msg|
     {
         a.value = msg[3].ampdb.linlin(-40, 0, 0, 1);
         a.peakLevel = msg[4].ampdb.linlin(-40, 0, 0, 1);

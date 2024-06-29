@@ -71,11 +71,11 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-writesToBus' href='./../Overviews/Methods.html#writesToBus'>writesToBus</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-SynthDef("help-SinOsc", { arg freq=440, out;
+SynthDef("help-SinOsc", { |freq = 440, out|
     Out.ar(out, SinOsc.ar(freq, 0, 0.1))
 }).add;
 
-SynthDef("help-XOut", { arg out=0, xFade=1;
+SynthDef("help-XOut", { |out = 0, xFade = 1|
     var source;
         source = PinkNoise.ar(0.05);
 

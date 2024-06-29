@@ -61,9 +61,9 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>starting value<tr><td class='argumentname'>dict<td class='argumentdesc'>
 <p>a dictionary or an event.<tr><td class='argumentname'>levels<td class='argumentdesc'>
 <p>number of levels<textarea class='editor'>IdentityDictionary[
-    elem1 -&gt; [ otherElements ],
-    elem2 -&gt; [ otherElements ],
-    elem2 -&gt; [ otherElements ]
+    elem1 -&gt; [otherElements],
+    elem2 -&gt; [otherElements],
+    elem2 -&gt; [otherElements]
 ]</textarea>
 </table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
@@ -86,7 +86,7 @@ Pdef(\a, Pbind(\dur, 0.25, \degree, Pseq((0..3))));
 Pdef(\b, Pbind(\dur, 0.25, \degree, Pseq((3..0))));
 
 // Random scale degrees
-Pdef(\c, Pbind(\dur, 0.125, \degree, Pwhite(0,10, 8)));
+Pdef(\c, Pbind(\dur, 0.125, \degree, Pwhite(0, 10, 8)));
 
 // Use the L-system to put together a sequence of keys
 // Psym will then retrieve the patterns from the global Pdef dictionary
@@ -105,9 +105,9 @@ Psym(
 (
 a = Prewrite(0, // start with 0
     (
-        0: #[2,0],
-        1: #[0,0,1],
-        2: #[1,0,1]
+        0: #[2, 0],
+        1: #[0, 0, 1],
+        2: #[1, 0, 1]
 ), 4);
 x = a.asStream;
 30.do({ x.next.postln });

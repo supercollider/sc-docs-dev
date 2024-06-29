@@ -48,7 +48,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>Break a continuous signal into linearly interpolated segments with specific durations.
-<p>Feeding Ramp with noise is similar to <a href="./../Classes/LFNoise1.html">LFNoise1</a><textarea class='editor'>Ramp.kr(WhiteNoise.kr(1),0.5)</textarea>
+<p>Feeding Ramp with noise is similar to <a href="./../Classes/LFNoise1.html">LFNoise1</a><textarea class='editor'>Ramp.kr(WhiteNoise.kr(1), 0.5)</textarea>
 
 <p>is equal to:<textarea class='editor'>LFNoise1.kr(1 / 0.5)</textarea>
 
@@ -88,7 +88,7 @@ var scdoc_sc_version = '3.14.0-dev';
 var pulse;
 {
     pulse = LFPulse.kr(8.772);
-    Out.kr(0,[Ramp.kr(pulse, 0.025), Lag.kr(pulse, 0.025), pulse]);
+    Out.kr(0, [Ramp.kr(pulse, 0.025), Lag.kr(pulse, 0.025), pulse]);
 }.play;
 s.scope(3, bufsize: 44100, rate: \control, zoom: 40);
 )</textarea>

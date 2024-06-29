@@ -260,7 +260,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p> All the selections.<h4>Returns:</h4>
 <div class='returnvalue'>
-<p>An array of 64 arrays of start frames and sizes: [ [ start0, size0 ] , [ start1, size1 ], ... ].</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-selection' href='./../Overviews/Methods.html#selection'>selection</a></h3>
+<p>An array of 64 arrays of start frames and sizes: [[start0, size0], [start1, size1], ...].</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-selection' href='./../Overviews/Methods.html#selection'>selection</a></h3>
 <div class='method'>
 <p> The selection at index.<h4>Returns:</h4>
 <div class='returnvalue'>
@@ -366,7 +366,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'><td class='argumentdesc'>
 <p> A <code>Color</code>.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-waveColors' href='./../Overviews/Methods.html#waveColors'>waveColors</a></h3>
 <div class='method'>
-<p> An array of colors for the peak-to-peak data for each channel, allowing each channel to be represented by a different color. Defaults to <code>[ ]</code>. Once set, it overrides <a href="#-peakColor">-peakColor</a>. In order to revert to using <code>.peakColor</code>, set <code>.waveColors</code> back to an empty array: <code>.waveColors_([])</code>.<div class='note'><span class='notelabel'>NOTE:</span> <a href="#-rmsColor">-rmsColor</a> stays the same for all channels. However, using alpha blending, it is possible to display RMS data using either a lighter (e.g. <code>.rmsColor_(Color.grey(1, 0.3))</code>) or a darker (e.g. <code>.rmsColor_(Color.grey(0, 0.3))</code>) shade of the peak-to-peak color.</div><h4>Arguments:</h4>
+<p> An array of colors for the peak-to-peak data for each channel, allowing each channel to be represented by a different color. Defaults to <code>[]</code>. Once set, it overrides <a href="#-peakColor">-peakColor</a>. In order to revert to using <code>.peakColor</code>, set <code>.waveColors</code> back to an empty array: <code>.waveColors_([])</code>.<div class='note'><span class='notelabel'>NOTE:</span> <a href="#-rmsColor">-rmsColor</a> stays the same for all channels. However, using alpha blending, it is possible to display RMS data using either a lighter (e.g. <code>.rmsColor_(Color.grey(1, 0.3))</code>) or a darker (e.g. <code>.rmsColor_(Color.grey(0, 0.3))</code>) shade of the peak-to-peak color.</div><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'><td class='argumentdesc'>
 <p> And array of <code>[Color]</code>.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-gridOn' href='./../Overviews/Methods.html#gridOn'>gridOn</a></h3>
@@ -435,7 +435,7 @@ var scdoc_sc_version = '3.14.0-dev';
 // To scroll: right-click + mouse-left/right
 (
 w = Window.new("soundfile test", Rect(200, 300, 740, 100));
-a = SoundFileView.new(w, Rect(20,20, 700, 60));
+a = SoundFileView.new(w, Rect(20, 20, 700, 60));
 
 f = SoundFile.new;
 f.openRead(Platform.resourceDir +/+ "sounds/a11wlk01.wav");
@@ -458,7 +458,7 @@ w.front;
 y = Window.screenBounds.height - 120;
 w = Window.new("soundfile test", Rect(200, y, 740, 100)).alwaysOnTop_(true);
 w.front;
-a = SoundFileView.new(w, Rect(20,20, 700, 60));
+a = SoundFileView.new(w, Rect(20, 20, 700, 60));
 
 f = SoundFile.new;
 f.openRead(Platform.resourceDir +/+ "sounds/a11wlk01.wav");
@@ -516,7 +516,7 @@ a.timeCursorColor
 
 // Selections: multiple selections are supported.
 // e.g. use selection 0:
-a.setSelectionColor(0, Color.red);  // set...( index, value )
+a.setSelectionColor(0, Color.red);  // set...(index, value)
 a.selectionStart(0);                // at index
 a.setSelectionStart(0, 12345);
 a.setSelectionSize(0, 12345);

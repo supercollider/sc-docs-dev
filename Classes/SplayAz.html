@@ -76,10 +76,10 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-x = { arg spread=1, level=0.2, width=2, center=0.0;
+x = { |spread = 1, level = 0.2, width = 2, center = 0.0|
  SplayAz.ar(
   4,
-  SinOsc.ar( { |i| LFNoise2.kr( rrand(10, 20), 200, i + 3 * 100) } ! 10),
+  SinOsc.ar({ |i| LFNoise2.kr(rrand(10, 20), 200, i + 3 * 100) } ! 10),
   spread,
   level,
   width,
@@ -101,11 +101,11 @@ x.free;
 
  // the same example written with arFill:
 (
-x = { arg spread=1, level=0.5, width=2, center=0.0;
+x = { |spread = 1, level = 0.5, width = 2, center = 0.0|
  SplayAz.arFill(
   4,
   10,
-  { |i| SinOsc.ar( LFNoise2.kr( rrand(10, 20), 200, i + 3 * 100) ) },
+  { |i| SinOsc.ar(LFNoise2.kr(rrand(10, 20), 200, i + 3 * 100)) },
   spread,
   level,
   width,
@@ -117,7 +117,7 @@ x = { arg spread=1, level=0.5, width=2, center=0.0;
  // or with mouse control
 (
 x = { var src;
- src = SinOsc.ar( { |i| LFNoise2.kr( rrand(10, 20), 200, i * 100 + 400) } ! 10);
+ src = SinOsc.ar({ |i| LFNoise2.kr(rrand(10, 20), 200, i * 100 + 400) } ! 10);
  SplayAz.ar(4, src, MouseY.kr(1, 0), 0.2, center: MouseX.kr(-1, 1));
 }.scope;
 )

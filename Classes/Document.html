@@ -124,7 +124,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>The length of the cursor selection of the file content.<tr><td class='argumentname'>envir<td class='argumentdesc'>
 <p>An instance of <a href="./../Classes/Environment.html">Environment</a>. The Environment to be used by the interpreter of the document window. By default, it is set to the current <a href="./../Classes/Environment.html">Environment</a>.</table><h4>Discussion:</h4>
 
-<p>See also <a href="./../Classes/Document.html#save">Document: save</a> below.<textarea class='editor'>Document.open("README", 292,253); // notice the selected text in the open document</textarea>
+<p>See also <a href="./../Classes/Document.html#save">Document: save</a> below.<textarea class='editor'>Document.open("README", 292, 253); // notice the selected text in the open document</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*openDocuments' href='./../Overviews/Methods.html#openDocuments'>openDocuments</a></h3>
 <div class='method'>
 <p>Returns an Array of all open documents.<textarea class='editor'>d = Document.openDocuments.do{ |doc| doc.name.postln };</textarea>
@@ -268,7 +268,7 @@ Task({
     doc = Document("background", "closing in 2 seconds");
     doc.stringColor_(Color.blue);
     1.wait;
-    doc.background_(Color.blue(alpha:0.8));
+    doc.background_(Color.blue(alpha: 0.8));
     1.wait;
     doc.close;
 }).play(AppClock);
@@ -316,18 +316,18 @@ d.path;</textarea>
 <p>An instance of <a href="./../Classes/Function.html">Function</a> or <a href="./../Classes/FunctionList.html">FunctionList</a>. The arguments passed to the function are: <code>document</code>, <code>x</code>, <code>y</code>, <code>modifiers</code>, <code>buttonNumber</code>.</table><h4>Discussion:</h4>
 <textarea class='editor'>(
 
-//add a mouse action to this document:
-//example: easy button:
-//when you click in front of a 17 a SinOsc will start up;
+// add a mouse action to this document:
+// example: easy button:
+// when you click in front of a 17 a SinOsc will start up;
 s.waitForBoot({
-    Document.current.mouseUpAction_({arg doc;
+    Document.current.mouseUpAction_({ |doc|
         var char;
         char = doc.rangeText(doc.selectionStart, 2);
-        if(char == "17",{
-            {EnvGen.kr(Env.perc, doneAction: Done.freeSelf) * SinOsc.ar([600,720,300].choose, 0, 0.5)}.play;
+        if(char == "17", {
+            { EnvGen.kr(Env.perc, doneAction: Done.freeSelf) * SinOsc.ar([600, 720, 300].choose, 0, 0.5) }.play;
         });
-        if(char == "23",{
-            {EnvGen.kr(Env.perc, doneAction: Done.freeSelf) * PinkNoise.ar(0.2)}.play;
+        if(char == "23", {
+            { EnvGen.kr(Env.perc, doneAction: Done.freeSelf) * PinkNoise.ar(0.2) }.play;
         });
     })
 });
@@ -340,7 +340,7 @@ s.waitForBoot({
 <table class='arguments'>
 <tr><td class='argumentname'>action<td class='argumentdesc'>
 <p>An instance of <a href="./../Classes/Function.html">Function</a> or <a href="./../Classes/FunctionList.html">FunctionList</a>. The arguments passed to the function are: <code>document</code>, <code>char</code>, <code>modifiers</code>, <code>unicode</code>, <code>keycode</code>. See <a href="./../Classes/View.html#Key%20actions">View: Key actions</a> for details on these arguments.</table><h4>Discussion:</h4>
-<textarea class='editor'>Document.current.keyDownAction = { arg ...args; args.postln };
+<textarea class='editor'>Document.current.keyDownAction = { |...args| args.postln };
 // now type some text
 Document.current.keyDownAction = nil;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-keyUpAction' href='./../Overviews/Methods.html#keyUpAction'>keyUpAction</a></h3>
@@ -349,7 +349,7 @@ Document.current.keyDownAction = nil;</textarea>
 <table class='arguments'>
 <tr><td class='argumentname'>action<td class='argumentdesc'>
 <p>An instance of <a href="./../Classes/Function.html">Function</a> or <a href="./../Classes/FunctionList.html">FunctionList</a>. The arguments passed to the function are: <code>document</code>, <code>char</code>, <code>modifiers</code>, <code>unicode</code>, <code>keycode</code>. See <a href="./../Classes/View.html#Key%20actions">View: Key actions</a> for details on these arguments.</table><h4>Discussion:</h4>
-<textarea class='editor'>Document.current.keyUpAction = { arg ...args; args.postln };
+<textarea class='editor'>Document.current.keyUpAction = { |...args| args.postln };
 // now type some text
 Document.current.keyUpAction = nil;</textarea>
 </div><h3><a class='anchor' name='Accessing%20and%20Editing%20Content'>Accessing and Editing Content</a></h3>
@@ -492,7 +492,7 @@ Document.current.string_(": test test test test test ",
     initByString (argTitle, str, makeListener)</textarea>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>//unfocusedFront_
+<textarea class='editor'>// unfocusedFront_
 (
 Document.allDocuments.at(0).unfocusedFront
 )
@@ -550,14 +550,14 @@ loop {
 };
 
 Document.new("type some text")
-    .bounds_(Rect(100,SCWindow.screenBounds.height - 250, 400, 200))
-    .keyDownAction = { |doc, key| r.value(key) ; time = Main.elapsedTime};
+    .bounds_(Rect(100, SCWindow.screenBounds.height - 250, 400, 200))
+    .keyDownAction = { |doc, key| r.value(key) ; time = Main.elapsedTime };
 )
 
 // play back text in time
 (
 d = Document.new("type some text")
-    .bounds_(Rect(550,SCWindow.screenBounds.height-250,400,200));
+    .bounds_(Rect(550, SCWindow.screenBounds.height-250, 400, 200));
 fork({
     a.do { |pair|
         d.string = d.string ++ pair[0];
@@ -566,10 +566,10 @@ fork({
 }, AppClock)
 )</textarea>
 
-<p>Changing the default look of documents can be done with the help of the <a href="#*initAction">*initAction</a> method. Run the following example once. Afterwards all newly created documents will have a dark grey background. To make this change happen every time you start SuperCollider, put the code inside your startup.scd file (and optionally wrap it in a <code>{}.defer(0.1)</code> ).<textarea class='editor'>(
-Document.listener.background = Color.red;    //a special color for post document
-Document.listener.bounds = Rect(1, 461, 620, 567);    //move and resize post document
-Document.initAction = {|doc|            //function to run for every new document
+<p>Changing the default look of documents can be done with the help of the <a href="#*initAction">*initAction</a> method. Run the following example once. Afterwards all newly created documents will have a dark grey background. To make this change happen every time you start SuperCollider, put the code inside your startup.scd file (and optionally wrap it in a <code>{ }.defer(0.1)</code>).<textarea class='editor'>(
+Document.listener.background = Color.red;    // a special color for post document
+Document.listener.bounds = Rect(1, 461, 620, 567);    // move and resize post document
+Document.initAction = { |doc|            // function to run for every new document
     doc.background = Color.grey(0.1, 0.9);
     doc.bounds = Rect(0, 119, 1280, 659);
     doc.selectedBackground = Color(0.4, 0.05, 0.18);

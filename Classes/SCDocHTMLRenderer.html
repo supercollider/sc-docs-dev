@@ -50,7 +50,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#*renderTOC'>renderTOC</a> </li>
 </ul></ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
 <ul class='toc'><li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
-</ul></ul></div><div id='menubar'></div>
+</ul><li class='toc1'><a href='#CSS%20styling'>CSS styling</a></li>
+<ul class='toc'></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
 <div id='label'>
@@ -108,5 +109,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>SCDocHTMLRenderer.</span><a class='method-name' name='*renderTOC' href='./../Overviews/Methods.html#renderTOC'>renderTOC</a>(<span class='argstr'>stream</span>, <span class='argstr'>node</span>)</h3>
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
-<div id='inheritedinstmets'></div><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SCDocHTMLRenderer.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SCDocHTMLRenderer.schelp</a><br>link::Classes/SCDocHTMLRenderer::<br></div></div><script src='./../editor.js' type='text/javascript'></script>
+<div id='inheritedinstmets'></div><h2><a class='anchor' name='CSS%20styling'>CSS styling</a></h2>
+
+<p>The rendered HTML reads the global style from <code>scdoc.css</code>, but also reads <code>frontend.css</code> and <code>custom.css</code> (in that order) if available, to enable specific frontends and users to override the CSS.
+<p>So to customise the CSS, the user can create a <code>custom.css</code> in their <a href="./../Classes/SCDoc.html#*helpTargetDir">SCDoc: *helpTargetDir</a> or at the root of any HelpSource directory (for example in <code>YourExtension/HelpSource/custom.css</code>).<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SCDocHTMLRenderer.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SCDocHTMLRenderer.schelp</a><br>link::Classes/SCDocHTMLRenderer::<br></div></div><script src='./../editor.js' type='text/javascript'></script>
 </body></html>

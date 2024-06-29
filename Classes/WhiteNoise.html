@@ -61,7 +61,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-SynthDef("help-WhiteNoise", { arg out=0;
+SynthDef("help-WhiteNoise", { |out = 0|
     Out.ar(out,
         WhiteNoise.ar(0.25)
     )

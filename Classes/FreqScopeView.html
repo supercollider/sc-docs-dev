@@ -126,8 +126,8 @@ Integrator.scopeResponse
 Median.scopeResponse // nonlinear, and therefore interesting
 
 // customize the parameters for more informative scoping
-{|in| MoogFF.ar(in, freq: MouseX.kr(10, 10000, 1),
-gain:MouseY.kr(4, 0))}.scopeResponse</textarea>
+{ |in| MoogFF.ar(in, freq: MouseX.kr(10, 10000, 1),
+gain: MouseY.kr(4, 0)) }.scopeResponse</textarea>
 </div><h3><a class='anchor' name='Subclassing%20and%20Internal%20Methods'>Subclassing and Internal Methods</a></h3>
 
 <p>The following methods are usually not used directly or are called by a primitive. Programmers can still call or override these as needed.<h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>

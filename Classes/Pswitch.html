@@ -52,7 +52,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Pswitch.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>list</span>, <span class='argstr'>which: 0</span>)</h3>
 <div class='method'>
-<p>Pswitch chooses elements from the <strong>list</strong> by a stream of indices ( <strong>which</strong> ) and embeds them in the stream. If the element is itself a pattern, it first completely embeds it before looking for the next index.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p>Pswitch chooses elements from the <strong>list</strong> by a stream of indices (<strong>which</strong>) and embeds them in the stream. If the element is itself a pattern, it first completely embeds it before looking for the next index.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
@@ -68,15 +68,15 @@ a = Pseq([1, 2, 3], 2);
 b = Pseq([65, 76]);
 c = Pswitch([a, b, 800], Pseq([2, 2, 0, 1], inf));
 x = c.asStream;
-24.do({ x.next.postln; });
+24.do({ x.next.postln });
 )
 
 
-//Pswitch used as a sequence of pitches:
+// Pswitch used as a sequence of pitches:
 
 (
 SynthDef(\help_sinegrain,
-    { arg out=0, freq=440, sustain=0.05;
+    { |out = 0, freq = 440, sustain = 0.05|
         var env;
         env = EnvGen.kr(Env.perc(0.01, sustain, 0.2), doneAction: Done.freeSelf);
         Out.ar(out, SinOsc.ar(freq, 0, env))

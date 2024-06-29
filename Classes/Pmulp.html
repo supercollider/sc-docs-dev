@@ -65,14 +65,14 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
 var a, b;
-a = Pmulp(\freq, Pseq([2, 3, pi],inf), Pbind(\freq, Pseq([100, 200, 300])));
+a = Pmulp(\freq, Pseq([2, 3, pi], inf), Pbind(\freq, Pseq([100, 200, 300])));
 x = a.asStream;
-9.do({ x.next(Event.new).postln; });
+9.do({ x.next(Event.new).postln });
 )</textarea>
-<textarea class='editor'>//sound example
+<textarea class='editor'>// sound example
 (
 SynthDef(\sinegrain,
-    { arg out=0, freq=440, sustain=0.02;
+    { |out = 0, freq = 440, sustain = 0.02|
         var env;
         env = EnvGen.kr(Env.perc(0.001, sustain), 1, doneAction: Done.freeSelf);
         Out.ar(out, SinOsc.ar(freq, 0, env * 0.1))

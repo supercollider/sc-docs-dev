@@ -47,7 +47,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Generates a single random float value in linear distribution from <code>lo</code> to <code>hi</code> , skewed towards <code>lo</code> if <code>minmax</code> &lt; 0, otherwise skewed towards <code>hi</code> .<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>Generates a single random float value in linear distribution from <code>lo</code> to <code>hi</code>, skewed towards <code>lo</code> if <code>minmax</code> &lt; 0, otherwise skewed towards <code>hi</code> .<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>LinRand.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>lo: 0.0</span>, <span class='argstr'>hi: 1.0</span>, <span class='argstr'>minmax: 0</span>)</h3>
 <div class='method'>
 <p><h4>Arguments:</h4>
@@ -60,7 +60,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-SynthDef("help-LinRand", { arg out=0, minmax=1;
+SynthDef("help-LinRand", { |out = 0, minmax = 1|
     Out.ar(out,
         FSinOsc.ar(
             LinRand(200.0, 10000.0, minmax),
@@ -69,7 +69,7 @@ SynthDef("help-LinRand", { arg out=0, minmax=1;
 }).add;
 )
 
-//towards hi
+// towards hi
 (
 Routine({
     loop({
@@ -78,7 +78,7 @@ Routine({
 }).play;
 )
 
-//towards lo (doesn't work like that yet)
+// towards lo (doesn't work like that yet)
 (
 Routine({
     loop({

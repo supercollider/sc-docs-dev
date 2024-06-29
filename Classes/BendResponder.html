@@ -79,8 +79,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='supmethod'>From superclass: <a href='./../Classes/TouchResponder.html'>TouchResponder</a></div>
 <div class='method'>
 <p>Wait for the next pitch bend message, reset self to match src, chan.<textarea class='editor'>(
-c = BendResponder({ |src,chan,value|
-        [src,chan,value].postln;
+c = BendResponder({ |src, chan, value|
+        [src, chan, value].postln;
     });
     c.learn; // wait for the first bend message
 )
@@ -88,8 +88,8 @@ BendResponder.removeAll</textarea>
 </div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-    c = BendResponder({ |src,chan,val|
-        [src,chan,val].postln;
+    c = BendResponder({ |src, chan, val|
+        [src, chan, val].postln;
         },
         nil, // any source
         nil, // any channel
@@ -99,8 +99,8 @@ BendResponder.removeAll</textarea>
 
 c.remove</textarea>
 <textarea class='editor'>(
-    c = BendResponder({ |src,chan,val|
-        [src,chan,val].postln;
+    c = BendResponder({ |src, chan, val|
+        [src, chan, val].postln;
         },
         nil, // any source
         (3..6), // only channels 3 - 6

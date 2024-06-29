@@ -58,7 +58,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>pattern<td class='argumentdesc'>
-<p>a pattern that returns symbols or characters. Arrays are converted to parallel patterns ( <a href="./../Classes/Ptuple.html">Ptuple</a> ).<tr><td class='argumentname'>dict<td class='argumentdesc'>
+<p>a pattern that returns symbols or characters. Arrays are converted to parallel patterns (<a href="./../Classes/Ptuple.html">Ptuple</a>).<tr><td class='argumentname'>dict<td class='argumentdesc'>
 <p>the dictionary to be used for lookup. By default, this is <code>Pdefn.all</code>, so one can embed Pdefns by name.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dict' href='./../Overviews/Methods.html#dict'>dict</a></h3>
@@ -73,7 +73,7 @@ var scdoc_sc_version = '3.14.0-dev';
 // load a synthdef
 s.boot;
 SynthDef("gpdef",
-    { arg out=0, freq=440, sustain=0.05, amp=0.1, pan;
+    { |out = 0, freq = 440, sustain = 0.05, amp = 0.1, pan|
         var env;
         env = EnvGen.kr(Env.perc(0.01, sustain), doneAction: Done.freeSelf) * amp;
         Out.ar(out, Pan2.ar(SinOsc.ar(freq, 0, env), pan))

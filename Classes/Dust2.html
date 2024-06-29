@@ -61,7 +61,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-SynthDef("help-Dust2", { arg out=0;
+SynthDef("help-Dust2", { |out = 0|
     Out.ar(out,
         Dust2.ar(200, 0.5)
     )
@@ -69,7 +69,7 @@ SynthDef("help-Dust2", { arg out=0;
 )
 
 (
-SynthDef("help-Dust2", { arg out=0;
+SynthDef("help-Dust2", { |out = 0|
     Out.ar(out,
         Dust2.ar(XLine.kr(20000, 2, 10), 0.5)
     )

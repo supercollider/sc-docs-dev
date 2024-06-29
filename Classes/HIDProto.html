@@ -172,19 +172,19 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>dict<td class='argumentdesc'>
 <p>An IdentityDictionary with a set of parameters to match.</table></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>b = HIDProto.newFromDict( ( path: "/dev/hidraw2" ) );
+<textarea class='editor'>b = HIDProto.newFromDict((path: "/dev/hidraw2"));
 
-a = HIDFunc.usage( { |...args| args.postln; }, \X, deviceInfo: b );
+a = HIDFunc.usage({ |...args| args.postln }, \X, deviceInfo: b);
 a.free
 
-b = HIDProto.newType( \Mouse, \GenericDesktop );
+b = HIDProto.newType(\Mouse, \GenericDesktop);
 
-a = HIDFunc.usage( { |...args| args.postln; }, \X, deviceInfo: b );
+a = HIDFunc.usage({ |...args| args.postln }, \X, deviceInfo: b);
 a.free;
 
-b = HIDProto.newProduct( "USB Mouse", "Logitech" );
+b = HIDProto.newProduct("USB Mouse", "Logitech");
 
-a = HIDFunc.usage( { |...args| args.postln; }, \X, deviceInfo: b );
+a = HIDFunc.usage({ |...args| args.postln }, \X, deviceInfo: b);
 a.free;</textarea>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/HIDProto.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/HIDProto.schelp</a><br>link::Classes/HIDProto::<br></div></div><script src='./../editor.js' type='text/javascript'></script>

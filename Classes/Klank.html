@@ -100,7 +100,7 @@ Klank.ar([ // the multichannel-expansion
 { Klank.ar(`[[[800, 6000], 1071, [1153, 8000], 1723], nil, [1, 1, 1, 1]], Impulse.ar([2, 3], 0, 0.1)) }.play;</textarea>
 
 <p>A SynthDef that generates 4 partials used in different configurations:<textarea class='editor'>(
-SynthDef(\help_Klank, { arg out=0, i_freq;
+SynthDef(\help_Klank, { |out = 0, i_freq|
     var klank, n, harm, amp, ring;
 
     // harmonics
@@ -110,7 +110,7 @@ SynthDef(\help_Klank, { arg out=0, i_freq;
     // ring times
     ring = \ring.ir(Array.fill(4, 1));
 
-    klank = Klank.ar(`[harm, amp, ring], {ClipNoise.ar(0.003)}.dup, i_freq);
+    klank = Klank.ar(`[harm, amp, ring], { ClipNoise.ar(0.003) }.dup, i_freq);
 
     Out.ar(out, klank);
 }).add;
@@ -131,7 +131,7 @@ a = Synth(\help_Klank, [\i_freq, 500, \harm, [4, 1, 3, 5, 7]]);
 a.free;
 
 // set geometric series harmonics
-a = Synth(\help_Klank, [\i_freq, 500, \harm,Array.geom(4, 1, 1.61)]);
+a = Synth(\help_Klank, [\i_freq, 500, \harm, Array.geom(4, 1, 1.61)]);
 a.free;
 
 // set harmonics, ring times and amplitudes
@@ -147,7 +147,7 @@ a = Synth(\help_Klank, [
 <p>Advanced examples:<textarea class='editor'>// -- overlap texture
 (
 SynthDef("help-KlankOverlapTexture",
-{|out = 0, freqs = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], rings = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], atk = 5, sus = 8, rel = 5, pan = 0|
+{ |out = 0, freqs = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], rings = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], atk = 5, sus = 8, rel = 5, pan = 0|
     var e = EnvGen.kr(Env.linen(atk, sus, rel, 1, 4), doneAction: Done.freeSelf);
     var i = Decay.ar(Impulse.ar(Rand(0.8, 2.2)), 0.03, ClipNoise.ar(0.01));
     var z = Klank.ar(
@@ -167,8 +167,8 @@ r = Routine{
             \sus, sustain,
             \rel, transition,
             \pan, 1.0.rand2,
-            \freqs, {200.0.rrand(4000)}.dup(12),
-            \rings, {0.1.rrand(2)}.dup(12)
+            \freqs, { 200.0.rrand(4000) }.dup(12),
+            \rings, { 0.1.rrand(2) }.dup(12)
         ]);
         period.wait;
     }
@@ -182,7 +182,7 @@ r.stop;    // stop spawning new synths
 
 // -- frequency and decay scaling
 (
-SynthDef("help-KlankScaling", {|out = 0, freq = 0, rings = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], pan = 0|
+SynthDef("help-KlankScaling", { |out = 0, freq = 0, rings = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], pan = 0|
     var e = EnvGen.kr(Env(#[1, 1, 0], #[0.4, 0.01]), doneAction: Done.freeSelf);
     var i = Decay.ar(Impulse.ar(0), 0.03, ClipNoise.ar(0.01));
     var z = Klank.ar(
@@ -199,10 +199,10 @@ r = Routine{
     var sustain = 8, transition = 3;
     var mode = #[0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24];
     0.5.wait;            // wait for the synthdef to be sent to the server
-    inf.do{|i|
+    inf.do{ |i|
         Synth("help-KlankScaling", [
             \freq, (72 + (mode @@ i)).midicps,
-            \rings, {0.1.rrand(2)}.dup(12)
+            \rings, { 0.1.rrand(2) }.dup(12)
         ]);
         0.2.wait;
     }
@@ -216,7 +216,7 @@ r.stop;
 // -- overlap texture 2
 (
 SynthDef("help-KlankOverlapTexture2",
-{|out = 0, freqs = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], rings = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], atk = 5, sus = 8, rel = 5, pan = 0|
+{ |out = 0, freqs = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], rings = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], atk = 5, sus = 8, rel = 5, pan = 0|
     var e = EnvGen.kr(Env.linen(atk, sus, rel, 1, 4), doneAction: Done.freeSelf);
     var i = BrownNoise.ar(0.0012);
     var z = Klank.ar(
@@ -236,8 +236,8 @@ r = Routine{
             \sus, sustain,
             \rel, transition,
             \pan, 1.0.rand2,
-            \freqs, {6000.0.linrand+80}.dup(12),
-            \rings, {0.1.rrand(3)}.dup(12)
+            \freqs, { 6000.0.linrand+80 }.dup(12),
+            \rings, { 0.1.rrand(3) }.dup(12)
         ]);
         period.wait;
     }
@@ -251,7 +251,7 @@ r.stop;
 // -- overlap texture 3
 (
 SynthDef("help-KlankOverlapTexture3",
-{|out = 0, freqs = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], rings = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], pan = 0|
+{ |out = 0, freqs = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], rings = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], pan = 0|
     var e = EnvGen.kr(Env(#[1, 1, 0], #[18, 3]), doneAction: Done.freeSelf);
     var i = Decay.ar(Impulse.ar(Rand(0.2, 0.6)), 0.8, ClipNoise.ar(0.001));
     var z = Klank.ar(
@@ -266,8 +266,8 @@ r = Routine{
     inf.do {
         Synth("help-KlankOverlapTexture3", [
             \pan, 1.0.rand2,
-            \freqs, {12000.0.linrand+80}.dup(12),
-            \rings, {3.rrand(10)}.dup(12)
+            \freqs, { 12000.0.linrand+80 }.dup(12),
+            \rings, { 3.rrand(10) }.dup(12)
         ]);
         3.wait;
     }

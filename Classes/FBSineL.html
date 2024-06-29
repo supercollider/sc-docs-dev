@@ -77,7 +77,7 @@ plot(size.collect { xi = sin((im * yi) + (fb * xi)); yi = (a * yi + c) % 2pi; xi
 <textarea class='editor'>// increase phase multiplier
 { FBSineL.ar(SampleRate.ir, 1, 0, XLine.kr(1, 2, 10), 0.1) * 0.2 }.play(s);</textarea>
 <textarea class='editor'>// modulate frequency and index multiplier
-{ FBSineL.ar(LFNoise2.kr(1, 1e4, 1e4), LFNoise2.kr(1,16,17), 1, 1.005, 0.7) * 0.2 }.play(s);</textarea>
+{ FBSineL.ar(LFNoise2.kr(1, 1e4, 1e4), LFNoise2.kr(1, 16, 17), 1, 1.005, 0.7) * 0.2 }.play(s);</textarea>
 <textarea class='editor'>// randomly modulate params
 (
 { FBSineL.ar(

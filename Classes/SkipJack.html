@@ -97,7 +97,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>The name of this skipjack.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-stopTest' href='./../Overviews/Methods.html#stopTest'>stopTest</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-stopTest' href='./../Overviews/Methods.html#stopTest'>stopTest</a> = value</h3>
 <div class='method'>
-<p>The current stopTest. (see argument in <a href="#*new">*new</a> )</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-start' href='./../Overviews/Methods.html#start'>start</a></h3>
+<p>The current stopTest. (see argument in <a href="#*new">*new</a>)</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-start' href='./../Overviews/Methods.html#start'>start</a></h3>
 <div class='method'>
 <p>Start this skipjack.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-play' href='./../Overviews/Methods.html#play'>play</a></h3>
 <div class='method'>
@@ -111,7 +111,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>The updateFunc set by the argument to <a href="#*new">*new</a></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>Simple example:<textarea class='editor'>w = SkipJack({ "watch...".postln; }, 0.5, name: "test");
+<p>Simple example:<textarea class='editor'>w = SkipJack({ "watch...".postln }, 0.5, name: "test");
 SkipJack.verbose = true;    // post stop/wakeup logs
 
 w.stop;
@@ -123,14 +123,14 @@ thisProcess.stop;
 w.stop;</textarea>
 
 <p>Using stopTest:<textarea class='editor'>a = 5;
-w = SkipJack({ "watch...".postln; }, 0.5, { a == 10 }, "test");
+w = SkipJack({ "watch...".postln }, 0.5, { a == 10 }, "test");
 a = 10;    // fulfill stopTest</textarea>
 
 <p>Typical use: SkipJack updates a window displaying the state of some objects every now and then.<textarea class='editor'>(
 d = (a: 12, b: 24);
-d.win = Window("dict", Rect(0,0,200,60)).front;
+d.win = Window("dict", Rect(0, 0, 200, 60)).front;
 d.views = [\a, \b].collect { |name, i|
-    StaticText(d.win, Rect(i * 100,0,96,20))
+    StaticText(d.win, Rect(i * 100, 0, 96, 20))
         .background_(Color.yellow).align_(0).string_(name);
 };
 w = SkipJack({

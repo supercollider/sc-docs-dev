@@ -81,8 +81,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='supmethod'>From superclass: <a href='./../Classes/NoteOnResponder.html'>NoteOnResponder</a></div>
 <div class='method'>
 <p>Wait for the next noteOff message, reset self to match src, chan.<textarea class='editor'>(
-c = NoteOffResponder({ |src,chan,note,vel|
-        [src,chan,note,vel].postln;
+c = NoteOffResponder({ |src, chan, note, vel|
+        [src, chan, note, vel].postln;
     });
     c.learn; // wait for the first note off
 )
@@ -90,8 +90,8 @@ NoteOffResponder.removeAll</textarea>
 </div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-    c = NoteOffResponder({ |src,chan,note,vel|
-        [src,chan,note,vel].postln;
+    c = NoteOffResponder({ |src, chan, note, vel|
+        [src, chan, note, vel].postln;
         },
         nil, // any source
         nil, // any channel
@@ -102,8 +102,8 @@ NoteOffResponder.removeAll</textarea>
 
 c.remove</textarea>
 <textarea class='editor'>(
-    c = NoteOffResponder({ |src,chan,note,vel|
-        [src,chan,note,vel].postln;
+    c = NoteOffResponder({ |src, chan, note, vel|
+        [src, chan, note, vel].postln;
         },
         nil, // any source
         nil, // any channel

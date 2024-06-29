@@ -59,7 +59,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-SynthDef("help-ExpRand", { arg out=0;
+SynthDef("help-ExpRand", { |out = 0|
     Out.ar(out,
         FSinOsc.ar(
             ExpRand(100.0, 8000.0),
@@ -70,7 +70,7 @@ SynthDef("help-ExpRand", { arg out=0;
 
 (
 Routine({
-    inf.do({ arg i;
+    inf.do({ |i|
         Synth.new("help-ExpRand"); 0.05.wait;
     })
 }).play;

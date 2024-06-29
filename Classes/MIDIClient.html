@@ -107,7 +107,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
 <p>This is Linux specific code. The function takes care of initializing MIDIClient, detects a MIDI device named SE25 and connects it to port 0 of SuperCollider.<textarea class='editor'>(
-~connect_midi_devices = { arg device, name;
+~connect_midi_devices = { |device, name|
     // init or refresh MIDIClient end points
     if(MIDIClient.initialized == false) {
         MIDIClient.init;
@@ -115,8 +115,8 @@ var scdoc_sc_version = '3.14.0-dev';
         MIDIClient.list;
     };
 
-    MIDIClient.sources.do({ arg endPoint;
-        if(device.notNil and: { name.notNil} and: {endPoint.device == device} and: { endPoint.name == name }) {
+    MIDIClient.sources.do({ |endPoint|
+        if(device.notNil and: { name.notNil } and: { endPoint.device == device } and: { endPoint.name == name }) {
             // catch exception thrown when already connected
             try {
                 // connect SuperCollider out port 0 to MIDI device

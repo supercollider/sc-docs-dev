@@ -47,10 +47,10 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>This is the same as <a href="./../Classes/Ringz.html">Ringz</a> , except that it has a constant gain at 0 dB instead of being constant skirt.
+<p>This is the same as <a href="./../Classes/Ringz.html">Ringz</a>, except that it has a constant gain at 0 dB instead of being constant skirt.
 <p>It is a two pole resonant filter with zeroes at<textarea class='editor'>z = ±1</textarea>
 
-<p>Based on <em>K. Steiglitz,  "A Note on Constant-Gain Digital Resonators", Computer Music Journal, vol 18, no. 4, pp. 8-10, Winter 1994</em>.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>Based on <em>K. Steiglitz, "A Note on Constant-Gain Digital Resonators", Computer Music Journal, vol 18, no. 4, pp. 8-10, Winter 1994</em>.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Resonz.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>in: 0.0</span>, <span class='argstr'>freq: 440.0</span>, <span class='argstr'>bwr: 1.0</span>, <span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>Resonz.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>in: 0.0</span>, <span class='argstr'>freq: 440.0</span>, <span class='argstr'>bwr: 1.0</span>, <span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
 <div class='method'>
@@ -69,7 +69,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <textarea class='editor'>{ Resonz.ar(WhiteNoise.ar(0.5), 2000, 0.1) }.play
 
 // modulate frequency
-{ Resonz.ar(WhiteNoise.ar(0.5), XLine.kr(1000,8000,10), 0.05) }.play
+{ Resonz.ar(WhiteNoise.ar(0.5), XLine.kr(1000, 8000, 10), 0.05) }.play
 
 // modulate bandwidth
 { Resonz.ar(WhiteNoise.ar(0.5), 2000, XLine.kr(1, 0.001, 8)) }.play

@@ -71,10 +71,10 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Example:<textarea class='editor'>(
 w = Window.new;
 w.layout = VLayout(
-    [Button().states_([["Foo"]]), stretch:1, align:\bottomLeft],
+    [Button().states_([["Foo"]]), stretch: 1, align: \bottomLeft],
     20,
-    [TextView().string_("Bar\nBar\nBar\n"), s:3],
-    [nil, s:1]
+    [TextView().string_("Bar\nBar\nBar\n"), s: 3],
+    [nil, s: 1]
 );
 w.front;
 )</textarea>
@@ -120,8 +120,8 @@ w.layout = VLayout(
     TextView().string_("Foo\nBar\nFoo\nBar\nFoo"),
     HLayout(
         Button().states_([["Foo"]]),
-        [TextField().string_("Bar"), stretch:1],
-        [TextField().string_("BarBarBar"), stretch:4]
+        [TextField().string_("Bar"), stretch: 1],
+        [TextField().string_("BarBarBar"), stretch: 4]
     )
 );
 w.front;

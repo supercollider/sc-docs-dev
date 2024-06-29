@@ -55,7 +55,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <table class='arguments'>
 <tr><td class='argumentname'>freq<td class='argumentdesc'>
 <p>frequency in Hertz<tr><td class='argumentname'>iphase<td class='argumentdesc'>
-<p>initial phase offset in cycles ( 0..1 )<tr><td class='argumentname'>width<td class='argumentdesc'>
+<p>initial phase offset in cycles (0..1)<tr><td class='argumentname'>width<td class='argumentdesc'>
 <p>duty cycle from zero to one.<tr><td class='argumentname'>mul<td class='argumentdesc'><tr><td class='argumentname'>add<td class='argumentdesc'></table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
@@ -64,7 +64,7 @@ var scdoc_sc_version = '3.14.0-dev';
     VarSaw.ar(
         LFPulse.kr(3, 0, 0.3, 200, 200),
         0,
-        LFTri.kr(1.0).range(0,1), //width
+        LFTri.kr(1.0).range(0, 1), // width
         0.1)
 });
 

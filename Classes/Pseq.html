@@ -67,33 +67,33 @@ var scdoc_sc_version = '3.14.0-dev';
 var a, b;
 a = Pseq([1, 2, 3], 2);    // repeat twice
 b = a.asStream;
-7.do({ b.next.postln; });
+7.do({ b.next.postln });
 )</textarea>
 
 <p>Pseq also has an offset argument which gives a starting offset into the list.<textarea class='editor'>(
 var a, b;
 a = Pseq([1, 2, 3, 4], 3, 2);    // repeat 3, offset 2
 b = a.asStream;
-13.do({ b.next.postln; });
+13.do({ b.next.postln });
 )</textarea>
 
 <p>You can pass a function for the repeats variable that gets evaluated when the stream is created.<textarea class='editor'>(
 var a, b;
-a = Pseq([1, 2], { rrand(1, 3) });    // repeat 1,2, or 3 times
+a = Pseq([1, 2], { rrand(1, 3) });    // repeat 1, 2, or 3 times
 b = a.asStream;
-7.do({ b.next.postln; });
+7.do({ b.next.postln });
 )</textarea>
 
 <p>If you specify the value inf for the repeats variable, then it will repeat indefinitely.<textarea class='editor'>(
 var a, b;
 a = Pseq([1, 2, 3], inf);    // infinite repeat
 b = a.asStream;
-10.do({ b.next.postln; });
+10.do({ b.next.postln });
 )</textarea>
 
 <p>Pseq used as a sequence of pitches:<textarea class='editor'>(
 SynthDef(\help_sinegrain,
-    { arg out=0, freq=440, sustain=0.05;
+    { |out = 0, freq = 440, sustain = 0.05|
         var env;
         env = EnvGen.kr(Env.perc(0.01, sustain, 0.2), doneAction: Done.freeSelf);
         Out.ar(out, SinOsc.ar(freq, 0, env))

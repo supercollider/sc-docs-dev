@@ -61,16 +61,16 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>{ CheckBadValues.kr(SinOsc.ar); 0}.play // nothing wrong here
+<textarea class='editor'>{ CheckBadValues.kr(SinOsc.ar); 0 }.play // nothing wrong here
 
 { CheckBadValues.kr(1 / 0, 1).poll; 0 }.play // check infinity
 
-x = { arg test = -1; CheckBadValues.kr(test); 0 }.play // check NaN
+x = { |test = -1| CheckBadValues.kr(test); 0 }.play // check NaN
 x.set(\test, -1.sqrt);
 
 // don't post, but do something with the output
 (
-x = { arg freq = 440;
+x = { |freq = 440|
     var good;
     good = BinaryOpUGen('==', CheckBadValues.kr(freq, 0, 0), 0);
     SinOsc.ar(freq, 0, 0.1) * good // silence the output if freq is bad
