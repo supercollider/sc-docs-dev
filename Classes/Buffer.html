@@ -760,7 +760,18 @@ c.free;</textarea>
 <p>An instance of Rect determining the size of the resulting view.<tr><td class='argumentname'>minval<td class='argumentdesc'>
 <p>the minimum value in the plot<tr><td class='argumentname'>maxval<td class='argumentdesc'>
 <p>the maximum value in the plot<tr><td class='argumentname'>separately<td class='argumentdesc'>
-<p>a boolean whether to use separate display ranges or a single shared range.</table><h4>Discussion:</h4>
+<p>a boolean whether to use separate display ranges or a single shared range.<tr><td class='argumentname'>parent<td class='argumentdesc'>
+<p>Either a <a href="./../Classes/Window.html">Window</a> or <a href="./../Classes/View.html">View</a> may be passed in - then the plot is embedded. Otherwise a new <a href="./../Classes/Window.html">Window</a> is created.<textarea class='editor'>(
+s.waitForBoot {
+    var w = Window("parent");
+    var buf = Buffer.read(s, Platform.resourceDir +/+ "sounds/sinedPink.aiff");
+    s.sync;
+    buf.plot(parent: w);
+    w.front
+}
+)</textarea>
+
+<p></table><h4>Discussion:</h4>
 <textarea class='editor'>s.boot;
 b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
 b.plot;

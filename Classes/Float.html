@@ -45,6 +45,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-low32Bits'>low32Bits</a> </li>
 <li class='toc3'><a href='#-asCompileString'>asCompileString</a> </li>
 <li class='toc3'><a href='#-asStringPrec'>asStringPrec</a> </li>
+<li class='toc3'><a href='#-dump'>dump</a> </li>
 <li class='toc2'><a href='#Using%20Floats%20as%20replacement%20for%20Integers'>Using Floats as replacement for Integers</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 <li class='toc2'><a href='#Undocumented%20instance%20methods'>Undocumented instance methods</a></li>
@@ -157,7 +158,20 @@ pi.asStringPrec(6)
 (pi * 0.0001).asStringPrec(3)
 7.4.asStringPrec(5)
 7.4.asStringPrec(50)</textarea>
-</div><h3><a class='anchor' name='Using%20Floats%20as%20replacement%20for%20Integers'>Using Floats as replacement for Integers</a></h3>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dump' href='./../Overviews/Methods.html#dump'>dump</a></h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/Object.html'>Object</a></div>
+<div class='method'>
+<p><textarea class='editor'>-1.0.dump</textarea>
+
+<p>returns<pre>   Float -1.000000   00000000 BFF00000
+-&gt; -1.0</pre>
+<p>The last two groups of an 8-digit integer are the raw hexadecimal representation of the 64-bit double value according to <a href="https://ieeexplore.ieee.org/document/8766229">IEEE 754 Floating Point</a> (<a href="https://ieeexplore.ieee.org/document/8766229">https://ieeexplore.ieee.org/document/8766229</a>). Each part is represented as follows:<pre>                         raw hexadecimal representation
+                           of the 64-bit double value
+                         ––––––––––––––––––––––––––––––
+Float   -1.000000        00000000              3FF00000
+|       |                |                     |
+class   decmial          significant part      exponent part
+        representation   (mantissa)            with sign bit</pre></div><h3><a class='anchor' name='Using%20Floats%20as%20replacement%20for%20Integers'>Using Floats as replacement for Integers</a></h3>
 
 <p>In SuperCollider, Floats are 64-bit wide. Because an <a href="./../Classes/Integer.html">Integer</a> is 32-bit, it can only capture integers in the range <code>-2147483648 .. +2147483647</code>, or about <code>2 x 10^9</code>.
 <p>Therefore, in some situations it can be useful to calculate with floats also when only whole numbers are needed. You can use 64-bit floats for integer calculations up to <code>± 9007199254740992</code> (<code>2^53</code>, or about <code>9 x 10^15</code>). Sometimes one can go even further (see example below).<textarea class='editor'>// compare factorial:

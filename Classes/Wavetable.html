@@ -138,7 +138,13 @@ Wavetable.sineFill(512, [1]).plot("Table 1", Rect(50, 50, 150, 450));</textarea>
 <p>a String, the name of the window.<tr><td class='argumentname'>bounds<td class='argumentdesc'>
 <p>a Rect giving the bounds of the window.<tr><td class='argumentname'>minval<td class='argumentdesc'>
 <p>the minimum value in the plot. Defaults to the highest value in the data.<tr><td class='argumentname'>maxval<td class='argumentdesc'>
-<p>the maximum value in the plot. Defaults to the lowest value in the data.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asSignal' href='./../Overviews/Methods.html#asSignal'>asSignal</a></h3>
+<p>the maximum value in the plot. Defaults to the lowest value in the data.<tr><td class='argumentname'>parent<td class='argumentdesc'>
+<p>Either a <a href="./../Classes/Window.html">Window</a> or <a href="./../Classes/View.html">View</a> may be passed in - then the plot is embedded. Otherwise a new <a href="./../Classes/Window.html">Window</a> is created.<textarea class='editor'>(
+var w = Window("parent");
+Wavetable.sineFill(512, 1.0/[1, 2, 3, 4, 5, 6]).plot(parent: w);
+w.front
+)</textarea>
+</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asSignal' href='./../Overviews/Methods.html#asSignal'>asSignal</a></h3>
 <div class='method'>
 <p>Convert the Wavetable into a Signal.<textarea class='editor'>Wavetable.sineFill(512, [1]).asSignal.plot;</textarea>
 </div><h3><a class='anchor' name='Advanced%20notes:%20wavetable%20format'>Advanced notes: wavetable format</a></h3>

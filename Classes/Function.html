@@ -416,7 +416,12 @@ var synth = { Out.ar(99, SinOsc.ar([300, 700])) }.play;
 <p>An instance of Rect or Point indicating the bounds of the plot window.<tr><td class='argumentname'>minval<td class='argumentdesc'>
 <p>the minimum value in the plot. If not specified, the signal's minimum is used.<tr><td class='argumentname'>maxval<td class='argumentdesc'>
 <p>the maximum value in the plot. If not specified, the signal's maximum is used.<tr><td class='argumentname'>separately<td class='argumentdesc'>
-<p>If set to <code>true</code>, for multichannel signals use separate value display ranges, unless minval or maxval is specified already.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asBuffer' href='./../Overviews/Methods.html#asBuffer'>asBuffer</a>(<span class='argstr'>duration: 0.01</span>, <span class='argstr'>target</span>, <span class='argstr'>action</span>, <span class='argstr'>fadeTime: 0</span>)</h3>
+<p>If set to <code>true</code>, for multichannel signals use separate value display ranges, unless minval or maxval is specified already.<tr><td class='argumentname'>parent<td class='argumentdesc'>
+<p>Either a <a href="./../Classes/Window.html">Window</a> or <a href="./../Classes/View.html">View</a> may be passed in - then the plot is embedded. Otherwise a new <a href="./../Classes/Window.html">Window</a> is created.<textarea class='editor'>(
+var w = Window("The parent of a plotter").front;
+{ SinOsc.ar }.plot(0.01, parent: w)
+)</textarea>
+</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asBuffer' href='./../Overviews/Methods.html#asBuffer'>asBuffer</a>(<span class='argstr'>duration: 0.01</span>, <span class='argstr'>target</span>, <span class='argstr'>action</span>, <span class='argstr'>fadeTime: 0</span>)</h3>
 <div class='method'>
 <p>Calculates duration in seconds worth of the output of this function asynchronously, and returns it in a <a href="./../Classes/Buffer.html">Buffer</a> of the number of channels. This method immediately returns a buffer, which takes <code>duration</code> seconds to become filled with data asynchronously. Then the action function is called.<h4>Arguments:</h4>
 <table class='arguments'>

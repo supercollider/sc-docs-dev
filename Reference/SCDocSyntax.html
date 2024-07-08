@@ -71,6 +71,9 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Level 2:<dl>
 <dt><a class='anchor' name='kw_subsection::'>&nbsp;</a><code>SUBSECTION::</code> name<dd>A named subsection. The name should be plain text and can not contain any tags. Example:<pre>subsection:: Some more info</pre></dl>
+
+<p>Level 3:<dl>
+<dt><a class='anchor' name='kw_subsubsection::'>&nbsp;</a><code>SUBSUBSECTION::</code> name<dd>A named subsubsection. The name should be plain text and can not contain any tags. Example:<pre>subsubsection:: Some more detailed info</pre></dl>
 <h3><a class='anchor' name='Method%20tags'>Method tags</a></h3>
 
 <p>These are level 3 subsections:<dl>
@@ -187,7 +190,8 @@ optsubsubsections ::= [ subsubsections ]
 subsubsections    ::= subsubsections subsubsection
                     | subsubsection
                     | body
-subsubsection     ::= "METHOD::" methnames optMETHODARGS eol methodbody
+subsubsection     ::= "SUBSUBSECTION::" words2 eol optbody
+                    | "METHOD::" methnames optMETHODARGS eol methodbody
                     | "COPYMETHOD::" words eol
                     | "PRIVATE::" commalist eol
 optMETHODARGS     ::= [ METHODARGS ]

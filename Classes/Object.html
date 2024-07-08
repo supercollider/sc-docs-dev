@@ -727,7 +727,53 @@ a.sayHello;</textarea>
 <p>Print the compile string representation of the receiver, followed by a newline.<textarea class='editor'>"hello".postcs; "hello".postcs; "";</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dump' href='./../Overviews/Methods.html#dump'>dump</a></h3>
 <div class='method'>
-<p>Print a detailed low level representation of the receiver to the post window.<textarea class='editor'>List[1, 2, 3].dump;</textarea>
+<p>Print a detailed low level representation of the receiver to the post window. Any object understands this method (this means metaclasses, classes and their instances). Note that in <a href="./../Classes/List.html">List</a> class, this method dumps the list's internal array.<textarea class='editor'>Meta_Object.dump // the meta class of the class Object</textarea>
+
+<p><textarea class='editor'>Object.dump      // the class called Object</textarea>
+
+<p><textarea class='editor'>Object.new.dump  // an istance of the class Object</textarea>
+<h4>Discussion:</h4>
+<ul>
+<li>The detailed low level information varies depending on the receiver.<li>Some instance objects, especially unique objects, return the class name and value (also more data if necessary) of the dumped object:<dl>
+<dt><a href="./../Classes/Float.html">Float</a><dd><textarea class='editor'>1.0.dump</textarea>
+64-bit version of SuperCollider returns:<pre>   Float 1.000000   00000000 3FF00000
+-&gt; 1.0</pre>
+<p>For the detals, see <a href="./../Classes/Float.html#-dump">Float: -dump</a><dt><a href="./../Classes/Integer.html">Integer</a><dd><textarea class='editor'>1.dump</textarea>
+<pre>   Integer 1
+-&gt; 1</pre>
+<p><dt><a href="./../Classes/Char.html">Char</a><dd><textarea class='editor'>$1.dump</textarea>
+<pre>   Character 49 '1'
+-&gt; 1</pre>
+<p>The integer between <em>Character</em> and <em>'1'</em> is the ASCII value of that character.<dt><a href="./../Classes/Symbol.html">Symbol</a><dd><textarea class='editor'>\1.dump</textarea>
+<pre>   Symbol '1'
+-&gt; 1</pre></dl>
+<li>Some instances return more detailed information, such as<ul>
+<li>address in virtual memory (the hexadecimal number prefixed with 0x),<li><em>garbage collector color</em> (gc),<li><em>data format type</em> (fmt),<li><em>flags for immutablity, finalization and sanity information from the garbage collector</em> (flg),<li><em>size class</em> (set),<li>and so on (the information on the second and subsequent lines varies depending on the class to which the instance belongs)</ul>
+
+<p>with the class name of the instance:<dl>
+<dt><a href="./../Classes/Array.html">Array</a><dd><textarea class='editor'>[1, 2].dump;</textarea>
+<pre>Instance of Array {    (0x1552c9558, gc=78, fmt=01, flg=00, set=02)
+  indexed slots [2]
+      0 : Integer 1
+      1 : Integer 2
+}
+-&gt; [1, 2]</pre>
+<p><dt><a href="./../Classes/List.html">List</a><dd><textarea class='editor'>List[1, 2].dump;</textarea>
+<pre>List's array:
+Instance of Array {    (0x13b3cb5b8, gc=6C, fmt=01, flg=00, set=02)
+  indexed slots [2]
+      0 : Integer 1
+      1 : Integer 2
+}
+-&gt; List[1, 2]</pre>
+<p><dt><a href="./../Classes/Set.html">Set</a><dd><textarea class='editor'>Set[1, 2].dump;</textarea>
+<pre>Instance of Set {    (0x1489e2068, gc=A4, fmt=00, flg=00, set=02)
+  instance variables [2]
+    array : instance of Array (0x13b458838, size=4, set=2)
+    size : Integer 2
+}
+-&gt; Set[2, 1]</pre></dl>
+</ul>
 </div><h3><a class='anchor' name='System%20Information'>System Information</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-gcInfo' href='./../Overviews/Methods.html#gcInfo'>gcInfo</a></h3>
 <div class='method'>

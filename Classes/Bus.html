@@ -66,6 +66,9 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-fillMsg'>fillMsg</a> </li>
 </ul><li class='toc2'><a href='#Monitoring%20with%20an%20oscilloscope'>Monitoring with an oscilloscope</a></li>
 <ul class='toc'><li class='toc3'><a href='#-scope'>scope</a> </li>
+</ul><li class='toc2'><a href='#Plotting'>Plotting</a></li>
+<ul class='toc'><li class='toc3'><a href='#-plot'>plot</a> </li>
+<li class='toc3'><a href='#-plotAudio'>plotAudio</a> </li>
 </ul><li class='toc2'><a href='#Bela'>Bela</a></li>
 <ul class='toc'><li class='toc3'><a href='#-belaScope'>belaScope</a> </li>
 </ul><li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
@@ -102,7 +105,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>The clientside representation of an audio or control bus on a server. Encapsulates all the <a href="./../Browse.html#OpenSoundControl">OSC</a> messages a Bus can receive. Manages allocation and deallocation of bus indices so that you don't need to worry about conflicts. The number of control busses, audio busses, and input and output busses is fixed and cannot be changed after the server has been booted.
 <p>For more information see <a href="./../Guides/ClientVsServer.html">Client vs Server</a> and <a href="./../Reference/Server-Architecture.html">Server Architecture</a>.
 <p>Note that using the Bus class to allocate a multichannel bus does not 'create' a multichannel bus, but rather simply reserves a series of adjacent bus indices with the bus' <a href="./../Classes/Server.html">Server</a> object's bus allocators. <code>abus.index</code> simply returns the first of those indices. When using a Bus with an <a href="./../Classes/In.html">In</a> or <a href="./../Classes/Out.html">Out</a> ugen there is nothing to stop you from reading to or writing from a larger range, or from hardcoding to a bus that has been allocated. You are responsible for making sure that the number of channels match and that there are no conflicts.
-<p>Bus objects should not be created or modified within a <a href="./../Classes/SynthDef.html">SynthDef</a>.<div class='note'><span class='notelabel'>NOTE:</span> The lowest <code>n</code> bus indices are reserved for hardware output and input, where<textarea class='editor'>n = server.options.numOutputBusChannels + server.options.numInputBusChannels</textarea>
+<p>Bus objects should not be created or modified within a <a href="./../Classes/SynthDef.html">SynthDef</a>.<div class='note'><span class='notelabel'>NOTE:</span> The lowest <code>n</code> bus indices are reserved for hardware output and input, where <a class='anchor' name='note'>&nbsp;</a><textarea class='editor'>n = server.options.numOutputBusChannels + server.options.numInputBusChannels</textarea>
 
 <p><dl>
 <dt>Hardware output buses<dd><code>0 .. (numOutputBusChannels - 1)</code><dt>Hardware input buses<dd><code>numOutputBusChannels .. (numOutputBusChannels + numInputBusChannels - 1)</code><dt>First private bus index<dd><code>numOutputBusChannels + numInputBusChannels</code></dl>
@@ -116,7 +119,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>The <a href="./../Classes/Server.html">Server</a>. Defaults to Server.default.<tr><td class='argumentname'>numChannels<td class='argumentdesc'>
 <p>Number of channels to allocate</table></div><h3 class='method-code'><span class='method-prefix'>Bus.</span><a class='method-name' name='*audio' href='./../Overviews/Methods.html#audio'>audio</a>(<span class='argstr'>server</span>, <span class='argstr'>numChannels: 1</span>)</h3>
 <div class='method'>
-<p>Allocate an audio bus on the server.<h4>Arguments:</h4>
+<p>Allocate a private audio bus on the server.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>server<td class='argumentdesc'>
 <p>The <a href="./../Classes/Server.html">Server</a>. Defaults to Server.default.<tr><td class='argumentname'>numChannels<td class='argumentdesc'>
@@ -129,7 +132,14 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>The <a href="./../Classes/Server.html">Server</a>. Defaults to Server.default.<tr><td class='argumentname'>numChannels<td class='argumentdesc'>
 <p>Number of channels to allocate</table></div><h3 class='method-code'><span class='method-prefix'>Bus.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>rate: 'audio'</span>, <span class='argstr'>index: 0</span>, <span class='argstr'>numChannels: 2</span>, <span class='argstr'>server</span>)</h3>
 <div class='method'>
-<p>This method does not allocate a bus index, but assumes that you already have allocated the appropriate bus index and can supply it yourself.</div><h3 class='method-code'><span class='method-prefix'>Bus.</span><a class='method-name' name='*newFrom' href='./../Overviews/Methods.html#newFrom'>newFrom</a>(<span class='argstr'>bus</span>, <span class='argstr'>offset</span>, <span class='argstr'>numChannels: 1</span>)</h3>
+<p>This method does not allocate a bus index, but assumes that you already have allocated the appropriate bus index and can supply it yourself.<h4>Discussion:</h4>
+
+<p>The hardware I/O buses can be accessed via the lowest indices (see <a href="#note">Note</a> in the <a href="#description">Description</a> section):<ul>
+<li>The first two channels of the hardware output buses:<textarea class='editor'>a = Bus(\audio, 0, 2)</textarea>
+
+<p><li>The first channel of the hardware input bus, if hardware output channels are set to 2:<textarea class='editor'>b = Bus(\audio, 2, 1)</textarea>
+</ul>
+</div><h3 class='method-code'><span class='method-prefix'>Bus.</span><a class='method-name' name='*newFrom' href='./../Overviews/Methods.html#newFrom'>newFrom</a>(<span class='argstr'>bus</span>, <span class='argstr'>offset</span>, <span class='argstr'>numChannels: 1</span>)</h3>
 <div class='method'>
 <p>This method creates a new Bus that is a subset of the bus. The bus will be at the same rate as the input bus. offset is the index into the given bus. numChannels is the desired number of channels. If the combination of offset and numChannels is outside the input bus' range, an error will be thrown.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
@@ -242,6 +252,23 @@ b.scope
 
 a.free;
 b.free;</textarea>
+</div><h3><a class='anchor' name='Plotting'>Plotting</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plot' href='./../Overviews/Methods.html#plot'>plot</a>: METHOD NOT FOUND!</h3>
+<div class='method'>
+<p>See <a href="#-plotAudio">-plotAudio</a></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plotAudio' href='./../Overviews/Methods.html#plotAudio'>plotAudio</a>: METHOD NOT FOUND!</h3>
+<div class='method'>
+<p>example:<textarea class='editor'>(
+b = Bus(\audio, 0, 2);
+s.bind {
+    SynthDef(\sinPerc, { |out = 0|
+        var signal = SinOsc.ar * Env.sine(0.1).ar(gate: Impulse.ar(2));
+        OffsetOut.ar(out, signal ! 2) }
+    ).add;
+    s.sync;
+    Synth(\sinPerc, [\out, b]);
+    b.plot(1);
+}
+)</textarea>
 </div><h3><a class='anchor' name='Bela'>Bela</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-belaScope' href='./../Overviews/Methods.html#belaScope'>belaScope</a>(<span class='argstr'>scopeChannel</span>)</h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Audio/Bela/BelaScope.sc'>/usr/local/share/SuperCollider/SCClassLibrary/Common/Audio/Bela/BelaScope.sc</a></div>
