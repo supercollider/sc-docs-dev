@@ -105,7 +105,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-update'>update</a> </li>
 <li class='toc3'><a href='#-release'>release</a> </li>
 </ul><li class='toc2'><a href='#Error%20Support'>Error Support</a></li>
-<ul class='toc'><li class='toc3'><a href='#-throw'>throw</a> </li>
+<ul class='toc'><li class='toc3'><a href='#-doesNotUnderstand'>doesNotUnderstand</a> </li>
+<li class='toc3'><a href='#-throw'>throw</a> </li>
 <li class='toc3'><a href='#-subclassResponsibility'>subclassResponsibility</a> </li>
 <li class='toc3'><a href='#-shouldNotImplement'>shouldNotImplement</a> </li>
 <li class='toc3'><a href='#-deprecated'>deprecated</a> </li>
@@ -203,7 +204,6 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-dereference'>dereference</a> </li>
 <li class='toc3'><a href='#-dereferenceOperand'>dereferenceOperand</a> </li>
 <li class='toc3'><a href='#-doOnCmdPeriod'>doOnCmdPeriod</a> </li>
-<li class='toc3'><a href='#-doesNotUnderstand'>doesNotUnderstand</a> </li>
 <li class='toc3'><a href='#-dumpBackTrace'>dumpBackTrace</a> </li>
 <li class='toc3'><a href='#-dumpDetailedBackTrace'>dumpDetailedBackTrace</a> </li>
 <li class='toc3'><a href='#-dumpStack'>dumpStack</a> </li>
@@ -260,6 +260,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-outOfContextReturn'>outOfContextReturn</a> </li>
 <li class='toc3'><a href='#-pair'>pair</a> </li>
 <li class='toc3'><a href='#-pairs'>pairs</a> </li>
+<li class='toc3'><a href='#-performArgs'>performArgs</a> </li>
 <li class='toc3'><a href='#-performBinaryOpOnComplex'>performBinaryOpOnComplex</a> </li>
 <li class='toc3'><a href='#-performBinaryOpOnSeqColl'>performBinaryOpOnSeqColl</a> </li>
 <li class='toc3'><a href='#-performBinaryOpOnSignal'>performBinaryOpOnSignal</a> </li>
@@ -608,7 +609,7 @@ x.postln;
 <p>Instead of directly sending a method to an object, a method may be invoked given a method selector only (a Symbol). The other arguments may be provided by passing them directly, from an environment. If it is not known whether the receiver implements the method, tryPerform only sends if it does, and superPerform invokes the method of the superclass.<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-perform' href='./../Overviews/Methods.html#perform'>perform</a>(<span class='argstr'>selector</span> <span class='argstr'>... args</span>)</h3>
 <div class='method'>
 <p>The selector argument must be a Symbol. Sends the method named by the selector with the given arguments to the receiver.
-<p>If the first argument is an Array or List, this method behaves like <code>performMsg</code>. However, this usage is discouraged, and <code>performMsg</code> ought to be used instead.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performList' href='./../Overviews/Methods.html#performList'>performList</a>(<span class='argstr'>selector</span>, <span class='argstr'>arglist</span>)</h3>
+<p>If the first argument is an Array or List, this method behaves like <code>performMsg</code>. However, this usage is discouraged, and <code>performMsg</code> ought to be used instead.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performList' href='./../Overviews/Methods.html#performList'>performList</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
 <div class='method'>
 <p>The selector argument must be a Symbol. Sends the method named by the selector with the given arguments to the receiver. If the last argument is a List or an Array, then its elements are unpacked and passed as arguments.<textarea class='editor'>a = { |a, b, c| postf("% plus % plus % is %\n", a, b, c, a + b + c); "" };
 a.performList(\value, [1, 2, 3]);</textarea>
@@ -634,7 +635,7 @@ a.performWithEnvir(\value, (a: 1, c: 3, d: 4, b: 2));</textarea>
 <p>Array or List with key-value pairs.</table><h4>Discussion:</h4>
 <textarea class='editor'>a = { |a, b, c| postf("% plus % plus % is %\n", a, b, c, a + b + c); "" };
 a.performKeyValuePairs(\value, [\a, 1, \b, 2, \c, 3, \d, 4]);</textarea>
-</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-tryPerform' href='./../Overviews/Methods.html#tryPerform'>tryPerform</a>(<span class='argstr'>selector</span> <span class='argstr'>... args</span>)</h3>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-tryPerform' href='./../Overviews/Methods.html#tryPerform'>tryPerform</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
 <div class='method'>
 <p>Like 'perform', but tryPerform passes the method to the receiver only if the receiver understands the method name. If the receiver doesn't implement that method, the result is nil. Note that this does not catch errors like 'try' does (see Exception). If the receiver does have a matching method but that method throws an error, execution will halt. But, 'tryPerform' is faster than 'try'.<textarea class='editor'>(a: 1, b: 2, c: 3).tryPerform(\keysValuesDo, { |key, value| [key, value].postln });
 
@@ -643,9 +644,9 @@ Set[1, 2, 3].tryPerform(\keysValuesDo, { |key, value| [key, value].postln });
 
 // Error occurs within keysValuesDo -- error is thrown back to halt execution
 (a: 1, b: 2, c: 3).tryPerform(\keysValuesDo, { |key, value| [key, value].flippityblargh });</textarea>
-</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-superPerform' href='./../Overviews/Methods.html#superPerform'>superPerform</a>(<span class='argstr'>selector</span> <span class='argstr'>... args</span>)</h3>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-superPerform' href='./../Overviews/Methods.html#superPerform'>superPerform</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
 <div class='method'>
-<p>Like perform, superPerform calls a method, however it calls the method on the superclass. selector: A Symbol representing a method selector. args: Method arguments.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-superPerformList' href='./../Overviews/Methods.html#superPerformList'>superPerformList</a>(<span class='argstr'>selector</span>, <span class='argstr'>arglist</span>)</h3>
+<p>Like perform, superPerform calls a method, however it calls the method on the superclass. selector: A Symbol representing a method selector. args: Method arguments.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-superPerformList' href='./../Overviews/Methods.html#superPerformList'>superPerformList</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
 <div class='method'>
 <p>Like performList, superPerformList calls a method, however it calls the method on the superclass. selector: A Symbol representing a method selector. args: Method arguments. If the last argument is a List or an Array, then its elements are unpacked and passed as arguments.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-multiChannelPerform' href='./../Overviews/Methods.html#multiChannelPerform'>multiChannelPerform</a>(<span class='argstr'>selector</span> <span class='argstr'>... args</span>)</h3>
 <div class='method'>
@@ -686,7 +687,14 @@ a.sayHello;</textarea>
 <div class='method'>
 <p>Remove all dependants of the receiver. Any object that has had dependants added must be released in order for it or its dependants to get garbage collected.</div><h3><a class='anchor' name='Error%20Support'>Error Support</a></h3>
 
-<p>Object implements a number of methods which throw instances of Error. A number of methods (e.g. doesNotUnderstand) are 'private' and do not normally need to be called directly in user code. Others, such as those documented below can be useful for purposes such as object oriented design (e.g. to define an abstract interface which will be implemented in subclasses) and deprecation of methods. The reserved keyword thisMethod can be used to refer to the enclosing method. See also Method and Function (for exception handling).<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-throw' href='./../Overviews/Methods.html#throw'>throw</a></h3>
+<p>Object implements a number of methods which throw instances of Error. A number of methods (e.g. doesNotUnderstand) are 'private' and do not normally need to be called directly in user code. Others, such as those documented below can be useful for purposes such as object oriented design (e.g. to define an abstract interface which will be implemented in subclasses) and deprecation of methods. The reserved keyword thisMethod can be used to refer to the enclosing method. See also Method and Function (for exception handling).<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-doesNotUnderstand' href='./../Overviews/Methods.html#doesNotUnderstand'>doesNotUnderstand</a>(<span class='argstr'>selector</span> <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
+<div class='method'>
+<p><h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>selector<td class='argumentdesc'>
+<p>The method that was called.<tr><td class='argumentname'>... args<td class='argumentdesc'>
+<p>An <a href="./../Classes/Array.html">Array</a> of arguments.<tr><td class='argumentname'>kwargs<td class='argumentdesc'>
+<p>An <a href="./../Classes/Array.html">Array</a> of keyword argument pairs.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-throw' href='./../Overviews/Methods.html#throw'>throw</a></h3>
 <div class='method'>
 <p>Throws the receiver as an Exception, which may or may not be caught and handled by any enclosing Function.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-subclassResponsibility' href='./../Overviews/Methods.html#subclassResponsibility'>subclassResponsibility</a>(<span class='argstr'>method</span>)</h3>
 <div class='method'>
@@ -975,7 +983,6 @@ blend((a: 6, b: 7), (a: 0, b: [1, 2], c: 9), 0.5);</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dereferenceOperand' href='./../Overviews/Methods.html#dereferenceOperand'>dereferenceOperand</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-doOnCmdPeriod' href='./../Overviews/Methods.html#doOnCmdPeriod'>doOnCmdPeriod</a></h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Control/extSystemActions.sc'>/usr/local/share/SuperCollider/SCClassLibrary/Common/Control/extSystemActions.sc</a></div>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-doesNotUnderstand' href='./../Overviews/Methods.html#doesNotUnderstand'>doesNotUnderstand</a>(<span class='argstr'>selector</span> <span class='argstr'>... args</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpBackTrace' href='./../Overviews/Methods.html#dumpBackTrace'>dumpBackTrace</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpDetailedBackTrace' href='./../Overviews/Methods.html#dumpDetailedBackTrace'>dumpDetailedBackTrace</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpStack' href='./../Overviews/Methods.html#dumpStack'>dumpStack</a></h3>
@@ -991,7 +998,7 @@ blend((a: 6, b: 7), (a: 0, b: [1, 2], c: 9), 0.5);</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-flatSize' href='./../Overviews/Methods.html#flatSize'>flatSize</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-free' href='./../Overviews/Methods.html#free'>free</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-freeze' href='./../Overviews/Methods.html#freeze'>freeze</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-functionPerformList' href='./../Overviews/Methods.html#functionPerformList'>functionPerformList</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-functionPerformList' href='./../Overviews/Methods.html#functionPerformList'>functionPerformList</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-gcDumpGrey' href='./../Overviews/Methods.html#gcDumpGrey'>gcDumpGrey</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-gcDumpSet' href='./../Overviews/Methods.html#gcDumpSet'>gcDumpSet</a>(<span class='argstr'>set</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-gcSanity' href='./../Overviews/Methods.html#gcSanity'>gcSanity</a></h3>
@@ -1038,6 +1045,7 @@ blend((a: 6, b: 7), (a: 0, b: [1, 2], c: 9), 0.5);</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-outOfContextReturn' href='./../Overviews/Methods.html#outOfContextReturn'>outOfContextReturn</a>(<span class='argstr'>method</span>, <span class='argstr'>result</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pair' href='./../Overviews/Methods.html#pair'>pair</a>(<span class='argstr'>that</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pairs' href='./../Overviews/Methods.html#pairs'>pairs</a>(<span class='argstr'>that</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performArgs' href='./../Overviews/Methods.html#performArgs'>performArgs</a>(<span class='argstr'>selector</span>, <span class='argstr'>args</span>, <span class='argstr'>kwargs</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performBinaryOpOnComplex' href='./../Overviews/Methods.html#performBinaryOpOnComplex'>performBinaryOpOnComplex</a>(<span class='argstr'>aSelector</span>, <span class='argstr'>thing</span>, <span class='argstr'>adverb</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performBinaryOpOnSeqColl' href='./../Overviews/Methods.html#performBinaryOpOnSeqColl'>performBinaryOpOnSeqColl</a>(<span class='argstr'>aSelector</span>, <span class='argstr'>thing</span>, <span class='argstr'>adverb</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performBinaryOpOnSignal' href='./../Overviews/Methods.html#performBinaryOpOnSignal'>performBinaryOpOnSignal</a>(<span class='argstr'>aSelector</span>, <span class='argstr'>thing</span>, <span class='argstr'>adverb</span>)</h3>
