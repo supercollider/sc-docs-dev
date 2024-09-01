@@ -378,21 +378,52 @@ s.postln; // see: it is alice.</textarea>
 <div class='method'>
 <p>free a permanent node ID for later reuse.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wait' href='./../Overviews/Methods.html#wait'>wait</a>(<span class='argstr'>responseName</span>)</h3>
 <div class='method'>
-<p>this can be used within a <a href="./../Classes/Routine.html">Routine</a> to wait for a server reply</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-waitForBoot' href='./../Overviews/Methods.html#waitForBoot'>waitForBoot</a>(<span class='argstr'>onComplete</span>, <span class='argstr'>limit: 100</span>, <span class='argstr'>onFailure</span>)</h3>
+<p>this can be used within a <a href="./../Classes/Routine.html">Routine</a> to wait for a server reply</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-waitForBoot' href='./../Overviews/Methods.html#waitForBoot'>waitForBoot</a>(<span class='argstr'>onComplete</span>, <span class='argstr'>limit: 100</span>, <span class='argstr'>onFailure</span>, <span class='argstr'>clock</span>)</h3>
 <div class='method'>
 <p>Evaluate "onComplete" as soon as the server has booted. This method will boot the server for you if it is not already running or booting. If the server is already running, "onComplete" is executed immediately.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>onComplete<td class='argumentdesc'>
 <p>A function to evaluate after the server has booted successfully.<tr><td class='argumentname'>limit<td class='argumentdesc'>
 <p>The number of times to check for a successful boot. (5 times/sec)<tr><td class='argumentname'>onFailure<td class='argumentdesc'>
-<p>A function to evaluate after the server fails to boot. If onFailure is not given, an error message is posted. Providing a function suppresses the error message. If you want to supply a function and print the normal error message, make sure that your function returns "false," e.g. <code>s.waitForBoot(onFailure: { ... custom action...; false })</code>.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-doWhenBooted' href='./../Overviews/Methods.html#doWhenBooted'>doWhenBooted</a>(<span class='argstr'>onComplete</span>, <span class='argstr'>limit: 100</span>, <span class='argstr'>onFailure</span>)</h3>
+<p>A function to evaluate after the server fails to boot. If onFailure is not given, an error message is posted. Providing a function suppresses the error message. If you want to supply a function and print the normal error message, make sure that your function returns "false," e.g. <code>s.waitForBoot(onFailure: { ... custom action...; false })</code>.<tr><td class='argumentname'>clock<td class='argumentdesc'>
+<p>The default <a href="./../Classes/Clock.html">Clock</a> is <a href="./../Classes/AppClock.html">AppClock</a>. Use <a href="./../Classes/SystemClock.html">SystemClock</a> or <a href="./../Classes/TempoClock.html">TempoClock</a> if time accuracy is important.</table><h4>Discussion:</h4>
+
+<p>Refer to the discussion of <a href="#-doWhenBooted">-doWhenBooted</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-doWhenBooted' href='./../Overviews/Methods.html#doWhenBooted'>doWhenBooted</a>(<span class='argstr'>onComplete</span>, <span class='argstr'>limit: 100</span>, <span class='argstr'>onFailure</span>, <span class='argstr'>clock</span>)</h3>
 <div class='method'>
 <p>Evaluate "onComplete" as soon as the server has booted. This method assumes the server is being booted explicitly through a separate <code>boot</code> call. If the server is already running, "onComplete" is executed immediately.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>onComplete<td class='argumentdesc'>
 <p>A function to evaluate after the server has booted successfully.<tr><td class='argumentname'>limit<td class='argumentdesc'>
 <p>The number of times to check for a successful boot.<tr><td class='argumentname'>onFailure<td class='argumentdesc'>
-<p>A function to evaluate after the server fails to boot. If onFailure is not given, an error message is posted. Providing a function suppresses the error message. If you want to supply a function and print the normal error message, make sure that your function returns "false," e.g. <code>s.doWhenBooted(onFailure: { ... custom action...; false })</code>.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-boot' href='./../Overviews/Methods.html#boot'>boot</a>(<span class='argstr'>startAliveThread: true</span>, <span class='argstr'>recover: false</span>, <span class='argstr'>onFailure</span>)</h3>
+<p>A function to evaluate after the server fails to boot. If onFailure is not given, an error message is posted. Providing a function suppresses the error message. If you want to supply a function and print the normal error message, make sure that your function returns "false," e.g. <code>s.doWhenBooted(onFailure: { ... custom action...; false })</code>.<tr><td class='argumentname'>clock<td class='argumentdesc'>
+<p>The default <a href="./../Classes/Clock.html">Clock</a> is <a href="./../Classes/AppClock.html">AppClock</a>. Use <a href="./../Classes/SystemClock.html">SystemClock</a> or <a href="./../Classes/TempoClock.html">TempoClock</a> if time accuracy is important.</table><h4>Discussion:</h4>
+
+<p>To play with precise time control, the fourth argument clock should be set to a precise clock (see above), and then <a href="./../Overviews/GUI-Classes.html">GUI classes</a> should be wrapped in a <code>defer { ... }</code>.<textarea class='editor'>(
+t = TempoClock;
+t.tempo = 1;
+
+s.waitForBoot({
+    var win, routine;
+    defer {
+        win = Window();
+        win.background_(Color.grey(0, 0)).onClose_{ routine.stop }.front;
+    };
+    routine = fork {
+        9.do { |i|
+            1.wait;
+            { win.background_(Color.rand) }.defer;
+            i = if (i % 4 == 0) { 93 } { 81 };
+            x = {
+                SinOsc.ar(i.midicps) * Env.perc.ar(Done.freeSelf) * [0.1, -0.1]
+            }.play
+        };
+        defer { win.close }
+    }
+}, clock: t)
+)
+
+t.tempo = 30/60</textarea>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-boot' href='./../Overviews/Methods.html#boot'>boot</a>(<span class='argstr'>startAliveThread: true</span>, <span class='argstr'>recover: false</span>, <span class='argstr'>onFailure</span>)</h3>
 <div class='method'>
 <p>boot the remote server, create new allocators.<h4>Arguments:</h4>
 <table class='arguments'>

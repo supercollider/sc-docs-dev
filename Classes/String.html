@@ -73,6 +73,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-catList'>catList</a>  <a href='#-scatList'>scatList</a>  <a href='#-ccatList'>ccatList</a> </li>
 </ul><li class='toc2'><a href='#Regular%20expressions'>Regular expressions</a></li>
 <ul class='toc'><li class='toc3'><a href='#-matchRegexp'>matchRegexp</a> </li>
+<li class='toc3'><a href='#-replaceRegexp'>replaceRegexp</a> </li>
 <li class='toc3'><a href='#-findRegexp'>findRegexp</a> </li>
 <li class='toc3'><a href='#-findAllRegexp'>findAllRegexp</a> </li>
 <li class='toc3'><a href='#-findRegexpAt'>findRegexpAt</a> </li>
@@ -411,7 +412,26 @@ z.class.postln;
 "[a-c]nd".matchRegexp("bnd"); // true: anything between a and c
 "[a-c]*nd".matchRegexp("accacaccacand"); //  true: any combination of a, b, c, or none.
 "[xtz]+nd".matchRegexp("xnd"); // true: any combination of x, t, z</textarea>
-</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findRegexp' href='./../Overviews/Methods.html#findRegexp'>findRegexp</a>(<span class='argstr'>regexp</span>, <span class='argstr'>offset: 0</span>)</h3>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-replaceRegexp' href='./../Overviews/Methods.html#replaceRegexp'>replaceRegexp</a>(<span class='argstr'>regex</span>, <span class='argstr'>with</span>)</h3>
+<div class='method'>
+<p>This method is used to replace parts of text.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>regex<td class='argumentdesc'>
+<p>A perl regular expression (see <a href="./../Classes/String.html#Regular%20expressions">String: Regular expressions</a>) with which to match the caller.<tr><td class='argumentname'>with<td class='argumentdesc'>
+<p>The <a href="./../Classes/String.html">String</a> to replace the found regex with.</table><h4>Returns:</h4>
+<div class='returnvalue'>
+<p>A <a href="./../Classes/String.html">String</a>.<textarea class='editor'>// remove numbers
+"g8et t8ho9se 3num5b89ers ou06t o8f h12er56e!".replaceRegexp("[0-9]", "")
+-&gt; get those numbers out of here!
+
+// remove capital letters
+"HelLO WoRlD".replaceRegexp("(\\\w)", "\\\L$1")
+-&gt; hello world
+
+// remove all capital letter unless at the start of a word
+"HelLO worLD! I weNT tO Paris yeSTErDay.".replaceRegexp("(\\\S)(\\\S*)", "$1\\\L$2")
+-&gt; Hello world! I went to Paris yesterday.</textarea>
+</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findRegexp' href='./../Overviews/Methods.html#findRegexp'>findRegexp</a>(<span class='argstr'>regexp</span>, <span class='argstr'>offset: 0</span>)</h3>
 <div class='method'>
 <p>Perl regular expression search (see <a href="./../Classes/String.html#Regular%20expressions">String: Regular expressions</a>). This method searches exhaustively for matches and collects them into an array of pairs, in the format <code>[character index, matching string]</code>.
 <p>"Leftmost largest match": As in most flavors of regular expressions, <code>*</code> and <code>+</code> are greedy; if it is possible to have more than one overlapping match for a part of the regular expression, the match list will include only the leftmost and largest of them. In <code>"foobar".findRegexp("o+")</code>, <code>"o+"</code> may potentially have three matches: <code>"o"</code> at index 1 (second character), <code>"o"</code> at index 2, and <code>"oo"</code> at index 1. <code>findRegexp</code> will return only the last of these (<code>"oo"</code>), because it begins in the leftmost-possible matching position, and it is the longest possible match at that position.
