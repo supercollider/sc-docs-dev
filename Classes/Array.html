@@ -598,7 +598,8 @@ x.free</textarea>
 <div class='method'>
 <p>Returns true. Arrays are valid UGen inputs.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asRawOSC' href='./../Overviews/Methods.html#asRawOSC'>asRawOSC</a></h3>
 <div class='method'>
-<p>Returns the OSC message as an Int8Array. Receiver must be a bundle.<textarea class='editor'>[0.1, [\s_new, \default, -1, 1, 1, \freq, 1961]].asRawOSC;</textarea>
+<p>Returns the OSC message as an Int8Array. Receiver can be a message or a bundle. See also <a href="./../Classes/Int8Array.html#-parseOSC">Int8Array: -parseOSC</a>.<textarea class='editor'>[\s_new, \default, -1, 1, 1, \freq, 1961].asRawOSC; // message
+[0.1, [\s_new, \default, -1, 1, 1, \freq, 1961]].asRawOSC; // bundle</textarea>
 </div><h3><a class='anchor' name='Bela'>Bela</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-belaScope' href='./../Overviews/Methods.html#belaScope'>belaScope</a>(<span class='argstr'>scopeChannel</span>, <span class='argstr'>server</span>)</h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Audio/Bela/BelaScope.sc'>/usr/local/share/SuperCollider/SCClassLibrary/Common/Audio/Bela/BelaScope.sc</a></div>

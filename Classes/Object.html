@@ -86,6 +86,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </ul><li class='toc2'><a href='#Messaging'>Messaging</a></li>
 <ul class='toc'><li class='toc3'><a href='#-perform'>perform</a> </li>
 <li class='toc3'><a href='#-performList'>performList</a> </li>
+<li class='toc3'><a href='#-performArgs'>performArgs</a> </li>
 <li class='toc3'><a href='#-performMsg'>performMsg</a> </li>
 <li class='toc3'><a href='#-performWithEnvir'>performWithEnvir</a> </li>
 <li class='toc3'><a href='#-performKeyValuePairs'>performKeyValuePairs</a> </li>
@@ -260,7 +261,6 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-outOfContextReturn'>outOfContextReturn</a> </li>
 <li class='toc3'><a href='#-pair'>pair</a> </li>
 <li class='toc3'><a href='#-pairs'>pairs</a> </li>
-<li class='toc3'><a href='#-performArgs'>performArgs</a> </li>
 <li class='toc3'><a href='#-performBinaryOpOnComplex'>performBinaryOpOnComplex</a> </li>
 <li class='toc3'><a href='#-performBinaryOpOnSeqColl'>performBinaryOpOnSeqColl</a> </li>
 <li class='toc3'><a href='#-performBinaryOpOnSignal'>performBinaryOpOnSignal</a> </li>
@@ -613,7 +613,18 @@ x.postln;
 <div class='method'>
 <p>The selector argument must be a Symbol. Sends the method named by the selector with the given arguments to the receiver. If the last argument is a List or an Array, then its elements are unpacked and passed as arguments.<textarea class='editor'>a = { |a, b, c| postf("% plus % plus % is %\n", a, b, c, a + b + c); "" };
 a.performList(\value, [1, 2, 3]);</textarea>
-</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performMsg' href='./../Overviews/Methods.html#performMsg'>performMsg</a>(<span class='argstr'>msg</span>)</h3>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performArgs' href='./../Overviews/Methods.html#performArgs'>performArgs</a>(<span class='argstr'>selector</span>, <span class='argstr'>args</span>, <span class='argstr'>kwargs</span>)</h3>
+<div class='method'>
+<p>Like <a href="#-perform">-perform</a>, but allows you to pass a key-value array of keyword arguments. Useful in <a href="#-doesNotUnderstand">-doesNotUnderstand</a> and other places where you might accept a variety of keyword arguments.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>selector<td class='argumentdesc'>
+<p>A <a href="./../Classes/Symbol.html">Symbol</a> of the method name.<tr><td class='argumentname'>args<td class='argumentdesc'>
+<p>An <a href="./../Classes/Array.html">Array</a> of the arguments.<tr><td class='argumentname'>kwargs<td class='argumentdesc'>
+<p>An <a href="./../Classes/Array.html">Array</a> of keyword-argument pairs.
+<p>Example<textarea class='editor'>x.performArgs(\foo, [1, 2], [\bar, 10]);
+// is equivalent to...
+x.foo(1, 2, bar: 10);</textarea>
+</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performMsg' href='./../Overviews/Methods.html#performMsg'>performMsg</a>(<span class='argstr'>msg</span>)</h3>
 <div class='method'>
 <p>The argument must be a List or Array whose first element is a Symbol representing a method selector. The remaining elements are unpacked and passed as arguments to the method named by the selector.<textarea class='editor'>a = { |a, b, c| postf("% plus % plus % is %\n", a, b, c, a + b + c); "" };
 a.performMsg([\value, 1, 2, 3]);</textarea>
@@ -1045,7 +1056,6 @@ blend((a: 6, b: 7), (a: 0, b: [1, 2], c: 9), 0.5);</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-outOfContextReturn' href='./../Overviews/Methods.html#outOfContextReturn'>outOfContextReturn</a>(<span class='argstr'>method</span>, <span class='argstr'>result</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pair' href='./../Overviews/Methods.html#pair'>pair</a>(<span class='argstr'>that</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pairs' href='./../Overviews/Methods.html#pairs'>pairs</a>(<span class='argstr'>that</span>)</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performArgs' href='./../Overviews/Methods.html#performArgs'>performArgs</a>(<span class='argstr'>selector</span>, <span class='argstr'>args</span>, <span class='argstr'>kwargs</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performBinaryOpOnComplex' href='./../Overviews/Methods.html#performBinaryOpOnComplex'>performBinaryOpOnComplex</a>(<span class='argstr'>aSelector</span>, <span class='argstr'>thing</span>, <span class='argstr'>adverb</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performBinaryOpOnSeqColl' href='./../Overviews/Methods.html#performBinaryOpOnSeqColl'>performBinaryOpOnSeqColl</a>(<span class='argstr'>aSelector</span>, <span class='argstr'>thing</span>, <span class='argstr'>adverb</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performBinaryOpOnSignal' href='./../Overviews/Methods.html#performBinaryOpOnSignal'>performBinaryOpOnSignal</a>(<span class='argstr'>aSelector</span>, <span class='argstr'>thing</span>, <span class='argstr'>adverb</span>)</h3>

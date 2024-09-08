@@ -64,6 +64,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-ugenPluginsPath'>ugenPluginsPath</a> </li>
 <li class='toc3'><a href='#-restrictedPath'>restrictedPath</a> </li>
 <li class='toc3'><a href='#-threads'>threads</a> </li>
+<li class='toc3'><a href='#-threadPinning'>threadPinning</a> </li>
 <li class='toc3'><a href='#-useSystemClock'>useSystemClock</a> </li>
 <li class='toc3'><a href='#-memoryLocking'>memoryLocking</a> </li>
 <li class='toc3'><a href='#-maxLogins'>maxLogins</a> </li>
@@ -202,7 +203,10 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Allows you to restrict the system paths in which the server is allowed to read/write files during running. A nil value (the default) means no restriction. Otherwise, set it as a string representing a single path.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-threads' href='./../Overviews/Methods.html#threads'>threads</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-threads' href='./../Overviews/Methods.html#threads'>threads</a> = value</h3>
 <div class='method'>
-<p>Number of audio threads that are spawned by supernova. For scsynth this value is ignored. If it is <code>nil</code>or 0, it uses the one thread per CPU. Default is <code>nil</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-useSystemClock' href='./../Overviews/Methods.html#useSystemClock'>useSystemClock</a></h3>
+<p>Number of audio threads that are spawned by supernova. For scsynth this value is ignored. If it is <code>nil</code>or 0, it uses one thread per CPU core. Default is <code>nil</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-threadPinning' href='./../Overviews/Methods.html#threadPinning'>threadPinning</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-threadPinning' href='./../Overviews/Methods.html#threadPinning'>threadPinning</a> = value</h3>
+<div class='method'>
+<p>Enable/disable thread pinning. For scsynth this value is ignored. Thread pinning forces each thread to only run on a particular CPU core. Depending on the system, this might give better or worse performance. Default is <code>nil</code> which means that the value is chosen by Supernova. (At the time of writing, it is by default enabled on Linux and disabled on macOS and Windows.)</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-useSystemClock' href='./../Overviews/Methods.html#useSystemClock'>useSystemClock</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-useSystemClock' href='./../Overviews/Methods.html#useSystemClock'>useSystemClock</a> = value</h3>
 <div class='method'>
 <p>Tells supernova whether to sync to the driver's sample clock, or to the system clock.<div class='note'><span class='notelabel'>NOTE:</span> scsynth always uses system clock and this value is ignored.</div>
