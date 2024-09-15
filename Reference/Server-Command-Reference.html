@@ -35,6 +35,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <ul class='toc'></ul><li class='toc2'><a href='#/clearSched'>/clearSched</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#/error'>/error</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#/version'>/version</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#/rtMemoryStatus'>/rtMemoryStatus</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#Synth%20Definition%20Commands'>Synth Definition Commands</a></li>
 <ul class='toc'><li class='toc2'><a href='#/d_recv'>/d_recv</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#/d_load'>/d_load</a></li>
@@ -191,7 +192,13 @@ var scdoc_sc_version = '3.14.0-dev';
 </dl>
 
 <p>The standard human-readable version string can be constructed by concatenating <code>major_version ++ "." ++ minor_version ++ patch_version</code>. Since version information is easily accessible to sclang users via the methods described above, this command is mostly useful for alternate clients.
-<p>The git branch/tag name and commit hash could be anything if the user has forked SC, so they should only be used for display and user interface purposes.<h2><a class='anchor' name='Synth%20Definition%20Commands'>Synth Definition Commands</a></h2>
+<p>The git branch/tag name and commit hash could be anything if the user has forked SC, so they should only be used for display and user interface purposes.<h3><a class='anchor' name='/rtMemoryStatus'>/rtMemoryStatus</a></h3>
+
+<p>Queries the amount of currently free real-time memory (in bytes).<dl>
+<dt>/rtMemoryStatus.reply<dd><table>
+<tr><td>int<td>Amount of free real-time memory (in bytes).<tr><td>int<td>Size of largest continuous block (in bytes).</table>
+</dl>
+<h2><a class='anchor' name='Synth%20Definition%20Commands'>Synth Definition Commands</a></h2>
 <h3><a class='anchor' name='/d_recv'>/d_recv</a></h3>
 
 <p>Receive a synth definition file.<table>

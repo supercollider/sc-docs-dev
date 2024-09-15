@@ -89,6 +89,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc2'><a href='#Information%20and%20debugging'>Information and debugging</a></li>
 <ul class='toc'><li class='toc3'><a href='#-dumpOSC'>dumpOSC</a> </li>
 <li class='toc3'><a href='#-queryAllNodes'>queryAllNodes</a> </li>
+<li class='toc3'><a href='#-rtMemoryStatus'>rtMemoryStatus</a> </li>
 <li class='toc3'><a href='#-peakCPU'>peakCPU</a>  <a href='#-avgCPU'>avgCPU</a> </li>
 <li class='toc3'><a href='#-latency'>latency</a> </li>
 <li class='toc3'><a href='#-sampleRate'>sampleRate</a> </li>
@@ -494,7 +495,12 @@ s.queryAllNodes;</textarea>
 <p>Very helpful for debugging. For local servers, this uses g_dumpTree and for remote g_queryTree. See <a href="./../Classes/Group.html">Group</a> and <a href="./../Reference/Server-Command-Reference.html">Server Command Reference</a> for more info.<textarea class='editor'>s.boot;
 s.queryAllNodes; // note the root node (ID 0) and the default group (ID 1)
 s.quit;</textarea>
-</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-peakCPU' href='./../Overviews/Methods.html#peakCPU'>peakCPU</a></h3>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rtMemoryStatus' href='./../Overviews/Methods.html#rtMemoryStatus'>rtMemoryStatus</a>(<span class='argstr'>action</span>)</h3>
+<div class='method'>
+<p>Queries the server for the amount of currently free real-time memory<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>action<td class='argumentdesc'>
+<p>a Function that will be evaluated when the server responds, with the current amount of free RT memory and the size of largest continuous block (both in bytes) passed as arguments. The default action prints a message.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-peakCPU' href='./../Overviews/Methods.html#peakCPU'>peakCPU</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-avgCPU' href='./../Overviews/Methods.html#avgCPU'>avgCPU</a></h3>
 <div class='method'>
 <p>Get peak and average CPU usage.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-latency' href='./../Overviews/Methods.html#latency'>latency</a></h3>
