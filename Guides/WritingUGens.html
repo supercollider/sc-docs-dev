@@ -31,6 +31,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <ul class='toc'></ul><li class='toc1'><a href='#Example%20Plugins'>Example Plugins</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Anatomy%20of%20a%20UGen'>Anatomy of a UGen</a></li>
 <ul class='toc'><li class='toc2'><a href='#The%20Entry%20Point'>The Entry Point</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#The%20Exit%20Point'>The Exit Point</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#The%20Calculation%20Function'>The Calculation Function</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Building%20Unit%20Generator%20Plugins'>Building Unit Generator Plugins</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#Coding%20Guidelines'>Coding Guidelines</a></li>
@@ -92,7 +93,9 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>These macros depend on a specific naming convention:<ul>
 <li>The unit generator struct is named like the plug-in.<li>The unit generator constructor is named <code>PluginName_Ctor</code><li>The unit generator destructor is named <code>PluginName_Dtor</code></ul>
-<h3><a class='anchor' name='The%20Calculation%20Function'>The Calculation Function</a></h3>
+<h3><a class='anchor' name='The%20Exit%20Point'>The Exit Point</a></h3>
+
+<p>The optional <code>PluginUnload()</code> macro exports a function that is called when the library is deinitialized, right before it is unloaded. This is only required in rare cases, typically for resource cleanup that cannot be safely done in a global object destructor. For example, the DiskIO UGens and UI UGens in <code>DiskIO_UGens.cpp</code> resp. <code>UIUGens.cpp</code>use the unload function to safely join their worker threads.<h3><a class='anchor' name='The%20Calculation%20Function'>The Calculation Function</a></h3>
 
 <p>The meat of the UGen is its calculation function, which gets called every control period with the UGen object as an argument. (This is for control-rate and audio-rate UGens -- demand-rate is different.) In this function, the UGen reads from its inputs and writes to its outputs.
 <p>The calculation function is selected in the <code>PluginName_Ctor</code> function with the <code>SETCALC</code> macro. You can name the calculation function whatever you want, but the convention is <code>PluginName_next</code>.
