@@ -697,7 +697,7 @@ x // pi is everywhere</textarea>
 <p>Choose an element from the collection at random using a list of probabilities or weights. The weights must sum to 1.0.<textarea class='editor'>[1, 2, 3, 4].wchoose([0.1, 0.2, 0.3, 0.4]);</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sort' href='./../Overviews/Methods.html#sort'>sort</a>(<span class='argstr'>function</span>)</h3>
 <div class='method'>
-<p>Sort the contents of the collection using the comparison function argument. The function should take two elements as arguments and return true if the first argument should be sorted before the second argument. If the function is nil, the following default function is used. { |a, b| a &lt; b }<textarea class='editor'>[6, 2, 1, 7, 5].sort;
+<p>Sort the contents of the collection using the comparison function argument. The function should take two elements as arguments and return true if the first argument should be sorted before the second argument. If the function is nil, the following default function is used. { |a, b| a &lt;= b }<textarea class='editor'>[6, 2, 1, 7, 5].sort;
 [6, 2, 1, 7, 5].sort({ |a, b| a &gt; b }); // reverse sort</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sortBy' href='./../Overviews/Methods.html#sortBy'>sortBy</a>(<span class='argstr'>key</span>)</h3>
 <div class='method'>
