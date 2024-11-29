@@ -71,7 +71,7 @@ l.action = { c.bounds = Rect( l.value * 150 + 20, 35, 100, 100 ) };
 w.front;</textarea>
 <h2><a class='anchor' name='Automatic%20positioning%20and%20resizing%20of%20views'>Automatic positioning and resizing of views</a></h2>
 
-<p>As a handy alternative to specifying all the dimensions and positions of views explicitly in code, SuperCollider allows for automatic positioning and resizing of views in relation to each other and in relation to window size - at the view creation and dynamically, when window is resized. There is several mechanisms for this purpose.<h3><a class='anchor' name='View's%20resize%20options'>View's resize options</a></h3>
+<p>As a handy alternative to specifying all the dimensions and positions of views explicitly in code, SuperCollider allows for automatic positioning and resizing of views in relation to each other and in relation to window size - at the view creation and dynamically, when window is resized. There are several mechanisms for this purpose.<h3><a class='anchor' name='View's%20resize%20options'>View's resize options</a></h3>
 
 <p>Views can automatically resize or move when their parent is resized, in one of the nine different ways that define how each of the view's edges will move along with the parent's edges. For documentation see the view's <a href="./../Classes/View.html#-resize">resize</a> method and <a href="./../Reference/Resize.html">Resize behaviour</a> document.<textarea class='editor'>w = Window.new("GUI Introduction", Rect(200,200,200,200));
 TextField.new(w,Rect(0,0,200,30)).resize_(2);
@@ -151,7 +151,7 @@ b = Button.new(w,Rect(10,10,180,50))
 
 <p>Complex views may have many other ways to customize how they display the same data. <a href="./../Classes/MultiSliderView.html">MultiSliderView</a> and <a href="./../Classes/EnvelopeView.html">EnvelopeView</a> are good examples.<h2><a class='anchor' name='Actions%20and%20hooks:%20Make%20that%20button%20do%20something!'>Actions and hooks: Make that button do something!</a></h2>
 
-<p>Views and windows can be assigned <strong>actions</strong> that they will perform whenever a specific event occurs as a result of user's interaction. Technically, an action can be any Object, and when the relevant event occurs, it's <a href="./../Classes/Object.html#-value">value</a> method will be called. For example, it is useful to assign a Function as an action, which allows one to define an arbitrary chunk of code to be performed in response to a GUI event.
+<p>Views and windows can be assigned <strong>actions</strong> that they will perform whenever a specific event occurs as a result of user's interaction. Technically, an action can be any Object, and when the relevant event occurs, its <a href="./../Classes/Object.html#-value">value</a> method will be called. For example, it is useful to assign a Function as an action, which allows one to define an arbitrary chunk of code to be performed in response to a GUI event.
 <p>Objects can also be given to views and windows to evaluate on events that are not a direct result of user's interaction, but convey useful information about the view's operation and the state it moved in. In this case they are often differentiated from actions and called <strong>hooks</strong>.
 <p>Here, we will give an overview of different kinds of actions and hooks. See <a href="./../Classes/View.html#Actions%20in%20general">View: Actions in general</a> and following sections for precise explanation of how to assign and make use of them.<h3><a class='anchor' name='Default%20actions'>Default actions</a></h3>
 
