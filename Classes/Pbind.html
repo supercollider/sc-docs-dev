@@ -61,9 +61,9 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Pbind combines several value streams into one event stream. Each value stream is assigned to one or more keys in the resulting event stream. It specifies a stream of <strong>Events</strong> in terms of different patterns that are <strong>bound</strong> to different keys in the Event. The patterns bound to keys are referred to as <em>value patterns</em> and the Pbind itself is termed an event pattern.
 <p>The keys used in a Pbind are usually determined by <a href="./../Classes/Event.html">Event</a>'s default mechanism and the controls defined for the <a href="./../Classes/SynthDef.html">SynthDef</a> to be played. (See <a href="#SynthDef%20and%20Event">SynthDef and Event</a> below for a brief discussion of both in relation to Pbind.)<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
-<h3 class='method-code'><span class='method-prefix'>Pbind.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>( <span class='argstr'>... pairs</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>Pbind.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>( <span class='argstr'>... pairs</span>, <span class='argstr'>... kwargs</span>)</h3>
 <div class='method'>
-<p>The arguments to Pbind are an alternating sequence of keys and patterns. A pattern can also be bound to an array of keys. In this case, the pattern must specify a sequence whose elements are arrays with at least as many elements as there are keys.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p>The arguments to Pbind are an alternating sequence of keys and patterns, this can alternatively be specified using keyword arguments. A pattern can also be bound to an array of keys. In this case, the pattern must specify a sequence whose elements are arrays with at least as many elements as there are keys.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
@@ -72,7 +72,11 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-patternpairs' href='./../Overviews/Methods.html#patternpairs'>patternpairs</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>(
-a = Pbind(\x, Pseq([1, 2, 3]), \y, Prand([100, 300, 200], inf), \zzz, 99);
+a = Pbind(
+    x:    Pseq([1, 2, 3]),
+    y:    Prand([100, 300, 200], inf),
+    zzz:  99
+);
 x = a.asStream;
 )
 
@@ -83,48 +87,47 @@ x.next(()); // end: nil</textarea>
 <textarea class='editor'>// sound examples
 
 // using the default synth def
-Pbind(\freq, Prand([300, 500, 231.2, 399.2], inf), \dur, 0.1).play;
-Pbind(\freq, Prand([300, 500, 231.2, 399.2], inf), \dur, Prand([0.1, 0.3], inf)).play;
+Pbind(
+    freq: Prand([300, 500, 231.2, 399.2], inf),
+    dur:  0.1
+).play;
 
-Pbind(\freq, Prand([1, 1.2, 2, 2.5, 3, 4], inf) * 200, \dur, 0.1).play;</textarea>
-<textarea class='editor'>(
+Pbind(
+    freq: Prand([300, 500, 231.2, 399.2], inf),
+    dur:  Prand([0.1, 0.3], inf)
+).play;
+
+Pbind(
+    freq: Prand([1, 1.2, 2, 2.5, 3, 4], inf) * 200,
+    dur:  0.1
+).play;</textarea>
+
+<p>The keys can be specified as keyword arguments, as above, or as a sequence of keys to patterns provided as arguments. Additionally, when an array of keys is provided, the pattern with be unpacked into two streams (see following example). However, this does not work when using keyword arguments, and therefore must go before them. For historical reasons, you are more likely to see the sequence of keys to patterns rather than keyword arguments.<textarea class='editor'>// Both of these do the same thing.
+Pbind(a: Pseq([1, 2, 3]), dur: 1).trace.play
+Pbind(\a, Pseq([1, 2, 3]), \dur, 1).trace.play
+
+
+(
 // a SynthDef
-SynthDef(\test, { |out, freq = 440, amp = 0.1, nharms = 10, pan = 0, gate = 1|
+SynthDef(\test, {
+    |out, freq = 440, amp = 0.1, nharms = 10, pan = 0, gate = 1|
     var audio = Blip.ar(freq, nharms, amp);
     var env = Linen.kr(gate, doneAction: Done.freeSelf);
     OffsetOut.ar(out, Pan2.ar(audio, pan, env));
 }).add;
 )
 
-Pbind(\instrument, \test, \freq, Prand([1, 1.2, 2, 2.5, 3, 4], inf) * 200, \dur, 0.1).play;
-
-
-
-// standard syntax, arguments alternate symbols and patterns
-(
+// Assignment to multiple keys using an Array.
+// Must come before any keyword arguments.
 Pbind(
-    \instrument,        \test,
-    \nharms,             Pseq([4, 10, 40], inf),
-    \dur,                Pseq([1, 1, 2, 1]/10, inf),
-    [\freq, \sustain],    Ptuple([ // assignment to multiple keys
-                            Pseq((1..16) * 50, 4),
-                             Pseq([1/10, 0.5, 1, 2], inf)
-                        ])
-).play;
-)</textarea>
-
-<p>It is possible to specify a Pbind with an <a href="./../Classes/Array.html">Array</a> preceded by *. This takes advantage of a special syntactic shortcut in SC where using * expands an Array into a list of method arguments. You can see more information about this and other syntactic shortcuts in <a href="./../Reference/Syntax-Shortcuts.html">Syntax Shortcuts</a> and <a href="./../Overviews/SymbolicNotations.html">Symbolic Notations</a>. Another useful shortcut is that Arrays treat identifiers ending with a colon as <a href="./../Classes/Symbol.html">Symbol</a>s. Both of these shortcuts together help make the syntax of the Pbind specification a bit more concise:<textarea class='editor'>(
-// Alternative syntax, using a key/pattern array:
-Pbind(*[
-    instrument:            \test,
-    nharms:                Pseq([4, 10, 40], inf),
-    dur:                Pseq([1, 1, 2, 1]/10, inf),
-    [\freq, \sustain]:    Ptuple([
-                            Pseq((1..16) * 50, 4),
-                            Pseq([1/10, 0.5, 1, 2], inf)
-                        ])
-]).play;
-)</textarea>
+    [\freq, \sustain], Ptuple([
+                          Pseq((1..16) * 50, 4),
+                          Pseq([1/10, 0.5, 1, 2], inf)
+                       ]),
+    instrument:        \test,
+    nharms:            Pseq([4, 10, 40], inf),
+    dur:               Pseq([1, 1, 2, 1]/10, inf),
+).play</textarea>
 <h3><a class='anchor' name='SynthDef%20and%20Event'>SynthDef and Event</a></h3>
 
 <p>The keys used in a Pbind are determined by the <a href="./../Classes/SynthDef.html">SynthDef</a> used and the structure of the extensive default mechanism provided by <a href="./../Classes/Event.html">Event</a>. This section provides a brief review of both.
