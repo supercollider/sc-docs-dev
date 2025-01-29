@@ -78,6 +78,10 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-checkBadValues'>checkBadValues</a> </li>
 <li class='toc3'><a href='#-if'>if</a> </li>
 <li class='toc3'><a href='#-binaryValue'>binaryValue</a> </li>
+<li class='toc3'><a href='#-isPositive'>isPositive</a> </li>
+<li class='toc3'><a href='#-isStrictlyPositive'>isStrictlyPositive</a> </li>
+<li class='toc3'><a href='#-isNegative'>isNegative</a> </li>
+<li class='toc3'><a href='#-|==|'>|==|</a> </li>
 <li class='toc3'><a href='#-@'>@</a> </li>
 <li class='toc3'><a href='#-asComplex'>asComplex</a> </li>
 <li class='toc3'><a href='#-dumpArgs'>dumpArgs</a> </li>
@@ -138,7 +142,6 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-writeOutputSpec'>writeOutputSpec</a> </li>
 <li class='toc3'><a href='#-writeOutputSpecs'>writeOutputSpecs</a> </li>
 <li class='toc3'><a href='#-writesToBus'>writesToBus</a> </li>
-<li class='toc3'><a href='#-|==|'>|==|</a> </li>
 </ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
@@ -366,7 +369,25 @@ x = { SinOsc.ar((Line.kr(0, 10, 10).snap(1, 0.3, 1) + 60).poll.midicps, 0, -24.d
 { Trig1.ar(Dust.ar(3), 0.2).lag(0.1).if(FSinOsc.ar(440), FSinOsc.ar(880)) * 0.1 }.play;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-binaryValue' href='./../Overviews/Methods.html#binaryValue'>binaryValue</a></h3>
 <div class='method'>
-<p>Outputs 1, representing true for positive, 0 for negative or zero input values.</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-@' href='./../Overviews/Methods.html#@'>@</a>(<span class='argstr'>y</span>)</h3>
+<p>Outputs 1, representing true for positive, 0 representing false for negative or zero input values.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isPositive' href='./../Overviews/Methods.html#isPositive'>isPositive</a></h3>
+<div class='method'>
+<p>Outputs 1, representing true for positive or zero, 0 representing false for negative input values.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isStrictlyPositive' href='./../Overviews/Methods.html#isStrictlyPositive'>isStrictlyPositive</a></h3>
+<div class='method'>
+<p>Outputs 1, representing true for positive, 0 representing false for negative or zero input values.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isNegative' href='./../Overviews/Methods.html#isNegative'>isNegative</a></h3>
+<div class='method'>
+<p>Outputs 1, representing true for negative, 0 representing false for positive or zero input values.</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-|==|' href='./../Overviews/Methods.html#|==|'>|==|</a>(<span class='argstr'>that</span>)</h3>
+<div class='method'>
+<p>Outputs 1, representing true, when the receiver and argument signal coincide. Note that this may be ambivalent in many cases, because of floating point arithmetic. A special sign is needed, because <code>==</code> compares the UGen objects, and not the signal they produce.<textarea class='editor'>// an example of floating point relevance for the |==| operator.
+// the rounded signal will match at some point, but not the direct signal
+(
+{
+    var a = Line.ar(0, 1, 0.008);
+    var b = a |==| 0.5;
+    var c = a.round(0.01) |==| 0.5;
+    [a, Trig1.ar(b, 0.001), Trig1.ar(c, 0.001)]
+}.plot
+)</textarea>
+</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-@' href='./../Overviews/Methods.html#@'>@</a>(<span class='argstr'>y</span>)</h3>
 <div class='method'>
 <p>Dynamic geometry support. Returns <code>Point(this, y)</code>.<h4>Discussion:</h4>
 <textarea class='editor'>{ (SinOsc.ar(1001) @ SinOsc.ar(1207)).rho }.scope;</textarea>
@@ -485,6 +506,5 @@ x = { SinOsc.ar((Line.kr(0, 10, 10).snap(1, 0.3, 1) + 60).poll.midicps, 0, -24.d
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-writeOutputSpec' href='./../Overviews/Methods.html#writeOutputSpec'>writeOutputSpec</a>(<span class='argstr'>file</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-writeOutputSpecs' href='./../Overviews/Methods.html#writeOutputSpecs'>writeOutputSpecs</a>(<span class='argstr'>file</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-writesToBus' href='./../Overviews/Methods.html#writesToBus'>writesToBus</a></h3>
-<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-|==|' href='./../Overviews/Methods.html#|==|'>|==|</a>(<span class='argstr'>that</span>)</h3>
 <div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/UGen.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/UGen.schelp</a><br>link::Classes/UGen::<br></div></div><script src='./../editor.js' type='text/javascript'></script>
 </body></html>
