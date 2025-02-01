@@ -55,6 +55,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </ul><li class='toc2'><a href='#Pdef%20as%20stream%20reference'>Pdef as stream reference</a></li>
 <ul class='toc'><li class='toc3'><a href='#-fork'>fork</a> </li>
 <li class='toc3'><a href='#-embed'>embed</a> </li>
+<li class='toc3'><a href='#-embedInStream'>embedInStream</a> </li>
 </ul><li class='toc2'><a href='#Pdef%20as%20EventStreamPlayer'>Pdef as EventStreamPlayer</a></li>
 <ul class='toc'><li class='toc3'><a href='#-play'>play</a> </li>
 <li class='toc3'><a href='#-stop'>stop</a> </li>
@@ -217,8 +218,10 @@ Pdef(\y, Pdef(\stut) &lt;&gt; (pattern: Pdef(\x), dup: Pseq([2, 2, 4, 3], inf)) 
 <p>an <a href="./../Classes/EventStreamPlayer.html">EventStreamPlayer</a>.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-embed' href='./../Overviews/Methods.html#embed'>embed</a>(<span class='argstr'>val</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/PatternProxy.html'>PatternProxy</a></div>
 <div class='method'>
-<p>Pass a value (typically an <a href="./../Classes/Event.html">Event</a>) into the pattern inval, and embed the Pdef in the stream.
-<p>embedInStream just like any pattern, embeds itself in stream</div><h3><a class='anchor' name='Pdef%20as%20EventStreamPlayer'>Pdef as EventStreamPlayer</a></h3>
+<p>Pass a value (typically an <a href="./../Classes/Event.html">Event</a>) into the pattern inval, and embed the Pdef in the stream.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-embedInStream' href='./../Overviews/Methods.html#embedInStream'>embedInStream</a>(<span class='argstr'>inval</span>, <span class='argstr'>embed: true</span>, <span class='argstr'>default</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/EventPatternProxy.html'>EventPatternProxy</a></div>
+<div class='method'>
+<p>just like any pattern, embeds itself in stream</div><h3><a class='anchor' name='Pdef%20as%20EventStreamPlayer'>Pdef as EventStreamPlayer</a></h3>
 
 <p>For live coding, each Pdef also may control one instance that plays one stream off it. This is an <a href="./../Classes/EventStreamPlayer.html">EventStreamPlayer</a>, accessible in the instance variable <a href="#-player">-player</a>.<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-play' href='./../Overviews/Methods.html#play'>play</a>(<span class='argstr'>argClock</span>, <span class='argstr'>protoEvent</span>, <span class='argstr'>quant</span>, <span class='argstr'>doReset: false</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/EventPatternProxy.html'>EventPatternProxy</a></div>

@@ -34,13 +34,13 @@ var scdoc_sc_version = '3.14.0-dev';
 <ul class='toc'><li class='toc3'><a href='#-size'>size</a> </li>
 <li class='toc3'><a href='#-depth'>depth</a> </li>
 <li class='toc3'><a href='#-do'>do</a> </li>
+<li class='toc3'><a href='#-traverse'>traverse</a> </li>
 <li class='toc3'><a href='#-depthFirstPreOrderTraversal'>depthFirstPreOrderTraversal</a> </li>
 <li class='toc3'><a href='#-depthFirstPostOrderTraversal'>depthFirstPostOrderTraversal</a> </li>
 <li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 <li class='toc2'><a href='#Undocumented%20instance%20methods'>Undocumented instance methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#-linkAcross'>linkAcross</a> </li>
 <li class='toc3'><a href='#-linkDown'>linkDown</a> </li>
-<li class='toc3'><a href='#-traverse'>traverse</a> </li>
 </ul></ul><li class='toc1'><a href='#examples'>Examples</a></li>
 <ul class='toc'></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
@@ -69,8 +69,9 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>Return the size when linking down.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-do' href='./../Overviews/Methods.html#do'>do</a>(<span class='argstr'>function</span>)</h3>
 <div class='method'>
-<p>Iterate over the two elements.
-<p>Traverse Same like: <a href="#-depthFirstPreOrderTraversal">-depthFirstPreOrderTraversal</a></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-depthFirstPreOrderTraversal' href='./../Overviews/Methods.html#depthFirstPreOrderTraversal'>depthFirstPreOrderTraversal</a>(<span class='argstr'>function</span>)</h3>
+<p>Iterate over the two elements.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-traverse' href='./../Overviews/Methods.html#traverse'>traverse</a>(<span class='argstr'>function</span>)</h3>
+<div class='method'>
+<p>Same like: <a href="#-depthFirstPreOrderTraversal">-depthFirstPreOrderTraversal</a></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-depthFirstPreOrderTraversal' href='./../Overviews/Methods.html#depthFirstPreOrderTraversal'>depthFirstPreOrderTraversal</a>(<span class='argstr'>function</span>)</h3>
 <div class='method'>
 <p>Traverse the data structure first link down, then across (see <a href="#examples">examples</a>).</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-depthFirstPostOrderTraversal' href='./../Overviews/Methods.html#depthFirstPostOrderTraversal'>depthFirstPostOrderTraversal</a>(<span class='argstr'>function</span>)</h3>
 <div class='method'>
@@ -80,7 +81,6 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-linkAcross' href='./../Overviews/Methods.html#linkAcross'>linkAcross</a> = value</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-linkDown' href='./../Overviews/Methods.html#linkDown'>linkDown</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-linkDown' href='./../Overviews/Methods.html#linkDown'>linkDown</a> = value</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-traverse' href='./../Overviews/Methods.html#traverse'>traverse</a>(<span class='argstr'>function</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>a = Pair(Pair(Pair(1, 2), 4), Pair(5, 6));
 

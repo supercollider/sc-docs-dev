@@ -64,7 +64,8 @@ if(expr, trueFunc, falseFunc);
 // possible but harder to read, so, not preferred
 expr.if (trueFunc, falseFunc);</textarea>
 
-<p>Examples<textarea class='editor'>if([false, true].choose) {
+<p>Examples<textarea class='editor'>(
+if([false, true].choose) {
     "expression was true".postln  // true function
 } {
     "expression was false".postln  // false function
