@@ -59,7 +59,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>The index of the buffer to use.<tr><td class='argumentname'>phase<td class='argumentdesc'>
 <p>Audio rate modulateable index into the buffer.<div class='warning'><span class='warninglabel'>WARNING:</span> The phase argument only offers precision for addressing 2**24 samples (about 6.3 minutes at 44100Hz).</div><tr><td class='argumentname'>loop<td class='argumentdesc'>
 <p>1 means true, 0 means false. This is modulateable.<tr><td class='argumentname'>interpolation<td class='argumentdesc'>
-<p>1 means no interpolation, 2 is linear, 4 is cubic interpolation.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p>1 means no interpolation, 2 is linear, 4 is cubic interpolation.  (The numbers one, two, and <em>four</em> correspond to the number of consecutive samples needed to compute each type of interpolation.) Any other values for this argument will silently default to no interpolation.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
