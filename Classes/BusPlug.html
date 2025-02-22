@@ -111,7 +111,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>A BusPlug is represents a listener on a private <a href="./../Classes/Bus.html">Bus</a> that makes it easy to play back to multiple channels. It is mainly in use as a superclass of NodeProxy, but it can be used for general channel routings as well. Most methods are documented in the <a href="./../Classes/NodeProxy.html">NodeProxy</a> helpfile.<textarea class='editor'>s.boot;
+<p>A BusPlug represents a listener on a private <a href="./../Classes/Bus.html">Bus</a> that makes it easy to play back to multiple channels. It is mainly in use as a superclass of NodeProxy, but it can be used for general channel routings as well. Most methods are documented in the <a href="./../Classes/NodeProxy.html">NodeProxy</a> helpfile.<textarea class='editor'>s.boot;
 z = Bus.control(s, 16);
 z.setn({ |i| (i * 5).nthPrime } ! 16 * 5 + 100);
 a = BusPlug.for(z);
