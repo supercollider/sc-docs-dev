@@ -25,7 +25,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <body onload='fixTOC()'>
 <div id='toc'>
 <div id='toctitle'>Using Quarks:</div>
-<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Installing%20quarks'>Installing quarks</a></li>
+<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Preliminary%20stages'>Preliminary stages</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Installing/uninstalling/updating%20quarks'>Installing/uninstalling/updating quarks</a></li>
 <ul class='toc'><li class='toc2'><a href='#using%20the%20GUI'>using the GUI</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#by%20name'>by name</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#by%20git%20URL'>by git URL</a></li>
@@ -33,6 +34,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <ul class='toc'></ul><li class='toc2'><a href='#Recompile%20the%20class%20library'>Recompile the class library</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Internals'>Internals</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Fixing%20Conflicts'>Fixing Conflicts</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Updating%20Quarks'>Updating Quarks</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#Saving%20and%20Loading%20sets%20of%20Quarks'>Saving and Loading sets of Quarks</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Making%20your%20own%20Quarks'>Making your own Quarks</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Publishing%20a%20Quark'>Publishing a Quark</a></li>
@@ -56,7 +58,11 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='related'>See also: <a href="./../Classes/Quarks.html">Quarks</a>, <a href="./../Classes/Quark.html">Quark</a>, <a href="./../Classes/Git.html">Git</a></div>
 </div>
 
-<p>Quarks are packages of SuperCollider code containing classes, extension methods, documentation and server UGen plugins. The Quarks class manages downloading these packages and installing or uninstalling them.<h2><a class='anchor' name='Installing%20quarks'>Installing quarks</a></h2>
+<p>Quarks are packages of SuperCollider code containing classes, extension methods, documentation and server UGen plugins. The Quarks class manages downloading these packages and installing or uninstalling them.<div class='warning'><span class='warninglabel'>WARNING:</span> As individual users or groups develop their own Quark for different purposes, it is possible that installing multiple packages could cause problems because they conflict with each other. We therefore recommend that you select and install only the packages that you need. It may also be helpful to install one Quark package at a time, which should make it easier to troubleshoot problems as they arise.</div><div class='note'><span class='notelabel'>NOTE:</span> If you have trouble finding the Quarks package you need, you may find the Quarks package information in the following encyclopaedia useful: <a href="https://baryon.supercollider.online">https://baryon.supercollider.online</a></div><h2><a class='anchor' name='Preliminary%20stages'>Preliminary stages</a></h2>
+
+<p>Quarks installation depends on <em>git</em> version-control software. Detailed installation instructions may be found at <a href="https://git-scm.com">https://git-scm.com</a>.<ul>
+<li>Windows users can download and install the appropriate installation file for their environment from <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a>.<li>Linux users can copy the appropriate terminal commands from <a href="https://git-scm.com/download/linux">https://git-scm.com/download/linux</a> for their environment and run them in a terminal window.<li>For Mac users, we recommend installing git from Homebrew, as described at <a href="https://git-scm.com/download/mac">https://git-scm.com/download/mac</a>. If you are unsure whether you have Homebrew installed, follow the instructions for installing Homebrew first. You may also need to install 'Xcode Command Line Tools' if a window pops up asking you to install it.</ul>
+<h2><a class='anchor' name='Installing/uninstalling/updating%20quarks'>Installing/uninstalling/updating quarks</a></h2>
 <h3><a class='anchor' name='using%20the%20GUI'>using the GUI</a></h3>
 
 <p>You can install Quarks using the interface:<textarea class='editor'>Quarks.gui</textarea>
@@ -101,7 +107,12 @@ Quarks.openFolder;</textarea>
 <p>SuperCollider does not allow duplicate class definitions and will fail to compile if you've accidentally installed conflicting packages.
 <p>The Quarks interface can only work if SuperCollider is compiled and running, so if something goes wrong then you have to fix it manually.
 <p>If you are using the SC IDE then open <strong>Preferences &gt; Interpreter</strong> and remove the paths from the Include Paths.
-<p>You can also manually edit <code>sclang_config.yaml</code><h2><a class='anchor' name='Saving%20and%20Loading%20sets%20of%20Quarks'>Saving and Loading sets of Quarks</a></h2>
+<p>You can also manually edit <code>sclang_config.yaml</code><h3><a class='anchor' name='Updating%20Quarks'>Updating Quarks</a></h3>
+
+<p>You can update all installed Quarks by evaluating the following code:<textarea class='editor'>Quarks.all.do{ |quark| quark.update() };</textarea>
+
+<p>or by pressing the 'Check for updates' button after evaluating the following code:<textarea class='editor'>Quarks.gui</textarea>
+<h2><a class='anchor' name='Saving%20and%20Loading%20sets%20of%20Quarks'>Saving and Loading sets of Quarks</a></h2>
 
 <p>To make project work simpler you can save and later reload your currently installed Quarks to and from a quarks.txt file. This is similar to what the LanguageConfig does but this also downloads the Quarks if needed and installs all dependencies.
 <p>This is very useful for projects because you can pin the exact releases of each Quark that your project depends on and you should be able to reload them exactly even years in the future.<textarea class='editor'>// save your current state
