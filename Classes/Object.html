@@ -299,6 +299,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-stop'>stop</a> </li>
 <li class='toc3'><a href='#-storeModifiersOn'>storeModifiersOn</a> </li>
 <li class='toc3'><a href='#-storeParamsOn'>storeParamsOn</a> </li>
+<li class='toc3'><a href='#-superPerformArgs'>superPerformArgs</a> </li>
 <li class='toc3'><a href='#-threadPlayer'>threadPlayer</a> </li>
 <li class='toc3'><a href='#-totalFree'>totalFree</a> </li>
 <li class='toc3'><a href='#-trueAt'>trueAt</a> </li>
@@ -360,17 +361,33 @@ f.writeArchive(PathName.tmp ++ "myFunc"); // fails
 <tr><td class='argumentname'>pathname<td class='argumentdesc'>
 <p>A String containing the archive file's path.</table></div><h3 class='method-code'><span class='method-prefix'>Object.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>maxSize: 0</span>)</h3>
 <div class='method'>
-<p>Create a new instance. The creation of new instances of any Object actually happens in this method (or with <code>newCopyArgs</code>) when it is called by a child class. See <a href="./../Guides/WritingClasses.html">Writing Classes</a>.</div><h3 class='method-code'><span class='method-prefix'>Object.</span><a class='method-name' name='*newCopyArgs' href='./../Overviews/Methods.html#newCopyArgs'>newCopyArgs</a>( <span class='argstr'>... args</span>)</h3>
+<p>Create a new instance. The creation of new instances of any Object actually happens in this method (or with <code>newCopyArgs</code>) when it is called by a child class. See <a href="./../Guides/WritingClasses.html">Writing Classes</a>.</div><h3 class='method-code'><span class='method-prefix'>Object.</span><a class='method-name' name='*newCopyArgs' href='./../Overviews/Methods.html#newCopyArgs'>newCopyArgs</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
 <div class='method'>
-<p>Creates a new instance and copies the arguments to the instance variables in the order that the variables were defined. If the superclass's <code>new</code> method requires arguments, the first arguments passed to <code>newCopyArgs</code> will be passed on to that method, and the following arguments will be copied to this class's instance variables. Class variables are ignored.<textarea class='editor'>MyClass {
+<p>Creates a new instance and copies the arguments to the instance variables in the order that the variables were defined.
+<p>Importantly, superclass constructors are NOT called, but the values are directly placed in the superclass's instance variables.<textarea class='editor'>MyClass {
     var a, b, c;
+    // Will copy arg1, arg2, arg3 to variables a, b, c.
+    *new { |arg1, arg2, arg3| ^super.newCopyArgs(arg1, arg2, arg3) }
+    *newKw { |arg1| ^super.newCopyArgs(arg1, c: 10) }
+    value { ^[a, b, c] }
+}
+MyClass.new(1, 2, 3).value() == [1, 2, 3];
+MyClass.newKw(1).value() == [1, nil, 10];</textarea>
 
-    *new {
-        arg arg1, arg2, arg3;
-        // will copy arg1, arg2, arg3 to variables a, b, c
-        ^super.newCopyArgs(arg1, arg2, arg3);
-    }
-}</textarea>
+<p>Example of inheritance.<textarea class='editor'>Base {
+    var a, b, c;
+    *new { ^\didNotCallBase } // This is NEVER called
+}
+
+Derived : Base {
+    var d, e, f;
+    *new { |d, e, f| ^super.newCopyArgs(1, 2, 3, d, e, f) }
+    *newKw { |d, e, f| ^super.newCopyArgs(c: 3, d: d, e: e, f: f) }
+    value { ^[a, b, c, d, e, f] }
+}
+
+Derived.new(10, 11, 12).value() == [1, 2, 3, 10, 11, 12];
+Derived.newKw(10, 11, 12).value() == [nil, nil, 3, 10, 11, 12];</textarea>
 </div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Object.</span><a class='method-name' name='*dependantsDictionary' href='./../Overviews/Methods.html#dependantsDictionary'>dependantsDictionary</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Object.</span><a class='method-name' name='*readBinaryArchive' href='./../Overviews/Methods.html#readBinaryArchive'>readBinaryArchive</a>(<span class='argstr'>pathname</span>)</h3>
@@ -1100,6 +1117,7 @@ blend((a: 6, b: 7), (a: 0, b: [1, 2], c: 9), 0.5);</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-stop' href='./../Overviews/Methods.html#stop'>stop</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-storeModifiersOn' href='./../Overviews/Methods.html#storeModifiersOn'>storeModifiersOn</a>(<span class='argstr'>stream</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-storeParamsOn' href='./../Overviews/Methods.html#storeParamsOn'>storeParamsOn</a>(<span class='argstr'>stream</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-superPerformArgs' href='./../Overviews/Methods.html#superPerformArgs'>superPerformArgs</a>(<span class='argstr'>selector</span>, <span class='argstr'>args</span>, <span class='argstr'>kwargs</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-threadPlayer' href='./../Overviews/Methods.html#threadPlayer'>threadPlayer</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-threadPlayer' href='./../Overviews/Methods.html#threadPlayer'>threadPlayer</a> = </h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-totalFree' href='./../Overviews/Methods.html#totalFree'>totalFree</a></h3>
