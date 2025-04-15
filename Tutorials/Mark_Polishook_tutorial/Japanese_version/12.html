@@ -45,7 +45,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>シンセシスのプロセスを部分に分割することは、モジュラー・デザインとコンポーネントの再利用を促進します。このことが意味するのは、小さく、うまく設計されたタスクを成し遂げる様にSynthDefを作るということには、しばしば〜があるということです。そのようにすることで、複雑なシンセシスのネットワークを構築するためにSynthDefを組み合わせたり、様々な方法で組み替えたりすることが可能になるのです。<textarea class='editor'>(
 // ディスクからサウンド・ファイルを読み込む
-b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+b = Buffer.read(s, ExampleFiles.child);
 
 // モノのサンプル・プレーヤー ... １チャンネルのみ
 SynthDef("aMonoSamplePlayer", { arg bus = 0, bufnum = 0, rateScale = 1;
@@ -83,10 +83,34 @@ Synth("aMonoSamplePlayer", [\bus, 1, \bufNum, b, \rateScale, 1.01]);
 <p>BufRateScaleはサウンド・ファイルが録音されたときのレートでプレイバックされることを保証します。BufDurはバッファの長さを返します。これら両方のクラスはInfoUGenbaseまたはBufInfoUGenBaseを継承するUGenのファミリーです。
 <p>そのようなUGenの完全なリストを表示するためのコードがこれです。<textarea class='editor'>InfoUGenBase.dumpClassSubtree</textarea>
 
-<p>このコードを実行すると次の様に表示されます。<textarea class='editor'>InfoUGenBase[  NumRunningSynths  NumBuffers  ControlDur  NumControlBuses  SubsampleOffset  RadiansPerSample  SampleDur  ControlRate  NumInputBuses  NumAudioBuses  SampleRate  NumOutputBuses]InfoUGenBase</textarea>
+<p>このコードを実行すると次の様に表示されます。<textarea class='editor'>InfoUGenBase
+[
+  NumRunningSynths
+  NumBuffers
+  ControlDur
+  NumControlBuses
+  SubsampleOffset
+  RadiansPerSample
+  SampleDur
+  ControlRate
+  NumInputBuses
+  NumAudioBuses
+  SampleRate
+  NumOutputBuses
+]
+InfoUGenBase</textarea>
 <textarea class='editor'>BufInfoUGenBase.dumpClassSubtree</textarea>
 
-<p>このコードを実行すると次の様に表示されます。<textarea class='editor'>BufInfoUGenBase[  BufChannels  BufSampleRate  BufRateScale  BufFrames  BufDur  BufSamples]BufInfoUGenBase</textarea>
+<p>このコードを実行すると次の様に表示されます。<textarea class='editor'>BufInfoUGenBase
+[
+  BufChannels
+  BufSampleRate
+  BufRateScale
+  BufFrames
+  BufDur
+  BufSamples
+]
+BufInfoUGenBase</textarea>
 
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////<h2><a class='anchor' name='実行の順序'>実行の順序</a></h2>
 
@@ -126,7 +150,7 @@ Synth.head(~source, "aMonoSamplePlayer", [\bus, 0, \bufNum, b]);
 <p>３つのシンセはチェーンを形成します。第1のシンセはソース・シンセです。第2と第3のシンセは、それぞれのソースに対して処理を加えます。つまり、ソースに対して振幅変調を加え、振幅変調を行ったソースに対してローパス・フィルターをかけます。
 <p>処理の順序、つまり振幅変調とローパス・フィルターのどちらが最初でどちらが2番目かは任意です。それはどちらの方法でも定義することができます。<textarea class='editor'>(
 // サウンド・ファイルを読み込む
-b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+b = Buffer.read(s, ExampleFiles.child);
 
 // サウンド・ファイル全体をループ再生するサンプル・プレーヤーを定義する
 SynthDef("aLoopingSamplePlayer", { arg outBus = 0, bufnum = 0, rateScale = 1, mul = 1;

@@ -438,7 +438,11 @@ w = Window.new("soundfile test", Rect(200, 300, 740, 100));
 a = SoundFileView.new(w, Rect(20, 20, 700, 60));
 
 f = SoundFile.new;
-f.openRead(Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+// ExampleFiles helps locate audio files used in examples
+p = ExampleFiles.child;
+// peek at the path to see location and the format of a path
+p.postln;
+f.openRead(p);
 f.inspect;
 
 a.soundfile = f;
@@ -461,7 +465,7 @@ w.front;
 a = SoundFileView.new(w, Rect(20, 20, 700, 60));
 
 f = SoundFile.new;
-f.openRead(Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+f.openRead(ExampleFiles.child);
 // f.inspect;
 
 a.soundfile = f;            // set soundfile
@@ -589,7 +593,8 @@ w.close;</textarea>
 <p>Zooming and scrolling by mouse, directly in a SoundFileView, may not be immediately intuitive. (Most users wouldn't guess to shift-right-click!) You can add a <a href="./../Classes/RangeSlider.html">RangeSlider</a> to act as a scrollbar.
 <p>Notes:<ul>
 <li>If the user shift-right-clicks, the only way to track the SoundFileView's display changes is by using mouse actions: <a href="./../Classes/View.html#-mouseDownAction">View: -mouseDownAction</a> and <a href="./../Classes/View.html#-mouseUpAction">View: -mouseUpAction</a> to know which button is pressed, and <a href="./../Classes/View.html#-mouseMoveAction">View: -mouseMoveAction</a> to read the new scrolling and zooming values.<li><a href="./../Classes/SoundFileView.html#-xZoom">SoundFileView: -xZoom</a> is in seconds, while the range slider is normalized to a 0-1 range. So <code>xZoom == slider.range * duration</code>, and <code>slider.range == xZoom / duration</code>.<li><a href="./../Classes/SoundFileView.html#-scrollPos">SoundFileView: -scrollPos</a> is normalized to the "total scrolling range," where 1.0 is scrolled fully to the right. We have to subtract the displayed area: <code>slider.lo = sfv.scrollPos / (1 - slider.size)</code>, with some refinements to avoid division by 0.</ul>
-<textarea class='editor'>f = SoundFile.openRead(Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+<textarea class='editor'>p = ExampleFiles.child;
+f = SoundFile.openRead(p);
 f.readData(d = Signal.newClear(f.numFrames * f.numChannels));
 f.close;
 

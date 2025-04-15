@@ -90,8 +90,13 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>The SoundFile class is used to check the size, format, channels etc. when the sclang client needs this information about a SoundFile. Soundfile data can be read and modified. Soundfile data can also be read and written incrementally, so with properly designed code, there is no restriction on the file size.
 <p>In most cases you will wish to send commands to the server to get it to load SoundFiles directly into Buffers. You will not need to use this class for this. See the <a href="./../Classes/Buffer.html">Buffer</a> helpfile.<textarea class='editor'>(
+// ExampleFiles helps locate audio files used in examples
+p = ExampleFiles.child;
+// peek at the path to see location and the format of a path
+p.postln;
+
 f = SoundFile.new;
-f.openRead(Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+f.openRead(p);
 f.inspect;
 f.close;
 )</textarea>
@@ -134,7 +139,7 @@ f.close;
 <p>Returns an <a href="./../Classes/Array.html">Array</a> of SoundFile objects whose paths match the pattern. (The associated files are closed. These objects can be used to cue playback buffers)<textarea class='editor'>SoundFile.collect("sounds/*").do { |f| f.path.postln };</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>SoundFile.</span><a class='method-name' name='*use' href='./../Overviews/Methods.html#use'>use</a>(<span class='argstr'>path</span>, <span class='argstr'>function</span>)</h3>
 <div class='method'>
-<p>Reads the data of a SoundFile, evaluates the function (passing the file as argument) and closes it again.<textarea class='editor'>SoundFile.use(Platform.resourceDir +/+ "sounds/a11wlk01.wav", { |f| f.inspect });</textarea>
+<p>Reads the data of a SoundFile, evaluates the function (passing the file as argument) and closes it again.<textarea class='editor'>SoundFile.use(ExampleFiles.child, { |f| f.inspect });</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>SoundFile.</span><a class='method-name' name='*normalize' href='./../Overviews/Methods.html#normalize'>normalize</a>(<span class='argstr'>path</span>, <span class='argstr'>outPath</span>, <span class='argstr'>newHeaderFormat</span>, <span class='argstr'>newSampleFormat</span>, <span class='argstr'>startFrame: 0</span>, <span class='argstr'>numFrames</span>, <span class='argstr'>maxAmp: 1.0</span>, <span class='argstr'>linkChannels: true</span>, <span class='argstr'>chunkSize: 4194304</span>, <span class='argstr'>threaded: false</span>)</h3>
 <div class='method'>
 <p>Normalizes a soundfile to a level set by the user. The normalized audio will be written into a second file.

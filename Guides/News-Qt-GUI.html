@@ -66,7 +66,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Every view can be displayed as a window on its own, without the use of the Window class. Hence, most methods that are present in Window, are also present in View.
 <p>For example, you can display any view without embedding it in a Window or another container view using the <a href="./../Classes/View.html#-front">View: -front</a> method. For this reason, it is valid to omit the 'parent' argument at view construction - any view without a parent can be shown as a window:<textarea class='editor'>(
 x = SoundFileView().front;
-x.load(Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+x.load(ExampleFiles.child);
 )</textarea>
 <h3><a class='anchor' name='Every%20view%20can%20be%20a%20container'>Every view can be a container</a></h3>
 
@@ -194,7 +194,7 @@ x.front;
 <li>shift + right-click + mouse-up/down = <strong>zoom</strong><li>right-click + mouse-left/right = <strong>scroll</strong></ul>
 <textarea class='editor'>(
 var x = SoundFileView().front;
-x.load(Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+x.load(ExampleFiles.child);
 )</textarea>
 
 <p>Alternatively to displaying a soundfile, you can allocate an empty amount of display frames, and fill it <strong>part by part</strong> with data to display (see documentation of <a href="./../Classes/SoundFileView.html#-alloc">SoundFileView: -alloc</a> and <a href="./../Classes/SoundFileView.html#-set">SoundFileView: -set</a>). This allows, for example, to implement efficient monitoring of recording into a Buffer.<textarea class='editor'>(

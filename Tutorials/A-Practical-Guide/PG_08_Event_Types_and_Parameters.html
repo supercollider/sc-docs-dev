@@ -42,7 +42,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='header'>
 <div id='label'>
 <span id='folder'>Tutorials/A-Practical-Guide</span>
- | <span id='categories'><a href='./../../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a>&#8201;&gt;&#8201;<a href='./../../Browse.html#Streams-Patterns-Events>A-Practical-Guide'>A-Practical-Guide</a></span>
+ | <span id='categories'><a href='./../../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a>&#8201;&gt;&#8201;<a href='./../../Browse.html#Streams-Patterns-Events>A-Practical-Guide'>A-Practical-Guide</a> | <a href='./../../Browse.html#Tutorials'>Tutorials</a>&#8201;&gt;&#8201;<a href='./../../Browse.html#Tutorials>Pattern-Guide'>Pattern-Guide</a></span>
 </div><h1>Pattern Guide 08: Event Types and Parameters</h1>
 <div id='summary'>Describes the event types defined in the default event, and the parameters they expect</div>
 </div>
@@ -168,7 +168,7 @@ a.free;</textarea>
 <h3><a class='anchor' name='Event%20types%20with%20cleanup'>Event types with cleanup</a></h3>
 
 <p>These event types uniquely have automatic cleanup event types associated with them. Playing one of these event types allocates a server resource. Later, the resource may be freed by changing the event type to the corresponding cleanup type and playing the event again. While the resource is active, the event can be used as a reference to the resource in other events or Synth messaging.<textarea class='editor'>// create a buffer
-b = (type: \allocRead, path: Platform.resourceDir +/+ "sounds/a11wlk01.wav").play;
+b = (type: \allocRead, path: ExampleFiles.child).play;
 
 a = { PlayBuf.ar(1, b, doneAction: Done.freeSelf) }.play;
 

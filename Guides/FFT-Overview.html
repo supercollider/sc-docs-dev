@@ -113,7 +113,7 @@ b.free; // free the buffer again</textarea>
 d.free;</textarea>
 
 <p>A similar example using a soundfile:<textarea class='editor'>// read the soundfile into a buffer
-d = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+d = Buffer.read(s, ExampleFiles.child);
 
 (
 {
@@ -190,7 +190,7 @@ Routine({
 x.free;</textarea>
 <h3><a class='anchor' name='UGen%20access%20to%20FFT%20data'>UGen access to FFT data</a></h3>
 
-<p>It is possible to manipulate the FFT data directly within a synth graph (if there doesn't already exist a PV UGen which will do what you want), using the methods pvcalc, pvcalc2, pvcollect. Here's an example which uses the methods <a href="./../Classes/SequenceableCollection.html#-clump">SequenceableCollection: -clump</a> and <a href="./../Classes/SequenceableCollection.html#-flop">SequenceableCollection: -flop</a> to rearrange the order of the spectral bins:<textarea class='editor'>c = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+<p>It is possible to manipulate the FFT data directly within a synth graph (if there doesn't already exist a PV UGen which will do what you want), using the methods pvcalc, pvcalc2, pvcollect. Here's an example which uses the methods <a href="./../Classes/SequenceableCollection.html#-clump">SequenceableCollection: -clump</a> and <a href="./../Classes/SequenceableCollection.html#-flop">SequenceableCollection: -flop</a> to rearrange the order of the spectral bins:<textarea class='editor'>c = Buffer.read(s, ExampleFiles.child);
 
 (
 x = {

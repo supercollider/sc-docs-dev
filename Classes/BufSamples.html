@@ -63,7 +63,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>// example; this buffer is mono, so the number of samples matches the number of frames
-b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+b = Buffer.read(s, ExampleFiles.child);
 
 // indexing with a phasor
 { BufRd.ar(1, b, Phasor.ar(0, BufRateScale.kr(b), 0, BufSamples.kr(b))) }.play;

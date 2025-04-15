@@ -32,7 +32,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='header'>
 <div id='label'>
 <span id='folder'>Tutorials/A-Practical-Guide</span>
- | <span id='categories'><a href='./../../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a>&#8201;&gt;&#8201;<a href='./../../Browse.html#Streams-Patterns-Events>A-Practical-Guide'>A-Practical-Guide</a></span>
+ | <span id='categories'><a href='./../../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a>&#8201;&gt;&#8201;<a href='./../../Browse.html#Streams-Patterns-Events>A-Practical-Guide'>A-Practical-Guide</a> | <a href='./../../Browse.html#Tutorials'>Tutorials</a>&#8201;&gt;&#8201;<a href='./../../Browse.html#Tutorials>Pattern-Guide'>Pattern-Guide</a></span>
 </div><h1>Pattern Guide 06f: Server Control</h1>
 <div id='summary'>Patterns that manage server-side resources</div>
 </div>
@@ -101,7 +101,7 @@ p.stop;</textarea>
 
 <p>It's also possible to load sound file or wavetable buffers or play synths as part of the preparation to run a Pbind-style pattern. When the Pbind stops, those resources would be removed automatically from the server.
 <p>The mechanism to do this is a bit unlike most of the other protocols to use the server in SuperCollider. To create the resources, Pproto takes a function in which one or more Event objects contain the instructions to create them. These events should use specific event types, described in Pproto's help file. The pattern is able to clean up the resources because each event has an associated cleanup action (see the event types with cleanup class). Thus, Pproto needs only to remember the events representing the resources, and execute their cleanup actions at the end.
-<p>The Pproto help file has several complex examples that are worth reading. Here is just one simple case that loads the standard a11wlk01.wav sound file and plays fragments from it.<textarea class='editor'>(
+<p>The Pproto help file has several complex examples that are worth reading. Here is just one simple case that loads the standard <code>ExampleFiles.child</code> sound file and plays fragments from it.<textarea class='editor'>(
 SynthDef(\playbuf, { |bufnum, start, dur = 1, amp = 0.2, out|
     var    sig = PlayBuf.ar(1, bufnum, BufRateScale.ir(bufnum), 0, start);
     sig = sig * amp * EnvGen.kr(Env.linen(0.01, dur, 0.01), doneAction: Done.freeSelf);
@@ -112,7 +112,7 @@ SynthDef(\playbuf, { |bufnum, start, dur = 1, amp = 0.2, out|
 (
 TempoClock.default.tempo = 1;
 p = Pproto({
-    ~buf = (type: \allocRead, path: Platform.resourceDir +/+ "sounds/a11wlk01.wav").yield;
+    ~buf = (type: \allocRead, path: ExampleFiles.child).yield;
 }, Pbind(
     \instrument, \playbuf,
         // access resources in the protoevent by Pkey

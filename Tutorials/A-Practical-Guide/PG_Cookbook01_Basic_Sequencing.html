@@ -34,7 +34,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='header'>
 <div id='label'>
 <span id='folder'>Tutorials/A-Practical-Guide</span>
- | <span id='categories'><a href='./../../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a>&#8201;&gt;&#8201;<a href='./../../Browse.html#Streams-Patterns-Events>A-Practical-Guide'>A-Practical-Guide</a></span>
+ | <span id='categories'><a href='./../../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a>&#8201;&gt;&#8201;<a href='./../../Browse.html#Streams-Patterns-Events>A-Practical-Guide'>A-Practical-Guide</a> | <a href='./../../Browse.html#Tutorials'>Tutorials</a>&#8201;&gt;&#8201;<a href='./../../Browse.html#Tutorials>Pattern-Guide'>Pattern-Guide</a></span>
 </div><h1>Pattern Guide Cookbook 01: Basic Sequencing</h1>
 <div id='summary'>Sequencing basics</div>
 </div>
@@ -95,7 +95,7 @@ p.stop;</textarea>
 <p>Note the use of <code>add</code> to prepare the SynthDef. Without it, most of the SynthDef inputs would not be recognized and the pattern would not send values to them.
 <p>It's worth noting that the pattern runs in beats, whose real duration in seconds depends on the clock's tempo. The SynthDef, however, always measures time in seconds. This example keeps things simple by setting the clock to 1 beat per second. If the tempo needs to be something else, though, the <code>\time</code> key should be divided by the tempo:<textarea class='editor'>    \time, Pkey(\delta) / Pfunc { thisThread.clock.tempo },</textarea>
 <textarea class='editor'>(
-b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+b = Buffer.read(s, ExampleFiles.child);
 
 SynthDef(\stretchedFragments, { |out, bufnum, start, time = 1, stretch = 1, amp = 1, attack = 0.01, decay = 0.05|
     var sig = PlayBuf.ar(1, bufnum, rate: stretch.reciprocal, startPos: start), eg;

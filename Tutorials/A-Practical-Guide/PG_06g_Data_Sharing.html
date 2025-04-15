@@ -34,7 +34,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='header'>
 <div id='label'>
 <span id='folder'>Tutorials/A-Practical-Guide</span>
- | <span id='categories'><a href='./../../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a>&#8201;&gt;&#8201;<a href='./../../Browse.html#Streams-Patterns-Events>A-Practical-Guide'>A-Practical-Guide</a></span>
+ | <span id='categories'><a href='./../../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a>&#8201;&gt;&#8201;<a href='./../../Browse.html#Streams-Patterns-Events>A-Practical-Guide'>A-Practical-Guide</a> | <a href='./../../Browse.html#Tutorials'>Tutorials</a>&#8201;&gt;&#8201;<a href='./../../Browse.html#Tutorials>Pattern-Guide'>Pattern-Guide</a></span>
 </div><h1>Pattern Guide 06g: Data Sharing</h1>
 <div id='summary'>Writing patterns to use information from other patterns</div>
 </div>
@@ -84,7 +84,7 @@ SynthDef(\playbuf, { |bufnum, start, dur = 1, amp = 0.2, out|
 (
 TempoClock.default.tempo = 1;
 p = Pfset({
-    ~buf = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+    ~buf = Buffer.read(s, ExampleFiles.child);
     0.2.yield;    // sync seems to be incompatible with patterns
     ~bufFrames = ~buf.numFrames;
 }, Pbind(

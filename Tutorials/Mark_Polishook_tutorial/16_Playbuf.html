@@ -42,7 +42,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Breaking synthesis processes into parts that accomplish small well-defined tasks encourages modular design and component reuse (the oop mantra).<textarea class='editor'>(
 // read a soundfile from disk
-b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+b = Buffer.read(s, ExampleFiles.child);
 
 // a samplePlayer in mono ... one channel only
 SynthDef("aMonoSamplePlayer", { arg bus = 0, bufnum = 0, rateScale = 1;
@@ -80,16 +80,39 @@ Synth("aMonoSamplePlayer", [\bus, 1, \bufNum, b, \rateScale, 1.01]);
 <p>To see the complete list of such ugens, evaluate<textarea class='editor'>InfoUGenBase.dumpClassSubtree;</textarea>
 
 <p>It returns<textarea class='editor'>InfoUGenBase
-[  NumRunningSynths  NumBuffers  ControlDur  NumControlBuses  SubsampleOffset  RadiansPerSample  SampleDur  ControlRate  NumInputBuses  NumAudioBuses  SampleRate  NumOutputBuses]InfoUGenBase</textarea>
+[
+  NumRunningSynths
+  NumBuffers
+  ControlDur
+  NumControlBuses
+  SubsampleOffset
+  RadiansPerSample
+  SampleDur
+  ControlRate
+  NumInputBuses
+  NumAudioBuses
+  SampleRate
+  NumOutputBuses
+]
+InfoUGenBase</textarea>
 
 <p>Evaluate<textarea class='editor'>BufInfoUGenBase.dumpClassSubtree;</textarea>
 
-<p>and it returns<textarea class='editor'>BufInfoUGenBase[  BufChannels  BufSampleRate  BufRateScale  BufFrames  BufDur  BufSamples]BufInfoUGenBase</textarea>
+<p>and it returns<textarea class='editor'>BufInfoUGenBase
+[
+  BufChannels
+  BufSampleRate
+  BufRateScale
+  BufFrames
+  BufDur
+  BufSamples
+]
+BufInfoUGenBase</textarea>
 <h2><a class='anchor' name='Loop%20a%20sample'>Loop a sample</a></h2>
 
 <p>The next example uses three synthsdefs to make a chain. The first synthdef is a sample player that loops through a buffer. The second synthdef ring modulates its input. The third synthdef applies a lowpass filter.<textarea class='editor'>(
 // read a soundfile
-b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+b = Buffer.read(s, ExampleFiles.child);
 
 // define a sample player that will loop over a soundfile
 SynthDef("aLoopingSamplePlayer", { arg outBus = 0, bufnum = 0, rateScale = 1, mul = 1;

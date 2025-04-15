@@ -60,7 +60,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <textarea class='editor'>s.boot;
 
-b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+b = Buffer.read(s, ExampleFiles.child);
 
 (
 SynthDef("help-magNoise", { |out = 0|

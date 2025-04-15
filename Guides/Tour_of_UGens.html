@@ -473,7 +473,7 @@ DelayL.ar(z, 0.3, MouseX.kr(0,0.3), 1, z); // input is mixed with delay via the 
 }.scope(1);
 )</textarea>
 <dt><a href="./../Classes/PlayBuf.html">PlayBuf</a> - buffer playback<dd>arguments: <code>numChannels, buffer number, rate, trigger, start pos, loop</code><textarea class='editor'>// read sound
-b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+b = Buffer.read(s, ExampleFiles.child);
 
 { SinOsc.ar(800 + (700 * PlayBuf.ar(1,b, BufRateScale.kr(b),  loop:1)),0,0.3) }.scope(1);
 
@@ -541,7 +541,7 @@ b.free;</textarea>
 <h2><a class='anchor' name='Granular%20Synthesis.'>Granular Synthesis.</a></h2>
 <dl>
 <dt><a href="./../Classes/TGrains.html">TGrains</a> - granulation of a buffer<dd>arguments: <code>numChannels, trigger, buffer number, rate, center pos, dur, pan, amp, interpolation</code><textarea class='editor'>// read sound
-b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+b = Buffer.read(s, ExampleFiles.child);
 
 (
 {
@@ -751,7 +751,7 @@ z.release;</textarea>
 <p><a href="./../Classes/FFT.html">FFT</a> calculates the spectrum of a sound, puts it into a buffer, and outputs a trigger each time the buffer is ready to process. The PV UGens process the spectrum when they receive the trigger. <a href="./../Classes/IFFT.html">IFFT</a> converts the spectrum back into sound.<textarea class='editor'>// alloc a buffer for the FFT
 b = Buffer.alloc(s,2048,1);
 // read a sound
-c = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
+c = Buffer.read(s, ExampleFiles.child);
 
 
 (

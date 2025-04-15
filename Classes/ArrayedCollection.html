@@ -325,25 +325,36 @@ z.postln;
 [4, 5, 6].growClear(5);</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-copyRange' href='./../Overviews/Methods.html#copyRange'>copyRange</a>(<span class='argstr'>start</span>, <span class='argstr'>end</span>)</h3>
 <div class='method'>
-<p>Return a new ArrayedCollection which is a copy of the indexed slots of the receiver from <strong>start</strong> to <strong>end</strong>. If <strong>end</strong> &lt; <strong>start</strong>, an empty ArrayedCollection is returned.<textarea class='editor'>(
-var y, z;
-z = [1, 2, 3, 4, 5];
-y = z.copyRange(1, 3);
-z.postln;
+<p>Return a new <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> which is a copy of the indexed slots of the receiver from <strong>start</strong> to <strong>end</strong>. If <strong>end</strong> &lt; <strong>start</strong>, an empty <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> is returned.<textarea class='editor'>(
+var x, y;
+x = [1, 2, 3, 4, 5];
+y = x.copyRange(1, 3);
+x.postln;
 y.postln;
 )</textarea>
 
-<p><div class='warning'><span class='warninglabel'>WARNING:</span> <code>x.copyRange(a, b)</code> is <strong>not</strong> equivalent to <code>x[a..b]</code>. The latter compiles to <a href="#-copySeries">-copySeries</a>, which has different behavior when <strong>end</strong> &lt; <strong>start</strong>.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-copySeries' href='./../Overviews/Methods.html#copySeries'>copySeries</a>(<span class='argstr'>first</span>, <span class='argstr'>second</span>, <span class='argstr'>last</span>)</h3>
+<p><div class='warning'><span class='warninglabel'>WARNING:</span> <code>x.copyRange(a, b)</code> is <strong>not</strong> equivalent to <code>x[a..b]</code>. The latter compiles to <a href="#-copySeries">-copySeries</a>, which has different behavior when <strong>end</strong> &lt; <strong>start</strong>. See <a href="#copyRange_copySeries">NOTE</a> in <a href="#-copySeries">-copySeries</a>.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-copySeries' href='./../Overviews/Methods.html#copySeries'>copySeries</a>(<span class='argstr'>first</span>, <span class='argstr'>second</span>, <span class='argstr'>last</span>)</h3>
 <div class='method'>
-<p>Return a new ArrayedCollection consisting of the values starting at <strong>first</strong>, then every step of the distance between <strong>first</strong> and <strong>second</strong>, up until <strong>last</strong>. If <strong>second</strong> is <code>nil</code>, a step of 1 or -1 is used as appropriate.
+<p>Return a new <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> consisting of the values starting at <strong>first</strong>, then every step of the distance between <strong>first</strong> and <strong>second</strong>, up until <strong>last</strong>. If <strong>second</strong> is <code>nil</code>, a step of 1 or -1 is used as appropriate.
 <p><code>x.copySeries(a, nil, c)</code> is equivalent to <code>x[a..c]</code>, and <code>x.copySeries(a, b, c)</code> is equivalent to <code>x[a, b..c]</code><textarea class='editor'>(
-var y, z;
-z = [1, 2, 3, 4, 5, 6];
-y = z.copySeries(0, 2, 5);
+var x, y;
+x = [1, 2, 3, 4, 5, 6];
+y = x.copySeries(0, 2, 5);
+x.postln;
 y.postln;
 )</textarea>
-<div class='note'><span class='notelabel'>NOTE:</span> If the intent is to copy <em>forward</em> in an array, and you are calculating start and end indices such that <code>end</code> may be less than <code>start</code>, it is not safe to use <code>copySeries</code> or the shortcut syntax <code>x[a..b]</code> because it will adapt to use a positive or negative step as needed. In this case, <code>copyRange</code> is recommended.<textarea class='editor'>a = Array.series(10, 0, 1);
+<div class='note'><span class='notelabel'>NOTE:</span> <a class='anchor' name='copyRange_copySeries'>&nbsp;</a>If the intent is to copy <em>forward</em>, and you are calculating start and end indices such that <code>end</code> may be less than <code>start</code>, <code>copyRange</code> is not recommended. In this case, <code>copySeries</code> or the shortcut syntax <code>x[a..b]</code> is recommended because it will adapt to use a positive or negative step as needed.<textarea class='editor'>a = Array.series(10, 0, 1);
+
+/* case 1 */
+a[0..2];  // [0, 1, 2]
+a.copySeries(0, 1, 2);  // [0, 1, 2]
+a.copySeries(0, nil, 2);  // [0, 1, 2]
+a.copyRange(0, 2);  // [0, 1, 2]
+
+/* case 2 */
 a[2..0];  // [2, 1, 0]
+a.copySeries(2, 1, 0);  // [2, 1, 0]
+a.copySeries(2, nil, 0);  // [2, 1, 0]
 a.copyRange(2, 0);  // []</textarea>
 </div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-seriesFill' href='./../Overviews/Methods.html#seriesFill'>seriesFill</a>(<span class='argstr'>start</span>, <span class='argstr'>step</span>)</h3>
 <div class='method'>
