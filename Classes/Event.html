@@ -79,6 +79,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-synchWithQuant'>synchWithQuant</a> </li>
 </ul></ul><li class='toc1'><a href='#Basic%20Usage'>Basic Usage</a></li>
 <ul class='toc'><li class='toc2'><a href='#Event%20as%20a%20name%20space%20for%20keeping%20objects'>Event as a name space for keeping objects</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Syntax%20subtleties'>Syntax subtleties</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Event%20for%20specifying%20different%20things%20to%20happen'>Event for specifying different things to happen</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Events%20and%20SynthDefs'>Events and SynthDefs</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Multi-channel%20Expansion'>Multi-channel Expansion</a></li>
@@ -105,7 +106,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>An Event specifies an action to be taken in response to a <a href="#-play">-play</a> message. Its key/value pairs specify the parameters of that action. Event inherits most of its methods from its superclasses, especially from <a href="./../Classes/Dictionary.html">Dictionary</a>. For the usage and meaning of the <code>parent</code> and <code>proto</code> events, see <a href="./../Classes/IdentityDictionary.html">IdentityDictionary</a>.<textarea class='editor'>a = (x: 6, y: 7, play: { (~x * ~y).postln });
+<p>An Event specifies an action to be taken in response to a <a href="#-play">-play</a> message. Its key/value pairs specify the parameters of that action. Event inherits most of its methods from its superclasses, especially from <a href="./../Classes/Dictionary.html">Dictionary</a>. Nevertheless Event inherits from <a href="./../Classes/IdentityDictionary.html">IdentityDictionary</a> and querying values is done by checking its keys for <em>identity</em>, not <em>equality</em>. For the usage and meaning of the <code>parent</code> and <code>proto</code> events, see <a href="./../Classes/IdentityDictionary.html">IdentityDictionary</a>'s helpfile.<textarea class='editor'>a = (x: 6, y: 7, play: { (~x * ~y).postln });
 a.play; // returns 6 * 7</textarea>
 
 <p>The class Event provides a large library of default event instances and play functions, e.g. for pitch. By default, the play function, when an event is played, its <a href="#*addEventType">type</a> is used to select a function and a parent event (by default, this is type <code>\note</code>).<textarea class='editor'>(freq: 761).play // play a default synth sound with 761 Hz</textarea>
@@ -339,6 +340,18 @@ q = (n: 10, x: [1, 2, 3]);
 q[\y] = q[\x] * q[\n];    // similar to ~y = ~x * ~n, but in a separate name space
 q.y = q.x * q.n;    // shorter way to do the same (pseudo-methods)
 q.y;            // [100, 200, 300]</textarea>
+<h3><a class='anchor' name='Syntax%20subtleties'>Syntax subtleties</a></h3>
+
+<p>Events have a very special meaning in a musical context within SuperCollider, especially when it comes to sequencing with Patterns. Nevertheless, as the class inherits from <a href="./../Classes/IdentityDictionary.html">IdentityDictionary</a>, it is often used as a convenient-to-type replacement for (Identity)Dictionary-like objects. The syntax very much reminds of the declaration of keyword arguments in function or method calls. However, there is a subtle difference:<textarea class='editor'>e = (a: 10);  // -&gt; ('a': 10)
+a = nil;
+f = (a : 10); // -&gt; nil
+              // ERROR: Primitive '_IdentDict_Put' failed.
+              // a is treated as a variable!
+a = "abc";
+f = (a : 10); // -&gt; ("abc": 10)
+f["abc"];     // -&gt; nil
+              // "abc" is equal to the string stored in a but not identical
+f[a]:         // -&gt; 10</textarea>
 <h3><a class='anchor' name='Event%20for%20specifying%20different%20things%20to%20happen'>Event for specifying different things to happen</a></h3>
 
 <p>Event provides a <a href="#defaultParentEvent">defaultParentEvent</a> that defines a variety of different event types and provides a complete set of default key/value pairs for each type. The type is determined by the value of the key <strong>\type</strong> which defaults to <strong>\note</strong>. Note events create synths on the server.<textarea class='editor'>().play;            // the default note

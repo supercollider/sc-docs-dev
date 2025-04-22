@@ -81,7 +81,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>PathName is a utility class for manipulating file names and paths. It expects a path to a file, and lets you access parts of that file path.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>PathName is a utility class for manipulating file names and paths. It expects a path to a file, and lets you access parts of that file path.<div class='note'><span class='notelabel'>NOTE:</span> Most classes in SC that operate on files generally expect paths to be <a href="./../Classes/String.html">String</a>s, not an instance of <a href="./../Classes/PathName.html">PathName</a>. Use <code>.fullPath</code> to convert <a href="./../Classes/PathName.html">PathName</a> to a <a href="./../Classes/String.html">String</a> expected in most cases.</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>PathName.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>path: ""</span>)</h3>
 <div class='method'>
 <p><h4>Arguments:</h4>
@@ -91,7 +91,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </table></div><h3 class='method-code'><span class='method-prefix'>PathName.</span><a class='method-name' name='*tmp' href='./../Overviews/Methods.html#tmp'>tmp</a></h3>
 <h3 class='method-code'><span class='method-prefix'>PathName.</span><a class='method-name' name='*tmp' href='./../Overviews/Methods.html#tmp'>tmp</a> = value</h3>
 <div class='method'>
-<p>Get or set the global temp directory as a <a href="./../Classes/String.html">String</a>. This is used by <a href="./../Classes/Buffer.html">Buffer</a>, etc. By default this is "/tmp/" for Linux and macOS, and "/WINDOWS/TEMP/" for Windows.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p>Get or set the global temp directory as a <a href="./../Classes/String.html">String</a>. This is used by <a href="./../Classes/Buffer.html">Buffer</a>, etc. By default this is <code>Platform.defaultTempDir</code>.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>PathName.</span><a class='method-name' name='*scroot' href='./../Overviews/Methods.html#scroot'>scroot</a></h3>
 <h3 class='method-code'><span class='method-prefix'>PathName.</span><a class='method-name' name='*scroot' href='./../Overviews/Methods.html#scroot'>scroot</a> = value</h3>

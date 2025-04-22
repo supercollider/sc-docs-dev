@@ -55,8 +55,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <table class='arguments'>
 <tr><td class='argumentname'>syncFreq<td class='argumentdesc'>
 <p>Frequency of the fundamental.<tr><td class='argumentname'>sawFreq<td class='argumentdesc'>
-<p>Frequency of the synched sawtooth wave. Should always be greater than <code>syncFreq</code> .<tr><td class='argumentname'>mul<td class='argumentdesc'>
-<p>Output will be multiplied by this value.<tr><td class='argumentname'>add<td class='argumentdesc'>
+<p>Frequency of the synched sawtooth wave. Should always be greater than <strong>syncFreq</strong>.<div class='warning'><span class='warninglabel'>WARNING:</span> <code>SyncSaw</code> will go out of range if the frequency exceeds the sampling rate (which for control rate is <code>s.sampleRate / s.options.blockSize</code>).</div><tr><td class='argumentname'>mul<td class='argumentdesc'>
+<p>The output will be multiplied by this value.<tr><td class='argumentname'>add<td class='argumentdesc'>
 <p>This value will be added to the output.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>

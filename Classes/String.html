@@ -639,15 +639,15 @@ Post &lt;&lt;&lt; "Store this on Post";</textarea>
 <div class='method'>
 <p>Perform <a href="#-pathMatch">-pathMatch</a> on this String, then load and execute all paths in the resultant <a href="./../Classes/Array.html">Array</a>.<textarea class='editor'>// first prepare a file with some code...
 (
-File.use("/tmp/loadPaths_example.scd", "w", { |file|
+File.use(Platform.defaultTempDir +/+ "loadPaths_example.scd", "w", { |file|
     file &lt;&lt; "\"This text is the result of a postln command which was loaded and executed by loadPaths\".postln;";
     file &lt;&lt;    "\"I will now throw a dice for you: \".post; 7.rand;"
 })
 )
 
 // then load the file...
- // ... it posts some text, and the return value pf loadPaths is an array of the return values of each file
-"/tmp/loadPaths_example.scd".loadPaths;</textarea>
+// ... it posts some text, and the return value of loadPaths is an array of the return values of each file
+(Platform.defaultTempDir +/+ "loadPaths_example.scd").loadPaths;</textarea>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>warn<td class='argumentdesc'>

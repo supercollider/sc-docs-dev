@@ -47,14 +47,15 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Converts audio rate trigger into control rate trigger, using the maximum trigger in the input during each control period.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>Converts audio rate trigger into control rate trigger, using the maximum trigger level in the input during each control period.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>T2K.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>in: 0.0</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/A2K.html'>A2K</a></div>
 <div class='method'>
 <p><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>in<td class='argumentdesc'>
-<p>input signal.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p>An audio rate input signal.</table><h4>Discussion:</h4>
+<div class='note'><span class='notelabel'>NOTE:</span> During initialization of the UGen graph, <code>T2K</code> will only produce a trigger if one is received on the first audio-rate input frame. Any trigger received after the first frame, but within the first block, will not be seen at initialization time. Therefore, downstream UGens will also not receive that missed trigger, which may affect their initialization state. Once the Synth runs, however, <code>T2K</code> will trigger as expected.</div></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>

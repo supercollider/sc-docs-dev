@@ -40,14 +40,16 @@ var scdoc_sc_version = '3.14.0-dev';
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators'>Generators</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators>Stochastic'>Stochastic</a></span>
 </div><h1>GrayNoise<span id='superclasses'> : <a href="../Classes/WhiteNoise.html">WhiteNoise</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
 </h1>
-<div id='summary'>Gray Noise.</div>
+<div id='summary'>Bit-flipping Noise</div>
 </div>
 <div class='subheader'>
 <div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Audio/Noise.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Audio/Noise.sc'>Noise.sc</a></div><div id='related'>See also: <a href="./../Classes/BrownNoise.html">BrownNoise</a>, <a href="./../Classes/ClipNoise.html">ClipNoise</a>, <a href="./../Classes/PinkNoise.html">PinkNoise</a>, <a href="./../Classes/WhiteNoise.html">WhiteNoise</a></div>
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Generates noise which results from flipping random bits in a word. This type of noise has a high RMS level relative to its peak to peak level. The spectrum is emphasized towards lower frequencies.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>Generates noise which results from flipping random bits in a word.<a class='footnote anchor' name='footnote_org_1' href='#footnote_1'><sup>1</sup></a> 
+<p>This type of noise has a high RMS level relative to its peak to peak level. The spectrum is emphasized towards lower frequencies.
+<p>Grey/gray noise does not have a standard definition as pink and white noise do. While <a href="./../Classes/GrayNoise.html">GrayNoise</a> generates bit-flipping noise, the term "grey/gray noise" may also refer to noise shaped to perceptual equal loudness contours.<a class='footnote anchor' name='footnote_org_2' href='#footnote_2'><sup>2</sup></a> <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>GrayNoise.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/WhiteNoise.html'>WhiteNoise</a></div>
 <h3 class='method-code'><span class='method-prefix'>GrayNoise.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
@@ -64,10 +66,11 @@ var scdoc_sc_version = '3.14.0-dev';
 <textarea class='editor'>(
 SynthDef("help-GrayNoise", { |out = 0|
     Out.ar(out,
-        GrayNoise.ar(0.1)
+        GrayNoise.ar(-20.dbamp)
     )
 }).play;
 )</textarea>
 
-<p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/GrayNoise.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/GrayNoise.schelp</a><br>link::Classes/GrayNoise::<br></div></div><script src='./../editor.js' type='text/javascript'></script>
+<p><div class='footnotes'>
+<a class='anchor' name='footnote_1'/><div class='footnote'>[<a href='#footnote_org_1'>1</a>] - Generated through <span class='math'>X_{0} = 1;\;X_{n+1} = X_{n} \oplus z</span>, where <span class='math'>\oplus</span> is bitwise exclusive or, and <span class='math'>z</span> is a 32-bit binary number with exactly one nonzero digit; the position of the nonzero digit is a uniform random variable.</div><a class='anchor' name='footnote_2'/><div class='footnote'>[<a href='#footnote_org_2'>2</a>] - See <a href="https://web.archive.org/web/20090427190825/http://www.ptpart.co.uk:80/show.php?contentid=71">Joseph Wisniewski's 1996 usenet message</a> that seems to have informed the wikipedia articles on <a href="https://en.wikipedia.org/wiki/Grey_noise">Grey noise</a> and on <a href="https://en.wikipedia.org/wiki/Colors_of_noise">Colors of noise</a>. Notice that the bit-flipping version of gray noise is mentioned in a reply to said usenet message.</div></div><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/GrayNoise.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/GrayNoise.schelp</a><br>link::Classes/GrayNoise::<br></div></div><script src='./../editor.js' type='text/javascript'></script>
 </body></html>

@@ -48,7 +48,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>If <code>in</code> is ≥ <code>lo</code> and ≤ <code>hi</code> output 1.0, otherwise output 0.0. Output is initially zero.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>If <code>lo ≤ in ≤ hi</code>, output 1.0, otherwise output 0.0.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>InRange.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>in</span>, <span class='argstr'>lo: 0.0</span>, <span class='argstr'>hi: 1.0</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>InRange.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>in: 0.0</span>, <span class='argstr'>lo: 0.0</span>, <span class='argstr'>hi: 1.0</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>InRange.</span><a class='method-name' name='*ir' href='./../Overviews/Methods.html#ir'>ir</a>(<span class='argstr'>in: 0.0</span>, <span class='argstr'>lo: 0.0</span>, <span class='argstr'>hi: 1.0</span>)</h3>
@@ -56,17 +56,17 @@ var scdoc_sc_version = '3.14.0-dev';
 <p><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>in<td class='argumentdesc'>
-<p>Signal to be tested.<tr><td class='argumentname'>lo<td class='argumentdesc'>
-<p>Low threshold.<tr><td class='argumentname'>hi<td class='argumentdesc'>
-<p>High threshold.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p>Signal to be tested. If <code>InRange</code> is running at audio rate, <strong>in</strong> must also be audio rate.<tr><td class='argumentname'>lo<td class='argumentdesc'>
+<p>Low threshold. Updated at control rate.<tr><td class='argumentname'>hi<td class='argumentdesc'>
+<p>High threshold. Updated at control rate.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>s.boot;
+<textarea class='editor'>// See the trigger
+{ InRange.kr(SinOsc.kr(1, 0, 0.2), -0.15, 0.15) }.scope;
 
-{ InRange.kr(SinOsc.kr(1, 0, 0.2), -0.15, 0.15) }.scope; // see the trigger
-
-{ InRange.kr(SinOsc.kr(1, 0, 0.2), -0.15, 0.15) * BrownNoise.ar(0.1) }.scope; // trigger noise Burst</textarea>
+// Trigger noise burst
+{ InRange.kr(SinOsc.kr(1, 0, 0.2), -0.15, 0.15) * BrownNoise.ar(0.1) }.scope;</textarea>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/InRange.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/InRange.schelp</a><br>link::Classes/InRange::<br></div></div><script src='./../editor.js' type='text/javascript'></script>
 </body></html>

@@ -54,20 +54,26 @@ var scdoc_sc_version = '3.14.0-dev';
 <p><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>freq<td class='argumentdesc'>
-<p>frequency in Hertz<tr><td class='argumentname'>iphase<td class='argumentdesc'>
-<p>initial phase offset in cycles (0..1)<tr><td class='argumentname'>width<td class='argumentdesc'>
-<p>duty cycle from zero to one.<tr><td class='argumentname'>mul<td class='argumentdesc'><tr><td class='argumentname'>add<td class='argumentdesc'></table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p>Frequency in Hertz. Positive frequencies only.<div class='warning'><span class='warninglabel'>WARNING:</span> <code>VarSaw</code> will go out of range if the frequency exceeds the sampling rate (which for control rate is <code>s.sampleRate / s.options.blockSize</code>).</div><tr><td class='argumentname'>iphase<td class='argumentdesc'>
+<p>Initial phase offset in cycles. [0..1]<tr><td class='argumentname'>width<td class='argumentdesc'>
+<p>Duty cycle, denoting where in the cycle the waveform peaks. E.g. for widths of <code>0, 0.5,</code> or <code>1.0</code>, the waveform will peak at the beginning, middle, or end of the cycle, respectively. [0..1] (clipped internally to [0.001..0.999])<tr><td class='argumentname'>mul<td class='argumentdesc'>
+<p>The output will be multiplied by this value.<tr><td class='argumentname'>add<td class='argumentdesc'>
+<p>This value will be added to the output.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>play({
+<textarea class='editor'>// observe different duty widths
+{ VarSaw.ar(1000, 0, [0, 0.5, 1]) }.plot
+
+(
+play({
     VarSaw.ar(
         LFPulse.kr(3, 0, 0.3, 200, 200),
         0,
         LFTri.kr(1.0).range(0, 1), // width
         0.1)
 });
-
+)
 
 play({ VarSaw.ar(LFPulse.kr(3, 0, 0.3, 200, 200), 0, 0.2, 0.1) });
 
