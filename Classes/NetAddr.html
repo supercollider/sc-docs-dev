@@ -29,15 +29,17 @@ var scdoc_sc_version = '3.14.0-dev';
 <ul class='toc'><li class='toc3'><a href='#*new'>new</a> </li>
 <li class='toc3'><a href='#*fromIP'>fromIP</a> </li>
 <li class='toc3'><a href='#*langPort'>langPort</a> </li>
+<li class='toc3'><a href='#*localIP'>localIP</a> </li>
+<li class='toc3'><a href='#*localEndPoint'>localEndPoint</a> </li>
 <li class='toc3'><a href='#*localAddr'>localAddr</a> </li>
 <li class='toc3'><a href='#*disconnectAll'>disconnectAll</a> </li>
 <li class='toc3'><a href='#*broadcastFlag'>broadcastFlag</a> </li>
+<li class='toc3'><a href='#*localIPs'>localIPs</a> </li>
 <li class='toc3'><a href='#*matchLangIP'>matchLangIP</a> </li>
 <li class='toc3'><a href='#*connections'>connections</a> </li>
 <li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
 <li class='toc2'><a href='#Undocumented%20class%20methods'>Undocumented class methods</a></li>
-<ul class='toc'><li class='toc3'><a href='#*localEndPoint'>localEndPoint</a> </li>
-<li class='toc3'><a href='#*useDoubles'>useDoubles</a> </li>
+<ul class='toc'><li class='toc3'><a href='#*useDoubles'>useDoubles</a> </li>
 </ul></ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#-sendMsg'>sendMsg</a> </li>
 <li class='toc3'><a href='#-sendBundle'>sendBundle</a> </li>
@@ -89,16 +91,36 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>create new net address using an integer IP number.</div><h3 class='method-code'><span class='method-prefix'>NetAddr.</span><a class='method-name' name='*langPort' href='./../Overviews/Methods.html#langPort'>langPort</a></h3>
 <div class='method'>
-<p>Get the port sclang is currently listening on (may change after a recompile).</div><h3 class='method-code'><span class='method-prefix'>NetAddr.</span><a class='method-name' name='*localAddr' href='./../Overviews/Methods.html#localAddr'>localAddr</a></h3>
+<p>Get the port sclang is currently listening on (may change after a recompile).</div><h3 class='method-code'><span class='method-prefix'>NetAddr.</span><a class='method-name' name='*localIP' href='./../Overviews/Methods.html#localIP'>localIP</a>(<span class='argstr'>network</span>)</h3>
+<div class='method'>
+<p>Get the local IP address as a String.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>network<td class='argumentdesc'>
+<p>An optional IP string to select a particular network. This might be necessary if your machine is connected to multiple networks. Typically, you would use the IP address of the router, but it can really be any address within the network.</table></div><h3 class='method-code'><span class='method-prefix'>NetAddr.</span><a class='method-name' name='*localEndPoint' href='./../Overviews/Methods.html#localEndPoint'>localEndPoint</a>(<span class='argstr'>port</span>, <span class='argstr'>network</span>)</h3>
+<div class='method'>
+<p>Get a NetAddr with the local IP address and a user provided port number.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>port<td class='argumentdesc'>
+<p>The port number. If omitted, the sclang port is used.<tr><td class='argumentname'>network<td class='argumentdesc'>
+<p>An optional IP string to select a particular network. See also <a href="#*localIP">*localIP</a>.</table></div><h3 class='method-code'><span class='method-prefix'>NetAddr.</span><a class='method-name' name='*localAddr' href='./../Overviews/Methods.html#localAddr'>localAddr</a></h3>
 <div class='method'>
 <p>Get a NetAddr which corresponds to localhost and the port sclang is listening on.</div><h3 class='method-code'><span class='method-prefix'>NetAddr.</span><a class='method-name' name='*disconnectAll' href='./../Overviews/Methods.html#disconnectAll'>disconnectAll</a></h3>
 <div class='method'>
 <p>close all TCP connections.</div><h3 class='method-code'><span class='method-prefix'>NetAddr.</span><a class='method-name' name='*broadcastFlag' href='./../Overviews/Methods.html#broadcastFlag'>broadcastFlag</a></h3>
 <h3 class='method-code'><span class='method-prefix'>NetAddr.</span><a class='method-name' name='*broadcastFlag' href='./../Overviews/Methods.html#broadcastFlag'>broadcastFlag</a> = <span class='argstr'>flag: true</span></h3>
 <div class='method'>
-<p>Get or set the broadcast flag (whether or not broadcast messages can be sent).</div><h3 class='method-code'><span class='method-prefix'>NetAddr.</span><a class='method-name' name='*matchLangIP' href='./../Overviews/Methods.html#matchLangIP'>matchLangIP</a>(<span class='argstr'>ipstring</span>)</h3>
+<p>Get or set the broadcast flag (whether or not broadcast messages can be sent).</div><h3 class='method-code'><span class='method-prefix'>NetAddr.</span><a class='method-name' name='*localIPs' href='./../Overviews/Methods.html#localIPs'>localIPs</a>(<span class='argstr'>family: 'all'</span>)</h3>
 <div class='method'>
-<p>Test an IP address to see if it matches that of one of the NICs on this computer.<h4>Arguments:</h4>
+<p>Get all local IP addresses (NICs) on this computer.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>family<td class='argumentdesc'>
+<p>A Symbol that specifies the desired address family.<table>
+<tr><td><code>all</code><td>all addresses<tr><td><code>ipv4</code><td>only IPv4 addresses<tr><td><code>ipv6</code><td>only IPv6 addresses</table>
+</table><h4>Returns:</h4>
+<div class='returnvalue'>
+<p>An <a href="./../Classes/Array.html">Array</a> containing all local IP addresses of the desired family.</div></div><h3 class='method-code'><span class='method-prefix'>NetAddr.</span><a class='method-name' name='*matchLangIP' href='./../Overviews/Methods.html#matchLangIP'>matchLangIP</a>(<span class='argstr'>ipstring</span>)</h3>
+<div class='method'>
+<p>Test an IP address to see if it matches any local IP address. See also <a href="#*localIPs">*localIPs</a>.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>ipstring<td class='argumentdesc'>
 <p>A <a href="./../Classes/String.html">String</a> to test containing an IP number in dot decimal notation (e.g. "192.168.34.56").</table><h4>Returns:</h4>
@@ -109,7 +131,6 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='returnvalue'>
 <p>A copy of the <a href="./../Classes/IdentityDictionary.html">IdentityDictionary</a> with all open TCP connections.</div></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
-<h3 class='method-code'><span class='method-prefix'>NetAddr.</span><a class='method-name' name='*localEndPoint' href='./../Overviews/Methods.html#localEndPoint'>localEndPoint</a></h3>
 </h3>
 <h3 class='method-code'><span class='method-prefix'>NetAddr.</span><a class='method-name' name='*useDoubles' href='./../Overviews/Methods.html#useDoubles'>useDoubles</a> = <span class='argstr'>flag: false</span></h3>
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>

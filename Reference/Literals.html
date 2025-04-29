@@ -157,7 +157,18 @@ ng
 "
 a.size // 9</textarea>
 
-<p>The SuperCollider IDE uses UTF-8 to decode and display strings. See <a href="./../Classes/String.html#Character%20encodings">String: Character encodings</a> for more information.<h2><a class='anchor' name='Identifiers'>Identifiers</a></h2>
+<p>The SuperCollider IDE uses UTF-8 to decode and display strings. See <a href="./../Classes/String.html#Character%20encodings">String: Character encodings</a> for more information.
+<p>A string literal may comprise no more than 8188 characters (bytes). A string object can be larger as a result of string operations.<textarea class='editor'>// artificially generate a long string
+a = String.fill(9000, { "abcdefghijklmnopqrstuvwxyz".choose });
+
+// wrap it in quote marks to make it a literal
+a = "\"" ++ a ++ "\"";
+
+// interpret the literal
+b = a.interpret;
+
+b.size;  // 8188 and NOT 9000</textarea>
+<h2><a class='anchor' name='Identifiers'>Identifiers</a></h2>
 
 <p>Names of methods and variables begin with a lower case alphabetic character, followed by zero or more alphanumeric or underscore characters.<textarea class='editor'>var abc, z123, trigger_func;
 var 1var; // not legal
