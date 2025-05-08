@@ -89,7 +89,9 @@ ServerOptions.outDevices; // output devices</textarea>
 
 <p>The JACK connections can be configured via the environment variables <code>SC_JACK_DEFAULT_INPUTS</code> and <code>SC_JACK_DEFAULT_OUTPUTS</code>. These allow SuperCollider to detect system preferences for Jack inputs and outputs to/from the scsynth server. 
 <p>These variables are written as a string that specifies another jack client or a comma-separated list of jack ports formatted as a string.
-<p>If these are not set, SuperCollider will default to connecting SuperCollider's inputs and outputs to your system's inputs and outputs. This is the recommended way of changing the Jack environment variables for SuperCollider from within a SuperCollider script:<textarea class='editor'>// connect first to input channels with system
+<p>The SuperCollider language client sets these environment variables to "system" by default, so that a server booted from SC language will connect by default.
+<p>If these are not set, the server will not connect to any JACK ports automatically. You may connect them manually, or by issuing <code>jack_connect</code> / <code>jack_disconnect</code> shell commands (<a href="./../Classes/String.html#-unixCmd">String: -unixCmd</a>). A server booted from the command line will thus not auto-connect, unless you set the variables in the same terminal session or shell profile (below).
+<p>This is the recommended way of changing the Jack environment variables for SuperCollider from within a SuperCollider script:<textarea class='editor'>// connect first to input channels with system
 "SC_JACK_DEFAULT_INPUTS".setenv("system:capture_1,system:capture_2");
 
 // connect all output channels with system
@@ -97,6 +99,9 @@ ServerOptions.outDevices; // output devices</textarea>
 
 <p>As an alternative, these may be also be changed by setting the following environment variables in your <strong>.bash_profile</strong>, <strong>.zsh_profile</strong> or similar startup file for your shell:<textarea class='editor'>export SC_JACK_DEFAULT_INPUTS="system"
 export SC_JACK_DEFAULT_OUTPUTS="system"</textarea>
+
+<p>To disable autoconnect from the language:<textarea class='editor'>"SC_JACK_DEFAULT_INPUTS".unsetenv;
+"SC_JACK_DEFAULT_OUTPUTS".unsetenv;</textarea>
 <h2><a class='anchor' name='Windows'>Windows</a></h2>
 
 <p>By default the server will boot to your system's default audio devices using <code>MME</code> driver (which usually means higher latency).
