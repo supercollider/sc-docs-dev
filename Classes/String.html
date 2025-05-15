@@ -1,23 +1,23 @@
 <!doctype html><html lang='en'><head><title>String | SuperCollider 3.14.0-dev Help</title>
-<link rel='stylesheet' href='./../scdoc.css' type='text/css' />
-<link rel='stylesheet' href='./../codemirror.css' type='text/css' />
-<link rel='stylesheet' href='./../editor.css' type='text/css' />
-<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
+<link rel='stylesheet' href='./../static/scdoc.css' type='text/css' />
+<link rel='stylesheet' href='./../static/codemirror.css' type='text/css' />
+<link rel='stylesheet' href='./../static/editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../static/themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
-<link rel='stylesheet' href='./../lib/katex/katex.min.css' />
+<link rel='stylesheet' href='./../static/lib/katex/katex.min.css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-<script src='./../lib/jquery.min.js'></script>
-<script src='./../lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
-<script src='./../lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
-<script defer src='./../lib/katex/katex.min.js' type='text/javascript'></script>
+<script src='./../static/lib/jquery.min.js'></script>
+<script src='./../static/lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
+<script src='./../static/lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../static/lib/katex/katex.min.js' type='text/javascript'></script>
 <script>
 var helpRoot = './..';
 var scdoc_title = 'String';
 var scdoc_sc_version = '3.14.0-dev';
 </script>
-<script src='./../scdoc.js' type='text/javascript'></script>
+<script src='./../static/scdoc.js' type='text/javascript'></script>
 <script src='./../docmap.js' type='text/javascript'></script>
 <script src='./../frontend.js' type='text/javascript'></script>
 <script src='qrc:///qtwebchannel/qwebchannel.js' type='text/javascript'></script>
@@ -358,7 +358,7 @@ z.class.postln;
 <div class='method'>
 <p>Concatenates <code>this</code> and <code>path</code>, as components of a filesystem path on the host operating system. The strings are joined to avoid duplicate path separators.
 <p>If <code>this</code> ends with a path separator and <code>path</code> begins with one, then the separator in <code>path</code> is dropped. If there is a path separator on either side, this has the same effect as using <code>++</code>. If neither side has a path separator, the platform's preferred separator ('\' on Windows, '/' otherwise) is added.
-<p>Returns <code>this</code> and <code>path</code> concatenated. If <code>path</code> was a PathName, the result is a PathName; otherwise, it is a String.<h4>Arguments:</h4>
+<p>Returns <code>this</code> and <code>path</code> concatenated. If <code>path</code> was a PathName, the result is a PathName; otherwise, it is a String.<div class='note'><span class='notelabel'>NOTE:</span> Do not use <code>+/+</code> in URLs or in other situations where forward slash is expected. <code>+/+</code> should only be used with filesystem paths, where it will resolve to either forward or backward slash, depending on the operating system's requirements.</div><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>path<td class='argumentdesc'>
 <p>Any object that can be converted to a string. Typically, either a String, <a href="./../Classes/Symbol.html">Symbol</a>, or <a href="./../Classes/PathName.html">PathName</a>.<textarea class='editor'>// On Windows, this produces "foo\\bar"; on other platforms, "foo/bar"
@@ -863,5 +863,5 @@ w.refresh;
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-stripHTML' href='./../Overviews/Methods.html#stripHTML'>stripHTML</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-ugenCodeString' href='./../Overviews/Methods.html#ugenCodeString'>ugenCodeString</a>(<span class='argstr'>ugenIndex</span>, <span class='argstr'>isDecl</span>, <span class='argstr'>inputNames: []</span>, <span class='argstr'>inputStrings: []</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wrapExtend' href='./../Overviews/Methods.html#wrapExtend'>wrapExtend</a>(<span class='argstr'>size</span>)</h3>
-<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/String.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/String.schelp</a><br>link::Classes/String::<br></div></div><script src='./../editor.js' type='text/javascript'></script>
+<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/String.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/String.schelp</a><br>link::Classes/String::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

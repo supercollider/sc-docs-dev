@@ -1,23 +1,23 @@
 <!doctype html><html lang='en'><head><title>Server | SuperCollider 3.14.0-dev Help</title>
-<link rel='stylesheet' href='./../scdoc.css' type='text/css' />
-<link rel='stylesheet' href='./../codemirror.css' type='text/css' />
-<link rel='stylesheet' href='./../editor.css' type='text/css' />
-<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
+<link rel='stylesheet' href='./../static/scdoc.css' type='text/css' />
+<link rel='stylesheet' href='./../static/codemirror.css' type='text/css' />
+<link rel='stylesheet' href='./../static/editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../static/themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
-<link rel='stylesheet' href='./../lib/katex/katex.min.css' />
+<link rel='stylesheet' href='./../static/lib/katex/katex.min.css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-<script src='./../lib/jquery.min.js'></script>
-<script src='./../lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
-<script src='./../lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
-<script defer src='./../lib/katex/katex.min.js' type='text/javascript'></script>
+<script src='./../static/lib/jquery.min.js'></script>
+<script src='./../static/lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
+<script src='./../static/lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../static/lib/katex/katex.min.js' type='text/javascript'></script>
 <script>
 var helpRoot = './..';
 var scdoc_title = 'Server';
 var scdoc_sc_version = '3.14.0-dev';
 </script>
-<script src='./../scdoc.js' type='text/javascript'></script>
+<script src='./../static/scdoc.js' type='text/javascript'></script>
 <script src='./../docmap.js' type='text/javascript'></script>
 <script src='./../frontend.js' type='text/javascript'></script>
 <script src='qrc:///qtwebchannel/qwebchannel.js' type='text/javascript'></script>
@@ -126,6 +126,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-freqscope'>freqscope</a> </li>
 <li class='toc3'><a href='#-meter'>meter</a> </li>
 <li class='toc3'><a href='#-plotTree'>plotTree</a> </li>
+<li class='toc3'><a href='#-plotTreeWindow'>plotTreeWindow</a> </li>
 <li class='toc3'><a href='#-plotTreeView'>plotTreeView</a> </li>
 </ul><li class='toc2'><a href='#Recording%20Support'>Recording Support</a></li>
 <ul class='toc'><li class='toc3'><a href='#-prepareForRecord'>prepareForRecord</a> </li>
@@ -667,12 +668,88 @@ ServerTree.remove(f);</textarea>
 <div class='method'>
 <p>Show frequency analyzer window.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-meter' href='./../Overviews/Methods.html#meter'>meter</a>: METHOD NOT FOUND!</h3>
 <div class='method'>
-<p>Show input/output level meters.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plotTree' href='./../Overviews/Methods.html#plotTree'>plotTree</a>: METHOD NOT FOUND!</h3>
+<p>Show input/output level meter by opening the singleton instance of <a href="./../Classes/ServerMeter.html">ServerMeter</a>.<textarea class='editor'>// Create a singleton ServerMeter, or bring the window to the front if it has already been created.
+s.meter // -&gt; a ServerMeter
+
+// Query the current position of the ServerMeter window:
+s.meter.position // -&gt; Point(5.0, 277.0)
+
+// Query the current bounds of the ServerMeter window:
+s.meter.window.bounds // -&gt; Rect(5.0, 277.0, 134.0, 230.0)
+
+// Move the open ServerMeter to the specified position:
+s.meter.position_(200@200) // -&gt; a ServerMeter
+
+// Retrieve the new position of the ServerMeter window:
+s.meter.position // -&gt; Point(200.0, 200.0)
+
+// Retrieve the current bounds of the ServerMeter window:
+s.meter.window.bounds // -&gt; Rect(200.0, 200.0, 134.0, 230.0)</textarea>
+
+<p><h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>numIns<td class='argumentdesc'>
+<p>the number of input channels. The default is nil and the number of input channels defined by <code>Server.local.options.numInputBusChannels</code> is used when using a local server.<tr><td class='argumentname'>numOuts<td class='argumentdesc'>
+<p>the number of output channels. The default is nil and the number of output channels defined by <code>Server.local.options.numOutputBusChannels</code> is used when using a local server.<tr><td class='argumentname'>position<td class='argumentdesc'>
+<p>the position of the meter window, i.e. the singleton instance of <a href="./../Classes/ServerMeter.html">ServerMeter</a>. (See <a href="./../Classes/ServerMeter.html#-position">ServerMeter: -position</a>.) The default is `<code>nil</code>`, and the scope window will appear near the bottom-left side of the display: left: 5; bottom: 277. </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plotTree' href='./../Overviews/Methods.html#plotTree'>plotTree</a>: METHOD NOT FOUND!</h3>
 <div class='method'>
-<p>Plot the node/group tree. As <a href="#-queryAllNodes">-queryAllNodes</a> but graphical.<h4>Arguments:</h4>
+<p>Plot the node/group tree in a graphical format, similar to <a href="#-queryAllNodes">-queryAllNodes</a>. This creates a singleton window containing <a href="./../Classes/ServerTreeView.html">ServerTreeView</a>.<div class='note'><span class='notelabel'>NOTE:</span> To use multiple instances of <a href="./../Classes/ServerTreeView.html">ServerTreeView</a> per <a href="./../Classes/Server.html">Server</a> instance or workspace, refer to the <a href="./../Classes/ServerTreeView.html#examples">Examples in ServerTreeView Documentation</a>.</div>
+<p>The method returns a <a href="./../Classes/Server.html">Server</a> (the receiver of this call), and the created windows can be accessed via the <a href="#-plotTreeWindow">-plotTreeWindow</a>.<div class='note'><span class='notelabel'>NOTE:</span> If the server is not running, the window containing <code>plotTree</code> will briefly appear and then close, displaying the following message in the Post window:<pre>-&gt; localhost
+WARNING: Server failed to respond to Group:queryTree!</pre></div><textarea class='editor'>s.boot; // starts the SuperCollider server.
+
+// Open a plotTree window named ~pTree with a default refresh rate of 0.5 seconds:
+~pTree = s.plotTree;
+
+// Define and play a repeating pattern that generates a new synth every 0.4 seconds:
+x = Pn((dur: 0.4, midinote: 69, amp: 0.1)).play;
+
+/*
+The ~pTree window dynamically displays active synth nodes.
+Initially, it shows the first node,
+and upon each refresh, it retains the previous node while adding a new one.
+This results in the display of one or two subsequent nodes at each interval.
+*/
+
+x.stop; // stops the playback of the pattern.
+
+// Close the plotTree window associated with ~pTree:
+~pTree.plotTreeWindow.close;</textarea>
+
+<p><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>interval<td class='argumentdesc'>
-<p>Polling interval.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plotTreeView' href='./../Overviews/Methods.html#plotTreeView'>plotTreeView</a>: METHOD NOT FOUND!</h3>
+<p>Polling interval.<textarea class='editor'>(
+s.waitForBoot {
+    // Open a plotTree window with a refresh rate of 2 seconds:
+    var plotTree = s.plotTree(2);
+
+    // Define and play a repeating pattern that generates a new synth every 0.5 seconds:
+    x = Pn((dur: 0.5, midinote: 69, amp: 0.1)).play;
+
+    /* Since the plotTree window refreshes every 2 seconds,
+    displaying only the most recent node,
+    the first node will appear after a 2-second delay (once four notes have played),
+    meaning only every fourth synth node is visible.
+    */
+
+    5.wait; // waits for 5 seconds.
+
+    plotTree.plotTreeWindow.close; // closes the plotTree window
+    x.stop; // stops the playback of the pattern
+}
+)</textarea>
+<tr><td class='argumentname'>bounds<td class='argumentdesc'>
+<p>The bounds of the <code>s.plotTree</code> window. A Rect specifying position and size of the window. The size does not include the border and title bar. Position is measured from the bottom-left corner of the screen in the same manner as <code>bounds</code> argument for <a href="./../Classes/Window.html#*new">Window: *new</a>. The minimum size is 395 for width and 386 for height. Any values smaller than these will be automatically adjusted to the minimum values.<textarea class='editor'>// Create plotTree window at the default position with default size:
+s.plotTree;
+
+// Move plotTree window to the defined position with defined size:
+s.plotTree(2, Rect(200, 200, 100, 200));
+// &lt;- The size (width: 100; height: 200) is smaller than the minimum size, so the size will be ajusted.
+
+s.plotTree; // brings the plotTree window to the front without changing its position or size.</textarea>
+</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plotTreeWindow' href='./../Overviews/Methods.html#plotTreeWindow'>plotTreeWindow</a></h3>
+<div class='method'>
+<p>See <a href="#-plotTree">-plotTree</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plotTreeView' href='./../Overviews/Methods.html#plotTreeView'>plotTreeView</a>: METHOD NOT FOUND!</h3>
 <div class='method'>
 <p>Plot the node/group tree graphically on a given view.<h4>Arguments:</h4>
 <table class='arguments'>
@@ -906,5 +983,5 @@ Routine.run {
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-tree' href='./../Overviews/Methods.html#tree'>tree</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-tree' href='./../Overviews/Methods.html#tree'>tree</a> = value</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-window' href='./../Overviews/Methods.html#window'>window</a></h3>
-<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Server.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Server.schelp</a><br>link::Classes/Server::<br></div></div><script src='./../editor.js' type='text/javascript'></script>
+<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Server.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Server.schelp</a><br>link::Classes/Server::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

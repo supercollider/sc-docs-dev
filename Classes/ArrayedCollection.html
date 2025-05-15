@@ -1,23 +1,23 @@
 <!doctype html><html lang='en'><head><title>ArrayedCollection | SuperCollider 3.14.0-dev Help</title>
-<link rel='stylesheet' href='./../scdoc.css' type='text/css' />
-<link rel='stylesheet' href='./../codemirror.css' type='text/css' />
-<link rel='stylesheet' href='./../editor.css' type='text/css' />
-<link rel='stylesheet' id='scdoc-theme' href='./../themes/default.css' type='text/css' />
+<link rel='stylesheet' href='./../static/scdoc.css' type='text/css' />
+<link rel='stylesheet' href='./../static/codemirror.css' type='text/css' />
+<link rel='stylesheet' href='./../static/editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../static/themes/default.css' type='text/css' />
 <link rel='stylesheet' href='./../frontend.css' type='text/css' />
 <link rel='stylesheet' href='./../custom.css' type='text/css' />
-<link rel='stylesheet' href='./../lib/katex/katex.min.css' />
+<link rel='stylesheet' href='./../static/lib/katex/katex.min.css' />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-<script src='./../lib/jquery.min.js'></script>
-<script src='./../lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
-<script src='./../lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
-<script defer src='./../lib/katex/katex.min.js' type='text/javascript'></script>
+<script src='./../static/lib/jquery.min.js'></script>
+<script src='./../static/lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
+<script src='./../static/lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../static/lib/katex/katex.min.js' type='text/javascript'></script>
 <script>
 var helpRoot = './..';
 var scdoc_title = 'ArrayedCollection';
 var scdoc_sc_version = '3.14.0-dev';
 </script>
-<script src='./../scdoc.js' type='text/javascript'></script>
+<script src='./../static/scdoc.js' type='text/javascript'></script>
 <script src='./../docmap.js' type='text/javascript'></script>
 <script src='./../frontend.js' type='text/javascript'></script>
 <script src='qrc:///qtwebchannel/qwebchannel.js' type='text/javascript'></script>
@@ -168,26 +168,79 @@ Array.iota(2, 3, 4);</textarea>
 [[1, 2], [3, [4, 5]]].isRectangular // false</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-at' href='./../Overviews/Methods.html#at'>at</a>(<span class='argstr'>index</span>)</h3>
 <div class='method'>
-<p>Return the item at <strong>index</strong>.
-<p>The index can also be an Array of indices to extract specified elements. Example:<textarea class='editor'>x = [10, 20, 30];
-y = [0, 0, 2, 2, 1];
-x[y]; // returns [10, 10, 30, 30, 20]</textarea>
+<p>Return the item at <strong>index</strong>. The index can also be an array of indices to extract the specified elements. <a href="./../Classes/Array.html">Array</a> is its syntactic shortcut.<textarea class='editor'>x = [1, 2, 3] //-&gt; [1, 2, 3]
+
+// Retrieve the value at index 1:
+x.at(1) //-&gt; 2
+// Equivalent shorthand syntax:
+x[1] //-&gt; 2
+
+// An index can also be retrieved from an array:
+y = [0, 0, 2, 2, 1] //-&gt; [0, 0, 2, 2, 1]
+x[y]; //-&gt; [1, 1, 3, 3, 2]
+
+(
+var pitches =  [43.0, 55.0, 58.86, 57.42, 67.0];
+fork {
+    pitches.size.do{ |i|
+        {
+            var freq = pitches[i].midicps;
+            var env = Env.perc.ar(Done.freeSelf);
+            SinOsc.ar(freq) * 0.1 * env
+        }.play;
+        0.2.wait
+    }
+}
+)</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clipAt' href='./../Overviews/Methods.html#clipAt'>clipAt</a>(<span class='argstr'>index</span>)</h3>
 <div class='method'>
-<p>Same as <a href="#-at">-at</a>, but values for <strong>index</strong> greater than the size of the ArrayedCollection will be clipped to the last index.<textarea class='editor'>y = [1, 2, 3];
-y.clipAt(13).postln;</textarea>
+<p>Similar to <a href="#-at">-at</a>, but guarantees that any value for index is valid by clipping values outside the collection's bounds. Values greater than <code>size - 1</code> are clipped to that last index, and values below <code>0</code> (negative) are clipped to 0. The index can also be an array of indices to extract the specified elements. <a href="./../Classes/SequenceableCollection.html#-|@|">SequenceableCollection: -|@|</a> is its syntactic shortcut.<textarea class='editor'>a = [1, 2, 3]
+a.clipAt(2) // same as at
+a.clipAt(3) // clips
+a.clipAt([-1, 3, 1]) // array of indices
+a|@|3 //syntactic shortcut</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wrapAt' href='./../Overviews/Methods.html#wrapAt'>wrapAt</a>(<span class='argstr'>index</span>)</h3>
 <div class='method'>
-<p>Same as <a href="#-at">-at</a>, but values for <strong>index</strong> greater than the size of the ArrayedCollection will be wrapped around to 0.<textarea class='editor'>y = [1, 2, 3];
-y.wrapAt(3).postln; // this returns the value at index 0
-y.wrapAt(4).postln; // this returns the value at index 1
-y.wrapAt([-2, 1])   // index can also be a collection or negative numbers</textarea>
+<p>Similar to <a href="#-at">-at</a>, but guarantees that any value for index is valid by wrapping values outside the collection's bounds. If the index exceeds <code>size - 1</code>, it wraps back around to <code>0</code>. Similarly, if the index is below <code>0</code> (negative), it wraps to access elements from the end of the collection. <code>this.wrapAt(index)</code> is equivalent to <code>this.at(index mod: size)</code>, ensuring the index is always within the valid range of the collection. The index can also be an array of indices to extract the specified elements. <a href="./../Classes/SequenceableCollection.html#-@@">SequenceableCollection: -@@</a> is its syntactic shortcut.<textarea class='editor'>a = [1, 2, 3]
+a.wrapAt(2) // same as at
+a.wrapAt(3) // wraps
+a.wrapAt([-1, 3, 1]) // array of indices
+a@@3 //syntactic shortcut
+
+(
+var pitches =  [43.0, 55.0, 58.86, 57.42, 67.0];
+fork {
+    32.do{ |i|
+        {
+            var freq = pitches.wrapAt(i).midicps;
+            var env = Env.perc.ar(Done.freeSelf);
+            SinOsc.ar(freq) * 0.1 * env
+        }.play;
+        0.2.wait
+    }
+}
+)</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-foldAt' href='./../Overviews/Methods.html#foldAt'>foldAt</a>(<span class='argstr'>index</span>)</h3>
 <div class='method'>
-<p>Same as <a href="#-at">-at</a>, but values for <strong>index</strong> greater than the size of the ArrayedCollection will be folded back.<textarea class='editor'>y = [1, 2, 3];
-y.foldAt(3).postln; // this returns the value at index 1
-y.foldAt(4).postln; // this returns the value at index 0
-y.foldAt(5).postln; // this returns the value at index 1</textarea>
+<p>Similar to <a href="#-at">-at</a>, but guarantees that any value for index is valid by reflecting values outside the collection's bounds. Values greater than <code>size - 1</code> are reflected back toward lower indices. Similarly, if the index is below <code>0</code> (negative), it folds in the opposite direction. This creates a symmetrical mapping of any index within the collection's boundaries. The index can also be an array of indices to extract the specified elements. <a href="./../Classes/SequenceableCollection.html#-@|@">SequenceableCollection: -@|@</a> is its syntactic shortcut.<textarea class='editor'>a = [1, 2, 3]
+a.foldAt(2) // same as at
+a.foldAt(3) // folds back
+a.foldAt([-1, 3, 1]) // array of indices
+a@|@3 //syntactic shortcut
+
+(
+var pitches =  [43.0, 55.0, 58.86, 57.42, 67.0];
+fork {
+    32.do{ |i|
+        {
+            var freq = pitches.foldAt(i).midicps;
+            var env = Env.perc.ar(Done.freeSelf);
+            SinOsc.ar(freq) * 0.1 * env
+        }.play;
+        0.2.wait
+    }
+}
+)</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plot' href='./../Overviews/Methods.html#plot'>plot</a>: METHOD NOT FOUND!</h3>
 <div class='method'>
 <p>Plot values in a GUI window. See <a href="./../Reference/plot.html">plot</a> for more details. When the receiver contains <code>nil</code> items, the plot fails with an error.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-swap' href='./../Overviews/Methods.html#swap'>swap</a>(<span class='argstr'>i</span>, <span class='argstr'>j</span>)</h3>
@@ -197,11 +250,11 @@ y.foldAt(5).postln; // this returns the value at index 1</textarea>
 <div class='method'>
 <p>Put <strong>item</strong> at <strong>index</strong>, replacing what is there.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clipPut' href='./../Overviews/Methods.html#clipPut'>clipPut</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
-<p>Same as <a href="#-put">-put</a>, but values for <strong>index</strong> greater than the size of the ArrayedCollection will be clipped to the last index.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wrapPut' href='./../Overviews/Methods.html#wrapPut'>wrapPut</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
+<p>Same as <a href="#-put">-put</a>, but values for <strong>index</strong> greater than the <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> instance size minus one will be clipped to <code>size - 1</code>, which is the last index.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wrapPut' href='./../Overviews/Methods.html#wrapPut'>wrapPut</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
-<p>Same as <a href="#-put">-put</a>, but values for <strong>index</strong> greater than the size of the ArrayedCollection will be wrapped around to 0.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-foldPut' href='./../Overviews/Methods.html#foldPut'>foldPut</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
+<p>Same as <a href="#-put">-put</a>, but values for <strong>index</strong> greater than the <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> instance size minus one will be wrapped around to 0.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-foldPut' href='./../Overviews/Methods.html#foldPut'>foldPut</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
-<p>Same as <a href="#-put">-put</a>, but values for <strong>index</strong> greater than the size of the ArrayedCollection will be folded back.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-putEach' href='./../Overviews/Methods.html#putEach'>putEach</a>(<span class='argstr'>keys</span>, <span class='argstr'>values</span>)</h3>
+<p>Same as <a href="#-put">-put</a>, but values for <strong>index</strong> greater than the <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> instance size minus one will be folded back.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-putEach' href='./../Overviews/Methods.html#putEach'>putEach</a>(<span class='argstr'>keys</span>, <span class='argstr'>values</span>)</h3>
 <div class='method'>
 <p>Put the <strong>values</strong> in the corresponding indices given by <strong>keys</strong>. If one of the two argument arrays is longer then it will wrap.<textarea class='editor'>y = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 y.putEach([4, 7], [\smelly, \head]);
@@ -518,5 +571,5 @@ a.asciiPlot;</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-slotPut' href='./../Overviews/Methods.html#slotPut'>slotPut</a>(<span class='argstr'>index</span>, <span class='argstr'>value</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-slotSize' href='./../Overviews/Methods.html#slotSize'>slotSize</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-unbubble' href='./../Overviews/Methods.html#unbubble'>unbubble</a>(<span class='argstr'>depth: 0</span>, <span class='argstr'>levels: 1</span>)</h3>
-<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ArrayedCollection.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ArrayedCollection.schelp</a><br>link::Classes/ArrayedCollection::<br></div></div><script src='./../editor.js' type='text/javascript'></script>
+<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ArrayedCollection.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ArrayedCollection.schelp</a><br>link::Classes/ArrayedCollection::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>
