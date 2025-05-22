@@ -49,7 +49,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>Outputs the peak amplitude of the signal received at the input. When a trigger occurs at the <code>reset</code> input, the maximum output value is reset to the current value.
-<p>Internally, the absolute value of the signal is used, to prevent underreporting the peak value if there is a negative DC offset. To obtain the minimum and maximum values of the signal as is, use the <a href="./../Classes/RunningMin.html">RunningMin</a> and <a href="./../Classes/RunningMax.html">RunningMax</a> UGens.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>The reported peak will always be positive, i.e. the absolute value  of the signal at its peak amplitude, even when that peak is negative. To obtain the minimum and maximum values of the signal as is, use the <a href="./../Classes/RunningMin.html">RunningMin</a> and <a href="./../Classes/RunningMax.html">RunningMax</a> UGens.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Peak.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>in: 0.0</span>, <span class='argstr'>trig: 0.0</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>Peak.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>in: 0.0</span>, <span class='argstr'>trig: 0.0</span>)</h3>
 <div class='method'>

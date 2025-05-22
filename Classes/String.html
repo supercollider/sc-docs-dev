@@ -591,13 +591,21 @@ Post &lt;&lt;&lt; "Store this on Post";</textarea>
 
 <p>Should you need an environment variable to persist you can use <a href="#-setenv">-setenv</a>.<div class='note'><span class='notelabel'>NOTE:</span> Despite the fact that the method is called 'unixCmd', <strong>it does work in Windows</strong>. The string must be a DOS command, however: "dir" rather than "ls" for instance.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-unixCmd' href='./../Overviews/Methods.html#unixCmd'>unixCmd</a>(<span class='argstr'>action</span>, <span class='argstr'>postOutput: true</span>)</h3>
 <div class='method'>
-<p>Execute a UNIX command <strong>asynchronously</strong> using the standard shell (sh).<h4>Arguments:</h4>
+<p>Executes an operating system command <strong>asynchronously</strong> using the standard shell (<code>sh</code> on *nix, <code>cmd</code> on Windows).
+<p>If you want to run a command without a shell, please use <a href="./../Classes/SequenceableCollection.html#-unixCmd">SequenceableCollection: -unixCmd</a>.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>action<td class='argumentdesc'>
 <p>A <a href="./../Classes/Function.html">Function</a> that is called when the process has exited. It is passed two arguments: the exit code and pid of the exited process.<tr><td class='argumentname'>postOutput<td class='argumentdesc'>
 <p>A <a href="./../Classes/Boolean.html">Boolean</a> that controls whether or not the output of the process is displayed in the post window.</table><h4>Returns:</h4>
 <div class='returnvalue'>
-<p>An <a href="./../Classes/Integer.html">Integer</a> - the pid of the newly created process. Use <a href="./../Classes/Integer.html#-pidRunning">Integer: -pidRunning</a> to test if a process is alive.</div><h4>Discussion:</h4>
+<p>An <a href="./../Classes/Integer.html">Integer</a> - the pid of the <strong>shell</strong> running the command, not of the command itself (see note below for exceptions).
+<p>To get the actual pid of the command, use <a href="./../Classes/SequenceableCollection.html#-unixCmd">SequenceableCollection: -unixCmd</a>, which does not use a shell and returns the actual pid of the command.
+<p>Use <a href="./../Classes/Integer.html#-pidRunning">Integer: -pidRunning</a> to test if a process is alive.<div class='note'><span class='notelabel'>NOTE:</span> While the underlying system call will obtaing the pid of the shell, we may get an actual pid of the command in the following situations:<ul>
+<li>On *nix systems, if the command is run with <code>exec</code>, e.g. <code>"exec scsynth -u 57110".unixCmd;</code>, which causes the calling process (the shell) to be replaced with the new command;<li>On macOS specifically, if the command consists of a single executable, where macOS seems the optimize the call by not spawining a new shell.</ul>
+
+<p>Past documentation incorrectly stated that this method always returned the pid of the actual command.
+<p>Note that <code>exec</code> is not available on Windows.</div>
+<p></div><h4>Discussion:</h4>
 
 <p>Example:<textarea class='editor'>"ls Help".unixCmd;
 "echo one; sleep 1; echo two; sleep 1".unixCmd { |res, pid| [\done, res, pid].postln };</textarea>
@@ -607,9 +615,9 @@ Post &lt;&lt;&lt; "Store this on Post";</textarea>
 ~listing.reverse.as(Array).dupEach.join.postln; // Mangle</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-systemCmd' href='./../Overviews/Methods.html#systemCmd'>systemCmd</a></h3>
 <div class='method'>
-<p>Executes a UNIX command <strong>synchronously</strong> using the standard shell (sh).<h4>Returns:</h4>
+<p>Executes an operating system command <strong>synchronously</strong> using the standard shell (<code>sh</code> on *nix, <code>cmd</code> on Windows).<h4>Returns:</h4>
 <div class='returnvalue'>
-<p>Error code of the UNIX command</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-runInTerminal' href='./../Overviews/Methods.html#runInTerminal'>runInTerminal</a>(<span class='argstr'>shell: "/bin/sh"</span>)</h3>
+<p>Error code of the system command</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-runInTerminal' href='./../Overviews/Methods.html#runInTerminal'>runInTerminal</a>(<span class='argstr'>shell: "/bin/sh"</span>)</h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Collections/linux/extString_linux.sc'>/usr/local/share/SuperCollider/SCClassLibrary/Common/Collections/linux/extString_linux.sc</a></div>
 <div class='method'>
 <p>Execute the String in a new terminal window (<strong>asynchronously</strong>).<h4>Arguments:</h4>
@@ -692,10 +700,10 @@ File.use(Platform.defaultTempDir +/+ "loadPaths_example.scd", "w", { |file|
 <div class='method'>
 <p>Removes a trailing path separator if one is present.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-basename' href='./../Overviews/Methods.html#basename'>basename</a></h3>
 <div class='method'>
-<p>Return the filename from a Unix path.<textarea class='editor'>"Imaginary/Directory/fish.rtf".basename;</textarea>
+<p>Return the filename from a filesystem path.<textarea class='editor'>"Imaginary/Directory/fish.rtf".basename;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dirname' href='./../Overviews/Methods.html#dirname'>dirname</a></h3>
 <div class='method'>
-<p>Return the directory name from a Unix path.<textarea class='editor'>"Imaginary/Directory/fish.rtf".dirname;</textarea>
+<p>Return the directory name from a filesystem path.<textarea class='editor'>"Imaginary/Directory/fish.rtf".dirname;</textarea>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-splitext' href='./../Overviews/Methods.html#splitext'>splitext</a></h3>
 <div class='method'>
 <p>Split off the extension from a filename or path and return both in an <a href="./../Classes/Array.html">Array</a> as [path or filename, extension].<textarea class='editor'>"fish.rtf".splitext;

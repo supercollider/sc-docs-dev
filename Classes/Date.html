@@ -95,7 +95,7 @@ d == e; // true
 Date(2016); // -&gt; Fri Jan  1 00:00:00 2016
 d = Date(2010, day: 15, minute: 30); // -&gt; Fri Jan 15 00:30:00 2010
 [d.asString, d.dayOfWeek, d.rawSeconds]; // dayOfWeek and rawSeconds were computed</textarea>
-</ol>
+<div class='note'><span class='notelabel'>NOTE:</span> On Windows, <code>Date</code> creation fails for dates before Unix epoch, i.e. before January 1st, 1970.</div></ol>
 
 <p>It is possible to specify dates with "out of range" values that will be resolved into a valid range -- this allows simple date offset calculations to be performed (see example below).<textarea class='editor'>(
 // Simple date/time offsetting can be performed:

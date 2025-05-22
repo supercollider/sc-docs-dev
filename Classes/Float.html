@@ -69,7 +69,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Math/Float.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Math/Float.sc'>Float.sc</a></div></div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>A 64-bit double precision floating point number. Float inherits most of its behaviour from its superclass.<textarea class='editor'>// generate 10 random floats between 0 and 1
+<p>A 64-bit double precision floating point number. Float inherits most of its behaviour from its superclass, <a href="./../Classes/SimpleNumber.html">SimpleNumber</a>.<textarea class='editor'>// generate 10 random floats between 0 and 1
 { 1.0.rand }.dup(10)
 
 // Pythagorean comma
@@ -81,7 +81,7 @@ var limma =   (2 ** 8) / (3 ** 5);
 apotome / limma
 )</textarea>
 
-<p>Note that despite its name, <a href="./../Classes/FloatArray.html">FloatArray</a> only holds 32-bit (single precision) floats. For a raw array of 64-bit floats, use <a href="./../Classes/DoubleArray.html">DoubleArray</a>.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>Note that despite its name, <a href="./../Classes/FloatArray.html">FloatArray</a> only holds 32-bit (single precision) floats. For a raw array of 64-bit floats, use <a href="./../Classes/DoubleArray.html">DoubleArray</a>.<div class='note'><span class='notelabel'>NOTE:</span> The overflow/underflow behavior of a Float is undefined but usually <code>inf</code>/<code>-inf</code>, respectively, since most CPUs comply well enough IEEE-754 floating point. However, the overflow/underflow behavior is still usually handed to the hardware and thus can vary per system. This (overflow/underflow) occurs whenever the result of an operation does not fit in the range of values supported by the return type, in this case, a 64-bit floating point number.</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Float.</span><a class='method-name' name='*from32Bits' href='./../Overviews/Methods.html#from32Bits'>from32Bits</a>(<span class='argstr'>word</span>)</h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
@@ -173,8 +173,8 @@ Float   -1.000000        00000000              3FF00000
 class   decmial          significant part      exponent part
         representation   (mantissa)            with sign bit</pre></div><h3><a class='anchor' name='Using%20Floats%20as%20replacement%20for%20Integers'>Using Floats as replacement for Integers</a></h3>
 
-<p>In SuperCollider, Floats are 64-bit wide. Because an <a href="./../Classes/Integer.html">Integer</a> is 32-bit, it can only capture integers in the range <code>-2147483648 .. +2147483647</code>, or about <code>2 x 10^9</code>.
-<p>Therefore, in some situations it can be useful to calculate with floats also when only whole numbers are needed. You can use 64-bit floats for integer calculations up to <code>± 9007199254740992</code> (<code>2^53</code>, or about <code>9 x 10^15</code>). Sometimes one can go even further (see example below).<textarea class='editor'>// compare factorial:
+<p>In SuperCollider, Floats are 64 bits wide. Because an <a href="./../Classes/Integer.html">Integer</a> is 32-bit, it can only capture integers in the range -2147483648 (<code>-2^31</code>) to 2147483647 (<code>2^31 - 1</code>).
+<p>Therefore, in some situations it can be useful to calculate with floats also when only whole numbers are needed. You can use 64-bit floats for integer calculations in the range <code>± 9007199254740992</code>, or about <code>±2^53</code>. Sometimes one can go even further (see example below).<textarea class='editor'>// compare factorial:
 f = { |x| if(x &lt; 2) { x } { x * f.(x - 1) } };
 f.(14); // integer
 f.(18) // integer overflow: -898433024

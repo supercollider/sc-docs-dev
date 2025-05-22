@@ -242,7 +242,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-multichannelExpandRef'>multichannelExpandRef</a> </li>
 </ul><li class='toc2'><a href='#Rhythm-lists'>Rhythm-lists</a></li>
 <ul class='toc'><li class='toc3'><a href='#-convertRhythm'>convertRhythm</a> </li>
-</ul><li class='toc2'><a href='#Starting%20UNIX%20processes'>Starting UNIX processes</a></li>
+</ul><li class='toc2'><a href='#Starting%20system%20processes'>Starting system processes</a></li>
 <ul class='toc'><li class='toc3'><a href='#-unixCmd'>unixCmd</a> </li>
 <li class='toc3'><a href='#-unixCmdGetStdOut'>unixCmdGetStdOut</a> </li>
 </ul><li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
@@ -1313,10 +1313,11 @@ a.sortBy(\c);</textarea>
 
 // sound example
 Pbind(\degree, Pseries(0, 1, inf), \dur, Pseq([2, [1, [1, [2, 1, 1, -1]]], 2].convertRhythm)).play;</textarea>
-</div><h3><a class='anchor' name='Starting%20UNIX%20processes'>Starting UNIX processes</a></h3>
+</div><h3><a class='anchor' name='Starting%20system%20processes'>Starting system processes</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-unixCmd' href='./../Overviews/Methods.html#unixCmd'>unixCmd</a>(<span class='argstr'>action</span>, <span class='argstr'>postOutput: true</span>)</h3>
 <div class='method'>
-<p>Execute a UNIX command <strong>asynchronously</strong>. This object should be an array of strings where the first string is the path to the executable to be run and all other strings are passed as arguments to the executable. This method starts the process directly without using a shell.<h4>Arguments:</h4>
+<p>Executes a system command <strong>asynchronously</strong>. This object should be an array of strings where the first string is the path to the executable to be run and all other strings are passed as arguments to the executable. This method starts the process directly without using a shell.
+<p>If you want to run a command using a shell, use <a href="./../Classes/String.html#-unixCmd">String: -unixCmd</a>.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>action<td class='argumentdesc'>
 <p>A <a href="./../Classes/Function.html">Function</a> that is called when the process has exited. It is passed two arguments: the exit code and pid of the exited process.<tr><td class='argumentname'>postOutput<td class='argumentdesc'>

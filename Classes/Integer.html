@@ -107,13 +107,14 @@ var scdoc_sc_version = '3.14.0-dev';
  | <span id='categories'><a href='./../Browse.html#Math'>Math</a></span>
 </div><h1>Integer<span id='superclasses'> : <a href="../Classes/SimpleNumber.html">SimpleNumber</a> : <a href="../Classes/Number.html">Number</a> : <a href="../Classes/Magnitude.html">Magnitude</a> : <a href="../Classes/Object.html">Object</a></span>
 </h1>
-<div id='summary'>Integer number</div>
+<div id='summary'>32-bit Integer number</div>
 </div>
 <div class='subheader'>
 <div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Math/Integer.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Math/Integer.sc'>Integer.sc</a></div></div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>A 32 bit integer. Integer inherits most of its behaviour from its superclass.<div class='note'><span class='notelabel'>NOTE:</span> A 32 bit signed integer can represent values in the range -2147483648 to 2147483647. Adding up further returns in a wrapped result, so that and 2147483647+1 = -2147483648. For a larger range, one can use <a href="./../Classes/Float.html">Float</a>, which is 64 bit and supports many (but not all) numerical methods that int does.</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>A 32-bit integer. Integer inherits most of its behaviour from its superclass, <a href="./../Classes/SimpleNumber.html">SimpleNumber</a>.<div class='note'><span class='notelabel'>NOTE:</span> Integer can represent values in the range -2147483648 (<code>-2^31</code>) to 2147483647 (<code>2^31 - 1</code>).
+<p>The overflow behavior of an Integer is undefined. This occurs whenever the result of an operation does not fit in the range of values supported by the return type, in this case, a 32-bit signed integer. Consider using the 64-bit <a href="./../Classes/Float.html">Float</a> for larger numbers (up to <code>±2^53</code>).</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Iteration'>Iteration</a></h3>

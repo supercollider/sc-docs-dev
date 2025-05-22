@@ -44,11 +44,11 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='summary'>Spreads an array of channels across a ring of channels</div>
 </div>
 <div class='subheader'>
-<div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Audio/Splay.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Audio/Splay.sc'>Splay.sc</a></div><div id='related'>See also: <a href="./../Classes/Splay.html">Splay</a>, <a href="./../Classes/PanAz.html">PanAz</a>, <a href="./../Classes/SelectXFocus.html">SelectXFocus</a></div>
+<div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Audio/Splay.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Audio/Splay.sc'>Splay.sc</a></div><div id='related'>See also: <a href="./../Classes/Splay.html">Splay</a>, <a href="./../Classes/PanAz.html">PanAz</a>, <a href="./../Classes/SelectXFocus.html">SelectXFocus</a>, <a href="./../Classes/LevelComp.html">LevelComp</a>, <a href="./../Guides/Level_Compensation.html">Level Compensation when Mixing and Panning</a></div>
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>SplayAz spreads an array of channels across a ring of channels. Optional spread and center controls, and equal power levelCompensation. numChans and orientation are as in <a href="./../Classes/PanAz.html">PanAz</a>.<textarea class='editor'>{ SplayAz.ar(5, [SinOsc.ar, Saw.ar], 0, 1) }.plot;</textarea>
+<p>SplayAz spreads an array of channels across a ring of channels. Optional spread and center controls, and flexible levelCompensation tunable for equal power and/or equal amplitude. numChans and orientation are as in <a href="./../Classes/PanAz.html">PanAz</a>.<textarea class='editor'>{ SplayAz.ar(5, [SinOsc.ar, Saw.ar], 0, 1) }.plot;</textarea>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>SplayAz.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>numChans: 4</span>, <span class='argstr'>inArray</span>, <span class='argstr'>spread: 1</span>, <span class='argstr'>level: 1</span>, <span class='argstr'>width: 2</span>, <span class='argstr'>center: 0.0</span>, <span class='argstr'>orientation: 0.5</span>, <span class='argstr'>levelComp: true</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>SplayAz.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>numChans: 4</span>, <span class='argstr'>inArray</span>, <span class='argstr'>spread: 1</span>, <span class='argstr'>level: 1</span>, <span class='argstr'>width: 2</span>, <span class='argstr'>center: 0.0</span>, <span class='argstr'>orientation: 0.5</span>, <span class='argstr'>levelComp: true</span>)</h3>
@@ -65,7 +65,12 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Over how much of the channels each signal is distributed.<tr><td class='argumentname'>center<td class='argumentdesc'>
 <p>Which of the channels will be the first channel<tr><td class='argumentname'>orientation<td class='argumentdesc'>
 <p>Should be zero if the front is a vertex of the polygon. The first speaker will be directly in front. Should be 0.5 if the front bisects a side of the polygon. Then the first speaker will be the one left of center.<tr><td class='argumentname'>levelComp<td class='argumentdesc'>
-<p>If true, the signal level is adjusted to maintain overall loudness the same (n.reciprocal.sqrt).</table></div><h3 class='method-code'><span class='method-prefix'>SplayAz.</span><a class='method-name' name='*arFill' href='./../Overviews/Methods.html#arFill'>arFill</a>(<span class='argstr'>numChans: 4</span>, <span class='argstr'>n</span>, <span class='argstr'>function</span>, <span class='argstr'>spread: 1</span>, <span class='argstr'>level: 1</span>, <span class='argstr'>width: 2</span>, <span class='argstr'>center: 0.0</span>, <span class='argstr'>orientation: 0.5</span>, <span class='argstr'>levelComp: true</span>)</h3>
+<p>a flag or numeric value:<ul>
+<li><code>true</code> : maintain equal power, keeping overall loudness the same.<li><code>false</code> : off / no level change,<li>float between <code>0.0</code> and <code>1.0</code> : smooth tuning of levelComp factor:<ul>
+<li><code>0.0</code> is none -&gt; factor 1<li><code>0.5</code> is equal power -&gt; factor (1/n).squared<li><code>1.0</code> is equal amplitude -&gt; factor (1/n)</ul>
+</ul>
+
+<p>See <a href="./../Classes/LevelComp.html">LevelComp</a> for full discussion.</table></div><h3 class='method-code'><span class='method-prefix'>SplayAz.</span><a class='method-name' name='*arFill' href='./../Overviews/Methods.html#arFill'>arFill</a>(<span class='argstr'>numChans: 4</span>, <span class='argstr'>n</span>, <span class='argstr'>function</span>, <span class='argstr'>spread: 1</span>, <span class='argstr'>level: 1</span>, <span class='argstr'>width: 2</span>, <span class='argstr'>center: 0.0</span>, <span class='argstr'>orientation: 0.5</span>, <span class='argstr'>levelComp: true</span>)</h3>
 <div class='method'><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>numChans<td class='argumentdesc'>
