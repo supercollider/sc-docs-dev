@@ -40,7 +40,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Once the class library is finished compiling the interpreter looks for a file at <code>Platform.userConfigDir +/+ "startup.scd"</code> and if such a file exists, executes any code within it (this happens within <a href="./../Classes/Main.html#-startup">Main: -startup</a>). By creating a file in this location you can make user specific customizations.<dl>
 <dt>Linux<dd><code>~/.config/SuperCollider/startup.scd</code>, according to the xdg base directory specification<dt>macOS<dd><code>~/Library/Application Support/SuperCollider/startup.scd</code><dt>Windows<dd><code>C:\\SuperCollider\\startup.scd</code> (or similar, depending on the location of the SuperCollider installation)</dl>
 
-<p>A common example would be to alter the options of the local and internal Servers:<textarea class='editor'>// placing the following code in the file will cause these modifications to be made
+<p>A common example would be to alter the options of the local and internal Servers:<div class='codeMirrorContainer'><textarea class='editor'>// placing the following code in the file will cause these modifications to be made
 // at startup (see also: ServerOptions)
 
 Server.local.options.numOutputBusChannels = 4;    // change number of input and output channels
@@ -67,6 +67,7 @@ Archive.archiveDir = "~/scwork".standardizePath;
 // hook up jack ports to audio channels
 "SC_JACK_DEFAULT_INPUTS".setenv("system");
 "SC_JACK_DEFAULT_OUTPUTS".setenv("system");</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Naturally the file must contain only valid SC expressions.<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/StartupFile.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/StartupFile.schelp</a><br>link::Reference/StartupFile::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

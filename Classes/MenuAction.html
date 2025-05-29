@@ -134,7 +134,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p> Menu actions broadcast several kinds of events that can be registered for with the standard <a href="./../Classes/Object.html#-addDependant">Object: -addDependant</a> calls.  Events broadcast by menu:<ul>
 <li><code>\changed</code> (issued when one of the actions properties changes)<li><code>\triggered</code> (issued when the action is clicked / activated - value is a boolean representing whether the action is checked)<li><code>\hovered</code><li><code>\toggled</code></ul>
 
-<p> <strong>Events example</strong><textarea class='editor'>(
+<p> <strong>Events example</strong><div class='codeMirrorContainer'><textarea class='editor'>(
 m = Menu(
     a = MenuAction("Option A"),
     b = MenuAction("Option B")
@@ -149,10 +149,11 @@ a.addDependant(f);
 b.addDependant(f);
 m.onClose_({ a.removeDependant(f); b.removeDependant(f) }).front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p><strong>Simple checkable menu item</strong><textarea class='editor'>(
+<p><strong>Simple checkable menu item</strong><div class='codeMirrorContainer'><textarea class='editor'>(
 ~view = View().layout_(HLayout(
     Button()
         .states_([["Options..."]])
@@ -174,8 +175,9 @@ m.onClose_({ a.removeDependant(f); b.removeDependant(f) }).front;
 );
 ~view.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p><strong>Action help strings</strong><textarea class='editor'>(
+<p><strong>Action help strings</strong><div class='codeMirrorContainer'><textarea class='editor'>(
 ~view = View(bounds: 300@100).layout_(VLayout(
     Button()
         .states_([["Options..."]])
@@ -202,8 +204,9 @@ m.onClose_({ a.removeDependant(f); b.removeDependant(f) }).front;
 ~view.onClose_({ ~menu.removeDependant(~actionFunc) }).front;
 
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p><strong>A more complex example</strong><textarea class='editor'>(
+<p><strong>A more complex example</strong><div class='codeMirrorContainer'><textarea class='editor'>(
 s.waitForBoot {
     ~startIcon = Image(40).draw({
         Pen.fillColor = Color.green;
@@ -273,6 +276,7 @@ s.waitForBoot {
 
 }
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MenuAction.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MenuAction.schelp</a><br>link::Classes/MenuAction::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

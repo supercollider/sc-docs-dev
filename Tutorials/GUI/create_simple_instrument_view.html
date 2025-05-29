@@ -59,7 +59,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>You will need to boot the <a href="./../../Classes/Server.html">Server</a> and add a <a href="./../../Classes/SynthDef.html">SynthDef</a> to it which we will be using in this tutorial.
 <p>The SynthDef is a simple sine wave with a percussive envelope.
-<p>We will control the frequency, volume and the duration of a <a href="./../../Classes/Synth.html">Synth</a>.<textarea class='editor'>// make sure the server is booted:
+<p>We will control the frequency, volume and the duration of a <a href="./../../Classes/Synth.html">Synth</a>.<div class='codeMirrorContainer'><textarea class='editor'>// make sure the server is booted:
 s.boot;
 // add our SynthDef to the server:
 (
@@ -74,10 +74,12 @@ SynthDef(\instrView, { |out = 0, amp = 0.25, freq = 440, dur = 1.0|
     Out.ar(out, snd);
 }).add;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>You can try the synth using:<textarea class='editor'>Synth(\instrView)</textarea>
+<p>You can try the synth using:<div class='codeMirrorContainer'><textarea class='editor'>Synth(\instrView)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>We'll start with the following code which is not yet connected to our synth and will therefore not yield any sound yet:<textarea class='editor'>(
+<p>We'll start with the following code which is not yet connected to our synth and will therefore not yield any sound yet:<div class='codeMirrorContainer'><textarea class='editor'>(
 var window = Window();
 var layout = HLayout();
 var button = Button();
@@ -89,10 +91,11 @@ layout.add(button);
 
 window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>If this code does not make sense to you, you can find more explanations about it in <a href="./../../Tutorials/GUI/create_window.html">GUI: Create a Window</a>.<h2><a class='anchor' name='Connecting%20the%20button'>Connecting the button</a></h2>
 
-<p>So we start with a simple button, that, sadly, is not very useful so far. To connect it, you need to <strong>assign a function to its 'action' method</strong>.<textarea class='editor'>(
+<p>So we start with a simple button, that, sadly, is not very useful so far. To connect it, you need to <strong>assign a function to its 'action' method</strong>.<div class='codeMirrorContainer'><textarea class='editor'>(
 var window = Window();
 var layout = HLayout();
 var button = Button();
@@ -108,11 +111,12 @@ window.layout_(layout);
 layout.add(button);
 window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>As we already knew the command to play the synth, we just have to <strong>configure the button to evaluate this command when it is pressed</strong>. It is also posting a message to the console, which might be useful for debugging purposes.<h2><a class='anchor' name='Adding%20several%20buttons%20at%20once'>Adding several buttons at once</a></h2>
 
 <p>We now have a keyboard, but not a very good one ! It only has one key... I'd say that might be enough, but that's quite uncommon.
-<p>So let's <strong>add a second key</strong>:<textarea class='editor'>(
+<p>So let's <strong>add a second key</strong>:<div class='codeMirrorContainer'><textarea class='editor'>(
 var window = Window();
 var layout = HLayout();
 var button = Button();
@@ -131,9 +135,10 @@ layout.add(button2);
 
 window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>As you can see, <strong>the Layout has arranged everything automatically</strong>.
-<p>But <strong>copy-pasting is not a good way to add</strong> keys. Instead, we can just ask SC to create a button 8 times:<textarea class='editor'>(
+<p>But <strong>copy-pasting is not a good way to add</strong> keys. Instead, we can just ask SC to create a button 8 times:<div class='codeMirrorContainer'><textarea class='editor'>(
 var window = Window();
 var layout = HLayout();
 var numberOfButtons = 8;
@@ -151,8 +156,9 @@ numberOfButtons.do({
 window.layout_(layout);
 window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Those buttons feels too small. This is because <a href="./../../Classes/Button.html">Button</a> <strong>has a low default maximum height</strong>. We can change it by reassigning it:<textarea class='editor'>(
+<p>Those buttons feels too small. This is because <a href="./../../Classes/Button.html">Button</a> <strong>has a low default maximum height</strong>. We can change it by reassigning it:<div class='codeMirrorContainer'><textarea class='editor'>(
 var window = Window();
 var layout = HLayout();
 var numberOfButtons = 8;
@@ -170,12 +176,14 @@ numberOfButtons.do({
 window.layout_(layout);
 window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>So we now have 8 buttons, but they all make the same sound. That's doesn't sounds like much progress to me.
-<p>We can <strong>change the Synth parameters by modifying its arguments</strong>:<textarea class='editor'>Synth(\instrView, [\freq, 660]);</textarea>
+<p>We can <strong>change the Synth parameters by modifying its arguments</strong>:<div class='codeMirrorContainer'><textarea class='editor'>Synth(\instrView, [\freq, 660]);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>We just need to introduce this inside the loop that creates the buttons. But instead of asking SC to do this 8 times, it will do it for a collection of frequencies instead.
-<p>We can <strong>transform a set of MIDI notes into frequencies and map them to the buttons</strong>:<textarea class='editor'>(
+<p>We can <strong>transform a set of MIDI notes into frequencies and map them to the buttons</strong>:<div class='codeMirrorContainer'><textarea class='editor'>(
 var window = Window();
 var layout = HLayout();
 // Getting the C Major Scale, as frequencies, using MIDI notation:
@@ -199,9 +207,10 @@ frequencies.do({ |frequency|
 window.layout_(layout);
 window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='How%20HLayout%20and%20VLayout%20works'>How HLayout and VLayout works</a></h2>
 
-<p>Now that we have a keyboard, we'd like to <strong>implement a volume slider</strong> to the view. We can do this by inserting a <a href="./../../Classes/Slider.html">Slider</a> to the layout:<textarea class='editor'>(
+<p>Now that we have a keyboard, we'd like to <strong>implement a volume slider</strong> to the view. We can do this by inserting a <a href="./../../Classes/Slider.html">Slider</a> to the layout:<div class='codeMirrorContainer'><textarea class='editor'>(
 var window = Window();
 var layout = HLayout();
 var frequencies = [60, 62, 64, 65, 67, 69, 71, 72].midicps;
@@ -222,6 +231,7 @@ layout.add(slider);
 window.layout_(layout);
 window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>The volume slider now appears at the right of the piano, like it was a key. This is because it is on the same layout as the keys.
 <p>For now, <strong>the Window is only containing a</strong> <a href="./../../Classes/HLayout.html">HLayout</a>.
@@ -229,7 +239,7 @@ window.front;
 <p><strong>It will distribute the views inside those columns, one by one, from left to right</strong>.
 <p>This is why the Slider has been pushed all the way to the right. With this division, you can add things to the left, to the right, and between columns.
 <p>But you cannot order views vertically. For this, you need to create a <a href="./../../Classes/VLayout.html">VLayout</a>, which in turns, cannot order views horizontally. <strong>To mix horizontal and vertical division of the Window, you will need to insert some layouts inside other layouts.</strong>
-<p>Let's see an example about layout hierarchy. Execute the following code before reading it to get a visual idea about the way it works:<textarea class='editor'>(
+<p>Let's see an example about layout hierarchy. Execute the following code before reading it to get a visual idea about the way it works:<div class='codeMirrorContainer'><textarea class='editor'>(
 var window = Window();
 var firstLayout = VLayout();
 var secondLayout = HLayout();
@@ -257,10 +267,11 @@ secondLayout.add(rightButton);
 
 window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>The window is first divided vertically, then the bottom of the window is divided horizontally. This means there are 3 emplacements, occupied by 3 buttons. It can take some time to get accustomed to this logic.<h2><a class='anchor' name='Back%20to%20connecting%20the%20slider'>Back to connecting the slider</a></h2>
 
-<p>Let's adapt our previous code to place the slider on top of the piano:<textarea class='editor'>(
+<p>Let's adapt our previous code to place the slider on top of the piano:<div class='codeMirrorContainer'><textarea class='editor'>(
 var window = Window();
 var windowLayout = VLayout();
 var pianoLayout = HLayout();
@@ -284,8 +295,9 @@ windowLayout.add(pianoLayout);
 window.layout_(windowLayout);
 window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>The slider is crushing everything ! It's because it is not on the right direction. We can fix this with the <code>.orientation</code> method. Then we can also reduce its maximum height with <code>.maxHeight</code> so it takes less space:<textarea class='editor'>(
+<p>The slider is crushing everything ! It's because it is not on the right direction. We can fix this with the <code>.orientation</code> method. Then we can also reduce its maximum height with <code>.maxHeight</code> so it takes less space:<div class='codeMirrorContainer'><textarea class='editor'>(
 var window = Window();
 var windowLayout = VLayout();
 var pianoLayout = HLayout();
@@ -308,8 +320,9 @@ windowLayout.add(pianoLayout);
 window.layout_(windowLayout);
 window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>So far, we changed its graphical properties, but the slider do not have any <code>action</code>. It's time to <strong>connect it</strong>:<textarea class='editor'>(
+<p>So far, we changed its graphical properties, but the slider do not have any <code>action</code>. It's time to <strong>connect it</strong>:<div class='codeMirrorContainer'><textarea class='editor'>(
 var window = Window();
 var windowLayout = VLayout();
 var pianoLayout = HLayout();
@@ -350,11 +363,12 @@ windowLayout.add(pianoLayout);
 window.layout_(windowLayout);
 window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>In this case, the <code>action</code> function of the Slider will assign the sliders value to a variable called <code>volume</code>. When a key from our 'piano' is pressed, it will also check this variable to pass the right volume as argument, when evaluating the Synth command.
 <p>But how did the slider know what values were expected by the volume parameter ? Well it didn't. We were only lucky: <strong>Sliders value spans between 0 and 1</strong>, which is the correct setting for the volume.<h2><a class='anchor' name='Adapting%20the%20Slider%20to%20the%20correct%20value%20(mapping)'>Adapting the Slider to the correct value (mapping)</a></h2>
 
-<p>But what if we want to control other ranges ? We can use <code>.linlin</code> or <code>.linexp</code> to map the sliders value, which is between 0 and 1, to a value between 0.1 and 2. We'll use this to new value to control the duration of the percussive envelope:<textarea class='editor'>(
+<p>But what if we want to control other ranges ? We can use <code>.linlin</code> or <code>.linexp</code> to map the sliders value, which is between 0 and 1, to a value between 0.1 and 2. We'll use this to new value to control the duration of the percussive envelope:<div class='codeMirrorContainer'><textarea class='editor'>(
 var window = Window();
 var windowLayout = VLayout();
 
@@ -405,17 +419,19 @@ windowLayout.add(pianoLayout);
 window.layout_(windowLayout);
 window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Alternatively, we can use a <a href="./../../Classes/ControlSpec.html">ControlSpec</a> to do the same thing:<textarea class='editor'>var dur = 1;
+<p>Alternatively, we can use a <a href="./../../Classes/ControlSpec.html">ControlSpec</a> to do the same thing:<div class='codeMirrorContainer'><textarea class='editor'>var dur = 1;
 var durMin = 0.1;
 var durMax = 2;
 var durSlider = Slider()
 .orientation_(\horizontal)
 .maxHeight_(60)
 .action_({ dur = ControlSpec(durMin, durMax, \lin).map(durSlider.value); });</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Adding%20text,%20and%20specifying%20views%20ratios'>Adding text, and specifying views ratios</a></h2>
 
-<p>The last thing to do is to label our controls. It is easy to remember what the keyboard does, but the sliders could use some indications. We will use a <a href="./../../Classes/StaticText.html">StaticText</a> for this, configuring its string, and its alignment.<textarea class='editor'>(
+<p>The last thing to do is to label our controls. It is easy to remember what the keyboard does, but the sliders could use some indications. We will use a <a href="./../../Classes/StaticText.html">StaticText</a> for this, configuring its string, and its alignment.<div class='codeMirrorContainer'><textarea class='editor'>(
 var window = Window();
 var windowLayout = VLayout();
 var pianoLayout = HLayout();
@@ -474,8 +490,10 @@ windowLayout.add(pianoLayout, 8);
 window.layout_(windowLayout);
 window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>You can see that when adding the views inside the layouts, I also specified a number. This is called <strong>assigning a 'stretch'</strong> to a view:<textarea class='editor'>windowLayout.add(volumeSlider, stretch: 3);</textarea>
+<p>You can see that when adding the views inside the layouts, I also specified a number. This is called <strong>assigning a 'stretch'</strong> to a view:<div class='codeMirrorContainer'><textarea class='editor'>windowLayout.add(volumeSlider, stretch: 3);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>The <strong>stretch number defines the view's ratio relative to the sum of every view's stretch</strong> inside a layout. In our example, the keyboard has the same size as the rest of the views, because the keyboard has a stretch of 8, and the sum of every others views stretches is also 8.
 <p>This means that a view with a stretch of 3 will be 3 times bigger than a view with a stretch of 1. A view with a stretch of 6 will be 3 times bigger than a view with a stretch of 2, and 6 times bigger than a view with a stretch of 1.

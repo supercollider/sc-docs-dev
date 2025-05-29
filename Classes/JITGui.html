@@ -94,11 +94,12 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Creation'>Creation</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
 <div class='method'>
-<p>Create a new JITGui that will be watching an object and displaying its state.<textarea class='editor'>g = JITGui.new(nil, 0);        // make a JITGui
+<p>Create a new JITGui that will be watching an object and displaying its state.<div class='codeMirrorContainer'><textarea class='editor'>g = JITGui.new(nil, 0);        // make a JITGui
 g.object = 123;                // its object gets shown asCompileString
 g.object = (key: \otto);     // if the object understands .key, key gets shown as name
 g.object = Pseq([1, 2, 3], inf);
 g.close;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>object<td class='argumentdesc'>
@@ -110,7 +111,8 @@ g.close;</textarea>
 <p>a list of additional information, such as flags about optional buttons. (This is used in some subclasses.)</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Accessing%20Instance%20Variables'>Accessing Instance Variables</a></h3>
-<textarea class='editor'>g.dump;</textarea>
+<div class='codeMirrorContainer'><textarea class='editor'>g.dump;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-object' href='./../Overviews/Methods.html#object'>object</a></h3>
 <div class='method'>
 <p>the object to watch</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-numItems' href='./../Overviews/Methods.html#numItems'>numItems</a></h3>
@@ -197,7 +199,7 @@ g.close;</textarea>
 <div class='method'>
 <p>Some objects may have more elements to display than the gui has slots, e.g. a <a href="./../Classes/ProxySpace.html">ProxySpace</a> can have more proxies than the mixer has numItems. Then, only <a href="#-numItems">-numItems</a> elements are shown, and the others can be scrolled to with <a href="#-scroller">-scroller</a> - an <a href="./../Classes/EZScroller.html">EZScroller</a> next to the slot elements. The makeScroller method should knows where in the zone to put the scroller.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>    // typically, only subclasses of JITGui are used,
+<div class='codeMirrorContainer'><textarea class='editor'>    // typically, only subclasses of JITGui are used,
     // so here are just some basic usage and layout tests
 
     // make its own window - defPos, minSize is used
@@ -261,6 +263,7 @@ Tdef(\a).set(\amp, 0.25);
 TdefGui(Tdef(\a), 5);
 
 EnvirGui((a: 123));</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/JITGui.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/JITGui.schelp</a><br>link::Classes/JITGui::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

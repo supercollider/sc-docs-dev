@@ -67,18 +67,21 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-signalRange' href='./../Overviews/Methods.html#signalRange'>signalRange</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 play({
     a = Dust.ar(5); // the set trigger
     b = Dust.ar(5); // the reset trigger
     SetResetFF.ar(a, b) * BrownNoise.ar(0.2);
 
 }))</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Simultaneous%20triggers'>Simultaneous triggers</a></h3>
 
-<p>Here, 'reset' is triggered twice as often as 'trig'. Since 'trig' is always matched by a 'reset', the output is 0. (If 'trig' took precedence, you would have a 50%-duty-cycle pulse wave.)<textarea class='editor'>a = { SetResetFF.kr(Impulse.kr(50), Impulse.kr(100)) }.plot(duration: 0.1);</textarea>
+<p>Here, 'reset' is triggered twice as often as 'trig'. Since 'trig' is always matched by a 'reset', the output is 0. (If 'trig' took precedence, you would have a 50%-duty-cycle pulse wave.)<div class='codeMirrorContainer'><textarea class='editor'>a = { SetResetFF.kr(Impulse.kr(50), Impulse.kr(100)) }.plot(duration: 0.1);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>You can reverse this behavior, by reversing the inputs so that SetResetFF is triggered twice as often as resetting. This results in a signal that is 0 initially and switches to 1 halfway through the cycle: <em>reset, then trigger</em>. To make it <em>trigger, then reset</em>, invert the phase: <code>1 - SetResetFF</code>.<textarea class='editor'>a = { 1 - SetResetFF.kr(Impulse.kr(100), Impulse.kr(50)) }.plot(duration: 0.1);</textarea>
+<p>You can reverse this behavior, by reversing the inputs so that SetResetFF is triggered twice as often as resetting. This results in a signal that is 0 initially and switches to 1 halfway through the cycle: <em>reset, then trigger</em>. To make it <em>trigger, then reset</em>, invert the phase: <code>1 - SetResetFF</code>.<div class='codeMirrorContainer'><textarea class='editor'>a = { 1 - SetResetFF.kr(Impulse.kr(100), Impulse.kr(50)) }.plot(duration: 0.1);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SetResetFF.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SetResetFF.schelp</a><br>link::Classes/SetResetFF::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

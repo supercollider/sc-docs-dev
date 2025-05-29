@@ -78,7 +78,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-setMsg' href='./../Overviews/Methods.html#setMsg'>setMsg</a>(<span class='argstr'>value</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-stopReadFromBus' href='./../Overviews/Methods.html#stopReadFromBus'>stopReadFromBus</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>d = SynthDef("help-NodeControl", { |out = 0, freq = 400|
+<div class='codeMirrorContainer'><textarea class='editor'>d = SynthDef("help-NodeControl", { |out = 0, freq = 400|
     Out.ar(out,
          SinOsc.ar(freq, 0, 0.5)
     )
@@ -90,6 +90,7 @@ c = NodeControl(y, 1);
 c.value = 500;
 
 c.value = 300;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NodeControl.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NodeControl.schelp</a><br>link::Classes/NodeControl::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

@@ -46,9 +46,10 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Returns the minimum difference of two values in modulo arithmetics. On a circle, there are two distances between two points. This UGen returns the smaller value of the two.<textarea class='editor'>{ var a = Line.ar(0, 4, 0.01), d = ModDif.ar(a); [a, d] }.plot;
+<p>Returns the minimum difference of two values in modulo arithmetics. On a circle, there are two distances between two points. This UGen returns the smaller value of the two.<div class='codeMirrorContainer'><textarea class='editor'>{ var a = Line.ar(0, 4, 0.01), d = ModDif.ar(a); [a, d] }.plot;
 { var a = Line.ar(0, 4, 0.01); ModDif.ar(a, 0, (1..4)) }.plot;
 { var a = Line.ar(0, 4, 0.01); ModDif.ar(a, (0, 0.25 .. 1), 1) }.plot;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>ModDif.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>x: 0.0</span>, <span class='argstr'>y: 0.0</span>, <span class='argstr'>mod: 1.0</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>ModDif.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>x: 0.0</span>, <span class='argstr'>y: 0.0</span>, <span class='argstr'>mod: 1.0</span>)</h3>
@@ -59,7 +60,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>x<td class='argumentdesc'>
 <p>First input value<tr><td class='argumentname'>y<td class='argumentdesc'>
 <p>Second input value<tr><td class='argumentname'>mod<td class='argumentdesc'>
-<p>Modulo (maximum value, double of the maximal difference).<textarea class='editor'>// different moduli
+<p>Modulo (maximum value, double of the maximal difference).<div class='codeMirrorContainer'><textarea class='editor'>// different moduli
 (
 {
     var sig = LFSaw.ar(10);
@@ -78,6 +79,7 @@ var scdoc_sc_version = '3.14.0-dev';
     Splay.ar(x) * 0.1
 }.play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p></table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>

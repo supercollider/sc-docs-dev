@@ -73,7 +73,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-iftrue' href='./../Overviews/Methods.html#iftrue'>iftrue</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-iftrue' href='./../Overviews/Methods.html#iftrue'>iftrue</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>p = Pif(Pfunc({ 0.3.coin }), Pwhite(0, 9, inf), Pwhite(100, 109, inf)).asStream;
+<div class='codeMirrorContainer'><textarea class='editor'>p = Pif(Pfunc({ 0.3.coin }), Pwhite(0, 9, inf), Pwhite(100, 109, inf)).asStream;
 p.nextN(20);
 
 // 7 of the 20 values, or roughly 30%, are in the 0-9 range:
@@ -102,6 +102,7 @@ a = Pif(Pfunc({ 0.3.coin }), Pn(Pseries(0.5, 0.1, 10)), Pn(Pseries(6, -0.1, 10))
     }
 }.fork;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pif.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pif.schelp</a><br>link::Classes/Pif::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

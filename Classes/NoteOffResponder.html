@@ -80,16 +80,17 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-learn' href='./../Overviews/Methods.html#learn'>learn</a></h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/NoteOnResponder.html'>NoteOnResponder</a></div>
 <div class='method'>
-<p>Wait for the next noteOff message, reset self to match src, chan.<textarea class='editor'>(
+<p>Wait for the next noteOff message, reset self to match src, chan.<div class='codeMirrorContainer'><textarea class='editor'>(
 c = NoteOffResponder({ |src, chan, note, vel|
         [src, chan, note, vel].postln;
     });
     c.learn; // wait for the first note off
 )
 NoteOffResponder.removeAll</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
     c = NoteOffResponder({ |src, chan, note, vel|
         [src, chan, note, vel].postln;
         },
@@ -101,7 +102,8 @@ NoteOffResponder.removeAll</textarea>
 )
 
 c.remove</textarea>
-<textarea class='editor'>(
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>(
     c = NoteOffResponder({ |src, chan, note, vel|
         [src, chan, note, vel].postln;
         },
@@ -113,6 +115,7 @@ c.remove</textarea>
 )
 
 c.remove</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NoteOffResponder.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NoteOffResponder.schelp</a><br>link::Classes/NoteOffResponder::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

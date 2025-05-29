@@ -387,7 +387,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <table class='arguments'>
 <tr><td class='argumentname'>image<td class='argumentdesc'>
 <p> the Image to use. It will be fixed to the top left corner of the view.</table><h4>Discussion:</h4>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
     ~bounds = Rect(10, 10, 150, 18);
     ~image = Image.new(SCDoc.helpSourceDir +/+ "images/Swamp.png");
     ~window = Window.new("Image background");
@@ -396,6 +396,7 @@ var scdoc_sc_version = '3.14.0-dev';
     ~window.front;
     ~image.free;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-setBackgroundImage' href='./../Overviews/Methods.html#setBackgroundImage'>setBackgroundImage</a></h3>
 <div class='method'>
 <p>Sets an Image as a valid view background, with 16 different drawing modes and opacity support.<h4>Arguments:</h4>
@@ -407,7 +408,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>alpha<td class='argumentdesc'>
 <p> opacity of the image. 0 &lt;= alpha &lt;= 1, and values outside of that range will be clipped<tr><td class='argumentname'>fromRect<td class='argumentdesc'>
 <p> the portion of the image to use. If nil, use the full image.</table><h4>Discussion:</h4>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
     ~alpha = 1.0;
     ~image = Image.new(SCDoc.helpSourceDir +/+ "images/Swamp.png");
     ~bounds = Rect(20, 3, 40, 40);
@@ -447,6 +448,7 @@ var scdoc_sc_version = '3.14.0-dev';
         .setBackgroundImage(~image, 5, 1, Rect(0, 0, 100, 100));
     ~window.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-focusColor' href='./../Overviews/Methods.html#focusColor'>focusColor</a></h3>
 <div class='method'>
 <p> Get or set the color used to display keyboard focus on the view.<h4>Arguments:</h4>
@@ -456,18 +458,20 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p> Get or set the palette to be used by the view.
 <p> When setting a palette, only those colors that have been set on the palette will take effect, other colors will be inherited from the parent view's palette. See also <a href="./../Classes/QPalette.html#-hasColor">QPalette: -hasColor</a>.
-<p> When getting a palette, it will return a new copy of the view's palette every time. Therefore, if you wish to change the view's palette, you have to set the changed palette back on the view:<textarea class='editor'>    w = Window().front.layout_(HLayout(a = Slider()));
+<p> When getting a palette, it will return a new copy of the view's palette every time. Therefore, if you wish to change the view's palette, you have to set the changed palette back on the view:<div class='codeMirrorContainer'><textarea class='editor'>    w = Window().front.layout_(HLayout(a = Slider()));
     a.action = { |a|
         a.palette = a.palette.buttonText_(if(a.value &gt; 0.5){ Color.red }{ Color.green });
     };
     a.valueAction = 0.0;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p> To dynamically modify the view's palette, it is thus more efficient, if possible, to keep a palette instance to operate on. Note that this is also more efficient than using methods like <a href="./../Classes/Slider.html#-knobColor">Slider: -knobColor</a>, since internally they use the above approach:<textarea class='editor'>    w = Window().front.layout_(HLayout(a = Slider()));
+<p> To dynamically modify the view's palette, it is thus more efficient, if possible, to keep a palette instance to operate on. Note that this is also more efficient than using methods like <a href="./../Classes/Slider.html#-knobColor">Slider: -knobColor</a>, since internally they use the above approach:<div class='codeMirrorContainer'><textarea class='editor'>    w = Window().front.layout_(HLayout(a = Slider()));
     p = QPalette();
     a.action = { |a|
         a.palette = p.buttonText_(if(a.value &gt; 0.5){ Color.red }{ Color.green });
     };
     a.valueAction = 0.0;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p> See <a href="./../Classes/QPalette.html">QPalette</a> for detailed explanation of how palettes work.<h4>Arguments:</h4>
 <table class='arguments'>
@@ -578,12 +582,13 @@ var scdoc_sc_version = '3.14.0-dev';
 <p> The object to be evaluated when a key is pressed.
 <p> The following arguments are passed at evaluation: <strong>view, char, modifiers, unicode, keycode, key</strong>. See <a href="#Key%20actions">Key actions</a> for explanation of arguments.
 <p> The return value of evaluation controls the event propagation to parent view. See <a href="#Key%20and%20mouse%20event%20processing">Key and mouse event processing</a> for details.
-<p> If no <code>keyDownAction</code> is set, <a href="#-defaultKeyDownAction">-defaultKeyDownAction</a> is called instead, and its return value controls the event propagation.<textarea class='editor'>// open a new document that posts the parameters passed into the keydownAction function.
+<p> If no <code>keyDownAction</code> is set, <a href="#-defaultKeyDownAction">-defaultKeyDownAction</a> is called instead, and its return value controls the event propagation.<div class='codeMirrorContainer'><textarea class='editor'>// open a new document that posts the parameters passed into the keydownAction function.
 (
 Document("test arguments").keyDownAction = { |doc, char, mod, unicode, keycode, key|
     [doc, char, mod, unicode, keycode, key].postln
 };
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-keyUpAction' href='./../Overviews/Methods.html#keyUpAction'>keyUpAction</a></h3>
 <div class='method'>
 <p> The object to be evaluated when a key is released.
@@ -613,7 +618,7 @@ Document("test arguments").keyDownAction = { |doc, char, mod, unicode, keycode, 
 <tr><td class='argumentname'><td class='argumentdesc'>
 <p> A String containing the text to be displayed.</table></div><h3><a class='anchor' name='Context%20Menus'>Context Menus</a></h3>
 
-<p>These methods are used to add context menu and shortcut key support to a View.<textarea class='editor'>(
+<p>These methods are used to add context menu and shortcut key support to a View.<div class='codeMirrorContainer'><textarea class='editor'>(
 View().layout_(HLayout(
     ~text = StaticText().string_("Right-click me").minWidth_(100)
 )).front;
@@ -624,6 +629,7 @@ View().layout_(HLayout(
     MenuAction("Blue", { ~text.background = Color.blue })
 )
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-setContextMenuActions' href='./../Overviews/Methods.html#setContextMenuActions'>setContextMenuActions</a></h3>
 <div class='method'>
 <p> Set the <a href="./../Classes/MenuAction.html">MenuAction</a>s that should appear in the context menu for this view. This implicitly calls <a href="./../Classes/View.html#-enableContextMenu">View: -enableContextMenu</a>.<h4>Arguments:</h4>

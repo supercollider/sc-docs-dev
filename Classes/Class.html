@@ -108,7 +108,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>This method can be overloaded in any class that requires initialization of classvars or other resources.<div class='note'><span class='notelabel'>NOTE:</span> Each class will be initialized once, thus each class' <code>initClass</code> is called exactly once during the initialization phase.</div></div><h3 class='method-code'><span class='method-prefix'>Class.</span><a class='method-name' name='*initClassTree' href='./../Overviews/Methods.html#initClassTree'>initClassTree</a>(<span class='argstr'>aClass</span>)</h3>
 <div class='method'>
 <p>used in <a href="#*initClass">*initClass</a> to assure the initialisation of <code>aClass</code> before using it. Wherever necessary, it recursively initializes all classes required by <code>aClass</code>.
-<p>In some cases it is required that another class and its resources are initialized before you initialize your own. This can be accomplished by<textarea class='editor'>YourClass {
+<p>In some cases it is required that another class and its resources are initialized before you initialize your own. This can be accomplished by<div class='codeMirrorContainer'><textarea class='editor'>YourClass {
     *initClass {
         // initialize OtherClass before continuing
         Class.initClassTree(OtherClass);
@@ -123,8 +123,9 @@ var scdoc_sc_version = '3.14.0-dev';
     ..
 
 }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Pre-initialized data such as <a href="./../Classes/SynthDef.html">SynthDef</a>s should be deferred to <a href="./../Classes/StartUp.html">StartUp</a><textarea class='editor'>YourClass {
+<p>Pre-initialized data such as <a href="./../Classes/SynthDef.html">SynthDef</a>s should be deferred to <a href="./../Classes/StartUp.html">StartUp</a><div class='codeMirrorContainer'><textarea class='editor'>YourClass {
     *initClass {
         StartUp.add {
             ..
@@ -134,6 +135,7 @@ var scdoc_sc_version = '3.14.0-dev';
     ..
 
 }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Class.</span><a class='method-name' name='*classesInited' href='./../Overviews/Methods.html#classesInited'>classesInited</a></h3>
@@ -165,7 +167,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Returns the path of this Class's helpfile as a String.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-helpFileForMethod' href='./../Overviews/Methods.html#helpFileForMethod'>helpFileForMethod</a>(<span class='argstr'>methodSymbol</span>)</h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/DefaultLibrary/dumpFullInterface.sc'>/usr/local/share/SuperCollider/SCClassLibrary/DefaultLibrary/dumpFullInterface.sc</a></div>
 <div class='method'>
-<p>Opens the helpfile for the class in which the responding method is implemented.<textarea class='editor'>Array.helpFileForMethod('select'); // This will open the Collection helpfile</textarea>
+<p>Opens the helpfile for the class in which the responding method is implemented.<div class='codeMirrorContainer'><textarea class='editor'>Array.helpFileForMethod('select'); // This will open the Collection helpfile</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asClass' href='./../Overviews/Methods.html#asClass'>asClass</a></h3>
 <div class='method'>
 <p>Return this.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asString' href='./../Overviews/Methods.html#asString'>asString</a></h3>

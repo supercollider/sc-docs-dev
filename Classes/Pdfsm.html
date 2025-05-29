@@ -77,7 +77,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <dt>]<dd></dl>
 Any number of states can be given, and are indexed by the order in which they are given.
 <p>If the fsm is in state x and it receives a <strong>signal value</strong> y it looks up y in the state dictionary supplied for x, if there is no y entry, it looks for a \default entry and uses that.
-<p>The next state is then set to <strong>destination state</strong>, and the stream yielded is given by <strong>return stream or pattern</strong>. That is unless the <strong>destination state</strong> is given as nil, or if a <strong>destination state</strong> is given for which you have not supplied a dictionary - in both cases the current cycle ends and any remaining repeats are executed. If there is no <strong>signal value</strong> given for a particular signal, and no \default is supplied then one will get a runtime error.<textarea class='editor'>(
+<p>The next state is then set to <strong>destination state</strong>, and the stream yielded is given by <strong>return stream or pattern</strong>. That is unless the <strong>destination state</strong> is given as nil, or if a <strong>destination state</strong> is given for which you have not supplied a dictionary - in both cases the current cycle ends and any remaining repeats are executed. If there is no <strong>signal value</strong> given for a particular signal, and no \default is supplied then one will get a runtime error.<div class='codeMirrorContainer'><textarea class='editor'>(
     p = Pdfsm(
         [
             ( // state 0
@@ -204,6 +204,7 @@ for(1, n, { |i|
     ).play;
 })
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pdfsm.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pdfsm.schelp</a><br>link::Classes/Pdfsm::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

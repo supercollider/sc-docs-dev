@@ -79,10 +79,12 @@ var scdoc_sc_version = '3.14.0-dev';
 <p><code>crtscts</code> and <code>xonxoff</code> cannot both be true; <code>*new</code> will throw an error if both are set.</div><h3 class='method-code'><span class='method-prefix'>SerialPort.</span><a class='method-name' name='*devices' href='./../Overviews/Methods.html#devices'>devices</a></h3>
 <div class='method'>
 <p>Retrieve an array of available devices represented as <a href="./../Classes/String.html">Strings</a>. On macOS and Linux, this list is obtained using a number of regular expression rules on files in the <code>/dev/</code> directory. On Windows, this is obtained using a registry key. The matching rules are designed to be identical to that of the Arduino IDE.
-<p>For backward compatibility, if <code>SerialPort.devicePattern</code> is not nil, <code>SerialPort.devicePattern.pathMatch</code> is returned instead of the default behavior.<textarea class='editor'>SerialPort.devices;</textarea>
+<p>For backward compatibility, if <code>SerialPort.devicePattern</code> is not nil, <code>SerialPort.devicePattern.pathMatch</code> is returned instead of the default behavior.<div class='codeMirrorContainer'><textarea class='editor'>SerialPort.devices;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>SerialPort.</span><a class='method-name' name='*listDevices' href='./../Overviews/Methods.html#listDevices'>listDevices</a></h3>
 <div class='method'>
-<p>Prints the list of available devices, one per line. Shorthand for <code>SerialPort.devices.do(_.postln)</code>.<textarea class='editor'>SerialPort.listDevices;</textarea>
+<p>Prints the list of available devices, one per line. Shorthand for <code>SerialPort.devices.do(_.postln)</code>.<div class='codeMirrorContainer'><textarea class='editor'>SerialPort.listDevices;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>SerialPort.</span><a class='method-name' name='*devicePattern' href='./../Overviews/Methods.html#devicePattern'>devicePattern</a></h3>
 <h3 class='method-code'><span class='method-prefix'>SerialPort.</span><a class='method-name' name='*devicePattern' href='./../Overviews/Methods.html#devicePattern'>devicePattern</a> = value</h3>
 <div class='method'>
@@ -122,7 +124,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>Closes the port.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 p = SerialPort(
     "/dev/tty.usbserial-181",
     baudrate: 9600,
@@ -148,9 +150,10 @@ p.doneAction = { "my serial port got closed".postln }
 p.close; // close the port
 
 SerialPort.closeAll; // close all ports</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Arduino%20write%20example'>Arduino write example</a></h3>
 
-<p>First load the sketch Examples/Communication/Dimmer. See <a href="http://www.arduino.cc/en/Tutorial/Dimmer">http://www.arduino.cc/en/Tutorial/Dimmer</a>.<div class='note'><span class='notelabel'>NOTE:</span> Always make sure the serial monitor is closed in the Arduino application before opening the port in SuperCollider.</div><textarea class='editor'>(
+<p>First load the sketch Examples/Communication/Dimmer. See <a href="http://www.arduino.cc/en/Tutorial/Dimmer">http://www.arduino.cc/en/Tutorial/Dimmer</a>.<div class='note'><span class='notelabel'>NOTE:</span> Always make sure the serial monitor is closed in the Arduino application before opening the port in SuperCollider.</div><div class='codeMirrorContainer'><textarea class='editor'>(
 p = SerialPort(
     "/dev/tty.usbserial-A800crTT",    // edit to match your port. SerialPort.listDevices
     baudrate: 9600,    // check that baudrate is the same as in arduino sketch
@@ -169,9 +172,10 @@ r = Routine({
 
 r.stop;
 p.close;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Arduino%20read%20example'>Arduino read example</a></h3>
 
-<p>First load the sketch Examples/Communication/Graph. See <a href="http://www.arduino.cc/en/Tutorial/Graph">http://www.arduino.cc/en/Tutorial/Graph</a>.<div class='note'><span class='notelabel'>NOTE:</span> Always make sure the serial monitor is closed in the Arduino application before opening the port in SuperCollider.</div><textarea class='editor'>(
+<p>First load the sketch Examples/Communication/Graph. See <a href="http://www.arduino.cc/en/Tutorial/Graph">http://www.arduino.cc/en/Tutorial/Graph</a>.<div class='note'><span class='notelabel'>NOTE:</span> Always make sure the serial monitor is closed in the Arduino application before opening the port in SuperCollider.</div><div class='codeMirrorContainer'><textarea class='editor'>(
 p = SerialPort(
     "/dev/tty.usbserial-A800crTT",    // edit to match your port. SerialPort.listDevices
     baudrate: 9600,    // check that baudrate is the same as in arduino sketch
@@ -197,6 +201,7 @@ r = Routine({
 
 r.stop;
 p.close;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SerialPort.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SerialPort.schelp</a><br>link::Classes/SerialPort::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

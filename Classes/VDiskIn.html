@@ -64,7 +64,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>b = Buffer.cueSoundFile(s, ExampleFiles.apollo11, 0, 1);
+<div class='codeMirrorContainer'><textarea class='editor'>b = Buffer.cueSoundFile(s, ExampleFiles.apollo11, 0, 1);
 
 x = { VDiskIn.ar(1, b, LFNoise2.kr(0.2).range(0.5, 2), loop: 1) }.play;
 
@@ -116,8 +116,9 @@ o = OSCFunc({ |msg|
 );
 
 x.free; b.close; b.free; o.free; // clean up eventually</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>The same example in OSC Messaging style, see <a href="./../Guides/NodeMessaging.html">Node Messaging</a><textarea class='editor'>// allocate a disk i/o buffer
+<p>The same example in OSC Messaging style, see <a href="./../Guides/NodeMessaging.html">Node Messaging</a><div class='codeMirrorContainer'><textarea class='editor'>// allocate a disk i/o buffer
 s.sendMsg("/b_alloc", 0, 65536, 1);
 
 // open an input file for this buffer, leave it open
@@ -138,6 +139,7 @@ s.sendMsg("/n_free", x); // stop reading
 s.sendMsg("/b_close", 0); // close the file.
 
 s.sendMsg("/b_free", 0); // frees the buffer</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/VDiskIn.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/VDiskIn.schelp</a><br>link::Classes/VDiskIn::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

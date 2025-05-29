@@ -70,7 +70,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='supmethod'>From superclass: <a href='./../Classes/PatternProxy.html'>PatternProxy</a></div>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-repositoryArgs' href='./../Overviews/Methods.html#repositoryArgs'>repositoryArgs</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("Pdefhelp", { |out, freq, sustain = 1, amp = 1, pan|
     var env, u = 1;
     env = EnvGen.kr(Env.perc(0.01, sustain), 1, doneAction: Done.freeSelf);
@@ -115,6 +115,7 @@ Pdef(\x).play;
 Pbindef(\x, \degree, 7.rand);
 Pbindef(\x, \degree, Pseq([0, 7, 3, 7, 4], inf), \dur, Pn(Pseries(0.2, -0.02, 10)));
 Pbindef(\x, \stretch, 2);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pbindef.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pbindef.schelp</a><br>link::Classes/Pbindef::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

@@ -48,7 +48,8 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>SplayAz spreads an array of channels across a ring of channels. Optional spread and center controls, and flexible levelCompensation tunable for equal power and/or equal amplitude. numChans and orientation are as in <a href="./../Classes/PanAz.html">PanAz</a>.<textarea class='editor'>{ SplayAz.ar(5, [SinOsc.ar, Saw.ar], 0, 1) }.plot;</textarea>
+<p>SplayAz spreads an array of channels across a ring of channels. Optional spread and center controls, and flexible levelCompensation tunable for equal power and/or equal amplitude. numChans and orientation are as in <a href="./../Classes/PanAz.html">PanAz</a>.<div class='codeMirrorContainer'><textarea class='editor'>{ SplayAz.ar(5, [SinOsc.ar, Saw.ar], 0, 1) }.plot;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>SplayAz.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>numChans: 4</span>, <span class='argstr'>inArray</span>, <span class='argstr'>spread: 1</span>, <span class='argstr'>level: 1</span>, <span class='argstr'>width: 2</span>, <span class='argstr'>center: 0.0</span>, <span class='argstr'>orientation: 0.5</span>, <span class='argstr'>levelComp: true</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>SplayAz.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>numChans: 4</span>, <span class='argstr'>inArray</span>, <span class='argstr'>spread: 1</span>, <span class='argstr'>level: 1</span>, <span class='argstr'>width: 2</span>, <span class='argstr'>center: 0.0</span>, <span class='argstr'>orientation: 0.5</span>, <span class='argstr'>levelComp: true</span>)</h3>
@@ -59,7 +60,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>numChans<td class='argumentdesc'>
 <p>Number of output channels of the UGen<tr><td class='argumentname'>inArray<td class='argumentdesc'>
 <p>Input signals (can be a single UGen or an array)<tr><td class='argumentname'>spread<td class='argumentdesc'>
-<p>How far the input signals are apart in the output. If zero, everything is mixed on center position (see below).<textarea class='editor'>{ SplayAz.ar(6, [SinOsc.ar, Saw.ar(800)], spread: MouseX.kr(0, 1).poll) * 0.3 }.scope;</textarea>
+<p>How far the input signals are apart in the output. If zero, everything is mixed on center position (see below).<div class='codeMirrorContainer'><textarea class='editor'>{ SplayAz.ar(6, [SinOsc.ar, Saw.ar(800)], spread: MouseX.kr(0, 1).poll) * 0.3 }.scope;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <tr><td class='argumentname'>level<td class='argumentdesc'>
 <p>Scaling for all signals<tr><td class='argumentname'>width<td class='argumentdesc'>
 <p>Over how much of the channels each signal is distributed.<tr><td class='argumentname'>center<td class='argumentdesc'>
@@ -80,7 +82,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 x = { |spread = 1, level = 0.2, width = 2, center = 0.0|
  SplayAz.ar(
   4,
@@ -148,6 +150,7 @@ x = { var src;
 
     // wrong equal spread to pan values [-1, 0, 1], which outputs to chans 2, 0, 2
 { SplayZ.ar(6, SinOsc.ar([2, 3, 5] * 200) * 0.2, orientation: 0) }.scope;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SplayAz.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SplayAz.schelp</a><br>link::Classes/SplayAz::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

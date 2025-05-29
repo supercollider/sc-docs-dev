@@ -55,34 +55,38 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>See <a href="./../Classes/Clock.html">Clock</a> for general explanation of how clocks operate.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>AppClock.</span><a class='method-name' name='*sched' href='./../Overviews/Methods.html#sched'>sched</a>(<span class='argstr'>delta</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
-<p>The float you return specifies the delta to resched the function for. Returning nil will stop the task from being rescheduled.<textarea class='editor'>(
+<p>The float you return specifies the delta to resched the function for. Returning nil will stop the task from being rescheduled.<div class='codeMirrorContainer'><textarea class='editor'>(
 AppClock.sched(0.0, { |time|
     ["AppClock has been playing for ", time].postln;
     rrand(0.1, 0.9);
 });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p><textarea class='editor'>(
+<p><div class='codeMirrorContainer'><textarea class='editor'>(
 t = Main.elapsedTime;
 "It is now % seconds after the computer booted.".format(t).postln;
 AppClock.sched(2.0, { "It is now % sec later".format(Main.elapsedTime - t).postln; nil })
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>AppClock.</span><a class='method-name' name='*schedAbs' href='./../Overviews/Methods.html#schedAbs'>schedAbs</a>(<span class='argstr'>time</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
 <p>Schedules a task to be performed at a particular time. Because <code>AppClock</code> is not intended to schedule with high precision, this time is approximate.
 <p>When the scheduling time is up, the task's <code>awake</code> method is called. If the method returns a number, the task will be rescheduled for the time equal to the last scheduling time plus the returned value.
-<p>See also: <a href="./../Classes/Clock.html#Scheduling">Clock: Scheduling</a>, <a href="./../Classes/Object.html#-awake">Object: -awake</a>.<textarea class='editor'>(
+<p>See also: <a href="./../Classes/Clock.html#Scheduling">Clock: Scheduling</a>, <a href="./../Classes/Object.html#-awake">Object: -awake</a>.<div class='codeMirrorContainer'><textarea class='editor'>(
 t = Main.elapsedTime;
 "It is now % seconds after the computer booted.".format(t).postln;
 AppClock.schedAbs(t + 1.0, { "It is now % sec later".format(Main.elapsedTime - t).postln; nil })
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>AppClock.</span><a class='method-name' name='*clear' href='./../Overviews/Methods.html#clear'>clear</a></h3>
 <div class='method'>
-<p>Clear the AppClock's scheduler to stop it.<textarea class='editor'>AppClock.clear;</textarea>
+<p>Clear the AppClock's scheduler to stop it.<div class='codeMirrorContainer'><textarea class='editor'>AppClock.clear;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>AppClock.</span><a class='method-name' name='*play' href='./../Overviews/Methods.html#play'>play</a>(<span class='argstr'>task</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Clock.html'>Clock</a></div>
 <div class='method'>
-<p>The <a href="./../Classes/Routine.html">Routine</a> (or <a href="./../Classes/Task.html">Task</a>) yields a float value indicating the delta (secs) for the AppClock to wait until resuming the Routine.<textarea class='editor'>(
+<p>The <a href="./../Classes/Routine.html">Routine</a> (or <a href="./../Classes/Task.html">Task</a>) yields a float value indicating the delta (secs) for the AppClock to wait until resuming the Routine.<div class='codeMirrorContainer'><textarea class='editor'>(
 var w, r;
 w = Window.new("trem", Rect(512, 256, 360, 130));
 w.front;
@@ -98,6 +102,7 @@ r = Routine({ |appClockTime|
 });
 AppClock.play(r);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>AppClock.</span><a class='method-name' name='*tick' href='./../Overviews/Methods.html#tick'>tick</a></h3>
 <div class='method'>
 <p>AppClock.tick is called periodically by the SuperCollider language interpreter. This updates the <a href="./../Classes/Scheduler.html">Scheduler</a> and causes any scheduled tasks to be executed. You should never call this method yourself.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>

@@ -63,9 +63,11 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>The above implementation is simple to use, because it only requires to register each observer to the intended subject. However it is limited by the fact that the action to be performed by the observer is coded in the update method. This makes it complicated to code the choice of different actions to be performed depending on the subject, the observer, and the messages sent as arguments with the <code>changed</code> message. The NotificationCenter class provides a way to tell each observer what action to perform depending on the subject and on a symbol which is sent as argument together with the method broadcast by the subject. Thus, to make an observer perform an action when it receives a message symbol from a subject, it is necessary to specify the following 4 objects:<ol>
 <li>The subject (Any kind of object except nil)<li>The message (A symbol)<li>The observer (Any kind of object except nil)<li>The action to be performed (A Function)</ol>
 
-<p>Using the NotificationCenter class, a connection between a subject and an observer to perform an action in response to a message is created by the following code:<textarea class='editor'>NotificationCenter.register(subject, message, observer, action)</textarea>
+<p>Using the NotificationCenter class, a connection between a subject and an observer to perform an action in response to a message is created by the following code:<div class='codeMirrorContainer'><textarea class='editor'>NotificationCenter.register(subject, message, observer, action)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>To notify observers that a subject has changed, the NotificationCenter must call the method <code>notify</code> :<textarea class='editor'>NotificationCenter.notify(subject, message, &lt;optional arguments&gt;...);</textarea>
+<p>To notify observers that a subject has changed, the NotificationCenter must call the method <code>notify</code> :<div class='codeMirrorContainer'><textarea class='editor'>NotificationCenter.notify(subject, message, &lt;optional arguments&gt;...);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Any object that has been registered as observer to the subject issuing the notification, will perform the action that is coupled to the message of the notification. It is thus possible to make any observer object perform a specified action when receiving the corresponding message from the object with which it has been registered. <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>NotificationCenter.</span><a class='method-name' name='*notify' href='./../Overviews/Methods.html#notify'>notify</a>(<span class='argstr'>object</span>, <span class='argstr'>message</span>, <span class='argstr'>args</span>)</h3>
@@ -86,12 +88,14 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='Example'>Example</a></h2>
 
-<p>When a Server boots or quits, it notifies its observers sending them the message \newAllocators:<textarea class='editor'>NotificationCenter.notify(server, \newAllocators)</textarea>
+<p>When a Server boots or quits, it notifies its observers sending them the message \newAllocators:<div class='codeMirrorContainer'><textarea class='editor'>NotificationCenter.notify(server, \newAllocators)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Therefore any object that wants to perform an action when a server boots or quits, can use NotificationCenter to register the action using the following code:<textarea class='editor'>// using default server as subject and a symbol as observer:
+<p>Therefore any object that wants to perform an action when a server boots or quits, can use NotificationCenter to register the action using the following code:<div class='codeMirrorContainer'><textarea class='editor'>// using default server as subject and a symbol as observer:
 NotificationCenter.register(Server.default, \newAllocators, \yourself, {
     // Substitute anything more meaningful here:
     "symbol yourself was notified newAllocators by default server".postln;
 });</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NotificationCenter.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NotificationCenter.schelp</a><br>link::Classes/NotificationCenter::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

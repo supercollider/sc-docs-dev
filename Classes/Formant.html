@@ -61,7 +61,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// modulate fundamental frequency, formant freq stays constant
+<div class='codeMirrorContainer'><textarea class='editor'>// modulate fundamental frequency, formant freq stays constant
 { Formant.ar(XLine.kr(400, 1000, 8), 2000, 800, 0.125) }.play
 
 // modulate formant frequency, fundamental freq stays constant
@@ -69,6 +69,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 // modulate width frequency, other freqs stay constant
 { Formant.ar(400, 2000, XLine.kr(800, 8000, 8), 0.125) }.play</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Formant.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Formant.schelp</a><br>link::Classes/Formant::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

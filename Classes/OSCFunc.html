@@ -112,7 +112,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-argTemplate' href='./../Overviews/Methods.html#argTemplate'>argTemplate</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>n = NetAddr("127.0.0.1", NetAddr.langPort); // local machine
+<div class='codeMirrorContainer'><textarea class='editor'>n = NetAddr("127.0.0.1", NetAddr.langPort); // local machine
 
 OSCFunc.newMatching({ |msg, time, addr, recvPort| \matching.postln }, '/chat', n); // path matching
 OSCFunc({ |msg, time, addr, recvPort| \oneShot.postln }, '/chat', n).oneShot; // once only
@@ -148,6 +148,7 @@ s.boot;
 x = Synth(\default);
 OSCFunc({ 'ended!'.postln }, '/n_end', s.addr, nil, [x.nodeID]).oneShot;
 x.release(3);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/OSCFunc.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/OSCFunc.schelp</a><br>link::Classes/OSCFunc::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

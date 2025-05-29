@@ -61,7 +61,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>A Wavetable is a FloatArray in a special format used by SuperCollider's interpolating oscillators. Wavetables cannot be created by <strong>new</strong>.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Wavetable.</span><a class='method-name' name='*sineFill' href='./../Overviews/Methods.html#sineFill'>sineFill</a>(<span class='argstr'>size</span>, <span class='argstr'>amplitudes</span>, <span class='argstr'>phases</span>)</h3>
 <div class='method'>
-<p>Fill a Wavetable of the given size with a sum of sines at the given amplitudes and phases. The Wavetable will be normalized.<textarea class='editor'>Wavetable.sineFill(512, 1.0/[1, 2, 3, 4, 5, 6]).plot;</textarea>
+<p>Fill a Wavetable of the given size with a sum of sines at the given amplitudes and phases. The Wavetable will be normalized.<div class='codeMirrorContainer'><textarea class='editor'>Wavetable.sineFill(512, 1.0/[1, 2, 3, 4, 5, 6]).plot;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><h4>Arguments:</h4>
 <table class='arguments'>
@@ -78,7 +79,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>a <a href="./../Classes/Boolean.html">Boolean</a> indicating whether to normalize the resulting Wavetable. If the zeroOffset argument is true, the normalization is done for use as a transfer function, using <a href="./../Classes/Signal.html#-normalizeTransfer">normalizeTransfer</a>, otherwise it just uses <a href="./../Classes/Signal.html#-normalize">normalize</a> to make the absolute peak value 1. Default is true.<tr><td class='argumentname'>zeroOffset<td class='argumentdesc'>
 <p>a <a href="./../Classes/Boolean.html">Boolean</a> indicating whether to offset the middle of each polynomial to zero. If true, then a zero input will always result in a zero output when used as a <a href="./../Classes/Shaper.html">waveshaper</a>. If false, then the "raw" (unshifted) Chebyshev polynomials are used. Default is false.</table><h4>Discussion:</h4>
 <div class='note'><span class='notelabel'>NOTE:</span> In previous versions, chebyFill always offset the curves to ensure the center value was zero. The zeroOffset argument was added in version 3.7, and the default behavior was changed, so that it no longer offsets.</div>
-<p><textarea class='editor'>Wavetable.chebyFill(513, [1]).plot;
+<p><div class='codeMirrorContainer'><textarea class='editor'>Wavetable.chebyFill(513, [1]).plot;
 
 // shifted to avoid DC offset when waveshaping a zero signal
 Wavetable.chebyFill(513, [0, 1], zeroOffset: true).plot;
@@ -120,6 +121,7 @@ s.waitForBoot({
 })
 )
 x.free; b.do(_.free); b = nil;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Wavetable.</span><a class='method-name' name='*chebyFill_old' href='./../Overviews/Methods.html#chebyFill_old'>chebyFill_old</a>(<span class='argstr'>size</span>, <span class='argstr'>amplitudes</span>)</h3>
@@ -129,8 +131,9 @@ x.free; b.do(_.free); b = nil;</textarea>
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plot' href='./../Overviews/Methods.html#plot'>plot</a>: METHOD NOT FOUND!</h3>
 <div class='method'>
-<p>Plot the Wavetable in a window. The arguments are not required and if not given defaults will be used.<textarea class='editor'>Wavetable.sineFill(512, [0.5]).plot;
+<p>Plot the Wavetable in a window. The arguments are not required and if not given defaults will be used.<div class='codeMirrorContainer'><textarea class='editor'>Wavetable.sineFill(512, [0.5]).plot;
 Wavetable.sineFill(512, [1]).plot("Table 1", Rect(50, 50, 150, 450));</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><h4>Arguments:</h4>
 <table class='arguments'>
@@ -139,17 +142,20 @@ Wavetable.sineFill(512, [1]).plot("Table 1", Rect(50, 50, 150, 450));</textarea>
 <p>a Rect giving the bounds of the window.<tr><td class='argumentname'>minval<td class='argumentdesc'>
 <p>the minimum value in the plot. Defaults to the highest value in the data.<tr><td class='argumentname'>maxval<td class='argumentdesc'>
 <p>the maximum value in the plot. Defaults to the lowest value in the data.<tr><td class='argumentname'>parent<td class='argumentdesc'>
-<p>Either a <a href="./../Classes/Window.html">Window</a> or <a href="./../Classes/View.html">View</a> may be passed in - then the plot is embedded. Otherwise a new <a href="./../Classes/Window.html">Window</a> is created.<textarea class='editor'>(
+<p>Either a <a href="./../Classes/Window.html">Window</a> or <a href="./../Classes/View.html">View</a> may be passed in - then the plot is embedded. Otherwise a new <a href="./../Classes/Window.html">Window</a> is created.<div class='codeMirrorContainer'><textarea class='editor'>(
 var w = Window("parent");
 Wavetable.sineFill(512, 1.0/[1, 2, 3, 4, 5, 6]).plot(parent: w);
 w.front
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asSignal' href='./../Overviews/Methods.html#asSignal'>asSignal</a></h3>
 <div class='method'>
-<p>Convert the Wavetable into a Signal.<textarea class='editor'>Wavetable.sineFill(512, [1]).asSignal.plot;</textarea>
+<p>Convert the Wavetable into a Signal.<div class='codeMirrorContainer'><textarea class='editor'>Wavetable.sineFill(512, [1]).asSignal.plot;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Advanced%20notes:%20wavetable%20format'>Advanced notes: wavetable format</a></h3>
-<textarea class='editor'>Signal: [a0, a1, a2...]
+<div class='codeMirrorContainer'><textarea class='editor'>Signal: [a0, a1, a2...]
 Wavetable: [2*a0-a1, a1-a0, 2*a1-a2, a2-a1, 2*a2-a3, a3-a2...]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>This strange format is not a standard linear interpolation (integer + frac), but for (integer part -1) and (1+frac)) due to some efficient maths for integer to float conversion in the underlying C code.<h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>

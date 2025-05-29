@@ -97,7 +97,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>History stores all code strings as they are being evaluated, in order to reuse code written earlier, to forward code to other players, or to store, reproduce, edit and analyse live-coded performances. It records every evaluated code string into a singleton instance of History - <code>History.current</code>.
-<p>First examples:<textarea class='editor'>History.clear.end;     // if needed, clear History first
+<p>First examples:<div class='codeMirrorContainer'><textarea class='editor'>History.clear.end;     // if needed, clear History first
 History.start;         // starts recording, opens log file
 
 // execute these lines one by one, as a little performance history
@@ -143,6 +143,7 @@ History.end;
 
 // Replays history, including a CmdPeriod, and keeps replaying history.
 History.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <div class='note'><span class='notelabel'>NOTE:</span> Many class methods are redirected to the privileged instance of History, <code>History.current</code>. This is intended to provide a simple code user interface.</div><h3 class='method-code'><span class='method-prefix'>History.</span><a class='method-name' name='*start' href='./../Overviews/Methods.html#start'>start</a></h3>
 <div class='method'>
@@ -217,11 +218,12 @@ History.play;</textarea>
 <div class='method'>
 <p>global flag whether evaluating code lines via History will ignore errors or stop and throw them.</div><h3 class='method-code'><span class='method-prefix'>History.</span><a class='method-name' name='*eval' href='./../Overviews/Methods.html#eval'>eval</a>(<span class='argstr'>codeString</span>, <span class='argstr'>ignoreError</span>)</h3>
 <div class='method'>
-<p>evaluate codeString, and optionally, use ignoreError to override global ignoreErrors flag.<textarea class='editor'>History.ignoreErrors = true;
+<p>evaluate codeString, and optionally, use ignoreError to override global ignoreErrors flag.<div class='codeMirrorContainer'><textarea class='editor'>History.ignoreErrors = true;
 History.eval("2 + 1").postln; // correct code, so is just evaluated
 History.eval("2 + qwe"); 123; // compile error, but keeps going and posts 123
 History.eval("1.blonk"); 123; // runtime error, keeps going -&gt; posts 123
 History.eval("1.blonk", false); 123; // throws error and stops, code after it never happens.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>History.</span><a class='method-name' name='*evalLineAt' href='./../Overviews/Methods.html#evalLineAt'>evalLineAt</a>(<span class='argstr'>index</span>)</h3>
 <div class='method'>
 <p>evaluate the line at index in History.current.lines</div><h3 class='method-code'><span class='method-prefix'>History.</span><a class='method-name' name='*play' href='./../Overviews/Methods.html#play'>play</a>(<span class='argstr'>start: 0</span>, <span class='argstr'>end</span>, <span class='argstr'>verbose: true</span>)</h3>
@@ -255,7 +257,7 @@ History.eval("1.blonk", false); 123; // throws error and stops, code after it ne
 <div class='method'>
 <p>find line indices created by keys and containing string. used for filtering.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// same as first example:
+<div class='codeMirrorContainer'><textarea class='editor'>// same as first example:
 History.clear.end;      // clear to start over
 History.start;          // starts recording, opens log file
 
@@ -425,6 +427,7 @@ h.indicesFor([\me, \they], "=");    // indices for line written by \me or \her A
 h.makeWin;
 
 HistoryGui.help;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/History.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/History.schelp</a><br>link::Classes/History::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

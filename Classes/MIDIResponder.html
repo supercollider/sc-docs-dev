@@ -70,26 +70,30 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Any of the matching values may be one of the following:<dl>
 <dt>Nil<dd>Match anything. eg. if chan is nil, then respond to any MIDI channel.<dt>Integer<dd>Match only this specific number.<dt>Array<dd>Match any item in the array. Any kind of <a href="./../Classes/Collection.html">Collection</a> will work here.<dt>Function<dd>Evaluate the function with the incoming value as the argument. The function should return true or false.</dl>
 
-<p>For instance, the following example would respond to note on messages from any port, channels 2 and 7 only, even numbered note numbers only, and only velocity values greater than 50.<textarea class='editor'>NoteOnResponder({ |src, chan, num, vel| [src, chan, num, vel].postln },
+<p>For instance, the following example would respond to note on messages from any port, channels 2 and 7 only, even numbered note numbers only, and only velocity values greater than 50.<div class='codeMirrorContainer'><textarea class='editor'>NoteOnResponder({ |src, chan, num, vel| [src, chan, num, vel].postln },
     nil,    // any port
     [2, 7],    // midi channels 2 or 7 only
     (0, 2..126),    // this is an array of even numbers. could also be specified as { |num| num.even } or _.even
     { |vel| vel &gt; 50 });    // velocities greater than 50</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>MIDIResponders automatically initialize the MIDIClient with 1 standard device. This means the first time you install any MIDIResponder, it will make sure that MIDI has been initialized. If you have more devices or a specific setup, simply initialize the MIDIClient yourself before using any MIDIResponders.<h3><a class='anchor' name='Removal'>Removal</a></h3>
 
-<p>Just call .remove on the responder.<textarea class='editor'>c = CCResponder({ ... }, num: 1);    // respond to any modwheel
+<p>Just call .remove on the responder.<div class='codeMirrorContainer'><textarea class='editor'>c = CCResponder({ ... }, num: 1);    // respond to any modwheel
 
 c.remove;        // stop this responder</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Or remove all of a specific class:<textarea class='editor'>CCResponder.removeAll
+<p>Or remove all of a specific class:<div class='codeMirrorContainer'><textarea class='editor'>CCResponder.removeAll
 NoteOnResponder.removeAll
 NoteOffResponder.removeAll
 BendResponder.removeAll
 TouchResponder.removeAll
 ProgramChange.removeAll</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>or remove all midi responders in all classes:<textarea class='editor'>MIDIResponder.removeAll</textarea>
+<p>or remove all midi responders in all classes:<div class='codeMirrorContainer'><textarea class='editor'>MIDIResponder.removeAll</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>

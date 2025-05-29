@@ -86,7 +86,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-preparationMessages' href='./../Overviews/Methods.html#preparationMessages'>preparationMessages</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sendAtTime' href='./../Overviews/Methods.html#sendAtTime'>sendAtTime</a>(<span class='argstr'>server</span>, <span class='argstr'>atTime</span>, <span class='argstr'>timeOfRequest</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// create a new, empty instance
+<div class='codeMirrorContainer'><textarea class='editor'>// create a new, empty instance
 a = OSCBundle.new;
 
 // a synthdef that needs to be sent to the server, an operation that is asynchronous,
@@ -122,6 +122,7 @@ s.freeAll; // free all nodes on the server
 // the proparationMessages are sent first and only when they are all completed,
 // the other bundles are sent.
 // the bundle can also be reused, if there is no specific allocated buffers/node ids.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/OSCBundle.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/OSCBundle.schelp</a><br>link::Classes/OSCBundle::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

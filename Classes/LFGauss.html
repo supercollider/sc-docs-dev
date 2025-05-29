@@ -78,14 +78,15 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>Returns the function's lowest value for the given <strong>width</strong> parameter, which is <code>exp(1.0 / (-2.0 * width^2))</code>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-range' href='./../Overviews/Methods.html#range'>range</a>(<span class='argstr'>min: 0</span>, <span class='argstr'>max: 1</span>)</h3>
 <div class='method'>
-<p>Scales the output to the given range. This can be convenient when using <code>LFGauss</code> as an envelope (see <a href="#examples">examples</a> below).<textarea class='editor'>// high width, curve minimum around is 0.25
+<p>Scales the output to the given range. This can be convenient when using <code>LFGauss</code> as an envelope (see <a href="#examples">examples</a> below).<div class='codeMirrorContainer'><textarea class='editor'>// high width, curve minimum around is 0.25
 { LFGauss.ar(0.01, 0.6) }.plot;
 // use .range to map the same function to a specified range
 { LFGauss.ar(0.01, 0.6).range(0, 2) }.plot;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <h3><a class='anchor' name='Example%20plots'>Example plots</a></h3>
-<textarea class='editor'>s.boot;
+<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 
 // a 0.1 second grain
 { LFGauss.ar(0.1, 0.12) }.plot(0.1);
@@ -98,6 +99,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 // several grains
 { LFGauss.ar(0.065, 0.12, 0, loop: 1) }.plot(0.3);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Min%20and%20max%20values,%20curve%20width'>Min and max values, curve width</a></h3>
 
 <p><a href="#-minval">-minval</a> for a given <strong>width</strong> (assuming <strong>iphase</strong> <code>= 0</code>) is:
@@ -105,7 +107,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p><strong>width</strong> for a given <a href="#-minval">-minval</a> is:
 <p><code>width = sqrt(-1.0 / log(minval))</code>
 <p><strong>width</strong> at half of the maximum value(<code>0.5</code>) is:
-<p><code>(2 * sqrt(2 * log(2)) * width) = ca. 2.355 * width</code><textarea class='editor'>// minval for a width of 0.1:
+<p><code>(2 * sqrt(2 * log(2)) * width) = ca. 2.355 * width</code><div class='codeMirrorContainer'><textarea class='editor'>// minval for a width of 0.1:
 (exp(1 / (-2.0 * squared(0.1)))) // 2e-22
 
 // maximum width for a beginning at -60dB:
@@ -138,8 +140,9 @@ sqrt(-1 / (2 * log(-60.dbamp))) // 0.269
     LFGauss.ar(0.1, width, loop: 1).range(0, 1);
 }.plot(1)
 );</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Sound%20examples'>Sound examples</a></h3>
-<textarea class='editor'>// modulating duration
+<div class='codeMirrorContainer'><textarea class='editor'>// modulating duration
 { LFGauss.ar(XLine.kr(0.1, 0.001, 10), 0.03) * 0.2 }.play;
 
 // modulating width, freq 60 Hz
@@ -180,8 +183,9 @@ sqrt(-1 / (2 * log(-60.dbamp))) // 0.269
     BPF.ar(son * 3, MouseX.kr(60, 2000, 1), 0.05)
 }.play
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Gabor%20Grain'>Gabor Grain</a></h3>
-<div class='note'><span class='notelabel'>NOTE:</span> The gaussian function doesn't start with <code>0</code> – it asymptotically approaches it at <code>-inf</code> and <code>inf</code>. When using it as an envelope, it has to start at some smaller value, and it has an offset for this value. You can remove this offset by explicitly setting the <a href="#-range">-range</a>, e.g. to <code>[0, 1]</code> (this is the default).</div><textarea class='editor'>// first, visualize LFGauss as a granular envelope on a sine oscillator
+<div class='note'><span class='notelabel'>NOTE:</span> The gaussian function doesn't start with <code>0</code> – it asymptotically approaches it at <code>-inf</code> and <code>inf</code>. When using it as an envelope, it has to start at some smaller value, and it has an offset for this value. You can remove this offset by explicitly setting the <a href="#-range">-range</a>, e.g. to <code>[0, 1]</code> (this is the default).</div><div class='codeMirrorContainer'><textarea class='editor'>// first, visualize LFGauss as a granular envelope on a sine oscillator
 (
 var freq = 1000;
 var ncycles = 10;
@@ -238,6 +242,7 @@ SynthDef(\gabor, { |out, i_freq = 440, i_sustain = 1, i_pan = 1, i_amp = 0.1, i_
     OffsetOut.ar(out, Pan2.ar(son, i_pan, i_amp));
 }).add;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LFGauss.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LFGauss.schelp</a><br>link::Classes/LFGauss::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

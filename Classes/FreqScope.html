@@ -66,7 +66,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>An instance of <a href="./../Classes/Color.html">Color</a>. The background color of the scope.<tr><td class='argumentname'>server<td class='argumentdesc'>
 <p>the server whose buses to show on scope.</table><h4>Discussion:</h4>
 
-<p>Example:<textarea class='editor'>s.boot;
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 
 // create a new analyzer
 FreqScope.new(400, 200, 0, server: s);
@@ -82,6 +82,7 @@ FreqScope.new(400, 200, 0, server: s);
 
 // all harmonics
 { Blip.ar(200, Line.kr(1, 100, 10), 0.2) }.play(s);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Subclassing%20and%20Internal%20Methods'>Subclassing and Internal Methods</a></h3>
 
 <p>The following methods are usually not used directly or are called by a primitive. Programmers can still call or override these as needed.<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*scopeOpen' href='./../Overviews/Methods.html#scopeOpen'>scopeOpen</a></h3>

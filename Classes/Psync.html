@@ -83,7 +83,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-tolerance' href='./../Overviews/Methods.html#tolerance'>tolerance</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-tolerance' href='./../Overviews/Methods.html#tolerance'>tolerance</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef(\help_sinegrain,
     { |out = 0, freq = 440, sustain = 0.05, pan|
         var env;
@@ -141,6 +141,7 @@ Ppar([
     Pbind(\instrument, \help_sinegrain, \freq, 1000, \sustain, 0.01, \dur, 2) // metronome
 ]).play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Psync.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Psync.schelp</a><br>link::Classes/Psync::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

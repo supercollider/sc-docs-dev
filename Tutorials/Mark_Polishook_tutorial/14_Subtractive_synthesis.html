@@ -43,7 +43,8 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>The basic idea of subtractive synthesis is similar to making coffee: something goes through a filter to remove unwanted components from the final product.<h2><a class='anchor' name='The%20.dumpClassSubtree%20message'>The .dumpClassSubtree message</a></h2>
 
-<p>Get a list of ugen filters in SuperCollider 3, by sending the .dumpClassSubtree message to the Filter class, as in<textarea class='editor'>Filter.dumpClassSubtree;</textarea>
+<p>Get a list of ugen filters in SuperCollider 3, by sending the .dumpClassSubtree message to the Filter class, as in<div class='codeMirrorContainer'><textarea class='editor'>Filter.dumpClassSubtree;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>( <code>Object.dumpClassSubtree</code> prints all SuperCollider classes)
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////<ul class='tree'><li> <a href='./../../Classes/Filter.html'>Filter</a> - Base class for filter UGens
@@ -124,7 +125,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </ul>
 </ul>
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////
-<p>Use LPF, a low-pass filter to subtract high-frequency content from an input source.<textarea class='editor'>(
+<p>Use LPF, a low-pass filter to subtract high-frequency content from an input source.<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("subtractive", { arg out;
     Out.ar(
         out,
@@ -137,9 +138,10 @@ SynthDef("subtractive", { arg out;
 )
 
 Synth("subtractive")</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////
-<p>RLPF, a resonant low-pass filter, removes high-frequency content and emphasizes the cutoff frequency.<textarea class='editor'>(
+<p>RLPF, a resonant low-pass filter, removes high-frequency content and emphasizes the cutoff frequency.<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("passLowFreqs2", { arg out;
     Out.ar(
         out,
@@ -153,10 +155,11 @@ SynthDef("passLowFreqs2", { arg out;
 )
 
 Synth("passLowFreqs2")</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////
 <p>Resonz is a very, very, very strong filter. Use it to emphasize a frequency band.
-<p>Transform noise into pitch with a sharp cutoff.<textarea class='editor'>(
+<p>Transform noise into pitch with a sharp cutoff.<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("noiseToPitch", { arg out = 0, mul = 1;
     Out.ar(
         out,
@@ -174,6 +177,7 @@ SynthDef("noiseToPitch", { arg out = 0, mul = 1;
 Synth("noiseToPitch", [\out, 0, \mul, 1]);
 Synth("noiseToPitch", [\out, 1, \mul, 1]);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////
 <p>go to <a href="./../../Tutorials/Mark_Polishook_tutorial/15_Groups.html">15_Groups</a><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/Mark_Polishook_tutorial/14_Subtractive_synthesis.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/Mark_Polishook_tutorial/14_Subtractive_synthesis.schelp</a><br>link::Tutorials/Mark_Polishook_tutorial/14_Subtractive_synthesis::<br></div></div><script src='./../../static/editor.js' type='text/javascript'></script>

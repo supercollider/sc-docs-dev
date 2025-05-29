@@ -47,14 +47,15 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Most conventional synthesizers have a mode where playing a note while the previous note is still sustaining slides from one note to the other. The <a href="./../../Classes/PmonoArtic.html">PmonoArtic</a> pattern does this based on the event's sustain value. The delta value is the number of beats until the next event; sustain is the number of beats until the note releases. If sustain is shorter than delta, the note should cut off early and the next event should produce a new synth.
 <p>The example uses <a href="./../../Classes/Pfsm.html">Pfsm</a> (finite state machine) to arrange a set of predefined phrases in a partially randomized order. Each phrase is followed by a list pointing to the phrases that could legitimately follow the current phrase. That is, it might make musical sense to go from phrase 1 to phrase 2, but not from 1 to 3. Defining the successors for 1 appropriately makes sure that a nonsense transition will not be made.
 <p>This is a long example, but it's only because there are lots of phrases. The structure is very simple: just a set of phrases chosen in succession by Pfsm.
-<p>- <strong>Third-party extension alert</strong> : In this example, the selection of the next phrase is explicitly weighted by repeating array elements, such as <code>#[1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 5]</code>. A more elegant way to do this is using the <strong>WeighBag</strong> class in the <strong>MathLib</strong> quark.<textarea class='editor'>// the following are equivalent:
+<p>- <strong>Third-party extension alert</strong> : In this example, the selection of the next phrase is explicitly weighted by repeating array elements, such as <code>#[1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 5]</code>. A more elegant way to do this is using the <strong>WeighBag</strong> class in the <strong>MathLib</strong> quark.<div class='codeMirrorContainer'><textarea class='editor'>// the following are equivalent:
 a = #[1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 5];
 ({ a.choose } ! 100).histo(5, 1, 5);
 
 a = WeighBag.with((1..5), #[4, 2, 2, 2, 1]);
 ({ a.wchoose } ! 100).histo(5, 1, 5);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Example'>Example</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 // this SynthDef has a strong attack, emphasizing the articulation
 SynthDef(\sawpulse, { |out, freq = 440, gate = 0.5, plfofreq = 6, mw = 0, ffreq = 2000, rq = 0.3, freqlag = 0.05, amp = 1|
     var sig, plfo, fcurve;
@@ -205,6 +206,7 @@ p = Pmul(\amp, 0.4, Pfsm([
 )
 
 p.stop;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Previous: <a href="./../../Tutorials/A-Practical-Guide/PG_Cookbook05_Using_Samples.html">Pattern Guide Cookbook 05: Using Samples</a>
 <p>Next: <a href="./../../Tutorials/A-Practical-Guide/PG_Cookbook07_Rhythmic_Variations.html">Pattern Guide Cookbook 07: Rhythmic Variations</a><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/A-Practical-Guide/PG_Cookbook06_Phrase_Network.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/A-Practical-Guide/PG_Cookbook06_Phrase_Network.schelp</a><br>link::Tutorials/A-Practical-Guide/PG_Cookbook06_Phrase_Network::<br></div></div><script src='./../../static/editor.js' type='text/javascript'></script>

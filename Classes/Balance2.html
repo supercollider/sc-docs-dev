@@ -61,7 +61,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// a stereo signal, both channels at 0dB
+<div class='codeMirrorContainer'><textarea class='editor'>// a stereo signal, both channels at 0dB
 { [SinOsc.ar(440), SinOsc.ar(440)] }.play
 
 // using Balance on a stereo signal with the position parameter at 0, effectively the same sound but both channels at -3dB
@@ -73,6 +73,7 @@ var scdoc_sc_version = '3.14.0-dev';
 // other examples
 { Balance2.ar(LFSaw.ar(44), Pulse.ar(33), FSinOsc.kr(0.5), 0.1) }.play;
 { var source; source = SinOsc.ar([440, 550]); Balance2.ar(source[0], source[1], LFNoise0.kr(4), 0.3) }.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Balance2.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Balance2.schelp</a><br>link::Classes/Balance2::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

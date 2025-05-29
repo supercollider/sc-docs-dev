@@ -43,7 +43,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.if' href='./../Overviews/Methods.html#if'>if</a></h3>
 <div class='method'>
 <p></div><h2><a class='anchor' name='example'>example</a></h2>
-<textarea class='editor'>if ( [false, true].choose,                // Boolean expression (chooses one at random)
+<div class='codeMirrorContainer'><textarea class='editor'>if ( [false, true].choose,                // Boolean expression (chooses one at random)
     { "expression was true".postln },    // true function
     { "expression was false".postln }    // false function
 )
@@ -53,16 +53,18 @@ var a = 1, z;
 z = if (a &lt; 5, { 100 },{ 200 });
 z.postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>UGens can also use if
-<p>the condition ugen is 0 / 1<textarea class='editor'>(
+<p>the condition ugen is 0 / 1<div class='codeMirrorContainer'><textarea class='editor'>(
     {
         if( LFNoise1.kr(1.0,0.5,0.5) , SinOsc.ar, Saw.ar )
     }.play
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='optimization'>optimization</a></h2>
 
-<p>the functions will be inlined, which plucks the code from the functions and uses a more efficient jump statement.<textarea class='editor'>{
+<p>the functions will be inlined, which plucks the code from the functions and uses a more efficient jump statement.<div class='codeMirrorContainer'><textarea class='editor'>{
     if( 6 == 9,{
         "hello".postln;
     },{
@@ -82,8 +84,9 @@ BYTECODES: (18)
  15   A1 00    SendMsg 'postln'
  17   F2       BlockReturn
 a FunctionDef in closed FunctionDef</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>failure to inline due to variable declarations<textarea class='editor'>{
+<p>failure to inline due to variable declarations<div class='codeMirrorContainer'><textarea class='editor'>{
 
     if( 6 == 9,{
         var notHere;
@@ -109,7 +112,8 @@ BYTECODES: (12)
   9   C3 0B    SendSpecialMsg 'if'
  11   F2       BlockReturn
 a FunctionDef in closed FunctionDef</textarea>
-<textarea class='editor'>{
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>{
     if( 6 == 9,{
         "hello".postln;
     },{
@@ -129,6 +133,7 @@ BYTECODES: (18)
  15   A1 00    SendMsg 'postln'
  17   F2       BlockReturn
 a FunctionDef in closed FunctionDef</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/if.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/if.schelp</a><br>link::Reference/if::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

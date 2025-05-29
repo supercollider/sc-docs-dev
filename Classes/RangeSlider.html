@@ -180,7 +180,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p> Sets <a href="#-lo">-lo</a> and <a href="#-hi">-hi</a> to the two coordinates of the Point stored as the current drag data, respectively, and triggers the <a href="#-action">-action</a>.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <h3><a class='anchor' name='Basic%20examples'>Basic examples</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new.front;
 a = RangeSlider(w, Rect(20, 80, 120, 30))
     .lo_(0.2)
@@ -189,7 +189,8 @@ a = RangeSlider(w, Rect(20, 80, 120, 30))
         [\sliderLOW, slider.lo, \sliderHI, slider.hi].postln;
     });
 )</textarea>
-<textarea class='editor'>(
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new.front;
 a = RangeSlider(w, Rect(20, 80, 120, 30))
     .lo_(0.2)
@@ -206,8 +207,9 @@ b = RangeSlider(w, Rect(220, 80, 20, 130))
         [\sliderLOW, slider.lo, \sliderHI, slider.hi].postln;
     });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Use%20of%20setDeviation'>Use of setDeviation</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window("setDeviation", Rect(300, 300, 300, 150));
 a = RangeSlider(w, Rect(10, 10, 200, 30))
     .lo_(0)
@@ -226,10 +228,11 @@ c = Slider(w, Rect(10, 100, 200, 30))
 c.valueAction = 0.2;
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Sound%20example'>Sound example</a></h3>
 
 <p>Shape a bandpass filter.
-<p>In Cocoa GUI, hold down the Ctrl key to move the whole range; in other GUI kits you can simply click within the range and drag it.<textarea class='editor'>(
+<p>In Cocoa GUI, hold down the Ctrl key to move the whole range; in other GUI kits you can simply click within the range and drag it.<div class='codeMirrorContainer'><textarea class='editor'>(
 s.waitForBoot({
     a = { |freq = 1800, bw = 0.2|
         var r;
@@ -249,6 +252,7 @@ s.waitForBoot({
     CmdPeriod.doOnce({ w.close });
 })
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/RangeSlider.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/RangeSlider.schelp</a><br>link::Classes/RangeSlider::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

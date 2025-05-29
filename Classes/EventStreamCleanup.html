@@ -61,7 +61,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Some examples of patterns that create state that lasts over several events. They also release the state via EventStreamCleanup:<ul>
 <li><a href="./../Classes/Pmono.html">Pmono</a> (starts one synth that it controls over time)<li><a href="./../Classes/Pfx.html">Pfx</a> (starts an effect synth that it feeds through the signals of the substreams)<li><a href="./../Classes/Pproto.html">Pproto</a> (initializes resources and keeps them available)<li><a href="./../Classes/Pspawner.html">Pspawner</a> (schedules streams and releases them after some time)</ul>
-<textarea class='editor'>// wrap a pattern in a stop condition
+<div class='codeMirrorContainer'><textarea class='editor'>// wrap a pattern in a stop condition
 (
 f = { |pat, condition|
     Prout { |inval|
@@ -83,6 +83,7 @@ p = Plazy { Pmono(\default, \note, Pgeom(rrand(1, 1.5), rrand(1.05, 2), inf), \h
 x = f.(p, { |outval| outval[\note] &lt; 20 }); // always stop at 20
 Pn(x).play; // loop it.
 );</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>EventStreamCleanup.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
 <div class='method'>
@@ -124,7 +125,7 @@ Pn(x).play; // loop it.
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-addNodeCleanup' href='./../Overviews/Methods.html#addNodeCleanup'>addNodeCleanup</a>(<span class='argstr'>event</span>, <span class='argstr'>function</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-copy' href='./../Overviews/Methods.html#copy'>copy</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// some code from the class library
+<div class='codeMirrorContainer'><textarea class='editor'>// some code from the class library
 
 // here is a pattern that can end the stream externally after a number of steps
 Pfin : FilterPattern {
@@ -223,6 +224,7 @@ Pbus : FilterPattern {
         }
     }
 }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/EventStreamCleanup.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/EventStreamCleanup.schelp</a><br>link::Classes/EventStreamCleanup::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

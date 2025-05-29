@@ -39,7 +39,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>basic live coding techniques ("object style") without the use of JITLib
 <p>more to come..
-<p>using a simple environment. this looks just like ProxySpace, but works differently. for the difference, see <a href="./../../Tutorials/JITLib/jitlib_basic_concepts_01.html">jitlib_basic_concepts_01</a> and <a href="./../../Tutorials/JITLib/jitlib_basic_concepts_02.html">jitlib_basic_concepts_02</a>.<textarea class='editor'>d = (); // create a new environment
+<p>using a simple environment. this looks just like ProxySpace, but works differently. for the difference, see <a href="./../../Tutorials/JITLib/jitlib_basic_concepts_01.html">jitlib_basic_concepts_01</a> and <a href="./../../Tutorials/JITLib/jitlib_basic_concepts_02.html">jitlib_basic_concepts_02</a>.<div class='codeMirrorContainer'><textarea class='editor'>d = (); // create a new environment
 d.push; // push it to current
 
 // this synthdef can be changed on the fly, but the synth will
@@ -81,6 +81,7 @@ SynthDef(\x, { |out, freq = 440|
 ~b1.free;
 d.clear;
 d.pop;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/JITLib/basic_live_coding_techniques.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/JITLib/basic_live_coding_techniques.schelp</a><br>link::Tutorials/JITLib/basic_live_coding_techniques::<br></div></div><script src='./../../static/editor.js' type='text/javascript'></script>
 </body></html>

@@ -55,7 +55,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>a flag whether <strong>val</strong> is mapped (within the range of param.asSpec) or unmapped (0.0-1.0)<tr><td class='argumentname'>lastVal<td class='argumentdesc'>
 <p>the previous value that a control has set - see last examples.<tr><td class='argumentname'>spec<td class='argumentdesc'>
 <p>a <a href="./../Classes/ControlSpec.html">ControlSpec</a> can be passed in. if nil, param.asSpec is used.<div class='note'><span class='notelabel'>NOTE:</span> if no spec is given, or no value exists yet, softSet simply allows setting.</div></table></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 e = (amp: 0.1, dur: 0.2);
 Tdef(\test, {
     var dur;
@@ -81,7 +81,8 @@ e.softPut(\amp, 0.01, lastVal: 0.15);    // can make big jumps when lastVal is c
     \dur.asSpec
 
 e.softPut(\dur, 0.05);    // so this always really sets.</textarea>
-<textarea class='editor'>    // PatternProxies ( e.g. Tdefs, Pdefs) have a softSet method, which
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>    // PatternProxies ( e.g. Tdefs, Pdefs) have a softSet method, which
     // forwards softPut to their envirs:
 
 Pdef(\test, Pbind(\degree, Pseq((0..7), inf))).play;
@@ -104,7 +105,8 @@ Pdef(\test).softSet(\dur, 0.05); // alsways ok, no spec for dur.
 Pdef(\test).softSet(\dur, 0.1); // ok
 
 Pdef(\test).softSet(\dur, 0.05, spec: [0.03, 3, \exp]); // not OK with that spec</textarea>
-<textarea class='editor'>    // softPut and softSet can be risky - one can lose a parameter when moving a controller
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>    // softPut and softSet can be risky - one can lose a parameter when moving a controller
     // too quickly. So, if we know the last value (e.g. because the same controller
     // knows it has set to that value), it is OK to jump:
 
@@ -131,6 +133,7 @@ EZSlider(w, 340@30, \knowsLast, [0.03, 3, \exp], Routine { |sl|
     }
 });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/softPut.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/softPut.schelp</a><br>link::Reference/softPut::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

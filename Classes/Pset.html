@@ -53,12 +53,13 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Pset sets a value in an event stream. It acts like one key in a <a href="./../Classes/Pbindf.html">Pbindf</a>.<textarea class='editor'>(
+<p>Pset sets a value in an event stream. It acts like one key in a <a href="./../Classes/Pbindf.html">Pbindf</a>.<div class='codeMirrorContainer'><textarea class='editor'>(
 var a, b;
 a = Pset(\freq, 801, Pbind(\dur, 0.5));
 x = a.asStream;
 9.do({ x.next(Event.new).postln });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Pset.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>name</span>, <span class='argstr'>value</span>, <span class='argstr'>pattern</span>)</h3>
 <div class='method'>
@@ -78,7 +79,7 @@ x = a.asStream;
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// Pset overrides incoming values:
+<div class='codeMirrorContainer'><textarea class='editor'>// Pset overrides incoming values:
 
 (
 var a, b;
@@ -113,6 +114,7 @@ a = Pset(\freq, Pseq([500, 600, 700], inf), a);
 a = Pset(\legato, Pseq([0.01, 1], inf), a);
 a.play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pset.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pset.schelp</a><br>link::Classes/Pset::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

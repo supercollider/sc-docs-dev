@@ -192,21 +192,26 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Testing'>Testing</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isClassName' href='./../Overviews/Methods.html#isClassName'>isClassName</a></h3>
 <div class='method'>
-<p>Answer whether the symbol can be a class name. This does not say if the class exists.<textarea class='editor'>\Array.isClassName;
+<p>Answer whether the symbol can be a class name. This does not say if the class exists.<div class='codeMirrorContainer'><textarea class='editor'>\Array.isClassName;
 \Bauxite.isClassName;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isMetaClassName' href='./../Overviews/Methods.html#isMetaClassName'>isMetaClassName</a></h3>
 <div class='method'>
-<p>Answer whether the symbol can be meta class name. This does not say if the class exists.<textarea class='editor'>\Meta_Array.isMetaClassName;</textarea>
+<p>Answer whether the symbol can be meta class name. This does not say if the class exists.<div class='codeMirrorContainer'><textarea class='editor'>\Meta_Array.isMetaClassName;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isSetter' href='./../Overviews/Methods.html#isSetter'>isSetter</a></h3>
 <div class='method'>
-<p>Answer whether the symbol has a trailing underscore.<textarea class='editor'>'action_'.isSetter;</textarea>
+<p>Answer whether the symbol has a trailing underscore.<div class='codeMirrorContainer'><textarea class='editor'>'action_'.isSetter;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isPrimitiveName' href='./../Overviews/Methods.html#isPrimitiveName'>isPrimitiveName</a></h3>
 <div class='method'>
-<p>Answer whether the symbol is a valid primitive name<textarea class='editor'>'_SymbolIsClassName'.isPrimitiveName;</textarea>
+<p>Answer whether the symbol is a valid primitive name<div class='codeMirrorContainer'><textarea class='editor'>'_SymbolIsClassName'.isPrimitiveName;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isPrefix' href='./../Overviews/Methods.html#isPrefix'>isPrefix</a>(<span class='argstr'>other</span>)</h3>
 <div class='method'>
-<p>Answer whether the symbol is a prefix of another one<textarea class='editor'>'a'.isPrefix('all'); // true
+<p>Answer whether the symbol is a prefix of another one<div class='codeMirrorContainer'><textarea class='editor'>'a'.isPrefix('all'); // true
 'z'.isPrefix('all');  // false</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isIdentifier' href='./../Overviews/Methods.html#isIdentifier'>isIdentifier</a></h3>
 <div class='method'>
 <p>Return true if the symbol is a valid variable name, or equivalently a valid method name in the two most common method call syntaxes (<code>foo.bar()</code> and <code>bar(foo)</code>). A valid identifier contains only alphanumeric characters and underscores, and the first character must be a lowercase letter.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isBinaryOp' href='./../Overviews/Methods.html#isBinaryOp'>isBinaryOp</a></h3>
@@ -233,36 +238,40 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>Convert to a Scale</div><h3><a class='anchor' name='Environments'>Environments</a></h3>
 
-<p>Symbols are used as keys to look up objects in dictionaries and environments, but also in arrays. See <a href="./../Classes/IdentityDictionary.html">IdentityDictionary</a>, <a href="./../Classes/Environment.html">Environment</a>, <a href="./../Classes/Event.html">Event</a><textarea class='editor'>a = ();
+<p>Symbols are used as keys to look up objects in dictionaries and environments, but also in arrays. See <a href="./../Classes/IdentityDictionary.html">IdentityDictionary</a>, <a href="./../Classes/Environment.html">Environment</a>, <a href="./../Classes/Event.html">Event</a><div class='codeMirrorContainer'><textarea class='editor'>a = ();
 a.put(\commune, 1871);
 a.at(\commune);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-envirPut' href='./../Overviews/Methods.html#envirPut'>envirPut</a>(<span class='argstr'>aValue</span>)</h3>
 <div class='method'>
 <p>put a value to the current environment using receiver as key</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-envirGet' href='./../Overviews/Methods.html#envirGet'>envirGet</a></h3>
 <div class='method'>
 <p>return a value from the current environment using receiver as key<h4>Discussion:</h4>
-<textarea class='editor'>\foo.envirPut(100);
+<div class='codeMirrorContainer'><textarea class='editor'>\foo.envirPut(100);
 \foo.envirGet;
 \foo.envirPut(nil);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Math'>Math</a></h3>
 
 <p>Symbols respond to all unary and binary math operations by returning themselves. The result of any math operation between a Number or other math object and a Symbol is to return the Symbol. This allows for example operations on lists of notes which contain 'rest's to preserve the rests.
 <p><code>Pseq([1, 3, \rest, 2, 4] + 8);</code><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-applyTo' href='./../Overviews/Methods.html#applyTo'>applyTo</a>(<span class='argstr'>firstArg</span> <span class='argstr'>... args</span>)</h3>
 <div class='method'>
 <p>Use the symbol as a method selector and perform the message on firstArg, with args as arguments. This is used for mixing functions with method selectors (see also: Function).<h4>Discussion:</h4>
-<textarea class='editor'>'%'.applyTo(2553, 345);
+<div class='codeMirrorContainer'><textarea class='editor'>'%'.applyTo(2553, 345);
 ['+', '-', '*', { |a, b| a.rand + b.rand }].choose.applyTo(2, 3);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Synthesis'>Synthesis</a></h3>
 
 <p>Inside SynthDefs and UGen functions, symbols can be used to conveniently specify control inputs of different rates and with lags (see: NamedControl, ControlName, and Control).<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>val</span>, <span class='argstr'>lag</span>, <span class='argstr'>fixedLag: false</span>, <span class='argstr'>spec</span>)</h3>
 <div class='method'>
 <p>Return a control rate NamedControl input with a default value (val), and if supplied, with a lag. If val is an array, the control will be multichannel. A <a href="./../Classes/ControlSpec.html">ControlSpec</a> provided to the <code>spec</code> parameter will be written into the spec metadata for the current synth.<h4>Discussion:</h4>
-<textarea class='editor'>a = { SinOsc.ar(\freq.kr(440, 1.2)) }.play;
+<div class='codeMirrorContainer'><textarea class='editor'>a = { SinOsc.ar(\freq.kr(440, 1.2)) }.play;
 a.set(\freq, 330);
 a.release;
 a = { SinOsc.ar(\freq.kr([440, 460], 1.2)) }.play;
 a.setn(\freq, [330, 367]);
 a.release;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>val</span>, <span class='argstr'>lag</span>, <span class='argstr'>spec</span>)</h3>
 <div class='method'>
 <p>Return an audio rate NamedControl input with a default value (val), and if supplied, with a lag. If val is an array, the control will be multichannel.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-ir' href='./../Overviews/Methods.html#ir'>ir</a>(<span class='argstr'>val</span>, <span class='argstr'>spec</span>)</h3>
@@ -270,10 +279,11 @@ a.release;</textarea>
 <p>Return an initialization rate NamedControl input with a default value (val). If val is an array, the control will be multichannel.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-tr' href='./../Overviews/Methods.html#tr'>tr</a>(<span class='argstr'>val</span>, <span class='argstr'>spec</span>)</h3>
 <div class='method'>
 <p>Return a TrigControl input with a default value (val). If val is an array, the control will be multichannel.<h4>Discussion:</h4>
-<textarea class='editor'>a = { Ringz.ar(T2A.ar(\trig.tr), \freq.kr(500, 1), 0.8) }.play;
+<div class='codeMirrorContainer'><textarea class='editor'>a = { Ringz.ar(T2A.ar(\trig.tr), \freq.kr(500, 1), 0.8) }.play;
 a.set(\freq, 330, \trig, 1);
 a.set(\freq, 830, \trig, 1);
 a.release;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>

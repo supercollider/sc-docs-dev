@@ -99,12 +99,13 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>this <a href="./../Classes/ServerMeterView.html">ServerMeterView</a></div></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <h3><a class='anchor' name='Simple%20Usage'>Simple Usage</a></h3>
-<textarea class='editor'>// make a window and embed a ServerMeterView inside of it.
+<div class='codeMirrorContainer'><textarea class='editor'>// make a window and embed a ServerMeterView inside of it.
 w = Window.new("Server Levels");
 ServerMeterView.new(s, w, 0@0, 2, 2);
 w.front; // show the window</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='A%20More%20Complex%20Example'>A More Complex Example</a></h3>
-<textarea class='editor'>// make a GUI to monitor two servers running simultaneously
+<div class='codeMirrorContainer'><textarea class='editor'>// make a GUI to monitor two servers running simultaneously
 s = Server.local;
 q = Server.internal;
 s.boot; q.boot; // wait a moment for the servers to boot
@@ -117,6 +118,7 @@ w = Window.new("Local | Internal", r);
 ServerMeterView.new(s, w, Point(0, 0), 2, 2);
 ServerMeterView.new(q, w, Point(ServerMeterView.getWidth(2, 2), 0), 2, 2);
 w.front; // show the window</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ServerMeterView.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ServerMeterView.schelp</a><br>link::Classes/ServerMeterView::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

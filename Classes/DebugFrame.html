@@ -62,7 +62,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>Returns another <a href="./../Classes/DebugFrame.html">DebugFrame</a> for the function that called this function.<h4>Discussion:</h4>
 
-<p>Can be used to make a back trace, but watch out for function inlining.<textarea class='editor'>(
+<p>Can be used to make a back trace, but watch out for function inlining.<div class='codeMirrorContainer'><textarea class='editor'>(
 var debugFrame = { 1.0.getBackTrace }.();
 
 while{ debugFrame.isNil.not }{
@@ -78,19 +78,22 @@ while{ debugFrame.isNil.not }{
     debugFrame = debugFrame.caller
 }
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-args' href='./../Overviews/Methods.html#args'>args</a></h3>
 <div class='method'>
 <p>Returns an <a href="./../Classes/Array.html">Array</a> of the argument's values, if there are no arguments, returns a <a href="./../Classes/Nil.html">Nil</a>. This does not contain the argument names, which must be accessed through the <a href="#-functionDef">-functionDef</a>.<h4>Discussion:</h4>
-<textarea class='editor'>{ thisFunction.getBackTrace }.().args == nil;
+<div class='codeMirrorContainer'><textarea class='editor'>{ thisFunction.getBackTrace }.().args == nil;
 { |a, b, c| thisFunction.getBackTrace }.().args == [nil, nil, nil];
 { |a, b, c = 1| thisFunction.getBackTrace }.().args == [nil, nil, 1];
 { |a, b, c = 1| thisFunction.getBackTrace }.(2, 3, c: 4).args == [2, 3, 4];</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-vars' href='./../Overviews/Methods.html#vars'>vars</a></h3>
 <div class='method'>
 <p>Same as <a href="#-args">-args</a> but for the variables.<h4>Discussion:</h4>
-<textarea class='editor'>{ thisFunction.getBackTrace }.().vars == nil
+<div class='codeMirrorContainer'><textarea class='editor'>{ thisFunction.getBackTrace }.().vars == nil
 { var a; thisFunction.getBackTrace }.().vars == [nil]
 { var a, b = 1; thisFunction.getBackTrace }.().vars == [nil, 1]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-address' href='./../Overviews/Methods.html#address'>address</a></h3>
 <div class='method'>
 <p>Returns a <a href="./../Classes/RawPointer.html">RawPointer</a>, rarely useful.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-context' href='./../Overviews/Methods.html#context'>context</a></h3>

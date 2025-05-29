@@ -42,22 +42,26 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='ユニット・ジェネレータのコントロール%20のレート'>ユニット・ジェネレータのコントロール のレート</a></h2>
 
-<p>いくつかのSuperColliderのugenは、後に.arメッセージが続けられているということに気づいているでしょう。例えば、次の様に<textarea class='editor'>SinOsc.kr</textarea>
+<p>いくつかのSuperColliderのugenは、後に.arメッセージが続けられているということに気づいているでしょう。例えば、次の様に<div class='codeMirrorContainer'><textarea class='editor'>SinOsc.kr</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>というものもあれば、他のugenは、次の様に.arメッセージを使うということもあります。<textarea class='editor'>SinOsc.ar</textarea>
+<p>というものもあれば、他のugenは、次の様に.arメッセージを使うということもあります。<div class='codeMirrorContainer'><textarea class='editor'>SinOsc.ar</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Audio%20rate'>Audio rate</a></h2>
 
-<p>.arメッセージを持つugenはオーディオ・レートで動作します。デフォルトでは、一秒間あたり44,100サンプルです。<textarea class='editor'>SinOsc.ar(440, 0, 1);</textarea>
+<p>.arメッセージを持つugenはオーディオ・レートで動作します。デフォルトでは、一秒間あたり44,100サンプルです。<div class='codeMirrorContainer'><textarea class='editor'>SinOsc.ar(440, 0, 1);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>耳に聞こえるオーディオ・チェーンの一部分である場合にはいつでも、.arメッセージをユニット・ジェネレータに送ります。<h2><a class='anchor' name='Control%20rate'>Control rate</a></h2>
 
 <p>コントロール・レート
-<p>.krメッセージが後に続くugenはコントロール・レートで動作します。デフォルトでは、コントロール・レートのugenは、オーディオ・レートのugenが生成する64サンプルごとに1回だけ生成します。<textarea class='editor'>SinOsc.kr(440, 0, 1);</textarea>
+<p>.krメッセージが後に続くugenはコントロール・レートで動作します。デフォルトでは、コントロール・レートのugenは、オーディオ・レートのugenが生成する64サンプルごとに1回だけ生成します。<div class='codeMirrorContainer'><textarea class='editor'>SinOsc.kr(440, 0, 1);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>.krメッセージをユニット・ジェネレータに送るのは、それら（ユニット・ジェネレータ）をモジュレータ、すなわち、オーディオ信号を形作るまたはコントロールするもの、として使いたいときだけです。
 <p>コントロール・レート・シグナルは、一方のオーディオ・レートと比較して計算負荷が低くなります。オーディオ・レートのugenのパラメータを変調するために使う場合には、変化のレートが異なるにも関わらず、ほとんどスムーズに聞こえます。
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////
-<p>これは1つのUGenがオーディオ・レートで動作し、他のUGenがコントロール・レートで動作するという一例です。<textarea class='editor'>(
+<p>これは1つのUGenがオーディオ・レートで動作し、他のUGenがコントロール・レートで動作するという一例です。<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("anExample", {
     Out.ar(
         0,
@@ -71,6 +75,7 @@ SynthDef("anExample", {
 )
 
 Synth("anExample")</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>コントロール・レートで動作するこのSinOscーSinOsc.kr([7, 8], 0, 7)ーのインスタンスは、オーディオ・レートで聞くSinOscの周波数を変調します。
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////

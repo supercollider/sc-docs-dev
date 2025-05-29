@@ -48,12 +48,13 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Although much of SuperCollider's functionality is implemented in the SuperCollider language itself, for reasons of efficiency, some functionality is implemented in 'back end' C++ functions called 'primitives'. This document provides guidance to members of the SC development community on writing primitives.<h2><a class='anchor' name='Example'>Example</a></h2>
 <h3><a class='anchor' name='SuperCollider%20code'>SuperCollider code</a></h3>
 
-<p>Primitive calls are preceded with an underscore, so for example <code>_myPrimitiveName</code>. Here is an example call to a primitive in an SC class:<textarea class='editor'>Cocoa {
+<p>Primitive calls are preceded with an underscore, so for example <code>_myPrimitiveName</code>. Here is an example call to a primitive in an SC class:<div class='codeMirrorContainer'><textarea class='editor'>Cocoa {
     prGetPathsDialog { arg returnSlot;
         _Cocoa_GetPathsDialog
         ^this.primitiveFailed
     }
 }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>In the example above the primitive is dispatched at <code>_Cocoa_GetPathsDialog</code>. If it is successful, it will return without executing the code below that. Primitive functions (see below) return an integer, which should be one of the values defined in the file <em>PyrErrors.h</em>:<pre>enum { // primitive errors
     errReturn = -1,    // not really an error.. primitive executed a non-local return
@@ -75,12 +76,13 @@ var scdoc_sc_version = '3.14.0-dev';
     errLastError
 };</pre>
 <p>If your primitive can return any value besides <code>errNone</code> then you will need to provide handling code after the primitive call. In most cases this will be <code>^this.primitiveFailed</code>. This will throw an <code>Error</code> giving the user information about what went wrong.
-<p>In some cases, you may wish to execute fallback SC code instead of throwing an <code>Error</code>. This can be useful in cases where for example a primitive provides an optimised version of a method which is not usable in all instances. Here is an example of how this can be done:<textarea class='editor'>flop {
+<p>In some cases, you may wish to execute fallback SC code instead of throwing an <code>Error</code>. This can be useful in cases where for example a primitive provides an optimised version of a method which is not usable in all instances. Here is an example of how this can be done:<div class='codeMirrorContainer'><textarea class='editor'>flop {
     _ArrayMultiChannelExpand
     ^super.flop // this gets executed if the primitive fails
 }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Note that returning anything besides <code>errNone</code> will result in executing the SC method <em>ignoring</em> the primitive call. For this reason, if you need to do some preparatory work in SC before calling the primitive, it is best practice to do this in a separate method to avoid duplication. For example:<textarea class='editor'>// do initial work here
+<p>Note that returning anything besides <code>errNone</code> will result in executing the SC method <em>ignoring</em> the primitive call. For this reason, if you need to do some preparatory work in SC before calling the primitive, it is best practice to do this in a separate method to avoid duplication. For example:<div class='codeMirrorContainer'><textarea class='editor'>// do initial work here
 openUDPPort {|portNum|
     var result;
     if(openPorts.includes(portNum), {^true});
@@ -94,6 +96,7 @@ prOpenUDPPort {|portNum|
     _OpenUDPPort
     ^this.primitiveFailed;
 }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Define%20your%20primitive'>Define your primitive</a></h3>
 
 <p>In your primitive source code define the primitive:<pre>void initCocoaFilePrimitives()

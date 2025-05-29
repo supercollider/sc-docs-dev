@@ -50,10 +50,11 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>A linear-interpolating sound generator based on the difference equations:<pre>    x(n+1) = (x(n) + y(n+1)) % 2pi
     y(n+1) = (y(n) + k * sin(x(n))) % 2pi</pre>
 <p>The standard map is an area preserving map of a cylinder discovered by the plasma physicist Boris Chirikov.
-<p>sclang code translation:<textarea class='editor'>(
+<p>sclang code translation:<div class='codeMirrorContainer'><textarea class='editor'>(
 var k = 1, xi = 0.5, yi = 0, size = 64;
 plot(size.collect { yi = yi + (k * sin(xi)) % 2pi; xi = (xi + yi) % 2pi; xi - pi * 0.3183098861837907 });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>StandardL.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>freq: 22050</span>, <span class='argstr'>k: 1.0</span>, <span class='argstr'>xi: 0.5</span>, <span class='argstr'>yi: 0</span>, <span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/StandardN.html'>StandardN</a></div>
@@ -67,12 +68,15 @@ plot(size.collect { yi = yi + (k * sin(xi)) % 2pi; xi = (xi + yi) % 2pi; xi - pi
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// vary frequency
+<div class='codeMirrorContainer'><textarea class='editor'>// vary frequency
 { StandardL.ar(MouseX.kr(20, SampleRate.ir)) * 0.3 }.play(s);</textarea>
-<textarea class='editor'>// mouse-controlled param
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// mouse-controlled param
 { StandardL.ar(SampleRate.ir/2, MouseX.kr(0.9, 4)) * 0.3 }.play(s);</textarea>
-<textarea class='editor'>// as a frequency control
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// as a frequency control
 { SinOsc.ar(StandardL.ar(40, MouseX.kr(0.9, 4))*800+900)*0.4 }.play(s);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/StandardL.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/StandardL.schelp</a><br>link::Classes/StandardL::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

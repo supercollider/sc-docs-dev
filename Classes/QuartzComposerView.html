@@ -56,8 +56,9 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='note'><span class='notelabel'>NOTE:</span> <code>QuartzComposerView</code> is deprecated in SC 3.13 and won't be available in subsequent versions that will use Qt 6.x.</div><h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>QuartzComposerView allows for the rendering of Quartz Composer Compositions within SC on macOS. Quartz Composer is a visual programming environment for processing and rendering graphical data, which is distributed free of charge as part of Apple's XCode Development Tools. QC is highly optimised to work with the macOS graphics system, and in general should be more efficient than Pen. For more information on QC see: <a href="https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/QuartzComposerUserGuide/qc_intro/qc_intro.html">https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/QuartzComposerUserGuide/qc_intro/qc_intro.html</a> and <a href="http://en.wikipedia.org/wiki/Quartz_Composer">http://en.wikipedia.org/wiki/Quartz_Composer</a>
-<p>You can access input and output ports using the methods setInputValue, getInputValue and getOutputValue, or (do to a slight of hand in the implementation, using the port keys as getters and setters directly. The following two lines of code are thus equivalent:<textarea class='editor'>myQCView.setInputValue(\valueIn, 1);
+<p>You can access input and output ports using the methods setInputValue, getInputValue and getOutputValue, or (do to a slight of hand in the implementation, using the port keys as getters and setters directly. The following two lines of code are thus equivalent:<div class='codeMirrorContainer'><textarea class='editor'>myQCView.setInputValue(\valueIn, 1);
 myQCView.valueIn = 1;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
@@ -100,7 +101,7 @@ myQCView.valueIn = 1;</textarea>
 <div class='method'>
 <p>Open the currently loaded composition in Quartz Composer. You will need to reload the composition into the view before any saved changes take effect.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>////////// Simple example
+<div class='codeMirrorContainer'><textarea class='editor'>////////// Simple example
 (
 w = Window("Simple QC Test").front;
 b = Button(w, Rect(0, 0, 150, 20))
@@ -373,6 +374,7 @@ Pbind(
 )
 
 m.setInputValue(\level, 0.5);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/QuartzComposerView.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/QuartzComposerView.schelp</a><br>link::Classes/QuartzComposerView::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

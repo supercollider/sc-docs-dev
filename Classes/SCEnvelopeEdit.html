@@ -139,7 +139,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>Make a basic editor:<textarea class='editor'>(
+<p>Make a basic editor:<div class='codeMirrorContainer'><textarea class='editor'>(
 e = Env([1, 2], [10]);
 w = Window("Env Editor", Rect(200, 200, 300, 200));
 v = SCEnvelopeEdit(w, w.view.bounds.moveBy(20, 20).resizeBy(-40, -40), e, 20).resize_(5);
@@ -160,8 +160,9 @@ v.minTime_(-1); // to increase attack time
 
 e.curves_('sin'); // env object is changed
 v.refresh; // must refresh editor</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Controlling a Synth<textarea class='editor'>s.boot;
+<p>Controlling a Synth<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 
 (
 e = Env([0, 1, 0.7, 0.9, 0], [0.03, 0.03, 0.03, 0.03], 'sin');
@@ -203,6 +204,7 @@ Routine({
     });
 }).play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SCEnvelopeEdit.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SCEnvelopeEdit.schelp</a><br>link::Classes/SCEnvelopeEdit::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

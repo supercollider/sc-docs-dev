@@ -63,18 +63,19 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-functionPerformList' href='./../Overviews/Methods.html#functionPerformList'>functionPerformList</a>(<span class='argstr'>selector</span>, <span class='argstr'>arglist</span>)</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a>( <span class='argstr'>... args</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-valueArray' href='./../Overviews/Methods.html#valueArray'>valueArray</a>(<span class='argstr'>args</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-valueArrayEnvir' href='./../Overviews/Methods.html#valueArrayEnvir'>valueArrayEnvir</a>( <span class='argstr'>... args</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-valueEnvir' href='./../Overviews/Methods.html#valueEnvir'>valueEnvir</a>( <span class='argstr'>... args</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>a = 2.sqrt; // result is square root of two (approximate floating point).
+<div class='codeMirrorContainer'><textarea class='editor'>a = 2.sqrt; // result is square root of two (approximate floating point).
 a = { b }.sqrt; // result is  a UnaryOpFunction
 b = 2;
 a.value; // now it is evaluated, and the result is calculated
 b = 9;
 a.value; // again, with a different value.</textarea>
-<textarea class='editor'>// sound example
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// sound example
 (
 var a = { 19.rand };
 var b = a.sqrt;
@@ -85,6 +86,7 @@ fork {
     }
 }
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/UnaryOpFunction.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/UnaryOpFunction.schelp</a><br>link::Classes/UnaryOpFunction::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

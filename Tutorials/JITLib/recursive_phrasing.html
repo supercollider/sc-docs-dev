@@ -42,7 +42,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>When the event type <code>\phrase</code> is passed in, the event looks for a pattern in <code>Pdef.all</code> if it can find a definition.<ul>
 <li>if it finds one it plays this pattern in the context of the outer pattern's event.<li>if there is no definition to be found there, it uses a <a href="./../../Classes/SynthDef.html">SynthDef</a> with this name, if present.</ul>
 
-<p>When passing a <em>function</em> to Pdef it creates a PlazyEnvirN internally. Its function is evaluated in the context of the input event (see <a href="./../../Classes/PlazyEnvirN.html">PlazyEnvirN</a>) which should return a pattern or a stream. Note that this doesn't allow the usual access of the outer environment from within the function.<textarea class='editor'>(
+<p>When passing a <em>function</em> to Pdef it creates a PlazyEnvirN internally. Its function is evaluated in the context of the input event (see <a href="./../../Classes/PlazyEnvirN.html">PlazyEnvirN</a>) which should return a pattern or a stream. Note that this doesn't allow the usual access of the outer environment from within the function.<div class='codeMirrorContainer'><textarea class='editor'>(
 s.boot;
 
 SynthDef(\pgrain,
@@ -621,6 +621,7 @@ Pbind(
     \amp, 0.2
 ).play
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/JITLib/recursive_phrasing.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/JITLib/recursive_phrasing.schelp</a><br>link::Tutorials/JITLib/recursive_phrasing::<br></div></div><script src='./../../static/editor.js' type='text/javascript'></script>
 </body></html>

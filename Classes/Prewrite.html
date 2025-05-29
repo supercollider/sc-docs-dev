@@ -60,11 +60,12 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>pattern<td class='argumentdesc'>
 <p>starting value<tr><td class='argumentname'>dict<td class='argumentdesc'>
 <p>a dictionary or an event.<tr><td class='argumentname'>levels<td class='argumentdesc'>
-<p>number of levels<textarea class='editor'>IdentityDictionary[
+<p>number of levels<div class='codeMirrorContainer'><textarea class='editor'>IdentityDictionary[
     elem1 -&gt; [otherElements],
     elem2 -&gt; [otherElements],
     elem2 -&gt; [otherElements]
 ]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
@@ -77,7 +78,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rewriteList' href='./../Overviews/Methods.html#rewriteList'>rewriteList</a>(<span class='argstr'>list</span>, <span class='argstr'>inval</span>, <span class='argstr'>level</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>The examples use the <code>()</code> shortcut for <a href="./../Classes/Event.html">Event</a>.<textarea class='editor'>// A generative song
+<p>The examples use the <code>()</code> shortcut for <a href="./../Classes/Event.html">Event</a>.<div class='codeMirrorContainer'><textarea class='editor'>// A generative song
 (
 // Scale degrees going up
 Pdef(\a, Pbind(\dur, 0.25, \degree, Pseq((0..3))));
@@ -112,6 +113,7 @@ a = Prewrite(0, // start with 0
 x = a.asStream;
 30.do({ x.next.postln });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Prewrite.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Prewrite.schelp</a><br>link::Classes/Prewrite::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

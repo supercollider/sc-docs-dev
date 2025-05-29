@@ -41,14 +41,15 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='Language%20control%20methods'>Language control methods</a></h2>
 
 <p>Some patterns mimic language-style control methods: conditionals ( <a href="./../../Classes/Pif.html">Pif</a> ), loops ( <a href="./../../Classes/Pwhile.html">Pwhile</a> ) and error cleanup ( <a href="./../../Classes/Pprotect.html">Pprotect</a> ).<dl>
-<dt><code>Pif(condition, iftrue, iffalse, default)</code><dd>Evaluates a pattern <code>condition</code> that returns true or false. Then, one value is taken from the true or false branch before going back to evaluate the condition again. The <code>default</code> value or pattern comes into play when the true or false branch stops producing values (returns nil). If the <code>default</code> is not given, Pif returns control to the parent upon nil from either branch.<textarea class='editor'>p = Pbind(
+<dt><code>Pif(condition, iftrue, iffalse, default)</code><dd>Evaluates a pattern <code>condition</code> that returns true or false. Then, one value is taken from the true or false branch before going back to evaluate the condition again. The <code>default</code> value or pattern comes into play when the true or false branch stops producing values (returns nil). If the <code>default</code> is not given, Pif returns control to the parent upon nil from either branch.<div class='codeMirrorContainer'><textarea class='editor'>p = Pbind(
     \degree, Pwhite(0, 11, inf),
         // odd numbered scale degrees get a shorter rhythmic value
     \dur, Pif(Pkey(\degree).odd, 0.25, 0.5)
 ).play;
 
 p.stop;</textarea>
-<dt><code>Pseed(randSeed, pattern)</code><dd>Random number generators depend on seed values; setting a specific seed produces a repeatable stream of pseudorandom numbers. <a href="./../../Classes/Pseed.html">Pseed</a> sets the random seed before embedding <code>pattern</code>, effectively restarting the random number generator at the start of the pattern.<textarea class='editor'>p = Pbind(
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<dt><code>Pseed(randSeed, pattern)</code><dd>Random number generators depend on seed values; setting a specific seed produces a repeatable stream of pseudorandom numbers. <a href="./../../Classes/Pseed.html">Pseed</a> sets the random seed before embedding <code>pattern</code>, effectively restarting the random number generator at the start of the pattern.<div class='codeMirrorContainer'><textarea class='editor'>p = Pbind(
         // the random seed is generated once, when creating the Pattern object
         // so the same random seed is used every time whenever this pattern object plays
     \degree, Pseed(0x7FFFFFFF.rand, Pseries({ rrand(-7, 0) }, Pwhite(1, 3, inf), { rrand(4, 10) })),
@@ -62,7 +63,8 @@ r = p.play;    // uses the same seed
 r.stop;
 
 // reexecute the p = Pbind... and the seed will be different</textarea>
-<dt><code>Pprotect(pattern, func)</code><dd>Like the <code>protect</code> error handling method, if an error occurs while getting the next value from the pattern, the function will be evaluated before the error interrupts execution.<dt><code>Ptrace(pattern, key, printStream, prefix)</code><dd>For debugging, Ptrace prints every return value. Is your pattern really doing what you think? This will tell you. A Ptrace is created automatically by the <code>trace</code> message: <code>aPattern.trace(key, printStream, prefix) --&gt; Ptrace(aPattern, key, printStream, prefix)</code> .<dt><code>Pwhile(func, pattern)</code><dd>Like while: as long as the function evaluates to true, the pattern is embedded. The function is checked once at the beginning and thereafter when the pattern comes to an end. If it's applied to an infinite pattern, there's no looping because the pattern never gives control back.<textarea class='editor'>// Pwhile and Ptrace
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<dt><code>Pprotect(pattern, func)</code><dd>Like the <code>protect</code> error handling method, if an error occurs while getting the next value from the pattern, the function will be evaluated before the error interrupts execution.<dt><code>Ptrace(pattern, key, printStream, prefix)</code><dd>For debugging, Ptrace prints every return value. Is your pattern really doing what you think? This will tell you. A Ptrace is created automatically by the <code>trace</code> message: <code>aPattern.trace(key, printStream, prefix) --&gt; Ptrace(aPattern, key, printStream, prefix)</code> .<dt><code>Pwhile(func, pattern)</code><dd>Like while: as long as the function evaluates to true, the pattern is embedded. The function is checked once at the beginning and thereafter when the pattern comes to an end. If it's applied to an infinite pattern, there's no looping because the pattern never gives control back.<div class='codeMirrorContainer'><textarea class='editor'>// Pwhile and Ptrace
 (
 ~go = true;
 p = Pwhile({ ~go }, Pbind(
@@ -73,6 +75,7 @@ p = Pwhile({ ~go }, Pbind(
 )
 
 ~go = false;    // will stop the whole pattern when the Pbind comes to an end</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </dl>
 
 <p>Previous: <a href="./../../Tutorials/A-Practical-Guide/PG_06d_Parallel_Patterns.html">Pattern Guide 06d: Parallel Patterns</a>

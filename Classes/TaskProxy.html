@@ -184,7 +184,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wakeUp' href='./../Overviews/Methods.html#wakeUp'>wakeUp</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <h3><a class='anchor' name='a)%20using%20TaskProxy%20as%20a%20player'>a) using TaskProxy as a player</a></h3>
-<textarea class='editor'>// create an empty Tdef and play it.
+<div class='codeMirrorContainer'><textarea class='editor'>// create an empty Tdef and play it.
 x = TaskProxy.new;
 x.play;
 
@@ -208,7 +208,8 @@ TempoClock.default.tempo = 1;
 x.stop;
 x.play;
 x.stop;</textarea>
-<textarea class='editor'>// sound example
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// sound example
 
 (
 // load a synthdef
@@ -278,8 +279,9 @@ x.source = {
 
 x.stop;
 y.stop;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='b)%20embedding%20TaskProxy%20into%20other%20Tasks%20/%20Routines'>b) embedding TaskProxy into other Tasks / Routines</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 #a, c = { TaskProxy.new } ! 2;
 a.source = { "one".postln; 1.wait; "two".postln };
 c.source = { var z; z = Synth(\default); 0.5.wait; z.release };
@@ -325,6 +327,7 @@ Routine {
 
 }.play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/TaskProxy.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/TaskProxy.schelp</a><br>link::Classes/TaskProxy::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

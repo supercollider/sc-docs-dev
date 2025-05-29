@@ -50,8 +50,9 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Audio/Filter.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Audio/Filter.sc'>Filter.sc</a></div></div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>When the absolute value of the input signal remains below the threshold for a given window of time, output 1. Otherwise, output 0. If the output transitions from 0 to 1, doneAction is also evaluated.<textarea class='editor'>// this frees after the Decay has become quiet enough for a long enough time
+<p>When the absolute value of the input signal remains below the threshold for a given window of time, output 1. Otherwise, output 0. If the output transitions from 0 to 1, doneAction is also evaluated.<div class='codeMirrorContainer'><textarea class='editor'>// this frees after the Decay has become quiet enough for a long enough time
 { var signal = Decay.ar(Impulse.ar(0), 2, PinkNoise.ar(0.2)); DetectSilence.ar(signal, doneAction: Done.freeSelf); signal }.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>If the input signal starts with silence at the beginning of the synth's duration, then DetectSilence will wait indefinitely until the first sound before starting to monitor for silence. To avoid a hanging silent sound where the input may remain zero, you can add an <code>Impulse.ar(0)</code> to its input.
 <p>DetectSilence does not distinguish a DC-biased signal from a loud signal. If your signal has DC bias, you should wrap it in <a href="./../Classes/LeakDC.html">LeakDC</a>.<div class='warning'><span class='warninglabel'>WARNING:</span> DetectSilence can be tricky with multi-channel input! See below.</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
@@ -77,7 +78,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Audio/canFreeSynth.sc'>/usr/local/share/SuperCollider/SCClassLibrary/Common/Audio/canFreeSynth.sc</a></div>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-optimizeGraph' href='./../Overviews/Methods.html#optimizeGraph'>optimizeGraph</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("detectSilence-help", { |out|
     var z;
     z = SinOsc.ar(Rand(400, 700), 0, LFDNoise3.kr(8).max(0)).softclip * 0.3;
@@ -99,6 +100,7 @@ Task({
     })
 }).play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='DetectSilence%20and%20multiple%20inputs'>DetectSilence and multiple inputs</a></h2>
 
 <p>Be careful feeding multiple inputs into DetectSilence, since multichannel expansion can lead to confusing behavior. This code

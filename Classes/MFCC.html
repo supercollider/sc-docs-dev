@@ -61,7 +61,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// Technical note: The 0th coefficient is not generated as it consists of multiplying all bands by 1 and summing
+<div class='codeMirrorContainer'><textarea class='editor'>// Technical note: The 0th coefficient is not generated as it consists of multiplying all bands by 1 and summing
 
 
 // assumes hop of half fftsize, fine
@@ -132,7 +132,8 @@ c.free;
 x.free;
 w.close;
 )</textarea>
-<textarea class='editor'>// Calculating Mel Scale Bands; allow up to 42 coefficients, so up to 42 bands
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// Calculating Mel Scale Bands; allow up to 42 coefficients, so up to 42 bands
 // first part of this code adapted from Dan Stowell and Jamie Bullock Mel scale implementation
 // could later add Bark and ERB options, and possibility of buffer of data to be passed to the UGen for alternative freq warpings
 (
@@ -269,6 +270,7 @@ a.plot
 // don't generate i = 0 coefficient since it
 a = Array.fill(42, { |i| cos(pi / 42.0 * ((0..41) + 0.5) * (i + 1)) });
 Post &lt;&lt; a.flatten &lt;&lt; nl;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MFCC.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MFCC.schelp</a><br>link::Classes/MFCC::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

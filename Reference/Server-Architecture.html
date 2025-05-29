@@ -87,7 +87,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Output will be written to output-filename.
 <p>The output file's sample rate is specified by sample-rate. The output file header-format should be one of: AIFF, WAVE, NeXT. The output file sample-format should be one of: int16, int24, int32, float, double. The number of channels in the output file is specified with the -o argument.</dl>
 <h3><a class='anchor' name='Example'>Example</a></h3>
-<textarea class='editor'>scsynth -u 57117 &gt;synth_log &amp;
+<div class='codeMirrorContainer'><textarea class='editor'>scsynth -u 57117 &gt;synth_log &amp;
 
     Accept commands via UDP on port 57117.
     Send output to file "synth_log"
@@ -99,6 +99,7 @@ scsynth -N score.osc _ out.aiff 48000 AIFF int24
     no input file, and output file named out.aiff.
     Sample rate is 48000. Output file header format is aiff,
     sample format is 24 bit integer.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Binary%20Format%20of%20Messages'>Binary Format of Messages</a></h2>
 
 <p>Messages are similar in format to Open Sound Control messages, except that pattern matching of the command name is not performed. When streamed via TCP, messages are each preceded by a 32 bit integer giving the length in bytes of the message. UDP datagrams contain this length information already.<h3><a class='anchor' name='Types'>Types</a></h3>

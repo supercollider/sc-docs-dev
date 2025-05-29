@@ -64,7 +64,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>s.boot; // start the server
+<div class='codeMirrorContainer'><textarea class='editor'>s.boot; // start the server
 
 // examples below will use this synthdef
 (
@@ -72,8 +72,9 @@ SynthDef("help-Diskin", { |out, bufnum = 0|
     Out.ar(out, DiskIn.ar(1, bufnum));
 }).add
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Normal%20usage%20(with%20Buffer;%20"Object%20Style")'>Normal usage (with Buffer; "Object Style")</a></h3>
-<textarea class='editor'>b = Buffer.cueSoundFile(s, ExampleFiles.apollo11, 0, 1);
+<div class='codeMirrorContainer'><textarea class='editor'>b = Buffer.cueSoundFile(s, ExampleFiles.apollo11, 0, 1);
 
 x = { DiskIn.ar(1, b.bufnum) }.play;
 
@@ -118,8 +119,9 @@ m = { |buf| x.addToHeadMsg(nil, [\bufnum, buf.bufnum]) };
 b = Buffer.cueSoundFile(s, ExampleFiles.apollo11, 0, 1, completionMessage: m);
 
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='OSC%20Messaging%20Style'>OSC Messaging Style</a></h3>
-<textarea class='editor'>// allocate a disk i/o buffer
+<div class='codeMirrorContainer'><textarea class='editor'>// allocate a disk i/o buffer
 s.sendMsg("/b_alloc", 0, 65536, 1);
 
 // open an input file for this buffer, leave it open
@@ -140,6 +142,7 @@ s.sendMsg("/n_free", x); // stop reading
 s.sendMsg("/b_close", 0); // close the file.
 
 s.sendMsg("/b_free", 0); // frees the buffer</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/DiskIn.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/DiskIn.schelp</a><br>link::Classes/DiskIn::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

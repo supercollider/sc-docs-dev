@@ -85,7 +85,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p><code>\vert</code>, <code>vert2</code>, <code>\line2</code>, or <code>\horz</code>. default is <code>\vert</code>.<tr><td class='argumentname'>gap<td class='argumentdesc'>
 <p>A <a href="./../Classes/Point.html">Point</a>. By default, the view tries to get its parent's gap, otherwise it defaults to <code>2@2</code>. Setting it overrides these.<tr><td class='argumentname'>margin<td class='argumentdesc'>
 <p>A <a href="./../Classes/Point.html">Point</a>. This will inset the bounds occupied by the subviews of view.</table><h4>Discussion:</h4>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new.front;
 g = EZKnob(w,        // parent
             50@90,    // bounds
@@ -101,6 +101,7 @@ g.setColors(Color.grey, Color.white)
     g = EZKnob(label:" test ");
     g.action_({ |ez| (ez.value.asString ++" is the value of " ++ ez).postln });
 );</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>The contained views can be accessed via the EZKnob instance variables: <code>labelView</code>, <code>knobView</code>, <code>numberView</code>.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
@@ -159,7 +160,7 @@ g.setColors(Color.grey, Color.white)
 <tr><td class='argumentname'>font<td class='argumentdesc'>
 <p>An instance of <a href="./../Classes/Font.html">Font</a>.</table></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(    // basic use
+<div class='codeMirrorContainer'><textarea class='editor'>(    // basic use
     w = Window.new.front;
     g = EZKnob(w, 50@90, " test  ", \freq, { |a| a.value.postln });
     g.setColors(Color.grey, Color.white);
@@ -452,6 +453,7 @@ a
 a[0].value
 a[3].value_(0.5)
 a.collect(_.value);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/EZKnob.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/EZKnob.schelp</a><br>link::Classes/EZKnob::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

@@ -61,7 +61,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// distorts of course - would need scaling
+<div class='codeMirrorContainer'><textarea class='editor'>// distorts of course - would need scaling
 { RunningSum.ar(SoundIn.ar) }.play
 
 // Running Average over x samples
@@ -71,7 +71,8 @@ var scdoc_sc_version = '3.14.0-dev';
     RunningSum.ar(LFSaw.ar, x) * (x.reciprocal)
  }.play
 )</textarea>
-<textarea class='editor'>// RMS Power
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// RMS Power
 (
 {
     var input, numsamp;
@@ -82,9 +83,11 @@ var scdoc_sc_version = '3.14.0-dev';
     (RunningSum.ar(input.squared, numsamp) / numsamp).sqrt
 }.play
 )</textarea>
-<textarea class='editor'>// shortcut in class
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// shortcut in class
 { RunningSum.rms(SoundIn.ar) }.play</textarea>
-<textarea class='editor'>// play around
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// play around
 (
 {
     var input, numsamp, power;
@@ -95,6 +98,7 @@ var scdoc_sc_version = '3.14.0-dev';
     (RunningSum.ar(input ** power, numsamp)/numsamp) ** (power.reciprocal)
 }.play
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/RunningSum.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/RunningSum.schelp</a><br>link::Classes/RunningSum::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

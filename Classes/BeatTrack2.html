@@ -61,12 +61,13 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>[sk] If this argument is greater than 0.5, the tracker will lock at its current periodicity and continue from the current phase. Whilst it updates the model's phase and period, this is not reflected in the output until lock goes back below 0.5.<tr><td class='argumentname'>weightingscheme<td class='argumentdesc'>
 <p>[s] Use (-2.5) for flat weighting of tempi, (-1.5) for compensation weighting based on the number of events tested (because different periods allow different numbers of events within the temporal window) or otherwise a bufnum from 0 upwards for passing an array of 120 individual tempo weights; tempi go from 60 to 179 bpm in steps of one bpm, so you must have a buffer of 120 values.</table><h4>Returns:</h4>
 <div class='returnvalue'>
-<p>Six k-rate outputs:<textarea class='editor'>#beattick, eighthtick, groovetick, tempo, phase, groove = BeatTrack2.kr(busindex, numfeatures)</textarea>
+<p>Six k-rate outputs:<div class='codeMirrorContainer'><textarea class='editor'>#beattick, eighthtick, groovetick, tempo, phase, groove = BeatTrack2.kr(busindex, numfeatures)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// you should load something useful for testing, like a one minute pop song
+<div class='codeMirrorContainer'><textarea class='editor'>// you should load something useful for testing, like a one minute pop song
 b = Buffer.read(s, ExampleFiles.child);
 
 // very feature dependent
@@ -111,7 +112,8 @@ a.set(\lock, 1); // fix it rigidly from current phase/period solution
 a.set(\lock, 0); // unfix, back to tracking
 
 a.free;</textarea>
-<textarea class='editor'>// same thing, trying with Onsets UGen raw output
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// same thing, trying with Onsets UGen raw output
 (
 a = SynthDef(\help_beattrack2_1, { |out, vol = 1.0, beepvol = 1.0, lock = 0, bufnum|
     var in, kbus;
@@ -144,12 +146,14 @@ a = SynthDef(\help_beattrack2_1, { |out, vol = 1.0, beepvol = 1.0, lock = 0, buf
 )
 
 a = Synth(\help_beattrack2_1, [\bufnum, b]);</textarea>
-<textarea class='editor'>// favour higher tempi in own weighting scheme
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// favour higher tempi in own weighting scheme
 (
 c = Array.fill(120, { |i| 0.5 + (0.5 * (i / 120)) });
 e = Buffer.sendCollection(s, c, 1);
 )</textarea>
-<textarea class='editor'>// track audio in (try clapping a beat or beatboxing, but allow up to 6 seconds for tracking to begin) and spawning stuff at quarters, eighths and sixteenths
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// track audio in (try clapping a beat or beatboxing, but allow up to 6 seconds for tracking to begin) and spawning stuff at quarters, eighths and sixteenths
 (
 SynthDef(\help_beattrack2_2, { |out|
     var trackb, trackh, trackq, tempo;
@@ -170,7 +174,8 @@ SynthDef(\help_beattrack2_2, { |out|
     Out.ar(out, source + bsound + hsound + qsound);
 }).play;
 )</textarea>
-<textarea class='editor'>// geometric tempo placement very similar to linear, and linear easier to deal with looking up related tempi at double and half speed
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// geometric tempo placement very similar to linear, and linear easier to deal with looking up related tempi at double and half speed
 (
 var startbps = 1, endbps = 3;
 var numtempi = 100;
@@ -191,6 +196,7 @@ Post &lt;&lt; ((Array.series(120, 1, 2/120)).reciprocal) &lt;&lt; nl;
 
 // tempo weights
  Post &lt;&lt; (Array.fill(120, { |i|  0.2*((1.0- ((abs(i-60))/60.0))**0.5) + 0.8 })) &lt;&lt; nl;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='footnotes'>
 <a class='anchor' name='footnote_1'/><div class='footnote'>[<a href='#footnote_org_1'>1</a>] - Research note: Designed by Nick Collins following work by Jean Laroche</div></div><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/BeatTrack2.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/BeatTrack2.schelp</a><br>link::Classes/BeatTrack2::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>

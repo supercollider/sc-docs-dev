@@ -247,7 +247,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p> Removes an object from <a href="#-onClose">-onClose</a>, if the latter is an Array.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <h3><a class='anchor' name='Adding%20Views'>Adding Views</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 var w;
 w = Window("my name is... panel", Rect(128, 64, 340, 360));
 
@@ -258,8 +258,9 @@ w = Window("my name is... panel", Rect(128, 64, 340, 360));
 });
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Using%20Decorator'>Using Decorator</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 var w;
 w = Window("my name is... panel", Rect(128, 64, 340, 360));
 
@@ -275,8 +276,9 @@ w.view.background = Color(0.6, 0.8, 0.8);
 
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Setting%20Bounds'>Setting Bounds</a></h3>
-<textarea class='editor'>// use screenbounds for precise placement from the top
+<div class='codeMirrorContainer'><textarea class='editor'>// use screenbounds for precise placement from the top
 (
 x = Window.new("test", Rect(100, Window.screenBounds.height-180, 300, 100)); x.front;
 )
@@ -284,11 +286,13 @@ x = Window.new("test", Rect(100, Window.screenBounds.height-180, 300, 100)); x.f
 // bounds.top refers to the bottom edge of the window,
 // measured from the bottom of the screen. Different than in View.
 x.bounds_(Rect(100, 400, 300, 300));</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Borderless%20Window'>Borderless Window</a></h3>
-<textarea class='editor'>w = Window.new(border: false).front; // can't be manually closed
+<div class='codeMirrorContainer'><textarea class='editor'>w = Window.new(border: false).front; // can't be manually closed
 w.close; // so close it in code</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Window%20with%20Scrollers'>Window with Scrollers</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window(scroll: true); // you must set this when the window is created
 c = Slider2D(w, Rect(0, 0, 1500, 300));
 d = Slider(w, Rect(0, 310, 20, 300));
@@ -296,17 +300,19 @@ c.background = Color.grey.alpha = 0.6;
 d.background = Color.grey.alpha = 0.6;
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='onClose'>onClose</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 x = Window.new.front;
 x.alpha = 0.8;
 x.onClose_({ y = Synth.new(\default) }); // close the window and the synth plays
 )
 x.close;
 y.free;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Using%20Layouts'>Using Layouts</a></h3>
 
-<p>Layouts are used to organize view sizes automatically. See: <a href="./../Guides/GUI-Layout-Management.html">Layout Management</a>.<div class='note'><span class='notelabel'>NOTE:</span> Only in Cocoa GUI</div><textarea class='editor'>// make a window and a layout
+<p>Layouts are used to organize view sizes automatically. See: <a href="./../Guides/GUI-Layout-Management.html">Layout Management</a>.<div class='note'><span class='notelabel'>NOTE:</span> Only in Cocoa GUI</div><div class='codeMirrorContainer'><textarea class='editor'>// make a window and a layout
 (
 w = Window(bounds: Rect(700, 200, 200, 200));
 h = HLayout();
@@ -340,8 +346,9 @@ v.margins = [1, 1, 1, 1] * 5;
 h.add(g = VLayout(), 1, \left);
 g.add(g = HLayout(), 1, \left);
 5.do { g.add(Slider().orientation_(\vertical)) };</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Drawing%20on%20Window%20with%20Pen'>Drawing on Window with Pen</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 var w, much = 0.02, string, synth;
 
 w = Window.new("gui", Rect(100, 100, 300, 500)).front;
@@ -377,6 +384,7 @@ w.drawFunc = Routine {
 w.front;
 
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Window.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Window.schelp</a><br>link::Classes/Window::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

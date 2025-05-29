@@ -64,7 +64,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>... views<td class='argumentdesc'>
 <p> A sequence of <strong>views</strong>. Unlike other layouts, StackLayout can not contain another layout.</table><h4>Discussion:</h4>
 
-<p>In the example below, the button will switch between the three text editing areas:<textarea class='editor'>(
+<p>In the example below, the button will switch between the three text editing areas:<div class='codeMirrorContainer'><textarea class='editor'>(
 var stack;
 w = Window().layout_(VLayout(
     Button().states_([["One"], ["Two"], ["Three"]]).action_({ |b| stack.index = b.value }),
@@ -75,6 +75,7 @@ w = Window().layout_(VLayout(
     );
 )).front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-add' href='./../Overviews/Methods.html#add'>add</a></h3>
@@ -103,7 +104,7 @@ w = Window().layout_(VLayout(
 <p>0 or 1.</div></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>Overlaying a TextView with a UserView to do additional drawing on top, while still allowing the interaction with the text:<textarea class='editor'>(
+<p>Overlaying a TextView with a UserView to do additional drawing on top, while still allowing the interaction with the text:<div class='codeMirrorContainer'><textarea class='editor'>(
 var text, canvas;
 text = TextView().string_("Hello world!").keyDownAction_({ canvas.refresh });
 canvas = UserView().acceptsMouse_(false).drawFunc_({
@@ -124,6 +125,7 @@ canvas = UserView().acceptsMouse_(false).drawFunc_({
 }).refresh;
 w = Window().layout_(StackLayout(canvas, text).mode_(\stackAll)).front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/StackLayout.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/StackLayout.schelp</a><br>link::Classes/StackLayout::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

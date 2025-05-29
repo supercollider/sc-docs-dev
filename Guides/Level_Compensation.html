@@ -51,16 +51,17 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>To balance these aspects, it helps to know more about the signals to be mixed/panned. Most UGens in SC produce a signal amplitude of 1.0, so we will use that value for the discussion here.
 <p><strong>Degree of Phase Correlation:</strong> How likely is it that the momentary peaks of the individual signals will line up in time? The two border cases are fully <strong>in-phase:</strong> the same signal on all channels, so the peaks will always line up, and fully <strong>random phase:</strong> different noise signals on all channels, where the peaks will be statistically very unlikely to ever line up. Most musical signals are somewhere between these extremes, i.e. phase-correlated to some degree.
 <p><strong>Equal Amplitude Compensation</strong> is the safe bet for highly correlated signals: divide the sum of the number of channels; <strong>Equal Power Compensation</strong> is commonly used for weakly correlated signals, as it keeps the acoustic energy constant by dividing the sum through the square root of the number of channels. As most musical signals are somewhere between the extremes, it makes sense to consider and test for the specific case whenever in doubt.
-<p>In the acoustics literature, this level compensation factor is called the p-value [1], and it can be generalized as follows:<textarea class='editor'>~levelCompFactor = { |numChans=2, p_value=1|
+<p>In the acoustics literature, this level compensation factor is called the p-value [1], and it can be generalized as follows:<div class='codeMirrorContainer'><textarea class='editor'>~levelCompFactor = { |numChans=2, p_value=1|
     numChans ** p_value.clip(0, 1).neg
 };
 ~levelCompFactor.value(2, 1); // equal amplitude, multiply by 1/n
 ~levelCompFactor.value(2, 0.5); // equal power, mul by square root of 1/n
 ~levelCompFactor.value(2, 0); // keep full level, no level scaling</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Here are some examples for the common cases of Mixing and Panning.<h3><a class='anchor' name='Mixing%20M%20channels%20to%201'>Mixing M channels to 1</a></h3>
 
-<p>Mixing down to mono is the simplest case to show the different approaches to level compensation. UGens or functions for this are <a href="./../Classes/Mix.html">Mix</a>, <code>sum</code>, <code>mean</code>.<textarea class='editor'>s.meter; s.scope;
+<p>Mixing down to mono is the simplest case to show the different approaches to level compensation. UGens or functions for this are <a href="./../Classes/Mix.html">Mix</a>, <code>sum</code>, <code>mean</code>.<div class='codeMirrorContainer'><textarea class='editor'>s.meter; s.scope;
 
 n = 10;
 // 10 chans to 1, fully coherent in-phase signals:
@@ -91,25 +92,29 @@ n = 10;
 // with mixdown of n to 1 with equal power compensation:
 // volume is quite similar, can peak, but will very rarely
 { PinkNoise.ar({ 1 } ! n).sum / n.sqrt }.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Panning%201%20channel%20to%202'>Panning 1 channel to 2</a></h3>
 
-<p><a href="./../Classes/Pan2.html">Pan2</a> uses equal power panning: when panned to the center, both signals are at 0.7, or -3 dB<textarea class='editor'>{ Pan2.ar(DC.ar(1), Line.kr(-1, 1, 0.1)) }.plot(0.1);
+<p><a href="./../Classes/Pan2.html">Pan2</a> uses equal power panning: when panned to the center, both signals are at 0.7, or -3 dB<div class='codeMirrorContainer'><textarea class='editor'>{ Pan2.ar(DC.ar(1), Line.kr(-1, 1, 0.1)) }.plot(0.1);
 // loudness seems constant when panning
 { Pan2.ar(PinkNoise.ar(0.2), SinOsc.kr(0.3)) }.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p><a href="./../Classes/LinPan2.html">LinPan2</a> uses equal amplitude panning: in the center, both signals are at 0.5.<textarea class='editor'>{ LinPan2.ar(DC.ar(1), Line.kr(-1, 1, 0.1)) }.plot(0.1);
+<p><a href="./../Classes/LinPan2.html">LinPan2</a> uses equal amplitude panning: in the center, both signals are at 0.5.<div class='codeMirrorContainer'><textarea class='editor'>{ LinPan2.ar(DC.ar(1), Line.kr(-1, 1, 0.1)) }.plot(0.1);
 // loudness seems to drop slightly when in the center
 { LinPan2.ar(PinkNoise.ar(0.2), SinOsc.kr(0.3)) }.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Panning%201%20channel%20to%20N'>Panning 1 channel to N</a></h3>
 
-<p><a href="./../Classes/PanAz.html">PanAz</a> uses equal power panning, so with a default width of 2, it keeps the energy constant, like <a href="./../Classes/Pan2.html">Pan2</a>.<textarea class='editor'>{ PanAz.ar(4, DC.ar(1), Line.kr(-1, 1, 0.1), orientation: 0) }.plot(0.1);
+<p><a href="./../Classes/PanAz.html">PanAz</a> uses equal power panning, so with a default width of 2, it keeps the energy constant, like <a href="./../Classes/Pan2.html">Pan2</a>.<div class='codeMirrorContainer'><textarea class='editor'>{ PanAz.ar(4, DC.ar(1), Line.kr(-1, 1, 0.1), orientation: 0) }.plot(0.1);
 
 // with larger width, the overlaps get bigger, and the overall energy rises,
 // so one may want to compensate amplitude for larger width
 { PanAz.ar(4, DC.ar(1), Line.kr(-1, 1, 0.1), width: 4, orientation: 0) }.plot(0.1);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Mix/Panning%20M%20to%202%20channels'>Mix/Panning M to 2 channels</a></h3>
 
-<p><a href="./../Classes/Splay.html">Splay</a> mixes an array of input channels down to stereo using <a href="./../Classes/Pan2.html">Pan2</a>, and it has 3 options for level compensation:<textarea class='editor'>s.meter; s.scope;
+<p><a href="./../Classes/Splay.html">Splay</a> mixes an array of input channels down to stereo using <a href="./../Classes/Pan2.html">Pan2</a>, and it has 3 options for level compensation:<div class='codeMirrorContainer'><textarea class='editor'>s.meter; s.scope;
 
 // levelComp defaults to true, which is equal power -
 // this is kept this way for backwards compatibility.
@@ -125,10 +130,11 @@ n = 10;
 // When setting spread low, levels and peaks will go up;
 // the worst case is panning all inputs to a single channel:
 { Splay.ar(Saw.ar([100, 150, 250]), spread: 0, center: 1, levelComp: 0.5) }.scope;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Note that this levelComp factor scales with the number of channels, so tuning to somewhere between 0.5 and 1.0 should work well when experimenting with changing numbers of channels.<h3><a class='anchor' name='Mix/Panning%20M%20channels%20to%20N'>Mix/Panning M channels to N</a></h3>
 
-<p><a href="./../Classes/SplayAz.html">SplayAz</a> mixes an array of M input channels to N outputs using <a href="./../Classes/PanAz.html">PanAz</a>; it has 3 options for level compensation:<textarea class='editor'>s.meter; s.scope;
+<p><a href="./../Classes/SplayAz.html">SplayAz</a> mixes an array of M input channels to N outputs using <a href="./../Classes/PanAz.html">PanAz</a>; it has 3 options for level compensation:<div class='codeMirrorContainer'><textarea class='editor'>s.meter; s.scope;
 
 n = 10;
 // levelComp defaults to true, which is equal power:
@@ -151,6 +157,7 @@ n = 10;
 // When width values are high, the overall output level also rises,
 // because each channel is directed to more channels:
 { SplayAz.ar(4, Saw.ar({ exprand(100, 500) }! n), level: 0.5, width: 4) }.scope;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>[1] Laitinen, Mikko-Ville, et al. "Gain normalization in amplitude panning as a function of frequency and room reverberance." Audio Engineering Society Conference: 55th International Conference: Spatial Audio. Audio Engineering Society, 2014.<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Guides/Level_Compensation.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Guides/Level_Compensation.schelp</a><br>link::Guides/Level_Compensation::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

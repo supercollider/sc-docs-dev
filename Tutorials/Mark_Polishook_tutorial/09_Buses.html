@@ -42,14 +42,15 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 
 <p>By default, SuperCollider has 1024 buses for audio signals and 16,384 for control signals. The buses, which are items in an array, are what SuperCollider uses to represent audio and control rate data.
-<p>////////////////////////////////////////////////////////////////////////////////////////////////////<textarea class='editor'>// the array of audio buses (channels)
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////<div class='codeMirrorContainer'><textarea class='editor'>// the array of audio buses (channels)
 [ channel0, channel1, channel2, channel3, channel4, ... , ..., ..., etc., ... channel127 ]
 
 // the array of control buses (channels)
 [ channel0, channel1, channel2, channel3, channel4, ... , ..., ..., etc., ... channel4095 ]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Placing%20audio%20into%20a%20bus'>Placing audio into a bus</a></h2>
 
-<p>Use an Out ugen at the audio rate to put data into an audio bus.<textarea class='editor'>(
+<p>Use an Out ugen at the audio rate to put data into an audio bus.<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("dataForABus", {
     Out.ar(
         0,        // write 1 channel of audio into bus 0
@@ -59,15 +60,17 @@ SynthDef("dataForABus", {
 )
 
 Synth("dataForABus");</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>A SynthDef browser<textarea class='editor'>(
+<p>A SynthDef browser<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDescLib.global.read;
 SynthDescLib.global.browse;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>shows 1 channel of output on channel 0.<h2><a class='anchor' name='Getting%20audio%20from%20a%20bus'>Getting audio from a bus</a></h2>
 
-<p>Send an .ar message to an In ugen to get data from an audio bus.<textarea class='editor'>(
+<p>Send an .ar message to an In ugen to get data from an audio bus.<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("dataFromABus", {
     Out.ar(
         0,
@@ -83,6 +86,7 @@ SynthDef("dataFromABus", {
 Synth("dataForABus");    // synthesize a sawtooth wave on channel 0
 Synth("dataFromABus");    // pair it with a sine wave on channel 1
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Control%20rate%20buses'>Control rate buses</a></h2>
 
 <p>Use <code>In.kr</code> and <code>Out.kr</code> to read from or write to control buses.

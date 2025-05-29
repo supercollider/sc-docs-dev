@@ -234,14 +234,17 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>A Server object is a representation of a server application. It is used to control scsynth (or supernova) from the SuperCollider language. (See <a href="./../Guides/Server-Guide.html">Server Guide</a>, as well as <a href="./../Guides/ClientVsServer.html">Client vs Server</a> for more details on the distinction.) It forwards OSC messages and has a number of allocators that keep track of IDs for nodes, buses, and buffers.
 <p>The server application represented by a Server object might be running on the same machine as the sclang, or it may be running on a remote machine.
 <p>Most of a Server's options are controlled through its instance of ServerOptions. See the <a href="./../Classes/ServerOptions.html">ServerOptions</a> helpfile for more detail.
-<p>A server also holds an instance of a <a href="./../Classes/Recorder.html">Recorder</a> (for recording output into a file) and a <a href="./../Classes/Volume.html">Volume</a> (main output level).<div class='note'><span class='notelabel'>NOTE:</span> By default, there is always one default server, which is stored in the interpreter variable 's'. E.g. you can boot the default server by calling <code>s.boot</code></div><textarea class='editor'>s.boot;
+<p>A server also holds an instance of a <a href="./../Classes/Recorder.html">Recorder</a> (for recording output into a file) and a <a href="./../Classes/Volume.html">Volume</a> (main output level).<div class='note'><span class='notelabel'>NOTE:</span> By default, there is always one default server, which is stored in the interpreter variable 's'. E.g. you can boot the default server by calling <code>s.boot</code></div><div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 { SinOsc.ar * 0.1 }.play(s); // play a synth on the server</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>The server application may be in three different states: running, not running, or unresponsive (for example while loading large files from disk).<textarea class='editor'>s.serverRunning // returns true if it is true</textarea>
-<div class='note'><span class='notelabel'>NOTE:</span> If you get the message <code>"Mismatched sample rates are not supported."</code> it may be helpful to follow these steps:<textarea class='editor'>1. set your device to the sample rate you want
+<p>The server application may be in three different states: running, not running, or unresponsive (for example while loading large files from disk).<div class='codeMirrorContainer'><textarea class='editor'>s.serverRunning // returns true if it is true</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='note'><span class='notelabel'>NOTE:</span> If you get the message <code>"Mismatched sample rates are not supported."</code> it may be helpful to follow these steps:<div class='codeMirrorContainer'><textarea class='editor'>1. set your device to the sample rate you want
 2. check the device name in the boot posting of the server
 3. set both sample rate and device (s.options.sampleRate = …; s.options.device = "…")
 4. reboot the server: "s.reboot"</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div>
 <p>Some insights about common Server issues can be found on the FAQ <a href="./../Guides/UserFAQ.html#Server%20Issues">Server Issues</a><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>name</span>, <span class='argstr'>addr</span>, <span class='argstr'>options</span>, <span class='argstr'>clientID</span>)</h3>
@@ -260,7 +263,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>a symbol; each Server object is stored in one global classvariable under its name.<tr><td class='argumentname'>addr<td class='argumentdesc'>
 <p>an optional instance of <a href="./../Classes/NetAddr.html">NetAddr</a>, providing IP address of the remote machine and port the app is listening on.<tr><td class='argumentname'>options<td class='argumentdesc'>
 <p>an optional instance of <a href="./../Classes/ServerOptions.html">ServerOptions</a>. If <code>nil</code>, an instance of ServerOptions will be created, using the default values.<div class='note'><span class='notelabel'>NOTE:</span> To enable remote connections you will need to change the option <a href="./../Classes/ServerOptions.html#-bindAddress">ServerOptions: -bindAddress</a> as the default value only allows connections from the local machine. <code>s.options.bindAddress = "0.0.0.0"</code> will allow connections from any address.</div><tr><td class='argumentname'>clientID<td class='argumentdesc'>
-<p>an integer. In multi-client situations, every client can be given separate ranges for <a href="./../Classes/Node.html">Nodes</a>, <a href="./../Classes/Buffer.html">Buffers</a>, or <a href="./../Classes/Bus.html">Busses</a>. In normal usage, the server will supply an ID automatically when a client registers for the <a href="#-notify">notifications</a> so you should not need to supply one here. N.B. In multi-client situations, you will need to set the <a href="./../Classes/ServerOptions.html#-maxLogins">ServerOptions: -maxLogins</a> to at least the number of clients you wish to allow. This must be the same in the Server instances on every client.<textarea class='editor'>// example usage:
+<p>an integer. In multi-client situations, every client can be given separate ranges for <a href="./../Classes/Node.html">Nodes</a>, <a href="./../Classes/Buffer.html">Buffers</a>, or <a href="./../Classes/Bus.html">Busses</a>. In normal usage, the server will supply an ID automatically when a client registers for the <a href="#-notify">notifications</a> so you should not need to supply one here. N.B. In multi-client situations, you will need to set the <a href="./../Classes/ServerOptions.html#-maxLogins">ServerOptions: -maxLogins</a> to at least the number of clients you wish to allow. This must be the same in the Server instances on every client.<div class='codeMirrorContainer'><textarea class='editor'>// example usage:
 // on machine running the server
 (
 s.options.bindAddress = "0.0.0.0"; // allow connections from any address
@@ -276,6 +279,7 @@ t = Server.remote(\remote, NetAddr("192.168.0.130", 57110), o); // set to correc
 // info about returned client ID should be posted in the post window
 t.makeWindow; // make a window for monitoring
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*local' href='./../Overviews/Methods.html#local'>local</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*local' href='./../Overviews/Methods.html#local'>local</a> = value</h3>
 <div class='method'>
@@ -287,19 +291,22 @@ t.makeWindow; // make a window for monitoring
 <div class='method'>
 <p>Get or set the default server. By default this is the local server (see above).<h4>Discussion:</h4>
 
-<p>Setting this will also assign it to the <a href="./../Classes/Interpreter.html">Interpreter</a> variable 's'.<textarea class='editor'>// set the internal Server to be the default Server
+<p>Setting this will also assign it to the <a href="./../Classes/Interpreter.html">Interpreter</a> variable 's'.<div class='codeMirrorContainer'><textarea class='editor'>// set the internal Server to be the default Server
 Server.default = Server.internal;
 s.postln; // internal</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Accessing%20all%20servers'>Accessing all servers</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*all' href='./../Overviews/Methods.html#all'>all</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*all' href='./../Overviews/Methods.html#all'>all</a> = value</h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
-<p>a <a href="./../Classes/Set.html">Set</a> containing all servers.<textarea class='editor'>Server.all</textarea>
+<p>a <a href="./../Classes/Set.html">Set</a> containing all servers.<div class='codeMirrorContainer'><textarea class='editor'>Server.all</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div></div><h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*allRunningServers' href='./../Overviews/Methods.html#allRunningServers'>allRunningServers</a></h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
-<p>a Set containing all running servers, according to the definition of <a href="#-serverRunning">-serverRunning</a>.<textarea class='editor'>Server.allRunningServers</textarea>
+<p>a Set containing all running servers, according to the definition of <a href="#-serverRunning">-serverRunning</a>.<div class='codeMirrorContainer'><textarea class='editor'>Server.allRunningServers</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div></div><h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*allBootedServers' href='./../Overviews/Methods.html#allBootedServers'>allBootedServers</a></h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
@@ -307,7 +314,8 @@ s.postln; // internal</textarea>
 <h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*named' href='./../Overviews/Methods.html#named'>named</a> = value</h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
-<p>An <a href="./../Classes/IdentityDictionary.html">IdentityDictionary</a> of all servers listed by their name<textarea class='editor'>Server.named.at(\default)</textarea>
+<p>An <a href="./../Classes/IdentityDictionary.html">IdentityDictionary</a> of all servers listed by their name<div class='codeMirrorContainer'><textarea class='editor'>Server.named.at(\default)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div></div><h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*quitAll' href='./../Overviews/Methods.html#quitAll'>quitAll</a>(<span class='argstr'>watchShutDown: true</span>)</h3>
 <div class='method'>
 <p>quit all registered servers</div><h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*killAll' href='./../Overviews/Methods.html#killAll'>killAll</a></h3>
@@ -319,8 +327,9 @@ s.postln; // internal</textarea>
 <p>try to free all nodes in all registered servers, even if the server seems not to be running</div><h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*sync_s' href='./../Overviews/Methods.html#sync_s'>sync_s</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*sync_s' href='./../Overviews/Methods.html#sync_s'>sync_s</a> = value</h3>
 <div class='method'>
-<p>If kept true (default), when the default server is changed, also the interpreter variable s is changed.<textarea class='editor'>Server.default = Server(\alice, NetAddr("127.0.0.1", 57130));
+<p>If kept true (default), when the default server is changed, also the interpreter variable s is changed.<div class='codeMirrorContainer'><textarea class='editor'>Server.default = Server(\alice, NetAddr("127.0.0.1", 57130));
 s.postln; // see: it is alice.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Switching%20the%20server%20application'>Switching the server application</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*supernova' href='./../Overviews/Methods.html#supernova'>supernova</a></h3>
 <div class='method'>
@@ -347,12 +356,14 @@ s.postln; // see: it is alice.</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sendMsg' href='./../Overviews/Methods.html#sendMsg'>sendMsg</a>( <span class='argstr'>... msg</span>)</h3>
 <div class='method'>
 <p>send an OSC-message to the server.<h4>Discussion:</h4>
-<textarea class='editor'>s.sendMsg("/s_new", "default", s.nextNodeID, 0, 1);</textarea>
+<div class='codeMirrorContainer'><textarea class='editor'>s.sendMsg("/s_new", "default", s.nextNodeID, 0, 1);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sendBundle' href='./../Overviews/Methods.html#sendBundle'>sendBundle</a>(<span class='argstr'>time</span> <span class='argstr'>... msgs</span>)</h3>
 <div class='method'>
 <p>send an OSC-bundle to the server.<h4>Discussion:</h4>
 
-<p>Since the network may have irregular performance, time allows for the bundle to be evaluated at a specified point in the future. Thus all messages are synchronous relative to each other, but delayed by a constant offset. If such a bundle arrives late, the server replies with a late message but still evaluates it.<textarea class='editor'>s.sendBundle(0.2, ["/s_new", "default", x = s.nextNodeID, 0, 1], ["/n_set", x, "freq", 500]);</textarea>
+<p>Since the network may have irregular performance, time allows for the bundle to be evaluated at a specified point in the future. Thus all messages are synchronous relative to each other, but delayed by a constant offset. If such a bundle arrives late, the server replies with a late message but still evaluates it.<div class='codeMirrorContainer'><textarea class='editor'>s.sendBundle(0.2, ["/s_new", "default", x = s.nextNodeID, 0, 1], ["/n_set", x, "freq", 500]);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sendRaw' href='./../Overviews/Methods.html#sendRaw'>sendRaw</a>(<span class='argstr'>rawArray</span>)</h3>
 <div class='method'>
 <p></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-listSendMsg' href='./../Overviews/Methods.html#listSendMsg'>listSendMsg</a>(<span class='argstr'>msg</span>)</h3>
@@ -361,8 +372,9 @@ s.postln; // see: it is alice.</textarea>
 <div class='method'>
 <p>as sendBundle, but takes an array as argument.<h4>Discussion:</h4>
 
-<p>This allows you to collect messages in an array and then send them.<textarea class='editor'>s.listSendBundle(0.2, [["/s_new", "default", x = s.nextNodeID, 0, 1],
+<p>This allows you to collect messages in an array and then send them.<div class='codeMirrorContainer'><textarea class='editor'>s.listSendBundle(0.2, [["/s_new", "default", x = s.nextNodeID, 0, 1],
     ["/n_set", x, "freq", 600]]);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sendSynthDef' href='./../Overviews/Methods.html#sendSynthDef'>sendSynthDef</a>(<span class='argstr'>name</span>, <span class='argstr'>dir</span>)</h3>
 <div class='method'>
 <p>send a synthDef to the server that was written in a local directory</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-loadSynthDef' href='./../Overviews/Methods.html#loadSynthDef'>loadSynthDef</a>(<span class='argstr'>name</span>, <span class='argstr'>completionMsg</span>, <span class='argstr'>dir</span>)</h3>
@@ -400,7 +412,7 @@ s.postln; // see: it is alice.</textarea>
 <p>A function to evaluate after the server fails to boot. If onFailure is not given, an error message is posted. Providing a function suppresses the error message. If you want to supply a function and print the normal error message, make sure that your function returns "false," e.g. <code>s.doWhenBooted(onFailure: { ... custom action...; false })</code>.<tr><td class='argumentname'>clock<td class='argumentdesc'>
 <p>The default <a href="./../Classes/Clock.html">Clock</a> is <a href="./../Classes/AppClock.html">AppClock</a>. Use <a href="./../Classes/SystemClock.html">SystemClock</a> or <a href="./../Classes/TempoClock.html">TempoClock</a> if time accuracy is important.</table><h4>Discussion:</h4>
 
-<p>To play with precise time control, the fourth argument clock should be set to a precise clock (see above), and then <a href="./../Overviews/GUI-Classes.html">GUI classes</a> should be wrapped in a <code>defer { ... }</code>.<textarea class='editor'>(
+<p>To play with precise time control, the fourth argument clock should be set to a precise clock (see above), and then <a href="./../Overviews/GUI-Classes.html">GUI classes</a> should be wrapped in a <code>defer { ... }</code>.<div class='codeMirrorContainer'><textarea class='editor'>(
 t = TempoClock;
 t.tempo = 1;
 
@@ -425,6 +437,7 @@ s.waitForBoot({
 )
 
 t.tempo = 30/60</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-boot' href='./../Overviews/Methods.html#boot'>boot</a>(<span class='argstr'>startAliveThread: true</span>, <span class='argstr'>recover: false</span>, <span class='argstr'>onFailure</span>)</h3>
 <div class='method'>
 <p>boot the remote server, create new allocators.<h4>Arguments:</h4>
@@ -474,11 +487,12 @@ t.tempo = 30/60</textarea>
 <div class='method'>
 <p>Move the nodes in <code>nodeList</code> to the location specified by <code>target</code> and <code>addAction</code>, placing them there in the order indicated by nodeList.<h4>Discussion:</h4>
 
-<p>Any nodes which have already been freed will be skipped. Passing nil for target and addAction will result in the location being the head of the default group.<textarea class='editor'>g = Group.new;
+<p>Any nodes which have already been freed will be skipped. Passing nil for target and addAction will result in the location being the head of the default group.<div class='codeMirrorContainer'><textarea class='editor'>g = Group.new;
 x = Array.fill(5, { Synth(\default) });
 s.queryAllNodes;
 s.reorder(x, g, \addToTail);
 s.queryAllNodes;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-inputBus' href='./../Overviews/Methods.html#inputBus'>inputBus</a></h3>
 <div class='method'>
 <p>Return a <a href="./../Classes/Bus.html">Bus</a> object that represents the input audio bus.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-outputBus' href='./../Overviews/Methods.html#outputBus'>outputBus</a></h3>
@@ -493,9 +507,10 @@ s.queryAllNodes;</textarea>
 <div class='method'>
 <p>Post a representation of this Server's current node tree to the post window. See <a href="#-plotTree">-plotTree</a> for a graphical variant.<h4>Discussion:</h4>
 
-<p>Very helpful for debugging. For local servers, this uses g_dumpTree and for remote g_queryTree. See <a href="./../Classes/Group.html">Group</a> and <a href="./../Reference/Server-Command-Reference.html">Server Command Reference</a> for more info.<textarea class='editor'>s.boot;
+<p>Very helpful for debugging. For local servers, this uses g_dumpTree and for remote g_queryTree. See <a href="./../Classes/Group.html">Group</a> and <a href="./../Reference/Server-Command-Reference.html">Server Command Reference</a> for more info.<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 s.queryAllNodes; // note the root node (ID 0) and the default group (ID 1)
 s.quit;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rtMemoryStatus' href='./../Overviews/Methods.html#rtMemoryStatus'>rtMemoryStatus</a>(<span class='argstr'>action</span>)</h3>
 <div class='method'>
 <p>Queries the server for the amount of currently free real-time memory<h4>Arguments:</h4>
@@ -562,7 +577,7 @@ s.quit;</textarea>
 <p>The bundle so that it can be further used if needed.</div><h4>Discussion:</h4>
 
 <p>Calling <code>sync</code> inside func will split the bundle and wait for asynchronous actions to complete before continuing.
-<p>If an error is encountered while evaluating <code>func</code> this method will throw an <a href="./../Classes/Error.html">Error</a> and stop message deferral.<textarea class='editor'>s.boot;
+<p>If an error is encountered while evaluating <code>func</code> this method will throw an <a href="./../Classes/Error.html">Error</a> and stop message deferral.<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 (
 // send a synth def to server
 SynthDef("tpulse", { |out = 0, freq = 700, sawFreq = 440.0|
@@ -617,16 +632,18 @@ s.makeBundle(nil, {
 });
 )
 x.free; b.free;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-bind' href='./../Overviews/Methods.html#bind'>bind</a>(<span class='argstr'>func</span>)</h3>
 <div class='method'>
 <p>Just as in <code>makeBundle</code>, the Function <code>func</code> is evaluated, and all OSC messages generated by it are deferred and added to a bundle, which is sent to the server, using the server default latency.<h4>Discussion:</h4>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 s.bind {
     a = { |freq = 100| SinOsc.ar(freq, LFTri.ar(freq)) * 0.2 }.play;
     s.sync;
     a.set(\freq, 400);
 }
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Shared%20Controls'>Shared Controls</a></h3>
 
 <p>The internal server has a number of shared control buses. Their values can be set or polled using the methods below.<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-getSharedControl' href='./../Overviews/Methods.html#getSharedControl'>getSharedControl</a>(<span class='argstr'>num</span>)</h3>
@@ -641,12 +658,13 @@ s.bind {
 <div class='method'>
 <p>This method initializes the <a href="./../Reference/default_group.html">Default Group</a> and runs <a href="./../Classes/ServerTree.html">ServerTree</a>.<h4>Discussion:</h4>
 
-<p>This method is called automatically when you boot a Server from the language. N.B. If you started a server app from the command line you will have to call initTree manually if you need this functionality.<textarea class='editor'>s.quit;
+<p>This method is called automatically when you boot a Server from the language. N.B. If you started a server app from the command line you will have to call initTree manually if you need this functionality.<div class='codeMirrorContainer'><textarea class='editor'>s.quit;
 f = { Group.new(s.defaultGroup); "Other code can be evaluated too".postln };
 ServerTree.add(f);
 s.boot;
 s.queryAllNodes; // note the group within the default group
 ServerTree.remove(f);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><a href="./../Classes/ServerBoot.html">ServerBoot</a> and <a href="./../Classes/ServerQuit.html">ServerQuit</a> provide similar functionality at boot and quit times.</div><h3><a class='anchor' name='GUI%20methods'>GUI methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-makeGui' href='./../Overviews/Methods.html#makeGui'>makeGui</a>: METHOD NOT FOUND!</h3>
@@ -668,7 +686,7 @@ ServerTree.remove(f);</textarea>
 <div class='method'>
 <p>Show frequency analyzer window.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-meter' href='./../Overviews/Methods.html#meter'>meter</a>: METHOD NOT FOUND!</h3>
 <div class='method'>
-<p>Show input/output level meter by opening the singleton instance of <a href="./../Classes/ServerMeter.html">ServerMeter</a>.<textarea class='editor'>// Create a singleton ServerMeter, or bring the window to the front if it has already been created.
+<p>Show input/output level meter by opening the singleton instance of <a href="./../Classes/ServerMeter.html">ServerMeter</a>.<div class='codeMirrorContainer'><textarea class='editor'>// Create a singleton ServerMeter, or bring the window to the front if it has already been created.
 s.meter // -&gt; a ServerMeter
 
 // Query the current position of the ServerMeter window:
@@ -685,6 +703,7 @@ s.meter.position // -&gt; Point(200.0, 200.0)
 
 // Retrieve the current bounds of the ServerMeter window:
 s.meter.window.bounds // -&gt; Rect(200.0, 200.0, 134.0, 230.0)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><h4>Arguments:</h4>
 <table class='arguments'>
@@ -695,7 +714,7 @@ s.meter.window.bounds // -&gt; Rect(200.0, 200.0, 134.0, 230.0)</textarea>
 <div class='method'>
 <p>Plot the node/group tree in a graphical format, similar to <a href="#-queryAllNodes">-queryAllNodes</a>. This creates a singleton window containing <a href="./../Classes/ServerTreeView.html">ServerTreeView</a>.<div class='note'><span class='notelabel'>NOTE:</span> To use multiple instances of <a href="./../Classes/ServerTreeView.html">ServerTreeView</a> per <a href="./../Classes/Server.html">Server</a> instance or workspace, refer to the <a href="./../Classes/ServerTreeView.html#examples">Examples in ServerTreeView Documentation</a>.</div>
 <p>The method returns a <a href="./../Classes/Server.html">Server</a> (the receiver of this call), and the created windows can be accessed via the <a href="#-plotTreeWindow">-plotTreeWindow</a>.<div class='note'><span class='notelabel'>NOTE:</span> If the server is not running, the window containing <code>plotTree</code> will briefly appear and then close, displaying the following message in the Post window:<pre>-&gt; localhost
-WARNING: Server failed to respond to Group:queryTree!</pre></div><textarea class='editor'>s.boot; // starts the SuperCollider server.
+WARNING: Server failed to respond to Group:queryTree!</pre></div><div class='codeMirrorContainer'><textarea class='editor'>s.boot; // starts the SuperCollider server.
 
 // Open a plotTree window named ~pTree with a default refresh rate of 0.5 seconds:
 ~pTree = s.plotTree;
@@ -714,11 +733,12 @@ x.stop; // stops the playback of the pattern.
 
 // Close the plotTree window associated with ~pTree:
 ~pTree.plotTreeWindow.close;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>interval<td class='argumentdesc'>
-<p>Polling interval.<textarea class='editor'>(
+<p>Polling interval.<div class='codeMirrorContainer'><textarea class='editor'>(
 s.waitForBoot {
     // Open a plotTree window with a refresh rate of 2 seconds:
     var plotTree = s.plotTree(2);
@@ -738,8 +758,9 @@ s.waitForBoot {
     x.stop; // stops the playback of the pattern
 }
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <tr><td class='argumentname'>bounds<td class='argumentdesc'>
-<p>The bounds of the <code>s.plotTree</code> window. A Rect specifying position and size of the window. The size does not include the border and title bar. Position is measured from the bottom-left corner of the screen in the same manner as <code>bounds</code> argument for <a href="./../Classes/Window.html#*new">Window: *new</a>. The minimum size is 395 for width and 386 for height. Any values smaller than these will be automatically adjusted to the minimum values.<textarea class='editor'>// Create plotTree window at the default position with default size:
+<p>The bounds of the <code>s.plotTree</code> window. A Rect specifying position and size of the window. The size does not include the border and title bar. Position is measured from the bottom-left corner of the screen in the same manner as <code>bounds</code> argument for <a href="./../Classes/Window.html#*new">Window: *new</a>. The minimum size is 395 for width and 386 for height. Any values smaller than these will be automatically adjusted to the minimum values.<div class='codeMirrorContainer'><textarea class='editor'>// Create plotTree window at the default position with default size:
 s.plotTree;
 
 // Move plotTree window to the defined position with defined size:
@@ -747,6 +768,7 @@ s.plotTree(2, Rect(200, 200, 100, 200));
 // &lt;- The size (width: 100; height: 200) is smaller than the minimum size, so the size will be ajusted.
 
 s.plotTree; // brings the plotTree window to the front without changing its position or size.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plotTreeWindow' href='./../Overviews/Methods.html#plotTreeWindow'>plotTreeWindow</a></h3>
 <div class='method'>
 <p>See <a href="#-plotTree">-plotTree</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plotTreeView' href='./../Overviews/Methods.html#plotTreeView'>plotTreeView</a>: METHOD NOT FOUND!</h3>
@@ -761,11 +783,12 @@ s.plotTree; // brings the plotTree window to the front without changing its posi
 <p>Function to be evaluated in order to clean up all actions performed inside the method. To be called for instance by the onClose method of the enclosing window.</div></div><h3><a class='anchor' name='Recording%20Support'>Recording Support</a></h3>
 
 <p>The following methods are for convenience use. For recording with sample-accurate start and stop times you should make your own nodes. See the <a href="./../Classes/DiskOut.html">DiskOut</a> helpfile for more info. For non-realtime recording, see the <a href="./../Guides/Non-Realtime-Synthesis.html">Non-Realtime Synthesis (NRT)</a> helpfile.
-<p>This functionality is also available through the recording button on the server windows. Pressing it once calls record, and pressing it again calls stopRecording (see below). When doing so the file created will be in your recordings folder and be named for the current date and time. The default location of the recordings folder varies from platform to platform but is always stored in <code>thisProcess.platform.recordingsDir</code>. Setting this variable allows you to change the default.<div class='note'><span class='notelabel'>NOTE:</span> record creates the recording synth after the Server's default group and uses In.ar. Thus if you add nodes after the recording synth their output will not be captured. To avoid this, either use Node objects (which use the default node as their target) or (when using messaging style) use a target nodeID of 1.<textarea class='editor'>s.sendMsg("/s_new", "default", s.nextNodeID, 1, 1);</textarea>
+<p>This functionality is also available through the recording button on the server windows. Pressing it once calls record, and pressing it again calls stopRecording (see below). When doing so the file created will be in your recordings folder and be named for the current date and time. The default location of the recordings folder varies from platform to platform but is always stored in <code>thisProcess.platform.recordingsDir</code>. Setting this variable allows you to change the default.<div class='note'><span class='notelabel'>NOTE:</span> record creates the recording synth after the Server's default group and uses In.ar. Thus if you add nodes after the recording synth their output will not be captured. To avoid this, either use Node objects (which use the default node as their target) or (when using messaging style) use a target nodeID of 1.<div class='codeMirrorContainer'><textarea class='editor'>s.sendMsg("/s_new", "default", s.nextNodeID, 1, 1);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div>
 <p>For more detail on this subject see <a href="./../Guides/Order-of-execution.html">Order of execution</a>, <a href="./../Reference/default_group.html">Default Group</a>, and <a href="./../Guides/NodeMessaging.html">Node Messaging</a>.
 <p>See <a href="./../Classes/SoundFile.html">SoundFile</a> for information on the various sample and header formats. Not all sample and header formats are compatible. Note that the sampling rate of the output file will be the same as that of the server app. This can be set using the Server's <a href="./../Classes/ServerOptions.html">ServerOptions</a>.
-<p>Example:<textarea class='editor'>s.boot; // start the server
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>s.boot; // start the server
 
 // something to record
 (
@@ -792,6 +815,7 @@ s.stopRecording; // this closes the file and deallocates the buffer recording no
 x.free; // stop the synths
 
 // look in your recordings folder and you'll find a file named for this date and time</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>The recording is done via an of <a href="./../Classes/Recorder.html">Recorder</a> - a server holds one instance implicitly.<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-prepareForRecord' href='./../Overviews/Methods.html#prepareForRecord'>prepareForRecord</a>(<span class='argstr'>path</span>, <span class='argstr'>numChannels</span>)</h3>
 <div class='method'>
@@ -852,7 +876,7 @@ x.free; // stop the synths
 <p>one or more OSC messages which will be bundled before the sync message (thus ensuring that they will arrive before the /sync message).<tr><td class='argumentname'>latency<td class='argumentdesc'>
 <p>allows for the message to be evaluated at a specific point in the future.</table><h4>Discussion:</h4>
 
-<p>This may be slightly less safe than sendMsgSync under UDP on a wide area network, as packets may arrive out of order, but on a local network should be okay. Under TCP this should always be safe.<textarea class='editor'>(
+<p>This may be slightly less safe than sendMsgSync under UDP on a wide area network, as packets may arrive out of order, but on a local network should be okay. Under TCP this should always be safe.<div class='codeMirrorContainer'><textarea class='editor'>(
 Routine.run {
     var c;
 
@@ -886,6 +910,7 @@ Routine.run {
     \b_alloc_DONE.postln;
 };
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Bela'>Bela</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-belaScope' href='./../Overviews/Methods.html#belaScope'>belaScope</a>(<span class='argstr'>scopeChannel</span>, <span class='argstr'>index: 0</span>, <span class='argstr'>numChannels</span>)</h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Audio/Bela/BelaScope.sc'>/usr/local/share/SuperCollider/SCClassLibrary/Common/Audio/Bela/BelaScope.sc</a></div>

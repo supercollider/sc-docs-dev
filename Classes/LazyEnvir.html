@@ -32,7 +32,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <ul class='toc'><li class='toc3'><a href='#-put'>put</a> </li>
 <li class='toc3'><a href='#-at'>at</a> </li>
 <li class='toc3'><a href='#-copy'>copy</a> </li>
-<li class='toc3'><a href='#-localPut'>localPut</a> </li>
+<li class='toc3'><a href='#-localPut'>localPut</a>  <a href='#-localRemoveAt'>localRemoveAt</a> </li>
 <li class='toc3'><a href='#-proxyClass'>proxyClass</a> </li>
 <li class='toc3'><a href='#-removeAt'>removeAt</a> </li>
 <li class='toc3'><a href='#-makeProxy'>makeProxy</a> </li>
@@ -54,12 +54,13 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>Environment with deferred evaluation and default values.
-<p>Consequently, calculations can be done with nonexisting objects which can then be assigned later. Per default, a LazyEnvir returns instances of <a href="./../Classes/Maybe.html">Maybe</a>. See also <a href="./../Classes/Fdef.html">Fdef</a>.<div class='note'><span class='notelabel'>NOTE:</span> While the method put is treated as transparent and implicitly creates a placeholder, all other methods, like at, collect, do, etc. pass the placeholder. In order to retrieve the object itself, use .source - in order to reduce it to a value, use: value</div><textarea class='editor'>e = LazyEnvir.new;
+<p>Consequently, calculations can be done with nonexisting objects which can then be assigned later. Per default, a LazyEnvir returns instances of <a href="./../Classes/Maybe.html">Maybe</a>. See also <a href="./../Classes/Fdef.html">Fdef</a>.<div class='note'><span class='notelabel'>NOTE:</span> While the method put is treated as transparent and implicitly creates a placeholder, all other methods, like at, collect, do, etc. pass the placeholder. In order to retrieve the object itself, use .source - in order to reduce it to a value, use: value</div><div class='codeMirrorContainer'><textarea class='editor'>e = LazyEnvir.new;
 e.use { ~x = ~y + ~z };
 e.at(\x);
 e.at(\x).source; // the source is a binary operation (addition on the placeholders)
 e.use { ~y = 5; ~z = 7 };
 e.at(\x).value; // the value is 12</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
@@ -67,7 +68,7 @@ e.at(\x).value; // the value is 12</textarea>
 <div class='method'>
 <p>Sets the value of the reference at key.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-at' href='./../Overviews/Methods.html#at'>at</a>(<span class='argstr'>key</span>)</h3>
 <div class='method'>
-<p>Returns a reference to the object at key.<textarea class='editor'>l = LazyEnvir.push;
+<p>Returns a reference to the object at key.<div class='codeMirrorContainer'><textarea class='editor'>l = LazyEnvir.push;
 
 // default objects are created on access
 ~a;
@@ -93,14 +94,16 @@ e.at(\x).value; // the value is 12</textarea>
 ~b = { 1000.rand };
 ~c.value;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-copy' href='./../Overviews/Methods.html#copy'>copy</a></h3>
 <div class='method'>
 <p>Copies the environment into a new one, with each placeholder being copied as well.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-localPut' href='./../Overviews/Methods.html#localPut'>localPut</a>(<span class='argstr'>key</span>, <span class='argstr'>obj</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-localRemoveAt' href='./../Overviews/Methods.html#localRemoveAt'>localRemoveAt</a>(<span class='argstr'>key</span>)</h3>
 <div class='method'>
 <p>Sets the value of the key directly. This method is mainly used internally.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-proxyClass' href='./../Overviews/Methods.html#proxyClass'>proxyClass</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-proxyClass' href='./../Overviews/Methods.html#proxyClass'>proxyClass</a> = value</h3>
 <div class='method'>
-<p>Specify what placeholder object the environment uses by supplying a class name (<a href="./../Classes/Symbol.html">Symbol</a>). The default is a <a href="./../Classes/Maybe.html">Maybe</a>. Any object that responds to the methods source, source_ and clear can be a placeholder.<textarea class='editor'>// making a pattern space using LazyEnvir
+<p>Specify what placeholder object the environment uses by supplying a class name (<a href="./../Classes/Symbol.html">Symbol</a>). The default is a <a href="./../Classes/Maybe.html">Maybe</a>. Any object that responds to the methods source, source_ and clear can be a placeholder.<div class='codeMirrorContainer'><textarea class='editor'>// making a pattern space using LazyEnvir
 
 a = LazyEnvir.new;
 a.proxyClass = \PatternProxy;
@@ -121,6 +124,7 @@ z.next;
 z.next;
 
 a.pop;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-removeAt' href='./../Overviews/Methods.html#removeAt'>removeAt</a>(<span class='argstr'>key</span>)</h3>
 <div class='method'>
 <p>Removes the placeholder from the environment and clears it.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-makeProxy' href='./../Overviews/Methods.html#makeProxy'>makeProxy</a></h3>

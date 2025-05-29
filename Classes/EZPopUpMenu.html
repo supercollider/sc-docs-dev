@@ -71,7 +71,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p><code>\vert</code> or <code>\horz</code>. default is <code>\horz</code>.<tr><td class='argumentname'>gap<td class='argumentdesc'>
 <p>A <a href="./../Classes/Point.html">Point</a>. By default, the view tries to get its parent's <code>gap</code>, otherwise it defaults to <code>2@2</code>. Setting it overrides these.<tr><td class='argumentname'>margin<td class='argumentdesc'>
 <p>A <a href="./../Classes/Point.html">Point</a>. This will inset the bounds occupied by the subviews of view.</table><h4>Discussion:</h4>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new.front;
 w.view.decorator = FlowLayout(w.view.bounds);
 g = EZPopUpMenu.new(
@@ -103,6 +103,7 @@ g.addItem(\item1, { |a| ("this is item 1 of " ++ a).postln });
 g.addItem(\item2, { |a| ("this is item 2 of " ++ a).postln });
 g.value = 0;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Changing%20Appearance'>Changing Appearance</a></h3>
@@ -121,7 +122,7 @@ g.value = 0;
 <tr><td class='argumentname'>font<td class='argumentdesc'>
 <p>An instance of <a href="./../Classes/Font.html">Font</a>.</table></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// try several examples together
+<div class='codeMirrorContainer'><textarea class='editor'>// try several examples together
 (
 
 // many menus
@@ -218,6 +219,7 @@ g.addItem(\item3, { "this is item 3".postln });
 )
 
 g.replaceItemAt(2, \item2_replaced, { "this is item 2 replaced".postln });</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/EZPopUpMenu.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/EZPopUpMenu.schelp</a><br>link::Classes/EZPopUpMenu::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

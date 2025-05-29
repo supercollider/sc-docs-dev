@@ -87,7 +87,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>an <a href="./../Classes/Integer.html">Integer</a></div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-spec' href='./../Overviews/Methods.html#spec'>spec</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-spec' href='./../Overviews/Methods.html#spec'>spec</a> = <span class='argstr'>spec</span></h3>
 <div class='method'>
-<p>The <a href="./../Classes/ControlSpec.html">ControlSpec</a> for this control. If set, it will be added to the specs metadata for the current SynthDef.at<textarea class='editor'>(
+<p>The <a href="./../Classes/ControlSpec.html">ControlSpec</a> for this control. If set, it will be added to the specs metadata for the current SynthDef.at<div class='codeMirrorContainer'><textarea class='editor'>(
 d = SynthDef(\tone, { |out = 0, freq = 200|
     var sig;
 
@@ -99,6 +99,7 @@ d = SynthDef(\tone, { |out = 0, freq = 200|
 )
 
 d.specs.freq.postln;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
@@ -107,8 +108,9 @@ d.specs.freq.postln;</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-lag' href='./../Overviews/Methods.html#lag'>lag</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-lag' href='./../Overviews/Methods.html#lag'>lag</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>a = SynthDescLib.global; // the global library of SynthDescs
+<div class='codeMirrorContainer'><textarea class='editor'>a = SynthDescLib.global; // the global library of SynthDescs
 x = a.synthDescs.at(\default); // get the default SynthDesc
 x.controls.do { |ctl| [\name, ctl.name, \defaultValue, ctl.defaultValue].postln }; "";</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ControlName.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ControlName.schelp</a><br>link::Classes/ControlName::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

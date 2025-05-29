@@ -59,7 +59,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Trigger. Resets the list of UGens when triggered.<tr><td class='argumentname'>demandUGens<td class='argumentdesc'>
 <p>List of demand-rate UGens to get values from. When the shortest stream ends, this ugen will set the <a href="./../Classes/Done.html">'done' flag</a>.</table><h4>Discussion:</h4>
 
-<p>By design, a reset trigger only resets the demand ugens; it does not reset the value at Demand's output. Demand continues to hold its value until the next value is demanded, at which point its output value will be the first expected item in the list. To jump to the start value upon receipt of a reset trigger, one can add (+) the two triggers together:<textarea class='editor'>(
+<p>By design, a reset trigger only resets the demand ugens; it does not reset the value at Demand's output. Demand continues to hold its value until the next value is demanded, at which point its output value will be the first expected item in the list. To jump to the start value upon receipt of a reset trigger, one can add (+) the two triggers together:<div class='codeMirrorContainer'><textarea class='editor'>(
 a = { |t_trig, t_reset|
     var    d = Demand.kr(t_trig + t_reset, t_reset, Dseries(0, 1, inf));
     d.poll(t_trig + t_reset);
@@ -68,18 +68,20 @@ a = { |t_trig, t_reset|
 )
 a.set(\t_trig, 1); // do this a few times -- the demand value should increase by 1 each time
 a.set(\t_reset, 1);    // goes immediately back to 0</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>One demand ugen represents a single stream of values, so that embedding the same ugen twice calls this stream twice. To isolate a demand ugen, use a function:<textarea class='editor'>{
+<p>One demand ugen represents a single stream of values, so that embedding the same ugen twice calls this stream twice. To isolate a demand ugen, use a function:<div class='codeMirrorContainer'><textarea class='editor'>{
 var a, b, t = Impulse.kr(2);
 a = { Dseq([1, 2, 3, 4, 5], inf) } * 100;
 b = a + 1;
 Demand.kr(t, 0, [a, b]).poll(t)
 }.play</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// examples
+<div class='codeMirrorContainer'><textarea class='editor'>// examples
 
 (
 {
@@ -169,6 +171,7 @@ Demand.kr(t, 0, [a, b]).poll(t)
     { LPF.ar(PinkNoise.ar, 5000) }.dup * Decay.kr(trig, 0.5);
 }.play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Demand.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Demand.schelp</a><br>link::Classes/Demand::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

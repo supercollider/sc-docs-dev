@@ -87,7 +87,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <p><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>path<td class='argumentdesc'>
-<p>a <a href="./../Classes/String.html">String</a> which likely contains one or more / as typical for folder separation. ~ will be converted to your fully addressed home directory, as per <a href="./../Classes/String.html#-standardizePath">String: -standardizePath</a>.<textarea class='editor'>PathName.new("MyDisk/SC 2.2.8 f/Sounds/FunkyChicken");</textarea>
+<p>a <a href="./../Classes/String.html">String</a> which likely contains one or more / as typical for folder separation. ~ will be converted to your fully addressed home directory, as per <a href="./../Classes/String.html#-standardizePath">String: -standardizePath</a>.<div class='codeMirrorContainer'><textarea class='editor'>PathName.new("MyDisk/SC 2.2.8 f/Sounds/FunkyChicken");</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>PathName.</span><a class='method-name' name='*tmp' href='./../Overviews/Methods.html#tmp'>tmp</a></h3>
 <h3 class='method-code'><span class='method-prefix'>PathName.</span><a class='method-name' name='*tmp' href='./../Overviews/Methods.html#tmp'>tmp</a> = value</h3>
 <div class='method'>
@@ -98,22 +99,24 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-fileName' href='./../Overviews/Methods.html#fileName'>fileName</a></h3>
 <div class='method'>
-<p>returns just the name of the file itself; i.e. everything after the last slash in the full path.<textarea class='editor'>(
+<p>returns just the name of the file itself; i.e. everything after the last slash in the full path.<div class='codeMirrorContainer'><textarea class='editor'>(
 var myPath;
 myPath = PathName.new("MyDisk/SC 2.2.8 f/Sounds/FunkyChicken");
 myPath.fileName.postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-fileNameWithoutExtension' href='./../Overviews/Methods.html#fileNameWithoutExtension'>fileNameWithoutExtension</a></h3>
 <div class='method'>
 <p>returns the name of the file itself without the file extension.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-extension' href='./../Overviews/Methods.html#extension'>extension</a></h3>
 <div class='method'>
 <p>returns the file extension, i.e. everything after the last full-stop in the <a href="#-fileName">-fileName</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pathOnly' href='./../Overviews/Methods.html#pathOnly'>pathOnly</a></h3>
 <div class='method'>
-<p>returns the full path up to the file name itself; i.e. everything up to and including the last slash. This is handy e.g. for storing several files in the same folder.<textarea class='editor'>(
+<p>returns the full path up to the file name itself; i.e. everything up to and including the last slash. This is handy e.g. for storing several files in the same folder.<div class='codeMirrorContainer'><textarea class='editor'>(
 var myPath;
 myPath = PathName.new("MyDisk/SC 2.2.8 f/Sounds/FunkyChicken");
 myPath.pathOnly.postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isAbsolutePath' href='./../Overviews/Methods.html#isAbsolutePath'>isAbsolutePath</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asAbsolutePath' href='./../Overviews/Methods.html#asAbsolutePath'>asAbsolutePath</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isRelativePath' href='./../Overviews/Methods.html#isRelativePath'>isRelativePath</a></h3>
@@ -121,70 +124,79 @@ myPath.pathOnly.postln;
 <div class='method'>
 <p>you MUST have correctly initialized the scroot classvar for this to know what it is relative to !</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-folderName' href='./../Overviews/Methods.html#folderName'>folderName</a></h3>
 <div class='method'>
-<p>returns only the name of the folder that the file is in; i.e. everything in between the last but one and the last slash.<textarea class='editor'>(
+<p>returns only the name of the folder that the file is in; i.e. everything in between the last but one and the last slash.<div class='codeMirrorContainer'><textarea class='editor'>(
 var myPath;
 myPath = PathName.new("MyDisk/SC 2.2.8 f/Sounds/FunkyChicken");
 myPath.folderName.postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-fullPath' href='./../Overviews/Methods.html#fullPath'>fullPath</a></h3>
 <div class='method'>
-<p>returns the full path name that PathName contains.<textarea class='editor'>(
+<p>returns the full path name that PathName contains.<div class='codeMirrorContainer'><textarea class='editor'>(
 var myPath;
 myPath = PathName.new("MyDisk/SC 2.2.8 f/Sounds/FunkyChicken");
 myPath.fullPath.postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-entries' href='./../Overviews/Methods.html#entries'>entries</a></h3>
 <div class='method'>
-<p>returns a list of all the files+folders inside the folder represented by this path.<textarea class='editor'>(
+<p>returns a list of all the files+folders inside the folder represented by this path.<div class='codeMirrorContainer'><textarea class='editor'>(
 var myPath;
 myPath = PathName.new("./");
 myPath.entries.postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-files' href='./../Overviews/Methods.html#files'>files</a></h3>
 <div class='method'>
-<p>returns a list of all the files in the folder represented by this path.<textarea class='editor'>(
+<p>returns a list of all the files in the folder represented by this path.<div class='codeMirrorContainer'><textarea class='editor'>(
 var myPath;
 myPath = PathName.new("./");
 myPath.files.postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-folders' href='./../Overviews/Methods.html#folders'>folders</a></h3>
 <div class='method'>
-<p>returns a list of all the subfolders of the folder represented by this path.<textarea class='editor'>(
+<p>returns a list of all the subfolders of the folder represented by this path.<div class='codeMirrorContainer'><textarea class='editor'>(
 var myPath;
 myPath = PathName.new("./");
 myPath.folders.postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isFile' href='./../Overviews/Methods.html#isFile'>isFile</a></h3>
 <div class='method'>
-<p>returns a <a href="./../Classes/Boolean.html">Boolean</a> indicating whether or not the path represents a file (not a folder).<textarea class='editor'>(
+<p>returns a <a href="./../Classes/Boolean.html">Boolean</a> indicating whether or not the path represents a file (not a folder).<div class='codeMirrorContainer'><textarea class='editor'>(
 var myPath;
 myPath = PathName.new("./");
 myPath.isFile.postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isFolder' href='./../Overviews/Methods.html#isFolder'>isFolder</a></h3>
 <div class='method'>
-<p>returns a <a href="./../Classes/Boolean.html">Boolean</a> indicating whether or not the path represents a folder (not a file).<textarea class='editor'>(
+<p>returns a <a href="./../Classes/Boolean.html">Boolean</a> indicating whether or not the path represents a folder (not a file).<div class='codeMirrorContainer'><textarea class='editor'>(
 var myPath;
 myPath = PathName.new("./");
 myPath.isFolder.postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-filesDo' href='./../Overviews/Methods.html#filesDo'>filesDo</a>(<span class='argstr'>func</span>)</h3>
 <div class='method'>
-<p>Iterates over all files found in the pathname, including ones in subfolders.<textarea class='editor'>(
+<p>Iterates over all files found in the pathname, including ones in subfolders.<div class='codeMirrorContainer'><textarea class='editor'>(
 var myPath;
 myPath = PathName.new("./");
 myPath.filesDo{ |afile| afile.postln };
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-allFolders' href='./../Overviews/Methods.html#allFolders'>allFolders</a></h3>
 <div class='method'>
-<p>returns a list of all the folder names contained in the pathname itself.<textarea class='editor'>(
+<p>returns a list of all the folder names contained in the pathname itself.<div class='codeMirrorContainer'><textarea class='editor'>(
 var myPath;
 myPath = PathName.new("MyDisk/SC 2.2.8 f/Sounds/FunkyChicken");
 myPath.allFolders.postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-diskName' href='./../Overviews/Methods.html#diskName'>diskName</a></h3>
 <div class='method'>
-<p>if path is an absolute path, returns the disk name; else a blank string.<textarea class='editor'>(
+<p>if path is an absolute path, returns the disk name; else a blank string.<div class='codeMirrorContainer'><textarea class='editor'>(
 var myPath;
 myPath = PathName.new("MyDisk/SC 2.2.8 f/Sounds/FunkyChicken");
 myPath.diskName.postln;
@@ -195,23 +207,28 @@ var myPath;
 myPath = PathName.new("/MyDisk/SC 2.2.8 f/Sounds/FunkyChicken");
 myPath.diskName.postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-+/+' href='./../Overviews/Methods.html#+/+'>+/+</a>(<span class='argstr'>path</span>)</h3>
 <div class='method'>
-<p>Path concatenation operator - useful for avoiding doubling-up slashes unnecessarily.<textarea class='editor'>(PathName("/somewhere") +/+ PathName("over/the/rainbow")).postln;
+<p>Path concatenation operator - useful for avoiding doubling-up slashes unnecessarily.<div class='codeMirrorContainer'><textarea class='editor'>(PathName("/somewhere") +/+ PathName("over/the/rainbow")).postln;
 (PathName("/somewhere") +/+ PathName("/over/the/rainbow")).postln;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-endNumber' href='./../Overviews/Methods.html#endNumber'>endNumber</a></h3>
 <div class='method'>
-<p>returns a number at the end of PathName. Returns zero if there is no number.<textarea class='editor'>PathName("floating1").endNumber.postln;
+<p>returns a number at the end of PathName. Returns zero if there is no number.<div class='codeMirrorContainer'><textarea class='editor'>PathName("floating1").endNumber.postln;
 PathName("floating").endNumber.postln;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-noEndNumbers' href='./../Overviews/Methods.html#noEndNumbers'>noEndNumbers</a></h3>
 <div class='method'>
-<p>returns <a href="#-fullPath">-fullPath</a> without any numbers at the end.<textarea class='editor'>PathName("floating1").noEndNumbers.postln;
+<p>returns <a href="#-fullPath">-fullPath</a> without any numbers at the end.<div class='codeMirrorContainer'><textarea class='editor'>PathName("floating1").noEndNumbers.postln;
 PathName("floating").noEndNumbers.postln;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-nextName' href='./../Overviews/Methods.html#nextName'>nextName</a></h3>
 <div class='method'>
-<p>generates a sensible next name for a file by incrementing a number at the end of PathName, or by adding one if there is none. This is useful for recording files with consecutive names, and e.g. to generate a new filename when you don't want to overwrite an existing file with the current name.<textarea class='editor'>PathName("floating34").nextName.postln;
+<p>generates a sensible next name for a file by incrementing a number at the end of PathName, or by adding one if there is none. This is useful for recording files with consecutive names, and e.g. to generate a new filename when you don't want to overwrite an existing file with the current name.<div class='codeMirrorContainer'><textarea class='editor'>PathName("floating34").nextName.postln;
 PathName("floating").nextName.postln;
 PathName("floating12_3A4X_56.7").nextName.postln;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-absolutePath' href='./../Overviews/Methods.html#absolutePath'>absolutePath</a></h3>
@@ -227,7 +244,7 @@ PathName("floating12_3A4X_56.7").nextName.postln;</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-streamTree' href='./../Overviews/Methods.html#streamTree'>streamTree</a>(<span class='argstr'>str</span>, <span class='argstr'>tabs: 0</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>Here is an example that uses many instance methods. Just pick any file to see all the parts of its path.<textarea class='editor'>(
+<p>Here is an example that uses many instance methods. Just pick any file to see all the parts of its path.<div class='codeMirrorContainer'><textarea class='editor'>(
 FileDialog.new(
     { |ok, path|
     var myPathName;
@@ -251,8 +268,9 @@ FileDialog.new(
     }
 )
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Choose a soundfile to put into the library, using its foldername and filename.<textarea class='editor'>(
+<p>Choose a soundfile to put into the library, using its foldername and filename.<div class='codeMirrorContainer'><textarea class='editor'>(
 FileDialog.new(
     { |ok, path|
     var myPathName, myFile;
@@ -278,8 +296,9 @@ FileDialog.new(
     }
 )
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Save three tables in the same folder. Note: The file name chosen in the dialog is ignored! The files are always named table1, table2, table3.<textarea class='editor'>(
+<p>Save three tables in the same folder. Note: The file name chosen in the dialog is ignored! The files are always named table1, table2, table3.<div class='codeMirrorContainer'><textarea class='editor'>(
 var table1, table2, table3;
 
 table1 = Wavetable.sineFill(1024, [1, 2, 3]);
@@ -302,6 +321,7 @@ FileDialog.new(
     }
 )
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/PathName.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/PathName.schelp</a><br>link::Classes/PathName::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

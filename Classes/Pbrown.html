@@ -79,7 +79,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-step' href='./../Overviews/Methods.html#step'>step</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-step' href='./../Overviews/Methods.html#step'>step</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 var a;
 a = Pbrown(0.0, 1.0, 0.1, inf);
 c = a.asStream.nextN(500);
@@ -95,7 +95,8 @@ var a;
 a = Pbrown(0.0, 1.0, 0.2, inf);
 a.asStream.nextN(1000).plot;
 )</textarea>
-<textarea class='editor'>// sound example
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// sound example
 (
 SynthDef(\help_sinegrain,
     { |out = 0, freq = 440, sustain = 0.05|
@@ -137,6 +138,7 @@ f = { |pattern, dt = 0.02, min = 300, max = 900|
 // 3 parallel motions
 f.(a, [0.02, 0.08, 0.16]);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pbrown.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pbrown.schelp</a><br>link::Classes/Pbrown::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

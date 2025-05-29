@@ -45,7 +45,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>SuperCollider 3 uses a client/server model to operate across a network. What this means is that users write client programs that ask a server to do something, that is, they request service. Such requests can occur locally on one computer or they can be distributed remotely among two or more computers. Whether the computers are in the same room or separated across the world makes no difference as long as they're connected on a network.
 <p>Client programs in SuperCollider typically specify synthesis definition (how a particular sound will be made) and synthesis scheduling (when a particular sound will be made). In turn, a SuperCollider server (or servers) synthesizes audio according to client instructions.
 <p>To summarize, clients request; servers respond.<h2><a class='anchor' name='Client/server%20examples'>Client/server examples</a></h2>
-<textarea class='editor'>////////////////////////////////////////////////////////////////////////////////////////////////////
+<div class='codeMirrorContainer'><textarea class='editor'>////////////////////////////////////////////////////////////////////////////////////////////////////
 // EX. 1 - execute each line, one at a time
 // define a synthesis process and make a client request to a server
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -66,7 +66,8 @@ s.sendMsg("/n_free", n);
 
 // (optionally) stop the server
 s.quit;</textarea>
-<textarea class='editor'>////////////////////////////////////////////////////////////////////////////////////////////////////
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>////////////////////////////////////////////////////////////////////////////////////////////////////
 // EX. 2
 // the same as in above, except on 2 computers across a network
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -86,7 +87,8 @@ s.sendMsg("s_new", "sine", n = s.nextNodeID, 0, 1);
 
 // stop the synth (delete it)
 s.sendMsg("/n_free", n);</textarea>
-<textarea class='editor'>////////////////////////////////////////////////////////////////////////////////////////////////////
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>////////////////////////////////////////////////////////////////////////////////////////////////////
 // EX. 3
 // client/server on one computer vs. client server on two computers
 // the previous examples without comments
@@ -109,6 +111,7 @@ s = Server("aServer", NetAddr("... an ip number ...", 56789));
 SynthDef("sine", { Out.ar(0, SinOsc.ar(440, 0, 0.2)) }).send(s);
 s.sendMsg("s_new", "sine", n = s.nextNodeID, 0, 1);
 s.sendMsg("/n_free", n);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Localhost%20and%20internal%20servers'>Localhost and internal servers</a></h2>
 
 <p>The previous examples define server objects. But, for the most part, this isn't necessary as SuperCollider defines two such objects, the localhost and internal servers, at startup. They're represented by windows at the bottom of the screen. Each of the windows has a boot button to start its respective server.

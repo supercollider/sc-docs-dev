@@ -89,7 +89,8 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Main is the concrete instance of <a href="./../Classes/Process.html">Process</a> (the runtime environment for the virtual machine and interpreter). Main overrides some methods of Process. There are two methods of interest. One is named startup and is called after the class library has been compiled. The other is called shutdown which gets called when the library gets re-compiled.<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.thisProcess' href='./../Overviews/Methods.html#thisProcess'>thisProcess</a></h3>
 <div class='method'>
-<p>The singleton instance of Main is available through the special keyword thisProcess. For example, to find out what platform you're on:<textarea class='editor'>thisProcess.platform;    // --&gt; e.g. "an OSXPlatform", "a LinuxPlatform", ...</textarea>
+<p>The singleton instance of Main is available through the special keyword thisProcess. For example, to find out what platform you're on:<div class='codeMirrorContainer'><textarea class='editor'>thisProcess.platform;    // --&gt; e.g. "an OSXPlatform", "a LinuxPlatform", ...</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='SuperCollider%20version'>SuperCollider version</a></h3>
 
@@ -104,7 +105,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>maj<td class='argumentdesc'>
 <p>Major version number as Integer.<tr><td class='argumentname'>min<td class='argumentdesc'>
 <p>Minor version number as Integer, or <code>nil</code>.<tr><td class='argumentname'>patch<td class='argumentdesc'>
-<p>Patch version number as Integer, or <code>nil</code>.<textarea class='editor'>Main.versionAtLeast(3, 10, 4);</textarea>
+<p>Patch version number as Integer, or <code>nil</code>.<div class='codeMirrorContainer'><textarea class='editor'>Main.versionAtLeast(3, 10, 4);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>Main.</span><a class='method-name' name='*versionAtMost' href='./../Overviews/Methods.html#versionAtMost'>versionAtMost</a>(<span class='argstr'>maj</span>, <span class='argstr'>min</span>, <span class='argstr'>patch</span>)</h3>
 <div class='method'>
 <p>Returns <code>true</code> if we are running version maj.min.patch or older, false otherwise. If <code>min</code> and/or <code>patch</code> are <code>nil</code>, they will be treated as wildcards. The tweak part of the version is completely ignored.<h4>Arguments:</h4>
@@ -112,7 +114,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>maj<td class='argumentdesc'>
 <p>Major version number as Integer.<tr><td class='argumentname'>min<td class='argumentdesc'>
 <p>Minor version number as Integer, or <code>nil</code>.<tr><td class='argumentname'>patch<td class='argumentdesc'>
-<p>Patch version number as Integer, or <code>nil</code>.<textarea class='editor'>Main.versionAtMost(3, 13, 9);</textarea>
+<p>Patch version number as Integer, or <code>nil</code>.<div class='codeMirrorContainer'><textarea class='editor'>Main.versionAtMost(3, 13, 9);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>Main.</span><a class='method-name' name='*scVersionMajor' href='./../Overviews/Methods.html#scVersionMajor'>scVersionMajor</a></h3>
 <div class='method'>
 <p><h4>Returns:</h4>
@@ -148,12 +151,14 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>Called after SuperCollider is quit or the class library is about to be re-compiled.<h4>Discussion:</h4>
 
-<p>This will quit all audio <a href="./../Classes/Server.html">Server</a> instances, perform a platform specific shutdown (e.g. the HID subsystem is released), finally Process' shutdown method is called, resulting in successive calls to UI.shutdown, NetAddr.disconnectAll, File.closeAll, and Archive.write. To register your own shutdown code, use a call like this:<textarea class='editor'>ShutDown.add({ "Good bye!!".postln });</textarea>
+<p>This will quit all audio <a href="./../Classes/Server.html">Server</a> instances, perform a platform specific shutdown (e.g. the HID subsystem is released), finally Process' shutdown method is called, resulting in successive calls to UI.shutdown, NetAddr.disconnectAll, File.closeAll, and Archive.write. To register your own shutdown code, use a call like this:<div class='codeMirrorContainer'><textarea class='editor'>ShutDown.add({ "Good bye!!".postln });</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-run' href='./../Overviews/Methods.html#run'>run</a></h3>
 <div class='method'>
-<p>Override this to do whatever you want, e. g. add a class extension file like this to the class library:<textarea class='editor'>+ Main {
+<p>Override this to do whatever you want, e. g. add a class extension file like this to the class library:<div class='codeMirrorContainer'><textarea class='editor'>+ Main {
     run { "myPatch.rtf".load }
 }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>(newFunc)<td class='argumentdesc'>
@@ -162,7 +167,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Register a <a href="./../Classes/Function.html">Function</a> to be evaluated whenever SuperCollider language (the client) receives an OSC message. This will not overwrite any previously registered functions.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>func<td class='argumentdesc'>
-<p>A <a href="./../Classes/Function.html">Function</a> or similar object to be added. When evaluated, this function will be passed the arguments msg, time, replyAddr, and recvPort, corresponding to the message itself as an <a href="./../Classes/Array.html">Array</a>, the time the message was sent, the <a href="./../Classes/NetAddr.html">NetAddr</a> of the sender, and the port on which the message was received. Note that this order differs from that used by the deprecated method <a href="#-recvOSCfunc">-recvOSCfunc</a>.<textarea class='editor'>// post all incoming traffic except the server status messages
+<p>A <a href="./../Classes/Function.html">Function</a> or similar object to be added. When evaluated, this function will be passed the arguments msg, time, replyAddr, and recvPort, corresponding to the message itself as an <a href="./../Classes/Array.html">Array</a>, the time the message was sent, the <a href="./../Classes/NetAddr.html">NetAddr</a> of the sender, and the port on which the message was received. Note that this order differs from that used by the deprecated method <a href="#-recvOSCfunc">-recvOSCfunc</a>.<div class='codeMirrorContainer'><textarea class='editor'>// post all incoming traffic except the server status messages
 // basically the same as OSCFunc.trace
 (
 f = { |msg, time, replyAddr, recvPort|
@@ -175,6 +180,7 @@ thisProcess.addOSCRecvFunc(f);
 
 // stop posting.
 thisProcess.removeOSCRecvFunc(f);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-removeOSCRecvFunc' href='./../Overviews/Methods.html#removeOSCRecvFunc'>removeOSCRecvFunc</a>(<span class='argstr'>func</span>)</h3>
 <div class='method'>
 <p>Remove a <a href="./../Classes/Function.html">Function</a> from the list of those evaluated whenever SuperCollider language (the client) receives an OSC message. This will leave any other registered functions in place.<h4>Arguments:</h4>
@@ -195,8 +201,9 @@ thisProcess.removeOSCRecvFunc(f);</textarea>
 <p>An <a href="./../Classes/Integer.html">Integer</a> indicating the port to attempt to bind.<tr><td class='argumentname'>type<td class='argumentdesc'>
 <p>An <a href="./../Classes/Symbol.html">Symbol</a> \osc or \raw, indicating which type of messages to expect. \osc will receive callbacks at <code>Main:recvOSCmessage</code>, \raw will receive callbacks at <code>Main:recvRawMessage</code>.</table><h4>Returns:</h4>
 <div class='returnvalue'>
-<p>A <a href="./../Classes/Boolean.html">Boolean</a> indicating whether the attempt was successful.<textarea class='editor'>thisProcess.openUDPPort(3000); // will return true or false.
+<p>A <a href="./../Classes/Boolean.html">Boolean</a> indicating whether the attempt was successful.<div class='codeMirrorContainer'><textarea class='editor'>thisProcess.openUDPPort(3000); // will return true or false.
 thisProcess.openPorts; // returns all open ports</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-openPorts' href='./../Overviews/Methods.html#openPorts'>openPorts</a></h3>
 <div class='method'>
 <p>Get a collection of all active UDP ports, including the main sclang port <code>NetAddr.langPort</code>.<h4>Returns:</h4>

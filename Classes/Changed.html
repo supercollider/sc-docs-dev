@@ -56,19 +56,21 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>signal input<tr><td class='argumentname'>threshold<td class='argumentdesc'>
 <p>threshold</table><h4>Discussion:</h4>
 
-<p>Implements the formula:<textarea class='editor'>out(i) = abs(in(i) - in(i-1)) &gt; thresh</textarea>
+<p>Implements the formula:<div class='codeMirrorContainer'><textarea class='editor'>out(i) = abs(in(i) - in(i-1)) &gt; thresh</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>detect changes in a signal:<textarea class='editor'>(
+<p>detect changes in a signal:<div class='codeMirrorContainer'><textarea class='editor'>(
 {
     var changingSignal = LFNoise0.ar(1000);
     var changed = Changed.ar(changingSignal);
     [changingSignal, changed]
 }.plot
 );</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Changed.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Changed.schelp</a><br>link::Classes/Changed::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

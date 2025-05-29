@@ -65,7 +65,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// try wiggling mouse quickly;
+<div class='codeMirrorContainer'><textarea class='editor'>// try wiggling mouse quickly;
 // LFNoise frequently seems stuck, LFDNoise changes smoothly.
 
 { LFNoise0.ar(MouseX.kr(0.1, 1000, 1), 0.1) }.play
@@ -86,6 +86,7 @@ var scdoc_sc_version = '3.14.0-dev';
 { LFDNoise0.ar(XLine.kr(1000, 20000, 10), 0.1) }.scope;
 
 { LFNoise2.ar(1000, 0.25) }.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='footnotes'>
 <a class='anchor' name='footnote_1'/><div class='footnote'>[<a href='#footnote_org_1'>1</a>] - <a href="./../Classes/LFNoise0.html">LFNoise0</a>, <a href="./../Classes/LFNoise1.html">LFNoise1</a> and <a href="./../Classes/LFNoise2.html">LFNoise2</a> quantize to the nearest integer division of the samplerate, and they poll the <code>freq</code>argument only when scheduled; thus they often seem to hang when freqs get very low.</div></div><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LFDNoise0.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LFDNoise0.schelp</a><br>link::Classes/LFDNoise0::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>

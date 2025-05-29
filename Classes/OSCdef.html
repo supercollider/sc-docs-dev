@@ -97,7 +97,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>Clears this OSCdef from the global collection and deactivates it.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>n = NetAddr("127.0.0.1", 57120); // local machine
+<div class='codeMirrorContainer'><textarea class='editor'>n = NetAddr("127.0.0.1", 57120); // local machine
 
 OSCdef(\test, { |msg, time, addr, recvPort| \unmatching.postln }, '/chat', n); // def style
 OSCdef.newMatching(\test2, { |msg, time, addr, recvPort| \matching.postln }, '/chat', n); // path matching
@@ -151,10 +151,11 @@ OSCdef(\argtest).free; // in order to get rid of the argTemplate, free the def..
 OSCdef(\argtest, { |msg ... args| msg[1].postln }, '/hey'); // ... and recreate it.
 m.sendMsg("/hey", "you"); // oscdef will respond
 m.sendMsg("/hey", "there"); // oscdef will respond</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><h2><a class='anchor' name='Timing%20in%20incoming%20bundles'>Timing in incoming bundles</a></h2>
 
-<p>The time argument indicates the time the message was sent plus, if given, the latency added to the bundle:<textarea class='editor'>(
+<p>The time argument indicates the time the message was sent plus, if given, the latency added to the bundle:<div class='codeMirrorContainer'><textarea class='editor'>(
 OSCdef(\x, { |msg, time|
     "reception time: %\nscheduling time: %\ndelta: %\n\n".postf(Main.elapsedTime, time, time - Main.elapsedTime)
 }, \time);
@@ -166,5 +167,6 @@ n = NetAddr("127.0.0.1", 57120);
 n.sendBundle(0.0, [\time]);
 n.sendBundle(1.0, [\time]);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/OSCdef.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/OSCdef.schelp</a><br>link::Classes/OSCdef::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

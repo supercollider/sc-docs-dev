@@ -67,7 +67,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>MonitorGui displays the state of a <a href="./../Classes/NodeProxy.html">NodeProxy</a>'s <a href="./../Classes/Monitor.html">Monitor</a>. It is used in <a href="./../Classes/NdefGui.html">NdefGui</a>, <a href="./../Classes/ProxyMixer.html">ProxyMixer</a>, and <a href="./../Classes/NdefMixer.html">NdefMixer</a>.<h3><a class='anchor' name='First%20examples'>First examples</a></h3>
-<textarea class='editor'>s.boot;
+<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 Ndef(\a).ar;
 Ndef(\k).kr;
 
@@ -89,11 +89,12 @@ Ndef(\a).vol_(0.25);
 
 Ndef(\a).stop;
 Ndef(\a).play(0);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Creation'>Creation</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
 <div class='method'>
-<p><textarea class='editor'>g = MonitorGui(Ndef(\a));    // barebones
+<p><div class='codeMirrorContainer'><textarea class='editor'>g = MonitorGui(Ndef(\a));    // barebones
 (
 w = Window.new.front;
 w.addFlowLayout;
@@ -112,6 +113,7 @@ MonitorGui.new(Ndef(\a), options: [\name, \fade])
 
     // all of 'em
 MonitorGui.new(Ndef(\a), options: [\level, \name, \fade])</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>object<td class='argumentdesc'>

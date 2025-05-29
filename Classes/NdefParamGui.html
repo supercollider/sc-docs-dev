@@ -54,7 +54,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Creation'>Creation</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
 <div class='method'>
-<p>create a new NdefParamGui<textarea class='editor'>// simple example - see also NdefGui!
+<p>create a new NdefParamGui<div class='codeMirrorContainer'><textarea class='editor'>// simple example - see also NdefGui!
 
 g = NdefParamGui.new(nil, 5);    // empty with 5 slots
 g.parent.alwaysOnTop_(true);
@@ -89,6 +89,7 @@ Ndef(\lfos, { LFNoise0.kr([12, 8], 200) + 500 });
 Ndef(\a).map(\freqs, Ndef(\lfos))
 
 g.parent.close</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>object<td class='argumentdesc'>
@@ -101,10 +102,11 @@ g.parent.close</textarea>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-name' href='./../Overviews/Methods.html#name'>name</a></h3>
 <div class='method'>
-<p>if in its own window, set the window's name<textarea class='editor'>g.name = "Yoohoo";</textarea>
+<p>if in its own window, set the window's name<div class='codeMirrorContainer'><textarea class='editor'>g.name = "Yoohoo";</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>    // put an NdefParamGui in an existing window - margin becomes 0@0
+<div class='codeMirrorContainer'><textarea class='editor'>    // put an NdefParamGui in an existing window - margin becomes 0@0
 (
 w = Window().front;
 w.addFlowLayout;
@@ -114,6 +116,7 @@ NdefParamGui(Ndef(\c), 15, w);
     // even
 Ndef(\c).set(\otto, 123, \mops, [1, 2, 3], \kotzt, [0, 6, 0, 6]);
 Ndef(\c).nodeMap.clear;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NdefParamGui.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NdefParamGui.schelp</a><br>link::Classes/NdefParamGui::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

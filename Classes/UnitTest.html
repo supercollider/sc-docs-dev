@@ -82,7 +82,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>To install, <a href="https://github.com/supercollider/supercollider">download the sources</a> and add the directory to your <code>sclang_conf.yaml</code>, either by editing it or via the ScIDE preferences.</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>UnitTest.</span><a class='method-name' name='*gui' href='./../Overviews/Methods.html#gui'>gui</a></h3>
 <div class='method'>
-<p>A graphical interface to run and browse all tests<textarea class='editor'>UnitTest.gui</textarea>
+<p>A graphical interface to run and browse all tests<div class='codeMirrorContainer'><textarea class='editor'>UnitTest.gui</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>UnitTest.</span><a class='method-name' name='*reportPasses' href='./../Overviews/Methods.html#reportPasses'>reportPasses</a></h3>
 <h3 class='method-code'><span class='method-prefix'>UnitTest.</span><a class='method-name' name='*reportPasses' href='./../Overviews/Methods.html#reportPasses'>reportPasses</a> = value</h3>
 <div class='method'>
@@ -98,22 +99,25 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'>(value)<td class='argumentdesc'>
 <p>Should be <code>UnitTest.full</code> or <code>UnitTest.brief</code>.</table></div><h3 class='method-code'><span class='method-prefix'>UnitTest.</span><a class='method-name' name='*run' href='./../Overviews/Methods.html#run'>run</a>(<span class='argstr'>reset: true</span>, <span class='argstr'>report: true</span>)</h3>
 <div class='method'>
-<p>Run all methods whose names begin with <code>test_</code>.<textarea class='editor'>TestUnitTest.new.run;</textarea>
+<p>Run all methods whose names begin with <code>test_</code>.<div class='codeMirrorContainer'><textarea class='editor'>TestUnitTest.new.run;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>reset<td class='argumentdesc'>
 <p>If <code>true</code>, first runs <a href="#*reset">*reset</a> on the class.<tr><td class='argumentname'>report<td class='argumentdesc'>
 <p>If <code>true</code>, outputs the test results.</table></div><h3 class='method-code'><span class='method-prefix'>UnitTest.</span><a class='method-name' name='*runTest' href='./../Overviews/Methods.html#runTest'>runTest</a>(<span class='argstr'>methodName</span>)</h3>
 <div class='method'>
-<p>Run a single test method.<textarea class='editor'>UnitTest.reset;
+<p>Run a single test method.<div class='codeMirrorContainer'><textarea class='editor'>UnitTest.reset;
 UnitTest.runTest("TestUnitTest:test_assert");</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>methodName<td class='argumentdesc'>
 <p>A <a href="./../Classes/String.html">String</a> referring to the class and test method within it, e.g. <code>"TestPolyPlayerPool:test_prepareChildrenToBundle"</code>.</table></div><h3 class='method-code'><span class='method-prefix'>UnitTest.</span><a class='method-name' name='*runAll' href='./../Overviews/Methods.html#runAll'>runAll</a></h3>
 <div class='method'>
-<p>Run the entire test suite. As this method addresses the entire test suite, it should be called only on <code>UnitTest</code>. Calling it on any of its subclasses will result in throwing an <code>Error</code>.<textarea class='editor'>UnitTest.reset;
+<p>Run the entire test suite. As this method addresses the entire test suite, it should be called only on <code>UnitTest</code>. Calling it on any of its subclasses will result in throwing an <code>Error</code>.<div class='codeMirrorContainer'><textarea class='editor'>UnitTest.reset;
 UnitTest.runAll;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>UnitTest.</span><a class='method-name' name='*brief' href='./../Overviews/Methods.html#brief'>brief</a></h3>
@@ -126,7 +130,8 @@ UnitTest.runAll;</textarea>
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-runTestMethod' href='./../Overviews/Methods.html#runTestMethod'>runTestMethod</a>(<span class='argstr'>method</span>, <span class='argstr'>report: true</span>)</h3>
 <div class='method'>
-<p>Run a single test method of this class<textarea class='editor'>TestUnitTest.new.runTestMethod(TestUnitTest.findMethod(\test_assert));</textarea>
+<p>Run a single test method of this class<div class='codeMirrorContainer'><textarea class='editor'>TestUnitTest.new.runTestMethod(TestUnitTest.findMethod(\test_assert));</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>method<td class='argumentdesc'>
@@ -135,8 +140,9 @@ UnitTest.runAll;</textarea>
 <div class='returnvalue'>
 <p>(describe returnvalue here)</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-assert' href='./../Overviews/Methods.html#assert'>assert</a>(<span class='argstr'>boolean</span>, <span class='argstr'>message</span>, <span class='argstr'>report: true</span>, <span class='argstr'>onFailure</span>, <span class='argstr'>details</span>)</h3>
 <div class='method'>
-<p>Asserts that an expression must be true.<textarea class='editor'>this.assert(2 == 2, "passes");
+<p>Asserts that an expression must be true.<div class='codeMirrorContainer'><textarea class='editor'>this.assert(2 == 2, "passes");
 this.assert(2 == 2.00001, "fails");</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>boolean<td class='argumentdesc'>
@@ -147,8 +153,9 @@ this.assert(2 == 2.00001, "fails");</textarea>
 <p>Some optional extra details which will be passed to the reporting framework for display unless brief reporting is requested (see <a href="#*passVerbosity">*passVerbosity</a>).</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-assertEquals' href='./../Overviews/Methods.html#assertEquals'>assertEquals</a>(<span class='argstr'>a</span>, <span class='argstr'>b</span>, <span class='argstr'>message: ""</span>, <span class='argstr'>report: true</span>, <span class='argstr'>onFailure</span>)</h3>
 <div class='method'>
 <p>Asserts that an expression <code>a</code> is equal to the value <code>b</code>, where equality is determined according to <code>a</code>'s implementation of <code>==</code>.
-<p>Automatically passes details of the equality check to the reporting framework, which will be displayed if the assertion fails, and also if it passes and <a href="#*reportPasses">*reportPasses</a> is <code>true</code> and <a href="#*passVerbosity">*passVerbosity</a> is not set to <code>UnitTest.brief</code>.<textarea class='editor'>this.assertEquals(2 + 2, 4, "passes");
+<p>Automatically passes details of the equality check to the reporting framework, which will be displayed if the assertion fails, and also if it passes and <a href="#*reportPasses">*reportPasses</a> is <code>true</code> and <a href="#*passVerbosity">*passVerbosity</a> is not set to <code>UnitTest.brief</code>.<div class='codeMirrorContainer'><textarea class='editor'>this.assertEquals(2 + 2, 4, "passes");
 this.assertEquals(2 + 2, 5, "fails");</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>a<td class='argumentdesc'>
@@ -159,8 +166,9 @@ this.assertEquals(2 + 2, 5, "fails");</textarea>
 <p>If not <code>nil</code>, a failure stops the tests and evaluates this function.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-assertFloatEquals' href='./../Overviews/Methods.html#assertFloatEquals'>assertFloatEquals</a>(<span class='argstr'>a</span>, <span class='argstr'>b</span>, <span class='argstr'>message: ""</span>, <span class='argstr'>within: 0.0001</span>, <span class='argstr'>report: true</span>, <span class='argstr'>onFailure</span>)</h3>
 <div class='method'>
 <p>Asserts that an expression <code>a</code> returning a float is within a given range (<code>within</code>) of being equal to <code>b</code>.
-<p>Automatically passes details of the equality check to the reporting framework, which will be displayed if the assertion fails, and also if it passes and <a href="#*reportPasses">*reportPasses</a> is <code>true</code> and <a href="#*passVerbosity">*passVerbosity</a> is not set to <code>UnitTest.brief</code>.<textarea class='editor'>this.assertFloatEquals(2, 2.0001, "Pass since 2 is close enough to 2.0001.", 0.001);
+<p>Automatically passes details of the equality check to the reporting framework, which will be displayed if the assertion fails, and also if it passes and <a href="#*reportPasses">*reportPasses</a> is <code>true</code> and <a href="#*passVerbosity">*passVerbosity</a> is not set to <code>UnitTest.brief</code>.<div class='codeMirrorContainer'><textarea class='editor'>this.assertFloatEquals(2, 2.0001, "Pass since 2 is close enough to 2.0001.", 0.001);
 this.assertFloatEquals(2, 2.0001, "Fail since 2 isn't close enough to 2.0001.", 0.0001);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>a<td class='argumentdesc'>
@@ -171,8 +179,9 @@ this.assertFloatEquals(2, 2.0001, "Fail since 2 isn't close enough to 2.0001.", 
 <p>Reports the result of the test if <code>true</code> (default is <code>true</code>)<tr><td class='argumentname'>onFailure<td class='argumentdesc'>
 <p>If not <code>nil</code>, a failure stops the tests and evaluates this function.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-assertArrayFloatEquals' href='./../Overviews/Methods.html#assertArrayFloatEquals'>assertArrayFloatEquals</a>(<span class='argstr'>a</span>, <span class='argstr'>b</span>, <span class='argstr'>message: ""</span>, <span class='argstr'>within: 0.0001</span>, <span class='argstr'>report: true</span>, <span class='argstr'>onFailure</span>)</h3>
 <div class='method'>
-<p>Make sure that the two arrays of floats <code>a</code> and <code>b</code> equal within a given range (<code>within</code>).<textarea class='editor'>this.assertArrayFloatEquals([2, 3] + 0.0001, [2, 3], "Pass since pairs of floats are close enough", 0.001);
+<p>Make sure that the two arrays of floats <code>a</code> and <code>b</code> equal within a given range (<code>within</code>).<div class='codeMirrorContainer'><textarea class='editor'>this.assertArrayFloatEquals([2, 3] + 0.0001, [2, 3], "Pass since pairs of floats are close enough", 0.001);
 this.assertArrayFloatEquals([2, 3.0001], [2, 3], "Fail since pairs of floats aren't both close enough", 0.0001);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>a<td class='argumentdesc'>
@@ -183,10 +192,11 @@ this.assertArrayFloatEquals([2, 3.0001], [2, 3], "Fail since pairs of floats are
 <p>Reports the result of the test if <code>true</code> (default is <code>true</code>)<tr><td class='argumentname'>onFailure<td class='argumentdesc'>
 <p>If not <code>nil</code>, a failure stops the tests and evaluates this function.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-ifAsserts' href='./../Overviews/Methods.html#ifAsserts'>ifAsserts</a>(<span class='argstr'>boolean</span>, <span class='argstr'>message</span>, <span class='argstr'>ifPassedFunc</span>, <span class='argstr'>ifFailedFunc</span>, <span class='argstr'>report: true</span>)</h3>
 <div class='method'>
-<p>Make a further assertion only if it passed, or only if it failed.<textarea class='editor'>(
+<p>Make a further assertion only if it passed, or only if it failed.<div class='codeMirrorContainer'><textarea class='editor'>(
 a = UnitTest.new;
 a.ifAsserts(2 == 3, "yes", { a.assert(2 == 4) }, { a.assert(1 == 1, "but this is correct") });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-assertException' href='./../Overviews/Methods.html#assertException'>assertException</a>(<span class='argstr'>func</span>, <span class='argstr'>errorClass</span>, <span class='argstr'>message</span>, <span class='argstr'>report: true</span>, <span class='argstr'>onFailure</span>, <span class='argstr'>details</span>)</h3>
 <div class='method'>
 <p>Make sure that a specific <a href="./../Classes/Exception.html">Exception</a> or <a href="./../Classes/Error.html">Error</a> is thrown.<h4>Arguments:</h4>
@@ -201,38 +211,42 @@ a.ifAsserts(2 == 3, "yes", { a.assert(2 == 4) }, { a.assert(1 == 1, "but this is
 <div class='method'>
 <p>Make sure that a specific <a href="./../Classes/Exception.html">Exception</a> or <a href="./../Classes/Error.html">Error</a> is <strong>not</strong> thrown. For arguments, see <a href="#-assertException">-assertException</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wait' href='./../Overviews/Methods.html#wait'>wait</a>(<span class='argstr'>predicate</span>, <span class='argstr'>failureMessage: ""</span>, <span class='argstr'>maxTime: 10.0</span>)</h3>
 <div class='method'>
-<p>Wait for a predicate function to return <code>true</code>. Considers the test failed after <code>maxTime</code>. Only valid within a test (or a routine).<div class='note'><span class='notelabel'>NOTE:</span> It's best to avoid using this method in tests. See <a href="./../Classes/CondVar.html#-waitFor">CondVar: -waitFor</a> for a better option.</div><textarea class='editor'>(
+<p>Wait for a predicate function to return <code>true</code>. Considers the test failed after <code>maxTime</code>. Only valid within a test (or a routine).<div class='note'><span class='notelabel'>NOTE:</span> It's best to avoid using this method in tests. See <a href="./../Classes/CondVar.html#-waitFor">CondVar: -waitFor</a> for a better option.</div><div class='codeMirrorContainer'><textarea class='editor'>(
 {
     s.reboot;
     UnitTest.new.wait({ s.serverRunning }, "server failed to boot in time", 2);
 }.fork
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-bootServer' href='./../Overviews/Methods.html#bootServer'>bootServer</a>(<span class='argstr'>server</span>)</h3>
 <div class='method'>
 <p>Wait for server boot until continued. Only valid within a test (or a routine).
-<p>If already booted, then freeAll and create new allocators.<textarea class='editor'>(
+<p>If already booted, then freeAll and create new allocators.<div class='codeMirrorContainer'><textarea class='editor'>(
 {
     UnitTest.new.bootServer(s);
 }.fork
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-debug' href='./../Overviews/Methods.html#debug'>debug</a>(<span class='argstr'>text</span>)</h3>
 <div class='method'>
 <p>Supply some debugging information relevant to the currently running test case. This will be displayed immediately preceding any details which may be displayed through use of the <code>details</code> argument of <a href="#-passed">-passed</a> and <a href="#-failed">-failed</a>.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>text<td class='argumentdesc'>
 <p>The debugging text.</table><h4>Discussion:</h4>
-<textarea class='editor'>test_myMethod {
+<div class='codeMirrorContainer'><textarea class='editor'>test_myMethod {
     var obj = MyClass.new;
     this.debug("obj has color" + obj.color);
     this.assert(2 + 2, 5);
 }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>will result in:<textarea class='editor'>FAIL: a TestMyClass: test_myMethod
+<p>will result in:<div class='codeMirrorContainer'><textarea class='editor'>FAIL: a TestMyClass: test_myMethod
 obj has color red
 Is:
          4
 Should be:
          5</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-passed' href='./../Overviews/Methods.html#passed'>passed</a>(<span class='argstr'>method</span>, <span class='argstr'>message</span>, <span class='argstr'>report: true</span>, <span class='argstr'>details</span>)</h3>
 <div class='method'>
 <p>Register a passed test.<h4>Arguments:</h4>
@@ -242,7 +256,8 @@ Should be:
 <p>A message describing the purpose of the assertion, e.g. <code>"foo should be less than bar"</code>. Posted if neither <code>report</code> nor <a href="#*reportPasses">*reportPasses</a> are false.<tr><td class='argumentname'>report<td class='argumentdesc'>
 <p>Reports the result of the test if true and <a href="#*reportPasses">*reportPasses</a> is true.<tr><td class='argumentname'>details<td class='argumentdesc'>
 <p>Some optional extra details which will be displayed if <a href="#*reportPasses">*reportPasses</a> is true and <a href="#*passVerbosity">*passVerbosity</a> is not set to <code>UnitTest.brief</code>.</table><h4>Discussion:</h4>
-<textarea class='editor'>this.passed(message: "this passed");</textarea>
+<div class='codeMirrorContainer'><textarea class='editor'>this.passed(message: "this passed");</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-failed' href='./../Overviews/Methods.html#failed'>failed</a>(<span class='argstr'>method</span>, <span class='argstr'>message</span>, <span class='argstr'>report: true</span>, <span class='argstr'>details</span>)</h3>
 <div class='method'>
 <p>Register a test failure.<h4>Arguments:</h4>
@@ -252,14 +267,15 @@ Should be:
 <p>A message describing the purpose of the assertion, e.g. <code>"foo should be less than bar"</code>. Posted if <code>report</code> is true.<tr><td class='argumentname'>report<td class='argumentdesc'>
 <p>Reports the result of the test if true.<tr><td class='argumentname'>details<td class='argumentdesc'>
 <p>Some optional extra details which will be displayed if <code>report</code>is true.</table><h4>Discussion:</h4>
-<textarea class='editor'>this.failed(message: "this failed");</textarea>
+<div class='codeMirrorContainer'><textarea class='editor'>this.failed(message: "this failed");</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asynchAssert' href='./../Overviews/Methods.html#asynchAssert'>asynchAssert</a>(<span class='argstr'>waitConditionBlock</span>, <span class='argstr'>testBlock</span>, <span class='argstr'>timeoutMessage: ""</span>, <span class='argstr'>timeout: 10</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 
 <p>Write tests by subclassing UnitTest, and defining methods whose names begins <code>test_</code>. Each test method will be called from a fresh instance of the subclass.
-<p>If you implement the methods <code>setUp</code> and <code>tearDown</code> in your test class, they will be called before and after every test. This can help to eliminate repetitive code, and makes it easier to maintain your tests by ensuring that they all run under the same set of conditions.<textarea class='editor'>TestYourClass : UnitTest {
+<p>If you implement the methods <code>setUp</code> and <code>tearDown</code> in your test class, they will be called before and after every test. This can help to eliminate repetitive code, and makes it easier to maintain your tests by ensuring that they all run under the same set of conditions.<div class='codeMirrorContainer'><textarea class='editor'>TestYourClass : UnitTest {
     setUp {
         // this will be called before each test
     }
@@ -294,6 +310,7 @@ Should be:
         this.wait({ synth.isPlaying }, "waiting for synth to play", 10);
     }
 }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/UnitTest.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/UnitTest.schelp</a><br>link::Classes/UnitTest::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

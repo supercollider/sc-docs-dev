@@ -53,10 +53,11 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Creation'>Creation</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
 <div class='method'>
-<p>Return a new window for a given server.<textarea class='editor'>// ndef mxers for other servers
+<p>Return a new window for a given server.<div class='codeMirrorContainer'><textarea class='editor'>// ndef mxers for other servers
 n = NdefMixer(\internal);
 n = NdefMixer(\localhost);
 n = NdefMixer(\trala);        // fails, no such server</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>server<td class='argumentdesc'>
@@ -69,7 +70,7 @@ n = NdefMixer(\trala);        // fails, no such server</textarea>
 <div class='method'>
 <p>Return the proxyspace.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>n = NdefMixer(s);        // for the default server
+<div class='codeMirrorContainer'><textarea class='editor'>n = NdefMixer(s);        // for the default server
 // make a new proxy
 (
 Ndef(\a, {
@@ -93,6 +94,7 @@ Ndef(\duster, { Dust.kr(4) });
 Ndef(\a).ar;
 Ndef(\a).fadeTime = 2;
 Ndef(\a).end;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NdefMixerOld.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NdefMixerOld.schelp</a><br>link::Classes/NdefMixerOld::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

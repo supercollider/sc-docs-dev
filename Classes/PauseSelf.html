@@ -57,7 +57,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("pauseSelf-help", { |out, t_trig|
     PauseSelf.kr(t_trig);
     Out.ar(out, SinOsc.ar(400, 0, 0.2));
@@ -69,6 +69,7 @@ s.sendMsg("/n_set", 1731, \t_trig, 1);
 s.sendMsg("/n_run", 1731, 1);
 s.sendMsg("/n_set", 1731, \t_trig, 1);
 s.sendMsg("/n_free", 1731);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/PauseSelf.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/PauseSelf.schelp</a><br>link::Classes/PauseSelf::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

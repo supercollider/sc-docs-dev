@@ -88,10 +88,11 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.thisThread' href='./../Overviews/Methods.html#thisThread'>thisThread</a></h3>
 <div class='method'>
 <p>The global pseudo-variable <code>thisThread</code> always represents the current Thread, i.e. the context in which the current code is running. It can be either the <a href="./../Classes/Process.html#-mainThread">main Thread</a> or the <a href="./../Classes/Routine.html">Routine</a> running the current code.
-<p>See also: <a href="./../Classes/Clock.html#Scheduling%20and%20Threads">Clock: Scheduling and Threads</a>.<textarea class='editor'>// example
+<p>See also: <a href="./../Classes/Clock.html#Scheduling%20and%20Threads">Clock: Scheduling and Threads</a>.<div class='codeMirrorContainer'><textarea class='editor'>// example
 thisThread.beats;
 thisThread.seconds;
 thisThread.clock;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Thread.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>func</span>, <span class='argstr'>stackSize: 512</span>)</h3>
 <div class='method'>
@@ -158,19 +159,22 @@ thisThread.clock;</textarea>
 <div class='method'>
 <p>Set the random number generator seed using a single integer.<h4>Discussion:</h4>
 
-<p>Example:<textarea class='editor'>g = thisThread.randSeed = 4;
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>g = thisThread.randSeed = 4;
 10.do{ 1.0.rand2.postln };</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-randData' href='./../Overviews/Methods.html#randData'>randData</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-randData' href='./../Overviews/Methods.html#randData'>randData</a> = <span class='argstr'>data</span></h3>
 <div class='method'>
 <p>Get or set the three integer array which defines the internal basis for the random number generator. You can use this to get back the exact same random number sequence, and it provides a mechanism for automatic replay for generative music.<h4>Discussion:</h4>
 
-<p>Example:<textarea class='editor'>g = thisThread.randData;
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>g = thisThread.randData;
 10.do{ 1.0.rand2.postln };</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p><textarea class='editor'>// each time the seed is reset, the random number generation should give the same sequence
+<p><div class='codeMirrorContainer'><textarea class='editor'>// each time the seed is reset, the random number generation should give the same sequence
 thisThread.randData_(Int32Array[-662787342, 1546785953, 1661466823]);
 10.do{ 1.0.rand2.postln };</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>

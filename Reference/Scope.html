@@ -38,7 +38,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 
 <p>SuperCollider has nested scoping of variables. A function can refer not only to its own arguments and variables, but also to those declared in any enclosing (defining) contexts.
-<p>For example, the function defined below within makeCounter can access all of the arguments and variables declared in <code>makeCounter</code>. Other code can call the returned function at some later time and it can access and update the values contained in <code>makeCounter</code> at the time when the inner function was instantiated.<textarea class='editor'>(
+<p>For example, the function defined below within makeCounter can access all of the arguments and variables declared in <code>makeCounter</code>. Other code can call the returned function at some later time and it can access and update the values contained in <code>makeCounter</code> at the time when the inner function was instantiated.<div class='codeMirrorContainer'><textarea class='editor'>(
 var makeCounter;
 makeCounter = { arg curVal=0, stepVal=1;
      // return a function :
@@ -57,8 +57,9 @@ makeCounter = { arg curVal=0, stepVal=1;
 x = makeCounter.value(10, 1);
 z = makeCounter.value(99, 100);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>x and z are functions which refer to different instances of the variables curVal and stepVal<textarea class='editor'>x.value.postln; // posts 10
+<p>x and z are functions which refer to different instances of the variables curVal and stepVal<div class='codeMirrorContainer'><textarea class='editor'>x.value.postln; // posts 10
 x.value.postln; // posts 11
 z.value.postln; // posts 99
 z.value.postln; // posts 199
@@ -66,6 +67,7 @@ x.value.postln; // posts 12
 x.value.postln; // posts 13
 z.value.postln; // posts 299
 z.value.postln; // posts 399</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Note that even though the function which defines curVal and stepVal has completed execution, its variables are still accessible to those functions that were defined within its context. This is known as lexical closure, the capturing and availability of variables defined in outer contexts by inner contexts even when the outer contexts may have completed execution.<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/Scope.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/Scope.schelp</a><br>link::Reference/Scope::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

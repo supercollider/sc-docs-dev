@@ -50,7 +50,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>Error and its subclasses separate different types of error is that can occur in the SuperCollider program into distinct classes, so that they can be reported differently to the user.
-<p>Anywhere that an error must be reported to the user and execution must stop, an error object must be created and thrown.<textarea class='editor'>(
+<p>Anywhere that an error must be reported to the user and execution must stop, an error object must be created and thrown.<div class='codeMirrorContainer'><textarea class='editor'>(
 var file, path = "betcha-this-file-doesnt-exist.txt";
 if((file = File(path, "r")).isOpen) {
     "File is % bytes long.\n".postf(file.length);
@@ -59,8 +59,10 @@ if((file = File(path, "r")).isOpen) {
     Error("File % could not be opened.".format(path)).throw;
 };
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>For backward compatibility, <code>.die()</code> creates the error for you.<textarea class='editor'>"Keyboard not found. Press F1 to Resume.".die;</textarea>
+<p>For backward compatibility, <code>.die()</code> creates the error for you.<div class='codeMirrorContainer'><textarea class='editor'>"Keyboard not found. Press F1 to Resume.".die;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Throwing an error object gives the caller the opportunity to catch, and possibly recover from, the error. See the Exception help file for more information about this.<h3><a class='anchor' name='Error%20hierarchy'>Error hierarchy</a></h3>
 

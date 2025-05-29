@@ -62,17 +62,17 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-composeBinaryOp' href='./../Overviews/Methods.html#composeBinaryOp'>composeBinaryOp</a>(<span class='argstr'>aSelector</span>, <span class='argstr'>something</span>, <span class='argstr'>adverb</span>)</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-composeNAryOp' href='./../Overviews/Methods.html#composeNAryOp'>composeNAryOp</a>(<span class='argstr'>aSelector</span>, <span class='argstr'>anArgList</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-composeNAryOp' href='./../Overviews/Methods.html#composeNAryOp'>composeNAryOp</a>(<span class='argstr'>aSelector</span>, <span class='argstr'>anArgList</span>, <span class='argstr'>aKeywordArgList</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-composeUnaryOp' href='./../Overviews/Methods.html#composeUnaryOp'>composeUnaryOp</a>(<span class='argstr'>aSelector</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-embedInStream' href='./../Overviews/Methods.html#embedInStream'>embedInStream</a>(<span class='argstr'>inval</span>)</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reduceFuncProxy' href='./../Overviews/Methods.html#reduceFuncProxy'>reduceFuncProxy</a>(<span class='argstr'>args</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reduceFuncProxy' href='./../Overviews/Methods.html#reduceFuncProxy'>reduceFuncProxy</a>(<span class='argstr'>args</span>, <span class='argstr'>protect: true</span>, <span class='argstr'>kwargs</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reverseComposeBinaryOp' href='./../Overviews/Methods.html#reverseComposeBinaryOp'>reverseComposeBinaryOp</a>(<span class='argstr'>aSelector</span>, <span class='argstr'>something</span>, <span class='argstr'>adverb</span>)</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a>( <span class='argstr'>... args</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-valueArray' href='./../Overviews/Methods.html#valueArray'>valueArray</a>(<span class='argstr'>args</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-valueFuncProxy' href='./../Overviews/Methods.html#valueFuncProxy'>valueFuncProxy</a>(<span class='argstr'>args</span>)</h3>
 <h2><a class='anchor' name='Help%20template'>Help template</a></h2>
 
-<p>Copy and paste the text below and save to HelpSource/Classes/NAryOpFunctionProxy.schelp<textarea class='editor'>TITLE:: NAryOpFunctionProxy
+<p>Copy and paste the text below and save to HelpSource/Classes/NAryOpFunctionProxy.schelp<div class='codeMirrorContainer'><textarea class='editor'>TITLE:: NAryOpFunctionProxy
 summary:: (put short description here)
 categories:: Undocumented classes
 related:: Classes/SomeRelatedClass, Reference/SomeRelatedStuff, etc.
@@ -119,6 +119,9 @@ ARGUMENT:: aSelector
 ARGUMENT:: anArgList
 (describe argument here)
 
+ARGUMENT:: aKeywordArgList
+(describe argument here)
+
 returns:: (describe returnvalue here)
 
 METHOD:: valueArray
@@ -132,7 +135,10 @@ returns:: (describe returnvalue here)
 METHOD:: value
 (describe method here)
 
-ARGUMENT::  ... args
+ARGUMENT:: args
+(describe argument here)
+
+ARGUMENT::  ... kwargs
 (describe argument here)
 
 returns:: (describe returnvalue here)
@@ -171,6 +177,12 @@ METHOD:: reduceFuncProxy
 ARGUMENT:: args
 (describe argument here)
 
+ARGUMENT:: protect
+(describe argument here)
+
+ARGUMENT:: kwargs
+(describe argument here)
+
 returns:: (describe returnvalue here)
 
 
@@ -180,5 +192,6 @@ code::
 (some example code)
 ::
 </textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='doclink'>link::Classes/NAryOpFunctionProxy::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

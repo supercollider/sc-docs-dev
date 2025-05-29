@@ -122,7 +122,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>'Introduction to GUI' contains an <a href="./../Guides/GUI-Introduction.html#Custom%20views">example</a> with elaborate explanation on how to use UserView. Below are further examples.<h3><a class='anchor' name='Basic%20Usage'>Basic Usage</a></h3>
 
-<p>Resize the window or click on the UserView to refresh the drawing:<textarea class='editor'>(
+<p>Resize the window or click on the UserView to refresh the drawing:<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new;
 v = UserView(w, w.view.bounds.insetBy(50, 50));
 v.resize = 5;
@@ -135,8 +135,9 @@ v.drawFunc = { |uview|
 v.mouseDownAction = { v.refresh };
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Coordinates are relative to the UserView. Try resizing the window:<textarea class='editor'>(
+<p>Coordinates are relative to the UserView. Try resizing the window:<div class='codeMirrorContainer'><textarea class='editor'>(
 var func;
 
 func = { |me|
@@ -161,10 +162,11 @@ w.view.background_(Color.white);
 
 w.refresh;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Responding%20to%20mouse%20clicks%20and%20movement'>Responding to mouse clicks and movement</a></h3>
 
 <p>Using <a href="./../Classes/View.html#Mouse%20actions">mouse actions</a> you can make UserView change the way it is drawn in response to mouse interaction. The sequence of examples below will guide you through the various possibilities.
-<p>Clicking and moving the mouse on each of the painted squares in the following example will redraw them differently. See interpreter output for posted information that you can use in the mouse actions.<textarea class='editor'>// drag some circles
+<p>Clicking and moving the mouse on each of the painted squares in the following example will redraw them differently. See interpreter output for posted information that you can use in the mouse actions.<div class='codeMirrorContainer'><textarea class='editor'>// drag some circles
 (
 var w, r, u;
 var clicked, relativeWhere;
@@ -201,7 +203,8 @@ u.mouseUpAction = {
     clicked = nil;
 }
 )</textarea>
-<textarea class='editor'>// draw some random shapes
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// draw some random shapes
 (
 var drawFunc, mouseDownFunc, mouseUpFunc, mouseMoveFunc, sat = 0, startX;
 
@@ -242,8 +245,9 @@ w.view.background_(Color.white);
 };
 w.refresh;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>The following example uses the <a href="#-clearOnRefresh">-clearOnRefresh</a> option to prevent the UserView from clearing its contents when redrawn. Clicking and moving the mouse within each square will draw ever more arcs on top of each other.<textarea class='editor'>(
+<p>The following example uses the <a href="#-clearOnRefresh">-clearOnRefresh</a> option to prevent the UserView from clearing its contents when redrawn. Clicking and moving the mouse within each square will draw ever more arcs on top of each other.<div class='codeMirrorContainer'><textarea class='editor'>(
 var func, views;
 
 func = { |me|
@@ -272,9 +276,10 @@ views = { |i|
 } ! 3;
 w.refresh;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>The following example uses the <a href="#-clearOnRefresh">-clearOnRefresh</a> option to keep the old contents when redrawn, allowing you to draw a line which follows the mouse cursor by clicking and dragging on the view.
-<p>It also uses the mouse position to compute the color of the line.<textarea class='editor'>(
+<p>It also uses the mouse position to compute the color of the line.<div class='codeMirrorContainer'><textarea class='editor'>(
 var w, txt, lines, points, drawLine;
 
 drawLine = { |points, bounds|
@@ -333,9 +338,10 @@ v = UserView(w, w.view.bounds)
 
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Animation'>Animation</a></h3>
 
-<p>The following is an animation with mouse interaction. Click and drag in the view to move the center of the rotating object.<textarea class='editor'>(
+<p>The following is an animation with mouse interaction. Click and drag in the view to move the center of the rotating object.<div class='codeMirrorContainer'><textarea class='editor'>(
 var width = 400, height = 400, mx = 0, my = 0, pt, r;
 
 w = Window("animation and mouse interaction", Rect(100, 200, width, height), false);
@@ -380,8 +386,9 @@ w.front;
 u.animate = false; // animation can be paused and resumed
 u.animate = true;
 w.close; // stops animation</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>A simple ball animation:<textarea class='editor'>(
+<p>A simple ball animation:<div class='codeMirrorContainer'><textarea class='editor'>(
 var width = 400, height = 400, xspeed = 3, yspeed = 2, x = width*0.5, y = height*0.5;
 w = Window("ball", Rect(100, 200, width, height));
 u = UserView(w, Rect(0, 0, width, height));
@@ -409,8 +416,9 @@ u.drawFunc = {
 
 // close the window to stop
 w.close;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>An animation that makes a good use of the <a href="#-clearOnRefresh">-clearOnRefresh</a> option to keep the old contents when redrawing.<textarea class='editor'>(
+<p>An animation that makes a good use of the <a href="#-clearOnRefresh">-clearOnRefresh</a> option to keep the old contents when redrawing.<div class='codeMirrorContainer'><textarea class='editor'>(
 var width = 640, height = 480, w, theta = 0, drawFunc;
 w = Window("trails", Rect(128, 64, width, height), false);
 drawFunc = { |view|
@@ -435,9 +443,10 @@ x = UserView(w, Rect(10, 10, width - 20, height - 20))
 w.front;
 x.animate = true
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Usage%20of%20refreshInRect(aRect)'>Usage of refreshInRect(aRect)</a></h3>
 <div class='note'><span class='notelabel'>NOTE:</span> This functionality is only available in <strong>Cocoa GUI</strong></div>
-<p>The <code>refreshInRect</code> method constrains the receiver's refresh area to the rectangle passed in aRect. You may use Quartz Debug's flash screen updates to see the refresh area of the view<textarea class='editor'>(
+<p>The <code>refreshInRect</code> method constrains the receiver's refresh area to the rectangle passed in aRect. You may use Quartz Debug's flash screen updates to see the refresh area of the view<div class='codeMirrorContainer'><textarea class='editor'>(
 var userView, win, blob = Rect(0, 0, 50, 50), trackblob = false, pmouse;
 
 a = SCImage.new("/Library/Desktop Pictures/Ripples Blue.jpg");
@@ -475,6 +484,7 @@ userView = SCUserView(win, Rect(10, 10, 2000, 800))
 blob = blob.moveBy(userView.bounds.left, userView.bounds.top);
 userView.bounds.postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/UserView.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/UserView.schelp</a><br>link::Classes/UserView::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

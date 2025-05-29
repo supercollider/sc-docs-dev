@@ -62,13 +62,15 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>{ LFSaw.ar(500, 1, 0.1) }.play
+<div class='codeMirrorContainer'><textarea class='editor'>{ LFSaw.ar(500, 1, 0.1) }.play
 
 // used as both Oscillator and LFO:
 { LFSaw.ar(LFSaw.kr(4, 0, 200, 400), 0, 0.1) }.play</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Display the special behaviour of the initial phase parameter:<textarea class='editor'> // three channels, three phases
+<p>Display the special behaviour of the initial phase parameter:<div class='codeMirrorContainer'><textarea class='editor'> // three channels, three phases
 { LFSaw.ar(20, [0, 1, 2]) }.plot(0.1)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LFSaw.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LFSaw.schelp</a><br>link::Classes/LFSaw::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

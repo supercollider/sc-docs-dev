@@ -48,7 +48,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>This is the same as <a href="./../Classes/Ringz.html">Ringz</a>, except that it has a constant gain at 0 dB instead of being constant skirt.
-<p>It is a two pole resonant filter with zeroes at<textarea class='editor'>z = ±1</textarea>
+<p>It is a two pole resonant filter with zeroes at<div class='codeMirrorContainer'><textarea class='editor'>z = ±1</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Based on <em>K. Steiglitz, "A Note on Constant-Gain Digital Resonators", Computer Music Journal, vol 18, no. 4, pp. 8-10, Winter 1994</em>.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Resonz.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>in: 0.0</span>, <span class='argstr'>freq: 440.0</span>, <span class='argstr'>bwr: 1.0</span>, <span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
@@ -66,7 +67,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>{ Resonz.ar(WhiteNoise.ar(0.5), 2000, 0.1) }.play
+<div class='codeMirrorContainer'><textarea class='editor'>{ Resonz.ar(WhiteNoise.ar(0.5), 2000, 0.1) }.play
 
 // modulate frequency
 { Resonz.ar(WhiteNoise.ar(0.5), XLine.kr(1000, 8000, 10), 0.05) }.play
@@ -76,6 +77,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 // modulate bandwidth opposite direction
 { Resonz.ar(WhiteNoise.ar(0.5), 2000, XLine.kr(0.001, 1, 8)) }.play</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Resonz.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Resonz.schelp</a><br>link::Classes/Resonz::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

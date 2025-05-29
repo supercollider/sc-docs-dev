@@ -62,7 +62,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// allocate three buffers
+<div class='codeMirrorContainer'><textarea class='editor'>// allocate three buffers
 (
 b = Buffer.alloc(s, 2048);
 c = Buffer.alloc(s, 2048);
@@ -78,8 +78,9 @@ d.zero;
 3.do { |it| b.set(400 * it + 100, 1) };
 20.do { |it| d.set(40 * it + 20, 1) };
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p><textarea class='editor'>(
+<p><div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef(\conv_test, { |out, kernel, t_trig = 0|
     var input = Impulse.ar(1);
     var framesize = 2048; // must have power of two
@@ -104,7 +105,8 @@ x.set(\kernel, b);
 x.set(\t_trig, 1); // after this trigger, the change will take effect.
 
 x.free;</textarea>
-<textarea class='editor'>// longer crossfade
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// longer crossfade
 (
 SynthDef(\conv_test2, { |out, kernel, t_trig = 0|
     var input = Impulse.ar(1);
@@ -132,7 +134,8 @@ x.set(\kernel, b);
 x.set(\t_trig, 1); // after this trigger, the change will take effect.
 
 x.free;</textarea>
-<textarea class='editor'>// next example
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// next example
 
 b = Buffer.read(s, ExampleFiles.child);
 
@@ -143,7 +146,8 @@ b = Buffer.read(s, ExampleFiles.child);
     Convolution2L.ar(input, b, 0, 512, 1, 0.5);
 }.play
 )</textarea>
-<textarea class='editor'>// another example
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// another example
 
 (
 // must have power of two framesize- FFT size will be sorted by Convolution2 to be double this
@@ -173,7 +177,8 @@ g.set(0, 1.0);
 )
 
 g.free;</textarea>
-<textarea class='editor'>// one last example
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// one last example
 (
 b = Buffer.alloc(s, 512, 1);
 b.sine1(1.0/[1, 2, 3, 4, 5, 6], true, true, true);
@@ -188,6 +193,7 @@ b.sine1(1.0/[1, 2, 3, 4, 5, 6], true, true, true);
 )
 
 b.free;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Convolution2L.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Convolution2L.schelp</a><br>link::Classes/Convolution2L::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

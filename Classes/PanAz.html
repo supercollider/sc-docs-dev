@@ -66,7 +66,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>Five channel circular panning with first channel on the left<textarea class='editor'>(
+<p>Five channel circular panning with first channel on the left<div class='codeMirrorContainer'><textarea class='editor'>(
 {
     PanAz.ar(
         numChans: 5,
@@ -78,17 +78,19 @@ var scdoc_sc_version = '3.14.0-dev';
     );
 }.scope
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><h2><a class='anchor' name='Comparison%20to%20Pan2'>Comparison to Pan2</a></h2>
 
-<p>Despite a certain similarity, <a href="./../Classes/Pan2.html">Pan2</a> and <a href="./../Classes/PanAz.html">PanAz</a> with 2 channels behave differently.<textarea class='editor'>// one full cycle for PanAz: from -1 to 1
+<p>Despite a certain similarity, <a href="./../Classes/Pan2.html">Pan2</a> and <a href="./../Classes/PanAz.html">PanAz</a> with 2 channels behave differently.<div class='codeMirrorContainer'><textarea class='editor'>// one full cycle for PanAz: from -1 to 1
 { PanAz.ar(2, DC.ar(1), Line.ar(-1, 1, 0.1), orientation: 0) }.plot(0.1)
 // comparing with Pan2
 { Pan2.ar(DC.ar(1), Line.ar(-1, 1, 0.1)) }.plot(0.1)
 // to create one full cycle for Pan2, move from 1 to -1 and back to 1
 { Pan2.ar(DC.ar(1), EnvGen.ar(Env([1, -1, 1], [0.05, 0.05]))) }.plot(0.1)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>The same in one plot window:<textarea class='editor'>(
+<p>The same in one plot window:<div class='codeMirrorContainer'><textarea class='editor'>(
 {
     [
         PanAz.ar(2, DC.ar(1), Line.ar(-1, 1, 0.1), orientation: 0),
@@ -97,12 +99,14 @@ var scdoc_sc_version = '3.14.0-dev';
     ].flat;
 }.plot(0.1)
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>In other words, while <code>Pan2</code> needs a position change of <code>2</code> from channel <code>0</code> to <code>1</code><textarea class='editor'>{ Pan2.ar(DC.ar(1), Line.ar(-1, 1, 0.1)) }.plot(0.1)
+<p>In other words, while <code>Pan2</code> needs a position change of <code>2</code> from channel <code>0</code> to <code>1</code><div class='codeMirrorContainer'><textarea class='editor'>{ Pan2.ar(DC.ar(1), Line.ar(-1, 1, 0.1)) }.plot(0.1)
 // we need a position change of 1 in PanAz:
 { PanAz.ar(2, DC.ar(1), Line.ar(0, 1, 0.1), orientation: 0) }.plot(0.1)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>In one plot window:<textarea class='editor'>(
+<p>In one plot window:<div class='codeMirrorContainer'><textarea class='editor'>(
 {
     [
         Pan2.ar(DC.ar(1), Line.ar(-1, 1, 0.1)),
@@ -110,5 +114,6 @@ var scdoc_sc_version = '3.14.0-dev';
     ].flat
 }.plot(0.1)
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/PanAz.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/PanAz.schelp</a><br>link::Classes/PanAz::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

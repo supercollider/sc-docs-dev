@@ -90,7 +90,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='returnvalue'>
 <p>The exit status of the command (an Integer).</div></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// this pipes in stdout from ls
+<div class='codeMirrorContainer'><textarea class='editor'>// this pipes in stdout from ls
 (
 var p, l;
 p = Pipe.new("ls -l", "r");            // list directory contents in long format
@@ -98,8 +98,9 @@ l = p.getLine;                    // get the first line
 while({ l.notNil }, { l.postln; l = p.getLine });    // post until l = nil
 p.close;                    // close the pipe to avoid that nasty buildup
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>without using a shell:<textarea class='editor'>// this pipes in stdout from ls
+<p>without using a shell:<div class='codeMirrorContainer'><textarea class='editor'>// this pipes in stdout from ls
 (
 var p, l;
 p = Pipe.argv(["ls", "-l"], "r");            // list directory contents in long format
@@ -107,14 +108,16 @@ l = p.getLine;                    // get the first line
 while({ l.notNil }, { l.postln; l = p.getLine });    // post until l = nil
 p.close;                    // close the pipe to avoid that nasty buildup
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>A more time-intensive request:<textarea class='editor'>(
+<p>A more time-intensive request:<div class='codeMirrorContainer'><textarea class='editor'>(
 var p, l;
 p = Pipe.new("ping -c10 sourceforge.net", "r");    // list directory contents in long format
 l = p.getLine;                    // get the first line
 while({ l.notNil }, { l.postln; l = p.getLine });    // post until l = nil
 p.close;                    // close the pipe to avoid that nasty buildup
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pipe.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pipe.schelp</a><br>link::Classes/Pipe::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

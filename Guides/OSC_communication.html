@@ -46,33 +46,40 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>OSC communication between programs is often done to send messages from one application to another, possibly with the applications running on different computers. In SuperCollider this communication is done by creating a <a href="./../Classes/NetAddr.html">NetAddr</a> of the target application and creating an <a href="./../Classes/OSCFunc.html">OSCFunc</a> to listen to another application. The underlying protocol of OSC is either UDP or TCP.<h2><a class='anchor' name='Sending%20OSC%20to%20another%20application'>Sending OSC to another application</a></h2>
 
-<p>To establish communication to another application, you need to know on which port that application is listening. For example if an application is listening on port 7771, we can create a NetAddr and send it a message:<textarea class='editor'>b = NetAddr.new("127.0.0.1", 7771);    // create the NetAddr
+<p>To establish communication to another application, you need to know on which port that application is listening. For example if an application is listening on port 7771, we can create a NetAddr and send it a message:<div class='codeMirrorContainer'><textarea class='editor'>b = NetAddr.new("127.0.0.1", 7771);    // create the NetAddr
 b.sendMsg("/hello", "there");    // send the application the message "hello" with the parameter "there"</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Receiving%20OSC%20from%20another%20application'>Receiving OSC from another application</a></h2>
 
-<p>To listen to another application, that application needs to send a message to the port SuperCollider is listening on. Normally the default port is 57120, but it could be something different if that port was already bound when SC started. The current default port can be retrieved with<textarea class='editor'>NetAddr.langPort;    // retrieve the current port SC is listening to</textarea>
+<p>To listen to another application, that application needs to send a message to the port SuperCollider is listening on. Normally the default port is 57120, but it could be something different if that port was already bound when SC started. The current default port can be retrieved with<div class='codeMirrorContainer'><textarea class='editor'>NetAddr.langPort;    // retrieve the current port SC is listening to</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Or you can retrieve both the IP and the port with:<textarea class='editor'>NetAddr.localAddr    // retrieve the current IP and port</textarea>
+<p>Or you can retrieve both the IP and the port with:<div class='codeMirrorContainer'><textarea class='editor'>NetAddr.localAddr    // retrieve the current IP and port</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>You can open additional ports using <a href="./../Classes/Main.html#-openUDPPort">Main: -openUDPPort</a>. This will return a <a href="./../Classes/Boolean.html">Boolean</a> indicating whether SC succeeded in opening the new port. Or you can just pass a custom port as the <strong>recvPort</strong> argument to <a href="./../Classes/OSCFunc.html">OSCFunc</a> and it will open it automatically if not already open.<textarea class='editor'>thisProcess.openUDPPort(1121); // attempt to open 1121
+<p>You can open additional ports using <a href="./../Classes/Main.html#-openUDPPort">Main: -openUDPPort</a>. This will return a <a href="./../Classes/Boolean.html">Boolean</a> indicating whether SC succeeded in opening the new port. Or you can just pass a custom port as the <strong>recvPort</strong> argument to <a href="./../Classes/OSCFunc.html">OSCFunc</a> and it will open it automatically if not already open.<div class='codeMirrorContainer'><textarea class='editor'>thisProcess.openUDPPort(1121); // attempt to open 1121
 thisProcess.openPorts; // list all open ports</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>To listen to incoming messages, an <a href="./../Classes/OSCFunc.html">OSCFunc</a> needs to be created in SuperCollider. If the sending application <strong>has a fixed port it sends message from</strong>, you can set the OSCFunc to listen only to messages coming from that IP and port:<textarea class='editor'>n = NetAddr.new("127.0.0.1", 7771);    // create the NetAddr
+<p>To listen to incoming messages, an <a href="./../Classes/OSCFunc.html">OSCFunc</a> needs to be created in SuperCollider. If the sending application <strong>has a fixed port it sends message from</strong>, you can set the OSCFunc to listen only to messages coming from that IP and port:<div class='codeMirrorContainer'><textarea class='editor'>n = NetAddr.new("127.0.0.1", 7771);    // create the NetAddr
 // create the OSCFunc
 o = OSCFunc({ arg msg, time, addr, recvPort; [msg, time, addr, recvPort].postln; }, '/goodbye', n);
 o.free;    // remove the OSCFunc when you are done.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='note'><span class='notelabel'>NOTE:</span> The port 7771 above is the port the other application is sending <strong>from</strong>, not the port SC is receiving on. See the <strong>recvPort</strong> argument in <a href="./../Classes/OSCFunc.html#*new">OSCFunc: *new</a> if you want to receive on another port than NetAddr.langPort.</div><h2><a class='anchor' name='Receiving%20from%20an%20application%20that%20is%20sending%20from%20a%20variable%20port'>Receiving from an application that is sending from a variable port</a></h2>
 
-<p>Some applications (notably Pd and Max) do not send messages from a fixed port, but instead use a different port each time they send out a message, or each time a patch starts up it picks a random port. In that case the OSCFunc needs to be set up, so that it listens to messages coming from anywhere. You do this by passing nil as the srcID argument.<textarea class='editor'>o = OSCFunc({ arg msg, time, addr, recvPort; [msg, time, addr, recvPort].postln; }, '/goodbye'); // create the OSCFunc
+<p>Some applications (notably Pd and Max) do not send messages from a fixed port, but instead use a different port each time they send out a message, or each time a patch starts up it picks a random port. In that case the OSCFunc needs to be set up, so that it listens to messages coming from anywhere. You do this by passing nil as the srcID argument.<div class='codeMirrorContainer'><textarea class='editor'>o = OSCFunc({ arg msg, time, addr, recvPort; [msg, time, addr, recvPort].postln; }, '/goodbye'); // create the OSCFunc
 o.free;    // remove the OSCFunc when you are done.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Testing%20incoming%20traffic'>Testing incoming traffic</a></h2>
 
-<p>OSCFunc has a convenience method, <a href="./../Classes/OSCFunc.html#*trace">OSCFunc: *trace</a> which posts all incoming OSC messages:<textarea class='editor'>OSCFunc.trace(true); // Turn posting on
+<p>OSCFunc has a convenience method, <a href="./../Classes/OSCFunc.html#*trace">OSCFunc: *trace</a> which posts all incoming OSC messages:<div class='codeMirrorContainer'><textarea class='editor'>OSCFunc.trace(true); // Turn posting on
 OSCFunc.trace(false); // Turn posting off</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Custom%20OSC%20message%20processing'>Custom OSC message processing</a></h2>
 
-<p>All incoming OSC messages call the message recvOSCmessage in <a href="./../Classes/Main.html">Main</a>. If needed, one can add a custom <a href="./../Classes/Function.html">Function</a> or other object to Main's recvOSCFunc variable. Although one can do this directly using the corresponding setter, it is better to use the <a href="./../Classes/Main.html#-addOSCRecvFunc">Main: -addOSCRecvFunc</a> and <a href="./../Classes/Main.html#-removeOSCRecvFunc">Main: -removeOSCRecvFunc</a> to avoid overwriting any other functions that may have been added by class code.<textarea class='editor'>// this example is basically like OSCFunc.trace but filters out
+<p>All incoming OSC messages call the message recvOSCmessage in <a href="./../Classes/Main.html">Main</a>. If needed, one can add a custom <a href="./../Classes/Function.html">Function</a> or other object to Main's recvOSCFunc variable. Although one can do this directly using the corresponding setter, it is better to use the <a href="./../Classes/Main.html#-addOSCRecvFunc">Main: -addOSCRecvFunc</a> and <a href="./../Classes/Main.html#-removeOSCRecvFunc">Main: -removeOSCRecvFunc</a> to avoid overwriting any other functions that may have been added by class code.<div class='codeMirrorContainer'><textarea class='editor'>// this example is basically like OSCFunc.trace but filters out
 // /status.reply messages
 (
 f = { |msg, time, addr|
@@ -85,6 +92,7 @@ thisProcess.addOSCRecvFunc(f);
 
 // stop posting.
 thisProcess.removeOSCRecvFunc(f);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='OSC%20type%20tags%20and%20sclang'>OSC type tags and sclang</a></h2>
 
 <p>Inbound OSC messages must have type tags, or an error will be thrown.

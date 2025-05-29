@@ -198,7 +198,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>Clears this MIDIdef from the global collection and deactivates it.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>MIDIIn.connectAll
+<div class='codeMirrorContainer'><textarea class='editor'>MIDIIn.connectAll
 MIDIdef.cc(\test1, { |...args| args.postln }, 1); // match cc 1
 MIDIdef.cc(\test2, { |...args| args.postln }, 1, 1); // match cc1, chan 1
 MIDIdef.cc(\test3, { |...args| args.postln }, (1..10)); // match cc 1-10
@@ -211,6 +211,7 @@ MIDIIn.doControlAction(1, 10, 1, 64);
 
 MIDIdef(\test1).free; // free one def
 MIDIdef.freeAll;      // free all registered MIDIdefs</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MIDIdef.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MIDIdef.schelp</a><br>link::Classes/MIDIdef::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

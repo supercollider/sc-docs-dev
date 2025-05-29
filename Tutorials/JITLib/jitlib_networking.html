@@ -50,20 +50,23 @@ var scdoc_sc_version = '3.14.0-dev';
 <dt>in macOS<dd>SystemPreferences&gt;Date&amp;Time: set <em>"Set Date &amp; Time automatically"</em> to true.<dt>in Linux<dd>set the ntp clock</dl>
 
 <p>a local time server is better than the apple time server. if you cannot sync the time, you can set the server latency to <code>nil</code>. This will break the pattern's functionality though.<h3><a class='anchor' name='a)%20boot%20the%20(remote)%20server%20and%20create%20a%20local%20model'>a) boot the (remote) server and create a local model</a></h3>
-<textarea class='editor'>s = Server("serverName", NetAddr(hostname, port));
+<div class='codeMirrorContainer'><textarea class='editor'>s = Server("serverName", NetAddr(hostname, port));
 s.options.maxLogins = 16; // or the maximum number of participants in the network
 s.boot; // you cannot directly boot a remote server instance, but this initializes everything that is needed</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><dl>
 <dt>serverName<dd>can be any name<dt>hostname<dd>is an ip address, or if you have a name resolution, a network name<dt>port<dd>the port on which the server is listening. default is 57110</dl>
 
 <p>see <a href="./../../Classes/Server.html">Server</a><h3><a class='anchor' name='b)%20from%20each%20client,%20initialize%20the%20default%20node%20and%20set%20notify%20to%20true:'>b) from each client, initialize the default node and set notify to true:</a></h3>
-<textarea class='editor'>s.boot; // this will initialize the tree and start notification
+<div class='codeMirrorContainer'><textarea class='editor'>s.boot; // this will initialize the tree and start notification
 
 // if needed, a server window can be created:
 s.makeWindow;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='c)%20now%20create%20a%20ProxySpace%20from%20the%20server:'>c) now create a ProxySpace from the server:</a></h3>
-<textarea class='editor'>p = ProxySpace.push(s);</textarea>
+<div class='codeMirrorContainer'><textarea class='editor'>p = ProxySpace.push(s);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/JITLib/jitlib_networking.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/JITLib/jitlib_networking.schelp</a><br>link::Tutorials/JITLib/jitlib_networking::<br></div></div><script src='./../../static/editor.js' type='text/javascript'></script>
 </body></html>

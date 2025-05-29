@@ -41,12 +41,13 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 
 <p>Documentation rendered HTML reads the global style from <code>scdoc.css</code>, but also reads <code>frontend.css</code> and <code>custom.css</code> (in that order) if available. This is to enable specific frontends and allow users to override the CSS.
-<p>So to customise the CSS, the user can create a <code>custom.css</code> in their <a href="./../Classes/SCDoc.html#*helpTargetDir">SCDoc: *helpTargetDir</a> or at the root of any HelpSource directory (for example in <code>YourExtension/HelpSource/custom.css</code>).<textarea class='editor'>// open HelpTargetDir to see these css files
+<p>So to customise the CSS, the user can create a <code>custom.css</code> in their <a href="./../Classes/SCDoc.html#*helpTargetDir">SCDoc: *helpTargetDir</a> or at the root of any HelpSource directory (for example in <code>YourExtension/HelpSource/custom.css</code>).<div class='codeMirrorContainer'><textarea class='editor'>// open HelpTargetDir to see these css files
 SCDoc.helpTargetDir.openOS</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Colors'>Colors</a></h2>
 
 <p>Colors are defined as CSS variables, so that to change any color, it's sufficient for a user to override the relevant variable in their <code>custom.css</code>. These variables are then used to set any color in all other css files of the documentation.
-<p>Specific variables are not reported here, please refer to the default CSS theme for all their names and default values.<textarea class='editor'>// open default theme
+<p>Specific variables are not reported here, please refer to the default CSS theme for all their names and default values.<div class='codeMirrorContainer'><textarea class='editor'>// open default theme
 (SCDoc.helpTargetDir +/+ "themes" +/+ "default.css").openDocument
 
 // copy default theme to 'custom.css' as a starting point
@@ -57,6 +58,7 @@ File.copy(
 
 // open directory with all themes
 (SCDoc.helpTargetDir +/+ "themes").openOS;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>The <code>themes</code> directory also contains a <code>README.md</code> which goes more into detail about how a theme gets applied and stored for a client and how a theme can be developed.<h3><a class='anchor' name='Themes'>Themes</a></h3>
 

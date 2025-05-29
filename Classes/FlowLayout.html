@@ -71,24 +71,26 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>An instance of <a href="./../Classes/Point.html">Point</a>. The horizontal and vertical inner margins, within which the parent's subviews are placed.<tr><td class='argumentname'>gap<td class='argumentdesc'>
 <p>An instance of <a href="./../Classes/Point.html">Point</a>. The horizontal and vertical layout gap between the subviews.</table><h4>Discussion:</h4>
 
-<p>Example:<textarea class='editor'>(
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new.front;
 // change the gaps and margins to see how they work
 w.view.decorator = FlowLayout(w.view.bounds, 10@10, 20@5);
 16.do{ Slider2D(w.view, 80@80).background_(Color.rand) };
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>You can also write:<textarea class='editor'>(
+<p>You can also write:<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new.front;
 w.addFlowLayout(10@10, 20@5); // a shortcut method, see SCContainerView
 16.do{ Slider2D(w.view, 80@80).background_(Color.rand) };
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Accessing%20Instance%20Variables'>Accessing Instance Variables</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-nextLine' href='./../Overviews/Methods.html#nextLine'>nextLine</a></h3>
 <div class='method'>
-<p>Forces the decorator to start a new line:<textarea class='editor'>(
+<p>Forces the decorator to start a new line:<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new;
 q = w.addFlowLayout(10@10, 20@5);
 Slider2D(w.view, 140@140).background_(Color.rand);
@@ -96,9 +98,10 @@ q.nextLine;
 Slider2D(w.view, 140@140).background_(Color.rand);
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-indentedRemaining' href='./../Overviews/Methods.html#indentedRemaining'>indentedRemaining</a></h3>
 <div class='method'>
-<p>Returns and instance of <a href="./../Classes/Rect.html">Rect</a>. This is a very useful method which tells you how much space is left in a row, before the next row starts. The height of <code>indentedRemaining</code>, is the full height remaining in the FlowLayout.<textarea class='editor'>(
+<p>Returns and instance of <a href="./../Classes/Rect.html">Rect</a>. This is a very useful method which tells you how much space is left in a row, before the next row starts. The height of <code>indentedRemaining</code>, is the full height remaining in the FlowLayout.<div class='codeMirrorContainer'><textarea class='editor'>(
 // normally you will only use the width of indentedRemaining
 w = Window.new;
 w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
@@ -108,8 +111,9 @@ Slider(w.view, d.indentedRemaining.width@150) // fits this view perfectly to the
     .background_(Color.rand);
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Compare this with:<textarea class='editor'>( // here the third view is fit to both the right and bottom innerBounds
+<p>Compare this with:<div class='codeMirrorContainer'><textarea class='editor'>( // here the third view is fit to both the right and bottom innerBounds
 w = Window.new;
 w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
 Slider2D(w.view, 140@140).background_(Color.rand);
@@ -118,6 +122,7 @@ d.nextLine;
 Slider2D(w.view, d.indentedRemaining).background_(Color.rand);
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-bounds' href='./../Overviews/Methods.html#bounds'>bounds</a></h3>
 <div class='method'>
 <p>The outer bounds in which the decorator places the subviews in the parent view.<h4>Arguments:</h4>
@@ -143,7 +148,7 @@ w.front;
 <table class='arguments'>
 <tr><td class='argumentname'>arg1<td class='argumentdesc'>
 <p>A number.</table><h4>Discussion:</h4>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new;
 w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
 Slider2D(w.view, 150@150).background_(Color.rand);
@@ -151,13 +156,14 @@ d.left_(220); // manually set the new indentation
 Slider2D(w.view, 150@150).background_(Color.rand);
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-top' href='./../Overviews/Methods.html#top'>top</a></h3>
 <div class='method'>
 <p>Get the current top indentation or manually set it.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>arg1<td class='argumentdesc'>
 <p>A number.</table><h4>Discussion:</h4>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new;
 w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
 Slider2D(w.view, 150@150).background_(Color.rand);
@@ -166,6 +172,7 @@ Slider2D(w.view, 150@150).background_(Color.rand);
 Slider2D(w.view, 150@150).background_(Color.rand);
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-shift' href='./../Overviews/Methods.html#shift'>shift</a></h3>
 <div class='method'>
 <p>Set the current left and top indentation (see above).</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-maxHeight' href='./../Overviews/Methods.html#maxHeight'>maxHeight</a></h3>
@@ -174,7 +181,7 @@ w.front;
 <table class='arguments'>
 <tr><td class='argumentname'>arg1<td class='argumentdesc'>
 <p>A number.</table><h4>Discussion:</h4>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new;
 w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
 Slider2D(w.view, 100@160).background_(Color.rand);
@@ -184,13 +191,14 @@ Slider2D(w.view, 150@150).background_(Color.rand);
 "second row maxHeight: " ++ d.maxHeight.postln;
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-maxRight' href='./../Overviews/Methods.html#maxRight'>maxRight</a></h3>
 <div class='method'>
 <p>Get/set maximium right of the subviews in the current position.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>arg1<td class='argumentdesc'>
 <p>A number.</table><h4>Discussion:</h4>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new;
 w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
 Slider2D(w.view, 100@160).background_(Color.rand);
@@ -200,10 +208,11 @@ Slider2D(w.view, 150@150).background_(Color.rand);
 "second row maxRight: " ++ d.maxRight.postln;
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-currentBounds' href='./../Overviews/Methods.html#currentBounds'>currentBounds</a></h3>
 <div class='method'>
 <p>Gets a <a href="./../Classes/Rect.html">Rect</a> with <code>bounds.width</code> and <code>height = top + maxHeight</code>.<h4>Discussion:</h4>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new;
 w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 10@5);
 Slider2D(w.view, 100@160).background_(Color.rand);
@@ -214,10 +223,11 @@ Slider2D(w.view, 150@150).background_(Color.rand);
 d.currentBounds.postln;
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-used' href='./../Overviews/Methods.html#used'>used</a></h3>
 <div class='method'>
 <p>Gets a <a href="./../Classes/Rect.html">Rect</a> with the space actually used.<h4>Discussion:</h4>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new;
 w.view.decorator = d = FlowLayout.new(w.view.bounds, 10@10, 20@5);
 Slider2D(w.view, 100@160).background_(Color.rand);
@@ -228,6 +238,7 @@ Slider2D(w.view, 150@150).background_(Color.rand);
 d.used.postln;
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reset' href='./../Overviews/Methods.html#reset'>reset</a></h3>
 <div class='method'>
 <p>Resets the layout mechanism to 0,0.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>

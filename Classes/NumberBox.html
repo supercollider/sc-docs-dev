@@ -208,7 +208,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p> Sets <a href="#-valueAction">-valueAction</a> to the current drag data.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <h3><a class='anchor' name='Basic%20Example'>Basic Example</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
     w = Window("NumberBox Example", Rect(100, 500, 400, 120));
     b =     NumberBox(w, Rect(150, 10, 100, 20));
     b.value = rrand(1, 15);
@@ -230,9 +230,10 @@ b.align = \center;
 
 b.increment; // increment or decrement by step
 b.decrement;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Sound%20Example'>Sound Example</a></h3>
 
-<p>Change frequency of a playing synth by step using arrow keys:<textarea class='editor'>(
+<p>Change frequency of a playing synth by step using arrow keys:<div class='codeMirrorContainer'><textarea class='editor'>(
 s.waitForBoot({
 
     n = { |freq = 220|
@@ -254,6 +255,7 @@ s.waitForBoot({
 
 });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NumberBox.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NumberBox.schelp</a><br>link::Classes/NumberBox::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

@@ -65,7 +65,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='Introduction'>Introduction</a></h2>
 
 <p>This file shows a number of syntax equivalences in the compiler.
-<p>Because of the multiple syntax equivalences, some expressions can be written in many different ways. All of the following do the same thing and compile to the same code.<textarea class='editor'>// new argument syntax
+<p>Because of the multiple syntax equivalences, some expressions can be written in many different ways. All of the following do the same thing and compile to the same code.<div class='codeMirrorContainer'><textarea class='editor'>// new argument syntax
 
 (1..10).collect({ |n| n.squared });  // receiver syntax
 collect((1..10), { |n| n.squared }); // function call syntax
@@ -88,6 +88,7 @@ collect ((1..10)) { arg n; n.squared }; // function call syntax with trailing-bl
 (1..10).collect(_.squared);   // receiver syntax
 collect((1..10), _.squared);  // function call syntax
 (1..10) collect: _.squared;   // binary operator syntax</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>You could even start expanding out the equivalent of (1..10) which is really a shortcut for <code>series(1, nil, 10)</code>. This could also be written <code>1.series(nil,10)</code>. This adds another 26 variations to the 13 variations above.<h2><a class='anchor' name='Defining%20functions%20and%20classes'>Defining functions and classes</a></h2>
 <h3><a class='anchor' name='shorter%20argument%20lists%20in%20definitions'>shorter argument lists in definitions</a></h3>
@@ -100,11 +101,13 @@ collect((1..10), _.squared);  // function call syntax
 
 <p><div class='note'><span class='notelabel'>NOTE:</span> There are some limitations to the extent of the surrounding expression that <code>_</code> can capture. See <a href="./../Reference/Partial-Application.html">Partial Application</a> for details.</div><h3><a class='anchor' name='defining%20instance%20variable%20accessor%20methods'>defining instance variable accessor methods</a></h3>
 <table>
-<tr><td>instead of writing:<td>you can write:<tr><td><textarea class='editor'>Thing { var x;
+<tr><td>instead of writing:<td>you can write:<tr><td><div class='codeMirrorContainer'><textarea class='editor'>Thing { var x;
     x { ^x }
     x_ { arg z; x = z; }
 }</textarea>
-<td><textarea class='editor'>Thing { var &lt;&gt;x; }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<td><div class='codeMirrorContainer'><textarea class='editor'>Thing { var &lt;&gt;x; }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table>
 <h2><a class='anchor' name='Sending%20messages,%20calling%20functions,%20and%20instantiating%20objects'>Sending messages, calling functions, and instantiating objects</a></h2>
 <h3><a class='anchor' name='function-call%20and%20receiver%20notations'>function-call and receiver notations</a></h3>
@@ -126,7 +129,7 @@ collect((1..10), _.squared);  // function call syntax
 <table>
 <tr><td>instead of writing:<td>you can write:<tr><td><code>if (x &lt; 3, { \abc }, { \def })</code><td><code>if (x &lt; 3) { \abc } { \def }</code><tr><td><code>z.do({ |x| x.play })</code><td><code>z.do { |x| x.play }</code><tr><td><code>while({ a &lt; b }, { a = a * 2 })</code><td><code>while { a &lt; b } { a = a * 2 }</code><tr><td><code>Pfunc({ rrand(3, 6) })</code><td><code>Pfunc { rrand(3, 6) }</code></table>
 <div class='note'><span class='notelabel'>NOTE:</span> Trailing arguments must be literal blocks. No other expression may be used as a trailing argument, even if it evaluates to a Function. For example, you cannot use a variable name as a trailing argument, even if this variable was assigned a Function.
-<p>Using a selector as an infix binary operator (discussed in the next section) enables a visually similar construct that does allow arbitrary expressions as operands, but these binary-operator constructs technically do not have trailing arguments.<textarea class='editor'>(
+<p>Using a selector as an infix binary operator (discussed in the next section) enables a visually similar construct that does allow arbitrary expressions as operands, but these binary-operator constructs technically do not have trailing arguments.<div class='codeMirrorContainer'><textarea class='editor'>(
 var f = { |n| (2**n) + (3**n) };
 collect((1..5), f); // valid
 (1..5).collect(f);  // valid
@@ -134,16 +137,18 @@ collect((1..5), f); // valid
 )
 (1..5).collect f;   // syntax error (non-block as a trailing argument)
 collect((1..5)) f;  // syntax error (ibid.)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>A fairly common case when this syntactic restriction matters: a partial application using the <code>_</code> syntax is an expression evaluating to a Function, but it is not a literal block. Therefore:<textarea class='editor'>do(6) _.postln  // syntax error
+<p>A fairly common case when this syntactic restriction matters: a partial application using the <code>_</code> syntax is an expression evaluating to a Function, but it is not a literal block. Therefore:<div class='codeMirrorContainer'><textarea class='editor'>do(6) _.postln  // syntax error
 6.do _.postln   // syntax error
 do(6, _.postln) // valid
 6.do(_.postln)  // valid
 6 do: _.postln  // valid</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='use%20a%20selector%20(method%20name)%20as%20a%20binary%20operator'>use a selector (method name) as a binary operator</a></h3>
 <table>
 <tr><td>instead of writing:<td>you can write:<tr><td><code>div(x, y)</code><td><code>x div: y</code></table>
-<div class='warning'><span class='warninglabel'>WARNING:</span> When switching between various forms of call syntax, one has to be mindful that a selector as a binary operator has equal precedence with most other binary operators, but has lower precedence than the receiver dot notation (<code>.</code>). Therefore, replacing a receiver syntax (dot) with a selector written as a binary operator can change the result of some expressions, as illustrated below:<textarea class='editor'>4 + 5.div(2) // -&gt; 6
+<div class='warning'><span class='warninglabel'>WARNING:</span> When switching between various forms of call syntax, one has to be mindful that a selector as a binary operator has equal precedence with most other binary operators, but has lower precedence than the receiver dot notation (<code>.</code>). Therefore, replacing a receiver syntax (dot) with a selector written as a binary operator can change the result of some expressions, as illustrated below:<div class='codeMirrorContainer'><textarea class='editor'>4 + 5.div(2) // -&gt; 6
 4 + 5 div: 2 // -&gt; 4
 
 // This is a left-to-right application of two dots,
@@ -163,11 +168,12 @@ do(6, _.postln) // valid
 
 // Or by uniform use of selectors as binary operators
 (1..3) collect: { |x| x + 1 } bubble: 0</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div>
 <p>Native infix operators like <code>+</code> can also be written in (longer) function-call form, e.g.:<table>
 <tr><td>infix:<td>function call:<tr><td><code>1 + 2</code><td><code>(+)(1, 2)</code></table>
 
-<p>The latter form is usually not a shortcut, except when one wants to dynamically change the adverb of an operator, for instance that of <code>+++</code>, because adverbs in the infix notation are interpreted as literals.<textarea class='editor'>(
+<p>The latter form is usually not a shortcut, except when one wants to dynamically change the adverb of an operator, for instance that of <code>+++</code>, because adverbs in the infix notation are interpreted as literals.<div class='codeMirrorContainer'><textarea class='editor'>(
 var a = (_+_) ! [3, 3]; // -&gt; [ [ 0, 1, 2 ], [ 1, 2, 3 ], [ 2, 3, 4 ] ]
 (0..2) collect: (+++)(a, 99, _) flatten: 3; // iterated adverb
 )
@@ -176,6 +182,7 @@ var a = (_+_) ! [3, 3]; // -&gt; [ [ 0, 1, 2 ], [ 1, 2, 3 ], [ 2, 3, 4 ] ]
 var a = (_+_) ! [3, 3];
 (0..2) collect: {|v| a +++.v 99} flatten: 3 // the literal adverb \v is used
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Collections'>Collections</a></h2>
 <h3><a class='anchor' name='create%20a%20collection'>create a collection</a></h3>
 <table>
@@ -194,8 +201,9 @@ var a = (_+_) ! [3, 3];
 <tr><td>instead of writing:<td>you can write:<tr><td><code>seriesIter(1, 3, 11)</code><td><code>(:1, 3..11)</code></table>
 
 <p><div class='note'><span class='notelabel'>NOTE:</span> SuperCollider also supports <a href="./../Guides/ListComprehensions.html">List Comprehensions</a>.</div>
-<p>As a simple (non-combinatorial) example, the following are equivalent ways of listing the first 10 primes:<textarea class='editor'>(:1..) select: _.isPrime nextN: 10;
+<p>As a simple (non-combinatorial) example, the following are equivalent ways of listing the first 10 primes:<div class='codeMirrorContainer'><textarea class='editor'>(:1..) select: _.isPrime nextN: 10;
 {: x, x &lt;- (1..), x.isPrime }.nextN(10);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='creating%20Events'>creating Events</a></h3>
 <table>
 <tr><td>instead of writing:<td>you can write:<tr><td><code>Event[\a -&gt; 1, \b -&gt; 2]</code><td><code>(a: 1, b: 2)</code></table>

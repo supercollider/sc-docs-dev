@@ -62,12 +62,15 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>compare:<textarea class='editor'>{ BrownNoise.ar(0.1) }.play;
+<p>compare:<div class='codeMirrorContainer'><textarea class='editor'>{ BrownNoise.ar(0.1) }.play;
 { WhiteNoise.ar(0.1) }.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>brownian noise as a frequency modulator:<textarea class='editor'>{ SinOsc.ar(BrownNoise.ar(100, 200)) * 0.1 }.play;</textarea>
+<p>brownian noise as a frequency modulator:<div class='codeMirrorContainer'><textarea class='editor'>{ SinOsc.ar(BrownNoise.ar(100, 200)) * 0.1 }.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>filtered brown noise:<textarea class='editor'>{ BPF.ar(BrownNoise.ar(0.1.dup), MouseX.kr(40, 17000, 1), 0.2) }.play;</textarea>
+<p>filtered brown noise:<div class='codeMirrorContainer'><textarea class='editor'>{ BPF.ar(BrownNoise.ar(0.1.dup), MouseX.kr(40, 17000, 1), 0.2) }.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/BrownNoise.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/BrownNoise.schelp</a><br>link::Classes/BrownNoise::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

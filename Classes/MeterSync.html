@@ -115,7 +115,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>The local clock's beats. Usually this should be derived from <code>result[index][\beats]</code>.<tr><td class='argumentname'>round<td class='argumentdesc'>
 <p>Optional. Force a specific subdivision: round = 1 (the default) assumes quarter-notes as the metric base; round = 0.5 assumes eighth-notes (e.g. 5/8 time).</table><h4>Returns:</h4>
 <div class='returnvalue'>
-<p>The instance.<textarea class='editor'>// You *may* do something like this optionally,
+<p>The instance.<div class='codeMirrorContainer'><textarea class='editor'>// You *may* do something like this optionally,
 // if something went wrong.
 // Normally you should just call 'resyncMeter'
 // and it's all done for you.
@@ -131,6 +131,7 @@ m.queryMeter({ |result|
 )
 
 l.stop;  // cleans up 'm' automatically</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-enabled' href='./../Overviews/Methods.html#enabled'>enabled</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-enabled' href='./../Overviews/Methods.html#enabled'>enabled</a> = <span class='argstr'>bool</span></h3>
 <div class='method'>
@@ -151,7 +152,7 @@ l.stop;  // cleans up 'm' automatically</textarea>
 <div class='method'>
 <p>Get or set the number of seconds between OSC messaging repeats.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>l = LinkClock.new.latency_(s.latency).enableMeterSync;
+<div class='codeMirrorContainer'><textarea class='editor'>l = LinkClock.new.latency_(s.latency).enableMeterSync;
 
 // If meter gets off, try to resync:
 l.getMeterSync.resyncMeter;
@@ -164,6 +165,7 @@ l.getMeterSync.queryMeter({ |result|
 // I want a different ID and/or ports: free, then recreate
 l.disableMeterSync;
 l.enableMeterSync(1000, (57120..57135));</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MeterSync.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MeterSync.schelp</a><br>link::Classes/MeterSync::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

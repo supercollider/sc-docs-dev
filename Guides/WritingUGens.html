@@ -56,11 +56,12 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Writing UGens is not too difficult, but it's arguably far less convenient and intuitive than the high-level tools that SuperCollider provides. You'll need a build system and a good amount of boilerplate code — even fairly basic signal processing operations can require a lot of code. You don't have an instant live coding environment, and mistakes can easily crash the server. SuperCollider's UGens are stable and well-tested, and custom UGens are best viewed as a last resort for when the limitations of SC are impassable.<h2><a class='anchor' name='Pseudo-UGens'>Pseudo-UGens</a></h2>
 
 <p>Before we proceed to the real UGens, we'll take a quick detour for the sake of completeness. A pseudo-UGen is a bit of SuperCollider code that abbreviates a certain configuration of UGens that gets used repeatedly. A pseudo-UGen is a class that superficially resembles a UGen class, but it only returns a composition of existing UGens. It has no efficiency savings, but it does save typing.
-<p>The below example has only a <code>.ar</code> method, but you can just as easily have both <code>.ar</code> and <code>.kr</code>  methods.<textarea class='editor'>BoringMixer {
+<p>The below example has only a <code>.ar</code> method, but you can just as easily have both <code>.ar</code> and <code>.kr</code>  methods.<div class='codeMirrorContainer'><textarea class='editor'>BoringMixer {
     *ar { arg left, right;
         ^(left + right) * 0.5;
     }
 }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Examples of pseudo-UGens found in SC include <a href="./../Classes/BLowPass4.html">BLowPass4</a> and <a href="./../Classes/BHiPass4.html">BHiPass4</a>, which break down into <a href="./../Classes/SOS.html">SOS</a> UGens.
 <p>There are very few restrictions on what these classes can contain, but you should keep the following in mind:<ul>
@@ -113,7 +114,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p><code>ClearUnitIfMemFailed</code> can be passed a single pointer, or it can check multiple pointers at the same time, by chaining them with the <code>&amp;&amp;</code> operator (see examples below).<dt>For PV and FFT UGens<dd>UGens in FFT chains (such as the ones listed in <a href="./../Guides/FFT-Overview.html#PV%20and%20FFT%20UGens%20in%20the%20Standard%20Library">FFT Overview: PV and FFT UGens in the Standard Library</a>) should use <code>ClearFFTUnitIfMemFailed</code> instead. This is because, on a failed allocation, <code>ClearUnitIfMemFailed</code> would make them output <code>0</code>, which would be interpreted by the next UGen in the FFT chain as "FFT data is ready to be processed on buffer number 0", which is not the case. <code>ClearFFTUnitIfMemFailed</code> will set their output to <code>-1</code> instead, meaning that FFT data is not ready, and thus blocking further processing for the rest of the FFT chain. For more informations please see <a href="./../Guides/FFT-Overview.html#How%20FFT%20UGens%20communicate">FFT Overview: How FFT UGens communicate</a>.
 <p><code>ClearFFTUnitIfMemFailed</code> is defined in <code>FFT_UGens.h</code></dl>
 
-<p>Minimal example, C style:<textarea class='editor'>struct MyUnit : public Unit {
+<p>Minimal example, C style:<div class='codeMirrorContainer'><textarea class='editor'>struct MyUnit : public Unit {
   float* m_values;
   float* m_moreValues;
 }
@@ -134,8 +135,9 @@ void MyUnit_Dtor(MyUnit* unit) {
   RTFree(unit-&gt;mWorld, unit-&gt;m_values);
   RTFree(unit-&gt;mWorld, unit-&gt;m_moreValues);
 }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Or, in C++ class style:<textarea class='editor'>namespace MyUnit {
+<p>Or, in C++ class style:<div class='codeMirrorContainer'><textarea class='editor'>namespace MyUnit {
   // 1. Use initializer list to ensure pointers are initialized to nullptr
   MyUnit::MyUnit():
     mValues(nullptr),
@@ -157,6 +159,7 @@ void MyUnit_Dtor(MyUnit* unit) {
     RTFree(mWorld, mMoreValues);
   }
 }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Thread%20Safety'>Thread Safety</a></h3>
 
 <p>There are two different implementations of the SuperCollider server. <strong>scsynth</strong> is the traditional server and <strong>supernova</strong> is a new implementation with support for multi-processor audio synthesis. Since the plugins in <strong>supernova</strong> can be called at the same time from multiple threads, write access to global data structures needs to be synchronized.<dl>

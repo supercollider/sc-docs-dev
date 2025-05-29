@@ -77,7 +77,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>Basic usage:<textarea class='editor'>// splay 10 chans of sound into 2
+<p>Basic usage:<div class='codeMirrorContainer'><textarea class='editor'>// splay 10 chans of sound into 2
 (
 x = { |spread = 1, level = 0.2, center = 0.0|
     var numchans = 10;
@@ -115,9 +115,10 @@ x = { |spread = 1, level = 0.2, center = 0.0|
     );
 }.play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='note'><span class='notelabel'>NOTE:</span> levelComp new takes multiple input options: true, false as before for rough equal power level compensation, and newly added: a float between 0 and 1. This is to offer more choices for level compensation, such as equal maximum amplitude.</div>
-<p>For a full discussion, see <a href="./../Classes/LevelComp.html">LevelComp</a>; here is an overview of the levelComp variants:<textarea class='editor'>// default is equal power comp: level / (numchans.sqrt)
+<p>For a full discussion, see <a href="./../Classes/LevelComp.html">LevelComp</a>; here is an overview of the levelComp variants:<div class='codeMirrorContainer'><textarea class='editor'>// default is equal power comp: level / (numchans.sqrt)
 Splay.ar(ins, spread, level, center); // true is default
 // write it explicitly for clarity
 Splay.ar(ins, spread, level, center, levelComp: true);
@@ -139,6 +140,7 @@ Splay.ar(ins, spread, level, center, levelComp: 0);
 //    1.0 is equal amplitude : level / (numchans)
 // can be used to tune e.g. between equal power and equal amp:
 Splay.ar(ins, spread, level, center, levelComp: 0.75);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Splay.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Splay.schelp</a><br>link::Classes/Splay::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

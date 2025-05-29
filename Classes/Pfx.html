@@ -68,7 +68,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pairs' href='./../Overviews/Methods.html#pairs'>pairs</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pairs' href='./../Overviews/Methods.html#pairs'>pairs</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef(\echo, { |out = 0, maxdtime = 0.2, dtime = 0.2, decay = 2, gate = 1|
     var env, in;
     env = Linen.kr(gate, 0.05, 1, 0.1, 2);
@@ -102,6 +102,7 @@ o = Pfx(r, \wah);
 
 Pseq([p, q, r, o], 2).play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pfx.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pfx.schelp</a><br>link::Classes/Pfx::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

@@ -55,8 +55,9 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Read <a href="./../Guides/SCIde.html">the guide</a>!<h2><a class='anchor' name='Language-side%20news'>Language-side news</a></h2>
 <h3><a class='anchor' name='More%20informative%20syntax%20errors'>More informative syntax errors</a></h3>
 
-<p>The parser now posts the details of syntax errors, example:<textarea class='editor'>[1,2,%,4];
+<p>The parser now posts the details of syntax errors, example:<div class='codeMirrorContainer'><textarea class='editor'>[1,2,%,4];
 123;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Posts the following error message:<pre>ERROR: syntax error, unexpected BINOP, expecting ']'
   in file 'selected text'
@@ -76,7 +77,8 @@ ERROR: Command line parse failed</pre><h3><a class='anchor' name='Remove%20old%2
 
 <p>The process of building synthdefs now performs a simple dead code elimination pass, which removes all <a href="./../Classes/PureUGen.html">PureUGen</a> instances without successor.<h3><a class='anchor' name='Case%20sensitive%20String%20comparison'>Case sensitive String comparison</a></h3>
 
-<p>String comparison operators (<code>==, !=, &lt;=, &gt;=, &gt;, &lt;</code>) are now case sensitive.<textarea class='editor'>"Foo" == "fOo"; // false</textarea>
+<p>String comparison operators (<code>==, !=, &lt;=, &gt;=, &gt;, &lt;</code>) are now case sensitive.<div class='codeMirrorContainer'><textarea class='editor'>"Foo" == "fOo"; // false</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='SplayAz%20Bug%20Fix'>SplayAz Bug Fix</a></h3>
 
 <p>Positioning of SplayAz was broken. The semantics of the <code>spread</code> and <code>center</code> arguments has been changed in order to fix the behavior.<h3><a class='anchor' name='Array%20primitives%20respect%20mutability'>Array primitives respect mutability</a></h3>

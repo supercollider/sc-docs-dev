@@ -49,13 +49,14 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>しかし、グラフに関するさらなる背景を説明するために、<a href="http://www.nist.gov/dads/HTML/graph.htmlでのグラフに関する議論を引用します。">http://www.nist.gov/dads/HTML/graph.htmlでのグラフに関する議論を引用します。</a>
 <p>「グラフはロードマップの様なものです。都市は頂点です。都市から都市への道路はエッジです。（道路のジャンクションや分岐はどうでしょう？ジャンクションもまた頂点と見なすことができます。もしそれらを頂点としてカウントしたくないのであれば、道路は２つ以上の都市を結ぶでしょう。つまり、厳密にいえば、ハイパーグループにはハイパーエッジがあるのです。もしそれぞれの１組の都市の間に１本以上の道路を許可したいのであれば、代わりにマルチグラフがあります。これはあなたがどのように定義したいのか次第です）。
 <p>グラフに関する他の考え方とは、線によって接続された点の集まりというものです。かなり昔に数学者は普通の人々に話しかけるのを辞めてしまったため、グラフの中の点は頂点と呼ばれ、点に接続された線はエッジと呼ばれます。重要なのはエッジと頂点、つまり、点とそれらの間の接続です。与えられた点の位置や与えられた線の真直度は問題ではありません。かくして、点はどこにもなることができ、それらをつなぐ線は無限に伸縮性があります。さらに、数学的なグラフは、比較表や、xとy軸のある図や、株価のレポートのくねった線ではありません。グラフとは単純に点とそれらの間の線なのです。すみません、頂点とエッジです。」
-<p>////////////////////////////////////////////////////////////////////////////////////////////////////<textarea class='editor'>// synthdefのテンプレート ... 疑似コードを含む
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////<div class='codeMirrorContainer'><textarea class='editor'>// synthdefのテンプレート ... 疑似コードを含む
 SynthDef(
     "i am a synthdef",            // 第１アーギュメントは名前
     { .... i am a ugenGraphFunc ... }    // 第２アーギュメントはUGen
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>次の数行のコードは実際のSuperColliderのコードのテンプレートを示します。synthdefの第１アーギュメントは名前で、第２アーギュメントが関数です。<textarea class='editor'>(
+<p>次の数行のコードは実際のSuperColliderのコードのテンプレートを示します。synthdefの第１アーギュメントは名前で、第２アーギュメントが関数です。<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef(
     "aSynthDef",                 // SynthDefの名前
     {                     // ugenGraphFunc
@@ -67,14 +68,16 @@ SynthDef(
     }
 ).load(s);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////<h2><a class='anchor' name='SynthDefブラウザー'>SynthDefブラウザー</a></h2>
 
 <p>典型的には、ugenGraphFuncは2、3の重要なコンポーネントを含みます。これらにはugen（ユニット・ジェネレータ）、control（コントロール）、input（入力）そしてoutput（出力）が含まれます。
-<p>ブラウザー・ウィンドウでそのようなことを見るためには、次のコードを実行してみて下さい。<textarea class='editor'>(
+<p>ブラウザー・ウィンドウでそのようなことを見るためには、次のコードを実行してみて下さい。<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDescLib.global.read;
 SynthDescLib.global.browse;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>このコードによって作られるブラウザー・ウィンドウは６つのボックスを含み、全ての以前に定義されたSynthDefの名前を示します。それぞれの名前を選択して、それに関連づけられたugenGraphFunc ugen、control、inputとoutputを表示することができます。
 <p>あらかじめ定義されたSynthDefとは、以前に.loadメッセージが送られたものということです。この結果、SuperColliderはあらかじめロードされたSynthDefを起動時に読み込むます。

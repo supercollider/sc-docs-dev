@@ -67,14 +67,14 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-embedInStream' href='./../Overviews/Methods.html#embedInStream'>embedInStream</a>(<span class='argstr'>inval</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-postString' href='./../Overviews/Methods.html#postString'>postString</a></h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/JITLib/Patterns/extFunction.sc'>/usr/local/share/SuperCollider/SCClassLibrary/JITLib/Patterns/extFunction.sc</a></div>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reduceFuncProxy' href='./../Overviews/Methods.html#reduceFuncProxy'>reduceFuncProxy</a>(<span class='argstr'>args</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reduceFuncProxy' href='./../Overviews/Methods.html#reduceFuncProxy'>reduceFuncProxy</a>(<span class='argstr'>args</span>, <span class='argstr'>protect: true</span>, <span class='argstr'>kwargs</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reverseComposeBinaryOp' href='./../Overviews/Methods.html#reverseComposeBinaryOp'>reverseComposeBinaryOp</a>(<span class='argstr'>aSelector</span>, <span class='argstr'>something</span>, <span class='argstr'>adverb</span>)</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a>( <span class='argstr'>... args</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-valueArray' href='./../Overviews/Methods.html#valueArray'>valueArray</a>(<span class='argstr'>args</span>)</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-valueFuncProxy' href='./../Overviews/Methods.html#valueFuncProxy'>valueFuncProxy</a>(<span class='argstr'>args</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-valueFuncProxy' href='./../Overviews/Methods.html#valueFuncProxy'>valueFuncProxy</a>(<span class='argstr'>args</span>, <span class='argstr'>kwargs</span>)</h3>
 <h2><a class='anchor' name='Help%20template'>Help template</a></h2>
 
-<p>Copy and paste the text below and save to HelpSource/Classes/BinaryOpFunctionProxy.schelp<textarea class='editor'>TITLE:: BinaryOpFunctionProxy
+<p>Copy and paste the text below and save to HelpSource/Classes/BinaryOpFunctionProxy.schelp<div class='codeMirrorContainer'><textarea class='editor'>TITLE:: BinaryOpFunctionProxy
 summary:: (put short description here)
 categories:: Undocumented classes
 related:: Classes/SomeRelatedClass, Reference/SomeRelatedStuff, etc.
@@ -113,12 +113,21 @@ METHOD:: reduceFuncProxy
 ARGUMENT:: args
 (describe argument here)
 
+ARGUMENT:: protect
+(describe argument here)
+
+ARGUMENT:: kwargs
+(describe argument here)
+
 returns:: (describe returnvalue here)
 
 METHOD:: valueFuncProxy
 (describe method here)
 
 ARGUMENT:: args
+(describe argument here)
+
+ARGUMENT:: kwargs
 (describe argument here)
 
 returns:: (describe returnvalue here)
@@ -148,7 +157,10 @@ returns:: (describe returnvalue here)
 METHOD:: value
 (describe method here)
 
-ARGUMENT::  ... args
+ARGUMENT:: args
+(describe argument here)
+
+ARGUMENT::  ... kwargs
 (describe argument here)
 
 returns:: (describe returnvalue here)
@@ -187,5 +199,6 @@ code::
 (some example code)
 ::
 </textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='doclink'>link::Classes/BinaryOpFunctionProxy::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

@@ -70,7 +70,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-patterns' href='./../Overviews/Methods.html#patterns'>patterns</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-patterns' href='./../Overviews/Methods.html#patterns'>patterns</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 Pchain(
     Pbind(\detune, Pseq([-30, 0, 40], inf), \dur, Prand([0.2, 0.4], inf)),
     Pbind(\degree, Pseq([1, 2, 3], inf), \dur, 1)
@@ -103,9 +103,10 @@ c = Prand([
 ], inf);
 Pchain(a, b, c).trace.play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='pattern%20composition'>pattern composition</a></h2>
 
-<p>pattern &lt;&gt; pattern &lt;&gt; pattern<textarea class='editor'>// implicitly, the composition operator &lt;&gt; returns a Pchain when applied to a pattern.
+<p>pattern &lt;&gt; pattern &lt;&gt; pattern<div class='codeMirrorContainer'><textarea class='editor'>// implicitly, the composition operator &lt;&gt; returns a Pchain when applied to a pattern.
 // so that a &lt;&gt; b creates a Pchain (a, b).
 // as seen above, in Pchain(a, b), a specifies (and overrides) b: b is the input to a.
 
@@ -137,6 +138,7 @@ t = (a &lt;&gt; b &lt;&gt; c).asStream;
 
 t = (b &lt;&gt; c &lt;&gt; a).asStream;
 10.do { t.value(10).postln };</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pchain.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pchain.schelp</a><br>link::Classes/Pchain::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

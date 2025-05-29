@@ -61,16 +61,19 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>The SystemSynthDefs class generates SynthDefs with different number of channels that are chosen according to need. This class variable specifies the maximum number of channels.</div><h3 class='method-code'><span class='method-prefix'>SystemSynthDefs.</span><a class='method-name' name='*synthDefs' href='./../Overviews/Methods.html#synthDefs'>synthDefs</a></h3>
 <h3 class='method-code'><span class='method-prefix'>SystemSynthDefs.</span><a class='method-name' name='*synthDefs' href='./../Overviews/Methods.html#synthDefs'>synthDefs</a> = value</h3>
 <div class='method'>
-<p>The list of non-temporary synthDefs generated.<textarea class='editor'>SystemSynthDefs.synthDefs.do { |x| x.name.postln }; // post the names of SynthDefs</textarea>
+<p>The list of non-temporary synthDefs generated.<div class='codeMirrorContainer'><textarea class='editor'>SystemSynthDefs.synthDefs.do { |x| x.name.postln }; // post the names of SynthDefs</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Temporary%20SynthDef%20names'>Temporary SynthDef names</a></h3>
 <h3 class='method-code'><span class='method-prefix'>SystemSynthDefs.</span><a class='method-name' name='*generateTempName' href='./../Overviews/Methods.html#generateTempName'>generateTempName</a></h3>
 <div class='method'>
-<p>Return a new temporary name<textarea class='editor'>SystemSynthDefs.generateTempName</textarea>
+<p>Return a new temporary name<div class='codeMirrorContainer'><textarea class='editor'>SystemSynthDefs.generateTempName</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>SystemSynthDefs.</span><a class='method-name' name='*tempNamePrefix' href='./../Overviews/Methods.html#tempNamePrefix'>tempNamePrefix</a></h3>
 <h3 class='method-code'><span class='method-prefix'>SystemSynthDefs.</span><a class='method-name' name='*tempNamePrefix' href='./../Overviews/Methods.html#tempNamePrefix'>tempNamePrefix</a> = value</h3>
 <div class='method'>
-<p>A prefix name that can be used to distinguish Synths from other names to avoid collision.<textarea class='editor'>a = { SinOsc.ar * 0.01 }.play;
+<p>A prefix name that can be used to distinguish Synths from other names to avoid collision.<div class='codeMirrorContainer'><textarea class='editor'>a = { SinOsc.ar * 0.01 }.play;
 a.defName; // has the prefix 'temp__', followed by a number</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>SystemSynthDefs.</span><a class='method-name' name='*maxTempDefNames' href='./../Overviews/Methods.html#maxTempDefNames'>maxTempDefNames</a></h3>
 <h3 class='method-code'><span class='method-prefix'>SystemSynthDefs.</span><a class='method-name' name='*maxTempDefNames' href='./../Overviews/Methods.html#maxTempDefNames'>maxTempDefNames</a> = value</h3>
 <div class='method'>

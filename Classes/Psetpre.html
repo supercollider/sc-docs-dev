@@ -53,12 +53,13 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Sets a value in an event, before it is passed up the stream. To set the value after it has been passed to the stream, use <a href="./../Classes/Pset.html">Pset</a>.<textarea class='editor'>(
+<p>Sets a value in an event, before it is passed up the stream. To set the value after it has been passed to the stream, use <a href="./../Classes/Pset.html">Pset</a>.<div class='codeMirrorContainer'><textarea class='editor'>(
 var a, b;
 a = Psetpre(\freq, 801, Pbind(\dur, 0.5));
 x = a.asStream;
 9.do({ x.next(Event.new).postln });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Psetpre.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>name</span>, <span class='argstr'>value</span>, <span class='argstr'>pattern</span>)</h3>
 <div class='method'>
@@ -78,7 +79,7 @@ x = a.asStream;
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// Psetpre does not override incoming values:
+<div class='codeMirrorContainer'><textarea class='editor'>// Psetpre does not override incoming values:
 
 (
 var a, b;
@@ -113,6 +114,7 @@ a = Psetpre(\freq, Pseq([500, 600, 700], inf), a);
 a = Psetpre(\legato, Pseq([0.01, 1], inf), a);
 a.play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Psetpre.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Psetpre.schelp</a><br>link::Classes/Psetpre::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

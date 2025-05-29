@@ -97,7 +97,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>The 'done' flag can be used to trigger other things in the same synth:<textarea class='editor'>(
+<p>The 'done' flag can be used to trigger other things in the same synth:<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("Done-help", { |out, t_trig|
     var line, a, b;
 
@@ -111,13 +111,15 @@ SynthDef("Done-help", { |out, t_trig|
 )
 
 Synth("Done-help"); // note that this synth doesn't have it's own doneAction, so you'll need to manually deallocate it</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>The 'done' flag can be used to trigger a delayed freeing of the current synth, which is not possible by using doneActions alone:<textarea class='editor'>play {
+<p>The 'done' flag can be used to trigger a delayed freeing of the current synth, which is not possible by using doneActions alone:<div class='codeMirrorContainer'><textarea class='editor'>play {
     var env = Line.kr(1, 0, 2);
     var sig = PinkNoise.ar(env);
     FreeSelf.kr(TDelay.kr(Done.kr(env), 3));
     GVerb.ar(sig, 70, 7);
 }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><h2><a class='anchor' name='Actions'>Actions</a></h2>
 

@@ -68,7 +68,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='returnvalue'>
 <p>a new buffer</div><h4>Discussion:</h4>
 
-<p>Since newFrom is called by the as message, one may thus convert an array to a LocalBuf:<textarea class='editor'>[1, 2, 3].as(LocalBuf)</textarea>
+<p>Since newFrom is called by the as message, one may thus convert an array to a LocalBuf:<div class='codeMirrorContainer'><textarea class='editor'>[1, 2, 3].as(LocalBuf)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-set' href='./../Overviews/Methods.html#set'>set</a>(<span class='argstr'>values</span>, <span class='argstr'>offset: 0</span>)</h3>
@@ -76,12 +77,13 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>set the buffer slots with a list of values.<h4>Discussion:</h4>
 
 <p>If list is smaller than numFrames, it will only set part of the buffer. The list may be two-dimensional for numChannels &gt; 1. offset is the starting index (default: 0)<div class='warning'><span class='warninglabel'>WARNING:</span> SynthDef permits a maximum of 65536 (2**16) unique constant values in one definition. A very large array of distinct values can corrupt the SynthDef's binary format. If you need a large buffer to be pre-initialized with signal data, it is strongly recommended to use <a href="./../Classes/Buffer.html">Buffer</a> instead.</div>
-<p>If the buffer is large but holds a smaller number of unique values, e.g. <code>Array.fill(88200, { #[0, 0.25, 0.5, 0.75, 1.0].choose })</code>, this is no problem. SynthDef compacts the large array for the list of constants.<textarea class='editor'>SynthDef(\bigLocalBuf, {
+<p>If the buffer is large but holds a smaller number of unique values, e.g. <code>Array.fill(88200, { #[0, 0.25, 0.5, 0.75, 1.0].choose })</code>, this is no problem. SynthDef compacts the large array for the list of constants.<div class='codeMirrorContainer'><textarea class='editor'>SynthDef(\bigLocalBuf, {
     LocalBuf(88200).set(Array.fill(88200, { #[0, 0.25, 0.5, 0.75, 1.0].choose }))
 }).add;
 
 SynthDescLib.at(\bigLocalBuf).constants;
 // prints: FloatArray[1, 88200, 0, 0.75, 0.5, 0.25]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clear' href='./../Overviews/Methods.html#clear'>clear</a></h3>
 <div class='method'>
 <p>set the buffer slot to zero.<h4>Discussion:</h4>
@@ -91,7 +93,7 @@ SynthDescLib.at(\bigLocalBuf).constants;
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-numChannels' href='./../Overviews/Methods.html#numChannels'>numChannels</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-numFrames' href='./../Overviews/Methods.html#numFrames'>numFrames</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// example: FFT
+<div class='codeMirrorContainer'><textarea class='editor'>// example: FFT
 
 (
 {
@@ -232,6 +234,7 @@ var in, chain, n = 4;
     Splay.ar(IFFT(chain)) // inverse FFT
 }.play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LocalBuf.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LocalBuf.schelp</a><br>link::Classes/LocalBuf::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

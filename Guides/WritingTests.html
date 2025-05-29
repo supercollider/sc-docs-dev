@@ -49,12 +49,13 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Download or clone SuperCollider from github: <a href="https://github.com/supercollider/supercollider.">https://github.com/supercollider/supercollider.</a>It is not needed to compile SuperCollider from its sources, you can instead use a pre-compiled binary and include the relevant folders (<code>SCClassLibrary, HelpSource, testsuite/classlibrary</code> in your environment. See below for an example.<h2><a class='anchor' name='Change%20your%20environment%20to%20include%20only%20core%20library%20functionality'>Change your environment to include only core library functionality</a></h2>
 
 <p>In order to mimick the standard SuperCollider installation, make sure that you have only the class library installed. 
-<p>Best practise is to create a separate <code>.yaml</code> configuration file that resides parallel to the default one. You can do this either interactively from within the preferences of your IDE (<code>Preferences&gt;Interpreter</code>), or programatically<textarea class='editor'>~sclangConf = "SCLANG_CONF".getenv;
+<p>Best practise is to create a separate <code>.yaml</code> configuration file that resides parallel to the default one. You can do this either interactively from within the preferences of your IDE (<code>Preferences&gt;Interpreter</code>), or programatically<div class='codeMirrorContainer'><textarea class='editor'>~sclangConf = "SCLANG_CONF".getenv;
 LanguageConfig.addIncludePath(~scSourceDir +/+ "testsuite/classlibrary");
 +   LanguageConfig.addExcludePath(~scSourceDir +/+ "testsuite/classlibrary/server");
 +   LanguageConfig.addExcludePath(Quarks.folder +/+ "UnitTesting/tests");
 +   postf("Writing configuration to %\n", ~sclangConf);
 +   LanguageConfig.store(~sclangConf);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p> <h2><a class='anchor' name='Organisation'>Organisation</a></h2>
 

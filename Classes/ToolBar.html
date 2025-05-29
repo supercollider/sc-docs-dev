@@ -51,7 +51,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>A ToolBar is similar to a <a href="./../Classes/Menu.html">Menu</a>, with several key differences:<ul>
 <li>ToolBars act as regular <a href="./../Classes/View.html">View</a>s, and can be placed in layouts or in other views.<li>MenuActions on a toolbar appear as buttons instead of being listed menu-style<li>By default, MenuActions that have icons show ONLY the icon. MenuActions with text will appear as a text button. This can be changed using the toolButtonStyle property.</ul>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 View().fixedWidth_(300).layout_(HLayout(
     ToolBar(
         MenuAction("Option A", { "Option A".postln }),
@@ -60,6 +60,7 @@ View().fixedWidth_(300).layout_(HLayout(
     )
 )).front
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
 <div class='method'>
@@ -79,7 +80,7 @@ View().fixedWidth_(300).layout_(HLayout(
 <table class='arguments'>
 <tr><td class='argumentname'><td class='argumentdesc'>
 <p> An integer; one of the values of <a href="./../Classes/QToolButtonStyle">QToolButtonStyle</a>.</table><h4>Discussion:</h4>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 ~icon = Image(64).draw({ Pen.fillOval(Rect(0, 0, 64, 64)) });
 ~styles = QToolButtonStyle.classVarNames;
 
@@ -92,9 +93,10 @@ View().fixedWidth_(300).layout_(HLayout(
         })
 ).front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 s.waitForBoot {
     ~synth = nil;
     ~freq = 300;
@@ -149,6 +151,7 @@ s.waitForBoot {
     ~toolBar.onClose_({ ~freqMenu.removeDependant(~updateFunc) })
 }
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ToolBar.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ToolBar.schelp</a><br>link::Classes/ToolBar::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

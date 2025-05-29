@@ -47,8 +47,9 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Complex Multiplication:<textarea class='editor'>(RealA * RealB) - (ImagA * ImagB),
+<p>Complex Multiplication:<div class='codeMirrorContainer'><textarea class='editor'>(RealA * RealB) - (ImagA * ImagB),
 (ImagA * RealB) + (RealA * ImagB)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>PV_Mul.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>bufferA</span>, <span class='argstr'>bufferB</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/PV_MagMul.html'>PV_MagMul</a></div>
@@ -61,7 +62,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>s.boot;
+<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 
 (
 SynthDef("help-mul", { |out = 0|
@@ -88,6 +89,7 @@ SynthDef("help-mul2", { |out = 0|
 }).play(s);
 s.scope;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/PV_Mul.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/PV_Mul.schelp</a><br>link::Classes/PV_Mul::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

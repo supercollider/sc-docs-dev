@@ -51,7 +51,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// simple example
+<div class='codeMirrorContainer'><textarea class='editor'>// simple example
 (
 w = Window().front;
 a = { Button(w) } ! 10;
@@ -98,5 +98,6 @@ f = { SoundFileView(w).load(ExampleFiles.child, 1e5.rand, 1e4) };
 a = { HLayout(VLayout(*{ Slider(w, Rect(0, 0, 230, 20)).minSize_(Size(130, 20)) } ! 3), f.value) } ! 4;
 w.layout = HLayout(VLayout(*a));
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/HLayout.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/HLayout.schelp</a><br>link::Classes/HLayout::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

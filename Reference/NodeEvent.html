@@ -55,12 +55,13 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>The methods <a href="./../Classes/Event.html#-synth">Event: -synth</a> and <a href="./../Classes/Event.html#-group">Event: -group</a> set the parent event of the receiver to specialized events that duplicate the functionality of <a href="./../Classes/Synth.html">Synth</a> and <a href="./../Classes/Group.html">Group</a> objects. These objects follow the naming conventions of patterns (i.e., groups and addActions are integer ID's) and have the same stop/play/pause/resume interface as the EventStreamPlayers created by Pattern-play. So, they can be used interchangeably with patterns in control schemes and GUI's.
-<p>The following example creates a group with nodeID = 2 and plays a synth within it.<textarea class='editor'>g = (id: 2).group;
+<p>The following example creates a group with nodeID = 2 and plays a synth within it.<div class='codeMirrorContainer'><textarea class='editor'>g = (id: 2).group;
 g.play;
 a = (group: 2).synth;
 a.play;
 g.release;
 g.stop;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Interface'>Interface</a></h3>
 <h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.play' href='./../Overviews/Methods.html#play'>play</a></h3>
 <div class='method'>
@@ -87,7 +88,7 @@ g.stop;</textarea>
 <p>moves to immediately to tail of nodeID</div><h3><a class='anchor' name='Multi-channel%20expansion'>Multi-channel expansion</a></h3>
 
 <p>With the exception of ~server, ~latency, and ~instrument any key in the event can have an array as a value and the standard rules of multi-channel expansion will be followed.<h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// Here is a simple example of its use:
+<div class='codeMirrorContainer'><textarea class='editor'>// Here is a simple example of its use:
 
 // define a multiple Group event
 g = (id: [2,3,4,5,6], group: 0, addAction: 1).group;
@@ -111,6 +112,7 @@ h[0].stop;
 h[1].stop;
 
 g.stop;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/NodeEvent.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/NodeEvent.schelp</a><br>link::Reference/NodeEvent::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

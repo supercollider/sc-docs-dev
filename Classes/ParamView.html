@@ -58,7 +58,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>ParamView displays a parameter value, and switches representation as appropriate for value: A single number is shown by an EZSlider, a pair of numbers by an EZRanger, and anything else as code on an EZText.
-<p>First examples:<textarea class='editor'>w = Window("test", Rect(20, 820, 400, 100)).front;
+<p>First examples:<div class='codeMirrorContainer'><textarea class='editor'>w = Window("test", Rect(20, 820, 400, 100)).front;
 w.addFlowLayout;
 ~pv = ParamView(w, Rect(20, 20, 360, 20));
 ~pv2 = ParamView(w, Rect(20, 20, 360, 40));
@@ -84,6 +84,7 @@ w.addFlowLayout;
 // anything else -&gt; EZText
 ~pv.value_(\blonk);
 ~pv.action = { |pv| pv.value.postcs };</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
 <div class='method'>

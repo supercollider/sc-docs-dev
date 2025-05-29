@@ -61,19 +61,25 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>a plot:<textarea class='editor'>{ LFPulse.ar(Line.kr(100, 800, 0.1)) }.plot(0.1);</textarea>
+<p>a plot:<div class='codeMirrorContainer'><textarea class='editor'>{ LFPulse.ar(Line.kr(100, 800, 0.1)) }.plot(0.1);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>50 Hz wave:<textarea class='editor'>{ LFPulse.ar(50) * 0.1 }.play;</textarea>
+<p>50 Hz wave:<div class='codeMirrorContainer'><textarea class='editor'>{ LFPulse.ar(50) * 0.1 }.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>modulating frequency:<textarea class='editor'>{ LFPulse.ar(XLine.kr(1, 200, 10), 0, 0.2, 0.1) }.play;</textarea>
+<p>modulating frequency:<div class='codeMirrorContainer'><textarea class='editor'>{ LFPulse.ar(XLine.kr(1, 200, 10), 0, 0.2, 0.1) }.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>amplitude modulation:<textarea class='editor'>{ LFPulse.kr(XLine.kr(1, 200, 10), 0, 0.2) * SinOsc.ar(440) * 0.1 }.play;</textarea>
+<p>amplitude modulation:<div class='codeMirrorContainer'><textarea class='editor'>{ LFPulse.kr(XLine.kr(1, 200, 10), 0, 0.2) * SinOsc.ar(440) * 0.1 }.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>used as both Oscillator and LFO:<textarea class='editor'>{ LFPulse.ar(LFPulse.kr(3, 0, 0.3, 200, 200), 0, 0.2, 0.1) }.play;</textarea>
+<p>used as both Oscillator and LFO:<div class='codeMirrorContainer'><textarea class='editor'>{ LFPulse.ar(LFPulse.kr(3, 0, 0.3, 200, 200), 0, 0.2, 0.1) }.play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>scope:<textarea class='editor'>{ LFPulse.ar(500, 0, MouseX.kr, 0.5) }.scope;</textarea>
+<p>scope:<div class='codeMirrorContainer'><textarea class='editor'>{ LFPulse.ar(500, 0, MouseX.kr, 0.5) }.scope;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>compare with band limited Pulse UGen:<textarea class='editor'>(
+<p>compare with band limited Pulse UGen:<div class='codeMirrorContainer'><textarea class='editor'>(
 {
     [
         Pulse.ar(100, 0.3, 0.5),
@@ -81,6 +87,7 @@ var scdoc_sc_version = '3.14.0-dev';
     ] * 0.2
 }.scope(bufsize: 44100, zoom: 5)
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LFPulse.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LFPulse.schelp</a><br>link::Classes/LFPulse::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

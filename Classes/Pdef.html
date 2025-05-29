@@ -92,12 +92,13 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Pdef registers patterns by key. All accesses to the registered patterns go through the Pdef class via that key. Registered patterns can be replaced while running. The old pattern and its replacement can automatically crossfade and the time of replacement can be quantized.
 <p>Pdef is a class that provides an interface to its superclass <a href="./../Classes/EventPatternProxy.html">EventPatternProxy</a>, keeping a reference to a stream that can be replaced while playing. One pattern may be used in many streams in different places. A change in the pattern definition propagates through all streams.
-<p>Pdef and Pdefn use separate global collections.<textarea class='editor'>Pdef(key)    // returns the instance
+<p>Pdef and Pdefn use separate global collections.<div class='codeMirrorContainer'><textarea class='editor'>Pdef(key)    // returns the instance
 Pdef(key, pat)    // stores the pattern and returns the instance, like Tdef and Ndef.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>It can be used to store event Patterns globally. Changes in this global library have immediate effect.
 <p>For <strong>non-event patterns</strong> <a href="./../Classes/Pdefn.html">Pdefn</a> is used instead. For another use of Pdef see also <a href="./../Tutorials/JITLib/recursive_phrasing.html">recursive_phrasing</a>. Graphical overview over all current Pdefs: <a href="./../Classes/PdefAllGui.html">PdefAllGui</a>. Overview: <a href="./../Overviews/JITLib.html">JITLib</a>.<h3><a class='anchor' name='First%20Example'>First Example</a></h3>
-<textarea class='editor'>s.boot;
+<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 
 Pdef(\x, Pbind(\note, Pbrown(0, 6, 0.1, inf)));
 Pdef(\x).quant = 0; // no waiting.
@@ -107,6 +108,7 @@ Pbindf(Pdef(\x), \dur, 0.3, \ctranspose, 2).play;
 // now change the definition
 Pdef(\x, Pbind(\note, Pseq([0, 3, 5, 7, 9, 11], inf)));
 Pdef(\x, Pbind(\freq, Pseq([1000, 1923, 245.2, 1718] / 1.2 + 0.1, inf)));</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Pdef.</span><a class='method-name' name='*all' href='./../Overviews/Methods.html#all'>all</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Pdef.</span><a class='method-name' name='*all' href='./../Overviews/Methods.html#all'>all</a> = value</h3>
@@ -119,7 +121,7 @@ Pdef(\x, Pbind(\freq, Pseq([1000, 1923, 245.2, 1718] / 1.2 + 0.1, inf)));</texta
 <table class='arguments'>
 <tr><td class='argumentname'>key<td class='argumentdesc'>
 <p>An identifier for the proxy. Usually, it is a <a href="./../Classes/Symbol.html">Symbol</a>. The key transparently accesses the global <a href="./../Classes/IdentityDictionary.html">IdentityDictionary</a>.<tr><td class='argumentname'>item<td class='argumentdesc'>
-<p>An object for (re)defining the source of the proxy. If <code>nil</code>, the proxy is returned unmodified.<textarea class='editor'>(
+<p>An object for (re)defining the source of the proxy. If <code>nil</code>, the proxy is returned unmodified.<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef(\Pdefhelp, { |out, freq, sustain = 1, amp = 1, pan|
     var env = EnvGen.kr(Env.perc(0.01, sustain), 1, doneAction: Done.freeSelf);
     Out.ar(out, Pan2.ar(SinOsc.ar(freq, 0.5pi, amp * env), pan));
@@ -141,6 +143,7 @@ Pn(Pdef(\x)).play;
 Pdef(\stut, { Pdup(~dup ? 1, ~pattern) });
 Pdef(\x, Pbind(\instrument, \Pdefhelp, \note, Pseq([0, 4, 7, 3, 0, 1, 0], inf)));
 Pdef(\y, Pdef(\stut) &lt;&gt; (pattern: Pdef(\x), dup: Pseq([2, 2, 4, 3], inf)) &lt;&gt; (dur: 0.1, legato: 0.2)).play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>Pdef.</span><a class='method-name' name='*default' href='./../Overviews/Methods.html#default'>default</a></h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/TaskProxy.html'>TaskProxy</a></div>
 <div class='method'>
@@ -249,7 +252,7 @@ Pdef(\y, Pdef(\stut) &lt;&gt; (pattern: Pdef(\x), dup: Pseq([2, 2, 4, 3], inf)) 
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-key' href='./../Overviews/Methods.html#key'>key</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 <h3><a class='anchor' name='Pdef%20as%20stream%20reference'>Pdef as stream reference</a></h3>
-<textarea class='editor'>s.boot;
+<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 
 (
 SynthDef("Pdefhelp", { |out, freq, sustain = 1, amp = 1, pan|
@@ -325,8 +328,9 @@ Pdef(\a).set(\detune, -50); // set environment
 Pdef(\a).set(\detune, 0);
 
 x.stop;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Pdef%20as%20EventStreamPlayer'>Pdef as EventStreamPlayer</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 // load a synthdef
 s.boot;
 SynthDef("gpdef",
@@ -398,17 +402,20 @@ TempoClock.default.tempo = 1.0;
 
 // GUI example: see also
 PdefAllGui(18);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Recursion'>Recursion</a></h3>
 
-<p>Pdefs can be used recursively under the condition that the stream call structure allows it. a structure like the following works:<textarea class='editor'>Pdef(\x, Pseq([Pbind(\instrument, \gpdef), Pdef(\x)], inf));
+<p>Pdefs can be used recursively under the condition that the stream call structure allows it. a structure like the following works:<div class='codeMirrorContainer'><textarea class='editor'>Pdef(\x, Pseq([Pbind(\instrument, \gpdef), Pdef(\x)], inf));
 Pdef(\x).play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>but the following would crash, because <code>.embedInStream</code> is called recursively with no limit:<textarea class='editor'>// Pdef(\y, Pseq([Pdef(\y), Pbind(\instrument, \gpdef)], inf));</textarea>
+<p>but the following would crash, because <code>.embedInStream</code> is called recursively with no limit:<div class='codeMirrorContainer'><textarea class='editor'>// Pdef(\y, Pseq([Pdef(\y), Pbind(\instrument, \gpdef)], inf));</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Quantizing%20and%20outset'>Quantizing and outset</a></h3>
 
 <p>When quantizing to a larger number of beats, the changes become very slow if one has to wait for the next beat. Providing an <strong>outset</strong> quant value is a way to make the change so that it appears as if it had been done at the previous grid point already. The stream is fast forwarded to the current position relative to the quant grid. Providing a number larger than zero, the next possible quant point is used as outset.
 <p>For example, if quant is 32, and one has just missed the first beat when changing the pattern, one has to wait for 32 beats until the change happens. Using an outset of 1, it is assumed that you had already changed the pattern at the first beat, the stream is fast forwarded to the time it would be at now if you had done so. The new pattern is inserted at the next beat (outset = 1).
-<p>quant can be: <strong>[quant, phase, timingOffset, outset]</strong><div class='note'><span class='notelabel'>NOTE:</span> This fast forwarding might create a cpu peak if the pattern is very complex/fast or quant is very long. This is hard to avoid, so it simply has to be taken into account.</div><textarea class='editor'>(
+<p>quant can be: <strong>[quant, phase, timingOffset, outset]</strong><div class='note'><span class='notelabel'>NOTE:</span> This fast forwarding might create a cpu peak if the pattern is very complex/fast or quant is very long. This is hard to avoid, so it simply has to be taken into account.</div><div class='codeMirrorContainer'><textarea class='editor'>(
 Pdef(\x).quant_([8, 0, 0, 1]);
 Pdef(\y).quant_([8, 0.5, 0, 1]); // phase: half a beat
 Pdef(\x).play;
@@ -458,10 +465,11 @@ Pdef(\x, Pbind(\degree, Pseq((0..7), inf)).trace(\degree));
 
 Pdef(\x).quant = 8;
 Pdef(\x, Pbind(\degree, Pseq((0..7), inf)).trace(\degree));</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Update%20condition'>Update condition</a></h3>
 
 <p>In order to be able to switch to a new pattern under a certain <a href="#-condition">-condition</a>, the instance variable condition can be set to a function that returns a boolean. Value and a count index are passed to the function. The condition is always valid for the <strong>next pattern</strong> inserted. For stuck conditions, the <a href="#-reset">-reset</a> message can be used.
-<p>As counting up (such as <em>"every nth event, a swap can happen"</em>) is a common task, there is a method for this, called <a href="#-count">-count</a>(n).<textarea class='editor'>Pdef(\x).play;
+<p>As counting up (such as <em>"every nth event, a swap can happen"</em>) is a common task, there is a method for this, called <a href="#-count">-count</a>(n).<div class='codeMirrorContainer'><textarea class='editor'>Pdef(\x).play;
 Pdef(\x).quant = 0; // we don't want quant here.
 Pdef(\x, Pbind(\degree, Pseq((0..5), inf), \dur, 0.3)).condition_({ |val, i| i.postln % 6 == 0 });
 Pdef(\x, Pbind(\degree, Pseq((0..7) + 5.rand, inf), \dur, 0.3)).condition_({ |val, i| (i % 8).postln == 0 });
@@ -470,9 +478,11 @@ Pdef(\x, Pbind(\degree, Pseq((0..7) + 5.rand, inf), \dur, 0.3)).condition_({ |va
 Pdef(\x, Pbind(\degree, Pseq((0..7) + 5.rand, inf), \dur, 0.3)).count(8);
 
 // the value that is sent in is the event, so decisions can be made dependent on the event's fields</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='reset'>reset</a></h3>
-<textarea class='editor'>// reset to change immediately:
+<div class='codeMirrorContainer'><textarea class='editor'>// reset to change immediately:
 Pdef(\x).reset;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pdef.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pdef.schelp</a><br>link::Classes/Pdef::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

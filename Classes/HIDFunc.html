@@ -167,11 +167,12 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>If the argTemplateType is <code>\rawValue</code> (the default) then the matching is done based on the incoming raw value of the element (not mapped according to the logical min and max). Otherwise the matching is done according to the mapped value.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>For all the examples below here, you will need to have initialized an HID device (see also <a href="./../Guides/Working_with_HID.html">Working with HID</a>). The examples below should work with a standard USB mouse.<textarea class='editor'>HID.findAvailable; // check which devices are attached
+<p>For all the examples below here, you will need to have initialized an HID device (see also <a href="./../Guides/Working_with_HID.html">Working with HID</a>). The examples below should work with a standard USB mouse.<div class='codeMirrorContainer'><textarea class='editor'>HID.findAvailable; // check which devices are attached
 HID.postAvailable; // post the available devices
 ~myhid = HID.open(1103, 53251); // adapt this line for  the device that you want to open!</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Filtering%20based%20on%20usage'>Filtering based on usage</a></h3>
-<textarea class='editor'>// filter all events coming from the x-axis of a mouse
+<div class='codeMirrorContainer'><textarea class='editor'>// filter all events coming from the x-axis of a mouse
 a = HIDFunc.usage({ |...args| args.postln }, \X, \Mouse);
 // disable the function again:
 a.free;
@@ -217,8 +218,9 @@ a.free;
 
 a = HIDFunc.usage({ |...args| args.postln }, nil, deviceInfo: (usageName: \Mouse));
 a.free;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Filtering%20based%20on%20usage%20ID'>Filtering based on usage ID</a></h3>
-<textarea class='editor'>// filter by usage ID 48 on usage page 1
+<div class='codeMirrorContainer'><textarea class='editor'>// filter by usage ID 48 on usage page 1
 a = HIDFunc.usageID({ |...args| args.postln }, 48, 1);
 a.free;
 
@@ -237,19 +239,23 @@ a.free;
 // filter by usage ID 48 on usage page 1, of a device with path "/dev/hidraw2" (adapt this path to the device you want to match)
 a = HIDFunc.usageID({ |...args| args.postln }, 48, 1, deviceInfo: (path: "/dev/hidraw2")  );
 a.free;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Filtering%20based%20on%20a%20device'>Filtering based on a device</a></h3>
-<textarea class='editor'>// filter for device with name "", and element with usage \X.
+<div class='codeMirrorContainer'><textarea class='editor'>// filter for device with name "", and element with usage \X.
 a = HIDFunc.device({ |...args| args.postln }, \X, "");
 a.free;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Filtering%20based%20on%20a%20prototype%20element'>Filtering based on a prototype element</a></h3>
-<textarea class='editor'>// create an prototype element with usageName \X
+<div class='codeMirrorContainer'><textarea class='editor'>// create an prototype element with usageName \X
 c = HIDElementProto.new.usageName_(\X);
 a = HIDFunc.proto({ |...args| args.postln }, c);
 a.free;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Filtering%20based%20on%20an%20element%20ID'>Filtering based on an element ID</a></h3>
-<textarea class='editor'>// filter for elements with element id 6:
+<div class='codeMirrorContainer'><textarea class='editor'>// filter for elements with element id 6:
 a = HIDFunc.element({ |...args| args.postln }, 6);
 a.free;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/HIDFunc.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/HIDFunc.schelp</a><br>link::Classes/HIDFunc::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

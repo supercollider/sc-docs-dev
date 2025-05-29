@@ -42,7 +42,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='To%20begin'>To begin</a></h2>
 
-<p>Navigate to the folder (the directory) in which SuperCollider resides and double-click on it (the red and white balloon icon). An untitled document with text such as<textarea class='editor'>init_OSC
+<p>Navigate to the folder (the directory) in which SuperCollider resides and double-click on it (the red and white balloon icon). An untitled document with text such as<div class='codeMirrorContainer'><textarea class='editor'>init_OSC
 compiling class library..
     NumPrimitives = 548
     compiling dir: '/Applications/SuperCollider3/SCClassLibrary'
@@ -57,15 +57,17 @@ compile done
 prGetHostByName hostname 127.0.0.1 addr 2130706433
 RESULT = 256
 Class tree inited in 0.09 seconds</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>appears in the top left of the screen. The document functions as a "Post Window," so-called because SuperCollider uses it to "post" notifications.<h2><a class='anchor' name='Two%20more%20windows'>Two more windows</a></h2>
 
-<p>On the bottom of the screen are two more windows. One is called "localhost server" and the other is "internal server." Click on the "boot" button on the localhost server. The words "localhost" in the black box of the button turn red and the word "Boot" on the button changes to "Quit." More text, such as<textarea class='editor'>booting 57110
+<p>On the bottom of the screen are two more windows. One is called "localhost server" and the other is "internal server." Click on the "boot" button on the localhost server. The words "localhost" in the black box of the button turn red and the word "Boot" on the button changes to "Quit." More text, such as<div class='codeMirrorContainer'><textarea class='editor'>booting 57110
 SC_AudioDriver: numSamples=512, sampleRate=44100.000000
 start   UseSeparateIO?: 0
 PublishPortToRendezvous 0 57110
 SuperCollider 3 server ready..
 notification is on</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>will print to the post window. The localhost server is now ready to be used. Activate the internal server, if you wish, in the same way.<h2><a class='anchor' name='Workspace%20windows'>Workspace windows</a></h2>
 

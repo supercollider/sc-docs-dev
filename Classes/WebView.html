@@ -268,11 +268,12 @@ var scdoc_sc_version = '3.14.0-dev';
 <tr><td class='argumentname'><td class='argumentdesc'>
 <p> A String.<tr><td class='argumentname'><td class='argumentdesc'>
 <p> A function to be called when execution is complete, with the result as first argument.<div class='note'><span class='notelabel'>NOTE:</span> javascript code can correctly return Numbers, Strings and Arrays, but it can't currently pass javascript Objects to sclang. It is possible however to use JSON serialization to acheive this:</div>
-<p><textarea class='editor'>// passing a nested object from javascript to sclang:
+<p><div class='codeMirrorContainer'><textarea class='editor'>// passing a nested object from javascript to sclang:
 WebView().runJavaScript("JSON.stringify({ a: [1,2,3], b: { ba: 1, bb: 'yeah' } })"){ |res| res.parseJSON.postln }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// A simple web browser
+<div class='codeMirrorContainer'><textarea class='editor'>// A simple web browser
 (
 var browser, webview, reloadStop, prev, next, urlBox, go;
 
@@ -340,6 +341,7 @@ browser.front;
 
 urlBox.valueAction = "http://supercollider.github.io/"
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/WebView.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/WebView.schelp</a><br>link::Classes/WebView::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

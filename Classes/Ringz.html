@@ -63,7 +63,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>{ Ringz.ar(Dust.ar(3, 0.3), 2000, 2) }.play
+<div class='codeMirrorContainer'><textarea class='editor'>{ Ringz.ar(Dust.ar(3, 0.3), 2000, 2) }.play
 
 { Ringz.ar(WhiteNoise.ar(0.005), 2000, 0.5) }.play
 
@@ -89,10 +89,11 @@ var scdoc_sc_version = '3.14.0-dev';
     })
 }.play
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Interaction%20with%20sample%20rate'>Interaction with sample rate</a></h2>
 
 <p>Ringz (and UGens that are based on it: <a href="./../Classes/Klank.html">Klank</a>, <a href="./../Classes/DynKlank.html">DynKlank</a> and <a href="./../Classes/Formlet.html">Formlet</a>) are "sample-rate independent" with respect to <em>impulses</em> at the input. That is, given single-sample impulses, the output signal at different sample rates should be the same frequency and amplitude.
-<p>This design has a side effect: If the input is not made of impulses, the output amplitude is proportional to the sample rate.<textarea class='editor'>(
+<p>This design has a side effect: If the input is not made of impulses, the output amplitude is proportional to the sample rate.<div class='codeMirrorContainer'><textarea class='editor'>(
 a = {
     // rectangular pulse exciter (deterministic input)
     var exc = EnvGen.ar(Env([1, 1, 0], [0.01, 0], \lin)),
@@ -103,6 +104,7 @@ a = {
     Silent.ar(1)
 }.play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>At 44.1 kHz, this prints a RMS amplitude of 1.0758. At 88.2 kHz, the amplitude doubles.
 <p>Modal synthesis (simulating the vibrating modes of a struck surface) feeds a short, decaying burst of noise into Ringz-style resonators. This is a common use case that <em>is</em> subject to this amplitude effect.

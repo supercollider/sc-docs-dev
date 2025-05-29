@@ -57,7 +57,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>In multi-client setups, it is useful to know which client created which nodeIDs on a shared server. ReadableNodeIDAllocator provides that facility by using a decimal prefix based on the clientID.<textarea class='editor'>// default server uses a ReadableNodeIDAllocator
+<p>In multi-client setups, it is useful to know which client created which nodeIDs on a shared server. ReadableNodeIDAllocator provides that facility by using a decimal prefix based on the clientID.<div class='codeMirrorContainer'><textarea class='editor'>// default server uses a ReadableNodeIDAllocator
 s.nodeAllocator;
 s.nodeAllocator.userID; // its userID is
 s.clientID
@@ -76,6 +76,7 @@ r.defaultGroup;
 r.defaultGroupID;
 // and temp nodes begin with 400001000 ...
 3.do { r.nextNodeID.postln };</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>ReadableNodeIDAllocator.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>clientID: 0</span>, <span class='argstr'>lowestTempID: 1000</span>, <span class='argstr'>numClients: 32</span>)</h3>
 <div class='method'>
@@ -84,10 +85,11 @@ r.defaultGroupID;
 <tr><td class='argumentname'>clientID<td class='argumentdesc'>
 <p>the clientID for which to create an offset/prefix<tr><td class='argumentname'>lowestTempID<td class='argumentdesc'>
 <p>the offset for the lowest temporary id<tr><td class='argumentname'>numClients<td class='argumentdesc'>
-<p>the number of clients for which to split the number range<textarea class='editor'>// make an allocator with id 11
+<p>the number of clients for which to split the number range<div class='codeMirrorContainer'><textarea class='editor'>// make an allocator with id 11
 a = ReadableNodeIDAllocator(11, 1000, 12);
 // begins with 1100000 ... prefix
 3.do { a.alloc.postln };</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clientID' href='./../Overviews/Methods.html#clientID'>clientID</a></h3>

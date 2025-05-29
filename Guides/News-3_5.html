@@ -100,7 +100,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p><a href="./../Classes/String.html#-openTextFile">String: -openTextFile</a> now works also on frontends without <a href="./../Classes/Document.html">Document</a> support. It falls back to <a href="./../Classes/String.html#-openOS">String: -openOS</a> to open the file with the default application for that file type.<h3><a class='anchor' name='Optional%20trailing%20comma'>Optional trailing comma</a></h3>
 
-<p>It was already allowed to have a trailing comma in arrays: <code>[1,2,3,]</code>, but now it's also allowed in Event construction and message arguments:<textarea class='editor'>(a:1, b:2, c:3,);
+<p>It was already allowed to have a trailing comma in arrays: <code>[1,2,3,]</code>, but now it's also allowed in Event construction and message arguments:<div class='codeMirrorContainer'><textarea class='editor'>(a:1, b:2, c:3,);
 
 Pbind(
     \foo, 1,
@@ -108,6 +108,7 @@ Pbind(
 );
 
 myFunc.value(1, 2, 3,);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Various%20bugfixes'>Various bugfixes</a></h3>
 
 <p>A lot of bugs has been fixed, for example: String regexp primitives, multichannel wrappers of SequenceableCollection, CoinGate.ar, T2K, WiiMote, SynthDesc.<h3><a class='anchor' name='Interpreter%20Performance%20Improvements'>Interpreter Performance Improvements</a></h3>
@@ -131,7 +132,7 @@ myFunc.value(1, 2, 3,);</textarea>
       ^^^^^^</pre><h2><a class='anchor' name='Server-side%20news'>Server-side news</a></h2>
 <h3><a class='anchor' name='Bitwise%20ops'>Bitwise ops</a></h3>
 
-<p>The bitwise operators <code>&amp;</code> (and), <code>|</code> (or), <code>xor:</code> (xor), <code>&lt;&lt;</code> (left shift) and <code>&gt;&gt;</code> (right shift) are now supported server-side on audio and control signals. Example:<textarea class='editor'>// 8-bit magic
+<p>The bitwise operators <code>&amp;</code> (and), <code>|</code> (or), <code>xor:</code> (xor), <code>&lt;&lt;</code> (left shift) and <code>&gt;&gt;</code> (right shift) are now supported server-side on audio and control signals. Example:<div class='codeMirrorContainer'><textarea class='editor'>// 8-bit magic
 (
 play {
     var t = PulseCount.ar(Impulse.ar(8e3));
@@ -147,6 +148,7 @@ play {
     ).tanh
 }
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='VarLag%20UGen'>VarLag UGen</a></h3>
 
 <p>The new <a href="./../Classes/VarLag.html">VarLag</a> UGen provides the same functionality as Lag but with linear and other curves.<h3><a class='anchor' name='DelTapWr/DelTapRd%20UGens'>DelTapWr/DelTapRd UGens</a></h3>

@@ -50,7 +50,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>The fast fourier transform analyzes the frequency content of a signal, which can be useful for audio analysis or for frequency-domain sound processing (phase vocoder).<div class='note'><span class='notelabel'>NOTE:</span> FFT and <a href="./../Classes/IFFT.html">IFFT</a> UGens require a buffer to store the frequency-domain data. This buffer must have exactly one channel. <em>Multichannel buffers are never supported.</em>
-<p>To do FFT processing on a multichannel signal, provide an array of mono buffers, one for each channel. Then, FFT/IFFT will perform <a href="./../Guides/Multichannel-Expansion.html">Multichannel Expansion</a>, to process each channel separately.<textarea class='editor'>// NO: The buffer has two channels -- this will not work
+<p>To do FFT processing on a multichannel signal, provide an array of mono buffers, one for each channel. Then, FFT/IFFT will perform <a href="./../Guides/Multichannel-Expansion.html">Multichannel Expansion</a>, to process each channel separately.<div class='codeMirrorContainer'><textarea class='editor'>// NO: The buffer has two channels -- this will not work
 fft = FFT(LocalBuf(2048, 2), aStereoSignal);
 
 // YES: Use an array of two single-channel buffers
@@ -59,6 +59,7 @@ fft = FFT(Array.fill(2, { LocalBuf(2048, 1) }), aStereoSignal);
 // Equivalent shortcut:
 // LocalBuf multichannel-expands, causing FFT to expand as well
 fft = FFT(LocalBuf(2048.dup(2), 1), aStereoSignal);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>See also <a href="./../Guides/FFT-Overview.html#Multichannel%20Expansion%20with%20FFT%20UGens">FFT Overview: Multichannel Expansion with FFT UGens</a>.</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>FFT.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>buffer</span>, <span class='argstr'>in: 0.0</span>, <span class='argstr'>hop: 0.5</span>, <span class='argstr'>wintype: 0</span>, <span class='argstr'>active: 1</span>, <span class='argstr'>winsize: 0</span>)</h3>
@@ -85,7 +86,7 @@ fft = FFT(LocalBuf(2048.dup(2), 1), aStereoSignal);</textarea>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-fftSize' href='./../Overviews/Methods.html#fftSize'>fftSize</a></h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 {
     var in, chain;
     in = WhiteNoise.ar(0.1);
@@ -180,6 +181,7 @@ fft = FFT(LocalBuf(2048.dup(2), 1), aStereoSignal);</textarea>
     0.5 * IFFT(chain);
 }.play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/FFT.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/FFT.schelp</a><br>link::Classes/FFT::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

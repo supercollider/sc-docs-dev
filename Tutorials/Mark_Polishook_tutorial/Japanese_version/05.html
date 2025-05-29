@@ -45,7 +45,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////
 <p>// オーディオ・バス（チャンネル）の配列 [ channel0, channel1, channel2, channel3, channel4, ... , ..., ..., etc., ... channel127 ]
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////
-<p>オーディオ・バスにデータを乗せるには、オーディオ・レートで動作するOutというugenを使います。<textarea class='editor'>(
+<p>オーディオ・バスにデータを乗せるには、オーディオ・レートで動作するOutというugenを使います。<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("dataForABus", {
     Out.ar(
         0,        // 1チャンネル分のオーディオをバス0に書き込む
@@ -55,17 +55,19 @@ SynthDef("dataForABus", {
 )
 
 Synth("dataForABus");</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>SynthDefブラウザーが示す様に、<textarea class='editor'>(
+<p>SynthDefブラウザーが示す様に、<div class='codeMirrorContainer'><textarea class='editor'>(
 // 評価してみて下さい
 SynthDescLib.global.read;
 SynthDescLib.global.browse;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>この例は（1チャンネル分の）オーディオ出力をチャンネル0に乗せます。
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////<h2><a class='anchor' name='バスからオーディオを取得する'>バスからオーディオを取得する</a></h2>
 
-<p>オーディオ・バスからデータを取得するには、.arメッセージをInというugenに送ります。<textarea class='editor'>(
+<p>オーディオ・バスからデータを取得するには、.arメッセージをInというugenに送ります。<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("dataFromABus", {
     Out.ar(
         0,
@@ -81,6 +83,7 @@ SynthDef("dataFromABus", {
 Synth("dataForABus");    // チャンネル0にノコギリ波をシンセサイズする
 Synth("dataFromABus");    // それをチャンネル1のサイン波で変調する
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////
 <p>さらに詳しくは、SuperColliderのヘルプ・システムでOutとInを参照して下さい。

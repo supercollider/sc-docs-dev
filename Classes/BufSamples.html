@@ -47,7 +47,8 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Returns the current number of allocated samples. A sample is not the same as a frame (compare with <a href="./../Classes/BufFrames.html">BufFrames</a>); a frame includes the samples in each channel of the buffer. Only for a mono buffer are samples the same as frames.<textarea class='editor'>samples = frames * numChannels</textarea>
+<p>Returns the current number of allocated samples. A sample is not the same as a frame (compare with <a href="./../Classes/BufFrames.html">BufFrames</a>); a frame includes the samples in each channel of the buffer. Only for a mono buffer are samples the same as frames.<div class='codeMirrorContainer'><textarea class='editor'>samples = frames * numChannels</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>BufSamples.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>bufnum</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/BufInfoUGenBase.html'>BufInfoUGenBase</a></div>
@@ -62,7 +63,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// example; this buffer is mono, so the number of samples matches the number of frames
+<div class='codeMirrorContainer'><textarea class='editor'>// example; this buffer is mono, so the number of samples matches the number of frames
 b = Buffer.read(s, ExampleFiles.child);
 
 // indexing with a phasor
@@ -72,6 +73,7 @@ b = Buffer.read(s, ExampleFiles.child);
 { BufRd.ar(1, b, K2A.ar(MouseX.kr(0, BufSamples.kr(b)))) }.play;
 
 b.free;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/BufSamples.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/BufSamples.schelp</a><br>link::Classes/BufSamples::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

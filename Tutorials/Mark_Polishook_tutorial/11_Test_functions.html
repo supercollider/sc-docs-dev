@@ -43,9 +43,10 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>An easy way to audition synthesis processes is to test them within a function. To do this, append a .scope or a .play message to a function. The .scope message, which works only with the internal server, displays a visual representation of a sound wave.
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////
-<p>Boot (turn on) the server<textarea class='editor'>s.boot;</textarea>
+<p>Boot (turn on) the server<div class='codeMirrorContainer'><textarea class='editor'>s.boot;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Run this example, and look at the scope window.<textarea class='editor'>// test a synthesis process in a function
+<p>Run this example, and look at the scope window.<div class='codeMirrorContainer'><textarea class='editor'>// test a synthesis process in a function
 (
     {
         SinOsc.ar([440.067, 441.013], 0, 1)
@@ -53,9 +54,10 @@ var scdoc_sc_version = '3.14.0-dev';
         SinOsc.ar([111, 109], 0, 0.2)
     }.scope;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////
-<p>Code can be transfered from a test function into a synthdef. In the following example, the code from the function (above) is the second argument to the Out ugen.<textarea class='editor'>(
+<p>Code can be transfered from a test function into a synthdef. In the following example, the code from the function (above) is the second argument to the Out ugen.<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("ringMod", {
     Out.ar(
         0,
@@ -67,17 +69,21 @@ SynthDef("ringMod", {
 )
 
 Synth("ringMod")</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Multi-channel%20expansion'>Multi-channel expansion</a></h2>
 
-<p>Expand a ugen to two channels with an array in any of the argument (control) slots.<textarea class='editor'>{ Saw.ar([500, 933], 0.1) }.scope;</textarea>
+<p>Expand a ugen to two channels with an array in any of the argument (control) slots.<div class='codeMirrorContainer'><textarea class='editor'>{ Saw.ar([500, 933], 0.1) }.scope;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Another (longer) way to write the same thing is<textarea class='editor'>{ [ Saw.ar(500, 0.1), Saw.ar(933, 0.1)] }.scope;</textarea>
+<p>Another (longer) way to write the same thing is<div class='codeMirrorContainer'><textarea class='editor'>{ [ Saw.ar(500, 0.1), Saw.ar(933, 0.1)] }.scope;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Expand a ugen to three channels by adding values to the array.<textarea class='editor'>{ Saw.ar([500, 933, 2033], 0.1) }.scope;
+<p>Expand a ugen to three channels by adding values to the array.<div class='codeMirrorContainer'><textarea class='editor'>{ Saw.ar([500, 933, 2033], 0.1) }.scope;
 
 // 4 channels
 
 { Saw.ar([500, 933, 2033, 895], 0.1) }.scope;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////
 <p>go to <a href="./../../Tutorials/Mark_Polishook_tutorial/12_UnaryOp_synthesis.html">12_UnaryOp_synthesis</a><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/Mark_Polishook_tutorial/11_Test_functions.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/Mark_Polishook_tutorial/11_Test_functions.schelp</a><br>link::Tutorials/Mark_Polishook_tutorial/11_Test_functions::<br></div></div><script src='./../../static/editor.js' type='text/javascript'></script>

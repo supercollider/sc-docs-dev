@@ -69,8 +69,9 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Node instances (Synths and Groups) can be registered with the NodeWatcher. It watches for server node status messages: n_go n_end n_off n_on
 <p>and sets the isPlaying and isRunning variables on the Node instance accordingly. A Node that ends is unregistered at that time.
-<p>In some cases this can be an invaluable service. The use of an independant object to maintain the state keeps the implementation of the Node classes simple. Note that server notification should be on. (this is default. see: aServer.notify)<textarea class='editor'>// the most common use:
+<p>In some cases this can be an invaluable service. The use of an independant object to maintain the state keeps the implementation of the Node classes simple. Note that server notification should be on. (this is default. see: aServer.notify)<div class='codeMirrorContainer'><textarea class='editor'>// the most common use:
 NodeWatcher.register(aNode);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>NodeWatcher.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>server</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/AbstractNodeWatcher.html'>AbstractNodeWatcher</a></div>
@@ -111,7 +112,7 @@ NodeWatcher.register(aNode);</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-respond' href='./../Overviews/Methods.html#respond'>respond</a>(<span class='argstr'>method</span>, <span class='argstr'>msg</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-unregister' href='./../Overviews/Methods.html#unregister'>unregister</a>(<span class='argstr'>node</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 b = s.makeBundle(false, {
     a = Group.new(s);    // create a node object
     NodeWatcher.register(a); // register before creating on the server
@@ -126,6 +127,7 @@ a.isRunning;
 s.freeAll;    // free all nodes
 a.isPlaying;
 a.isRunning;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NodeWatcher.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/NodeWatcher.schelp</a><br>link::Classes/NodeWatcher::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

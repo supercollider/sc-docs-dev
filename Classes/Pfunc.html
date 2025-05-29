@@ -68,7 +68,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-resetFunc' href='./../Overviews/Methods.html#resetFunc'>resetFunc</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>Numeric stream examples<textarea class='editor'>(
+<p>Numeric stream examples<div class='codeMirrorContainer'><textarea class='editor'>(
 var a, x;
 a = Pfunc({ exprand(0.1, 2.0) + #[1, 2, 3, 6].choose }, { \reset.postln });
 x = a.asStream;
@@ -82,8 +82,9 @@ x = Pfunc({ |inval| (10 ** inval.value) * rrand(1, 9) }).asStream;
 [2, 3, 2].do { |i| x.next(i).postln };
 x.nextN(5, (:0..)).postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Event stream (sound) examples:<textarea class='editor'>(
+<p>Event stream (sound) examples:<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef(\help_sinegrain,
     { |out = 0, freq = 440, sustain = 0.05|
         var env;
@@ -102,8 +103,9 @@ a = Pfunc({ exprand(0.1, 0.3) + #[1, 2, 3, 6, 7].choose }).asStream;
     }
 }.fork;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>When an Event is played, if <code>\freq</code> is set then <code>\degree</code> is ignored (due to the <code>Event.default</code> machinery). In a chain of Patterns, a <code>Pfunc</code> can be used to delete a key from the Event stream; this can even be done inside a Pbind.<textarea class='editor'>q = Pbind(\freq, 300, \dur, Pn(0.3, 2));
+<p>When an Event is played, if <code>\freq</code> is set then <code>\degree</code> is ignored (due to the <code>Event.default</code> machinery). In a chain of Patterns, a <code>Pfunc</code> can be used to delete a key from the Event stream; this can even be done inside a Pbind.<div class='codeMirrorContainer'><textarea class='editor'>q = Pbind(\freq, 300, \dur, Pn(0.3, 2));
 q.trace.play;
 
 // Sound-wise ineffective modification of the incoming stream
@@ -121,6 +123,7 @@ p.trace.play;
 // Just setting a key to nil from a Pbind pair will end the stream
 p = Pbind(\freq, nil, \degree, 6) &lt;&gt; q;
 p.trace.play; // silent because it outputs no events</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pfunc.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pfunc.schelp</a><br>link::Classes/Pfunc::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

@@ -75,11 +75,12 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>Ndef registers synths by key. All accesses to the registered synths go through the Ndef class via that key. Registered synths can be replaced with other synths while playing. A synth and its replacement can automatically crossfade and the replacement time can be quantized.
-<p>Ndef is a reference to a proxy, forms an alternative to <a href="./../Classes/ProxySpace.html">ProxySpace</a>. All methods are inherited from <a href="./../Classes/NodeProxy.html">NodeProxy</a>.<textarea class='editor'>Ndef(key)    // returns the instance
+<p>Ndef is a reference to a proxy, forms an alternative to <a href="./../Classes/ProxySpace.html">ProxySpace</a>. All methods are inherited from <a href="./../Classes/NodeProxy.html">NodeProxy</a>.<div class='codeMirrorContainer'><textarea class='editor'>Ndef(key)    // returns the instance
 Ndef(key, obj)    // stores the object and returns the instance, like Tdef and Pdef.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Graphical editor overviewing all current Ndefs: <a href="./../Classes/NdefMixer.html">NdefMixer</a>. A general overview: <a href="./../Overviews/JITLib.html">JITLib</a>.<h3><a class='anchor' name='First%20Example'>First Example</a></h3>
-<textarea class='editor'>s.boot;
+<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 
 Ndef(\a).play; // play to hardware output.
 Ndef(\a).fadeTime = 2; // fadeTime specifies crossfade
@@ -92,6 +93,7 @@ Ndef(\a, { Ringz.ar(Ndef.ar(\b), [350, 351.3] * 2, 0.4) });
 Ndef(\b, { Impulse.ar([5, 7]/2, [0, 0.5], 0.15) });
 
 Ndef.clear(3); // clear all after 3 seconds</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Creation'>Creation</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Ndef.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>key</span>, <span class='argstr'>object</span>)</h3>
@@ -99,10 +101,12 @@ Ndef.clear(3); // clear all after 3 seconds</textarea>
 <p>Return a new node proxy and store it in a global ProxySpace under the key. If there is already an Ndef there, replace its object with the new one. The object can be any supported class, see <a href="./../Classes/NodeProxy.html#Supported%20sources">NodeProxy: Supported sources</a> help. Internally, all instances are kept in a <a href="./../Classes/ProxySpace.html">ProxySpace</a>. The <a href="./../Classes/EnvironmentRedirect.html#dispatch">EnvironmentRedirect: dispatch</a> function is called when the source is set.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>key<td class='argumentdesc'>
-<p>the name of the proxy (usually a symbol). If only the key is given and no object, it returns the proxy object:<textarea class='editor'>Ndef(\x) // get the proxy</textarea>
+<p>the name of the proxy (usually a symbol). If only the key is given and no object, it returns the proxy object:<div class='codeMirrorContainer'><textarea class='editor'>Ndef(\x) // get the proxy</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>If key is an association, it is interpreted as <strong>key -&gt; server name</strong>. (order changed in SC3.3 !). If no name is given, it uses the default server that was default when Ndef was first called. (to change it, see <a href="#*defaultServer">*defaultServer</a>).<tr><td class='argumentname'>object<td class='argumentdesc'>
-<p>an object<textarea class='editor'>Ndef(\x, { Dust.ar }); // returns the proxy and set the source object.</textarea>
+<p>an object<div class='codeMirrorContainer'><textarea class='editor'>Ndef(\x, { Dust.ar }); // returns the proxy and set the source object.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>Ndef.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>key</span>, <span class='argstr'>numChannels</span>, <span class='argstr'>offset: 0</span>)</h3>
 <div class='method'>
 <p>equivalent to <code>*new(key).ar(numChannels, offset)</code> (see <a href="./../Classes/BusPlug.html#-ar">BusPlug: -ar</a>)</div><h3 class='method-code'><span class='method-prefix'>Ndef.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>key</span>, <span class='argstr'>numChannels</span>, <span class='argstr'>offset: 0</span>)</h3>
@@ -117,19 +121,23 @@ Ndef.clear(3); // clear all after 3 seconds</textarea>
 <p>set the default server (default: <code>Server.default</code>)</div><h3 class='method-code'><span class='method-prefix'>Ndef.</span><a class='method-name' name='*all' href='./../Overviews/Methods.html#all'>all</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Ndef.</span><a class='method-name' name='*all' href='./../Overviews/Methods.html#all'>all</a> = value</h3>
 <div class='method'>
-<p>Return the dictionary of all servers, pointing to proxyspaces with Ndefs for each.<textarea class='editor'>Ndef.all;</textarea>
+<p>Return the dictionary of all servers, pointing to proxyspaces with Ndefs for each.<div class='codeMirrorContainer'><textarea class='editor'>Ndef.all;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>Ndef.</span><a class='method-name' name='*dictFor' href='./../Overviews/Methods.html#dictFor'>dictFor</a>(<span class='argstr'>server</span>)</h3>
 <div class='method'>
-<p>Return the proxyspace for a given server.<textarea class='editor'>Ndef.dictFor(s);</textarea>
+<p>Return the proxyspace for a given server.<div class='codeMirrorContainer'><textarea class='editor'>Ndef.dictFor(s);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-proxyspace' href='./../Overviews/Methods.html#proxyspace'>proxyspace</a></h3>
 <div class='method'>
-<p>Return the proxyspace for this instance<textarea class='editor'>Ndef(\x).proxyspace</textarea>
+<p>Return the proxyspace for this instance<div class='codeMirrorContainer'><textarea class='editor'>Ndef(\x).proxyspace</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Setting%20default%20parameters'>Setting default parameters</a></h3>
 
-<p>Behind every Ndef there is one single instance of <a href="./../Classes/ProxySpace.html">ProxySpace</a> per server used (usually just the one for the default server). This ProxySpace keeps default values for the proxies that can be set. This can be done by:<textarea class='editor'>// set default quant
+<p>Behind every Ndef there is one single instance of <a href="./../Classes/ProxySpace.html">ProxySpace</a> per server used (usually just the one for the default server). This ProxySpace keeps default values for the proxies that can be set. This can be done by:<div class='codeMirrorContainer'><textarea class='editor'>// set default quant
 Ndef(\x).proxyspace.quant = 1.0;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>The other values that can be set in such a way are: <code>clock, fadeTime, quant, reshaping, awake</code>.<h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
@@ -138,7 +146,7 @@ Ndef(\x).proxyspace.quant = 1.0;</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-key' href='./../Overviews/Methods.html#key'>key</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-key' href='./../Overviews/Methods.html#key'>key</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>s.boot;
+<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 
 Ndef(\sound).play;
 Ndef(\sound).fadeTime = 1;
@@ -153,13 +161,15 @@ Ndef(\sound, { |freq| SinOsc.ar([600, 635] + freq, 0, SinOsc.kr(2 * 3).max(0) * 
 Ndef(\lfo, { LFNoise1.kr(300, 400, 800) });
 
 Ndef.clear; // clear all Ndefs</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='using%20Ndef%20inside%20other%20Ndefs'>using Ndef inside other Ndefs</a></h3>
-<textarea class='editor'>Ndef(\lfo2, { LFNoise1.kr(LFNoise1.kr(0.1).exprange(1, 300) ! 2, 400, 800) });
+<div class='codeMirrorContainer'><textarea class='editor'>Ndef(\lfo2, { LFNoise1.kr(LFNoise1.kr(0.1).exprange(1, 300) ! 2, 400, 800) });
 Ndef(\sound, { Blip.ar(Ndef.kr(\lfo2), 30) * 0.2 }).play;
 
 Ndef(\lfo2, { [MouseX.kr(10, 300, 1), MouseY.kr(10, 300, 1)] });</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='setting%20and%20mapping%20parameters'>setting and mapping parameters</a></h3>
-<textarea class='editor'>Ndef(\sound, { |freq = 56, numHarm = 10| Blip.ar(freq, numHarm, 30) * 0.2 }).play;
+<div class='codeMirrorContainer'><textarea class='editor'>Ndef(\sound, { |freq = 56, numHarm = 10| Blip.ar(freq, numHarm, 30) * 0.2 }).play;
 Ndef(\sound).set(\freq, 15);
 Ndef(\sound).set(\freq, 15, \numHarm, 100);
 
@@ -167,19 +177,21 @@ Ndef(\lfo, { LFNoise2.kr(2).exprange(10, 200) });
 Ndef(\sound).map(\numHarm, Ndef(\lfo));
 Ndef(\sound).set(\numHarm, nil); // unmap.
 Ndef(\sound).stop;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Reserved%20parameters'>Reserved parameters</a></h3>
 
 <p>Three parameters are automatically specified if they don't exist in a given UGen function. You can override their use: <code>[\out, \gate, \fadeTime]</code><h3><a class='anchor' name='Specifying%20your%20own%20envelope'>Specifying your own envelope</a></h3>
 
-<p>If a UGen function that is passed to the proxy has its own envelope, and if this envelope can free the synth, the node proxy uses this envelope instead of making its own. If you provide a <code>fadeTime</code> argument, the proxy's fadeTime will be used.<textarea class='editor'>Ndef(\sound).fadeTime = 3;
+<p>If a UGen function that is passed to the proxy has its own envelope, and if this envelope can free the synth, the node proxy uses this envelope instead of making its own. If you provide a <code>fadeTime</code> argument, the proxy's fadeTime will be used.<div class='codeMirrorContainer'><textarea class='editor'>Ndef(\sound).fadeTime = 3;
 (
 Ndef(\sound, { |fadeTime = 1, gate = 1|
     var e = Env.adsr(fadeTime, 0.01, 0.4, fadeTime).ar(2, gate);
     SinOsc.ar(100 + (e * 700), SinOsc.ar(208) * (1 - e) * 6) * e * 0.1
 }).play
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Simple%20audio%20routing%20with%20the%20<<>%20operator'>Simple audio routing with the &lt;&lt;&gt; operator</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 Ndef(\sound, {
     RHPF.ar(
         \in1.ar([0, 0]) * \in2.ar([0, 0]),
@@ -201,9 +213,10 @@ Ndef(\sound) &lt;&lt;&gt;.in2 Ndef(\c);
 Ndef(\a) &lt;&lt;&gt;.phase Ndef(\sound);
 Ndef(\a) &lt;&lt;&gt;.phase nil;    // unmap
 Ndef.clear(3);        // fade out and clear all Ndefs</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Embedding%20multi-channel%20Patterns,%20playing%20Streams%20in%20parallel'>Embedding multi-channel Patterns, playing Streams in parallel</a></h3>
 
-<p>Controlling multi-channeled sequenced streams and having independent control over filtering and node ordering is a difficult topic in SuperCollider. However, using Ndefs (or their superclass <a href="./../Classes/NodeProxy.html">NodeProxy</a> or a <a href="./../Classes/ProxySpace.html">ProxySpace</a>) may provide a convenient solution.<textarea class='editor'>// a SynthDef, creating single-channel grain when instantiated
+<p>Controlling multi-channeled sequenced streams and having independent control over filtering and node ordering is a difficult topic in SuperCollider. However, using Ndefs (or their superclass <a href="./../Classes/NodeProxy.html">NodeProxy</a> or a <a href="./../Classes/ProxySpace.html">ProxySpace</a>) may provide a convenient solution.<div class='codeMirrorContainer'><textarea class='editor'>// a SynthDef, creating single-channel grain when instantiated
 (
 SynthDef(\grain, { |out = 0, freq = 300, amp = 0.3|
     OffsetOut.ar(out, Pulse.ar(freq) * EnvGen.kr(Env.perc, doneAction: Done.freeSelf) * amp)
@@ -287,24 +300,28 @@ Ndef(\filter).xset(\multFreq, Array.rand(~numChans, 20, 10000));
 
 Ndef.clear;
 Pdef.clear;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Making%20Copies'>Making Copies</a></h3>
 <h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.copy' href='./../Overviews/Methods.html#copy'>copy</a></h3>
 <div class='method'>
-<p>Because an Ndef is a unique instance for a given key, it can be copied only by supplying a new key. See also: <a href="./../Classes/NodeProxy.html#-copy">NodeProxy: -copy</a>.<textarea class='editor'>Ndef(\x, { SinOsc.ar(Rand(500, 900)) * 0.1 }).play;
+<p>Because an Ndef is a unique instance for a given key, it can be copied only by supplying a new key. See also: <a href="./../Classes/NodeProxy.html#-copy">NodeProxy: -copy</a>.<div class='codeMirrorContainer'><textarea class='editor'>Ndef(\x, { SinOsc.ar(Rand(500, 900)) * 0.1 }).play;
 Ndef(\x).copy(\y);
 Ndef(\y).play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>newKey<td class='argumentdesc'>
 <p>A valid new key, usually a <a href="./../Classes/Symbol.html">Symbol</a></table></div><h3><a class='anchor' name='Recursion'>Recursion</a></h3>
 
-<p>Ndefs can be used recursively. A structure like the following works:<textarea class='editor'>Ndef(\sound, { SinOsc.ar([600, 635], Ndef.ar(\sound), LFNoise1.kr(2).max(0) * 0.2) });
+<p>Ndefs can be used recursively. A structure like the following works:<div class='codeMirrorContainer'><textarea class='editor'>Ndef(\sound, { SinOsc.ar([600, 635], Ndef.ar(\sound), LFNoise1.kr(2).max(0) * 0.2) });
 Ndef(\sound).play;
 Ndef.clear;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>This is because there is a feedback delay (the server's <strong>block size</strong>), usually 64 samples, so that calculation can reiterate over its own outputs. For single sample feedback, see:<textarea class='editor'>(Platform.resourceDir +/+ "examples/demonstrations/single_sample_feedback.scd").openDocument;</textarea>
+<p>This is because there is a feedback delay (the server's <strong>block size</strong>), usually 64 samples, so that calculation can reiterate over its own outputs. For single sample feedback, see:<div class='codeMirrorContainer'><textarea class='editor'>(Platform.resourceDir +/+ "examples/demonstrations/single_sample_feedback.scd").openDocument;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Using%20different%20servers'>Using different servers</a></h3>
-<textarea class='editor'>// create a new server
+<div class='codeMirrorContainer'><textarea class='editor'>// create a new server
 a = Server(\foo, NetAddr("127.0.0.1", 57123)).boot.makeWindow;
 Ndef(\sound, { SinOsc.ar([600, 635]) * SinOsc.kr(2).max(0) * 0.2 }).play; // play on default
 Ndef(\sound -&gt; \foo, { SinOsc.ar([700, 745]) * SinOsc.kr(2).max(0) * 0.2 }).play; // play on foo
@@ -315,9 +332,10 @@ Ndef(\sound).clear(3);
 
 a.dump;    // display settings of new server
 a.quit;    // terminate new server</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><h3><a class='anchor' name='GUI'>GUI</a></h3>
-<textarea class='editor'>// create a window for a given Ndef
+<div class='codeMirrorContainer'><textarea class='editor'>// create a window for a given Ndef
 Ndef(\sound).edit
 (
 Ndef(\sound, { |freq = 440, rate = 2|
@@ -331,9 +349,10 @@ Ndef(\sound).clear(1);
 
 // create a mixer for all Ndefs:
 NdefMixer(s);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Using%20Associations'>Using Associations</a></h3>
 
-<p>For a complete list, see <a href="./../Classes/NodeProxy.html">NodeProxy</a>, and <a href="./../Reference/NodeProxy_roles.html">NodeProxy roles</a><textarea class='editor'>// setsrc
+<p>For a complete list, see <a href="./../Classes/NodeProxy.html">NodeProxy</a>, and <a href="./../Reference/NodeProxy_roles.html">NodeProxy roles</a><div class='codeMirrorContainer'><textarea class='editor'>// setsrc
 (
 Ndef(\x,
     \setsrc -&gt; Pbind(\source,
@@ -346,6 +365,7 @@ Ndef(\x,
     )
 ).play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Ndef.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Ndef.schelp</a><br>link::Classes/Ndef::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

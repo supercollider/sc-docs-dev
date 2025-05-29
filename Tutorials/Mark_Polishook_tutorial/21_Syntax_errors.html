@@ -42,13 +42,14 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='Syntax%20and%20grammar'>Syntax and grammar</a></h2>
 
 <p>Before it actually runs a program, SuperCollider examines the code to ensure that syntax and grammar are correct. For example, are all variable names and/or keywords spelled correctly in a program? Are statements terminated by semi-colons?
-<p>If syntax or grammar errors are found, SuperCollider writes a notification to the post window. Such messages are descriptive but terse.<textarea class='editor'>* ERROR: Parse error
+<p>If syntax or grammar errors are found, SuperCollider writes a notification to the post window. Such messages are descriptive but terse.<div class='codeMirrorContainer'><textarea class='editor'>* ERROR: Parse error
    in file 'selected text'
    line 1 char 2 :
   4,
 -----------------------------------
 * ERROR: Command line parse failed
 nil</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Common%20errors'>Common errors</a></h2>
 <ol>
 <li>the name of a class or a variable is misspelled<li>a variable is used before being declared<li>a parenthesis or a square or curly brace is missing or used in the wrong context<li>a required comma or semicolon is missing or used improperly</ol>

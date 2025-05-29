@@ -89,7 +89,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>The SoundFile class is used to check the size, format, channels etc. when the sclang client needs this information about a SoundFile. Soundfile data can be read and modified. Soundfile data can also be read and written incrementally, so with properly designed code, there is no restriction on the file size.
-<p>In most cases you will wish to send commands to the server to get it to load SoundFiles directly into Buffers. You will not need to use this class for this. See the <a href="./../Classes/Buffer.html">Buffer</a> helpfile.<textarea class='editor'>(
+<p>In most cases you will wish to send commands to the server to get it to load SoundFiles directly into Buffers. You will not need to use this class for this. See the <a href="./../Classes/Buffer.html">Buffer</a> helpfile.<div class='codeMirrorContainer'><textarea class='editor'>(
 // ExampleFiles helps locate audio files used in examples
 p = ExampleFiles.child;
 // peek at the path to see location and the format of a path
@@ -100,6 +100,7 @@ f.openRead(p);
 f.inspect;
 f.close;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>When reading a sound file, the headerFormat, sampleFormat, numChannels and numFrames variables will be set according to the file on disk.
 <p>When creating a new SoundFile, the format will be monophonic, 44.1 kHz, AIFF, floating-point by default. Users may override the defaults by passing the desired format strings to <a href="./../Classes/SoundFile.html#*openWrite">SoundFile: *openWrite</a>, or by using <a href="./../Classes/SoundFile.html#-headerFormat">SoundFile: -headerFormat</a>, <a href="./../Classes/SoundFile.html#-sampleFormat">SoundFile: -sampleFormat</a>, <a href="./../Classes/SoundFile.html#-numChannels">SoundFile: -numChannels</a> and <a href="./../Classes/SoundFile.html#-sampleRate">SoundFile: -sampleRate</a> <em>before</em> calling <a href="./../Classes/SoundFile.html#-openWrite">SoundFile: -openWrite</a>.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
@@ -136,10 +137,12 @@ f.close;
 <div class='returnvalue'>
 <p>A new SoundFile instance if successful, or <code>nil</code> if file open failed. User code should check for <code>nil</code> before doing anything with the SoundFile object.</div></div><h3 class='method-code'><span class='method-prefix'>SoundFile.</span><a class='method-name' name='*collect' href='./../Overviews/Methods.html#collect'>collect</a>(<span class='argstr'>path: "sounds/*"</span>)</h3>
 <div class='method'>
-<p>Returns an <a href="./../Classes/Array.html">Array</a> of SoundFile objects whose paths match the pattern. (The associated files are closed. These objects can be used to cue playback buffers)<textarea class='editor'>SoundFile.collect("sounds/*").do { |f| f.path.postln };</textarea>
+<p>Returns an <a href="./../Classes/Array.html">Array</a> of SoundFile objects whose paths match the pattern. (The associated files are closed. These objects can be used to cue playback buffers)<div class='codeMirrorContainer'><textarea class='editor'>SoundFile.collect("sounds/*").do { |f| f.path.postln };</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>SoundFile.</span><a class='method-name' name='*use' href='./../Overviews/Methods.html#use'>use</a>(<span class='argstr'>path</span>, <span class='argstr'>function</span>)</h3>
 <div class='method'>
-<p>Reads the data of a SoundFile, evaluates the function (passing the file as argument) and closes it again.<textarea class='editor'>SoundFile.use(ExampleFiles.child, { |f| f.inspect });</textarea>
+<p>Reads the data of a SoundFile, evaluates the function (passing the file as argument) and closes it again.<div class='codeMirrorContainer'><textarea class='editor'>SoundFile.use(ExampleFiles.child, { |f| f.inspect });</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>SoundFile.</span><a class='method-name' name='*normalize' href='./../Overviews/Methods.html#normalize'>normalize</a>(<span class='argstr'>path</span>, <span class='argstr'>outPath</span>, <span class='argstr'>newHeaderFormat</span>, <span class='argstr'>newSampleFormat</span>, <span class='argstr'>startFrame: 0</span>, <span class='argstr'>numFrames</span>, <span class='argstr'>maxAmp: 1.0</span>, <span class='argstr'>linkChannels: true</span>, <span class='argstr'>chunkSize: 4194304</span>, <span class='argstr'>threaded: false</span>)</h3>
 <div class='method'>
 <p>Normalizes a soundfile to a level set by the user. The normalized audio will be written into a second file.
@@ -160,18 +163,20 @@ f.close;
 <p>An <a href="./../Classes/Event.html">Event</a> can passed as an argument allowing playback to be customized using the following keys:<table>
 <tr><td><strong>key</strong><td><strong>default value</strong><td><strong>what it does</strong><tr><td>bufferSize<td>65536<td>Must be a power of two (65536, 131072 or 262144 recommended)<tr><td>firstFrame<td>0<td>first frame to play<tr><td>lastFrame<td>nil<td>last frame to play (nil plays to end of file)<tr><td>out:<td>0<td>sets output bus<tr><td>server:<td>Server.default<td>which server<tr><td>group:<td>1<td>what target<tr><td>addAction:<td>0<td>head/tail/before/after<tr><td>amp:<td>1<td>amplitude<tr><td>instrument:<td>nil<td>if nil SoundFile:cue determines the SynthDef (one of diskIn1, diskIn2, ...diskIn16)</table>
 
-<p>Where <strong>bufferSize</strong>, <strong>firstFrame</strong>, <strong>lastFrame</strong> are for buffer and playback position, and <strong>out</strong>, <strong>server</strong>, <strong>group</strong>, <strong>addAction</strong>, <strong>amp</strong> are synth parameters. Here is the default SynthDef used for stereo files:<textarea class='editor'>SynthDef(\diskIn2, { |out, amp = 1, bufnum, sustainTime, atk = 0, rel = 0, gate = 1|
+<p>Where <strong>bufferSize</strong>, <strong>firstFrame</strong>, <strong>lastFrame</strong> are for buffer and playback position, and <strong>out</strong>, <strong>server</strong>, <strong>group</strong>, <strong>addAction</strong>, <strong>amp</strong> are synth parameters. Here is the default SynthDef used for stereo files:<div class='codeMirrorContainer'><textarea class='editor'>SynthDef(\diskIn2, { |out, amp = 1, bufnum, sustainTime, atk = 0, rel = 0, gate = 1|
     var sig = VDiskIn.ar(2, bufnum, BufRateScale.kr(bufnum));
     var gateEnv = EnvGen.kr(Env([1, 1, 0], [sustainTime-rel, 0]));
     var env = EnvGen.kr(Env.asr(atk, 1, rel), gate * gateEnv, doneAction: Done.freeSelf);
     Out.ar(out, sig * env * amp)
 });</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>The control <strong>sustainTime</strong> determines playback duration based on the firstFrame and lastFrame. The control <strong>gate</strong> allows early termination of the playback<tr><td class='argumentname'>playNow<td class='argumentdesc'>
-<p>This is a <a href="./../Classes/Boolean.html">Boolean</a> that determines whether the file is to be played immediately after cueing.<textarea class='editor'>f = SoundFile.collect("sounds/*");
+<p>This is a <a href="./../Classes/Boolean.html">Boolean</a> that determines whether the file is to be played immediately after cueing.<div class='codeMirrorContainer'><textarea class='editor'>f = SoundFile.collect("sounds/*");
 e = f[1].cue;
 
 e = f[1].cue((addAction: 2, group: 1));    // synth will play ahead of the default group</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <tr><td class='argumentname'>closeWhenDone<td class='argumentdesc'>
 <p>A flag to indicate whether the buffer will be closed after playback is finished. Default is False.</table></div><h3><a class='anchor' name='Read/Write'>Read/Write</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-openRead' href='./../Overviews/Methods.html#openRead'>openRead</a>(<span class='argstr'>pathName</span>)</h3>
@@ -196,7 +201,7 @@ e = f[1].cue((addAction: 2, group: 1));    // synth will play ahead of the defau
 <p>Writes the rawArray to the sample data of the file. You must have already called <a href="#-openWrite">-openWrite</a>.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>rawArray<td class='argumentdesc'>
-<p>The raw array must be a <a href="./../Classes/FloatArray.html">FloatArray</a> or <a href="./../Classes/Signal.html">Signal</a>, with all values between -1 and 1 to avoid clipping during playback.<textarea class='editor'>(
+<p>The raw array must be a <a href="./../Classes/FloatArray.html">FloatArray</a> or <a href="./../Classes/Signal.html">Signal</a>, with all values between -1 and 1 to avoid clipping during playback.<div class='codeMirrorContainer'><textarea class='editor'>(
 f = SoundFile.new.headerFormat_("AIFF").sampleFormat_("int16").numChannels_(1);
 f.openWrite("sounds/sfwrite.aiff");
     // sawtooth
@@ -205,6 +210,7 @@ b = Signal.sineFill(100, (1..20).reciprocal);
 441.do({ f.writeData(b) });
 f.close;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isOpen' href='./../Overviews/Methods.html#isOpen'>isOpen</a></h3>
 <div class='method'>
 <p>answers if the file is open.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-close' href='./../Overviews/Methods.html#close'>close</a></h3>
@@ -269,7 +275,7 @@ f.close;
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-seek' href='./../Overviews/Methods.html#seek'>seek</a>(<span class='argstr'>offset: 0</span>, <span class='argstr'>origin: 0</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-toCSV' href='./../Overviews/Methods.html#toCSV'>toCSV</a>(<span class='argstr'>outpath</span>, <span class='argstr'>headers</span>, <span class='argstr'>delim: ","</span>, <span class='argstr'>append: false</span>, <span class='argstr'>func</span>, <span class='argstr'>action</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// Writing a sound file, long form:
+<div class='codeMirrorContainer'><textarea class='editor'>// Writing a sound file, long form:
 // Set the format variables before calling 'openWrite'
 // The Boolean answer from 'openWrite' tells you if it's safe to proceed
 (
@@ -318,6 +324,7 @@ a.free;
 
 b.free;
 File.delete(PathName.tmp +/+ "sf-help.wav");</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SoundFile.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SoundFile.schelp</a><br>link::Classes/SoundFile::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

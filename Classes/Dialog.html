@@ -60,13 +60,14 @@ var scdoc_sc_version = '3.14.0-dev';
 <p> A Boolean indicating whether multiple files can be selected.<tr><td class='argumentname'>path<td class='argumentdesc'>
 <p> A string. The dialog will initially display the contents of this path. The default is the current  user's home directory.</table><h4>Discussion:</h4>
 
-<p>Example:<textarea class='editor'>(
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>(
 Dialog.openPanel({ |path|
     path.postln;
 }, {
     "cancelled".postln;
 });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*savePanel' href='./../Overviews/Methods.html#savePanel'>savePanel</a></h3>
 <div class='method'>
 <p> Shows a dialog for selecting or creating a file to save to. It does not do anything with the selected file, and does not create any file; instead it just passes the chosen filename to the given result handler.<h4>Arguments:</h4>
@@ -76,13 +77,14 @@ Dialog.openPanel({ |path|
 <p> An object to be evaluated when Cancel is pressed.<tr><td class='argumentname'>path<td class='argumentdesc'>
 <p> A string. The dialog will initially display the contents of this path. The default is the current  user's home directory.</table><h4>Discussion:</h4>
 
-<p>Example:<textarea class='editor'>(
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>(
 Dialog.savePanel({ |path|
     path.postln;
 }, {
     "cancelled".postln;
 });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*getPaths' href='./../Overviews/Methods.html#getPaths'>getPaths</a></h3>
 <div class='method'><div class='note'><span class='notelabel'>NOTE:</span> Deprecated. Use <a href="#*openPanel">*openPanel</a> instead.</div>
 <p> Implements the same functionality as *openPanel, only the last argument is named differently and defaults to true.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>

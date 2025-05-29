@@ -164,7 +164,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p> Sets <a href="#-x">-x</a> and <a href="#-y">-y</a> to the two coordinates of the Point stored as the current drag data, respectively, and triggers the <a href="#-action">-action</a>.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window("Slider2D", Rect(100, 100, 140, 140));
 t = Slider2D(w, Rect(20, 20, 80, 80))
         .x_(0.5) // initial location of x
@@ -177,8 +177,9 @@ w.front;
 
 t.x        // get the x loc
 t.x_(0.25) // set the x loc</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Drag an drop Points<textarea class='editor'>(
+<p>Drag an drop Points<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window("Slider2D", Rect(100, 100, 500, 300));
 w.view.decorator = FlowLayout(w.view.bounds);
 t = Slider2D(w, Rect(20, 20, 280, 280))
@@ -199,8 +200,9 @@ StaticText.new(n, 200@150).string_("hold down cmd and drag points from the slide
 
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Shape a Sound<textarea class='editor'>(
+<p>Shape a Sound<div class='codeMirrorContainer'><textarea class='editor'>(
 s.waitForBoot({
     a = { |mod = 0.05, index = 0.05|
             var r, out, out2;
@@ -226,6 +228,7 @@ s.waitForBoot({
     CmdPeriod.doOnce({ w.close });
 })
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Slider2D.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Slider2D.schelp</a><br>link::Classes/Slider2D::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

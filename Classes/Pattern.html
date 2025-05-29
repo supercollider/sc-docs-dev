@@ -108,7 +108,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Patterns are defined in terms of other Patterns rather than in terms of specific values. This allows a Pattern of arbitrary complexity to be substituted for a single value anywhere within a Pattern definition. A comparison between a Stream definition and a Pattern will help illustrate the usefulness of Patterns.<h3><a class='anchor' name='example%201%20-%20Pseq%20vs.%20Routine'>example 1 - Pseq vs. Routine</a></h3>
 
 <p>The Pattern class <strong>Pseq(array, repetitions)</strong> defines a Pattern that will create a Stream that iterates an array. The class <strong>Routine(func, stackSize)</strong> defines a single Stream, the function that runs within that stream is defined to perform the array iteration.
-<p>Below a stream is created with <a href="./../Classes/Pseq.html">Pseq</a> and an <code>asStream</code> message and an identical stream is created directly using Routine.<textarea class='editor'>// a Routine vs a Pattern
+<p>Below a stream is created with <a href="./../Classes/Pseq.html">Pseq</a> and an <code>asStream</code> message and an identical stream is created directly using Routine.<div class='codeMirrorContainer'><textarea class='editor'>// a Routine vs a Pattern
 (
     a = [-100, 00, 300, 400];            // the array to iterate
 
@@ -118,9 +118,10 @@ var scdoc_sc_version = '3.14.0-dev';
 
     5.do({ Post &lt;&lt; Char.tab &lt;&lt; r.next &lt;&lt; " " &lt;&lt; q.next &lt;&lt; Char.nl });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='example%202%20-%20Nesting%20patterns'>example 2 - Nesting patterns</a></h3>
 
-<p>In example 1, there is little difference between using <a href="./../Classes/Pseq.html">Pseq</a> and <a href="./../Classes/Routine.html">Routine</a>. But Pseq actually iterates its array as a collection of <em>patterns to be embedded</em>, allowing another Pseq to replace any of the values in the array. The Routine, on the other hand, needs to be completely redefined.<textarea class='editor'>(
+<p>In example 1, there is little difference between using <a href="./../Classes/Pseq.html">Pseq</a> and <a href="./../Classes/Routine.html">Routine</a>. But Pseq actually iterates its array as a collection of <em>patterns to be embedded</em>, allowing another Pseq to replace any of the values in the array. The Routine, on the other hand, needs to be completely redefined.<div class='codeMirrorContainer'><textarea class='editor'>(
     var routinesA;
     a = [3, Pseq([-100, 00, 300, 400]), Pseq([-100, 00, 300, 400].reverse)];
     routinesA = [[3], [-100, 00, 300, 400], [-100, 00, 300, 400].reverse];
@@ -134,10 +135,11 @@ var scdoc_sc_version = '3.14.0-dev';
     });
     10.do({ Post &lt;&lt; Char.tab &lt;&lt; r.next &lt;&lt; " " &lt;&lt; q.next &lt;&lt; Char.nl });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='example%203%20-%20Stream-embedInStream'>example 3 - Stream-embedInStream</a></h3>
 
 <p>The message <code>embedInStream</code> is what allows Patterns to do this kind of nesting. Most objects (such as the number 3 below) respond to <code>embedInStream</code> by yielding themselves once and returning. Streams respond to embedInStream by iterating themselves to completion, effectively "taking over" the calling stream for that time.
-<p>A Routine can perform a pattern simply by replacing calls to <code>yield</code> with calls to <code>embedInStream</code>.<textarea class='editor'>(
+<p>A Routine can perform a pattern simply by replacing calls to <code>yield</code> with calls to <code>embedInStream</code>.<div class='codeMirrorContainer'><textarea class='editor'>(
     a = [3, Pseq([-100, 00, 300, 400]), Pseq([-100, 00, 300, 400].reverse)];
 
     r = Routine({ a.do({ |v| v.embedInStream }) }) ;
@@ -145,17 +147,19 @@ var scdoc_sc_version = '3.14.0-dev';
     q = p.asStream;
     10.do({ Post &lt;&lt; Char.tab &lt;&lt; r.next &lt;&lt; " " &lt;&lt; q.next &lt;&lt; Char.nl });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Of course, there is no concise way to <em>define</em> this stream without using Pseq.<div class='note'><span class='notelabel'>NOTE:</span> For reasons of efficiency, the implementation of <code>embedInStream</code> assumes that it is called from within a <a href="./../Classes/Routine.html">Routine</a>. Consequently, <code>embedInStream</code> should never be called from within the function that defines a <a href="./../Classes/FuncStream.html">FuncStream</a> or a <a href="./../Classes/Pfunc.html">Pfunc</a> (the pattern that creates FuncStreams).</div><h3><a class='anchor' name='Event%20Patterns'>Event Patterns</a></h3>
 
 <p>An <a href="./../Classes/Event.html">Event</a> is a <a href="./../Classes/Environment.html">Environment</a> with a 'play' method. Typically, an Event consists of a collection of key/value pairs that determine what the play method actually does. The values may be any object including functions defined in terms of other named attributes. Changing those values can generate a succession of sounds sometimes called 'music'... The pattern <a href="./../Classes/Pbind.html">Pbind</a> connects specific patterns with specific names. Consult its help page for details.<h3><a class='anchor' name='Playing%20Event%20Patterns'>Playing Event Patterns</a></h3>
 
-<p>The <a href="#-play">-play</a> method does not return the pattern itself. Instead, it returns the <a href="./../Classes/EventStreamPlayer.html">EventStreamPlayer</a> object that actually runs the pattern. Control instructions -- stop, pause, resume, play, reset -- should be addressed to the EventStreamPlayer. (The same pattern can play many times simultaneously, using different EventStreamPlayers.)<textarea class='editor'>p = Pbind(...);
+<p>The <a href="#-play">-play</a> method does not return the pattern itself. Instead, it returns the <a href="./../Classes/EventStreamPlayer.html">EventStreamPlayer</a> object that actually runs the pattern. Control instructions -- stop, pause, resume, play, reset -- should be addressed to the EventStreamPlayer. (The same pattern can play many times simultaneously, using different EventStreamPlayers.)<div class='codeMirrorContainer'><textarea class='editor'>p = Pbind(...);
 p.play;
 p.stop;    // does not stop because p is not the EventStreamPlayer that is actually playing
 
 p = Pbind(...).play;
 p.stop;    // DOES stop because p is the EventStreamPlayer</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Recording%20Event%20Patterns'>Recording Event Patterns</a></h3>
 
 <p>Patterns may be recorded in realtime or non-realtime. See the method <a href="#-record">-record</a> for realtime recording.
@@ -164,7 +168,7 @@ p.stop;    // DOES stop because p is the EventStreamPlayer</textarea>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asStream' href='./../Overviews/Methods.html#asStream'>asStream</a></h3>
 <div class='method'>
-<p>Return a <a href="./../Classes/Stream.html">Stream</a> from this pattern. One pattern can be used to produce any number of independent streams.<textarea class='editor'>a = Pgeom(1, Pwhite(1.01, 1.2), inf);
+<p>Return a <a href="./../Classes/Stream.html">Stream</a> from this pattern. One pattern can be used to produce any number of independent streams.<div class='codeMirrorContainer'><textarea class='editor'>a = Pgeom(1, Pwhite(1.01, 1.2), inf);
 b = a.asStream; c = a.asStream;
 
 b.next;
@@ -173,14 +177,16 @@ b.next;
 
 c.next; // c is independent from b
 c.next;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-embedInStream' href='./../Overviews/Methods.html#embedInStream'>embedInStream</a>(<span class='argstr'>inval</span>)</h3>
 <div class='method'>
 <p>Given a <a href="./../Classes/Stream.html">Stream</a> like e.g. <a href="./../Classes/Routine.html">Routine</a>, yield all values from this pattern before continuing. One pattern can be used to produce values for any number of independent streams.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>inval<td class='argumentdesc'>
-<p>The inval is passed into all substreams and can be used to control how they behave from the outside.<textarea class='editor'>a = Pgeom(1, Pwhite(1.01, 1.2), 5);
+<p>The inval is passed into all substreams and can be used to control how they behave from the outside.<div class='codeMirrorContainer'><textarea class='editor'>a = Pgeom(1, Pwhite(1.01, 1.2), 5);
 r = Routine { 2.yield; 3.yield; a.embedInStream; 7.yield };
 r.nextN(12); // the next 12 values from r</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-play' href='./../Overviews/Methods.html#play'>play</a>(<span class='argstr'>clock</span>, <span class='argstr'>protoEvent</span>, <span class='argstr'>quant</span>)</h3>
 <div class='method'>
 <p><h4>Arguments:</h4>
@@ -250,7 +256,7 @@ r.nextN(12); // the next 12 values from r</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-trace' href='./../Overviews/Methods.html#trace'>trace</a>(<span class='argstr'>key</span>, <span class='argstr'>printStream</span>, <span class='argstr'>prefix: ""</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>Below are brief examples for most of the classes derived from Pattern. These examples all rely on the patterns assigned to the Interpreter variable p, q, and r in the first block of code.<textarea class='editor'>s.boot;
+<p>Below are brief examples for most of the classes derived from Pattern. These examples all rely on the patterns assigned to the Interpreter variable p, q, and r in the first block of code.<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 
 (
 SynthDef(\cfstring1, { |i_out, freq = 360, gate = 1, pan, amp = 0.1|
@@ -279,8 +285,9 @@ q = Pbindf(p, \instrument, \default);
 r = Pset(\freq, Pseq([500, 600, 700], 2), q);
 
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='EVENT%20PATTERNS%20-%20patterns%20that%20generate%20or%20require%20event%20streams'>EVENT PATTERNS - patterns that generate or require event streams</a></h3>
-<textarea class='editor'>// Pbind(ArrayOfPatternPairs)
+<div class='codeMirrorContainer'><textarea class='editor'>// Pbind(ArrayOfPatternPairs)
 
 p = Pbind(
     [\degree, \dur], Pseq([[0, 0.1], [2, 0.1], [3, 0.1], [4, 0.1], [5, 0.8]], 1),
@@ -363,8 +370,9 @@ Pn(Psync(
 // Plag(duration, pattern)
 
 Ppar([Plag(1.2, Pn(p, 4)), Pn(Pbindf(q, \ctranspose, -24), 5)]).play</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='GENERAL%20PATTERNS%20that%20work%20with%20both%20event%20and%20value%20streams'>GENERAL PATTERNS that work with both event and value streams</a></h3>
-<textarea class='editor'>// Ptrace(pattern, key, printStream) - print the contents of a pattern
+<div class='codeMirrorContainer'><textarea class='editor'>// Ptrace(pattern, key, printStream) - print the contents of a pattern
 
 r = Psetpre(\freq, Pseq([500, 600, 700], 2), q);
 
@@ -487,8 +495,9 @@ Preject({ |inval| inval.at(\degree) != 0 }, q).play(quant: 0)
 // function receives the current pattern as an argument and returns the next pattern to be played
 
 Ppatmod(p, { |oldPat| [p, q, r].choose }, inf).play</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='VALUE%20PATTERNS:%20these%20patterns%20define%20or%20act%20on%20streams%20of%20numbers'>VALUE PATTERNS: these patterns define or act on streams of numbers</a></h3>
-<textarea class='editor'>// Env as a pattern
+<div class='codeMirrorContainer'><textarea class='editor'>// Env as a pattern
 
 Pbindf(Pn(q, inf), \ctranspose, Pn(Env.linen(3, 0, 0.3, 20), inf)).play;
 
@@ -557,6 +566,7 @@ Pbind(
     \legato, Pn(Pshuf([0.2, 0.2, 0.2, 0.5, 0.5, 1.6, 1.4], 4), inf),
     \scale, #[0, 1, 3, 4, 5, 7, 8]
 ).play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pattern.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pattern.schelp</a><br>link::Classes/Pattern::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

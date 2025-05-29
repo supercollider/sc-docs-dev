@@ -53,34 +53,38 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>See <a href="./../Classes/Clock.html">Clock</a> for general explanation of how clocks operate.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>SystemClock.</span><a class='method-name' name='*sched' href='./../Overviews/Methods.html#sched'>sched</a>(<span class='argstr'>delta</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
-<p>The float you return specifies the delta to resched the function for. Returning nil will stop the task from being rescheduled.<textarea class='editor'>(
+<p>The float you return specifies the delta to resched the function for. Returning nil will stop the task from being rescheduled.<div class='codeMirrorContainer'><textarea class='editor'>(
 SystemClock.sched(0.0, { |time|
     time.postln;
     rrand(0.1, 0.9);
 });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p><textarea class='editor'>(
+<p><div class='codeMirrorContainer'><textarea class='editor'>(
 SystemClock.sched(2.0, {
     "2.0 seconds later".postln;
     nil;
 });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>SystemClock.</span><a class='method-name' name='*clear' href='./../Overviews/Methods.html#clear'>clear</a></h3>
 <div class='method'>
-<p>Clear the SystemClock's scheduler to stop it.<textarea class='editor'>SystemClock.clear;</textarea>
+<p>Clear the SystemClock's scheduler to stop it.<div class='codeMirrorContainer'><textarea class='editor'>SystemClock.clear;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>SystemClock.</span><a class='method-name' name='*schedAbs' href='./../Overviews/Methods.html#schedAbs'>schedAbs</a>(<span class='argstr'>time</span>, <span class='argstr'>item</span>)</h3>
-<div class='method'><textarea class='editor'>(
+<div class='method'><div class='codeMirrorContainer'><textarea class='editor'>(
 SystemClock.schedAbs((thisThread.seconds + 4.0).round(1.0), { |time|
     ("the time is exactly " ++ time.asString
         ++ " seconds since starting SuperCollider").postln;
 });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>SystemClock.</span><a class='method-name' name='*play' href='./../Overviews/Methods.html#play'>play</a>(<span class='argstr'>task</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Clock.html'>Clock</a></div>
 <div class='method'>
 <p>Calls to the GUI may not be made directly from actions triggered by SystemClock or incoming socket messages (OSCFunc).
-<p>To get around this, use <code>{ }.defer</code>. This will execute the function using the AppClock and is equivalent to <code>AppClock.sched(0, function)</code><textarea class='editor'>(
+<p>To get around this, use <code>{ }.defer</code>. This will execute the function using the AppClock and is equivalent to <code>AppClock.sched(0, function)</code><div class='codeMirrorContainer'><textarea class='editor'>(
 var w, r;
 w = Window.new("trem", Rect(512, 256, 360, 130));
 w.front;
@@ -97,6 +101,7 @@ r = Routine({ |time|
 });
 SystemClock.play(r);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>This example is only to show how to make calls to Cocoa/GUI when scheduling with the SystemClock. If you only wish to control the GUI, use AppClock.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>

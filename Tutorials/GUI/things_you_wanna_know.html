@@ -46,7 +46,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>SuperCollider provides some useful classes to automate processes. Some of them are associated to a <a href="./../../Classes/Clock.html">Clock</a>: mainly <a href="./../../Classes/Routine.html">Routine</a> and <a href="./../../Classes/Task.html">Task</a>.
 <p><strong>Qt rendering system is unavailable within the context of clock associated threads</strong>. In other words, you cannot 'directly' modify a widget within a <a href="./../../Classes/Routine.html">Routine</a> or a <a href="./../../Classes/Task.html">Task</a>.
-<p>Instead, you need to defer the modification by <strong>encapsulating it in a deferred function</strong>, that will be executed once SuperCollider resume its main context, see <a href="./../../Classes/Function.html#-defer">Function: -defer</a>. Doing otherwise will crash the program:<textarea class='editor'>(
+<p>Instead, you need to defer the modification by <strong>encapsulating it in a deferred function</strong>, that will be executed once SuperCollider resume its main context, see <a href="./../../Classes/Function.html#-defer">Function: -defer</a>. Doing otherwise will crash the program:<div class='codeMirrorContainer'><textarea class='editor'>(
 var win = Window();
 var slider= Slider();
 var value = 0;
@@ -73,6 +73,7 @@ CmdPeriod.doOnce({
 
 win.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Qt%20limitations'>Qt limitations</a></h2>
 
 <p>This remark mostly concerns debugging and understanding issues. Since <strong>Qt is a third-party library integrated within SuperCollider</strong>, some of its limitations are unrelated to SuperCollider itself.

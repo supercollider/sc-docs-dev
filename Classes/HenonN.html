@@ -52,10 +52,11 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>A non-interpolating sound generator based on the difference equation:<pre>        x(n+2) = 1 - a * x(n+1)^2 + b * x(n)</pre>
 <p>This equation was discovered by French astronomer Michel Hénon while studying the orbits of stars in globular clusters.
-<p>sclang code translation:<textarea class='editor'>(
+<p>sclang code translation:<div class='codeMirrorContainer'><textarea class='editor'>(
 var a = 1.4, b = 0.3, x0 = 0, x1 = 1, size = 64;
 plot(size.collect { var aux = 1 - (a * (x1 ** 2)) + (b * x0); x0 = x1; x1 = aux; aux });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>HenonN.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>freq: 22050</span>, <span class='argstr'>a: 1.4</span>, <span class='argstr'>b: 0.3</span>, <span class='argstr'>x0: 0</span>, <span class='argstr'>x1: 0</span>, <span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
 <div class='method'><h4>Arguments:</h4>
@@ -71,7 +72,7 @@ plot(size.collect { var aux = 1 - (a * (x1 ** 2)) + (b * x0); x0 = x1; x1 = aux;
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// default initial params
+<div class='codeMirrorContainer'><textarea class='editor'>// default initial params
 { HenonN.ar(MouseX.kr(20, SampleRate.ir)) * 0.2 }.play(s);
 
 // mouse-control of params
@@ -88,6 +89,7 @@ plot(size.collect { var aux = 1 - (a * (x1 ** 2)) + (b * x0); x0 = x1; x1 = aux;
 
 // as a frequency control
 { SinOsc.ar(HenonN.ar(40, MouseX.kr(1, 1.4), MouseY.kr(0, 0.3))*800+900)*0.4 }.play(s);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/HenonN.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/HenonN.schelp</a><br>link::Classes/HenonN::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

@@ -212,7 +212,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <ul>
 <li><a href="./../Tutorials/JITLib/the_lazy_proxy.html">the_lazy_proxy</a><li><a href="./../Tutorials/JITLib/jitlib_efficiency.html">jitlib_efficiency</a><li><a href="./../Tutorials/JITLib/jitlib_fading.html">jitlib_fading</a><li><a href="./../Tutorials/JITLib/jitlib_asCompileString.html">jitlib_asCompileString</a><li><a href="./../Reference/NodeProxy_roles.html">NodeProxy roles</a></ul>
 <h3><a class='anchor' name='First%20Example'>First Example</a></h3>
-<textarea class='editor'>s.boot;
+<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 
 a = NodeProxy.new.play; // play to hardware output.
 a.fadeTime = 2; // fadeTime specifies crossfade
@@ -227,15 +227,17 @@ b.source = { Impulse.ar([5, 7]/2, [0, 0.5]) };
 
 a.clear(3); // clear after 3 seconds
 b.clear(3);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Creation'>Creation</a></h3>
 <h3 class='method-code'><span class='method-prefix'>NodeProxy.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>server</span>, <span class='argstr'>rate</span>, <span class='argstr'>numChannels</span>, <span class='argstr'>inputs</span>)</h3>
 <div class='method'>
-<p>Return a new instance of NodeProxy.<textarea class='editor'>// new node proxy
+<p>Return a new instance of NodeProxy.<div class='codeMirrorContainer'><textarea class='editor'>// new node proxy
 a = NodeProxy(s, \audio, 4);
 a.numChannels;
 a.clear; // remove bus.
 a.numChannels; // nil.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>server<td class='argumentdesc'>
@@ -316,19 +318,21 @@ a.numChannels; // nil.</textarea>
 <p>Channel offset when reading a bus that has more channels than numChannels, cross fading between adjacent channels.<tr><td class='argumentname'>clip<td class='argumentdesc'>
 <p>If set to 'wrap', exceeding channels will wrap around, if set to 'clip', repeat the last one.</table></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-<--' href='./../Overviews/Methods.html#&lt;--'>&lt;--</a>(<span class='argstr'>proxy</span>)</h3>
 <div class='method'>
-<p>Usage: <strong>proxyA &lt;-- proxyB</strong>. Set proxyA source to proxyB and play proxyA. If proxyB was playing, fade it out. This is convenient in the following situation:<textarea class='editor'>b = NodeProxy.new.play;
+<p>Usage: <strong>proxyA &lt;-- proxyB</strong>. Set proxyA source to proxyB and play proxyA. If proxyB was playing, fade it out. This is convenient in the following situation:<div class='codeMirrorContainer'><textarea class='editor'>b = NodeProxy.new.play;
 b.source = { PinkNoise.ar(0.2.dup) };
 // now I want to filter b through a new proxy.
 a = NodeProxy.new;
 a &lt;-- b; a.source = { HPF.ar(b.ar, 7000) };
 a.source = { HPF.ar(b.ar, 3000) }; // changing the source
 a.clear; b.clear;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-<<>' href='./../Overviews/Methods.html#&lt;&lt;&gt;'>&lt;&lt;&gt;</a>(<span class='argstr'>proxy</span>, <span class='argstr'>key: 'in'</span>)</h3>
 <div class='method'>
-<p>Chaining. Usage: <strong>proxyA &lt;&lt;&gt; proxyB    &lt;&lt;&gt; proxyC &lt;&lt;&gt; ...</strong> . Map proxyC source to proxyB <code>\in</code> argument, and proxyB to proxyA's in argument.<textarea class='editor'>a = NodeProxy.new.play;
+<p>Chaining. Usage: <strong>proxyA &lt;&lt;&gt; proxyB    &lt;&lt;&gt; proxyC &lt;&lt;&gt; ...</strong> . Map proxyC source to proxyB <code>\in</code> argument, and proxyB to proxyA's in argument.<div class='codeMirrorContainer'><textarea class='editor'>a = NodeProxy.new.play;
 a.source = { RLPF.ar(\in.ar(0!2), [4600, 7000], 0.1) };
 b = NodeProxy.new.source_ { Impulse.ar([5, 7] / 2) };
 a &lt;&lt;&gt; b;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-<>>' href='./../Overviews/Methods.html#&lt;&gt;&gt;'>&lt;&gt;&gt;</a>(<span class='argstr'>proxy</span>, <span class='argstr'>key: 'in'</span>)</h3>
 <div class='method'>
 <p>Inverse of the above. Usage: <strong>proxyA &lt;&gt;&gt; proxyB    &lt;&gt;&gt; proxyC &lt;&gt;&gt; ...</strong> .</div><h3><a class='anchor' name='Setting%20the%20source'>Setting the source</a></h3>
@@ -337,9 +341,10 @@ a &lt;&lt;&gt; b;</textarea>
 <p>See the list under section <a href="#Supported%20sources">Supported sources</a><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-source' href='./../Overviews/Methods.html#source'>source</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-source' href='./../Overviews/Methods.html#source'>source</a> = <span class='argstr'>obj</span></h3>
 <div class='method'>
-<p>Play a new synth through proxy and release/remove any old ones.<textarea class='editor'>a = NodeProxy(s);
+<p>Play a new synth through proxy and release/remove any old ones.<div class='codeMirrorContainer'><textarea class='editor'>a = NodeProxy(s);
 a.play;
 a.source = { Pulse.ar(130, Saw.kr(0.3)) * 0.1 }; // change this line while running</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>obj<td class='argumentdesc'>
@@ -347,38 +352,42 @@ a.source = { Pulse.ar(130, Saw.kr(0.3)) * 0.1 }; // change this line while runni
 
 <p>Signals can be routed between any number of node proxies.
 <p>See also: <a href="./../Classes/BusPlug.html#-ar">BusPlug: -ar</a>, <a href="./../Classes/BusPlug.html#-value">BusPlug: -value</a>, <a href="#Reshaping">Reshaping</a>.
-<p>Here is a simple example, using Ndef (NodeProxy works similarly):<textarea class='editor'>Ndef(\maus, { MouseX.kr });
+<p>Here is a simple example, using Ndef (NodeProxy works similarly):<div class='codeMirrorContainer'><textarea class='editor'>Ndef(\maus, { MouseX.kr });
 Ndef(\haus, { Pan2.ar(Blip.ar(Ndef.kr(\maus, 1) * 70), SinOsc.kr(Ndef.ar(\maus, 1) * 5)) }).play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='note'><span class='notelabel'>NOTE:</span> If you don't specify the number of channels, an expression like <code>Ndef.kr(\maus)</code> will return an Array. Subsequently, e.g. by a <code>Pan2</code> UGen, you may get the message:
 <p><code>WARNING: Synth output should be a flat array.</code>
 <p>If you intend the output to be really mono, make it explicit by writing: <code>Ndef.kr(\maus, 1)</code></div>
-<p>With elastic reshaping, you can use the parent to expand the child, if you omit the number of channels in the routing:<textarea class='editor'>Ndef(\maus, { MouseX.kr });
+<p>With elastic reshaping, you can use the parent to expand the child, if you omit the number of channels in the routing:<div class='codeMirrorContainer'><textarea class='editor'>Ndef(\maus, { MouseX.kr });
 Ndef(\haus, { Blip.ar(Ndef.kr(\maus) * 70) }).play;
 Ndef(\haus).reshaping = \elastic;
 Ndef(\maus).reshaping = \elastic;
 Ndef(\maus, { LFNoise0.kr(1 ! 8) + 1 }); // now 8 parallel channels of audio are audible.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Reserved%20parameters'>Reserved parameters</a></h3>
 
 <p>Three parameters are automatically specified if they don't exist in a given UGen function. You can override their use: <code>[\out, \gate, \fadeTime]</code><h3><a class='anchor' name='Specifying%20your%20own%20envelope'>Specifying your own envelope</a></h3>
 
-<p>If a UGen function that is passed to the proxy has its own envelope, and if this envelope can free the synth, the node proxy uses this envelope instead of making its own. If you provide a <code>fadeTime</code> argument, the proxy's fadeTime will be used.<textarea class='editor'>Ndef(\sound).fadeTime = 3;
+<p>If a UGen function that is passed to the proxy has its own envelope, and if this envelope can free the synth, the node proxy uses this envelope instead of making its own. If you provide a <code>fadeTime</code> argument, the proxy's fadeTime will be used.<div class='codeMirrorContainer'><textarea class='editor'>Ndef(\sound).fadeTime = 3;
 (
 Ndef(\sound, { |fadeTime = 1, gate = 1|
     var e = Env.adsr(fadeTime, 0.01, 0.4, fadeTime).ar(2, gate);
     SinOsc.ar(100 + (e * 700), SinOsc.ar(208) * (1 - e) * 6) * e * 0.1
 }).play
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Making%20copies'>Making copies</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-copy' href='./../Overviews/Methods.html#copy'>copy</a></h3>
 <div class='method'>
-<p>copies the hidden internal state to make the new proxy independent of the old, but will keep the reference to the source object. The rendered SynthDef is cached, which makes this method more efficient than simply assigning the same function to a new proxy. By design, the monitor is copied, but is not running (use play to start it in the same configuration).<textarea class='editor'>a = NodeProxy(s);
+<p>copies the hidden internal state to make the new proxy independent of the old, but will keep the reference to the source object. The rendered SynthDef is cached, which makes this method more efficient than simply assigning the same function to a new proxy. By design, the monitor is copied, but is not running (use play to start it in the same configuration).<div class='codeMirrorContainer'><textarea class='editor'>a = NodeProxy(s);
 a.source = { |freq = 444| Blip.ar(freq * [1, 1.03], 200) * 0.1 };
 a.play;
 a.set(\freq, 555);
 b = a.copy;
 b.play;
 b.set(\freq, 222);</textarea>
-<div class='note'><span class='notelabel'>NOTE:</span> If needed, you can also copy parts of a proxy, such as the <a href="./../Classes/Monitor.html">Monitor</a> (which usually routes the output back onto hardware busses) and the <a href="./../Classes/NodeMap.html">NodeMap</a>, which keeps a mapping and setting scope.</div><textarea class='editor'>s.scope(4);
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='note'><span class='notelabel'>NOTE:</span> If needed, you can also copy parts of a proxy, such as the <a href="./../Classes/Monitor.html">Monitor</a> (which usually routes the output back onto hardware busses) and the <a href="./../Classes/NodeMap.html">NodeMap</a>, which keeps a mapping and setting scope.</div><div class='codeMirrorContainer'><textarea class='editor'>s.scope(4);
 a = NodeProxy(s);
 a.source = { |freq = 234| Blip.ar(freq * [1, 1.03], 20) * 0.5 };
 a.playN([0, 1, 3], [0.04, 0.3, 0.1], vol: 1); // some complicated routing
@@ -390,6 +399,7 @@ b.monitor = a.monitor.copy;
 b.nodeMap = a.nodeMap.copy;
 b.play;
 a.stop;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-copyState' href='./../Overviews/Methods.html#copyState'>copyState</a>(<span class='argstr'>proxy</span>)</h3>
 <div class='method'>
 <p>Copy the internal settings of one proxy into another. Old state is cleared.<h4>Arguments:</h4>
@@ -402,19 +412,21 @@ a.stop;</textarea>
 <div class='method'>
 <p>Determines how to behave when a new source is added. Current options:<table>
 <tr><td>nil<td>Once initialized, keep the same bus - this is the default<tr><td>\elastic<td>On a change, shrink and grow according to need, replace bus. The monitor and child proxies are adjusted.<tr><td>\expanding<td>On a change, only grow according to need, replace bus. The monitor and child proxies are adjusted.</table>
-<textarea class='editor'>a = NodeProxy(s);
+<div class='codeMirrorContainer'><textarea class='editor'>a = NodeProxy(s);
 a.reshaping = \elastic;
 a.play(0, 2); // play stereo
 a.source = { BPF.ar(Dust.ar(8 ! 8), (0..5).nthPrime * 300, 0.01) * 20 };
 a.numChannels; // 8</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-mold' href='./../Overviews/Methods.html#mold'>mold</a>(<span class='argstr'>numChannels</span>, <span class='argstr'>rate</span>, <span class='argstr'>argReshaping</span>, <span class='argstr'>fadeTime</span>)</h3>
 <div class='method'>
-<p>Adjust the proxy to a given rate / numChannels. If there are any child proxies that have elastic <a href="#-reshaping">-reshaping</a>, they are adjusted accordingly.<textarea class='editor'>a = NodeProxy(s);
+<p>Adjust the proxy to a given rate / numChannels. If there are any child proxies that have elastic <a href="#-reshaping">-reshaping</a>, they are adjusted accordingly.<div class='codeMirrorContainer'><textarea class='editor'>a = NodeProxy(s);
 a.play;
 a.source = { BPF.ar(Impulse.ar({ rrand(1.0, 2.0) } ! a.numChannels), (0..5).nthPrime * 300, 0.01) * 20 };
 a.numChannels; // 2
 a.mold(8);
 a.numChannels; // 8</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Other%20ways%20to%20set%20or%20change%20the%20sources'>Other ways to set or change the sources</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-prime' href='./../Overviews/Methods.html#prime'>prime</a>(<span class='argstr'>obj</span>)</h3>
 <div class='method'>
@@ -433,7 +445,7 @@ a.numChannels; // 8</textarea>
 <p>A valid source (see <a href="#Supported%20sources">Supported sources</a>).<tr><td class='argumentname'>channelOffset<td class='argumentdesc'>
 <p>using a multichannel setup it can be useful to set this, when the objects numChannels is smaller than the proxy<tr><td class='argumentname'>extraArgs<td class='argumentdesc'>
 <p>Arguments that can be sent with the object directly (not cached)<tr><td class='argumentname'>now<td class='argumentdesc'>
-<p>if set to false, only prepare the source and do not start the object (see <a href="#-prime">-prime</a>)<textarea class='editor'>// put can be used with the array indexing syntax:
+<p>if set to false, only prepare the source and do not start the object (see <a href="#-prime">-prime</a>)<div class='codeMirrorContainer'><textarea class='editor'>// put can be used with the array indexing syntax:
 a = NodeProxy.new.play;
 a[0] = { SinOsc.ar(Rand(200, 899)) * 0.1.dup };
 a[2] = { SinOsc.ar(Rand(200, 899)) * 0.1.dup };
@@ -443,6 +455,7 @@ a[0..5] = { SinOsc.ar(Rand(200, 899)) * 0.1.dup };
 a.sources.do(_.postcs);
 a.send; // exchange synths, using the sources as definitions
 a.clear;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3><a class='anchor' name='Controlling%20the%20running%20processes'>Controlling the running processes</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pause' href='./../Overviews/Methods.html#pause'>pause</a></h3>
 <div class='method'>
@@ -531,13 +544,14 @@ a.clear;</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-map' href='./../Overviews/Methods.html#map'>map</a>( <span class='argstr'>... args</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-setn' href='./../Overviews/Methods.html#setn'>setn</a>( <span class='argstr'>... args</span>)</h3>
 <div class='method'>
-<p>NodeProxy behaves like its <a href="./../Classes/NodeMap.html">NodeMap</a> and very similar to a <a href="./../Classes/Synth.html">Synth</a>.<div class='note'><span class='notelabel'>NOTE:</span> Now the methods map, setn, mapn, and xmap are there just for backward compatibility reasons. Everything is done by set.</div><textarea class='editor'>a = NodeProxy(s); a.play;
+<p>NodeProxy behaves like its <a href="./../Classes/NodeMap.html">NodeMap</a> and very similar to a <a href="./../Classes/Synth.html">Synth</a>.<div class='note'><span class='notelabel'>NOTE:</span> Now the methods map, setn, mapn, and xmap are there just for backward compatibility reasons. Everything is done by set.</div><div class='codeMirrorContainer'><textarea class='editor'>a = NodeProxy(s); a.play;
 a.source = { Splay.ar(Blip.ar(\freq.kr(18 ! 4))) * 0.2 };
 a.set(\freq, [1, 3, 56, 13]);
 a.source = { Splay.ar(SinOsc.ar(LFSaw.ar(\freq.kr(18 ! 4)) * 250 + 400)) * 0.2 };
 b = NodeProxy(s); b.source = { MouseX.kr(0, 3) *  [1, 3, 56, 13] };
 a.set(\freq, b);
 a.clear; b.clear;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>... args<td class='argumentdesc'>
@@ -553,7 +567,7 @@ a.clear; b.clear;</textarea>
 <p>A sequence of <strong>name, index, value</strong> triplets.<dl>
 <dt>name<dd>The name of the arrayed control<dt>index<dd>The index into the array<dt>value<dd>The new value to set, can be an array to set a range of elements.</dl>
 </table><h4>Discussion:</h4>
-<textarea class='editor'>// 5 channel NodeProxy, for convenience initialized in an Ndef
+<div class='codeMirrorContainer'><textarea class='editor'>// 5 channel NodeProxy, for convenience initialized in an Ndef
 (
 Ndef(\sin).mold(5, \audio, \elastic);
 Ndef(\sin)[0] = {
@@ -591,6 +605,7 @@ Ndef(\sin).seti(\freq, [34, 12, 56], [376, 199])
 Ndef(\sin).getKeysValues // -&gt; [[freq, [310, 376, 199, 137, 376]]]
 
 Ndef.clear(10)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-unset' href='./../Overviews/Methods.html#unset'>unset</a>( <span class='argstr'>... keys</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-unmap' href='./../Overviews/Methods.html#unmap'>unmap</a>( <span class='argstr'>... keys</span>)</h3>
 <div class='method'>
@@ -616,10 +631,11 @@ Ndef.clear(10)</textarea>
 <div class='method'>
 <p>Search the source objects for a given control name symbol and return the <a href="./../Classes/ControlName.html">ControlName</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-specs' href='./../Overviews/Methods.html#specs'>specs</a></h3>
 <div class='method'>
-<p>Get the specs array from SynthDef metadata. Note that, for a NodeProxy with multiple sources, result will be a dictionary containing specs of ALL source SynthDefs.<textarea class='editor'>~p = NodeProxy.audio(Server.default, 2);
+<p>Get the specs array from SynthDef metadata. Note that, for a NodeProxy with multiple sources, result will be a dictionary containing specs of ALL source SynthDefs.<div class='codeMirrorContainer'><textarea class='editor'>~p = NodeProxy.audio(Server.default, 2);
 ~p.put(0, { SinOsc.ar(\freq.kr(100, spec: [50, 400])) });
 ~p.put(1, { WhiteNoise.ar(\noiseAmp.kr(0.1, spec: [0, 1])) });
 ~p.specs.postln;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Sending%20synths%20to%20server%20explicitly'>Sending synths to server explicitly</a></h3>
 
 <p>Normally, processes (usually synths) are started when their respective source is added to the proxy. The processes can also be restarted, however, or the proxy can be used while asleep and the processes can then be started explicitly.<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-send' href='./../Overviews/Methods.html#send'>send</a>(<span class='argstr'>extraArgs</span>, <span class='argstr'>index</span>, <span class='argstr'>freeLast: true</span>)</h3>
@@ -643,7 +659,7 @@ Ndef.clear(10)</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asCode' href='./../Overviews/Methods.html#asCode'>asCode</a>(<span class='argstr'>includeSettings: true</span>, <span class='argstr'>includeMonitor: true</span>, <span class='argstr'>envir</span>)</h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/JITLib/ProxySpace/extStoreOn.sc'>/usr/local/share/SuperCollider/SCClassLibrary/JITLib/ProxySpace/extStoreOn.sc</a></div>
 <div class='method'>
-<p>stores the proxy as executable code. see also <a href="./../Tutorials/JITLib/jitlib_asCompileString.html">jitlib_asCompileString</a> for more examples.<textarea class='editor'>// Ndef
+<p>stores the proxy as executable code. see also <a href="./../Tutorials/JITLib/jitlib_asCompileString.html">jitlib_asCompileString</a> for more examples.<div class='codeMirrorContainer'><textarea class='editor'>// Ndef
 Ndef(\a, { Saw.ar(12) }).asCode;
 
 // in a pushed proxy space
@@ -659,10 +675,11 @@ x = NodeProxy.new.source = { DC.ar };
 x.asCode;
 
 x.free;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='GUI'>GUI</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-edit' href='./../Overviews/Methods.html#edit'>edit</a>(<span class='argstr'>nSliders</span>, <span class='argstr'>parent</span>, <span class='argstr'>bounds</span>)</h3>
 <div class='method'>
-<p>Returns a new instance of <a href="./../Classes/NodeProxyEditor.html">NodeProxyEditor</a> for this proxy.<textarea class='editor'>a = NodeProxy.new;
+<p>Returns a new instance of <a href="./../Classes/NodeProxyEditor.html">NodeProxyEditor</a> for this proxy.<div class='codeMirrorContainer'><textarea class='editor'>a = NodeProxy.new;
 a.edit;
 
 (
@@ -670,6 +687,7 @@ a.source = { |freq = 440, rate = 2|
     SinOsc.ar(freq * [1, 1.625]) * SinOsc.kr(rate).max(0) * 0.2
 }
 );</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-addChild' href='./../Overviews/Methods.html#addChild'>addChild</a>(<span class='argstr'>proxy</span>)</h3>
@@ -752,7 +770,7 @@ a.source = { |freq = 440, rate = 2|
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-xunset' href='./../Overviews/Methods.html#xunset'>xunset</a>( <span class='argstr'>... args</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>For more, see <a href="./../Classes/ProxySpace.html">ProxySpace</a><textarea class='editor'>///////////////////// using node proxy with ugen functions /////////////////////
+<p>For more, see <a href="./../Classes/ProxySpace.html">ProxySpace</a><div class='codeMirrorContainer'><textarea class='editor'>///////////////////// using node proxy with ugen functions /////////////////////
 
 s.boot;
 
@@ -883,7 +901,8 @@ a.stop; // stop the monitor
 a.play; // start the monitor
 a.end;    // release the synths and stop the monitor
 c.free;    // free the control proxy c</textarea>
-<textarea class='editor'>///////////////////// channel offset/object index /////////////////////
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>///////////////////// channel offset/object index /////////////////////
 
 
 a = NodeProxy.audio(s, 2);
@@ -893,7 +912,8 @@ a.put(1, { Ringz.ar(Impulse.ar(5.3, 0, 0.1), 420) }, 1);
 a.put(0, { Ringz.ar(Dust.ar([1, 1]*15.3, 0.1), 720) }, 1);
 a.put(1, { Ringz.ar(Impulse.ar(5.3, 0, 0.1), 420) }, 1);
 a.end;</textarea>
-<textarea class='editor'>///////////////////// beat accurate playing /////////////////////
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>///////////////////// beat accurate playing /////////////////////
 
 
 
@@ -911,7 +931,8 @@ a.removeLast;
 a.removeAt(2);
 
 a.clear;</textarea>
-<textarea class='editor'>///////////////////// using patterns - event streams /////////////////////
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>///////////////////// using patterns - event streams /////////////////////
 
 
 (
@@ -995,6 +1016,7 @@ a.source = { b.ar * WhiteNoise.ar(0.1, 1) + (b.ar * SinOsc.ar(SinOsc.kr(0.01, 0,
 c.source = { XLine.kr(1900, 10, 10) };
 
 a.clear(10); b.clear(10); c.clear(10); // fade out and clear all (free bus, group and synths)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><h2><a class='anchor' name='Supported%20sources'>Supported sources</a></h2>
 <dl>

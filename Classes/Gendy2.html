@@ -68,7 +68,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Normally 0.0 to 1.0, multiplier for the distribution's delta value for duration. An ampscale of 1.0 allows the full range of -1 to 1 for a change of duration.<tr><td class='argumentname'>initCPs<td class='argumentdesc'>
 <p>Initialise the number of control points in the memory. Xenakis specifies 12. There would be this number of control points per cycle of the oscillator, though the oscillator's period will constantly change due to the duration distribution.<tr><td class='argumentname'>knum<td class='argumentdesc'>
 <p>Current number of utilised control points, allows modulation.<tr><td class='argumentname'>a<td class='argumentdesc'>
-<p>Parameter for Lehmer random number generator perturbed by Xenakis as in<textarea class='editor'>((old*a)+c)%1.0</textarea>
+<p>Parameter for Lehmer random number generator perturbed by Xenakis as in<div class='codeMirrorContainer'><textarea class='editor'>((old*a)+c)%1.0</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <tr><td class='argumentname'>c<td class='argumentdesc'>
 <p>Parameter for Lehmer random number generator perturbed by Xenakis.<tr><td class='argumentname'>mul<td class='argumentdesc'>
 <p>Output will be multiplied by this value.<tr><td class='argumentname'>add<td class='argumentdesc'>
@@ -78,7 +79,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<div class='warning'><span class='warninglabel'>WARNING:</span> if you have lots of CPs and you have fast frequencies, the CPU cost goes up a lot because a new CP move happens every sample!</div><textarea class='editor'>// LOUD! defaults like a rougher Gendy1
+<div class='warning'><span class='warninglabel'>WARNING:</span> if you have lots of CPs and you have fast frequencies, the CPU cost goes up a lot because a new CP move happens every sample!</div><div class='codeMirrorContainer'><textarea class='editor'>// LOUD! defaults like a rougher Gendy1
 { Pan2.ar(Gendy2.ar) }.play
 
 // advantages of messing with the random number generation- causes periodicities
@@ -235,6 +236,7 @@ var scdoc_sc_version = '3.14.0-dev';
     )
 }.play
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Gendy2.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Gendy2.schelp</a><br>link::Classes/Gendy2::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

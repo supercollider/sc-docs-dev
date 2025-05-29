@@ -64,7 +64,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>SuperCollider currently supports three operating system platforms: macOS, UNIX (Linux and FreeBSD) and Windows (with some limitations).<div class='warning'><span class='warninglabel'>WARNING:</span> The redirect system has been deprecated, please use the view classes directly. If you find old code that uses prefixes for the old GUI Kits (e.g. SCWindow for CocoaGUI), try dropping the prefixes to Window, Button etc. The Qt prefix Q, as e.g. in QWindow, is converted to Window automatically; still it is better style to simply write Window.</div>
-<p>Switching between GUI schemes is not needed anymore, as Qt runs well on all platforms. Still, you can get the available schemes with:<textarea class='editor'>GUI.schemes;</textarea>
+<p>Switching between GUI schemes is not needed anymore, as Qt runs well on all platforms. Still, you can get the available schemes with:<div class='codeMirrorContainer'><textarea class='editor'>GUI.schemes;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>For a complete list of historical gui classes and their redirects, see <a href="./../Overviews/GUI-Classes.html">List of GUI classes</a>.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
@@ -73,7 +74,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*initClass' href='./../Overviews/Methods.html#initClass'>initClass</a></h3>
 <div class='method'>
-<p>Sets the <code>skin</code> to default values on compile.<textarea class='editor'>fontSpecs: ["Helvetica", 10],
+<p>Sets the <code>skin</code> to default values on compile.<div class='codeMirrorContainer'><textarea class='editor'>fontSpecs: ["Helvetica", 10],
 fontColor: Color.black,
 background: Color(0.8, 0.85, 0.7, 0.5),
 foreground: Color.grey(0.95),
@@ -82,6 +83,7 @@ offColor: Color.clear,
 gap: 0@0,
 margin: 2@2,
 buttonHeight: 16</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*add' href='./../Overviews/Methods.html#add'>add</a></h3>
 <div class='method'>
 <p></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*qt' href='./../Overviews/Methods.html#qt'>qt</a></h3>

@@ -52,11 +52,12 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>In the simplest respect this is a lazy contraction of this:<textarea class='editor'>w = GUI.window.new;
+<p>In the simplest respect this is a lazy contraction of this:<div class='codeMirrorContainer'><textarea class='editor'>w = GUI.window.new;
 w.view.decorator = FlowLayout.new(w.bounds);
 w.front;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p><a href="./../Classes/FlowView.html">FlowView</a> add some features to this setup.<textarea class='editor'>(
+<p><a href="./../Classes/FlowView.html">FlowView</a> add some features to this setup.<div class='codeMirrorContainer'><textarea class='editor'>(
 f = FlowView.new;
 
 GUI.slider.new(f, Rect(0, 0, 100, 100));
@@ -70,6 +71,7 @@ f.startRow;
 
 GUI.slider.new(f, Rect(0, 0, 100, 100));
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
 <div class='method'>
@@ -86,7 +88,7 @@ GUI.slider.new(f, Rect(0, 0, 100, 100));
 <div class='method'>
 <p>Start a new row.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-indentedRemaining' href='./../Overviews/Methods.html#indentedRemaining'>indentedRemaining</a></h3>
 <div class='method'>
-<p>The maximum space that is left, starting at the current cursor position.<textarea class='editor'>(
+<p>The maximum space that is left, starting at the current cursor position.<div class='codeMirrorContainer'><textarea class='editor'>(
 f = FlowView.new;
 
 GUI.slider.new(f, Rect(0, 0, 100, 100));
@@ -119,9 +121,10 @@ GUI.slider.new(f, Rect(0, 0, 100, 100));
 GUI.slider.new(f, f.indentedRemaining)
     .background = Color.blue(alpha: 0.2)
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-used' href='./../Overviews/Methods.html#used'>used</a></h3>
 <div class='method'>
-<p>The area used so far, rounded up to the nearest rectangle plus margin.<textarea class='editor'>(
+<p>The area used so far, rounded up to the nearest rectangle plus margin.<div class='codeMirrorContainer'><textarea class='editor'>(
 w = GUI.window.new;
 w.front;
 f = FlowView.new(w);
@@ -156,9 +159,10 @@ f.used.postln;
 GUI.compositeView.new(w, f.used)
     .background = Color.red(alpha: 0.1);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-flow' href='./../Overviews/Methods.html#flow'>flow</a></h3>
 <div class='method'>
-<p>Insert a sub flow view into the current view.<textarea class='editor'>(
+<p>Insert a sub flow view into the current view.<div class='codeMirrorContainer'><textarea class='editor'>(
 f = FlowView.new;
 
 GUI.slider.new(f, Rect(0, 0, 100, 100));
@@ -169,13 +173,14 @@ g = f.flow({ |g|
     GUI.slider.new(g, Rect(0, 0, 100, 100)).background_(Color.rand);
 }).background_(Color.black); // shrinks to fit the contents afterwards
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>func<td class='argumentdesc'>
 <p>(describe argument here)<tr><td class='argumentname'>bounds<td class='argumentdesc'>
 <p>(describe argument here)</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-comp' href='./../Overviews/Methods.html#comp'>comp</a></h3>
 <div class='method'>
-<p>Insert a sub composite view into the current view.<textarea class='editor'>(
+<p>Insert a sub composite view into the current view.<div class='codeMirrorContainer'><textarea class='editor'>(
 f = FlowView.new;
 
 GUI.slider.new(f, Rect(0, 0, 100, 100));
@@ -189,13 +194,14 @@ g = f.comp({ |g|
 f.startRow;
 "Back to flowing".gui(f);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>func<td class='argumentdesc'>
 <p>(describe argument here)<tr><td class='argumentname'>bounds<td class='argumentdesc'>
 <p>(describe argument here)</table></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// note: some of the following examples use ActionButton from the crucialib
+<div class='codeMirrorContainer'><textarea class='editor'>// note: some of the following examples use ActionButton from the crucialib
 
 // tests
 (
@@ -321,6 +327,7 @@ w.resizeToFit(true, true);
 ActionButton(w, "i'm back", minWidth: 200);
 w.resizeToFit(true, true);
 // slightly wrong size at the bottom</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/FlowView.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/FlowView.schelp</a><br>link::Classes/FlowView::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

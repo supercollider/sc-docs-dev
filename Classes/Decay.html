@@ -61,12 +61,13 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// Plot the exponentially decaying envelope
+<div class='codeMirrorContainer'><textarea class='editor'>// Plot the exponentially decaying envelope
 (
 var t60 = 0.1; // decayTime
 plot({ Decay.ar(Impulse.ar(0), t60) }, t60);
 )</textarea>
-<textarea class='editor'>// Used as an evelope generator
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// Used as an evelope generator
 (
 play({
     Decay.ar(
@@ -76,8 +77,9 @@ play({
     )
 })
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>As can be heard in the previous example, when <code>Decay</code> is used as a modulator, its immediate onset can lead to discontinuities and audible clicks. This can be seen in the waveform:<textarea class='editor'>(
+<p>As can be heard in the previous example, when <code>Decay</code> is used as a modulator, its immediate onset can lead to discontinuities and audible clicks. This can be seen in the waveform:<div class='codeMirrorContainer'><textarea class='editor'>(
 plot({
     Decay.ar(
         in: Impulse.ar(50),
@@ -86,8 +88,9 @@ plot({
     )
 }, 0.1, bounds: Rect(50,50,1200,400))
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p><a href="./../Classes/Decay2.html">Decay2</a> allows for onset control, as shown below:<textarea class='editor'>(
+<p><a href="./../Classes/Decay2.html">Decay2</a> allows for onset control, as shown below:<div class='codeMirrorContainer'><textarea class='editor'>(
 var t60, riseScale, riseFac, normFac;
 
 t60 = 0.3; // decay time
@@ -113,6 +116,7 @@ plot({
 .plotColor_([Color.blue, Color.red])
 .superpose_(true)
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Decay.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Decay.schelp</a><br>link::Classes/Decay::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

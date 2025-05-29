@@ -225,7 +225,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-learnFunc' href='./../Overviews/Methods.html#learnFunc'>learnFunc</a>(<span class='argstr'>learnVal</span>)</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>MIDIIn.connectAll
+<div class='codeMirrorContainer'><textarea class='editor'>MIDIIn.connectAll
 
 a = MIDIFunc.cc({ |...args| args.postln }, 1); // match cc 1
 a.free; // cleanup
@@ -243,6 +243,7 @@ MIDIIn.doNoteOnAction(1, 1, 64, 64); // spoof a note on
 MIDIIn.doControlAction(1, 1, 1, 64); // spoof a cc
 MIDIIn.doControlAction(1, 1, 9, 64);
 MIDIIn.doControlAction(1, 10, 1, 64);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MIDIFunc.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MIDIFunc.schelp</a><br>link::Classes/MIDIFunc::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

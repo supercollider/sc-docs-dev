@@ -62,7 +62,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-patternpairs' href='./../Overviews/Methods.html#patternpairs'>patternpairs</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-patternpairs' href='./../Overviews/Methods.html#patternpairs'>patternpairs</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 a = Pbind(\x, Pseq([1, 2, 3]), \zzz, 9000); // input stream
 b = Pbindf(a, \y, Prand([100, 300, 200], inf), \zzz, 99);
 x = b.asStream;
@@ -95,6 +95,7 @@ SynthDef(\test, { |out, freq = 440, amp = 0.1, nharms = 10, pan = 0, gate = 1|
 a = Pbind(\instrument, \test, \dur, 0.1);
 
 Pbindf(a, \freq, Prand([1, 1.2, 2, 2.5, 3, 4], inf) * 200).play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pbindf.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pbindf.schelp</a><br>link::Classes/Pbindf::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

@@ -71,7 +71,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>The parent view.<tr><td class='argumentname'>bounds<td class='argumentdesc'>
 <p>An instance of <a href="./../Classes/Rect.html">Rect</a>, or a <a href="./../Classes/Point.html">Point</a> indicating <code>width@height</code>.</table><h4>Discussion:</h4>
 
-<p>Example:<textarea class='editor'>(
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new("The Four Noble Truths");
 
 b = Button(w, Rect(20, 20, 340, 30))
@@ -86,6 +86,7 @@ b = Button(w, Rect(20, 20, 340, 30))
         });
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-states' href='./../Overviews/Methods.html#states'>states</a></h3>
@@ -93,7 +94,7 @@ w.front;
 <p>An array of labels and colors defining the states of the button.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>stateArray<td class='argumentdesc'>
-<p>An <a href="./../Classes/Array.html">Array</a> of arrays of the form <code>[[String, strColor, bgColor], ....]</code><textarea class='editor'>(
+<p>An <a href="./../Classes/Array.html">Array</a> of arrays of the form <code>[[String, strColor, bgColor], ....]</code><div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new;
 a = Button(w, Rect(130, 130, 100, 100));
 w.front;
@@ -109,6 +110,7 @@ a.action = { |view|
     if(view.value == 3) { a.states =  [[["yes", "no"].choose, Color.grey, Color.white]] }
 }
 );</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a></h3>
 <div class='method'>
 <p>Sets or returns the index of the current state. This will <strong>not</strong> evaluate the function assigned to <strong>action</strong> (see <a href="./../Classes/View.html">View</a>).<h4>Arguments:</h4>
@@ -121,11 +123,12 @@ a.action = { |view|
 <tr><td class='argumentname'>anInt<td class='argumentdesc'>
 <p>The index of an item in the states array.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-string' href='./../Overviews/Methods.html#string'>string</a></h3>
 <div class='method'>
-<p>Sets or gets the text of the currently active state.<textarea class='editor'>(
+<p>Sets or gets the text of the currently active state.<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window("but", Rect(300, 300, 200, 200)).front;
 b = Button(w, Rect(30, 40, 140, 50));
 b.string = "hello button";
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-font' href='./../Overviews/Methods.html#font'>font</a></h3>
 <div class='method'>
 <p>Sets the Font of the button. Default value is the default font: Font.default .<h4>Arguments:</h4>
@@ -156,7 +159,7 @@ b.string = "hello button";
 <div class='method'>
 <p>The default method called when a drag has been received. If the drag contains a number, then action is set to the current drag. Otherwise <code>valueAction_()</code> is performed using the <code>currentDrag</code>.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new("Example");
 
 b = Button(w, Rect(90, 20, 200, 30))
@@ -183,8 +186,9 @@ b.valueAction = -1;
 
 // floats no problem
 b.valueAction = 3.3;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>In a musical context, a button-down press is more meaningful than a button-up (release) as it's more intuitive to press a button on the beat. For that you can use <a href="./../Classes/View.html">View</a>'s <a href="./../Classes/View.html#-mouseDownAction">View: -mouseDownAction</a> (a superclass of Button).<textarea class='editor'>(
+<p>In a musical context, a button-down press is more meaningful than a button-up (release) as it's more intuitive to press a button on the beat. For that you can use <a href="./../Classes/View.html">View</a>'s <a href="./../Classes/View.html#-mouseDownAction">View: -mouseDownAction</a> (a superclass of Button).<div class='codeMirrorContainer'><textarea class='editor'>(
 s.waitForBoot({
     w = Window.new;
     b = Button(w, Rect(20, 20, 80, 26))
@@ -198,8 +202,9 @@ s.waitForBoot({
     w.front;
 })
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>If you drag a function to a button, the button's action is set to that function. you can us this for swapping functions.<textarea class='editor'>(
+<p>If you drag a function to a button, the button's action is set to that function. you can us this for swapping functions.<div class='codeMirrorContainer'><textarea class='editor'>(
 s.waitForBoot({
     var w, p, snd, b;
 
@@ -236,8 +241,9 @@ s.waitForBoot({
     w.front;
 })
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Using Routine to set button states on the fly.<textarea class='editor'>(
+<p>Using Routine to set button states on the fly.<div class='codeMirrorContainer'><textarea class='editor'>(
 var update, w, b;
     w = Window.new("State Window", Rect(150, Window.screenBounds.height - 140, 380, 60));
 
@@ -265,8 +271,9 @@ var update, w, b;
     });
     w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Using Routine to set button states on the fly 2.<textarea class='editor'>(
+<p>Using Routine to set button states on the fly 2.<div class='codeMirrorContainer'><textarea class='editor'>(
 s.waitForBoot({
     var update, w, b;
 
@@ -321,8 +328,9 @@ s.waitForBoot({
     w.front;
 });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Complex drag and drop example try dragging the buttons to white slot, and then between white slots, or simply out of the view.<textarea class='editor'>(
+<p>Complex drag and drop example try dragging the buttons to white slot, and then between white slots, or simply out of the view.<div class='codeMirrorContainer'><textarea class='editor'>(
 var w, f, slots;
 var insert, remove;
 
@@ -390,6 +398,7 @@ f.nextLine;
 };
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Button.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Button.schelp</a><br>link::Classes/Button::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

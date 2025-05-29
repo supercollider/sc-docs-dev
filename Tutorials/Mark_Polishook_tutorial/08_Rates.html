@@ -41,15 +41,17 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='Audio%20rate'>Audio rate</a></h2>
 
-<p>UGens to which an .ar message is sent run at the audio rate, by default, at 44,100 samples per second. Send the .ar message to unit generators when they're part of the audio chain that will be heard.<textarea class='editor'>SinOsc.ar(440, 0, 1);</textarea>
+<p>UGens to which an .ar message is sent run at the audio rate, by default, at 44,100 samples per second. Send the .ar message to unit generators when they're part of the audio chain that will be heard.<div class='codeMirrorContainer'><textarea class='editor'>SinOsc.ar(440, 0, 1);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Control%20rate'>Control rate</a></h2>
 
-<p>UGens to which a .kr message is appended run at the control rate.<textarea class='editor'>SinOsc.kr(440, 0, 1);</textarea>
+<p>UGens to which a .kr message is appended run at the control rate.<div class='codeMirrorContainer'><textarea class='editor'>SinOsc.kr(440, 0, 1);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>By default, control rate ugens generate one sample value for every sixty-four sample values made by an audio rate ugen. Control rate ugens thus use fewer resources and are less computationally expensive than their audio rate counterparts.
 <p>Use control rate ugens as modulators, that is, as signals that shape an audio signal.
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////
-<p>Here, a control rate SinOsc modulates the frequency of the audio rate Pulse wave.<textarea class='editor'>(
+<p>Here, a control rate SinOsc modulates the frequency of the audio rate Pulse wave.<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef("anExample", {
     Out.ar(
         0,
@@ -63,6 +65,7 @@ SynthDef("anExample", {
 )
 
 Synth("anExample")</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Type command-period (cmd-.) to stop synthesis.
 <p>////////////////////////////////////////////////////////////////////////////////////////////////////

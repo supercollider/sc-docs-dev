@@ -58,14 +58,15 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>multiply with this value<tr><td class='argumentname'>add<td class='argumentdesc'>
 <p>add this value</table><h4>Discussion:</h4>
 
-<p>Same as:<textarea class='editor'>in.madd(mul, add)</textarea>
+<p>Same as:<div class='codeMirrorContainer'><textarea class='editor'>in.madd(mul, add)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>MulAdd.</span><a class='method-name' name='*canBeMulAdd' href='./../Overviews/Methods.html#canBeMulAdd'>canBeMulAdd</a>(<span class='argstr'>in</span>, <span class='argstr'>mul</span>, <span class='argstr'>add</span>)</h3>
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>s.boot;
+<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 
 // The mul and add arguments of SinOsc themselves use MulAdd!
 // These two examples will create precisely the same synth graph:
@@ -81,6 +82,7 @@ x.free;
 x = { SinOsc.ar(440, 0) * 0.1 + 0.05 }.play(s);
 x.trace;
 x.free;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>(Note: the "trace" message is described in the helpfile for <a href="./../Classes/Node.html">Node</a>.)<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MulAdd.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MulAdd.schelp</a><br>link::Classes/MulAdd::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

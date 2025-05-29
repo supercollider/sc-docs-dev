@@ -229,7 +229,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p> If the drag data is in one of the acceptable forms (see <a href="#-defaultCanReceiveDrag">-defaultCanReceiveDrag</a> above), sets <a href="#-value">-value</a> (and <a href="#-reference">-reference</a>) using that data.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <h3><a class='anchor' name='Basic%20Examples'>Basic Examples</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 n = 20;
 w = Window.new.front;
 m = MultiSliderView(w, Rect(10, 10, n*13+2, 100)); // default thumbWidth is 13
@@ -238,8 +238,9 @@ m.action = { |q|
     q.value.postln;
 };
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Looks like a candlestick graph:<textarea class='editor'>(
+<p>Looks like a candlestick graph:<div class='codeMirrorContainer'><textarea class='editor'>(
 var size;
 size = 350 / 6;
 w = Window.new;
@@ -257,9 +258,10 @@ w.front;
 m.bounds_(Rect(0, 0, 100, 350));
 m.indexIsHorizontal_(false);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Interactive%20Example'>Interactive Example</a></h3>
 
-<p>A walk through all the graphic options:<textarea class='editor'>(
+<p>A walk through all the graphic options:<div class='codeMirrorContainer'><textarea class='editor'>(
 n = 40;
 
 w = Window("MultiSlider Options", Rect(200, Window.screenBounds.height-550, 600, 450));
@@ -314,8 +316,9 @@ f = {
 f.value;
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Display%20a%20Sound%20File'>Display a Sound File</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 // press shift to extend the selection
 // use as waveView: scrubbing over the view returns index
 // if showIndex(false) the view is not refreshed (faster);
@@ -378,8 +381,9 @@ b.showIndex_(true);
 a.front;
 
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Use%20as%20a%20Sequencer'>Use as a Sequencer</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 var size;
 size = 12;
 s.waitForBoot({
@@ -419,6 +423,7 @@ s.waitForBoot({
     AppClock.play(r);
 });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MultiSliderView.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/MultiSliderView.schelp</a><br>link::Classes/MultiSliderView::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

@@ -109,7 +109,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <dt>Receiver's size &gt; span<dd>Returns an array of two ContiguousBlocks, partitioning the original address space.<dt>Receiver's size == span<dd>Returns an array with the original (identical) block and nil for the second partition.<dt>Receiver's size &lt; span<dd>Returns nil, because the original address space cannot be partitioned to be larger than itself.</dl>
 </div></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>c = ContiguousBlock(10, 2);
+<div class='codeMirrorContainer'><textarea class='editor'>c = ContiguousBlock(10, 2);
 d = ContiguousBlock(6, 3);
 e = ContiguousBlock(6, 4);
 f = ContiguousBlock(12, 1);
@@ -144,6 +144,7 @@ g.split(2)  // [ContiguousBlock(14, 2, false), ContiguousBlock(16, 3, false)]
 c.split(2)  // [ContiguousBlock(10, 2, false), nil]
 
 f.split(2)  // nil because 'f' isn't large enough</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ContiguousBlock.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ContiguousBlock.schelp</a><br>link::Classes/ContiguousBlock::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

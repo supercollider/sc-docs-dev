@@ -169,7 +169,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p> Sets <a href="#-valueAction">-valueAction</a> to the current drag data.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <h3><a class='anchor' name='Basic%20Example'>Basic Example</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 var window, size = 32; // try different sizes - from 15 to 200 or more!
 window = Window.new("Knob", Rect(640, 630, 270, 70)).front;
 k = Knob.new(window, Rect(20, 10, size, size));
@@ -193,8 +193,9 @@ k.enabled = false
 k.enabled_(true)
 k.canFocus = false
 k.canFocus = true</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Compare%20Mouse%20Modes'>Compare Mouse Modes</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 var view = View().layout_(
     HLayout(
         VLayout(Knob().mode_(\round), StaticText().string_("round")),
@@ -204,9 +205,10 @@ var view = View().layout_(
 );
 view.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Centered%20Mode'>Centered Mode</a></h3>
 
-<p>Center mode is useful for pan or eq gain control etc.<textarea class='editor'>(
+<p>Center mode is useful for pan or eq gain control etc.<div class='codeMirrorContainer'><textarea class='editor'>(
 var window;
 k = Knob.new(window, Rect(20, 10, 36, 36));
 window = Window.new("Pan Knob", Rect(640, 630, 270, 70)).front;
@@ -219,9 +221,10 @@ k.action_({ |v, x, y, m| \pan.asSpec.map(v.value).postln })
 k.centered
 k.centered = true
 k.centered = false</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='step'>step</a></h3>
 
-<p><a href="#-step">-step</a> only affects the 'horiz' and 'vert' modes:<textarea class='editor'>(
+<p><a href="#-step">-step</a> only affects the 'horiz' and 'vert' modes:<div class='codeMirrorContainer'><textarea class='editor'>(
 var window, midispec;
 k = Knob.new(window, Rect(20, 10, 32, 32));
 midispec = [0, 127, 'linear', 1].asSpec;
@@ -237,8 +240,9 @@ k.step = 10/127 // step by 10
 
 k.mode = \horiz;
 k.mode = \round;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='mouseOverAction'>mouseOverAction</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 var size = 28;
 w = Window.new("Knobs", Rect(250, 500, 270, 70));
 w.acceptsMouseOver = true; // must be true in parent window!
@@ -257,8 +261,9 @@ k = Array(8);
 w.front
 )
 k[4].value</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Drag%20and%20Drop'>Drag and Drop</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 var w, txt, size = 36;
 w = Window.new("Knobs", Rect(400, 400, 250, 100)).front;
 w.acceptsMouseOver = true;
@@ -292,6 +297,7 @@ k.receiveDragHandler = { k.valueAction = View.currentDrag.clip(0.0, 1.0) }
 k.beginDragAction = { ("drag out -&gt; " ++ k.value).postln }
 
 k.beginDragAction = { k.value.asFloat }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Knob.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Knob.schelp</a><br>link::Classes/Knob::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

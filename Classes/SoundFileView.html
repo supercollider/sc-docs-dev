@@ -431,7 +431,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p> The object to be evaluated on Ctrl + click.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <h3><a class='anchor' name='Basic%20example'>Basic example</a></h3>
-<textarea class='editor'>// To zoom in/out: Shift + right-click + mouse-up/down
+<div class='codeMirrorContainer'><textarea class='editor'>// To zoom in/out: Shift + right-click + mouse-up/down
 // To scroll: right-click + mouse-left/right
 (
 w = Window.new("soundfile test", Rect(200, 300, 740, 100));
@@ -457,8 +457,9 @@ a.gridResolution = 0.2;
 
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Step%20by%20step%20examples'>Step by step examples</a></h3>
-<textarea class='editor'>( // make a simple SoundFileView
+<div class='codeMirrorContainer'><textarea class='editor'>( // make a simple SoundFileView
 y = Window.screenBounds.height - 120;
 w = Window.new("soundfile test", Rect(200, y, 740, 100)).alwaysOnTop_(true);
 w.front;
@@ -588,12 +589,13 @@ a.scroll(12);       // scroll is in viewFrames.
 a.zoom(4);
 
 w.close;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Adding%20a%20scroll%20bar'>Adding a scroll bar</a></h3>
 
 <p>Zooming and scrolling by mouse, directly in a SoundFileView, may not be immediately intuitive. (Most users wouldn't guess to shift-right-click!) You can add a <a href="./../Classes/RangeSlider.html">RangeSlider</a> to act as a scrollbar.
 <p>Notes:<ul>
 <li>If the user shift-right-clicks, the only way to track the SoundFileView's display changes is by using mouse actions: <a href="./../Classes/View.html#-mouseDownAction">View: -mouseDownAction</a> and <a href="./../Classes/View.html#-mouseUpAction">View: -mouseUpAction</a> to know which button is pressed, and <a href="./../Classes/View.html#-mouseMoveAction">View: -mouseMoveAction</a> to read the new scrolling and zooming values.<li><a href="./../Classes/SoundFileView.html#-xZoom">SoundFileView: -xZoom</a> is in seconds, while the range slider is normalized to a 0-1 range. So <code>xZoom == slider.range * duration</code>, and <code>slider.range == xZoom / duration</code>.<li><a href="./../Classes/SoundFileView.html#-scrollPos">SoundFileView: -scrollPos</a> is normalized to the "total scrolling range," where 1.0 is scrolled fully to the right. We have to subtract the displayed area: <code>slider.lo = sfv.scrollPos / (1 - slider.size)</code>, with some refinements to avoid division by 0.</ul>
-<textarea class='editor'>p = ExampleFiles.child;
+<div class='codeMirrorContainer'><textarea class='editor'>p = ExampleFiles.child;
 f = SoundFile.openRead(p);
 f.readData(d = Signal.newClear(f.numFrames * f.numChannels));
 f.close;
@@ -640,6 +642,7 @@ sfv.mouseDownAction_({ |view, x, y, mod, buttonNumber|
 
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SoundFileView.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SoundFileView.schelp</a><br>link::Classes/SoundFileView::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

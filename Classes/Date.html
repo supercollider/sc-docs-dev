@@ -83,33 +83,38 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>Create a new Date with the given properties (all are Integer values, except <code>rawSeconds</code>, which is a Float). These arguments are also the names of instance variables of the Date object.
 <p>The constructor initializes the instance in one of the following ways (in order of priority):<ol>
-<li>If <code>Date.new</code> is called without any arguments, it will return the <strong>current time</strong>, the same as calling <a href="#*localtime">*localtime</a>.<textarea class='editor'>// The following are equivalent, they return "now" (at the time of call):
+<li>If <code>Date.new</code> is called without any arguments, it will return the <strong>current time</strong>, the same as calling <a href="#*localtime">*localtime</a>.<div class='codeMirrorContainer'><textarea class='editor'>// The following are equivalent, they return "now" (at the time of call):
 Date.new;
 Date.localtime;</textarea>
-<li>If a <code>rawSeconds</code> argument is specified, it is used to set (overwrite) all the other properties (<code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>, <code>dayOfWeek</code>), regardless of whether they are nil or not.<textarea class='editor'>(
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<li>If a <code>rawSeconds</code> argument is specified, it is used to set (overwrite) all the other properties (<code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>, <code>dayOfWeek</code>), regardless of whether they are nil or not.<div class='codeMirrorContainer'><textarea class='editor'>(
 var d = Date.new.postln;
 var e = Date(rawSeconds: d.rawSeconds); // create a new Date with the same time
 d == e; // true
 )</textarea>
-<li>The most typical usage is to create a Date from a year/month/day and possibly hour/minute/second. All of these properties (except <code>year</code>) have default values (<code>month = 1</code>, <code>day = 1</code>, <code>hour = 0</code>, <code>minute = 0</code>, <code>second = 0</code>). <code>rawSeconds</code> is computed based on the other properties. There is no default year -- if no <code>year</code> is provided, an error is thrown.<textarea class='editor'>Date(1969, 7, 20, 20, 18); // -&gt; Sun Jul 20 20:18:00 1969
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<li>The most typical usage is to create a Date from a year/month/day and possibly hour/minute/second. All of these properties (except <code>year</code>) have default values (<code>month = 1</code>, <code>day = 1</code>, <code>hour = 0</code>, <code>minute = 0</code>, <code>second = 0</code>). <code>rawSeconds</code> is computed based on the other properties. There is no default year -- if no <code>year</code> is provided, an error is thrown.<div class='codeMirrorContainer'><textarea class='editor'>Date(1969, 7, 20, 20, 18); // -&gt; Sun Jul 20 20:18:00 1969
 Date(2016); // -&gt; Fri Jan  1 00:00:00 2016
 d = Date(2010, day: 15, minute: 30); // -&gt; Fri Jan 15 00:30:00 2010
 [d.asString, d.dayOfWeek, d.rawSeconds]; // dayOfWeek and rawSeconds were computed</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='note'><span class='notelabel'>NOTE:</span> On Windows, <code>Date</code> creation fails for dates before Unix epoch, i.e. before January 1st, 1970.</div></ol>
 
-<p>It is possible to specify dates with "out of range" values that will be resolved into a valid range -- this allows simple date offset calculations to be performed (see example below).<textarea class='editor'>(
+<p>It is possible to specify dates with "out of range" values that will be resolved into a valid range -- this allows simple date offset calculations to be performed (see example below).<div class='codeMirrorContainer'><textarea class='editor'>(
 // Simple date/time offsetting can be performed:
 ("One hundred days before Christmas:" + Date(2010, 12, 25 - 100).format("%B %d")).postln;
 
 // Invalid dates are "corrected"
 Date(2017, 2, 29).postln; // March 1: 2017 was not a leap year!
 )</textarea>
-<div class='note'><span class='notelabel'>NOTE:</span> The <code>dayOfWeek</code> argument is <strong>always calculated</strong>. If it is specified, the value will be overwritten (it only remains a constructor argument for reasons of backward compatibility).<textarea class='editor'>// There is no point (but no harm) in specifying the dayOfWeek argument,
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='note'><span class='notelabel'>NOTE:</span> The <code>dayOfWeek</code> argument is <strong>always calculated</strong>. If it is specified, the value will be overwritten (it only remains a constructor argument for reasons of backward compatibility).<div class='codeMirrorContainer'><textarea class='editor'>// There is no point (but no harm) in specifying the dayOfWeek argument,
 // as it will always be calculated:
 Date(2017, 10, 31, dayOfWeek: 0).dayOfWeek; // calculated to be 2 (Tuesday), not 0 (Sunday)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div></div><h3 class='method-code'><span class='method-prefix'>Date.</span><a class='method-name' name='*fromString' href='./../Overviews/Methods.html#fromString'>fromString</a>(<span class='argstr'>string</span>, <span class='argstr'>format</span>)</h3>
 <div class='method'>
-<p>Create a new Date object from a date/time string, which is parsed according to the provided format string.<textarea class='editor'>Date.fromString("2017-10-25 [13:25:55]", "%Y-%m-%d [%H:%M:%S]");
+<p>Create a new Date object from a date/time string, which is parsed according to the provided format string.<div class='codeMirrorContainer'><textarea class='editor'>Date.fromString("2017-10-25 [13:25:55]", "%Y-%m-%d [%H:%M:%S]");
 Date.fromString("1981.9.30 @ 17:33", "%Y.%m.%d @ %H:%M");
 
 (
@@ -118,6 +123,7 @@ var stampString = Date(2013, 5, 25, 10, 9, 8).stamp;
 var d = Date.fromString(stampString, "%y%m%d_%H%M%S");
 (stampString + "--&gt;" + d).postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>string<td class='argumentdesc'>
@@ -125,35 +131,38 @@ var d = Date.fromString(stampString, "%y%m%d_%H%M%S");
 <p>The format to use to parse the date string. Note that the supported input formats are slightly different from those of the <a href="#-format">-format</a> (output) method. In particular, some of the "combined" formats (such as <code>%F</code> or <code>%T</code>) are not supported for input, you must expand them out (<code>"%F"</code> -&gt; <code>"%Y-%m-%d"</code> and <code>"%T"</code> -&gt; <code>"%H:%M:%S"</code>). The full list of supported input format flags may be found <a href="http://www.boost.org/doc/libs/1_63_0/doc/html/date_time/date_time_io.html">here</a>.
 <p>To parse the above example string, you would use <code>"%Y-%m-%d %H:%M:%S"</code>.</table></div><h3 class='method-code'><span class='method-prefix'>Date.</span><a class='method-name' name='*getDate' href='./../Overviews/Methods.html#getDate'>getDate</a></h3>
 <div class='method'>
-<p>Get current date from system and create a date object from it.<textarea class='editor'>(
+<p>Get current date from system and create a date object from it.<div class='codeMirrorContainer'><textarea class='editor'>(
 var a = Date.getDate;
 a.rawSeconds.postln;
 a.dayOfWeek.postln;
 a
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>Date.</span><a class='method-name' name='*localtime' href='./../Overviews/Methods.html#localtime'>localtime</a></h3>
 <div class='method'>
 <p>Get current localized time from system and create a date object from it.</div><h3 class='method-code'><span class='method-prefix'>Date.</span><a class='method-name' name='*gmtime' href='./../Overviews/Methods.html#gmtime'>gmtime</a></h3>
 <div class='method'>
 <p>Get current <strong>Greenwich Mean Time (GMT)</strong> from system and create a date object from it.</div><h3 class='method-code'><span class='method-prefix'>Date.</span><a class='method-name' name='*seed' href='./../Overviews/Methods.html#seed'>seed</a></h3>
 <div class='method'>
-<p>Get current date and return a value suitable for seeding a random number generator. See also <a href="./../Reference/randomSeed.html">randomSeed</a>.<textarea class='editor'>(
+<p>Get current date and return a value suitable for seeding a random number generator. See also <a href="./../Reference/randomSeed.html">randomSeed</a>.<div class='codeMirrorContainer'><textarea class='editor'>(
 var a = Date.seed;
 thisThread.randSeed = a;
 20.do { [1, 0].choose.post }; "".postln;
 thisThread.randSeed = a;
 25.do { [1, 0].choose.post }; "".postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rawSeconds' href='./../Overviews/Methods.html#rawSeconds'>rawSeconds</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rawSeconds' href='./../Overviews/Methods.html#rawSeconds'>rawSeconds</a> = value</h3>
 <div class='method'>
 <p>Get or set the receiver's raw time in seconds (relative to the "epoch" of January 1, 1970).
-<p>If you modify this property, the other properties will not update. See note at <a href="#-resolve">-resolve</a> -- there is no "resolveFromRawSeconds" method, but you can generate a new self-consistent Date instance by passing the <code>rawSeconds</code> as an argument to <a href="#*new">*new</a>.<div class='note'><span class='notelabel'>NOTE:</span> This value is not portable between machines, because of differences in the way the underlying time functions are implemented, and because of time zone differences. To save/restore Date values between runs and on different platforms, it is recommended <strong>not</strong> to use the rawSeconds value. Instead, you should serialize the Date to a string, for example:</div><textarea class='editor'>(
+<p>If you modify this property, the other properties will not update. See note at <a href="#-resolve">-resolve</a> -- there is no "resolveFromRawSeconds" method, but you can generate a new self-consistent Date instance by passing the <code>rawSeconds</code> as an argument to <a href="#*new">*new</a>.<div class='note'><span class='notelabel'>NOTE:</span> This value is not portable between machines, because of differences in the way the underlying time functions are implemented, and because of time zone differences. To save/restore Date values between runs and on different platforms, it is recommended <strong>not</strong> to use the rawSeconds value. Instead, you should serialize the Date to a string, for example:</div><div class='codeMirrorContainer'><textarea class='editor'>(
 var savedDateStr = Date.localtime.format("%Y%m%d_%H%M%S").postcs;
 var loadedDate = Date.fromString(savedDateStr, "%Y%m%d_%H%M%S").postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-localtime' href='./../Overviews/Methods.html#localtime'>localtime</a></h3>
 <div class='method'>
 <p>Set the receiver's time to current localtime.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-gmtime' href='./../Overviews/Methods.html#gmtime'>gmtime</a></h3>
@@ -175,7 +184,7 @@ var loadedDate = Date.fromString(savedDateStr, "%Y%m%d_%H%M%S").postln;
 <p>Returns asctime.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-resolve' href='./../Overviews/Methods.html#resolve'>resolve</a></h3>
 <div class='method'>
 <p>Resolve any inconsistencies in the Date object, updating all the fields (in particular <code>dayOfWeek</code> and <code>rawSeconds</code>) as necessary.
-<p>If the instance properties (<code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>) are modified, the Date will be in an inconsistent state -- its <code>rawSeconds</code> won't reflect the modifications, and the properties may fall outside of "normal" ranges (<code>month: 1-12, day:1-31, hour: 0-23, minute/second: 0-59</code>). Also, using the string conversion methods may give strange results. Calling the <code>resolve</code> method will put things back into a consistent state.<textarea class='editor'>// Simple date/time offsetting can be performed:
+<p>If the instance properties (<code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>) are modified, the Date will be in an inconsistent state -- its <code>rawSeconds</code> won't reflect the modifications, and the properties may fall outside of "normal" ranges (<code>month: 1-12, day:1-31, hour: 0-23, minute/second: 0-59</code>). Also, using the string conversion methods may give strange results. Calling the <code>resolve</code> method will put things back into a consistent state.<div class='codeMirrorContainer'><textarea class='editor'>// Simple date/time offsetting can be performed:
 d = Date(2017, 9, 30, 10, 30); // -&gt; Sat Sep 30 10:30:00 2017
 [d.dayOfWeek, d.rawSeconds]; // -&gt; [6, 1506760200]
 d.hour = d.hour - 13; // -&gt; Sat Sep 30 -03:30:00 2017
@@ -186,7 +195,8 @@ d.rawSeconds; // hasn't changed: still 1506760200
 // Now resolve everything back into reasonable ranges, applying the offsets:
 d.resolve; // -&gt; Tue Jan 30 00:50:00 2018
 [d.dayOfWeek, d.rawSeconds]; // -&gt; [2, 1517269800]</textarea>
-<div class='note'><span class='notelabel'>NOTE:</span> There is no "resolveFromRawSeconds" method. If you modify the <code>rawSeconds</code> property, the other properties <strong>won't</strong> change to reflect it. If you want to "resolve" in the other direction, simply create a new Date object using the <code>rawSeconds</code>:<textarea class='editor'>d = Date(1999, 12, 31); // -&gt; Fri Dec 31 00:00:00 1999
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='note'><span class='notelabel'>NOTE:</span> There is no "resolveFromRawSeconds" method. If you modify the <code>rawSeconds</code> property, the other properties <strong>won't</strong> change to reflect it. If you want to "resolve" in the other direction, simply create a new Date object using the <code>rawSeconds</code>:<div class='codeMirrorContainer'><textarea class='editor'>d = Date(1999, 12, 31); // -&gt; Fri Dec 31 00:00:00 1999
 d.rawSeconds; // -&gt; 946594800
 
 // Add 1 million seconds (~11.6 days)
@@ -199,10 +209,12 @@ d.rawSeconds; // -&gt; 947594800
 // rawSeconds, just create a new Date object:
 d = Date(rawSeconds: d.rawSeconds);
 // -&gt; Tue Jan 11 13:46:40 2000</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-format' href='./../Overviews/Methods.html#format'>format</a>(<span class='argstr'>format</span>)</h3>
 <div class='method'>
-<p>Obtain a date string with a given format. The character % is replaced by the appropriate value, which is derived from the letter that follows.<textarea class='editor'>Date.getDate.format("Today is %A. It is around %I o'clock (%p), in %B.");
+<p>Obtain a date string with a given format. The character % is replaced by the appropriate value, which is derived from the letter that follows.<div class='codeMirrorContainer'><textarea class='editor'>Date.getDate.format("Today is %A. It is around %I o'clock (%p), in %B.");
 Date.getDate.format("%d/%m/%Y %H:%M");  // DD/MM/YYYY hh:mm</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Discussion:</h4>
 
 <p>A list of formats can be found here: <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strftime.html">http://www.opengroup.org/onlinepubs/009695399/functions/strftime.html</a><dl>
@@ -213,15 +225,17 @@ Date.getDate.format("%d/%m/%Y %H:%M");  // DD/MM/YYYY hh:mm</textarea>
 <div class='method'></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='->' href='./../Overviews/Methods.html#&gt;'>&gt;</a>(<span class='argstr'>other</span>)</h3>
 <div class='method'></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='->=' href='./../Overviews/Methods.html#&gt;='>&gt;=</a>(<span class='argstr'>other</span>)</h3>
 <div class='method'>
-<p>Compare two Dates based on their rawSeconds.<textarea class='editor'>Date(1999, 12, 31, 23, 59, 59) &lt; Date(2000, 1, 1, 0, 0, 0);
+<p>Compare two Dates based on their rawSeconds.<div class='codeMirrorContainer'><textarea class='editor'>Date(1999, 12, 31, 23, 59, 59) &lt; Date(2000, 1, 1, 0, 0, 0);
 Date(1999, 12, 31, 23, 59, 59) &lt;= Date(2000, 1, 1, 0, 0, -1);
 Date(2005, 1, 1) &gt; Date(2004, 1, 2);
 Date(2005, 2, 13) &gt;= Date(2005, 2, 13);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-==' href='./../Overviews/Methods.html#=='>==</a>(<span class='argstr'>other</span>)</h3>
 <div class='method'></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-!=' href='./../Overviews/Methods.html#!='>!=</a>(<span class='argstr'>other</span>)</h3>
 <div class='method'>
-<p>Test whether two Dates are equal/unequal, based on their rawSeconds.<textarea class='editor'>Date(2016, 11, 4) == Date(2016, 10, 4 + 31);
+<p>Test whether two Dates are equal/unequal, based on their rawSeconds.<div class='codeMirrorContainer'><textarea class='editor'>Date(2016, 11, 4) == Date(2016, 10, 4 + 31);
 Date(2016) != Date(2017);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>

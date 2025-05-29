@@ -52,14 +52,15 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>Or, go to
 <p><a href="http://www.nist.gov/dads/HTML/graph.html">http://www.nist.gov/dads/HTML/graph.html</a><h2><a class='anchor' name='Template'>Template</a></h2>
 
-<p>Here's a template for a synthdef showing that it consists of a name and a ugenGraphFunc<textarea class='editor'>SynthDef(
+<p>Here's a template for a synthdef showing that it consists of a name and a ugenGraphFunc<div class='codeMirrorContainer'><textarea class='editor'>SynthDef(
     "aSynthDef",                // the 1st argument is the name
     { .... i am a ugenGraphFunc ... }    // the 2nd argument is the ugenGraphFunc
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>To make the template functional<ol>
 <li>put code into the ugenGraphFunc<li>send a .load message to the synthdef</ol>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef(
     "aSynthDef",                 // the name of the synthdef
     {                     // the ugenGraphFunc with actual code
@@ -71,15 +72,18 @@ SynthDef(
     }
 ).load(s);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='The%20.load%20message%20and%20the%20variable%20's''>The .load message and the variable 's'</a></h2>
 
 <p>The .load message writes synthdefs to disk and also sends them to the default server. The default server is defined by SuperCollider at startup time (as the localhost server) at which point it's also assigned to the variable 's'.<h2><a class='anchor' name='The%20.send%20message%20and%20a%20remote%20server'>The .send message and a remote server</a></h2>
 
-<p>On the other hand, .send message,<textarea class='editor'>SynthDef( .... ).send(s);</textarea>
+<p>On the other hand, .send message,<div class='codeMirrorContainer'><textarea class='editor'>SynthDef( .... ).send(s);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>instead of a .load message<textarea class='editor'>SynthDef( .... ).load(s);</textarea>
+<p>instead of a .load message<div class='codeMirrorContainer'><textarea class='editor'>SynthDef( .... ).load(s);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>is another way to get a synthdef to a server. The .send message, unlike the .load message, doesn't first write the synthdef to disk; instead it just transmits the synthdef directly to the server. This is therefore the message to use to define a synthdef on one computer but send it to another.<textarea class='editor'>(
+<p>is another way to get a synthdef to a server. The .send message, unlike the .load message, doesn't first write the synthdef to disk; instead it just transmits the synthdef directly to the server. This is therefore the message to use to define a synthdef on one computer but send it to another.<div class='codeMirrorContainer'><textarea class='editor'>(
 var aServer;
 aServer =
     Server(
@@ -88,13 +92,15 @@ aServer =
     );
 SynthDef( .... ).send(aServer);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='note'><span class='notelabel'>NOTE:</span> Since this tutorial was written, another general purpose method was added to SynthDef. It is called <strong>.add</strong> and will be the new recommended standard instead of .load and .send.</div><h2><a class='anchor' name='SynthDef%20browsers'>SynthDef browsers</a></h2>
 
-<p>Use the synthdef browser to examine synthdefs that have been written to disk.<textarea class='editor'>(
+<p>Use the synthdef browser to examine synthdefs that have been written to disk.<div class='codeMirrorContainer'><textarea class='editor'>(
 // a synthdef browser
 SynthDescLib.global.read;
 SynthDescLib.global.browse;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>The middle box (in the top row) shows the names of synthdefs. Each name, when selected, causes the other boxes to display the ugens, controls, and inputs and outputs for a particular synthdef.
 <p>The box labeled "SynthDef controls" is useful because it shows the arguments that can be passed to a given synthdef.

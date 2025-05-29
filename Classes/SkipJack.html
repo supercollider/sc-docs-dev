@@ -111,7 +111,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>The updateFunc set by the argument to <a href="#*new">*new</a></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>Simple example:<textarea class='editor'>w = SkipJack({ "watch...".postln }, 0.5, name: "test");
+<p>Simple example:<div class='codeMirrorContainer'><textarea class='editor'>w = SkipJack({ "watch...".postln }, 0.5, name: "test");
 SkipJack.verbose = true;    // post stop/wakeup logs
 
 w.stop;
@@ -121,12 +121,14 @@ w.start;
 thisProcess.stop;
 
 w.stop;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Using stopTest:<textarea class='editor'>a = 5;
+<p>Using stopTest:<div class='codeMirrorContainer'><textarea class='editor'>a = 5;
 w = SkipJack({ "watch...".postln }, 0.5, { a == 10 }, "test");
 a = 10;    // fulfill stopTest</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Typical use: SkipJack updates a window displaying the state of some objects every now and then.<textarea class='editor'>(
+<p>Typical use: SkipJack updates a window displaying the state of some objects every now and then.<div class='codeMirrorContainer'><textarea class='editor'>(
 d = (a: 12, b: 24);
 d.win = Window("dict", Rect(0, 0, 200, 60)).front;
 d.views = [\a, \b].collect { |name, i|
@@ -148,12 +150,14 @@ w = SkipJack({
 d.a = 123;      // updates should be displayed
 d.b = \otto;
 d.win.close;    // when window closes, SkipJack stops.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>If you need to get rid of an unreachable skipjack:<textarea class='editor'>SkipJack({ "unreachable, unkillable...".postln }, name: "jack");
+<p>If you need to get rid of an unreachable skipjack:<div class='codeMirrorContainer'><textarea class='editor'>SkipJack({ "unreachable, unkillable...".postln }, name: "jack");
 
 SkipJack.stopAll        // do this to stop all;
 
 SkipJack.stop("jack");  // reach it by name and stop</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SkipJack.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/SkipJack.schelp</a><br>link::Classes/SkipJack::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

@@ -49,7 +49,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Ppar and its cousins are good for a fixed set of parallel patterns -- that is, you need to know in advance how many patterns will be parallelized. Once the parallel pattern starts, there is no way to add more streams to it. To keep adding streams, use <a href="./../../Classes/Pspawner.html">Pspawner</a> and <a href="./../../Classes/Pspawn.html">Pspawn</a>. For the purpose of this overview, some basic features will be illustrated in a couple of simple examples. These classes have more capabilities; refer to their help files for specifics.<dl>
 <dt><code>Pspawner(routineFunc)</code><dd>The function is run in a Routine. A Spawner object gets passed into this Routine, and this object is used to add or remove streams to/from the parallel stream. New patterns can be added in sequence or in parallel.<dt><code>Pspawn(pattern, spawnProtoEvent)</code><dd>Supports most of the features of Pspawner, but uses a pattern to control the Spawner object instead of a Routine function.
-<p>This example uses <a href="./../../Classes/Pspawner.html">Pspawner</a> to trigger overlapping scale segments at different speeds. Unlike Ppar, which could handle a fixed number before stopping, Pspawner can keep going indefinitely.<textarea class='editor'>(
+<p>This example uses <a href="./../../Classes/Pspawner.html">Pspawner</a> to trigger overlapping scale segments at different speeds. Unlike Ppar, which could handle a fixed number before stopping, Pspawner can keep going indefinitely.<div class='codeMirrorContainer'><textarea class='editor'>(
 p = Pspawner({ |sp|    // sp = the Spawner object
     loop {
             // run a new pattern in parallel
@@ -69,8 +69,9 @@ p = Pspawner({ |sp|    // sp = the Spawner object
 )
 
 p.stop;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>The same, written using <a href="./../../Classes/Pspawn.html">Pspawn</a> :<textarea class='editor'>(
+<p>The same, written using <a href="./../../Classes/Pspawn.html">Pspawn</a> :<div class='codeMirrorContainer'><textarea class='editor'>(
 p = Pspawn(Pbind(
     \method, \par,        // embed patterns in parallel
         // generate the subpattern in a Pfunc (so there's a new pattern each time)
@@ -90,6 +91,7 @@ p = Pspawn(Pbind(
 )
 
 p.stop;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </dl>
 
 <p>Previous: <a href="./../../Tutorials/A-Practical-Guide/PG_06c_Composition_of_Patterns.html">Pattern Guide 06c: Composition of Patterns</a>

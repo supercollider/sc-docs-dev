@@ -42,7 +42,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Sending MIDI is the job of the <a href="./../../Classes/MIDIOut.html">MIDIOut</a> class and the <code>\midi</code> event type. A MIDIOut is created to talk to a hardware device; the MIDI channel is provided when an event is played. MIDIOut's <code>newByName</code> makes it easier to identify a device.
 <p>The <code>\midi</code> event type supports the following commands, chosen in the event by the <code>\midicmd</code> key: <code>\allNotesOff, \bend, \control, \noteOff, \noteOn, \polyTouch, \program, \smpte, \songPtr, \sysex, \touch</code>. The default is <code>\noteOn</code>. When playing a note (noteOn), by default the corresponding noteOff message will be sent after the note's sustain time.
-<p>If you want to synchronize events played by a MIDI device and events played by the SuperCollider server, the MIDIOut object's latency must match the server latency. You can set the latency any time to affect all future events.<textarea class='editor'>MIDIClient.init;    // if not already done
+<p>If you want to synchronize events played by a MIDI device and events played by the SuperCollider server, the MIDIOut object's latency must match the server latency. You can set the latency any time to affect all future events.<div class='codeMirrorContainer'><textarea class='editor'>MIDIClient.init;    // if not already done
 
 (
     // substitute your own device here
@@ -64,6 +64,7 @@ p = Pbind(
 )
 
 p.stop;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Previous: <a href="./../../Tutorials/A-Practical-Guide/PG_Cookbook03_External_Control.html">Pattern Guide Cookbook 03: External Control</a>
 <p>Next: <a href="./../../Tutorials/A-Practical-Guide/PG_Cookbook05_Using_Samples.html">Pattern Guide Cookbook 05: Using Samples</a><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/A-Practical-Guide/PG_Cookbook04_Sending_MIDI.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/A-Practical-Guide/PG_Cookbook04_Sending_MIDI.schelp</a><br>link::Tutorials/A-Practical-Guide/PG_Cookbook04_Sending_MIDI::<br></div></div><script src='./../../static/editor.js' type='text/javascript'></script>

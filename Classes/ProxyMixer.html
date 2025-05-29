@@ -61,7 +61,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>ProxyMixer provides controls for handling and editing the node proxies in a proxyspace and their monitors (cross-platform graphics). It replaces the earlier ProxyMixer class. For Ndefs, use <a href="./../Classes/NdefMixer.html">NdefMixer</a>.
-<p>Overview: <a href="./../Overviews/JITLib.html">JITLib</a><textarea class='editor'>// First examples:
+<p>Overview: <a href="./../Overviews/JITLib.html">JITLib</a><div class='codeMirrorContainer'><textarea class='editor'>// First examples:
 (
 p = ProxySpace.push(s.boot, p);
 "abcde".do { |k| p[k.asSymbol].ar };
@@ -88,6 +88,7 @@ if (\ProxyMeter.asClass.notNil) { ProxyMeter.addMixer(m) };
         * LFSaw.ar((i + 1 * 0.25));
     };
 };</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Creation'>Creation</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
@@ -147,7 +148,7 @@ if (\ProxyMeter.asClass.notNil) { ProxyMeter.addMixer(m) };
 <div class='method'>
 <p>sets current left border of nameView, trading size with volume slider</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-shiftNameLeftBorder' href='./../Overviews/Methods.html#shiftNameLeftBorder'>shiftNameLeftBorder</a></h3>
 <div class='method'>
-<p>shifts current left border of nameView<textarea class='editor'>m.getNameLeftBorder; // get its current left border position
+<p>shifts current left border of nameView<div class='codeMirrorContainer'><textarea class='editor'>m.getNameLeftBorder; // get its current left border position
 m.setNameLeftBorder(250); // default
 m.setNameLeftBorder(200); // aps left pos, smaller slider
 // relative adjust:
@@ -307,6 +308,7 @@ p.reduce(method: \clear);
 p.clean;
 
 p.clear;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ProxyMixer.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ProxyMixer.schelp</a><br>link::Classes/ProxyMixer::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>

@@ -51,7 +51,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>Print out the results of a stream while returning the original values.
-<p>Tracing a pattern is most commonly done by using the <strong>.trace</strong> method directly on the pattern like this:<textarea class='editor'>Pbind(\degree, Pwhite(0, 10)).trace.play</textarea>
+<p>Tracing a pattern is most commonly done by using the <strong>.trace</strong> method directly on the pattern like this:<div class='codeMirrorContainer'><textarea class='editor'>Pbind(\degree, Pwhite(0, 10)).trace.play</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Ptrace.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>pattern</span>, <span class='argstr'>key</span>, <span class='argstr'>printStream</span>, <span class='argstr'>prefix: ""</span>)</h3>
 <div class='method'>
@@ -74,13 +75,14 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-key' href='./../Overviews/Methods.html#key'>key</a> = value</h3>
 <div class='method'></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 // An event pattern playing random scale degrees
 p = Pbind(\dur, 0.125, \degree, Pwhite(0, 10));
 
 // Se what the value of the scale degrees are using trace
 Ptrace(p, \degree, prefix: "Current scale degree: ").play
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Ptrace.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Ptrace.schelp</a><br>link::Classes/Ptrace::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

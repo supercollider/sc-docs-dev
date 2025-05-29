@@ -76,7 +76,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-operator' href='./../Overviews/Methods.html#operator'>operator</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-operator' href='./../Overviews/Methods.html#operator'>operator</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 var a;
 a = Pbinop(\hypot, Pseries(0, 1, 12), Pseries(3, -1, 12));
 a.asStream.all;
@@ -100,7 +100,8 @@ a.asStream.all;
 Pseq([1, 2, 3]) + 2;
 Pseq([1, 2, 3]) / Pseq([3, 4, 5, 6]);
 max(Pwhite(-10, 10, inf), Pseq([0, 2, 3, 4]));</textarea>
-<textarea class='editor'>// sound example
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='codeMirrorContainer'><textarea class='editor'>// sound example
 (
 SynthDef(\help_sinegrain,
     { |out = 0, freq = 440, sustain = 0.05, amp = 0.1|
@@ -152,6 +153,7 @@ Pbind(
     \note, Pn(Pwhite(0, 12, 13) hypot: Pseries(3, -1, 12))
 ).play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pbinop.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Pbinop.schelp</a><br>link::Classes/Pbinop::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

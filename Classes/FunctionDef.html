@@ -89,46 +89,56 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Even though it is possible to change the values in the various arrays that define the FunctionDef, you should not do it, unless you like to crash.<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-code' href='./../Overviews/Methods.html#code'>code</a></h3>
 <div class='method'>
-<p>Get the byte code array.<textarea class='editor'>{ |a = 9, b = 10, c| a + b }.def.code;</textarea>
+<p>Get the byte code array.<div class='codeMirrorContainer'><textarea class='editor'>{ |a = 9, b = 10, c| a + b }.def.code;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sourceCode' href='./../Overviews/Methods.html#sourceCode'>sourceCode</a></h3>
 <div class='method'>
-<p>Get the source code string.<textarea class='editor'>{ |a = 9, b = 10, c| a + b }.def.sourceCode.postcs;</textarea>
+<p>Get the source code string.<div class='codeMirrorContainer'><textarea class='editor'>{ |a = 9, b = 10, c| a + b }.def.sourceCode.postcs;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-context' href='./../Overviews/Methods.html#context'>context</a></h3>
 <div class='method'>
 <p>Get the enclosing FunctionDef or Method.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findReferences' href='./../Overviews/Methods.html#findReferences'>findReferences</a>(<span class='argstr'>aSymbol</span>, <span class='argstr'>references</span>)</h3>
 <div class='method'>
 <p>return a list of all references to a given symbol.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-argNames' href='./../Overviews/Methods.html#argNames'>argNames</a></h3>
 <div class='method'>
-<p>Get the Array of Symbols of the argument names.<textarea class='editor'>{ |a = 9, b = 10, c| a + b }.def.argNames;</textarea>
+<p>Get the Array of Symbols of the argument names.<div class='codeMirrorContainer'><textarea class='editor'>{ |a = 9, b = 10, c| a + b }.def.argNames;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-prototypeFrame' href='./../Overviews/Methods.html#prototypeFrame'>prototypeFrame</a></h3>
 <div class='method'>
-<p>Get the array of default values for argument and temporary variables.<textarea class='editor'>{ |a = 9, b = 10, c| a + b }.def.prototypeFrame;</textarea>
+<p>Get the array of default values for argument and temporary variables.<div class='codeMirrorContainer'><textarea class='editor'>{ |a = 9, b = 10, c| a + b }.def.prototypeFrame;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-varNames' href='./../Overviews/Methods.html#varNames'>varNames</a></h3>
 <div class='method'>
-<p>Get the Array of Symbols of the local variable names.<textarea class='editor'>{ |a = 9, b = 10, c| var x = 9; a + b + x }.def.varNames;</textarea>
+<p>Get the Array of Symbols of the local variable names.<div class='codeMirrorContainer'><textarea class='editor'>{ |a = 9, b = 10, c| var x = 9; a + b + x }.def.varNames;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-argumentString' href='./../Overviews/Methods.html#argumentString'>argumentString</a>(<span class='argstr'>withDefaultValues: true</span>, <span class='argstr'>withEllipsis: false</span>, <span class='argstr'>asArray: false</span>)</h3>
 <div class='method'>
-<p>Return a string that contains all argument names and their default values for embedding in a string. If there are no arguments, it returns nil.<textarea class='editor'>{ |a = 9, b = 10, c| a + b }.def.argumentString; // "a = 9, b = 10, c"
+<p>Return a string that contains all argument names and their default values for embedding in a string. If there are no arguments, it returns nil.<div class='codeMirrorContainer'><textarea class='editor'>{ |a = 9, b = 10, c| a + b }.def.argumentString; // "a = 9, b = 10, c"
 { "nothing to see here" }.def.argumentString; // nil</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>withDefaultValues<td class='argumentdesc'>
-<p>If set to false, no default values are appended<textarea class='editor'> // "a, b, c"
+<p>If set to false, no default values are appended<div class='codeMirrorContainer'><textarea class='editor'> // "a, b, c"
 { |a = 9, b = 10, c| a + b }.def.argumentString(withDefaultValues: false);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <tr><td class='argumentname'>withEllipsis<td class='argumentdesc'>
-<p>If set to true, ellipsis characters (<code>" ... "</code>) are appended<textarea class='editor'>// "a = 9, b = 10 ... c"
+<p>If set to true, ellipsis characters (<code>" ... "</code>) are appended<div class='codeMirrorContainer'><textarea class='editor'>// "a = 9, b = 10 ... c"
 { |a = 9, b = 10 ... c| a + b }.def.argumentString(withEllipsis: true);
 // "a = 9, b = 10, c"
 { |a = 9, b = 10 ... c| a + b }.def.argumentString(withEllipsis: false);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <tr><td class='argumentname'>asArray<td class='argumentdesc'>
-<p>If set to true, return the string for an array that represents all arguments. The other arguments are set to false.<textarea class='editor'>// "[a, b] ++ c"
+<p>If set to true, return the string for an array that represents all arguments. The other arguments are set to false.<div class='codeMirrorContainer'><textarea class='editor'>// "[a, b] ++ c"
 { |a = 9, b = 10 ... c| a + b }.def.argumentString(asArray: true);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-makeEnvirFromArgs' href='./../Overviews/Methods.html#makeEnvirFromArgs'>makeEnvirFromArgs</a></h3>
 <div class='method'>
-<p>Get the Array of Symbols of the local variable names.<textarea class='editor'>{ |a = 9, b = 10, c| a + b }.def.makeEnvirFromArgs;</textarea>
+<p>Get the Array of Symbols of the local variable names.<div class='codeMirrorContainer'><textarea class='editor'>{ |a = 9, b = 10, c| a + b }.def.makeEnvirFromArgs;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Generating%20Strings'>Generating Strings</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-makeFuncModifierString' href='./../Overviews/Methods.html#makeFuncModifierString'>makeFuncModifierString</a>(<span class='argstr'>modifier</span>)</h3>
 <div class='method'>
@@ -136,7 +146,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>For an implementation example <a href="./../Classes/Function.html#flop">Function: flop</a> (as below).<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>modifier<td class='argumentdesc'>
-<p>A function to which a string is passed that represents the array of all arguments. It should return a string that can be interpreted.<textarea class='editor'>// basic usage
+<p>A function to which a string is passed that represents the array of all arguments. It should return a string that can be interpreted.<div class='codeMirrorContainer'><textarea class='editor'>// basic usage
 f = { |x, y| x.squared + y.squared }; // a function
 a = f.def.makeFuncModifierString({ |argString| "%.scramble".format(argString) });
 a.interpret.value(4, 5)
@@ -163,6 +173,7 @@ h.(x: (-2..2), y: (-2..2));
 // this functionality is implemented for function in the method "flop"
 h = f.flop;
 h.([1, 0], [6, 7]); // [6, 0]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3><a class='anchor' name='Utilities'>Utilities</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpByteCodes' href='./../Overviews/Methods.html#dumpByteCodes'>dumpByteCodes</a></h3>
 <div class='method'>

@@ -46,7 +46,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Core/Condition.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Core/Condition.sc'>Condition.sc</a></div><div id='related'>See also: <a href="./../Classes/Ref.html">Ref</a>, <a href="./../Classes/Thunk.html">Thunk</a>, <a href="./../Classes/Condition.html">Condition</a>, <a href="./../Classes/Routine.html">Routine</a></div>
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 a = FlowVar.new;
 fork {
     "I am waiting, please enter a value ...".postln;
@@ -57,6 +57,7 @@ fork {
 
 // later, set the value. Then we can continue ...
 a.value = 2;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>FlowVar.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>inVal: 'unbound'</span>)</h3>
 <div class='method'>

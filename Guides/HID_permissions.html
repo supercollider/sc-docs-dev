@@ -46,10 +46,12 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>This will give read and write permissions to hidraw-devices to users that are in the <code>plugdev</code> group on your system.
 <p>To check whether you belong to that group execute the command <code>groups</code> in the terminal.
 <p>After you have added the udev rules file, you can access the device after plugging and replugging the device.
-<p>You can change the permission manually (as root) from the terminal with the command:<textarea class='editor'>sudo chmod 664 /dev/hidraw*
+<p>You can change the permission manually (as root) from the terminal with the command:<div class='codeMirrorContainer'><textarea class='editor'>sudo chmod 664 /dev/hidraw*
 sudo chgrp plugdev /dev/hidraw*</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Check the permissions with:<textarea class='editor'>"ls /dev/hidraw* -lah".unixCmd;</textarea>
+<p>Check the permissions with:<div class='codeMirrorContainer'><textarea class='editor'>"ls /dev/hidraw* -lah".unixCmd;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Guides/HID_permissions.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Guides/HID_permissions.schelp</a><br>link::Guides/HID_permissions::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

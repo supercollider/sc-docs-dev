@@ -57,7 +57,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 a = PdurStutter(
     Pseq(#[1,1,1,1,1,2,2,2,2,2,0,1,3,4,0], inf),
     Pseq(#[0.5, 1, 2, 0.25, 0.25], inf)
@@ -105,8 +105,9 @@ Routine({
     })
 }).play(TempoClock.default);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Frequencies like being divided too.<textarea class='editor'>(
+<p>Frequencies like being divided too.<div class='codeMirrorContainer'><textarea class='editor'>(
 a = PdurStutter(
     Pseq(#[1,1,1,1,1,2,2,2,2,2,3,3,3,3,4,4,0,4,4], inf),
     Pseq((80 + [0, 2, 3, 5, 7, 9, 10]).midicps, inf)
@@ -119,6 +120,7 @@ Routine({
     })
 }).play(TempoClock.default);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/PdurStutter.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/PdurStutter.schelp</a><br>link::Classes/PdurStutter::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

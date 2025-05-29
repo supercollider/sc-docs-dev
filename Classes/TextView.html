@@ -102,7 +102,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p> The plain text of the line at text cursor.</div><h3><a class='anchor' name='Formatting'>Formatting</a></h3>
 
-<p>TextView supports text font and color, and can syntax colorize sclang code.<div class='note'><span class='notelabel'>NOTE:</span> The formatting is reset when the string changes.</div><textarea class='editor'>(
+<p>TextView supports text font and color, and can syntax colorize sclang code.<div class='note'><span class='notelabel'>NOTE:</span> The formatting is reset when the string changes.</div><div class='codeMirrorContainer'><textarea class='editor'>(
 var text = "Tous ces nombres paraissent bien concrets";
 t = TextView(bounds: Rect(300, 400));
 t.string = text;
@@ -118,6 +118,7 @@ fork {
     }
 };
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-setFont' href='./../Overviews/Methods.html#setFont'>setFont</a></h3>
 <div class='method'>
 <p> Applies the <code>font</code> to <code>size</code> amount of characters following the <code>start</code> position.<h4>Arguments:</h4>
@@ -134,12 +135,13 @@ fork {
 <p> An Integer position within the text, in characters.<tr><td class='argumentname'>size<td class='argumentdesc'>
 <p> An Integer amount of characters.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-syntaxColorize' href='./../Overviews/Methods.html#syntaxColorize'>syntaxColorize</a></h3>
 <div class='method'>
-<p> Applies colors to text throughout the entire contents of the view, according to the SuperCollider language syntax highlighting scheme.<textarea class='editor'>(
+<p> Applies colors to text throughout the entire contents of the view, according to the SuperCollider language syntax highlighting scheme.<div class='codeMirrorContainer'><textarea class='editor'>(
 t = TextView(bounds: Rect(300, 400));
 t.string = this.cmdLine;
 t.syntaxColorize;
 t.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Text%20Selection'>Text Selection</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-selectedString' href='./../Overviews/Methods.html#selectedString'>selectedString</a></h3>
 <div class='method'>
@@ -173,12 +175,13 @@ t.front;
 <tr><td class='argumentname'><td class='argumentdesc'>
 <p> A Font.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-stringColor' href='./../Overviews/Methods.html#stringColor'>stringColor</a></h3>
 <div class='method'>
-<p> The default color of the entire text. This color applies to any text to which a color has not been applied using <a href="#-setStringColor">-setStringColor</a>.<div class='note'><span class='notelabel'>NOTE:</span> Calling <code>stringColor_</code> does <em>not</em> affect the cursor's color. Setting a dark background, using <code>background_</code>, and a light text color will leave the cursor as a dark color. It is recommended to set the background and string colors by setting the TextView's palette to an instance of <a href="./../Classes/QPalette.html">QPalette</a>.<textarea class='editor'>(
+<p> The default color of the entire text. This color applies to any text to which a color has not been applied using <a href="#-setStringColor">-setStringColor</a>.<div class='note'><span class='notelabel'>NOTE:</span> Calling <code>stringColor_</code> does <em>not</em> affect the cursor's color. Setting a dark background, using <code>background_</code>, and a light text color will leave the cursor as a dark color. It is recommended to set the background and string colors by setting the TextView's palette to an instance of <a href="./../Classes/QPalette.html">QPalette</a>.<div class='codeMirrorContainer'><textarea class='editor'>(
 t = TextView(nil, Rect(800, 50, 500, 400))
 .string_("Some text")
 .palette_(QPalette.dark)  // set all colors here
 .front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-tabWidth' href='./../Overviews/Methods.html#tabWidth'>tabWidth</a></h3>
 <div class='method'>
 <p> The width of tab characters as they are displayed.</div><h3><a class='anchor' name='Interaction'>Interaction</a></h3>
@@ -229,7 +232,7 @@ t = TextView(nil, Rect(800, 50, 500, 400))
 <div class='returnvalue'>
 <p>The <a href="#-selectedString">-selectedString</a>.</div></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new("Text View Example", Rect(100, Window.screenBounds.height-400, 520, 300)).front;
 t = TextView(w.asView, Rect(10, 10, 500, 200))
     .focus(true);
@@ -254,6 +257,7 @@ t.setString ("\nA replacement String\n", 12, 6);
 // compare with these methods, which change everything
 t.font_(Font("Courier", 14));
 t.stringColor_(Color.blue);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/TextView.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/TextView.schelp</a><br>link::Classes/TextView::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

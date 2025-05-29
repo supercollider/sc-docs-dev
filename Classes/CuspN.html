@@ -51,10 +51,11 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>A non-interpolating sound generator based on the difference equation:<pre>    x(n+1) = a - b * sqrt(|x(n)|)</pre>
-<p>sclang code translation:<textarea class='editor'>(
+<p>sclang code translation:<div class='codeMirrorContainer'><textarea class='editor'>(
 var a = 1.0, b = 1.9, xi = 0, size = 64;
 plot(size.collect { xi = a - (b * sqrt(abs(xi))) });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>CuspN.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>freq: 22050</span>, <span class='argstr'>a: 1</span>, <span class='argstr'>b: 1.9</span>, <span class='argstr'>xi: 0</span>, <span class='argstr'>mul: 1</span>, <span class='argstr'>add: 0</span>)</h3>
 <div class='method'><h4>Arguments:</h4>
@@ -69,7 +70,7 @@ plot(size.collect { xi = a - (b * sqrt(abs(xi))) });
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// vary frequency
+<div class='codeMirrorContainer'><textarea class='editor'>// vary frequency
 { CuspN.ar(MouseX.kr(20, SampleRate.ir), 1.0, 1.99) * 0.3 }.play(s);
 
 // mouse-controlled params
@@ -77,6 +78,7 @@ plot(size.collect { xi = a - (b * sqrt(abs(xi))) });
 
 // as a frequency control
 { SinOsc.ar(CuspN.ar(40, MouseX.kr(0.9, 1.1, 1), MouseY.kr(1.8, 2, 1))*800+900)*0.4 }.play(s);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/CuspN.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/CuspN.schelp</a><br>link::Classes/CuspN::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

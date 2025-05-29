@@ -96,7 +96,7 @@ var scdoc_sc_version = '3.14.0-dev';
 
 <p>Plotter extends other classes with methods. To see what classes implements plot, see <a href="./../Overviews/Methods.html#plot">Methods: plot</a><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.plot' href='./../Overviews/Methods.html#plot'>plot</a>(args)</h3>
 <div class='method'>
-<p><textarea class='editor'>// plot array
+<p><div class='codeMirrorContainer'><textarea class='editor'>// plot array
 [1, 6, 2, -5, 2].plot;
 (0..100).normalize(0, 8pi).sin.plot;
 
@@ -112,10 +112,12 @@ var scdoc_sc_version = '3.14.0-dev';
 
 // Env
 Env.perc(0.4, 0.6).plot;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.plotGraph' href='./../Overviews/Methods.html#plotGraph'>plotGraph</a>(n, from, to, ...)</h3>
 <div class='method'>
-<p><textarea class='editor'>{ |x| sin(x) }.plotGraph(300, 0, 2*pi);
+<p><div class='codeMirrorContainer'><textarea class='editor'>{ |x| sin(x) }.plotGraph(300, 0, 2*pi);
 { |x| sin(1/x) * x }.plotGraph(from: 0.0001, to: 0.2);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
 <div class='method'><h4>Arguments:</h4>
@@ -124,10 +126,11 @@ Env.perc(0.4, 0.6).plot;</textarea>
 <p>Plot window title.<tr><td class='argumentname'>bounds<td class='argumentdesc'>
 <p>The window bounds (a <a href="./../Classes/Rect.html">Rect</a>).<tr><td class='argumentname'>parent<td class='argumentdesc'>
 <p>Either a <a href="./../Classes/Window.html">Window</a> / <a href="./../Classes/View.html">View</a> may be passed in - then the plot is embedded. Otherwise a new <a href="./../Classes/Window.html">Window</a> is created.</table><h4>Discussion:</h4>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 a = Plotter("the plot", Rect(600, 30, 800, 250));
 a.value = (0..1000).normalize(0, 14pi).curdle(0.01).scramble.flat.sin;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Embedding%20in%20another%20view'>Embedding in another view</a></h3>
@@ -150,7 +153,7 @@ a.value = (0..1000).normalize(0, 14pi).curdle(0.01).scramble.flat.sin;
 <p>If <code>modes.size &lt; numChannels</code>, the plots will <em>wrap</em> around the array of modes.</table><h4>Returns:</h4>
 <div class='returnvalue'>
 <p>An <a href="./../Classes/Array.html">Array</a> of <a href="./../Classes/Symbol.html">Symbol</a>s, unless there is only one mode specified or if all modes of a multi-channel plot are the same, in which case a single <a href="./../Classes/Symbol.html">Symbol</a> is returned.</div><h4>Discussion:</h4>
-<textarea class='editor'>p = (0..20).scramble.plot;
+<div class='codeMirrorContainer'><textarea class='editor'>p = (0..20).scramble.plot;
 p.plotMode = \points;
 p.plotMode = \plines;
 p.plotMode = \steps;
@@ -187,6 +190,7 @@ p.plotColor_([Color.red, Color.cyan, Color.green, Color.blue]);
 p.plotMode_([\steps, \linear, \plines, \points]);
 p.superpose_(true);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plotColor' href='./../Overviews/Methods.html#plotColor'>plotColor</a></h3>
 <div class='method'>
 <p>Set or get the colors of your data plot.<h4>Arguments:</h4>
@@ -196,7 +200,7 @@ p.superpose_(true);
 <p>If <code>colors.size &lt; numChannels</code>, the plots will <em>wrap</em> around the array of colors.</table><h4>Returns:</h4>
 <div class='returnvalue'>
 <p>An <a href="./../Classes/Array.html">Array</a> of <a href="./../Classes/Color.html">Color</a>s, unless there is only one color specified or if all colors of a multi-channel plot are the same, in which case a <a href="./../Classes/Color.html">Color</a> is returned.</div><h4>Discussion:</h4>
-<textarea class='editor'>// Colorize channels
+<div class='codeMirrorContainer'><textarea class='editor'>// Colorize channels
 (
 d = 4.collect({ |i|
     100.collect({ |j|
@@ -217,10 +221,12 @@ var freq = 100;
     }
 ).superpose_(true);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-superpose' href='./../Overviews/Methods.html#superpose'>superpose</a></h3>
 <div class='method'>
-<p>If <code>true</code>, plotter displays channels overlaid on a single plot. (keyboard shortcut: s)<textarea class='editor'>a = { (0..30).scramble }.dup(2).plot;
+<p>If <code>true</code>, plotter displays channels overlaid on a single plot. (keyboard shortcut: s)<div class='codeMirrorContainer'><textarea class='editor'>a = { (0..30).scramble }.dup(2).plot;
 a.superpose = true;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-axisLabelX' href='./../Overviews/Methods.html#axisLabelX'>axisLabelX</a></h3>
 <div class='method'>
 <p>Get/set the label for the x-axes. Can be a <a href="./../Classes/String.html">String</a> or an <a href="./../Classes/Array.html">Array</a> of <a href="./../Classes/String.html">String</a>s, or <code>nil</code> to remove the label. See <a href="#Axis%20labels">Axis labels</a> example below.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-axisLabelY' href='./../Overviews/Methods.html#axisLabelY'>axisLabelY</a></h3>
@@ -248,7 +254,7 @@ a.superpose = true;</textarea>
 <li>font<li>fontColor<li>gridColorX<li>gridColorY<li>plotColor (an <a href="./../Classes/Array.html">Array</a>)<li>backgroundColor<li>gridLinePattern<li>gridLineSmoothing (<a href="./../Classes/Boolean.html">Boolean</a>)<li>labelX<li>labelY<li>gridOnX (<a href="./../Classes/Boolean.html">Boolean</a>)<li>gridOnY (<a href="./../Classes/Boolean.html">Boolean</a>)</ul>
 </table><h4>Discussion:</h4>
 
-<p>Example:<textarea class='editor'>(
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>(
 a = { (0..30).scramble }.dup(2).plot;
 a.setProperties(
   \fontColor, Color.yellow,
@@ -262,6 +268,7 @@ a.setProperties(
 );
 
 GUI.skins.at(\plot); // defaults</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plots' href='./../Overviews/Methods.html#plots'>plots</a></h3>
 <div class='method'>
 <p><h4>Returns:</h4>
@@ -279,7 +286,7 @@ GUI.skins.at(\plot); // defaults</textarea>
 
 <p>The properties <code>\drawBaseLine</code>, <code>\drawBoundingLines</code>, or <code>\drawBoundingRect</code> are mutually exlusive — setting any of them to true will set the others two to <code>false</code>. In the context of <code>Plotter</code>, setting <code>\drawBoundingRect</code> on one axis to <code>true</code> has the same appearance of setting <code>\drawBoundingLines</code> on <em>both</em> axes to <code>true</code>.</table><h4>Discussion:</h4>
 
-<p>This is a convenience method to set the grid properties for <em>all</em> <code>Plot</code>s to the same values. An Example:<textarea class='editor'>(
+<p>This is a convenience method to set the grid properties for <em>all</em> <code>Plot</code>s to the same values. An Example:<div class='codeMirrorContainer'><textarea class='editor'>(
 var plotter = [10, 34, 167].collect({ |freq|
     101.collect{ |i| sin((i/1000) * 2pi * freq) }
 }).plot;
@@ -295,8 +302,9 @@ plotter.setGridProperties(\x,
     \constrainLabelExtents, false
 )
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>To set the properties of grids on each <code>Plot</code> separately, iterate over the plots:<textarea class='editor'>(
+<p>To set the properties of grids on each <code>Plot</code> separately, iterate over the plots:<div class='codeMirrorContainer'><textarea class='editor'>(
 var plotter, labelAnchors;
 plotter = [10, 34, 167].collect({ |freq|
     101.collect{ |i| sin((i/1000) * 2pi * freq) }
@@ -311,6 +319,7 @@ plotter.plots.do{ |plot, i|
 };
 plotter.updatePlotBounds;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-getGridProperty' href='./../Overviews/Methods.html#getGridProperty'>getGridProperty</a></h3>
 <div class='method'>
 <p>Get the value of a grid property. See <a href="#-setGridProperties">-setGridProperties</a> for a list of available properties.<h4>Arguments:</h4>
@@ -319,7 +328,7 @@ plotter.updatePlotBounds;
 <p>A <code>Symbol</code> denoting the axis whose grid you're modifying: <code>\x</code> or <code>\y</code>.<tr><td class='argumentname'>property<td class='argumentdesc'>
 <p>The property name as a <code>Symbol</code>.</table><h4>Discussion:</h4>
 
-<p>As a convenience method, <code>getGridProperty</code> assumes that properties across all <code>Plot</code>s are the same (as would be the case if set by <a href="#-setGridProperties">-setGridProperties</a>) so returns a single value. Alternatively, properties from individual plot grids can be collected by iterating over the plots:<textarea class='editor'>( // inspect the \labelAnchor of each DrawGridX
+<p>As a convenience method, <code>getGridProperty</code> assumes that properties across all <code>Plot</code>s are the same (as would be the case if set by <a href="#-setGridProperties">-setGridProperties</a>) so returns a single value. Alternatively, properties from individual plot grids can be collected by iterating over the plots:<div class='codeMirrorContainer'><textarea class='editor'>( // inspect the \labelAnchor of each DrawGridX
 var plotter  = [10, 34, 167].collect({ |freq|
     101.collect{ |i| sin((i/1000) * 2pi * freq) }
 }).plot;
@@ -328,6 +337,7 @@ plotter.plots.collect({ |plot|
     plot.drawGrid.x.labelAnchor
 }).postln;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-drawGridBoundingRect' href='./../Overviews/Methods.html#drawGridBoundingRect'>drawGridBoundingRect</a></h3>
 <div class='method'>
 <p>Set whether a <a href="./../Classes/Rect.html">Rect</a> is drawn around the boundary of the grid. Setting to <code>false</code> disables any bounding grid lines (including "base" lines).<h4>Arguments:</h4>
@@ -343,20 +353,22 @@ plotter.plots.collect({ |plot|
 <p>A <code>Boolean</code>.</table></div><h3><a class='anchor' name='Data%20display%20properties'>Data display properties</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-specs' href='./../Overviews/Methods.html#specs'>specs</a></h3>
 <div class='method'>
-<p>Set or get the <a href="./../Classes/ControlSpec.html">spec</a> for the y-axis (codomain).<textarea class='editor'>a = { (40..3000).scramble }.dup(2).plot;
+<p>Set or get the <a href="./../Classes/ControlSpec.html">spec</a> for the y-axis (codomain).<div class='codeMirrorContainer'><textarea class='editor'>a = { (40..3000).scramble }.dup(2).plot;
 a.specs = \freq.asSpec;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>See also the <a href="#Explicit%20domain%20and%20axis%20specs">Explicit domain and axis specs</a> example below.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-domainSpecs' href='./../Overviews/Methods.html#domainSpecs'>domainSpecs</a></h3>
 <div class='method'>
-<p>Set or get the <a href="./../Classes/ControlSpec.html">spec</a> for the x-axis (domain).<textarea class='editor'>a = { (40..300).scramble }.dup(2).plot;
+<p>Set or get the <a href="./../Classes/ControlSpec.html">spec</a> for the x-axis (domain).<div class='codeMirrorContainer'><textarea class='editor'>a = { (40..300).scramble }.dup(2).plot;
 a.domainSpecs = \freq.asSpec;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>See also the <a href="#Explicit%20domain%20and%20axis%20specs">Explicit domain and axis specs</a> example below.<h4>Discussion:</h4>
 
 <p>When setting your <code>Plotter</code> <a href="#-value">-value</a>, the default <strong>domainSpecs</strong> is a linear spec in the range <code>[0, value.size-1]</code> (i.e. the indices of the values). Therefore, your values are displayed as evenly sampled between the <code>minval</code> and <code>maxval</code>, unless you have explicitly set the <a href="#-domain">-domain</a> values.
 <p>If a new <a href="#-value">-value</a> is set, you will need to update your domainSpecs.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-domain' href='./../Overviews/Methods.html#domain'>domain</a></h3>
 <div class='method'>
-<p>Set/get the x-axis positions of your data points. The size of the <code>domainArray</code> must equal the size of your <a href="#-value">-value</a> array, i.e. a domain value specified for each data point.<textarea class='editor'>(
+<p>Set/get the x-axis positions of your data points. The size of the <code>domainArray</code> must equal the size of your <a href="#-value">-value</a> array, i.e. a domain value specified for each data point.<div class='codeMirrorContainer'><textarea class='editor'>(
 var data, domain, plot;
 domain = 25.collect({ rrand(0, 50) }).sort;
 data = domain.linlin(0, 50, 0, 1);
@@ -365,6 +377,7 @@ plot = data.plot.plotMode_(\points);
 plot.domainSpecs_([0, 50].asSpec);
 plot.domain_(domain);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>See also the <a href="#Explicit%20domain%20and%20axis%20specs">Explicit domain and axis specs</a> example below.<h4>Discussion:</h4>
 
@@ -372,17 +385,19 @@ plot.domain_(domain);
 <p>Currently, for multichannel data plots, it's assumed that all channels of data share a single <a href="#-domain">-domain</a>. I.e. <code>domainArray</code> must be an <a href="./../Classes/Array.html">Array</a> of rank 1.
 <p>If a new <a href="#-value">-value</a> is set, you will need to update your <a href="#-domain">-domain</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-resolution' href='./../Overviews/Methods.html#resolution'>resolution</a></h3>
 <div class='method'>
-<p>Set the minimum number of pixels between data points (default: 1)<textarea class='editor'>// Changing plot resolution (x-axis)
+<p>Set the minimum number of pixels between data points (default: 1)<div class='codeMirrorContainer'><textarea class='editor'>// Changing plot resolution (x-axis)
 p = 5000.collect({ |i| sinPi(i * 0.0025) }).plot;
 p.resolution_(5).refresh;  // 5px
 p.resolution_(10).refresh;
 p.resolution_(50).refresh; // undersampled
 p.resolution_(1).refresh;  // default</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Plot%20data'>Plot data</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a></h3>
 <div class='method'>
-<p>Return or set the data values. Data may be numerical arrays of up to 3 dimensions.<textarea class='editor'>a = [1, 4, 2, 7, 4].dup(2).plot;
+<p>Return or set the data values. Data may be numerical arrays of up to 3 dimensions.<div class='codeMirrorContainer'><textarea class='editor'>a = [1, 4, 2, 7, 4].dup(2).plot;
 a.value;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-setValue' href='./../Overviews/Methods.html#setValue'>setValue</a></h3>
 <div class='method'>
 <p>Set the data values, with additional arguments determining how the plot is updated.<h4>Arguments:</h4>
@@ -401,14 +416,15 @@ a.value;</textarea>
 <p>Reference to the current internal data (with shape up to depth of 3).</div><h3><a class='anchor' name='Edit%20mode'>Edit mode</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-editMode' href='./../Overviews/Methods.html#editMode'>editMode</a></h3>
 <div class='method'>
-<p>If the edit mode is set to true, the data may be edited via cursor.<textarea class='editor'>a = (0..20).plot;
+<p>If the edit mode is set to true, the data may be edited via cursor.<div class='codeMirrorContainer'><textarea class='editor'>a = (0..20).plot;
 a.editMode = true; // now edit the data by clicking into the plot..
 a.value; // the updated values</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-editFunc' href='./../Overviews/Methods.html#editFunc'>editFunc</a></h3>
 <div class='method'>
 <p>Supply a function which is evaluated when editing data. The function is called with the arguments: <code>plotter</code>, <code>plotIndex</code>, <code>index</code>, <code>val</code>, <code>x</code>, <code>y</code>.<h4>Discussion:</h4>
 
-<p>Example:<textarea class='editor'>(
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>(
 a = { (0..10).scramble.normalize }.dup(2).plot;
 a.editMode = true;
 a.editFunc = { |...args| args.postln };
@@ -429,13 +445,14 @@ a.editFunc = { |plotter, plotIndex, i, val|
 };
 a.parent.onClose = { x.release };
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-cursorPos' href='./../Overviews/Methods.html#cursorPos'>cursorPos</a></h3>
 <div class='method'>
 <p><h4>Returns:</h4>
 <div class='returnvalue'>
 <p>The last cursorPos (a <a href="./../Classes/Point.html">Point</a>).</div></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 a = Plotter("the plot", Rect(600, 30, 600, 400));
 a.value = (0..100).normalize(0, 8pi).sin;
 )
@@ -471,8 +488,9 @@ a.parent.bounds = Rect(600, 30, 500, 300);
 a.superpose = true;
 a.value = { |i| (0..20) * (3.5 ** i) }.dup(5);
 a.superpose = false;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Object%20.plot%20methods'>Object .plot methods</a></h3>
-<textarea class='editor'>// Array:plot
+<div class='codeMirrorContainer'><textarea class='editor'>// Array:plot
 (
 a = (4 ** (-5..0)).postln.plot;
 a.specs = \delay;
@@ -508,8 +526,9 @@ s.waitForBoot({
     b.free;
 });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Explicit%20domain%20and%20axis%20specs'>Explicit domain and axis specs</a></h3>
-<textarea class='editor'>// data
+<div class='codeMirrorContainer'><textarea class='editor'>// data
 a = (50..90).midicps.scramble.plot;
 // specs (y-axis)
 a.specs = ControlSpec(100, 2000, units: "Hz");
@@ -570,8 +589,9 @@ p = (1, 2 .. 1000).plot.domainSpecs_([1, 1000, \lin].asSpec);
 p.specs_([[1, 1000, \exp].asSpec]);
 // then scale x axis exponentially
 p.domainSpecs_([1, 1000, \exp].asSpec);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Axis%20labels'>Axis labels</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 p = 4.collect({
     100.collect({ rrand(0, 1.0) })
 }).plot(bounds: Rect(50, 50, 500, 650));
@@ -590,9 +610,10 @@ p.axisLabelX_(["one", "two", nil, "four"]);
 // assigning nil removes all labels
 p.axisLabelX_(nil);
 // ... axisLabelY behaves the same way</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Unit%20labels'>Unit labels</a></h3>
 
-<p>The units of the grid specs are shown as labels, either axis labels or appended to tick labels. Unit labels won't overwrite preexisting labels, and can be disabled altogether.<textarea class='editor'>( // units displayed in the axis labels by default
+<p>The units of the grid specs are shown as labels, either axis labels or appended to tick labels. Unit labels won't overwrite preexisting labels, and can be disabled altogether.<div class='codeMirrorContainer'><textarea class='editor'>( // units displayed in the axis labels by default
 p = (4 ** (-1.5, -1.25 .. 0)).plot;
 p.specs = \delay.asSpec.minval_(0.1);
 p.domainSpecs = [0, 10, \lin, 0, 0, "xUnits"].asSpec;
@@ -620,8 +641,9 @@ p.setGridProperties(\y, \labelAppendString, nil);
 // set units to tick labels again
 p.unitLocation = \ticks;
 // ... units now appear on the y-tick labels</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Embedding%20in%20another%20View%20or%20GUI'>Embedding in another View or GUI</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 var w, z, p, d, func;
 w = Window("plot panel", Rect(20, 30, 520, 450));
 z = CompositeView(
@@ -638,9 +660,10 @@ Slider.new(w, Rect(10, 10, 490, 20)).resize_(2).action_({ |v| func.(v.value) });
 func.value(0);
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Changing%20global%20defaults'>Changing global defaults</a></h3>
 
-<p>The default styles are kept (and may be overridden) in <code>GUI.skins.at(\plot)</code>. See also <a href="./../Classes/GUI.html">GUI</a> help.<textarea class='editor'>// specify plot layout
+<p>The default styles are kept (and may be overridden) in <code>GUI.skins.at(\plot)</code>. See also <a href="./../Classes/GUI.html">GUI</a> help.<div class='codeMirrorContainer'><textarea class='editor'>// specify plot layout
 (
 GUI.skins.plot.gridLinePattern = FloatArray[1, 0];
 GUI.skins.plot.fontColor = Color(0.5, 1, 0);
@@ -662,6 +685,7 @@ GUI.skins.plot.put(\plotColor, { Color.rand(0.0, 0.8) } ! 8);
 
 // reset the defaults:
 Plot.initClass;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Plotter.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Plotter.schelp</a><br>link::Classes/Plotter::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

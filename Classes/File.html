@@ -89,17 +89,19 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>Same as <a href="#*new">*new</a>, but a more intuitive name.</div><h3 class='method-code'><span class='method-prefix'>File.</span><a class='method-name' name='*getcwd' href='./../Overviews/Methods.html#getcwd'>getcwd</a></h3>
 <div class='method'>
-<p>POSIX standard 'get current working directory'.<textarea class='editor'>// example;
+<p>POSIX standard 'get current working directory'.<div class='codeMirrorContainer'><textarea class='editor'>// example;
 File.getcwd;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>File.</span><a class='method-name' name='*use' href='./../Overviews/Methods.html#use'>use</a>(<span class='argstr'>pathName</span>, <span class='argstr'>mode</span>, <span class='argstr'>function</span>)</h3>
 <div class='method'>
 <p>Open the file, evaluate the function with the file as argument, and close it again. If the process fails, close the file and throw an error.</div><h3 class='method-code'><span class='method-prefix'>File.</span><a class='method-name' name='*readAllString' href='./../Overviews/Methods.html#readAllString'>readAllString</a>(<span class='argstr'>pathName</span>)</h3>
 <div class='method'>
-<p>Open the file at the given path, call <a href="#-readAllString">-readAllString</a>, and return the string. Whether the process succeeds or fails, the file will always be closed.<textarea class='editor'>// write a file
+<p>Open the file at the given path, call <a href="#-readAllString">-readAllString</a>, and return the string. Whether the process succeeds or fails, the file will always be closed.<div class='codeMirrorContainer'><textarea class='editor'>// write a file
 File.use("~/test.txt".standardizePath, "w", { |f| f.write("The green fox fell into the blue lake") });
 
 // read it again
 File.readAllString("~/test.txt".standardizePath);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>File.</span><a class='method-name' name='*readAllSignal' href='./../Overviews/Methods.html#readAllSignal'>readAllSignal</a>(<span class='argstr'>pathName</span>)</h3>
 <div class='method'>
 <p>Open the file at the given path, call <a href="#-readAllSignal">-readAllSignal</a>, and return the signal. Whether the process succeeds or fails, the file will always be closed.</div><h3 class='method-code'><span class='method-prefix'>File.</span><a class='method-name' name='*readAllStringHTML' href='./../Overviews/Methods.html#readAllStringHTML'>readAllStringHTML</a>(<span class='argstr'>pathName</span>)</h3>
@@ -156,7 +158,8 @@ File.readAllString("~/test.txt".standardizePath);</textarea>
 <div class='returnvalue'>
 <p>an <a href="./../Classes/Integer.html">Integer</a></div></div><h3><a class='anchor' name='Error%20handling%20in%20filesystem%20utilities'>Error handling in filesystem utilities</a></h3>
 
-<p>If one of the above filesystem primitives fails, in most cases, a PrimitiveFailedError object will be thrown:<textarea class='editor'>File.mkdir("/usr/oh-no-you-cant");</textarea>
+<p>If one of the above filesystem primitives fails, in most cases, a PrimitiveFailedError object will be thrown:<div class='codeMirrorContainer'><textarea class='editor'>File.mkdir("/usr/oh-no-you-cant");</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <pre>ERROR: Primitive '_FileMkDir' failed.
 caught exception 'boost::filesystem::create_directory: Permission denied: "/usr/oh-no-you-cant"' in primitive in method Meta_File:mkdir</pre>
 <p>The methods <a href="./../Classes/Function.html#-try">Function: -try</a> and <a href="./../Classes/Function.html#-protect">Function: -protect</a> can detect and handle these errors. See <a href="./../Guides/Understanding-Errors.html">Understanding errors</a> for details.
@@ -185,7 +188,7 @@ caught exception 'boost::filesystem::create_directory: Permission denied: "/usr/
 <div class='method'>
 <p>Returns the current file size in bytes.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>// write some string to a file:
+<div class='codeMirrorContainer'><textarea class='editor'>// write some string to a file:
 (
 var f, g;
 f = File("~/test.txt".standardizePath, "w");
@@ -265,6 +268,7 @@ f = File("~/test.dat".standardizePath, "r");
 f.inspect;
 f.close;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/File.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/File.schelp</a><br>link::Classes/File::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

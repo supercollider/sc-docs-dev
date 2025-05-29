@@ -69,7 +69,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>A gui showing the <a href="./../Classes/Tdef.html">Tdef</a>'s name, playing state, source state, and envir state. Optionally, its envir can also be edited.<h3><a class='anchor' name='First%20example'>First example</a></h3>
-<textarea class='editor'>g = TdefGui();            // make a TdefGui
+<div class='codeMirrorContainer'><textarea class='editor'>g = TdefGui();            // make a TdefGui
 g.object = Tdef(\a);        // show when a Tdef is put in
 Tdef(\a, { "boing".postln });     // show whether it has a source
 Tdef(\a).play;             // show whether playing, stopped, or ended, and pausable
@@ -83,6 +83,7 @@ w = Window().front; w.addFlowLayout;
 TdefGui(Tdef(\a), 0, w);
 TdefGui(Tdef(\a), 3, w);
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Details%20on%20the%20GUI%20elements'>Details on the GUI elements</a></h3>
 <dl>
 <dt>name button<dd>when selected, typing the delete key will delete its Tdef.<dt>play/stop button<dd>indicates whether the tdef is playing:<table>
@@ -143,8 +144,9 @@ TdefGui(Tdef(\a), 3, w);
 <p>and close its window.</div><h3><a class='anchor' name='Internal%20methods'>Internal methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-srcString' href='./../Overviews/Methods.html#srcString'>srcString</a></h3>
 <div class='method'>
-<p>a compileString that recreates the Tdef.<textarea class='editor'>// assume g from above is still there
+<p>a compileString that recreates the Tdef.<div class='codeMirrorContainer'><textarea class='editor'>// assume g from above is still there
 g.srcString;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-editString' href='./../Overviews/Methods.html#editString'>editString</a></h3>
 <div class='method'>
 <p>a compileString that recreates the Tdef's envir at edKey.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-editStrings' href='./../Overviews/Methods.html#editStrings'>editStrings</a></h3>
@@ -152,23 +154,26 @@ g.srcString;</textarea>
 <p>a compileString that recreates the Tdef's envir at edKeys.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>edKeys<td class='argumentdesc'>
-<p>Default value is nil.<textarea class='editor'>// assume g from above is still there
+<p>Default value is nil.<div class='codeMirrorContainer'><textarea class='editor'>// assume g from above is still there
 g.editString;
 Tdef(\a).set(\foo, \bar);
 g.editString(\foo);
 
 g.editStrings;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-getUsedKeys' href='./../Overviews/Methods.html#getUsedKeys'>getUsedKeys</a></h3>
 <div class='method'>
-<p>the keys in use in the envir<textarea class='editor'>g.getUsedKeys;</textarea>
+<p>the keys in use in the envir<div class='codeMirrorContainer'><textarea class='editor'>g.getUsedKeys;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-openDoc' href='./../Overviews/Methods.html#openDoc'>openDoc</a></h3>
 <div class='method'>
-<p>open a document with some strings at some location. used with src button, env button.<textarea class='editor'>g.openDoc(g.editStrings);</textarea>
+<p>open a document with some strings at some location. used with src button, env button.<div class='codeMirrorContainer'><textarea class='editor'>g.openDoc(g.editStrings);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-makeEnvirGui' href='./../Overviews/Methods.html#makeEnvirGui'>makeEnvirGui</a></h3>
 <div class='method'>
 <p>make an envirGui within zone.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 Tdef(\a, { |e| 100.do { |i| i.postln; 0.5.wait } });
 t = TdefGui(Tdef(\a), 4);
 Tdef(\a).set(\freq, 200, \dur, 0.1, \otto, 12, \ann, 1234);
@@ -195,6 +200,7 @@ TdefGui(Tdef(\b));
 
     // see all Tdefs:
 TdefAllGui(16);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/TdefGui.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/TdefGui.schelp</a><br>link::Classes/TdefGui::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

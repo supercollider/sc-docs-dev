@@ -321,7 +321,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='returnvalue'>
 <p>an IdentityDictionary with usages as keys and lists of elements as corresponding elements</div></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>HID.findAvailable; // check which devices are attached
+<div class='codeMirrorContainer'><textarea class='editor'>HID.findAvailable; // check which devices are attached
 ~myhid = HID.open(1103, 53251); // open the Run'N' Drive game controller
 
 s.boot; // boot the server
@@ -333,6 +333,7 @@ Ndef(\sinewave).play;
 
 HIDdef.usage(\freq, { |value| Ndef(\sinewave).set(\freq, ~freqRange.map(value)) }, \X);
 HIDdef.usage(\amp, { |value| Ndef(\sinewave).set(\amp, value) }, \Y);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/HID.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/HID.schelp</a><br>link::Classes/HID::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

@@ -164,7 +164,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p> Sets <a href="#-valueAction">-valueAction</a> to the current drag data.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <h3><a class='anchor' name='Show%20the%20slider%20value%20in%20a%20NumberBox'>Show the slider value in a NumberBox</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new.front;
 c = NumberBox(w, Rect(20, 20, 150, 20));
 a = Slider(w, Rect(20, 60, 150, 20))
@@ -183,8 +183,9 @@ a = Slider(w, Rect(200, 60, 20, 150))
     });
 a.action.value;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Use%20a%20Spec%20to%20round%20and%20map%20the%20output%20range'>Use a Spec to round and map the output range</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new.front;
 b = ControlSpec(-50, 50, \linear, 0.01); // min, max, mapping, step
 c = StaticText(w, Rect(20, 20, 150, 20)).align_(\center).background_(Color.rand);
@@ -198,8 +199,9 @@ a = Slider(w, Rect(20, 50, 150, 20))
         });
 a.action.value;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Change%20the%20stepsize%20of%20the%20slider,%20selected%20via%20a%20PopUpMenu'>Change the stepsize of the slider, selected via a PopUpMenu</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new.front;
 a = ["0", "0.0625", "0.125", "0.25", "0.5", "1"];
 b = Slider(w, Rect(20, 100, 100, 20))
@@ -214,8 +216,9 @@ d = PopUpMenu(w, Rect(20, 60, 100, 20))
 StaticText(w, Rect(130, 60, 100, 20)).string_("change step");
 c = NumberBox(w, Rect(20, 20, 100, 20));
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Use%20the%20slider%20view%20to%20accept%20key%20actions'>Use the slider view to accept key actions</a></h3>
-<textarea class='editor'>( // select the slider, type something and watch the post window
+<div class='codeMirrorContainer'><textarea class='editor'>( // select the slider, type something and watch the post window
 w = Window.new;
 c = Slider(w, Rect(0, 0, 100, 30));
 c.keyDownAction = { |view, char, modifiers, unicode, keycode|
@@ -223,9 +226,10 @@ c.keyDownAction = { |view, char, modifiers, unicode, keycode|
 };
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Adding%20functionality%20to%20a%20view%20by%20the%20method%20addAction'>Adding functionality to a view by the method addAction</a></h3>
 
-<p>This is useful for adding things to existing frameworks that have action functions already.<textarea class='editor'>(
+<p>This is useful for adding things to existing frameworks that have action functions already.<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new("A Slider");
 a = Slider.new(w, Rect(40, 10, 300, 30));
 w.front
@@ -243,8 +247,9 @@ a.removeAction(f);
 
 // or remove all, of course
 a.action = nil;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Use%20Slider%20for%20triggering%20sounds'>Use Slider for triggering sounds</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 s.waitForBoot({
 
     SynthDef(\pluck, { |out, freq = 55|
@@ -269,8 +274,9 @@ s.waitForBoot({
     })
 });
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Change%20background%20color%20of%20Window'>Change background color of Window</a></h3>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window("RGB fader", Rect(100, 500, 400, 400))
     .front;
 f = { w.view.background_(Color.new(r.value, g.value, b.value, 1)) };
@@ -285,6 +291,7 @@ b = Slider(w, Rect(100, 200, 200, 20))
     .action_({ f.value });
 f.value;
 );</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Slider.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Slider.schelp</a><br>link::Classes/Slider::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

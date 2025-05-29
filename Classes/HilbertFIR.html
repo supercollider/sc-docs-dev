@@ -53,10 +53,11 @@ var scdoc_sc_version = '3.14.0-dev';
 <table class='arguments'>
 <tr><td class='argumentname'>in<td class='argumentdesc'>
 <p>The input signal to transform.<tr><td class='argumentname'>buffer<td class='argumentdesc'>
-<p>A Buffer to be used for the inter FFT processing. Best results with a size of 1024 or 2048. 1024 gives an acceptable result (though a little choppy), 2048 is much smoother but creates more delay.<textarea class='editor'>s.boot;
+<p>A Buffer to be used for the inter FFT processing. Best results with a size of 1024 or 2048. 1024 gives an acceptable result (though a little choppy), 2048 is much smoother but creates more delay.<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 s.scope;
 a = { HilbertFIR.ar(SinOsc.ar(100) * -20.dbamp, LocalBuf(2048)) }.play;
 a.release;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p></table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>

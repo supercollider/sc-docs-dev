@@ -54,10 +54,11 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Audio/UGen.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Audio/UGen.sc'>UGen.sc</a></div></div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>OutputProxy is used by some UGens as a place holder for multiple outputs. There is no reason for a user to create an OutputProxy directly.<textarea class='editor'>var out;
+<p>OutputProxy is used by some UGens as a place holder for multiple outputs. There is no reason for a user to create an OutputProxy directly.<div class='codeMirrorContainer'><textarea class='editor'>var out;
 // Pan2 uses an OutputProxy for each of its two outputs.
 out = Pan2.ar(WhiteNoise.ar, 0.0);
 out.postln;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
@@ -67,16 +68,18 @@ out.postln;</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-source' href='./../Overviews/Methods.html#source'>source</a> = value</h3>
 <div class='method'>
 <p>The UGen that is the source for this OutputProxy.<h4>Discussion:</h4>
-<textarea class='editor'>var left, right;
+<div class='codeMirrorContainer'><textarea class='editor'>var left, right;
 // Pan2 uses an OutputProxy for each of its two outputs.
 # left, right = Pan2.ar(WhiteNoise.ar, 0.0);
 left.source.postln;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>The <code>source</code> method is also defined in Array, so that the source can be obtained this way as well:<textarea class='editor'>var out;
+<p>The <code>source</code> method is also defined in Array, so that the source can be obtained this way as well:<div class='codeMirrorContainer'><textarea class='editor'>var out;
 // Pan2 uses an OutputProxy for each of its two outputs.
 out = Pan2.ar(WhiteNoise.ar, 0.0);
 out.postln;
 out.source.postln;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>

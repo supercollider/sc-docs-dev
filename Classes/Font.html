@@ -76,7 +76,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>A Boolean.<tr><td class='argumentname'>usePointSize<td class='argumentdesc'>
 <p>A Boolean. Whether to regard the <strong>size</strong> argument as point-size - adapting to the screen resolution.</table><h4>Discussion:</h4>
 
-<p>Example:<textarea class='editor'>g = Font("Helvetica", 12);</textarea>
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>g = Font("Helvetica", 12);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*availableFonts' href='./../Overviews/Methods.html#availableFonts'>availableFonts</a></h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
@@ -152,7 +153,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='returnvalue'>
 <p>Bold variant of the Font.</div></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
-<textarea class='editor'>(
+<div class='codeMirrorContainer'><textarea class='editor'>(
 w = Window.new.front;
 t = StaticText(w, w.view.bounds).align_(\center);
 t.string = " SUPERCOLLIDER";
@@ -261,6 +262,7 @@ Font.availableFonts.do({ |name|
 
 w.front;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Font.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Font.schelp</a><br>link::Classes/Font::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

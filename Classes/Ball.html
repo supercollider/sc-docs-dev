@@ -62,7 +62,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 
-<p>mouse x controls switch of level:<textarea class='editor'>(
+<p>mouse x controls switch of level:<div class='codeMirrorContainer'><textarea class='editor'>(
 {
     var f, sf;
     sf = K2A.ar(MouseX.kr &gt; 0.5) &gt; 0;
@@ -71,8 +71,9 @@ var scdoc_sc_version = '3.14.0-dev';
     SinOsc.ar(f, 0, 0.2)
 }.play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>mouse x controls modulation rate, mouse y controls gravity:<textarea class='editor'>(
+<p>mouse x controls modulation rate, mouse y controls gravity:<div class='codeMirrorContainer'><textarea class='editor'>(
 {
     var f, sf, g;
     sf = LFNoise0.ar(MouseX.kr(1, 100, 1));
@@ -82,8 +83,9 @@ var scdoc_sc_version = '3.14.0-dev';
     SinOsc.ar(f, 0, 0.2)
 }.play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>the general german police choir. mouse x controls damping, mouse y controls gravity:<textarea class='editor'>(
+<p>the general german police choir. mouse x controls damping, mouse y controls gravity:<div class='codeMirrorContainer'><textarea class='editor'>(
 {
     var f, sf, g;
     sf = LFPulse.ar(0.6, 0.2, 0.5);
@@ -94,6 +96,7 @@ var scdoc_sc_version = '3.14.0-dev';
     SinOsc.ar(f, 0, 0.2)
 }.play;
 )</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Ball.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Ball.schelp</a><br>link::Classes/Ball::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

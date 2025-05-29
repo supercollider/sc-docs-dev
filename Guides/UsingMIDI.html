@@ -68,7 +68,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>MIDIIn has a number of class variables holding functions to be evaluated when a MIDI event comes in. Technical details on each function can be found in the <a href="./../Classes/MIDIIn.html">MIDIIn</a> help file.
 <p>Note, however, that MIDIIn provides no functionality for filtering incoming MIDI based on device, controller number or other factors. This means, for practical use, MIDIIn is significantly harder to use than <a href="./../Classes/MIDIFunc.html">MIDIFunc</a> or <a href="./../Classes/MIDIdef.html">MIDIdef</a>. <strong>It is generally recommended to avoid using MIDIIn directly.</strong> The exceptions are sysex (system exclusive) and sysrt (MIDI clock) messages, which are currently supported only by MIDIIn.<h2><a class='anchor' name='Playing%20notes%20on%20your%20MIDI%20keyboard'>Playing notes on your MIDI keyboard</a></h2>
 
-<p>The technical problem is that every note on needs to save its synth object so that the note off message can end the right server-side node.<textarea class='editor'>s.boot;
+<p>The technical problem is that every note on needs to save its synth object so that the note off message can end the right server-side node.<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 
 (
 var notes, on, off;
@@ -92,6 +92,7 @@ q = { on.free; off.free; };
 
 // when done:
 q.value;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>The <a href="./../Classes/MIDIIn.html">MIDIIn</a> help file contains a more elaborate example.
 <p>SuperCollider does not have a built-in class to handle this automatically. However, <em>dewdrop_lib</em>, a third party library mentioned <a href="#Third%20party%20libraries">below</a>, includes Voicer (to simplify note on-off bookkeeping) and VoicerMIDISocket (to trigger Voicer notes by MIDI). Users interested in this functionality may wish to examine that library.<h2><a class='anchor' name='Sending%20MIDI%20out'>Sending MIDI out</a></h2>

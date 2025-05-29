@@ -50,10 +50,12 @@ var scdoc_sc_version = '3.14.0-dev';
 <p>To see how a class or classes implement a particular message, select the message name and press cmd-y.
 <p>Use the Find and Find Next commands, available through the Edit menu, to search for text in the frontmost document<h2><a class='anchor' name='grep'>grep</a></h2>
 
-<p>Use grep in the Terminal (in the Applications-&gt;Utilities folder) to search for all occurrences of a given word or phrase. For example, to see all documents that use the LFSaw class, evaluate (in the Terminal application)<textarea class='editor'>grep -r LFSaw /Applications/SuperCollider</textarea>
+<p>Use grep in the Terminal (in the Applications-&gt;Utilities folder) to search for all occurrences of a given word or phrase. For example, to see all documents that use the LFSaw class, evaluate (in the Terminal application)<div class='codeMirrorContainer'><textarea class='editor'>grep -r LFSaw /Applications/SuperCollider</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Because lines in the terminal application break according to the size of the window and not through schemes that enhance readability, it may be easier to write grep results to a file, as in<textarea class='editor'>// change the name of the path (the argument after the '&gt;' sign, as appropriate
+<p>Because lines in the terminal application break according to the size of the window and not through schemes that enhance readability, it may be easier to write grep results to a file, as in<div class='codeMirrorContainer'><textarea class='editor'>// change the name of the path (the argument after the '&gt;' sign, as appropriate
 grep -r LFSaw /Applications/SuperCollider/ &gt; /Users/yourHomeDirectory/Desktop/grep_results</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Additional%20sources'>Additional sources</a></h2>
 
 <p>The SuperCollider wiki:<ul>
