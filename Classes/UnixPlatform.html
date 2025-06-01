@@ -37,7 +37,6 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-formatPathForCmdLine'>formatPathForCmdLine</a> </li>
 <li class='toc3'><a href='#-isPathSeparator'>isPathSeparator</a> </li>
 <li class='toc3'><a href='#-killAll'>killAll</a> </li>
-<li class='toc3'><a href='#-killProcessByID'>killProcessByID</a> </li>
 <li class='toc3'><a href='#-pathDelimiter'>pathDelimiter</a> </li>
 <li class='toc3'><a href='#-pathSeparator'>pathSeparator</a> </li>
 </ul></ul><li class='toc1'><a href='#Help%20template'>Help template</a></li>
@@ -66,8 +65,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-defaultTempDir' href='./../Overviews/Methods.html#defaultTempDir'>defaultTempDir</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-formatPathForCmdLine' href='./../Overviews/Methods.html#formatPathForCmdLine'>formatPathForCmdLine</a>(<span class='argstr'>path</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isPathSeparator' href='./../Overviews/Methods.html#isPathSeparator'>isPathSeparator</a>(<span class='argstr'>char</span>)</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-killAll' href='./../Overviews/Methods.html#killAll'>killAll</a>(<span class='argstr'>cmdLineArgs</span>)</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-killProcessByID' href='./../Overviews/Methods.html#killProcessByID'>killProcessByID</a>(<span class='argstr'>pid</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-killAll' href='./../Overviews/Methods.html#killAll'>killAll</a>(<span class='argstr'>cmdLineArgs</span>, <span class='argstr'>force: true</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pathDelimiter' href='./../Overviews/Methods.html#pathDelimiter'>pathDelimiter</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pathSeparator' href='./../Overviews/Methods.html#pathSeparator'>pathSeparator</a></h3>
 <h2><a class='anchor' name='Help%20template'>Help template</a></h2>
@@ -86,36 +84,7 @@ CLASSMETHODS::
 
 INSTANCEMETHODS::
 
-METHOD:: killProcessByID
-(describe method here)
-
-ARGUMENT:: pid
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: isPathSeparator
-(describe method here)
-
-ARGUMENT:: char
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: killAll
-(describe method here)
-
-ARGUMENT:: cmdLineArgs
-(describe argument here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: pathSeparator
-(describe method here)
-
-returns:: (describe returnvalue here)
-
-METHOD:: clearMetadata
+METHOD:: formatPathForCmdLine
 (describe method here)
 
 ARGUMENT:: path
@@ -128,12 +97,28 @@ METHOD:: arch
 
 returns:: (describe returnvalue here)
 
+METHOD:: pathSeparator
+(describe method here)
+
+returns:: (describe returnvalue here)
+
 METHOD:: pathDelimiter
 (describe method here)
 
 returns:: (describe returnvalue here)
 
-METHOD:: formatPathForCmdLine
+METHOD:: killAll
+(describe method here)
+
+ARGUMENT:: cmdLineArgs
+(describe argument here)
+
+ARGUMENT:: force
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: clearMetadata
 (describe method here)
 
 ARGUMENT:: path
@@ -143,6 +128,14 @@ returns:: (describe returnvalue here)
 
 METHOD:: defaultTempDir
 (describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: isPathSeparator
+(describe method here)
+
+ARGUMENT:: char
+(describe argument here)
 
 returns:: (describe returnvalue here)
 
