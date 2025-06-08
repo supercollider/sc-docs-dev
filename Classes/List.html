@@ -26,7 +26,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='toc'>
 <div id='toctitle'>List:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#description'>Description</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
+<ul class='toc'><li class='toc2'><a href='#Size%20limitations%20of%20arrays%20and%20flexibility%20of%20lists%20in%20SuperCollider'>Size limitations of arrays and flexibility of lists in SuperCollider</a></li>
+<ul class='toc'></ul></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#*new'>new</a> </li>
 <li class='toc3'><a href='#*newClear'>newClear</a> </li>
 <li class='toc3'><a href='#*copyInstance'>copyInstance</a> </li>
@@ -47,6 +48,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-add'>add</a> </li>
 <li class='toc3'><a href='#-addFirst'>addFirst</a> </li>
 <li class='toc3'><a href='#-insert'>insert</a> </li>
+<li class='toc3'><a href='#-boundedInsert'>boundedInsert</a> </li>
 <li class='toc3'><a href='#-pop'>pop</a> </li>
 <li class='toc3'><a href='#-grow'>grow</a> </li>
 <li class='toc3'><a href='#-removeAt'>removeAt</a> </li>
@@ -100,15 +102,52 @@ var scdoc_sc_version = '3.14.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>List is a subclass of SequenceableCollection with unlimited growth in size. Although not a subclass of <a href="./../Classes/Array.html">Array</a> or its superclass <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> it uses an Array in its implementation and is in many cases interchangeable with one. (List implements many of the same methods as Array.)
-<p>Arrays have a fixed maximum size. If you add beyond that size a new Array is created and returned, but you must use an assignment statement or the new array will be lost. (See the <a href="./../Classes/Array.html">Array</a> helpfile.) List has no size limitation and is thus more flexible, but has slightly more overhead.<div class='codeMirrorContainer'><textarea class='editor'>(
-x = Array.new(3);
-y = List.new(3);
-5.do({ |i| z = x.add(i); y.add(i) });
-x.postln; z.postln; y.postln;
-)</textarea>
+<p>Many of List's methods are inherited from <a href="./../Classes/SequenceableCollection.html">SequenceableCollection</a> or <a href="./../Classes/Collection.html">Collection</a> and are documented in those helpfiles.<h3><a class='anchor' name='Size%20limitations%20of%20arrays%20and%20flexibility%20of%20lists%20in%20SuperCollider'>Size limitations of arrays and flexibility of lists in SuperCollider</a></h3>
+
+<p>Arrays have a fixed maximum size. Adding beyond that size, a new <a href="./../Classes/Array.html">Array</a> is created and returned. In order to be able to use it, the variable holding the old array can be reassigned to the new one. Threfore, the idiomatic way to add new item in <a href="./../Classes/Array.html">Array</a> is:<div class='codeMirrorContainer'><textarea class='editor'>x = x.add(i);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Many of List's methods are inherited from <a href="./../Classes/SequenceableCollection.html">SequenceableCollection</a> or <a href="./../Classes/Collection.html">Collection</a> and are documented in those helpfiles.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>// Create a new empty collections with size 3:
+x = Array.new(3); 
+y = Array.new(3); 
+z = List.new(3);
+
+// Try to add 7 items to the array and list.
+// If the array exceeds maxSize, it will only
+// grow to an internally specified max size.
+( 
+7.do { |i|
+    x.add(i);
+    y = y.add(i); // reassign array y on each add
+    z.add(i);
+};
+)
+
+// Attempt to access the 5th item:
+x.at(4); // -&gt; nil (out of bounds)
+y.at(4); // -&gt; 4
+z.at(4); // -&gt; 4
+
+// x grew only to size 4
+x.postln; // -&gt; [ 0, 1, 2, 3 ]
+y.postln; // -&gt; [ 0, 1, 2, 3, 4, 5, 6 ]
+z.postln; // -&gt; List[ 0, 1, 2, 3, 4, 5, 6 ]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>List has no size limitation and is thus more flexible, but has slightly more overhead:<div class='codeMirrorContainer'><textarea class='editor'>(
+// Create a new empty List with size: 3
+x = List.new(3);
+
+x.postln; // -&gt; List[ ]
+
+// Add numbers 0 to 4 to the List
+5.do({ |i| x.add(i) });
+
+// The list has been modified in-place with each added item
+x.postln; // -&gt; List[ 0, 1, 2, 3, 4 ]
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>List.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>size: 8</span>)</h3>
 <div class='method'>
 <p>Creates a List with the initial capacity given by <strong>size</strong>.</div><h3 class='method-code'><span class='method-prefix'>List.</span><a class='method-name' name='*newClear' href='./../Overviews/Methods.html#newClear'>newClear</a>(<span class='argstr'>size: 0</span>)</h3>
@@ -135,7 +174,7 @@ x.postln;
 <div class='method'>
 <p>Sets the List's Array.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-at' href='./../Overviews/Methods.html#at'>at</a>(<span class='argstr'>i</span>)</h3>
 <div class='method'>
-<p>Return the item at <strong>index</strong>. Accepts either a single index or an array of indices, in which case an Array of elements is returned. <a href="./../Classes/Array.html">Array</a> is its syntactic shortcut.<div class='codeMirrorContainer'><textarea class='editor'>x = List[1, 2, 3] //-&gt; [1, 2, 3]
+<p>Return the item at <strong>index</strong>. See <a href="./../Classes/SequenceableCollection.html#Indexing">SequenceableCollection: Indexing</a>.. Accepts either a single index or an array of indices, in which case an Array of elements is returned. <a href="./../Classes/Array.html">Array</a> is its syntactic shortcut.<div class='codeMirrorContainer'><textarea class='editor'>x = List[1, 2, 3] //-&gt; [1, 2, 3]
 
 // Retrieve the value at index 1:
 x.at(1) //-&gt; 2
@@ -214,7 +253,7 @@ fork {
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-put' href='./../Overviews/Methods.html#put'>put</a>(<span class='argstr'>i</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
-<p>Put <strong>item</strong> at <strong>index</strong>, replacing what is there.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clipPut' href='./../Overviews/Methods.html#clipPut'>clipPut</a>(<span class='argstr'>i</span>, <span class='argstr'>item</span>)</h3>
+<p>Put <strong>item</strong> at <strong>index</strong>, replacing what is there. See <a href="./../Classes/SequenceableCollection.html#Indexing">SequenceableCollection: Indexing</a>..</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clipPut' href='./../Overviews/Methods.html#clipPut'>clipPut</a>(<span class='argstr'>i</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
 <p>Same as <a href="#-put">-put</a>, but values for <strong>index</strong> greater than the <a href="./../Classes/List.html">List</a> instance size minus one will be clipped to <code>size - 1</code>, which is the last index.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wrapPut' href='./../Overviews/Methods.html#wrapPut'>wrapPut</a>(<span class='argstr'>i</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
@@ -226,13 +265,25 @@ fork {
 <div class='method'>
 <p>Inserts the <strong>item</strong> at the beginning of the List.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-insert' href='./../Overviews/Methods.html#insert'>insert</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
-<p>Inserts the <strong>item</strong> into the contents of the List at the indicated <strong>index</strong>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pop' href='./../Overviews/Methods.html#pop'>pop</a></h3>
+<p>Inserts the <strong>item</strong> into the contents of the <a href="./../Classes/List.html">List</a> at the indicated <strong>index</strong>.<div class='codeMirrorContainer'><textarea class='editor'>x = List[1, 2, 3, 4]; // -&gt; List[1, 2, 3, 4]
+x.insert(0, 999); // -&gt; List[999, 1, 2, 3, 4]
+x; // -&gt; List[999, 1, 2, 3, 4]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-boundedInsert' href='./../Overviews/Methods.html#boundedInsert'>boundedInsert</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
+<div class='method'>
+<p>Same as <a href="#-insert">-insert</a>, but removes the receiver's last element before inserting <strong>item</strong>. This changes the receiver but maintains its size.<div class='codeMirrorContainer'><textarea class='editor'>x = List[1, 2, 3, 4]; // -&gt; List[1, 2, 3, 4]
+x.boundedInsert(1, 999); // -&gt; List[1, 999, 2, 3]
+x; // -&gt; List[1, 999, 2, 3]
+x.boundedInsert(20, \a); // -&gt; List[1, 999, 2, a]
+x.boundedInsert(-2, \b); // -&gt; List[b, 1, 999, 2]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pop' href='./../Overviews/Methods.html#pop'>pop</a></h3>
 <div class='method'>
 <p>Remove and return the last element of the List.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-grow' href='./../Overviews/Methods.html#grow'>grow</a>(<span class='argstr'>sizeIncrease</span>)</h3>
 <div class='method'>
 <p>Increase the size of the List by <strong>sizeIncrease</strong> number of slots.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-removeAt' href='./../Overviews/Methods.html#removeAt'>removeAt</a>(<span class='argstr'>index</span>)</h3>
 <div class='method'>
-<p>Remove and return the element at <strong>index</strong>, shrinking the size of the List.<div class='codeMirrorContainer'><textarea class='editor'>y = List[1, 2, 3];
+<p>Remove and return the item at <strong>index</strong>, shrinking the size of the List. See <a href="./../Classes/SequenceableCollection.html#Indexing">SequenceableCollection: Indexing</a>..<div class='codeMirrorContainer'><textarea class='editor'>y = List[1, 2, 3];
 y.removeAt(1);
 y.postln;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
@@ -260,7 +311,7 @@ z.fill([1, 2, 3, 4]).postln;
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-copyRange' href='./../Overviews/Methods.html#copyRange'>copyRange</a>(<span class='argstr'>start</span>, <span class='argstr'>end</span>)</h3>
 <div class='method'>
-<p>Return a new List which is a copy of the indexed slots of the receiver from start to end.<div class='codeMirrorContainer'><textarea class='editor'>(
+<p>Return a new List which is a copy of the indexed slots of the receiver from start to end. See <a href="./../Classes/SequenceableCollection.html#Indexing">SequenceableCollection: Indexing</a>..<div class='codeMirrorContainer'><textarea class='editor'>(
 var y, z;
 z = List[1, 2, 3, 4, 5];
 y = z.copyRange(1, 3);
@@ -270,7 +321,7 @@ y.postln;
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-copySeries' href='./../Overviews/Methods.html#copySeries'>copySeries</a>(<span class='argstr'>first</span>, <span class='argstr'>second</span>, <span class='argstr'>last</span>)</h3>
 <div class='method'>
-<p>Return a new List consisting of the values starting at <strong>first</strong>, then every step of the distance between <strong>first</strong> and <strong>second</strong>, up until <strong>last</strong>.<div class='codeMirrorContainer'><textarea class='editor'>(
+<p>Return a new List consisting of the values starting at <strong>first</strong>, then every step of the distance between <strong>first</strong> and <strong>second</strong>, up until <strong>last</strong>. See <a href="./../Classes/SequenceableCollection.html#Indexing">SequenceableCollection: Indexing</a>..<div class='codeMirrorContainer'><textarea class='editor'>(
 var y, z;
 z = List[1, 2, 3, 4, 5, 6];
 y = z.copySeries(0, 2, 5);
@@ -279,7 +330,7 @@ y.postln;
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-putSeries' href='./../Overviews/Methods.html#putSeries'>putSeries</a>(<span class='argstr'>first</span>, <span class='argstr'>second</span>, <span class='argstr'>last</span>, <span class='argstr'>value</span>)</h3>
 <div class='method'>
-<p>Put <strong>value</strong> at every index starting at <strong>first</strong>, then every step of the distance between <strong>first</strong> and <strong>second</strong>, up until <strong>last</strong>.<div class='codeMirrorContainer'><textarea class='editor'>(
+<p>Put <strong>value</strong> at every index starting at <strong>first</strong>, then every step of the distance between <strong>first</strong> and <strong>second</strong>, up until <strong>last</strong>. See <a href="./../Classes/SequenceableCollection.html#Indexing">SequenceableCollection: Indexing</a>..<div class='codeMirrorContainer'><textarea class='editor'>(
 var y, z;
 z = List[1, 2, 3, 4, 5, 6];
 y = z.putSeries(0, 2, 5, "foo");

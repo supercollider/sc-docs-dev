@@ -59,6 +59,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <li class='toc3'><a href='#-extend'>extend</a> </li>
 <li class='toc3'><a href='#-fill'>fill</a> </li>
 <li class='toc3'><a href='#-insert'>insert</a> </li>
+<li class='toc3'><a href='#-boundedInsert'>boundedInsert</a> </li>
 <li class='toc3'><a href='#-move'>move</a> </li>
 <li class='toc3'><a href='#-addFirst'>addFirst</a> </li>
 <li class='toc3'><a href='#-pop'>pop</a> </li>
@@ -129,7 +130,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>ArrayedCollection is an abstract class, a subclass of SequenceableCollections whose elements are held in a vector of slots. Instances of ArrayedCollection have a fixed maximum size beyond which they may not grow.
+<p><code>ArrayedCollection</code> is an abstract class, a subclass of <a href="./../Classes/SequenceableCollection.html">SequenceableCollection</a> whose items are held in a vector of slots, indexable by a <a href="./../Classes/SimpleNumber.html">SimpleNumber</a> starting from 0. If a float is used as index, it will be truncated. Instances of <code>ArrayedCollection</code> have a fixed maximum size beyond which they may not grow.
 <p>Its principal subclasses are <a href="./../Classes/Array.html">Array</a> (for holding objects), and <a href="./../Classes/RawArray.html">RawArray</a>, from which <a href="./../Classes/Int8Array.html">Int8Array</a>, <a href="./../Classes/FloatArray.html">FloatArray</a>, <a href="./../Classes/Signal.html">Signal</a> etc. inherit.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>ArrayedCollection.</span><a class='method-name' name='*newClear' href='./../Overviews/Methods.html#newClear'>newClear</a>(<span class='argstr'>indexedSize: 0</span>)</h3>
 <div class='method'>
@@ -175,18 +176,36 @@ Array.iota(2, 3, 4);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-at' href='./../Overviews/Methods.html#at'>at</a>(<span class='argstr'>index</span>)</h3>
 <div class='method'>
-<p>Return the item at <strong>index</strong>. The index can also be an array of indices to extract the specified elements. <a href="./../Classes/Array.html">Array</a> is its syntactic shortcut.<div class='codeMirrorContainer'><textarea class='editor'>x = [1, 2, 3] //-&gt; [1, 2, 3]
+<p>Returns the item at <code>index</code>, specified as an integer (or float) starting from <code>0</code>.<div class='codeMirrorContainer'><textarea class='editor'>x = [1, 2, 3];
+x.at(2); // returns 3
+x[2];    // equivalent shorthand syntax</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-// Retrieve the value at index 1:
-x.at(1) //-&gt; 2
-// Equivalent shorthand syntax:
-x[1] //-&gt; 2
+<p>The <code>index</code> can also be an <a href="./../Classes/Array.html">Array</a> of indices to extract specified elements:<div class='codeMirrorContainer'><textarea class='editor'>x = [10, 20, 30];
 
-// An index can also be retrieved from an array:
-y = [0, 0, 2, 2, 1] //-&gt; [0, 0, 2, 2, 1]
-x[y]; //-&gt; [1, 1, 3, 3, 2]
+x.at([-1, 0, 1, 2, 3]); // returns [nil, 10, 20, 30, nil]
+x.at((-1..3));          // same, as a range
+x[(-1..3)];             // same as above
 
-(
+y = [0, 0, 2, 2, 1];
+x[y];                   // returns [10, 10, 30, 30, 20]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>Float indices are also supported with the following behavior:<ul>
+<li>Positive float indices are floored to the nearest lower integer.<li>Negative float indices in the range (-1, 0) return the first item, <code>this.at(0)</code>.<li>Out-of-range indices, <code>&lt;= -1</code> or <code>&gt;= this.size</code>, return <code>nil</code>.</ul>
+<div class='codeMirrorContainer'><textarea class='editor'>x = [10, 20];
+
+x.at(-1);   // returns nil
+x.at(-0.9); // returns 10
+x.at(-0.1); // returns 10
+x.at(-0);   // returns 10
+x.at(0);    // returns 10
+x.at(1.1);  // returns 20
+x.at(1.9);  // returns 20
+x.at(2);    // returns nil</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>A sound example:<div class='codeMirrorContainer'><textarea class='editor'>(
 var pitches =  [43.0, 55.0, 58.86, 57.42, 67.0];
 fork {
     pitches.size.do{ |i|
@@ -256,11 +275,16 @@ fork {
 <div class='method'>
 <p>Plot values in a GUI window. See <a href="./../Reference/plot.html">plot</a> for more details. When the receiver contains <code>nil</code> items, the plot fails with an error.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-swap' href='./../Overviews/Methods.html#swap'>swap</a>(<span class='argstr'>i</span>, <span class='argstr'>j</span>)</h3>
 <div class='method'>
-<p>Swap the values at indices i and j.<div class='codeMirrorContainer'><textarea class='editor'>[1, 2, 3].swap(0, 2).postln;</textarea>
+<p>Swap the values at indices i and j, both specified as integers starting from 0.<div class='codeMirrorContainer'><textarea class='editor'>[1, 2, 3].swap(0, 2).postln;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-put' href='./../Overviews/Methods.html#put'>put</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
-<p>Put <strong>item</strong> at <strong>index</strong>, replacing what is there.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clipPut' href='./../Overviews/Methods.html#clipPut'>clipPut</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
+<p>Put <strong>item</strong> at <strong>index</strong> starting from 0, replacing what is there. <strong>index</strong> can be an array of indices. If a float is used as index, it will be truncated.
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>x = [1, 2, 3];
+y = x.put(0, 150); // -&gt; [150, 2, 3]
+z = x.put([0, 1], 150); // [150, 150, 3]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clipPut' href='./../Overviews/Methods.html#clipPut'>clipPut</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
 <p>Same as <a href="#-put">-put</a>, but values for <strong>index</strong> greater than the <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> instance size minus one will be clipped to <code>size - 1</code>, which is the last index.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wrapPut' href='./../Overviews/Methods.html#wrapPut'>wrapPut</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
@@ -290,9 +314,13 @@ y.indexOfGreaterThan(70);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-removeAt' href='./../Overviews/Methods.html#removeAt'>removeAt</a>(<span class='argstr'>index</span>)</h3>
 <div class='method'>
-<p>Remove and return the element at <strong>index</strong>, shrinking the size of the ArrayedCollection.<div class='codeMirrorContainer'><textarea class='editor'>y = [1, 2, 3];
+<p>Remove and return the item at <strong>index</strong>, specified as an integer or a float starting from 0, shrinking the size of the ArrayedCollection.<div class='codeMirrorContainer'><textarea class='editor'>y = [1, 2, 3, 4];
+
 y.removeAt(1);
-y.postln;</textarea>
+y.postln; // returns [1, 3, 4]
+
+y.removeAt(0.5)
+y.postln; // returns [3, 4]</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-takeAt' href='./../Overviews/Methods.html#takeAt'>takeAt</a>(<span class='argstr'>index</span>)</h3>
 <div class='method'>
@@ -359,18 +387,45 @@ z.fill([1, 2, 3, 4]).postln;
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-insert' href='./../Overviews/Methods.html#insert'>insert</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
 <div class='method'>
-<p>Inserts the item into the contents of the receiver. This method may return a new ArrayedCollection. For this reason, you should always assign the result of <code>insert</code> to a variable - never depend on add changing the receiver.<div class='codeMirrorContainer'><textarea class='editor'>(
-// in this case a new object is returned
-var y, z;
-z = [1, 2, 3, 4];
-y = z.insert(1, 999);
-z.postln;
-y.postln;
-)</textarea>
+<p>Inserts the item into the contents of the receiver at the specified index, which is an integer starting from 0.  This method may return a new ArrayedCollection.  For this reason, you should always assign the result of <code>insert</code> to a variable - never depend on add changing the receiver.<div class='codeMirrorContainer'><textarea class='editor'>// In this case, a new object is returned  
+// because adding a new item would exceed the fixed maximum size of 4, 
+// which is set at the instantiation of the array z and 
+// cannot be changed at a later stage.
+// (By default, an array initialized with a size between 1 and 4 
+// retains a maximum size of 4):
+z = [1, 2, 3, 4]; // -&gt; [1, 2, 3, 4]
+y = z.insert(1, 999); // -&gt; [1, 999, 2, 3, 4]
+z // -&gt; [1, 2, 3, 4]
+y // -&gt; [1, 999, 2, 3, 4]
+(z == y) // -&gt; false
+(z === y) // -&gt; false
+
+// In this case, the same object is returned 
+// because the new number of elements does not exceed 
+// the number of elements at instantiation:
+z = [1, 2, 3]; // -&gt; [1, 2, 3]
+y = z.insert(1, 999); // -&gt; [1, 999, 2, 3]
+z; // -&gt; [1, 999, 2, 3]
+y; // -&gt; [1, 999, 2, 3]
+(z == y); // -&gt; true
+(z === y); // -&gt; true</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-boundedInsert' href='./../Overviews/Methods.html#boundedInsert'>boundedInsert</a>(<span class='argstr'>index</span>, <span class='argstr'>item</span>)</h3>
+<div class='method'>
+<p>Changes the receiver but maintains its size, therefore unlike <code>.insert</code> it is not necessary to reassign the result of <code>.boundedInsert</code>.<div class='codeMirrorContainer'><textarea class='editor'>// .boundedInsert never returns a new object  
+// because inserting a new item never exceeds the maxSize.  
+z = [1, 2, 3, 4];            // -&gt; [1, 2, 3, 4]
+y = z.boundedInsert(1, 999); // -&gt; [1, 999, 2, 3]
+z;                           // -&gt; [1, 999, 2, 3]
+y;                           // -&gt; [1, 999, 2, 3]
+z == y;                      // -&gt; true
+(z === y);                   // -&gt; true
+y = y.boundedInsert(20, \a); // -&gt; [1, 999, 2, a]
+z = z.boundedInsert(-2, \b); // -&gt; [b, 1, 999, 2]</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-move' href='./../Overviews/Methods.html#move'>move</a>(<span class='argstr'>fromIndex</span>, <span class='argstr'>toIndex</span>)</h3>
 <div class='method'>
-<p>Moves an item from one position to another.<div class='codeMirrorContainer'><textarea class='editor'>[10, 20, 1000, 40, 50].move(2, 0) // move 1000 to index 0</textarea>
+<p>Moves an item from one position to another. – Both <code>fromIndex</code> and <code>toIndex</code> arguments are specified as integers starting from 0.<div class='codeMirrorContainer'><textarea class='editor'>[10, 20, 1000, 40, 50].move(2, 0) // move 1000 to index 0</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>
@@ -406,7 +461,7 @@ z.postln;
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-copyRange' href='./../Overviews/Methods.html#copyRange'>copyRange</a>(<span class='argstr'>start</span>, <span class='argstr'>end</span>)</h3>
 <div class='method'>
-<p>Return a new <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> which is a copy of the indexed slots of the receiver from <strong>start</strong> to <strong>end</strong>. If <strong>end</strong> &lt; <strong>start</strong>, an empty <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> is returned.<div class='codeMirrorContainer'><textarea class='editor'>(
+<p>Return a new <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> which is a copy of the indexed slots of the receiver from <strong>start</strong> to <strong>end</strong>. – Both start and end are specified as integers starting from 0. If <strong>end</strong> &lt; <strong>start</strong>, an empty ArrayedCollection is returned.<div class='codeMirrorContainer'><textarea class='editor'>(
 var x, y;
 x = [1, 2, 3, 4, 5];
 y = x.copyRange(1, 3);
@@ -417,7 +472,7 @@ y.postln;
 
 <p><div class='warning'><span class='warninglabel'>WARNING:</span> <code>x.copyRange(a, b)</code> is <strong>not</strong> equivalent to <code>x[a..b]</code>. The latter compiles to <a href="#-copySeries">-copySeries</a>, which has different behavior when <strong>end</strong> &lt; <strong>start</strong>. See <a href="#copyRange_copySeries">NOTE</a> in <a href="#-copySeries">-copySeries</a>.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-copySeries' href='./../Overviews/Methods.html#copySeries'>copySeries</a>(<span class='argstr'>first</span>, <span class='argstr'>second</span>, <span class='argstr'>last</span>)</h3>
 <div class='method'>
-<p>Return a new <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> consisting of the values starting at <strong>first</strong>, then every step of the distance between <strong>first</strong> and <strong>second</strong>, up until <strong>last</strong>. If <strong>second</strong> is <code>nil</code>, a step of 1 or -1 is used as appropriate.
+<p>Return a new <a href="./../Classes/ArrayedCollection.html">ArrayedCollection</a> consisting of the values starting at <strong>first</strong>, then every step of the distance between <strong>first</strong> and <strong>second</strong>, up until <strong>last</strong>. – All indices (first, second, last) are specified as integers starting from 0. If <strong>second</strong> is <code>nil</code>, a step of 1 or -1 is used as appropriate.
 <p><code>x.copySeries(a, nil, c)</code> is equivalent to <code>x[a..c]</code>, and <code>x.copySeries(a, b, c)</code> is equivalent to <code>x[a, b..c]</code><div class='codeMirrorContainer'><textarea class='editor'>(
 var x, y;
 x = [1, 2, 3, 4, 5, 6];
@@ -451,7 +506,7 @@ y.postln;
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-putSeries' href='./../Overviews/Methods.html#putSeries'>putSeries</a>(<span class='argstr'>first</span>, <span class='argstr'>second</span>, <span class='argstr'>last</span>, <span class='argstr'>value</span>)</h3>
 <div class='method'>
-<p>Put <strong>value</strong> at every index starting at <strong>first</strong>, then every step of the distance between <strong>first</strong> and <strong>second</strong>, up until <strong>last</strong>. <code>x.putSeries(a, b, c, val)</code> can also be written as <code>x[a, b..c] = val</code><div class='codeMirrorContainer'><textarea class='editor'>(
+<p>Put <strong>value</strong> at every index starting at <strong>first</strong>, then every step of the distance between <strong>first</strong> and <strong>second</strong>, up until <strong>last</strong>. – All indices (first, second, last) are specified as integers starting from 0. <code>x.putSeries(a, b, c, val)</code> can also be written as <code>x[a, b..c] = val</code><div class='codeMirrorContainer'><textarea class='editor'>(
 var y, z;
 z = [1, 2, 3, 4, 5, 6];
 y = z.putSeries(0, 2, 5, "foo");
@@ -498,7 +553,7 @@ a.deepCollect(3, { |item| item.isArray }).postln;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-windex' href='./../Overviews/Methods.html#windex'>windex</a></h3>
 <div class='method'>
-<p>Interprets the array as a list of probabilities which should sum to 1.0 and returns a random index value based on those probabilities.<div class='codeMirrorContainer'><textarea class='editor'>(
+<p>Interprets the array as a list of probabilities which should sum to 1.0 and returns a random index value based on those probabilities. The random index is taken from the receiver's index, starting from 0.<div class='codeMirrorContainer'><textarea class='editor'>(
 Array.fill(10, {
     [0.1, 0.6, 0.3].windex;
 }).postln;

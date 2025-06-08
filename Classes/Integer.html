@@ -77,6 +77,7 @@ var scdoc_sc_version = '3.14.0-dev';
 <ul class='toc'><li class='toc3'><a href='#-*'>*</a> </li>
 <li class='toc3'><a href='#-+'>+</a> </li>
 <li class='toc3'><a href='#--'>-</a> </li>
+<li class='toc3'><a href='#-modSeaside'>modSeaside</a> </li>
 <li class='toc3'><a href='#-clip'>clip</a> </li>
 <li class='toc3'><a href='#-factorial'>factorial</a> </li>
 <li class='toc3'><a href='#-fold'>fold</a> </li>
@@ -294,7 +295,30 @@ var scdoc_sc_version = '3.14.0-dev';
 <div class='method'>
 <p>Addition.</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='--' href='./../Overviews/Methods.html#-'>-</a>(<span class='argstr'>aNumber</span>, <span class='argstr'>adverb</span>)</h3>
 <div class='method'>
-<p>Subtraction.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clip' href='./../Overviews/Methods.html#clip'>clip</a>(<span class='argstr'>lo</span>, <span class='argstr'>hi</span>)</h3>
+<p>Subtraction.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-modSeaside' href='./../Overviews/Methods.html#modSeaside'>modSeaside</a>(<span class='argstr'>aNumber</span>, <span class='argstr'>adverb</span>)</h3>
+<div class='method'>
+<p>Pre-3.14 modulo with unexpected behavior for negative integer modulus.
+<p>For dividends smaller than a negative divisor, modSeaside pulls the resulting remainder below the divisor. It thereby leaves zero as peaks on the zero line. Like in the usual mod, all larger dividends result in remainders above zero.<div class='codeMirrorContainer'><textarea class='editor'>(..-9).mod(-3);
+// returns [0, -1, -2, 0, -1, -2, 0, -1, -2, 0]
+(..-9).modSeaside(-3);
+// returns [0, 2, 1, 0, -4, -5, 0, -4, -5, 0]
+
+// plot
+(-25..25).modSeaside(-5).plot.plotMode_(\steps);
+
+// modSeaside
+Pbind(\note, modSeaside(Pseries(-15, 1, 25), -5), \dur, 0.2).play;
+
+// modSeaside with different divisors
+Pbind(\note, modSeaside(Pseries(-15, 1, 25), [3, -4, -5]), \dur, 0.2).play;
+
+// mod
+Pbind(\note, mod(Pseries(-15, 1, 25), -5), \dur, 0.2).play;
+
+// mod with different divisors
+Pbind(\note, mod(Pseries(-15, 1, 25), [3, -4, -5]), \dur, 0.2).play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clip' href='./../Overviews/Methods.html#clip'>clip</a>(<span class='argstr'>lo</span>, <span class='argstr'>hi</span>)</h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'><ul>
 <li>the receiver if it is between <code>lo</code> and <code>hi</code><li><code>lo</code> if the receiver is less than <code>lo</code><li><code>hi</code> if the receiver is greater than <code>hi</code></ul>

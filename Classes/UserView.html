@@ -45,7 +45,6 @@ var scdoc_sc_version = '3.14.0-dev';
 <ul class='toc'><li class='toc2'><a href='#Basic%20Usage'>Basic Usage</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Responding%20to%20mouse%20clicks%20and%20movement'>Responding to mouse clicks and movement</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Animation'>Animation</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Usage%20of%20refreshInRect(aRect)'>Usage of refreshInRect(aRect)</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
@@ -442,47 +441,6 @@ x = UserView(w, Rect(10, 10, width - 20, height - 20))
 
 w.front;
 x.animate = true
-)</textarea>
-<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Usage%20of%20refreshInRect(aRect)'>Usage of refreshInRect(aRect)</a></h3>
-<div class='note'><span class='notelabel'>NOTE:</span> This functionality is only available in <strong>Cocoa GUI</strong></div>
-<p>The <code>refreshInRect</code> method constrains the receiver's refresh area to the rectangle passed in aRect. You may use Quartz Debug's flash screen updates to see the refresh area of the view<div class='codeMirrorContainer'><textarea class='editor'>(
-var userView, win, blob = Rect(0, 0, 50, 50), trackblob = false, pmouse;
-
-a = SCImage.new("/Library/Desktop Pictures/Ripples Blue.jpg");
-
-win = SCWindow.new("refreshInRect Test", Rect(400, 400, 600, 200), scroll: true).front;
-win.onClose_({ a.free });
-
-userView = SCUserView(win, Rect(10, 10, 2000, 800))
-    .backgroundImage_(a, 5)
-    .drawFunc_({ |me|
-        Color.blue.setFill;
-        Pen.fillRect(blob);
-    })
-    .mouseDownAction_({ |v, x, y, mod|
-        pmouse = x@y;
-        trackblob = blob.containsPoint(pmouse);
-    })
-    .mouseUpAction_({ |v, x, y, mod|
-        trackblob = false;
-    })
-    .mouseMoveAction_({ |v, x, y, mod|
-        var refresh, mouse, delta;
-        mouse = x@y;
-
-        if(trackblob, {
-            refresh = blob.copy;
-            delta = mouse-pmouse;
-            blob = blob.moveBy(delta.x, delta.y);
-            refresh = refresh.union(blob);
-            v.refreshInRect(refresh);
-        });
-        pmouse = mouse;
-    });
-
-blob = blob.moveBy(userView.bounds.left, userView.bounds.top);
-userView.bounds.postln;
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 

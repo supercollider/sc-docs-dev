@@ -719,44 +719,36 @@ s.meter.window.bounds // -&gt; Rect(200.0, 200.0, 134.0, 230.0)</textarea>
 <p>the position of the meter window, i.e. the singleton instance of <a href="./../Classes/ServerMeter.html">ServerMeter</a>. (See <a href="./../Classes/ServerMeter.html#-position">ServerMeter: -position</a>.) The default is `<code>nil</code>`, and the scope window will appear near the bottom-left side of the display: left: 5; bottom: 277. </table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-plotTree' href='./../Overviews/Methods.html#plotTree'>plotTree</a>: METHOD NOT FOUND!</h3>
 <div class='method'>
 <p>Plot the node/group tree in a graphical format, similar to <a href="#-queryAllNodes">-queryAllNodes</a>. This creates a singleton window containing <a href="./../Classes/NodeTreeView.html">NodeTreeView</a>.<div class='note'><span class='notelabel'>NOTE:</span> To use multiple instances of <a href="./../Classes/NodeTreeView.html">NodeTreeView</a> per <a href="./../Classes/Server.html">Server</a> instance or workspace, refer to the <a href="./../Classes/NodeTreeView.html#examples">Examples in NodeTreeView Documentation</a>.</div>
-<p>The method returns a <a href="./../Classes/Server.html">Server</a> (the receiver of this call), and the created <a href="./../Classes/View.html">View</a> instance can be accessed via the <a href="#-nodeTreeView">-nodeTreeView</a>.<div class='note'><span class='notelabel'>NOTE:</span> If the server is not running, the window containing <code>plotTree</code> will briefly appear and then close, displaying the following message in the Post window:<pre>-&gt; localhost
-WARNING: Server failed to respond to Group:queryTree!</pre></div><div class='codeMirrorContainer'><textarea class='editor'>// start the SuperCollider server:
-s.boot
+<p>This method returns an instance of <a href="./../Classes/NodeTreeView.html">NodeTreeView</a>, which can also be accessed via <a href="#-nodeTreeView">-nodeTreeView</a> method. Before version 3.14, this method returned an instance of the Server itself.<div class='codeMirrorContainer'><textarea class='editor'>// start the SuperCollider server:
+s.boot;
 
-// Open a plotTree window with a default refresh rate of 0.5 seconds:
-s.plotTree
+// Open a NodeTreeView window with a default refresh rate every 0.5 seconds:
+s.plotTree;
 
 // Close it:
-s.nodeTreeView.close
-
-// Open a plotTree window named ~pTree with a default refresh rate:
-~pTree = s.plotTree
-
-// Close the plotTree window associated with ~pTree:
-~pTree.close</textarea>
+s.nodeTreeView.close;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<div class='codeMirrorContainer'><textarea class='editor'>~pTree = s.plotTree
+<div class='codeMirrorContainer'><textarea class='editor'>s.plotTree;
 
 // Define and play a repeating pattern that generates a new synth every 0.4 seconds:
 x = Pn((dur: 0.4, midinote: 69, amp: 0.1)).play;
 
 /*
-The ~pTree window dynamically displays active synth nodes.
-Initially, it shows the first node,
-and upon each refresh, it retains the previous node while adding a new one.
+The NodeTreeView window dynamically displays active synth nodes.
+Initially, it shows the first node, and upon each refresh, it retains the previous node while adding a new one.
 This results in the display of one or two subsequent nodes at each interval.
 */
 
 // stop updating plotTree:
-~pTree.stop
+s.nodeTreeView.stop;
 
 // start updating plotTree:
-~pTree.start
+s.nodeTreeView.start;
 
 // stop the playback of the pattern:
-x.stop
+x.stop;
 
-~pTree.close</textarea>
+s.nodeTreeView.close;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><h4>Arguments:</h4>
@@ -765,7 +757,7 @@ x.stop
 <p>Polling interval.<div class='codeMirrorContainer'><textarea class='editor'>(
 s.waitForBoot {
     // Open a plotTree window with a refresh rate of 2 seconds:
-    var plotTree = s.plotTree(2);
+    s.plotTree(2);
 
     // Define and play a repeating pattern that generates a new synth every 0.5 seconds:
     x = Pn((dur: 0.5, midinote: 69, amp: 0.1)).play;
@@ -783,7 +775,7 @@ s.waitForBoot {
 
     2.wait; // wait for 2 seconds.
 
-    plotTree.close; // close the plotTree window
+    s.nodeTreeView.close; // close the plotTree window
 }
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
@@ -809,7 +801,7 @@ s.plotTree; // brings the plotTree window to the front without changing its posi
 <p>Parent view.<tr><td class='argumentname'>actionIfFail<td class='argumentdesc'>
 <p>Function to be evaluated in case communication with the server cannot be established.</table><h4>Returns:</h4>
 <div class='returnvalue'>
-<p>Function to be evaluated in order to clean up all actions performed inside the method. To be called for instance by the onClose method of the enclosing window.</div></div><h3><a class='anchor' name='Recording%20Support'>Recording Support</a></h3>
+<p>An Instance of <a href="./../Classes/NodeTreeView.html">NodeTreeView</a>.</div></div><h3><a class='anchor' name='Recording%20Support'>Recording Support</a></h3>
 
 <p>The following methods are for convenience use. For recording with sample-accurate start and stop times you should make your own nodes. See the <a href="./../Classes/DiskOut.html">DiskOut</a> helpfile for more info. For non-realtime recording, see the <a href="./../Guides/Non-Realtime-Synthesis.html">Non-Realtime Synthesis (NRT)</a> helpfile.
 <p>This functionality is also available through the recording button on the server windows. Pressing it once calls record, and pressing it again calls stopRecording (see below). When doing so the file created will be in your recordings folder and be named for the current date and time. The default location of the recordings folder varies from platform to platform but is always stored in <code>thisProcess.platform.recordingsDir</code>. Setting this variable allows you to change the default.<div class='note'><span class='notelabel'>NOTE:</span> record creates the recording synth after the Server's default group and uses In.ar. Thus if you add nodes after the recording synth their output will not be captured. To avoid this, either use Node objects (which use the default node as their target) or (when using messaging style) use a target nodeID of 1.<div class='codeMirrorContainer'><textarea class='editor'>s.sendMsg("/s_new", "default", s.nextNodeID, 1, 1);</textarea>

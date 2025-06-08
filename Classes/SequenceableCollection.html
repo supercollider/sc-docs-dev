@@ -26,7 +26,8 @@ var scdoc_sc_version = '3.14.0-dev';
 <div id='toc'>
 <div id='toctitle'>SequenceableCollection:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#description'>Description</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
+<ul class='toc'><li class='toc2'><a href='#Indexing'>Indexing</a></li>
+<ul class='toc'></ul></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#*fill'>fill</a> </li>
 <li class='toc3'><a href='#*series'>series</a> </li>
 <li class='toc3'><a href='#*geom'>geom</a> </li>
@@ -112,6 +113,7 @@ var scdoc_sc_version = '3.14.0-dev';
 </ul><li class='toc2'><a href='#Math%20Support%20-%20Binary%20Messages'>Math Support - Binary Messages</a></li>
 <ul class='toc'><li class='toc3'><a href='#-+'>+</a>  <a href='#--'>-</a>  <a href='#-*'>*</a>  <a href='#-/'>/</a>  <a href='#-div'>div</a>  <a href='#-min'>min</a>  <a href='#-max'>max</a>  <a href='#-<'>&lt;</a>  <a href='#-<='>&lt;=</a>  <a href='#->'>&gt;</a>  <a href='#->='>&gt;=</a>  <a href='#-bitXor'>bitXor</a>  <a href='#-lcm'>lcm</a>  <a href='#-gcd'>gcd</a>  <a href='#-round'>round</a>  <a href='#-trunc'>trunc</a>  <a href='#-atan2'>atan2</a>  <a href='#-hypot'>hypot</a>  <a href='#-ring1'>ring1</a>  <a href='#-ring2'>ring2</a>  <a href='#-ring3'>ring3</a>  <a href='#-ring4'>ring4</a>  <a href='#-difsqr'>difsqr</a>  <a href='#-sumsqr'>sumsqr</a>  <a href='#-sqrdif'>sqrdif</a>  <a href='#-absdif'>absdif</a>  <a href='#-amclip'>amclip</a>  <a href='#-scaleneg'>scaleneg</a>  <a href='#-clip2'>clip2</a>  <a href='#-excess'>excess</a>  <a href='#-rrand'>rrand</a>  <a href='#-exprand'>exprand</a> </li>
 <li class='toc3'><a href='#-%'>%</a>  <a href='#-**'>**</a>  <a href='#-&'>&amp;</a>  <a href='#-|'>|</a>  <a href='#->>'>&gt;&gt;</a>  <a href='#-+>>'>+&gt;&gt;</a>  <a href='#-<!'>&lt;!</a> </li>
+<li class='toc3'><a href='#-modSeaside'>modSeaside</a> </li>
 <li class='toc3'><a href='#-performBinaryOp'>performBinaryOp</a> </li>
 </ul><li class='toc2'><a href='#Math%20Support%20-%20Special%20Functions'>Math Support - Special Functions</a></li>
 <ul class='toc'><li class='toc3'><a href='#-bernouliB2n'>bernouliB2n</a> </li>
@@ -350,14 +352,23 @@ var scdoc_sc_version = '3.14.0-dev';
  | <span id='categories'><a href='./../Browse.html#Collections'>Collections</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Collections>Ordered'>Ordered</a></span>
 </div><h1>SequenceableCollection<span id='superclasses'> : <a href="../Classes/Collection.html">Collection</a> : <a href="../Classes/Object.html">Object</a></span>
 </h1>
-<div id='summary'>Abstract superclass of integer indexable collections</div>
+<div id='summary'>Abstract superclass of indexable collections</div>
 </div>
 <div class='subheader'>
 <div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Collections/SequenceableCollection.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Collections/SequenceableCollection.sc'>SequenceableCollection.sc</a></div><div id='subclasses'>Subclasses: <a href="../Classes/ArrayedCollection.html">ArrayedCollection</a>, <a href="../Classes/LinkedList.html">LinkedList</a>, <a href="../Classes/List.html">List</a>, <a href="../Classes/Order.html">Order</a>, <span id='hiddensubclasses' style='display:none;'><a href="../Classes/RingBuffer.html">RingBuffer</a></span><a class='subclass_toggle' href='#' onclick='javascript:showAllSubclasses(this); return false'>&hellip;&nbsp;see&nbsp;all</a></div>
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>SequenceableCollection is a subclass of Collection whose elements can be indexed by an Integer. It has many useful subclasses; <a href="./../Classes/Array.html">Array</a> and <a href="./../Classes/List.html">List</a> are amongst the most commonly used.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p><a href="./../Classes/SequenceableCollection.html">SequenceableCollection</a> is a subclass of <a href="./../Classes/Collection.html">Collection</a> whose items can be indexed by a <a href="./../Classes/SimpleNumber.html">SimpleNumber</a>. It has many useful subclasses; <a href="./../Classes/Array.html">Array</a> and <a href="./../Classes/List.html">List</a> are amongst the most commonly used.<h3><a class='anchor' name='Indexing'>Indexing</a></h3>
+
+<p>In SuperCollider, an <strong>index</strong> is a number used to access items in the subclasses of <a href="./../Classes/SequenceableCollection.html">SequenceableCollection</a> such as arrays and lists. Indexing starts at <code>0</code>, so the first element of a collection is at index <code>0</code>, the second at index <code>1</code>, and so on. The item at a specific index is accessed using <code>.at(index)</code> method or its shortcut <code>[index]</code>. If using an index that is outside the bounds of the collection (too low or too high), SuperCollider returns <code>nil</code>.
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>a = [100, 200, 300];
+a.at(0); // Returns 100 (the first item)
+a[0]     // Same as above (syntactic sugar; shortcut)
+a[2];    // Returns 300 (the third item)
+a[5];    // Returns nil (the index is out of bounds)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>SequenceableCollection.</span><a class='method-name' name='*fill' href='./../Overviews/Methods.html#fill'>fill</a>(<span class='argstr'>size</span>, <span class='argstr'>function</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Collection.html'>Collection</a></div>
 <div class='method'>
@@ -1015,7 +1026,9 @@ a.sortBy(\c);</textarea>
 <h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-<!' href='./../Overviews/Methods.html#&lt;!'>&lt;!</a>(<span class='argstr'>that</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Object.html'>Object</a></div>
 <div class='method'>
-<p></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performBinaryOp' href='./../Overviews/Methods.html#performBinaryOp'>performBinaryOp</a>(<span class='argstr'>aSelector</span>, <span class='argstr'>theOperand</span>, <span class='argstr'>adverb</span>)</h3>
+<p></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-modSeaside' href='./../Overviews/Methods.html#modSeaside'>modSeaside</a>(<span class='argstr'>aNumber</span>, <span class='argstr'>adverb</span>)</h3>
+<div class='method'>
+<p>Pre-3.14 modulo with unexpected behavior for negative integer modulus; see <a href="./../Classes/Integer.html#-modSeaside">Integer: -modSeaside</a>. Calling <code>modSeaside</code> on a non-integer operand will fall back to <code>mod</code> behavior; see <a href="./../Classes/Float.html#-modSeaside">Float: -modSeaside</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-performBinaryOp' href='./../Overviews/Methods.html#performBinaryOp'>performBinaryOp</a>(<span class='argstr'>aSelector</span>, <span class='argstr'>theOperand</span>, <span class='argstr'>adverb</span>)</h3>
 <div class='method'>
 <p>Creates a new collection of the results of applying the selector with the operand to all elements in the receiver. If the operand is a collection then elements of that collection are paired with elements of the receiver.<div class='codeMirrorContainer'><textarea class='editor'>([1, 2, 3, 4] * 10);
 ([1, 2, 3, 4] * [4, 5, 6, 7]);</textarea>
