@@ -1,4 +1,4 @@
-<!doctype html><html lang='en'><head><title>SimpleNumber | SuperCollider 3.14.0-dev Help</title>
+<!doctype html><html lang='en'><head><title>SimpleNumber | SuperCollider 3.15.0-dev Help</title>
 <link rel='stylesheet' href='./../static/scdoc.css' type='text/css' />
 <link rel='stylesheet' href='./../static/codemirror.css' type='text/css' />
 <link rel='stylesheet' href='./../static/editor.css' type='text/css' />
@@ -15,7 +15,7 @@
 <script>
 var helpRoot = './..';
 var scdoc_title = 'SimpleNumber';
-var scdoc_sc_version = '3.14.0-dev';
+var scdoc_sc_version = '3.15.0-dev';
 </script>
 <script src='./../static/scdoc.js' type='text/javascript'></script>
 <script src='./../docmap.js' type='text/javascript'></script>
@@ -1085,47 +1085,55 @@ a.action = {
 <p>stores this on the given stream</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-printOn' href='./../Overviews/Methods.html#printOn'>printOn</a>(<span class='argstr'>stream</span>)</h3>
 <div class='method'>
 <p>prints this on the given stream</div><h3><a class='anchor' name='random'>random</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-coin' href='./../Overviews/Methods.html#coin'>coin</a></h3>
+
+<p>Unless noted otherwise, the return value of all these methods will be an <a href="./../Classes/Integer.html">Integer</a> only when the receiver and all arguments are Integers as well.<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-coin' href='./../Overviews/Methods.html#coin'>coin</a></h3>
 <div class='method'>
 <p>Let <em>x</em> be the receiver clipped to the range [0, 1]. With probability <em>x</em>, return true. With probability 1 - <em>x</em>, return false.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rand' href='./../Overviews/Methods.html#rand'>rand</a></h3>
-<div class='method'><h4>Returns:</h4>
-<div class='returnvalue'>
-<p>Random number from zero up to the receiver, exclusive.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rand2' href='./../Overviews/Methods.html#rand2'>rand2</a></h3>
-<div class='method'><h4>Returns:</h4>
-<div class='returnvalue'>
-<p>a random number from -this to +this.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rrand' href='./../Overviews/Methods.html#rrand'>rrand</a>(<span class='argstr'>aNumber</span>, <span class='argstr'>adverb</span>)</h3>
-<div class='method'><h4>Arguments:</h4>
+<div class='method'>
+<p>Returns a random number from a uniform distribution with the range [0,this), i.e., between 0 and this (including 0, not including this).</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rand2' href='./../Overviews/Methods.html#rand2'>rand2</a></h3>
+<div class='method'>
+<p>Returns a random number from a uniform distribution with the range [-this, +this], i.e. between -this and +this (including -this and +this).</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rrand' href='./../Overviews/Methods.html#rrand'>rrand</a>(<span class='argstr'>aNumber</span>, <span class='argstr'>adverb</span>)</h3>
+<div class='method'>
+<p>Returns a random number from a uniform distribution with the range between <code>this</code> and <code>arg</code>.<h4>Arguments:</h4>
 <table class='arguments'>
-<tr><td class='argumentname'>aNumber<td class='argumentdesc'>
-<p>the upper limit<tr><td class='argumentname'>adverb<td class='argumentdesc'></table><h4>Returns:</h4>
-<div class='returnvalue'>
-<p>a random number in the interval ]a, b[.</div><h4>Discussion:</h4>
+<tr><td class='argumentname'>arg<td class='argumentdesc'>
+<p>The other (upper or lower) limit of the range.</table><h4>Discussion:</h4>
 
-<p>If both a and b are <a href="./../Classes/Integer.html">Integer</a> then the result will be an <a href="./../Classes/Integer.html">Integer</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-linrand' href='./../Overviews/Methods.html#linrand'>linrand</a></h3>
-<div class='method'><h4>Returns:</h4>
-<div class='returnvalue'>
-<p>a linearly distributed random number from zero to this.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-bilinrand' href='./../Overviews/Methods.html#bilinrand'>bilinrand</a></h3>
-<div class='method'><h4>Returns:</h4>
-<div class='returnvalue'>
-<p>Bilateral linearly distributed random number from -this to +this.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sum3rand' href='./../Overviews/Methods.html#sum3rand'>sum3rand</a></h3>
+<p><code>arg</code> can be lower than <code>this</code>. If either <code>this</code> or <code>arg</code> is a <a href="./../Classes/Float.html">Float</a>, the <code>arg</code> bound will be excluded from the range. If both <code>this</code> and <code>arg</code> are <a href="./../Classes/Integer.html">Integer</a>, both bounds are included.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-linrand' href='./../Overviews/Methods.html#linrand'>linrand</a></h3>
 <div class='method'>
-<p>This was suggested by Larry Polansky as a loose approximation of gaussian.<h4>Returns:</h4>
-<div class='returnvalue'>
-<p>A random number from -this to +this that is the result of summing three uniform random generators to yield a bell-like distribution.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-exprand' href='./../Overviews/Methods.html#exprand'>exprand</a>(<span class='argstr'>aNumber</span>, <span class='argstr'>adverb</span>)</h3>
-<div class='method'>
-<p>an exponentially distributed random number in the interval ]a, b[. This is always a <a href="./../Classes/Float.html">Float</a>. (Note that the distribution of numbers is not exactly an <em>exponential distribution</em>, since that would be unbounded: we might call it a <em>logarithmic uniform distribution</em>.)<h4>Arguments:</h4>
-<table class='arguments'>
-<tr><td class='argumentname'>aNumber<td class='argumentdesc'>
-<p>the upper limit<tr><td class='argumentname'>adverb<td class='argumentdesc'></table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-gauss' href='./../Overviews/Methods.html#gauss'>gauss</a>(<span class='argstr'>standardDeviation</span>)</h3>
-<div class='method'>
-<p>a gaussian distributed random number.<h4>Arguments:</h4>
-<table class='arguments'>
-<tr><td class='argumentname'>standardDeviation<td class='argumentdesc'>
-<p>the upper limit</table><h4>Discussion:</h4>
+<p>Returns a random number from a linear distribution with the range [0, this). Histogram will approximate a diagonal line, hence the name. More formally, <code>.linrand</code> samples from a distribution over [0, 1) with a probability density function of 2(1 - x) and multiplies by <code>this</code>.<h4>Discussion:</h4>
 
-<p>Always returns a <a href="./../Classes/Float.html">Float</a>.<div class='codeMirrorContainer'><textarea class='editor'>(0..1000).collect { |num| gauss(0.0, num) }.plot;</textarea>
+<p>Best explained visually:<div class='codeMirrorContainer'><textarea class='editor'>{1.0.linrand}.dup(10000).plotHisto;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-partition' href='./../Overviews/Methods.html#partition'>partition</a>(<span class='argstr'>parts: 2</span>, <span class='argstr'>min: 1</span>)</h3>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-bilinrand' href='./../Overviews/Methods.html#bilinrand'>bilinrand</a></h3>
+<div class='method'>
+<p>Bilateral linearly distributed random number in the range (-this, +this). Like linrand, but adds a second straight line from <code>-this</code> to 0. Histogram will approach an isosceles triangle with its apex at x = 0. Formally like <code>.linrand</code>, but the probability density function is <em>also</em> supported in the range (-x, 0] by 2(1 + x).<h4>Discussion:</h4>
+
+<p>Best explained visually:<div class='codeMirrorContainer'><textarea class='editor'>{1.0.bilinrand}.dup(10000).plotHisto;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sum3rand' href='./../Overviews/Methods.html#sum3rand'>sum3rand</a></h3>
+<div class='method'>
+<p>Returns a <a href="./../Classes/Float.html">Float</a> from the range [-this, this), distribution approximates a bell-like (Gaussian or normal) distribution.<h4>Returns:</h4>
+<div class='returnvalue'>
+<p>Always returns a <a href="./../Classes/Float.html">Float</a>.</div><h4>Discussion:</h4>
+
+<p>Loosely approximates a Gaussian distribution by summing three uniform random generators. Equivalent to:<div class='codeMirrorContainer'><textarea class='editor'>({ 1.0.rand }.dup(3).sum - 1.5) * 2/3 * this</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-exprand' href='./../Overviews/Methods.html#exprand'>exprand</a>(<span class='argstr'>aNumber</span>, <span class='argstr'>adverb</span>)</h3>
+<div class='method'>
+<p>Returns a <a href="./../Classes/Float.html">Float</a> in the range [this, arg) drawn from a log-uniform distribution. Receiver (i.e., <code>this</code>) must not be zero. Note that the value is <em>not</em> drawn from an exponential distribution.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>arg<td class='argumentdesc'>
+<p>The other (upper or lower) limit of the range. Must be of same sign as <code>this</code>, and must not be zero.</table><h4>Returns:</h4>
+<div class='returnvalue'>
+<p>Always returns a <a href="./../Classes/Float.html">Float</a>.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-gauss' href='./../Overviews/Methods.html#gauss'>gauss</a>(<span class='argstr'>standardDeviation</span>)</h3>
+<div class='method'>
+<p>Returns a <a href="./../Classes/Float.html">Float</a> sampled from a Gaussian distribution with mean <code>this</code> and standard deviation <code>stddev</code>. The range of the gaussian distribution is unbounded and thus may return +/-inf; consider using <a href="./../Classes/SimpleNumber.html#-clip">clip</a>.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>stddev<td class='argumentdesc'>
+<p>The standard deviation.</table><h4>Returns:</h4>
+<div class='returnvalue'>
+<p>Always returns a <a href="./../Classes/Float.html">Float</a>.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-partition' href='./../Overviews/Methods.html#partition'>partition</a>(<span class='argstr'>parts: 2</span>, <span class='argstr'>min: 1</span>)</h3>
 <div class='method'>
 <p>randomly partition a number into parts of at least min size.<h4>Arguments:</h4>
 <table class='arguments'>
