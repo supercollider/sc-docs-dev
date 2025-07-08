@@ -77,7 +77,8 @@ var scdoc_sc_version = '3.15.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>A Set is s collection of objects, no two of which are equal. Most of its methods are inherited from Collection. The contents of a Set are unordered. You must not depend on the order of items in a set. For an ordered set, see <a href="./../Classes/OrderedIdentitySet.html">OrderedIdentitySet</a>.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>An instance of the class <code>Set</code> (a set) is a collection of objects, in which no two elements are equal. Most of its methods are inherited from <code>Collection</code>. The contents of a set are unordered; therefore, code must not rely on the order of elements in a set. For an ordered variant, see <a href="./../Classes/OrderedIdentitySet.html">OrderedIdentitySet</a>; for multisets (i.e., sets in which distinct elements can be equal, but that remain unordered), see <a href="./../Classes/Bag.html">Bag</a>.<div class='note'><span class='notelabel'>NOTE:</span> Currently, a set cannot contain <code>nil</code> as an element. Attempting to add <code>nil</code> will result in a runtime error: <pre>ERROR: A set cannot contain nil.</pre>
+<p>This restriction exists because <code>nil</code> is internally used as a sentinel value to represent unoccupied slots in hash-based collections. As a result, this limitation also applies to Set’s subclasses.</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Set.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>n: 2</span>)</h3>

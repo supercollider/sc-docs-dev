@@ -89,9 +89,9 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Core/Nil.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Core/Nil.sc'>Nil.sc</a></div></div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Nil has a single instance named nil and is used to represent uninitialized data, bad values, or terminal values such as end-of-stream.<div class='note'><span class='notelabel'>NOTE:</span> Take note that Nil is a class and not the special value <code>nil</code>. Comparing Nil and <code>nil</code> will return false. In normal use you should not need to use this class directly: use <code>nil</code><div class='codeMirrorContainer'><textarea class='editor'>Nil.isNil; // false
-Nil == nil; // false
-Nil === nil; // false</textarea>
+<p>Nil has a single instance named <code>nil</code> and is used to represent uninitialized data, bad values, or terminal values such as end-of-stream. Internally, <code>nil</code> also serves as a sentinel value, used to mark empty or unoccupied slots in hash-based data structures such as <code>Set</code>, and its subclasses. Because of this internal role, <code>nil</code>—despite being a valid object—cannot be stored as an element in <code>Set</code> or any of its subclasses. Attempting to do so will result in a runtime error. See the <a href="./../Classes/Set.html">Set</a> for more information.<div class='note'><span class='notelabel'>NOTE:</span> Take note that <code>Nil</code> is a class and not the special value <code>nil</code>. Comparing <code>Nil</code> and <code>nil</code> will return false. In normal use, you should not need to use this class directly; use <code>nil</code>.<div class='codeMirrorContainer'><textarea class='editor'>Nil.isNil;    // false
+Nil == nil;   // false
+Nil === nil;  // false</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
