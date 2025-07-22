@@ -81,6 +81,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'><li class='toc3'><a href='#-find'>find</a> </li>
 <li class='toc3'><a href='#-findBackwards'>findBackwards</a> </li>
 <li class='toc3'><a href='#-findAll'>findAll</a> </li>
+<li class='toc3'><a href='#-findSimilarIn'>findSimilarIn</a> </li>
 <li class='toc3'><a href='#-contains'>contains</a> </li>
 <li class='toc3'><a href='#-containsi'>containsi</a> </li>
 <li class='toc3'><a href='#-containsStringAt'>containsStringAt</a> </li>
@@ -522,7 +523,22 @@ z.class.postln;
 <p>Returns the indices of the string in the receiver, or nil if not found.<div class='codeMirrorContainer'><textarea class='editor'>"These are several words which are fish".findAll("are").postln;
 "These are several words which are fish".findAll("fish").postln;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-contains' href='./../Overviews/Methods.html#contains'>contains</a>(<span class='argstr'>string</span>, <span class='argstr'>offset: 0</span>)</h3>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findSimilarIn' href='./../Overviews/Methods.html#findSimilarIn'>findSimilarIn</a>(<span class='argstr'>array</span>, <span class='argstr'>maxEditDistance</span>, <span class='argstr'>minSimilarity</span>, <span class='argstr'>prioritizeCapitalization: true</span>)</h3>
+<div class='method'>
+<p>From a list of strings, find similar strings, sorted by edit distance and limited by similarity.<div class='codeMirrorContainer'><textarea class='editor'>"hi".findSimilarIn(["ho", "hu?", "hugs", "Hola", "else"], 2); // [ho, hu?]
+"hi".findSimilarIn(["ho", "hu?", "hugs", "Hola", "else"], 3); // [ho, hu?, hugs, Hola]
+"hi".findSimilarIn(["ho", "Hi", "hugs", "Hola", "else"], 3, prioritizeCapitalization: false); // [ho, Hi, hugs]
+"hi".findSimilarIn(["ho", "Hi", "hugs", "Hola", "else"], 3, prioritizeCapitalization: true); // [Hi, ho, hugs, Hola]
+"hi".findSimilarIn(["ho", "Hi", "hugs", "Hola", "else"], 4, minSimilarity: nil); // [Hi, ho, hugs, Hola, else]
+"hi".findSimilarIn(["ho", "Hi", "hugs", "Hola", "else"], 4, minSimilarity: 0.01); // [Hi, ho, hugs, Hola]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>array<td class='argumentdesc'>
+<p>An array of strings to find similar strings in.<tr><td class='argumentname'>maxEditDistance<td class='argumentdesc'>
+<p>The largest <a href="./../Classes/SequenceableCollection.html#editDistance">edit distance</a> that is accepted as a match.<tr><td class='argumentname'>minSimilarity<td class='argumentdesc'>
+<p>Keep only results whose <a href="./../Classes/SequenceableCollection.html#similarity">similarity</a> is larger than this value. If set to <code>nil</code>, all values are accepted.<tr><td class='argumentname'>prioritizeCapitalization<td class='argumentdesc'>
+<p>If true, calculated the edit distances on lower case versions.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-contains' href='./../Overviews/Methods.html#contains'>contains</a>(<span class='argstr'>string</span>, <span class='argstr'>offset: 0</span>)</h3>
 <div class='method'>
 <p>Returns a <a href="./../Classes/Boolean.html">Boolean</a> indicating if the String contains string.<div class='codeMirrorContainer'><textarea class='editor'>"These are several words".contains("are").postln;
 "These are several words".contains("fish").postln;</textarea>

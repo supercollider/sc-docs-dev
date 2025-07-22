@@ -405,8 +405,10 @@ Derived.newKw(10, 11, 12).value() == [nil, nil, 3, 10, 11, 12];</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-respondsTo' href='./../Overviews/Methods.html#respondsTo'>respondsTo</a>(<span class='argstr'>aSymbol</span>)</h3>
 <div class='method'>
-<p>Answer a <a href="./../Classes/Boolean.html">Boolean</a> whether the receiver understands the message selector.<div class='codeMirrorContainer'><textarea class='editor'>5.respondsTo('+'); // true
-5.respondsTo('indexOf'); // false</textarea>
+<p>Answer a <a href="./../Classes/Boolean.html">Boolean</a> whether the receiver understands the message selector or array of message selectors.<div class='codeMirrorContainer'><textarea class='editor'>5.respondsTo('+'); // true
+5.respondsTo('indexOf'); // false
+5.respondsTo(['+', '-']); // true
+5.respondsTo(['+', 'indexOf']); // false</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h4>Arguments:</h4>
 <table class='arguments'>

@@ -37,6 +37,11 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'><li class='toc3'><a href='#-browse'>browse</a> </li>
 <li class='toc3'><a href='#-findMethod'>findMethod</a> </li>
 <li class='toc3'><a href='#-findRespondingMethodFor'>findRespondingMethodFor</a> </li>
+<li class='toc3'><a href='#-respondingMethods'>respondingMethods</a> </li>
+<li class='toc3'><a href='#-instancesRespondTo'>instancesRespondTo</a> </li>
+<li class='toc3'><a href='#-findRespondingSubclasses'>findRespondingSubclasses</a> </li>
+<li class='toc3'><a href='#-findRespondingUpperSubclasses'>findRespondingUpperSubclasses</a> </li>
+<li class='toc3'><a href='#-findSimilarSelectors'>findSimilarSelectors</a> </li>
 <li class='toc3'><a href='#-dumpAllMethods'>dumpAllMethods</a> </li>
 <li class='toc3'><a href='#-dumpByteCodes'>dumpByteCodes</a> </li>
 <li class='toc3'><a href='#-dumpClassSubtree'>dumpClassSubtree</a> </li>
@@ -54,6 +59,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#-superclasses'>superclasses</a> </li>
 <li class='toc3'><a href='#-subclasses'>subclasses</a> </li>
 <li class='toc3'><a href='#-allSubclasses'>allSubclasses</a> </li>
+<li class='toc3'><a href='#-superclassesDo'>superclassesDo</a> </li>
 <li class='toc3'><a href='#-methods'>methods</a> </li>
 <li class='toc3'><a href='#-instVarNames'>instVarNames</a> </li>
 <li class='toc3'><a href='#-classVarNames'>classVarNames</a> </li>
@@ -82,7 +88,6 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#-openHelpFile'>openHelpFile</a> </li>
 <li class='toc3'><a href='#-package'>package</a> </li>
 <li class='toc3'><a href='#-shallowCopy'>shallowCopy</a> </li>
-<li class='toc3'><a href='#-superclassesDo'>superclassesDo</a> </li>
 </ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
@@ -144,27 +149,78 @@ var scdoc_sc_version = '3.15.0-dev';
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-browse' href='./../Overviews/Methods.html#browse'>browse</a>: METHOD NOT FOUND!</h3>
 <div class='method'>
-<p>Open a graphical browser for this Class. Shows methods, arguments, variables, subclasses, and has buttons for navigating to the superclass, source, helpfile, etc.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findMethod' href='./../Overviews/Methods.html#findMethod'>findMethod</a>(<span class='argstr'>methodName</span>)</h3>
+<p>Open a graphical browser for this Class. Shows methods, arguments, variables, subclasses, and has buttons for navigating to the superclass, source, helpfile, etc.<div class='codeMirrorContainer'><textarea class='editor'>Dictionary.browse;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findMethod' href='./../Overviews/Methods.html#findMethod'>findMethod</a>(<span class='argstr'>methodName</span>)</h3>
 <div class='method'>
-<p>Find the Method referred to by name. If not found, return nil.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findRespondingMethodFor' href='./../Overviews/Methods.html#findRespondingMethodFor'>findRespondingMethodFor</a>(<span class='argstr'>methodName</span>)</h3>
+<p>Find the Method referred to by name. If not found, return nil.<div class='codeMirrorContainer'><textarea class='editor'>Integer.findMethod('&gt;'); // nil
+Integer.findMethod('*'); // Integer:*</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findRespondingMethodFor' href='./../Overviews/Methods.html#findRespondingMethodFor'>findRespondingMethodFor</a>(<span class='argstr'>methodName</span>)</h3>
 <div class='method'>
-<p>As above, but climb the class tree to see if the method is inherited from a superclass. If not found, return nil.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpAllMethods' href='./../Overviews/Methods.html#dumpAllMethods'>dumpAllMethods</a></h3>
+<p>As above, but climb the class tree to see if the method is inherited from a superclass. If not found, return nil.<div class='codeMirrorContainer'><textarea class='editor'>Integer.findRespondingMethodFor('&gt;'); // SimpleNumber:&gt;
+Integer.findRespondingMethodFor('+'); // Integer:*</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-respondingMethods' href='./../Overviews/Methods.html#respondingMethods'>respondingMethods</a></h3>
+<div class='method'>
+<p>Return a list of methods for the selectors that an object of this class responds to.<div class='codeMirrorContainer'><textarea class='editor'>Integer.respondingMethods.do { |item| item.postln };</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-instancesRespondTo' href='./../Overviews/Methods.html#instancesRespondTo'>instancesRespondTo</a>(<span class='argstr'>selector</span>)</h3>
+<div class='method'>
+<p>Return true if the message selector or array of message selectors are understood by objects of this class.<div class='codeMirrorContainer'><textarea class='editor'>Collection.instancesRespondTo(\flop); // false
+Set.instancesRespondTo(\clear); // true
+Set.instancesRespondTo([\flop, \clear]) // false: not both</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findRespondingSubclasses' href='./../Overviews/Methods.html#findRespondingSubclasses'>findRespondingSubclasses</a>(<span class='argstr'>selector</span>)</h3>
+<div class='method'>
+<p>Return a list of all subclasses whose instances respond to the message selector or all message selector in an array.<div class='codeMirrorContainer'><textarea class='editor'>Collection.findRespondingSubclasses(\flop); // a long list
+Set.findRespondingSubclasses(\clear);
+Set.findRespondingSubclasses([\flop, \clear]); // not both</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findRespondingUpperSubclasses' href='./../Overviews/Methods.html#findRespondingUpperSubclasses'>findRespondingUpperSubclasses</a>(<span class='argstr'>selector</span>)</h3>
+<div class='method'>
+<p>Return a list of all classes down the class tree starting from the receiver, whose instances respond to the message selector or all message selector in an array.<div class='codeMirrorContainer'><textarea class='editor'>Collection.findRespondingUpperSubclasses(\flop);
+Set.findRespondingUpperSubclasses(\clear);
+Set.findRespondingUpperSubclasses([\flop, \clear]); // not both</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findSimilarSelectors' href='./../Overviews/Methods.html#findSimilarSelectors'>findSimilarSelectors</a>(<span class='argstr'>selector</span>, <span class='argstr'>maxEditDistance: 2</span>, <span class='argstr'>minSimilarity: 0.5</span>, <span class='argstr'>prioritizeCapitalization: true</span>)</h3>
+<div class='method'>
+<p>Returns a list of selectors similar to the argument passed. For other arguments and sorting, see <a href="./../Classes/String.html#-findSimilarIn">String: -findSimilarIn</a>.<div class='codeMirrorContainer'><textarea class='editor'>Array.findSimilarSelectors(\skramle);
+Array.findSimilarSelectors(\flip);
+Array.findSimilarSelectors(\flip, maxEditDistance: 7);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpAllMethods' href='./../Overviews/Methods.html#dumpAllMethods'>dumpAllMethods</a></h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/DefaultLibrary/dumpFullInterface.sc'>/usr/local/share/SuperCollider/SCClassLibrary/DefaultLibrary/dumpFullInterface.sc</a></div>
 <div class='method'>
-<p>Post all instance methods which instances of this class responds too, including inherited ones. <code>this.class.dumpAllMethods</code> will post all class methods which this class responds to.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpByteCodes' href='./../Overviews/Methods.html#dumpByteCodes'>dumpByteCodes</a>(<span class='argstr'>methodName</span>)</h3>
+<p>Post all instance methods which instances of this class responds too, including inherited ones. <code>this.class.dumpAllMethods</code> will post all class methods which this class responds to.<div class='codeMirrorContainer'><textarea class='editor'>Integer.dumpAllMethods</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpByteCodes' href='./../Overviews/Methods.html#dumpByteCodes'>dumpByteCodes</a>(<span class='argstr'>methodName</span>)</h3>
 <div class='method'>
-<p>Dump the byte codes of the named method.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpClassSubtree' href='./../Overviews/Methods.html#dumpClassSubtree'>dumpClassSubtree</a></h3>
+<p>Dump the byte codes of the named method.<div class='codeMirrorContainer'><textarea class='editor'>Integer.findMethod(\do).dumpByteCodes</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpClassSubtree' href='./../Overviews/Methods.html#dumpClassSubtree'>dumpClassSubtree</a></h3>
 <div class='method'>
-<p>Post the tree of all Classes that inherit from this class.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpInterface' href='./../Overviews/Methods.html#dumpInterface'>dumpInterface</a></h3>
+<p>Post the tree of all Classes that inherit from this class.<div class='codeMirrorContainer'><textarea class='editor'>Collection.dumpClassSubtree</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpInterface' href='./../Overviews/Methods.html#dumpInterface'>dumpInterface</a></h3>
 <div class='method'>
-<p>Post all the methods defined by this Class and their arguments.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpFullInterface' href='./../Overviews/Methods.html#dumpFullInterface'>dumpFullInterface</a></h3>
+<p>Post all the methods defined in this Class and their arguments.<div class='codeMirrorContainer'><textarea class='editor'>Array.dumpInterface
+Array.class.dumpInterface</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dumpFullInterface' href='./../Overviews/Methods.html#dumpFullInterface'>dumpFullInterface</a></h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/DefaultLibrary/dumpFullInterface.sc'>/usr/local/share/SuperCollider/SCClassLibrary/DefaultLibrary/dumpFullInterface.sc</a></div>
 <div class='method'>
-<p>Post all the class and instance methods that this class responds to (i.e. those defined in this class and those inherited by it).</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-help' href='./../Overviews/Methods.html#help'>help</a></h3>
+<p>Post all the class and instance methods that this class responds to.<div class='codeMirrorContainer'><textarea class='editor'>Array.dumpFullInterface</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-help' href='./../Overviews/Methods.html#help'>help</a></h3>
 <div class='method'>
-<p>Opens the help file for this Class if it exists.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-helpFilePath' href='./../Overviews/Methods.html#helpFilePath'>helpFilePath</a></h3>
+<p>Opens the help file for this Class if it exists. It may take a little while until the help window responds.<div class='codeMirrorContainer'><textarea class='editor'>Array.help</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-helpFilePath' href='./../Overviews/Methods.html#helpFilePath'>helpFilePath</a></h3>
 <div class='method'>
-<p>Returns the path of this Class's helpfile as a String.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-helpFileForMethod' href='./../Overviews/Methods.html#helpFileForMethod'>helpFileForMethod</a>(<span class='argstr'>methodSymbol</span>)</h3>
+<p>Returns the path of this Class's helpfile as a String.<div class='codeMirrorContainer'><textarea class='editor'>Array.helpFilePath</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-helpFileForMethod' href='./../Overviews/Methods.html#helpFileForMethod'>helpFileForMethod</a>(<span class='argstr'>methodSymbol</span>)</h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/DefaultLibrary/dumpFullInterface.sc'>/usr/local/share/SuperCollider/SCClassLibrary/DefaultLibrary/dumpFullInterface.sc</a></div>
 <div class='method'>
 <p>Opens the helpfile for the class in which the responding method is implemented.<div class='codeMirrorContainer'><textarea class='editor'>Array.helpFileForMethod('select'); // This will open the Collection helpfile</textarea>
@@ -178,17 +234,33 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='method'>
 <p>A Symbol that is the name of the class.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-nextclass' href='./../Overviews/Methods.html#nextclass'>nextclass</a></h3>
 <div class='method'>
-<p>The next class in a linked list of all classes.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-superclass' href='./../Overviews/Methods.html#superclass'>superclass</a></h3>
+<p>The next class in a linked list of all classes.<div class='codeMirrorContainer'><textarea class='editor'>Set.nextclass</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-superclass' href='./../Overviews/Methods.html#superclass'>superclass</a></h3>
 <div class='method'>
-<p>The Class from which this class directly inherits.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-superclasses' href='./../Overviews/Methods.html#superclasses'>superclasses</a></h3>
+<p>The Class from which this class directly inherits.<div class='codeMirrorContainer'><textarea class='editor'>Set.superclass // Collection</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-superclasses' href='./../Overviews/Methods.html#superclasses'>superclasses</a></h3>
 <div class='method'>
-<p>An Array of this class's superclasses, going back to Object.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-subclasses' href='./../Overviews/Methods.html#subclasses'>subclasses</a></h3>
+<p>An Array of this class's superclasses, going back to Object.<div class='codeMirrorContainer'><textarea class='editor'>Set.superclasses // [class Collection, class Object]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-subclasses' href='./../Overviews/Methods.html#subclasses'>subclasses</a></h3>
 <div class='method'>
-<p>An Array of the direct subclasses of this.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-allSubclasses' href='./../Overviews/Methods.html#allSubclasses'>allSubclasses</a></h3>
+<p>An Array of the direct subclasses of this.<div class='codeMirrorContainer'><textarea class='editor'>Set.subclasses // [class Dictionary, class IdentitySet]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-allSubclasses' href='./../Overviews/Methods.html#allSubclasses'>allSubclasses</a></h3>
 <div class='method'>
-<p>An Array of all subclasses of this.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-methods' href='./../Overviews/Methods.html#methods'>methods</a></h3>
+<p>An Array of all subclasses of this.<div class='codeMirrorContainer'><textarea class='editor'>Set.allSubclasses</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-superclassesDo' href='./../Overviews/Methods.html#superclassesDo'>superclassesDo</a>(<span class='argstr'>function</span>)</h3>
 <div class='method'>
-<p>An Array of the methods of this class.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-instVarNames' href='./../Overviews/Methods.html#instVarNames'>instVarNames</a></h3>
+<p>Call a function passing each superclass of the receiver.<div class='codeMirrorContainer'><textarea class='editor'>List.superclassesDo { |x| x.postln };</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-methods' href='./../Overviews/Methods.html#methods'>methods</a></h3>
+<div class='method'>
+<p>An Array of the methods of this class.<div class='codeMirrorContainer'><textarea class='editor'>Set.methods.do { |item| item.name.postln }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-instVarNames' href='./../Overviews/Methods.html#instVarNames'>instVarNames</a></h3>
 <div class='method'>
 <p>An Array of the names of the instance variables for this class.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-classVarNames' href='./../Overviews/Methods.html#classVarNames'>classVarNames</a></h3>
 <div class='method'>
@@ -198,7 +270,10 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='method'>
 <p>An Array of the initial values of class variables.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-filenameSymbol' href='./../Overviews/Methods.html#filenameSymbol'>filenameSymbol</a></h3>
 <div class='method'>
-<p>A Symbol which is a path to the file which defines the Class.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
+<p>A Symbol which is a path to the file which defines the Class.<div class='codeMirrorContainer'><textarea class='editor'>Set.filenameSymbol</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-archiveAsCompileString' href='./../Overviews/Methods.html#archiveAsCompileString'>archiveAsCompileString</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-charPos' href='./../Overviews/Methods.html#charPos'>charPos</a></h3>
@@ -224,6 +299,5 @@ var scdoc_sc_version = '3.15.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-package' href='./../Overviews/Methods.html#package'>package</a></h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Quarks/packages.sc'>/usr/local/share/SuperCollider/SCClassLibrary/Common/Quarks/packages.sc</a></div>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-shallowCopy' href='./../Overviews/Methods.html#shallowCopy'>shallowCopy</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-superclassesDo' href='./../Overviews/Methods.html#superclassesDo'>superclassesDo</a>(<span class='argstr'>function</span>)</h3>
 <div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Class.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Class.schelp</a><br>link::Classes/Class::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>
