@@ -33,6 +33,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#*initAction'>initAction</a> </li>
 <li class='toc3'><a href='#*screenBounds'>screenBounds</a> </li>
 <li class='toc3'><a href='#*availableBounds'>availableBounds</a> </li>
+<li class='toc3'><a href='#*lowestPosition'>lowestPosition</a> </li>
 <li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
 </ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
 <ul class='toc'><li class='toc2'><a href='#View%20hierarchy'>View hierarchy</a></li>
@@ -57,6 +58,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#-minSizeHint'>minSizeHint</a> </li>
 <li class='toc3'><a href='#-addFlowLayout'>addFlowLayout</a> </li>
 <li class='toc3'><a href='#-layout'>layout</a> </li>
+<li class='toc3'><a href='#-moveToBottom'>moveToBottom</a> </li>
 </ul><li class='toc2'><a href='#Appearance'>Appearance</a></li>
 <ul class='toc'><li class='toc3'><a href='#-name'>name</a> </li>
 <li class='toc3'><a href='#-background'>background</a> </li>
@@ -107,8 +109,11 @@ var scdoc_sc_version = '3.15.0-dev';
 <table class='arguments'>
 <tr><td class='argumentname'>name<td class='argumentdesc'>
 <p> A String for the text that will be displayed in the title bar. The default is 'panel'.<tr><td class='argumentname'>bounds<td class='argumentdesc'>
-<p> A Rect specifying position and size of the window. The size does not include the border and title bar. Position is measured from the bottom-left corner of the screen (this is different than <a href="./../Classes/View.html#-bounds">View: -bounds</a>). The default is size 400x400 at position 128x64, but in Qt the window is centered on the screen by default.<tr><td class='argumentname'>resizable<td class='argumentdesc'>
-<p> A Boolean indicating whether this window is resizable by the user. The default is <code>true</code>.<tr><td class='argumentname'>border<td class='argumentdesc'>
+<p> A <a href="./../Classes/Rect.html">Rect</a> specifying the position and size of the window in screen coordinates.  The size does <strong>not</strong> include the window's border and title bar.
+<p> Position is measured from the <strong>bottom-left</strong> corner of the screen (This differs from <a href="./../Classes/View.html#-bounds">View: -bounds</a>, which uses the top-left corner).  This coordinate convention originates from SuperCollider’s original Cocoa GUI implementation on macOS, which uses a bottom-left origin.
+<p> The default size is 400x400.  If no position is specified, the window is centered on the screen by default.<div class='note'><span class='notelabel'>NOTE:</span> The default position may vary depending on screen resolution, platform, and operating system settings.</div>
+<p><tr><td class='argumentname'>resizable<td class='argumentdesc'>
+<p> A Boolean indicating whether the window is resizable by the user.  The default is <code>true</code>.<tr><td class='argumentname'>border<td class='argumentdesc'>
 <p> A Boolean indicating whether this window has a border. Borderless windows have no title bar and thus can only be closed in code. The default is <code>true</code>.<tr><td class='argumentname'>scroll<td class='argumentdesc'>
 <p> A Boolean indicating whether this window will add scrollbars if its contents exceed its bounds. If this is set to <code>true</code>, then <a href="./../Classes/View.html#-resize">View: -resize</a> settings will be ignored for contained views. The default is false.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*allWindows' href='./../Overviews/Methods.html#allWindows'>allWindows</a></h3>
 <div class='method'>
@@ -120,7 +125,9 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='method'>
 <p> Returns a Rect with the size of the screen in pixels</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*availableBounds' href='./../Overviews/Methods.html#availableBounds'>availableBounds</a></h3>
 <div class='method'>
-<p> Returns a Rect describing the area of the screen that windows can actually occupy (i.e. excluding the Mac dock, the task bar, or similar).</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p> Returns a Rect describing the area of the screen that windows can actually occupy (i.e. excluding the Mac dock, the task bar, or similar).</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*lowestPosition' href='./../Overviews/Methods.html#lowestPosition'>lowestPosition</a></h3>
+<div class='method'>
+<p> Returns a floating-point value representing the lowest reasonable vertical position for a window on the screen.  This value is calculated to avoid overlap with system-reserved interface elements, such as the Windows taskbar, the macOS Dock, or the Linux dock (e.g. GNOME, KDE, etc.).  The result is not the absolute bottom edge of the screen, but rather the lowest position a window can occupy without interfering with areas reserved by the operating system.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='View%20hierarchy'>View hierarchy</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-view' href='./../Overviews/Methods.html#view'>view</a></h3>
@@ -193,7 +200,12 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='returnvalue'>
 <p>The new FlowLayout instance.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-layout' href='./../Overviews/Methods.html#layout'>layout</a></h3>
 <div class='method'>
-<p> Redirects to <a href="./../Classes/View.html#-layout">View: -layout</a> of the <a href="#-view">-view</a>.</div><h3><a class='anchor' name='Appearance'>Appearance</a></h3>
+<p> Redirects to <a href="./../Classes/View.html#-layout">View: -layout</a> of the <a href="#-view">-view</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-moveToBottom' href='./../Overviews/Methods.html#moveToBottom'>moveToBottom</a></h3>
+<div class='method'>
+<p> Moves the window to the lowest usable screen position without overlapping system-reserved areas (e.g., taskbars, docks).<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>margin<td class='argumentdesc'>
+<p> Adds vertical offset from the bottom.</table></div><h3><a class='anchor' name='Appearance'>Appearance</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-name' href='./../Overviews/Methods.html#name'>name</a></h3>
 <div class='method'>
 <p> The title of the window.<h4>Arguments:</h4>
