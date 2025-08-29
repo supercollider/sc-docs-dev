@@ -188,7 +188,7 @@ r = Task({
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Note that routines are used for the data, but task is used for play. Also, unlike the previous infinite sequences, this one stops when it runs out of data. That's the purpose of the while loop -- it continues only as long as the 'dur' data stream keeps pumping out values. (See the <a href="./../../Reference/Control-Structures.html">Control Structures</a> helpfile for more on <strong>while</strong>.)
+<p>Note that routines are used for the data, but task is used for play. Also, unlike the previous infinite sequences, this one stops when it runs out of data. That's the purpose of the while loop -- it continues only as long as the 'dur' data stream keeps pumping out values. (See the <a href="./../../Reference/Conditional-Execution.html">Conditional Execution</a> helpfile for more on <strong>while</strong>.)
 <p>There must be an easier way to write the data streams -- repeatedly writing the same do loop is certainly inconvenient. In fact, there is such a way, covered in the next tutorial: sequencing with patterns.
 <p>(Here we use quant simply to delay Task onset by one beat. This is because it takes some time for the synthdef to be ready for use on the server. Without it, the first note would not be heard.)<h2><a class='anchor' name='A%20note%20on%20server%20messaging%20and%20timing'>A note on server messaging and timing</a></h2>
 

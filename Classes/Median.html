@@ -87,16 +87,16 @@ var scdoc_sc_version = '3.15.0-dev';
 
 // another noise reduction application:
 
-Synth.play({ WhiteNoise.ar(0.1) + SinOsc.ar(800, 0, 0.1) });
+{ WhiteNoise.ar(0.1) + SinOsc.ar(800, 0, 0.1) }.play;
 
 // use Median filter for high frequency noise
-Synth.play({ Median.ar(31, WhiteNoise.ar(0.1) + SinOsc.ar(800, 0, 0.1)) });
+{ Median.ar(31, WhiteNoise.ar(0.1) + SinOsc.ar(800, 0, 0.1)) }.play;
 
 (
 // use LeakDC for low frequency noise
-Synth.play({
+{
     LeakDC.ar(Median.ar(31, WhiteNoise.ar(0.1) + SinOsc.ar(800, 0, 0.1)), 0.9)
-});
+}.play
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 

@@ -1,0 +1,508 @@
+<!doctype html><html lang='en'><head><title>Conditional Execution | SuperCollider 3.15.0-dev Help</title>
+<link rel='stylesheet' href='./../static/scdoc.css' type='text/css' />
+<link rel='stylesheet' href='./../static/codemirror.css' type='text/css' />
+<link rel='stylesheet' href='./../static/editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../static/themes/default.css' type='text/css' />
+<link rel='stylesheet' href='./../frontend.css' type='text/css' />
+<link rel='stylesheet' href='./../custom.css' type='text/css' />
+<link rel='stylesheet' href='./../static/lib/katex/katex.min.css' />
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<script src='./../static/lib/jquery.min.js'></script>
+<script src='./../static/lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
+<script src='./../static/lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../static/lib/katex/katex.min.js' type='text/javascript'></script>
+<script>
+var helpRoot = './..';
+var scdoc_title = 'Conditional Execution';
+var scdoc_sc_version = '3.15.0-dev';
+</script>
+<script src='./../static/scdoc.js' type='text/javascript'></script>
+<script src='./../docmap.js' type='text/javascript'></script>
+<script src='./../frontend.js' type='text/javascript'></script>
+<script src='qrc:///qtwebchannel/qwebchannel.js' type='text/javascript'></script>
+</head>
+<body onload='fixTOC()'>
+<div id='toc'>
+<div id='toctitle'>Conditional Execution:</div>
+<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Quick%20Overview'>Quick Overview</a></li>
+<ul class='toc'><li class='toc2'><a href='#Recommended%20syntax'>Recommended syntax</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Examples'>Examples</a></li>
+<ul class='toc'></ul></ul><li class='toc1'><a href='#Overview%20of%20Basic%20Conditional%20Expressions'>Overview of Basic Conditional Expressions</a></li>
+<ul class='toc'><li class='toc2'><a href='#if'>if</a></li>
+<ul class='toc'><li class='toc3'><a href='#Syntax'>Syntax</a></li>
+<ul class='toc'></ul><li class='toc3'><a href='#Examples'>Examples</a></li>
+<ul class='toc'></ul></ul><li class='toc2'><a href='#case'>case</a></li>
+<ul class='toc'><li class='toc3'><a href='#Syntax'>Syntax</a></li>
+<ul class='toc'></ul><li class='toc3'><a href='#Example'>Example</a></li>
+<ul class='toc'></ul></ul><li class='toc2'><a href='#switch'>switch</a></li>
+<ul class='toc'><li class='toc3'><a href='#Syntax'>Syntax</a></li>
+<ul class='toc'></ul><li class='toc3'><a href='#Examples'>Examples</a></li>
+<ul class='toc'></ul><li class='toc3'><a href='#Inlined%20vs%20non-inlined%20comparison'>Inlined vs non-inlined comparison</a></li>
+<ul class='toc'></ul></ul><li class='toc2'><a href='#while'>while</a></li>
+<ul class='toc'><li class='toc3'><a href='#Syntax'>Syntax</a></li>
+<ul class='toc'></ul><li class='toc3'><a href='#Example'>Example</a></li>
+<ul class='toc'></ul></ul></ul><li class='toc1'><a href='#Other%20Control%20Structures'>Other Control Structures</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Optimization%20through%20inline%20expansion'>Optimization through inline expansion</a></li>
+<ul class='toc'><li class='toc2'><a href='#Failure%20to%20inline:%20Functions%20include%20variable%20declaration.'>Failure to inline: Functions include variable declaration.</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Successful%20inlining:%20Functions%20do%20not%20include%20variable%20declarations.'>Successful inlining: Functions do not include variable declarations.</a></li>
+<ul class='toc'></ul></ul><li class='toc1'><a href='#Audio%20Control%20Structures:%20Do%20not%20use%20.if%20etc.%20in%20Synths!'>Audio Control Structures: Do not use .if etc. in Synths!</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Syntax%20of%20conditional%20expressions'>Syntax of conditional expressions</a></li>
+<ul class='toc'><li class='toc2'><a href='#Trailing%20argument%20blocks'>Trailing argument blocks</a></li>
+<ul class='toc'><li class='toc3'><a href='#Return%20values%20(.if,%20.case,%20.switch)'>Return values (.if, .case, .switch)</a></li>
+<ul class='toc'></ul></ul></ul></ul></div><div id='menubar'></div>
+<div class='contents'>
+<div class='header'>
+<div id='label'>
+<span id='folder'>Reference</span>
+ | <span id='categories'><a href='./../Browse.html#Language'>Language</a></span>
+</div><h1>Conditional Execution</h1>
+<div id='summary'>conditional expressions in SuperCollider</div>
+</div>
+<div class='subheader'>
+<div id='related'>See also: <a href="./../Classes/Boolean.html">Boolean</a>, <a href="./../Classes/Function.html">Function</a>, <a href="./../Classes/Exception.html">Exception</a>, <a href="./../Reference/Syntax-Shortcuts.html">Syntax Shortcuts</a>, <a href="./../Reference/loop.html">loop / repeat</a></div>
+</div>
+
+<p>This page gives an overview of the conditional expressions in SuperCollider and the many ways to write them.<h2><a class='anchor' name='Quick%20Overview'>Quick Overview</a></h2>
+<h3><a class='anchor' name='Recommended%20syntax'>Recommended syntax</a></h3>
+<table>
+<tr><td><a href="#if">if</a><td><code>if(expr) { trueFuncBody } { falseFuncBody }</code><tr><td><a href="#case">case</a><td><code>case { testFuncBody1 } { trueFuncBody1 } ... { testFuncBodyN } { trueFuncBodyN }</code><tr><td><a href="#switch">switch</a><td><code>switch(value) { testValue1 } { trueFuncBody1 } ... { testValueN } { trueFuncBodyN }</code><tr><td><a href="#while">while</a><td><code>while { testFuncBody } { loopFuncBody }</code></table>
+
+<p>More syntax variants exist, see <a href="#Syntax%20of%20conditional%20expressions">below</a>.<div class='note'><span class='notelabel'>NOTE:</span> Throughout this file, the placeholder <code>someFuncBody</code> is distinct from <code>someFunc</code>  (e.g., <code>trueFunc</code> vs. <code>trueFuncBody</code>, <code>testFunc</code> vs. <code>testFuncBody</code>, etc.). In distinction from <code>someFunc</code>, <code>someFuncBody</code> does <em>not</em> stand for an already instantiated Function object (a lambda function), but rather for an expression that can serve as a Function definition. 
+<p>In other words, if <code>{ "doThis".postln }</code> is your <code>someFunc</code>, then <code>"doThis".postln;</code>---without the curly Brackets---is your <code>someFuncBody</code>.
+<p>Consequently, <strong>do not</strong> write <code>if([false,true].choose) { { "doThis".postln; } }</code>, 
+<p>but <strong>do</strong> write <code>if([false,true].choose) { "doThis".postln; }</code>.</div><h3><a class='anchor' name='Examples'>Examples</a></h3>
+<table>
+<tr><td><div class='codeMirrorContainer'><textarea class='editor'>x = 6.rand;
+if(x &lt; 3) {
+    "oh"
+}  {
+    "weh"
+}</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<td><div class='codeMirrorContainer'><textarea class='editor'>x = 0;
+while { x &lt; 6 } { x.postln; x = x + 1}</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<tr><td><div class='codeMirrorContainer'><textarea class='editor'>x = 6.rand;
+case 
+    { x &lt;= 1 }     { "oh" } 
+    { x == 2 }     { "weh" } 
+    { x == 3 }     { "oi" } 
+    { x &lt; 5 }     { "moi" }
+    { "default" }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<td><div class='codeMirrorContainer'><textarea class='editor'>x = 6.rand;
+switch(x)
+    { 0 }     { "oh" }
+    { 1 }     { "weh" } 
+    { 2 }     { "oi" } 
+    { 3 }     { "moi" }
+    { "default" }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</table>
+Quick links to sections:<ol>
+<li><a href="#if">if</a>,  <a href="#case">case</a>, <a href="#switch">switch</a>, <a href="#while">while</a> (specifics),<li><a href="#Optimization%20through%20inline%20expansion">optimization/inlining</a>, <li><a href="#Audio%20Control%20Structures:%20Do%20not%20use%20.if%20etc.%20in%20Synths!">if-statements in Synths</a> (strongly discouraged).<li><a href="#Syntax%20of%20conditional%20expressions">Syntax of conditional expressions</a>,</ol>
+
+<p>For other control structures, see <a href="./../Reference/loop.html">loop / repeat</a> and <a href="./../Classes/Exception.html">Exception</a>.<h2><a class='anchor' name='Overview%20of%20Basic%20Conditional%20Expressions'>Overview of Basic Conditional Expressions</a></h2>
+<div class='note'><span class='notelabel'>NOTE:</span> Reminder: <code>falseFunc == { falseFuncBody }</code>. 
+<p>For instance, when <code>falseFunc == { "aaa" }</code>,  then <code>falseFuncBody == "aaa".</code></div>
+<p> <h3><a class='anchor' name='if'>if</a></h3>
+
+<p>The <code>.if</code> method is called on a receiver <code>expr</code> which must return a <a href="./../Classes/Boolean.html">Boolean</a> value. (In other words, <code>if</code> is a method of Boolean.)
+<p>In addition the method call takes two arguments:  a <a href="./../Classes/Function.html">Function</a> <code>trueFunc</code> to execute (call .value on) if the expression is true,  and another optional Function <code>falseFunc</code> to execute (call .value on) if <code>expr</code> is false. 
+<p>The <code>.if</code> method returns the value of the function which is executed (i.e., <code>trueFunc.value</code> if receiver is <code>true</code>,  <code>falseFunc.value</code> if receiver is <code>false</code>).
+<p>If <code>falseFunc</code> is not present and <code>expr</code> is false, then the <code>.if</code> method returns <code>nil</code>.<h4><a class='anchor' name='Syntax'>Syntax</a></h4>
+<div class='codeMirrorContainer'><textarea class='editor'>// function call notation
+if(expr, trueFunc, falseFunc);
+if(0 &lt; 3, {"aha"} {"brb"}); 
+
+// function call notation with trailing argument block
+// looks almost like C (without the "else").
+if(expr) { trueFuncBody } { falseFuncBody };
+if(0 &lt; 3) {"aha"} {"brb"}; 
+
+// not recommended: receiver notation, 
+// reflects the fact that .if is a method like any other;
+// but is hard to read and rarely used in practice 
+expr.if(trueFunc, falseFunc);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h4><a class='anchor' name='Examples'>Examples</a></h4>
+<div class='codeMirrorContainer'><textarea class='editor'>// function call notation with trailing argument block
+// note the indentation and linebreaks,
+// which are recommended, but not mandatory.
+(
+if([false, true].choose) {
+    "expr was true".postln  // trueFuncBody
+} {
+    "expr was false".postln  // falseFuncBody
+};
+)
+
+// assignment of value according to condition
+(
+var a = 1, z;
+z = if(a &lt; 5) { 100 } { 200 };
+z.postln;
+)
+
+// same as
+(
+var a = 1, z;
+if(a &lt; 5) { z = 100 } { z = 200 };
+z.postln;
+)
+
+// no falseFunc, expr is true
+(
+var x = 1;
+if(x &gt; 0) { 90 + x }; // returns { 90 + x }.value
+) // -&gt; 91
+
+// no falseFunc, expr is false
+(
+var x = 1;
+if(x &lt; 0) { 90 + x}; 
+) // -&gt; nil</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h3><a class='anchor' name='case'>case</a></h3>
+
+<p>Function also implements a <code>case</code> method which allows for conditional evaluation with multiple cases.  The receiver here but can be thought of as simply the zeroth argument, representing the first of multiple "cases". Thus, the arguments including the receiver can be written as pairs of <code>testFunc</code>s and corresponding <code>trueFunc</code>s.  if a <code>testFunc</code> returns true, its corresponding <code>trueFunc</code> is evaluated and its <code>.value</code> returned. If no <code>testFunc</code> returns true, either <code>nil</code> is returned, or the <code>.value</code> of a <code>defaultFunc</code> supplied as the final argument. Case is inlined (under the conditions outlined <a href="#Optimization%20through%20inline%20expansion">below</a>), and is therefore just as efficient as nested if statements.<h4><a class='anchor' name='Syntax'>Syntax</a></h4>
+<div class='codeMirrorContainer'><textarea class='editor'>// { testFuncBody1 } is technically the receiver.
+// trailing receiver and argument block notation
+// (possible because receiver and all arguments are Functions):
+case
+    { testFuncBody1 } { trueFuncBody1 }
+    { testFuncBody2 } { trueFuncBody2 }
+    ...
+    { testFuncBodyN } { trueFuncBodyN }
+    { defaultFuncBody }; // defaultFunc can be omitted.
+
+// function call notation:
+case(   
+        testFunc1, trueFunc1,
+        testFunc2, trueFunc2,
+        ...,
+        testFuncN, trueFuncN,
+        defaultFunc // defaultFunc can be omitted.
+    ); 
+// in some cases the function call notation will appear to work even if 
+// arguments are not Function objects, as long as they respond to .value;
+// however, no inlining will take place then.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h4><a class='anchor' name='Example'>Example</a></h4>
+<div class='codeMirrorContainer'><textarea class='editor'>(
+var i, x;
+i = [0, 7, 2, 329, 4, 5000].choose;
+x = case
+    { i == 0 }     { \no }   
+    { i == 7 }     { \wrong }
+    { i == 2 }     { \worng }
+    { i == 329 }   { \wrnog }
+    { i == 4 }     { \wnorg }
+    { i == 5000 }  { \true };
+x.postln;
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>or<div class='codeMirrorContainer'><textarea class='editor'>(
+case(
+    {[true,false].choose}, {"first test was true"},
+    {[true,false].choose}, {"second test was true"},
+    {[true,false].choose}, {"third test was true"},
+    { "no test was true" }
+);
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h3><a class='anchor' name='switch'>switch</a></h3>
+
+<p>Object implements a switch method which allows for conditional evaluation with multiple cases.  Each case is represented by a pair of two arguments: a <code>testValue</code> followed by a <code>trueFunc</code>. In distinction to <a href="#case">case</a>, the receiver is <em>not</em> the first test function, but rather an object that other <code>testValues</code> are all compared to.  The receiver is compared against the <code>testValue</code>s, and if the comparison returns true, the corresponding <code>trueFunc</code> will be evaluated and its value returned. If it is false, the next <code>testValue</code> is compared, and so on.  The return value of <code>switch</code> in case of <em>no</em> matching <code>testValue</code> is dependent on whether the number of arguments passed to it is even or odd.  If the number of arguments is even, <code>switch</code> will return <code>nil</code> in such cases, whereas if it is odd, the last argument should be a <code>defaultFunction</code> whose <code>.value</code> will be returned.
+<p>The <strong>comparison function</strong> used is equality, i.e., <code>==</code>,  unless the switch statement is inlined (see also <a href="#Optimization%20through%20inline%20expansion">below</a>),  in which case switch compares by identity, i.e., <code>===</code>. (See <a href="./../Guides/EqualityIdentity.html">Identity and Equality in SuperCollider</a>)
+<p>The switch statement will automatically be inlined if two conditions are met: 
+<p><strong>First</strong>, the test objects are all values with unique representations (Floats, Integers, Symbols, Chars, nil, false, true) and  <strong>second</strong>, functions used in the switch statement have no variable or argument declarations.  The inlined switch uses a hash lookup (which is faster than nested if statements), so it should be very fast and scale to any number of clauses. <div class='note'><span class='notelabel'>NOTE:</span> <strong>Avoid using String or Float as test objects for switch.</strong>  The former is simply less efficient than Symbol, as it will not inline;  the latter will inline, but may yield unexpected results due to floating-pointing representation, e.g., <code>(2/3) == (1 - (1/3))</code> returns <code>false</code>.</div><h4><a class='anchor' name='Syntax'>Syntax</a></h4>
+<div class='codeMirrorContainer'><textarea class='editor'>// function call syntax with trailing argument blocks
+// linebreaks are optional but recommended
+switch(value)
+    { testValue1 } { trueFuncBody1 }
+    { testValue2 } { trueFuncBody2 }
+    { testValue3 } { trueFuncBody3 }
+    ...
+    { testValueN } { trueFunchBodyN }
+    { defaultBody }; // defaultbody can be omitted.
+
+//function call syntax without trailing arguments 
+switch(value,
+    testValue1, trueFunc1,
+    testValue2, trueFunc2,
+    ...
+    testValueN, trueFuncN,
+    defaultFunc // defaultFunc can be omitted
+);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h4><a class='anchor' name='Examples'>Examples</a></h4>
+<div class='codeMirrorContainer'><textarea class='editor'>//function call syntax without trailing arguments 
+(
+var x = 0; //also try 1
+switch(x, 
+    0, { "hello" }, 
+    1, { "goodbye" }
+    )
+)
+
+
+// function call syntax with trailing argument blocks
+(
+var x = 0; //also try 1
+switch(x) 
+    { 0 } { "hello" } 
+    { 1 } { "goodbye" };
+)
+
+(
+var x, z;
+z = [0, 7, 2, 329, 4, 5000].choose;
+switch (z.postln,
+    7,    { \no },
+    2,    { \wrong },
+    329,  { \worng },
+    4,    { \wrnog },
+    5000, { \wnorg },
+    0,    { \true }
+).postln;
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>or:<div class='codeMirrorContainer'><textarea class='editor'>(
+var x, z;
+z = [0, 7, 2, 329, 4, 5000].choose;
+x = switch(z)
+    {7}    { \no }
+    {2}    { \wrong }
+    {329}  { \worng }
+    {4}    { \wrnog }
+    {5000} { \wnorg }
+    {0}    { \true };
+x.postln;
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h4><a class='anchor' name='Inlined%20vs%20non-inlined%20comparison'>Inlined vs non-inlined comparison</a></h4>
+
+<p>The following code will inline, but will compare by identity:<div class='codeMirrorContainer'><textarea class='editor'>(
+switch(1)
+    { 1.0 } { "yes" }
+    { "no" }
+) // -&gt; no</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>The identity comparison <code>1 === 1.0</code> returns false.  While 1.0 and 1 represent the same numeric value, one is a Float and the other is an Integer, so they cannot be identical. On the other hand, if we prevent inlining by declaring a variable within one of the functions, the code will compare by equality: <code>1 == 1.0</code> returns true. <div class='codeMirrorContainer'><textarea class='editor'>(
+// 'var x' prevents inlining
+switch(1)
+    { 1.0 } { var x; "yes" }
+    { "no" }
+)  // -&gt; yes</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h3><a class='anchor' name='while'>while</a></h3>
+
+<p>The <code>while</code> method implements conditional execution of a loop;  it is a method of <a href="./../Classes/Function.html">Function</a>. If the <code>testFunc</code> answers true when evaluated,  then the <code>loopFunc</code> is evaluated and the process is repeated.  Once the <code>testFunc</code> returns false, the loop terminates.
+<p>Note the distinction to <code>if</code>:  <code>testFunc</code> is a Function (which returns itself), e.g., <code>{x &lt; 0}</code>,  whereas <code>expr</code> above was an expression, e.g., <code>x &lt; 0</code>, which returned a Boolean.<h4><a class='anchor' name='Syntax'>Syntax</a></h4>
+<div class='codeMirrorContainer'><textarea class='editor'>// function call with receiver and argument as trailing function block
+// this is _different_ from C!
+while { testFuncBody } { loopFuncBody };
+// abbreviation of:
+while ({testFuncBody}) { loopFuncBody };
+// but the following (C syntax) will not work in SuperCollider:
+while (testFuncBody) { loopFuncBody } ; // Syntax Error
+
+// function call without trailing argument.
+while({ testFuncBody }, { loopFuncBody });
+
+// receiver notation 
+// hard to read and rarely used in practice 
+{ testFuncBody }.while({ loopFuncBody });</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h4><a class='anchor' name='Example'>Example</a></h4>
+<div class='codeMirrorContainer'><textarea class='editor'>(
+i = 0;
+while { i &lt; 5 } { i = i + 1; "boing".postln };
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p><code>while</code> expressions are also optimized by the compiler if they do not contain variable declarations in the <code>testFunc</code> and the <code>loopFunc</code>.<h2><a class='anchor' name='Other%20Control%20Structures'>Other Control Structures</a></h2>
+
+<p>Conditional expressions are a type of control structures; another useful type are iterations such as <code>.do</code> and <code>.for</code>.  These are discussed separately in the page on <a href="./../Reference/loop.html">iteration</a> (also see <a href="./../Classes/Collection.html#Iteration">Collection: Iteration</a>). Finally, the methods <a href="./../Classes/Function.html#-try">Function: -try</a> and <a href="./../Classes/Function.html#-protect">Function: -protect</a> are technically conditional expressions,  but their intended use is in the handling of exceptions, which is why their are discussed in <a href="./../Classes/Exception.html">Exception</a> rather than here.<h2><a class='anchor' name='Optimization%20through%20inline%20expansion'>Optimization through inline expansion</a></h2>
+
+<p><code>if</code>, <code>while</code>, <code>switch</code>, and <code>case</code> expressions are optimized (i.e., inlined) by the compiler if they do not contain variable declarations in the functions.  We can see this if we dump the bytecodes of the receiver function definition.  (Bytecodes are a lower-level representation of the code sent to the interpreter.)  The optimization does not use function calls within the bytecodes and instead uses a jump statement, which is faster.<h3><a class='anchor' name='Failure%20to%20inline:%20Functions%20include%20variable%20declaration.'>Failure to inline: Functions include variable declaration.</a></h3>
+<div class='codeMirrorContainer'><textarea class='editor'>(
+{
+    if(6 == 9) {
+        var notHere; // variable declaration 
+        "hello".postln;
+    } {
+        "world".postln;
+    }
+}.def.dumpByteCodes
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>This returns the following warning,<a class='footnote anchor' name='footnote_org_1' href='#footnote_1'><sup>1</sup></a> and below it we can see what the bytecodes look like without inlining:<pre>WARNING: FunctionDef contains variable declarations and so will not be inlined.
+  in file 'selected text'
+  line 4 char 14:
+
+          var notHere;
+
+          "hello".postln;
+-----------------------------------
+BYTECODES: (13)
+  0   2C 06    PushInt 6
+  2   2C 09    PushInt 9
+  4   E6       SendSpecialBinaryArithMsg '=='
+  5   04 00    PushLiteralX instance of FunctionDef - closed
+  7   04 01    PushLiteralX instance of FunctionDef - closed
+  9   B0       TailCallReturnFromFunction
+ 10   C3 0B    SendSpecialMsg 'if'
+ 12   F2       BlockReturn
+-&gt; &lt; closed FunctionDef &gt;</pre>
+<p>That is, entries 5 and 7 are proper function calls, which are costly (i.e., slow/inefficient).<h3><a class='anchor' name='Successful%20inlining:%20Functions%20do%20not%20include%20variable%20declarations.'>Successful inlining: Functions do not include variable declarations.</a></h3>
+
+<p>Here is the opposite example, where inlining has taken place:<div class='codeMirrorContainer'><textarea class='editor'>(
+{
+    if(6 == 9) {
+        "hello".postln;
+    } {
+        "world".postln;
+    }
+}.def.dumpByteCodes
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>The bytecodes read as follows:<pre>BYTECODES: (20)
+  0   2C 06    PushInt 6
+  2   2C 09    PushInt 9
+  4   E6       SendSpecialBinaryArithMsg '=='
+  5   F8 00 07 JumpIfFalse 7  (15)
+  8   41       PushLiteral "hello"
+  9   B0       TailCallReturnFromFunction
+ 10   C1 3A    SendSpecialMsg 'postln'
+ 12   FC 00 04 JumpFwd 4  (19)
+ 15   40       PushLiteral "world"
+ 16   B0       TailCallReturnFromFunction
+ 17   C1 3A    SendSpecialMsg 'postln'
+ 19   F2       BlockReturn
+-&gt; &lt; closed FunctionDef &gt;</pre>
+<p>Entries 5 and 12 are jump statements, instructing to jump to entries 15 and 19 respectively.  In between those lines, we can recognize the contents of the two Functions,  but they are now no longer implemented as function calls, but as direct instructions, which saves resources.<h2><a class='anchor' name='Audio%20Control%20Structures:%20Do%20not%20use%20.if%20etc.%20in%20Synths!'>Audio Control Structures: Do not use .if etc. in Synths!</a></h2>
+
+<p>The control structures discussed here is intended for use in sclang (i.e., language/client), not in scsynth (i.e., server).  Use of .if in signal processing contexts may appear to work in simple cases but is <strong>not advised</strong>.  Intead, use <a href="./../Classes/Select.html">Select</a> or <a href="./../Classes/SelectX.html">SelectX</a> and related classes. Also see <a href="./../Guides/UserFAQ.html#SynthDef%20Issues">User FAQ: SynthDef Issues</a> for more details.
+<p>The following code runs (does not produce an error), but is <strong>not good usage</strong>, because it is not very obvious what is going on: <div class='codeMirrorContainer'><textarea class='editor'>(
+    var freq = 100;
+    {
+        if(LFTri.kr(0.1).unipolar, //receiver is a UGen. 
+            SinOsc.ar(freq), //as are arguments
+            Saw.ar(freq)
+        ) * 0.2;
+    }.scope(bufsize: s.sampleRate/freq; //bufsize to match the period of the oscillators
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>Here, the receiver LFTri is a UGen.  The UGen class in turn implements an <a href="./../Classes/UGen.html#-if">UGen: -if</a> method by translating it into a linear crossfade using binary operators:<div class='codeMirrorContainer'><textarea class='editor'>    if { arg trueUGen, falseUGen;
+        ^(this * (trueUGen - falseUGen)) + falseUGen;
+    }</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>The regular <a href="./../Classes/Boolean.html#-if">Boolean: -if</a> discussed above does <em>not</em> crossfade.  Hence, if the crossfade is desired, it is better practice to make this explicit by using <a href="./../Classes/LinSelectX.html">LinSelectX</a>: <div class='codeMirrorContainer'><textarea class='editor'>(
+    var freq = 100;
+    {
+        LinSelectX.ar(
+            LFTri.kr(0.1).unipolar, 
+            [SinOsc.ar(freq), Saw.ar(freq)]
+        ) * 0.2;
+    }.scope(bufsize: s.sampleRate/freq); 
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>On the other hand, in the case where not a crossfade but a simple either/or analogous to language-side <code>Boolean.if</code> is desired, <a href="./../Classes/Select.html">Select</a> is preferable:<div class='codeMirrorContainer'><textarea class='editor'>(
+    var freq = 100;
+    { Select.ar(
+        LFPulse.ar(1), 
+        [SinOsc.ar(freq), Saw.ar(freq)]
+        ) * 0.2;
+    }.scope(bufsize: s.sampleRate/freq);
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p> <h2><a class='anchor' name='Syntax%20of%20conditional%20expressions'>Syntax of conditional expressions</a></h2>
+
+<p>In SuperCollider, control structures implemented as <strong>methods to be called on a receiver and which return a value</strong>. This is distinct from many other languages where, e.g., <code>if</code> is a reserved identifier (keyword) independent of a particular receiver, and does not return a value.  For instance, in C or in python, you cannot create a variable called <code>if</code>, whereas in SuperCollider, you can (which does not mean that you should...). In SuperCollider, it is also possible to implement an <code>.if</code> method for a particular class that does something rather different (see <a href="#Audio%20Control%20Structures:%20Do%20not%20use%20.if%20etc.%20in%20Synths!">below</a>); despite these differences, SuperCollider's flexible syntax can make it <em>look</em> as if <code>if</code> were just such a reserved identifier,  whereas it is in fact a method of <a href="./../Classes/Boolean.html">Boolean</a>.
+<p>Thus, SuperCollider's <a href="./../Reference/Syntax-Shortcuts.html">flexibility with respect to syntax</a> is a potentially confusing factor when it comes to conditional expressions.  For instance, there are four equivalent ways to write a simple if-expression:<table>
+<tr><td><td>Receiver notation<td>Function call notation<tr><td>Regular argument notation<td><code>condition.if(trueFunc, falseFunc)</code><td><code>if(condition, trueFunc, falseFunc)</code><tr><td>Argument(s) as trailing blocks<td><code>condition.if { trueFuncBody } { falseFuncBody }</code><td><code>if(condition) { trueFuncBody } { falseFuncBody }</code></table>
+
+<p>While the receiver notation reflects the implementation in SuperCollider most closely, it is hard to read and rarely used in practice.  The two function call notations are the most commonly used.  The version with trailing argument blocks superficially resembles conditional syntax familiar from C or javascript:<pre>//if-statement in C or javascript:
+if (condition) { 
+    trueFuncBody
+} else { 
+    falseFuncBody
+}</pre><div class='codeMirrorContainer'><textarea class='editor'>//if-statement in SuperCollider, function call notation with trailing argument block 
+if (condition) { 
+    trueFuncBody
+} {  //no "else" in SuperCollider!
+    falseFuncBody
+}</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h3><a class='anchor' name='Trailing%20argument%20blocks'>Trailing argument blocks</a></h3>
+
+<p>The above C-like syntax is enabled in SuperCollider by a syntactic mechanism called "trailing argument blocks".  A <strong>block</strong> is any expression enclosed in curly brackets, e.g. <code>{ trueFuncBody }</code>.  The syntax <code>receiver.method { expr1 } { expr2 }</code> is equivalent to <code>receiver.method({ expr1 }, { expr2 })</code>.  That is, the round brackets and comma are omitted.  This can be combined with the function call syntax such that we can write <code>method(receiver) { expr1 } { expr2 }</code>;  this in turn gives the above form of the if-statement in function call notation with trailing argument block. 
+<p>However, even if the curly brackets now indicate where one argument ends and where the next one starts,  they also retain their usual role of showing that the enclosed expression should serve as the definition of a <a href="./../Classes/Function.html">Function</a> instance. 
+<p>This means, <strong>first</strong>, that the use of trailing argument syntax implies that <code>expr1</code> and <code>expr2</code> <em>define</em> Functions; <strong>second</strong>, that <code>expr1</code> and <code>expr2</code> should not already <em>be</em> Functions in their own right (unless you intend them to be). 
+<p>In examples:<div class='codeMirrorContainer'><textarea class='editor'>::
+
+subsubsection:: Receiver blocks (.case, .while)
+
+If the receiver is itself an expression surrounded by curly brackets, a special version of the trailing argument block syntax can be used:
+Here, not only the arguments can be written as trailing {}-enclosed blocks, but also the receiver itself.
+For instance, code::{ funcBody }.fork:: is often written as code::fork { funcBody }::.
+
+When the method takes arguments, these arguments must also be written as {}-enclosed blocks, and follow the receiver:
+
+code:: method { receiverFuncBody } { arg1FuncBody }  { arg2FuncBody }::
+
+Among the conditional expressions discussed here, this applies to .while and .case (because they are methods of link::Classes/Function::.)
+
+Example:
+code::
+//function call notation with receiver block and trailing argument block
+while { testFuncBody } { loopFuncBody }; 
+// abbreviation of  function call notation with trailing argument block
+while ({ testFuncBody }) { loopFuncBody };
+// in receiver notation
+{ testFuncBody }.while({ loopFuncBody })
+// distinct from C-style while, which will not work in SuperCollider:
+while (testFuncBody) { loopFuncBody }; // -&gt; Syntax Error</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h4><a class='anchor' name='Return%20values%20(.if,%20.case,%20.switch)'>Return values (.if, .case, .switch)</a></h4>
+
+<p>Unlike other common programming languages, conditional expressions (<code>.if</code>, <code>.case</code>, and <code>.switch</code>) in SuperCollider have return values by default; these in turn can be assigned to variables.  For instance, in python, the following will produce an error:<pre>a = if True: "gobbledeegook"</pre>
+<p>  and for conditional assignment, one has to write<pre>if True: a = "gobbledeegook"</pre>
+<p>Whereas in SuperCollider, both analogous cases work:<div class='codeMirrorContainer'><textarea class='editor'>(
+var a = "oink"
+a = if([true,false].choose, {"gobbledeegook"});
+a.postln;
+)
+
+( 
+var a = "oink";
+    if([true,false].choose, {a = "gobbledeegook"});
+a.postln;
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>However, this does not change the syntactic requirement that the assignment statement, when it is an argument to a conditional expression, must be a Function. In other words, the following is wrong:<div class='codeMirrorContainer'><textarea class='editor'> ( 
+var a = "oink";
+    if([true,false].choose, a = "gobbledeegook"); //syntax error
+a.postln;
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>This is because a Function is expected after the comma in <code>if(expr, arg)</code>.<div class='footnotes'>
+<a class='anchor' name='footnote_1'/><div class='footnote'>[<a href='#footnote_org_1'>1</a>] - You can switch on and off the above warning (see: <a href="./../Classes/LanguageConfig.html#*postInlineWarnings">LanguageConfig: *postInlineWarnings</a>):<div class='codeMirrorContainer'><textarea class='editor'>LanguageConfig.postInlineWarnings_(true) // warn
+LanguageConfig.postInlineWarnings_(false) // ignore it.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div></div><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/Conditional-Execution.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/Conditional-Execution.schelp</a><br>link::Reference/Conditional-Execution::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
+</body></html>
