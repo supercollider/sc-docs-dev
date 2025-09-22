@@ -241,11 +241,8 @@ var scdoc_sc_version = '3.15.0-dev';
 
 <p>The server application may be in three different states: running, not running, or unresponsive (for example while loading large files from disk).<div class='codeMirrorContainer'><textarea class='editor'>s.serverRunning // returns true if it is true</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<div class='note'><span class='notelabel'>NOTE:</span> If you get the message <code>"Mismatched sample rates are not supported."</code> it may be helpful to follow these steps:<div class='codeMirrorContainer'><textarea class='editor'>1. set your device to the sample rate you want
-2. check the device name in the boot posting of the server
-3. set both sample rate and device (s.options.sampleRate = …; s.options.device = "…")
-4. reboot the server: "s.reboot"</textarea>
-<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='note'><span class='notelabel'>NOTE:</span> If you get the message <code>"Mismatched sample rates are not supported."</code> it may be helpful to follow these steps:<ol>
+<li>Set your device to the sample rate you want.<li>Check the device name in the boot posting of the server.<li>Set both sample rate and device (<code>s.options.sampleRate = …; s.options.device = "…"</code>).<li>Reboot the server: <code>s.reboot</code>.</ol>
 </div>
 <p>Some insights about common Server issues can be found on the FAQ <a href="./../Guides/UserFAQ.html#Server%20Issues">Server Issues</a><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Server.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>name</span>, <span class='argstr'>addr</span>, <span class='argstr'>options</span>, <span class='argstr'>clientID</span>)</h3>
