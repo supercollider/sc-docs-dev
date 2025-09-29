@@ -133,8 +133,9 @@ ERROR: Primitive '_QWindow_AvailableGeometry' failed.</textarea>
 <p>This should be the first clue that Boolean logic in the server is a very different animal from the so-called "normal" use of conditionals on the client side (in the language).<h3><a class='anchor' name='What%20is%20a%20Boolean%20in%20the%20server?'>What is a Boolean in the server?</a></h3>
 
 <p>In fact, there is no such thing. The server handles floating-point numbers. It doesn't have <strong>true</strong> or <strong>false</strong> entities.
-<p>Since everything in the server is a number, the result of the comparison must also be a number. The server follows the same convention as other DSP environments (Max/MSP, pd etc.):
-<p>- <code>True</code> is represented by 1.0 - <code>False</code> is represented by 0.0<h3><a class='anchor' name='Why%20is%20x%20>%200%20"non-Boolean"%20in%20the%20"test"?'>Why is x &gt; 0 "non-Boolean" in the "test"?</a></h3>
+<p>Since everything in the server is a number, the result of the comparison must also be a number. The server follows the same convention as other DSP environments (Max/MSP, pd etc.):<ul>
+<li><code>True</code> is represented by 1.0<li><code>False</code> is represented by 0.0</ul>
+<h3><a class='anchor' name='Why%20is%20x%20>%200%20"non-Boolean"%20in%20the%20"test"?'>Why is x &gt; 0 "non-Boolean" in the "test"?</a></h3>
 
 <p>This goes back to the general issue of handling operators in the server. Math operators in a SynthDef are not calculations to do <strong>right now</strong>. They <strong>describe</strong> calculations that will be done <strong>in the future</strong>, many thousands of times.<div class='codeMirrorContainer'><textarea class='editor'>var x = 1;
 x &gt; 0;
@@ -155,15 +156,13 @@ x &gt; 0;
 
 <p>To do this, the language must know which function (true or false) to execute. But there is no way to know which one the BinaryOpUGen will be. So, SuperCollider throws an error.<h3><a class='anchor' name='If%20you%20can't%20branch,%20what%20good%20is%20a%20comparison%20in%20the%20server?'>If you can't branch, what good is a comparison in the server?</a></h3>
 
-<p>Comparisons have a lot of uses, actually.
-<p>- <strong>Choosing one of two signals</strong>: This is the closest we can get to <strong>if-then-else</strong> in the server. Both <strong>then</strong> and <strong>else</strong> must be running continuously. That's a requirement of how the server works: the number and arrangement of unit generators within a single Synth cannot change. Instead, you can choose <strong>which of those signals makes it downstream</strong>. One will be used and the other ignored. Since true is 1 and false is 0, you can use a conditional to index into an array using Select.<div class='codeMirrorContainer'><textarea class='editor'>Select.kr(aKrSignal &gt; anotherKrSignal, [false_signal, true_signal]);</textarea>
+<p>Comparisons have a lot of uses, actually:<ul>
+<li><strong>Choosing one of two signals</strong>: This is the closest we can get to <strong>if-then-else</strong> in the server. Both <strong>then</strong> and <strong>else</strong> must be running continuously. That's a requirement of how the server works: the number and arrangement of unit generators within a single Synth cannot change. Instead, you can choose <strong>which of those signals makes it downstream</strong>. One will be used and the other ignored. Since true is 1 and false is 0, you can use a conditional to index into an array using Select.<div class='codeMirrorContainer'><textarea class='editor'>Select.kr(aKrSignal &gt; anotherKrSignal, [false_signal, true_signal]);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-
-<p>- <strong>Generating triggers</strong>: A trigger occurs whenever a signal is &lt;= 0, and then becomes &gt; 0. Extending this to comparisons, it means that <strong>a trigger occurs when a comparison is false for a while, and then becomes true</strong>. Comparing a signal to a threshold may then be used anywhere that a trigger is valid. For a simple example, take the case of sending a message to the language when the microphone input's amplitude crosses a threshold.<div class='codeMirrorContainer'><textarea class='editor'>var mic = In.ar(8, 1), amplitude = Amplitude.kr(mic);
+<li><strong>Generating triggers</strong>: A trigger occurs whenever a signal is &lt;= 0, and then becomes &gt; 0. Extending this to comparisons, it means that <strong>a trigger occurs when a comparison is false for a while, and then becomes true</strong>. Comparing a signal to a threshold may then be used anywhere that a trigger is valid. For a simple example, take the case of sending a message to the language when the microphone input's amplitude crosses a threshold.<div class='codeMirrorContainer'><textarea class='editor'>var mic = In.ar(8, 1), amplitude = Amplitude.kr(mic);
 SendTrig.kr(amplitude &gt; 0.2, 0, amplitude);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-
-<p>- <strong>Passing or suppressing triggers</strong>: You might need to generate triggers continuously, but permit the triggers to take effect only when a condition is met. Multiplication handles this nicely: <strong>condition * trigger</strong>. Since the condition evaluates as 0 when false, the trigger will be replaced by 0 and nothing happens, as desired.
+<li><strong>Passing or suppressing triggers</strong>: You might need to generate triggers continuously, but permit the triggers to take effect only when a condition is met. Multiplication handles this nicely: <strong>condition * trigger</strong>. Since the condition evaluates as 0 when false, the trigger will be replaced by 0 and nothing happens, as desired.
 <p>For a simple case, let's refine the mic amplitude example by suppressing triggers that occur within 1/4 second after the previous.<div class='codeMirrorContainer'><textarea class='editor'>var mic = In.ar(8, 1),
     amplitude = Amplitude.kr(mic),
     trig = amplitude &gt; 0.2,
@@ -172,14 +171,13 @@ SendTrig.kr(amplitude &gt; 0.2, 0, amplitude);</textarea>
 
 SendTrig.kr(filteredTrig, 0, amplitude);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</ul>
 <h3><a class='anchor' name='Logical%20operators:%20And,%20Or,%20Not,%20Xor'>Logical operators: And, Or, Not, Xor</a></h3>
 
-<p>Logical operators have simple arithmetic equivalents.
-<p>- <strong>And = multiplication</strong>: <strong>(x &gt; 0) * (y &gt; 0)</strong> means both conditions must be true (nonzero) for the result to be nonzero.
-<p>- <strong>Or = addition</strong>: <strong>(x &gt; 0) + (y &gt; 0)</strong> means nonzero in either condition is enough to make the result nonzero.<div class='note'><span class='notelabel'>NOTE:</span> If both are true, then the result will be 2, not 1. In some cases, the 2 may not be acceptable. That can be fixed by wrapping the Or in another comparison -- <strong>((x &gt; 0) + (y &gt; 0)) &gt; 0</strong> -- because 2 &gt; 0 evaluates to 1!</div>
-<p>- <strong>Not</strong>: I prefer to negate a condition by comparing it to zero: <strong>condition &lt;= 0</strong>. 0 &lt;= 0 is 1 (i.e., not 0), and 1 &lt;= 0 is 0 (not 1). If you're certain the logical expression will only ever be 0 or 1 exactly, you can also negate by subtraction: <strong>1 - condition</strong>.
-<p>- <strong>Xor</strong>: Exclusive-or is true if one or the other condition is true, but not both. We can add the two conditions and compare it to 1. The syntax is a little bit tricky because <code>==</code> doesn't turn into a BinaryOpUGen automatically. We have to create the BinaryOpUGen by hand.<div class='codeMirrorContainer'><textarea class='editor'>BinaryOpUGen('==', (x &gt; 0) + (y &gt; 0), 1)</textarea>
+<p>Logical operators have simple arithmetic equivalents.<ul>
+<li><strong>And = multiplication</strong>: <strong>(x &gt; 0) * (y &gt; 0)</strong> means both conditions must be true (nonzero) for the result to be nonzero.<li><strong>Or = addition</strong>: <strong>(x &gt; 0) + (y &gt; 0)</strong> means nonzero in either condition is enough to make the result nonzero.<div class='note'><span class='notelabel'>NOTE:</span> If both are true, then the result will be 2, not 1. In some cases, the 2 may not be acceptable. That can be fixed by wrapping the Or in another comparison -- <strong>((x &gt; 0) + (y &gt; 0)) &gt; 0</strong> -- because 2 &gt; 0 evaluates to 1!</div><li><strong>Not</strong>: I prefer to negate a condition by comparing it to zero: <strong>condition &lt;= 0</strong>. 0 &lt;= 0 is 1 (i.e., not 0), and 1 &lt;= 0 is 0 (not 1). If you're certain the logical expression will only ever be 0 or 1 exactly, you can also negate by subtraction: <strong>1 - condition</strong>.<li><strong>Xor</strong>: Exclusive-or is true if one or the other condition is true, but not both. We can add the two conditions and compare it to 1. The syntax is a little bit tricky because <code>==</code> doesn't turn into a BinaryOpUGen automatically. We have to create the BinaryOpUGen by hand.<div class='codeMirrorContainer'><textarea class='editor'>BinaryOpUGen('==', (x &gt; 0) + (y &gt; 0), 1)</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</ul>
 <h3><a class='anchor' name='ERROR:%20SynthDef%20not%20found'>ERROR: SynthDef not found</a></h3>
 
 <p>Sending a SynthDef to the server requires a little bit of time, which means that running a block of code with both SynthDef definitions and instances of those SynthDefs won't be guaranteed to work unless this slight delay is accounted for. There are two main ways to do this:
@@ -212,17 +210,17 @@ myServer.boot;</textarea>
 <p>Sometimes, you need to send an array to a series of Control inputs in a SynthDef (often called "_array arguments_").<div class='codeMirrorContainer'><textarea class='editor'>Synth(\xyz, [freqs: [300, 400, 500]]);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>There are two primary ways to do this:
-<p>- Supply a literal array -- <code>\#[1, 2, 3]</code> -- as the default for the argument name in the function. This is discussed in <a href="./../Classes/SynthDef.html">SynthDef</a>'s help file.<div class='codeMirrorContainer'><textarea class='editor'>SynthDef(\xyz, { |freqs = #[1, 2, 3]|
+<p>There are two primary ways to do this:<ul>
+<li>Supply a literal array -- <code>\#[1, 2, 3]</code> -- as the default for the argument name in the function. This is discussed in <a href="./../Classes/SynthDef.html">SynthDef</a>'s help file.<div class='codeMirrorContainer'><textarea class='editor'>SynthDef(\xyz, { |freqs = #[1, 2, 3]|
     // ...
 })</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-
-<p>- Or, use <code>NamedControl</code>. This is the only way to do it if you want to construct the array's size dynamically, or based on a variable. See <a href="./../Classes/NamedControl.html">NamedControl</a>.<div class='codeMirrorContainer'><textarea class='editor'>SynthDef(\xyz, {
+<li>Or, use <code>NamedControl</code>. This is the only way to do it if you want to construct the array's size dynamically, or based on a variable. See <a href="./../Classes/NamedControl.html">NamedControl</a>.<div class='codeMirrorContainer'><textarea class='editor'>SynthDef(\xyz, {
     var freqs = NamedControl.kr(\freqs, #[1, 2, 3]);
     // ...
 });</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</ul>
 <h3><a class='anchor' name='Why%20does%20it%20have%20to%20be%20a%20literal%20array?'>Why does it have to be a literal array?</a></h3>
 
 <p>The reason comes from the process of building a SynthDef:<ol>
@@ -263,9 +261,9 @@ o = OSCdef(\bleepResponder, { |msg|
 a.free; o.remove;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Helpfile%20references:'>Helpfile references:</a></h3>
-
-<p>- <a href="./../Classes/SendTrig.html">SendTrig</a>, <a href="./../Classes/SendReply.html">SendReply</a>
-<p>- <a href="./../Classes/OSCresponderNode.html">OSCresponderNode</a>, <a href="./../Classes/OSCpathResponder.html">OSCpathResponder</a>, <a href="./../Classes/OSCresponder.html">OSCresponder</a>, <a href="./../Guides/OSC_communication.html">OSC Communication</a><h3><a class='anchor' name='Error:%20failed%20to%20open%20UDP%20socket:%20address%20in%20use'>Error: failed to open UDP socket: address in use</a></h3>
+<ul>
+<li><a href="./../Classes/SendTrig.html">SendTrig</a>, <a href="./../Classes/SendReply.html">SendReply</a><li><a href="./../Classes/OSCresponderNode.html">OSCresponderNode</a>, <a href="./../Classes/OSCpathResponder.html">OSCpathResponder</a>, <a href="./../Classes/OSCresponder.html">OSCresponder</a>, <a href="./../Guides/OSC_communication.html">OSC Communication</a></ul>
+<h3><a class='anchor' name='Error:%20failed%20to%20open%20UDP%20socket:%20address%20in%20use'>Error: failed to open UDP socket: address in use</a></h3>
 
 <p>Sometime when booting the server one gets a message: <code>Error: failed to open UDP socket: addess in use</code>.
 <p>This is usually caused by an instance of scsynth that as hanged but has not released the osc port, perhaps because SuperCollider crashed. You can use SuperCollider (sclang) to kill all running servers by running <code>Server.killAll</code>. You can also kill scsynth using a terminal or your operating system's task manager.

@@ -49,6 +49,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#*architecture'>architecture</a> </li>
 <li class='toc3'><a href='#*systemInformation'>systemInformation</a> </li>
 <li class='toc3'><a href='#*postBugReportInfo'>postBugReportInfo</a> </li>
+<li class='toc3'><a href='#*exampleDir'>exampleDir</a> </li>
 </ul><li class='toc2'><a href='#Features'>Features</a></li>
 <ul class='toc'><li class='toc3'><a href='#*when'>when</a> </li>
 </ul><li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
@@ -173,7 +174,10 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='method'>
 <p>Return a dictionary with system/context information like SuperCollider, QT, and OS versions.</div><h3 class='method-code'><span class='method-prefix'>Platform.</span><a class='method-name' name='*postBugReportInfo' href='./../Overviews/Methods.html#postBugReportInfo'>postBugReportInfo</a>(<span class='argstr'>includePaths: true</span>, <span class='argstr'>includeDevices: false</span>)</h3>
 <div class='method'>
-<p>Post system information that is useful to attach to bug reports.</div><h3><a class='anchor' name='Features'>Features</a></h3>
+<p>Post system information that is useful to attach to bug reports.</div><h3 class='method-code'><span class='method-prefix'>Platform.</span><a class='method-name' name='*exampleDir' href='./../Overviews/Methods.html#exampleDir'>exampleDir</a></h3>
+<div class='method'><h4>Returns:</h4>
+<div class='returnvalue'>
+<p>The full path of the <code>sclang/scd examples</code> folder as a <a href="./../Classes/String.html">String</a></div></div><h3><a class='anchor' name='Features'>Features</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Platform.</span><a class='method-name' name='*when' href='./../Overviews/Methods.html#when'>when</a>(<span class='argstr'>features</span>, <span class='argstr'>ifFunction</span>, <span class='argstr'>elseFunction</span>)</h3>
 <div class='method'>
 <p>Evaluate ifFunction if all features are present, otherwise evaluate elseFunction.<div class='codeMirrorContainer'><textarea class='editor'>Platform.when(#[\Document, \Window], { "yeehah!".postln });</textarea>

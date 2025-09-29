@@ -172,8 +172,7 @@ p.nextN(20);    // no matter how long you do this, it'll never be &gt; 9!</texta
 }</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Consider carefully whether a parameter can change in each <code>next</code> call. If so, make a stream from that parameter and call <code>.next(inval)</code> on it for each iteration. Parameters that should not change, such as number of repeats, should call <code>.value(inval)</code> so that a function may be given. <a href="./../../Classes/Pwhite.html">Pwhite</a> demonstrates both of these features.
-<p>- <strong>Exercise for the reader</strong> : Why does <code>Pwhite(0.0, 1.0, inf)</code> work, even with the <code>asStream</code> and next calls?<div class='codeMirrorContainer'><textarea class='editor'>Pwhite : Pattern {
+<p>Consider carefully whether a parameter can change in each <code>next</code> call. If so, make a stream from that parameter and call <code>.next(inval)</code> on it for each iteration. Parameters that should not change, such as number of repeats, should call <code>.value(inval)</code> so that a function may be given. <a href="./../../Classes/Pwhite.html">Pwhite</a> demonstrates both of these features.<div class='note'><span class='notelabel'>NOTE:</span> <strong>Exercise for the reader</strong> : Why does <code>Pwhite(0.0, 1.0, inf)</code> work, even with the <code>asStream</code> and next calls?<div class='codeMirrorContainer'><textarea class='editor'>Pwhite : Pattern {
     var &lt;&gt;lo, &lt;&gt;hi, &lt;&gt;length;
     *new { arg lo=0.0, hi=1.0, length=inf;
         ^super.newCopyArgs(lo, hi, length)
@@ -199,7 +198,7 @@ p.nextN(20);    // no matter how long you do this, it'll never be &gt; 9!</texta
 // the plot rises b/c the lo and hi values increase on every 'next' value
 Pwhite(Pseries(0.0, 0.01, inf), Pseries(0.2, 0.01, inf), inf).asStream.nextN(200).plot;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Cleaning%20up%20event%20pattern%20resources'>Cleaning up event pattern resources</a></h3>
+</div><h3><a class='anchor' name='Cleaning%20up%20event%20pattern%20resources'>Cleaning up event pattern resources</a></h3>
 
 <p>Some event patterns create server or other objects that need to be explicitly removed when they come to a stop. This is handled by the <a href="./../../Classes/EventStreamCleanup.html">EventStreamCleanup</a> object. This class stores a set of functions that will run at the pattern's end. It also uses special keys in the current event to communicate cleanup functions upward to parent patterns, and ultimately to the <a href="./../../Classes/EventStreamPlayer.html">EventStreamPlayer</a> that executes the events.
 <p>Basic usage involves 4 stages:<div class='codeMirrorContainer'><textarea class='editor'>    embedInStream { |inval|

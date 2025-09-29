@@ -27,7 +27,8 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='toctitle'>SuperCollider 3.15.0-dev:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#An%20introductory%20overview'>An introductory overview</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Getting%20started'>Getting started</a></li>
-<ul class='toc'><li class='toc2'><a href='#Getting%20Sound'>Getting Sound</a></li>
+<ul class='toc'><li class='toc2'><a href='#Introduction%20&%20Reference%20Materials'>Introduction &amp; Reference Materials</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Getting%20Sound'>Getting Sound</a></li>
 <ul class='toc'><li class='toc3'><a href='#Generating%20Sound%20from%20Scratch'>Generating Sound from Scratch</a></li>
 <ul class='toc'></ul><li class='toc3'><a href='#Defining%20and%20Instantiating%20Synths'>Defining and Instantiating Synths</a></li>
 <ul class='toc'></ul><li class='toc3'><a href='#Live%20Coding%20Essentials'>Live Coding Essentials</a></li>
@@ -66,8 +67,14 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>The server and client <a href="./Guides/ClientVsServer.html">communicate</a> via Open Sound Control (<a href="http://opensoundcontrol.org/">OSC</a>), allowing SuperCollider to run on a single machine or on multiple machines over a network. Thanks to this client/server architecture, it is possible for <a href="./Guides/MultiClient_Setups.html">multiple clients</a> to connect and control what is happening on the server. Users can also control the audio server directly with any OSC-enabled program by using the <a href="./Guides/NodeMessaging.html">Node Messaging</a> protocol.
 <p>An extensive library of Unit Generators—the building blocks of audio synthesis networks—are included with SuperCollider. Users may optionally extend this core library with the <a href="https://github.com/supercollider/sc3-plugins">sc3-plugins</a> suite of UGens. Additionally, there are many of user-developed language extensions, called <a href="./Classes/Quarks.html">Quarks</a>, to further extend the functionality of SuperCollider. Quarks can be browsed in the distribution <a href="https://github.com/supercollider-quarks/quarks">repository</a> where users can submit their own Quarks for distribution.<h2><a class='anchor' name='Getting%20started'>Getting started</a></h2>
 
-<p>These are useful starting points for getting help on SuperCollider:<dl>
-<dt><a href="./Tutorials/Getting-Started/00-Getting-Started-With-SC.html">Getting Started tutorial series</a><dd>Get started with SuperCollider<dt><a href="./Guides/Glossary.html">Glossary</a><dd>Glossary<dt><a href="./Guides/More-On-Getting-Help.html">More on Getting Help</a><dd>Using Help Files effectively and inspecting class definition files to build more understanding<dt><a href="./Browse.html#Tutorials">All tutorials</a><dd>Index of all help files categorized under "Tutorials"<dt><a href="./Guides/UserFAQ.html">User FAQ</a><dd>Common Errors and FAQ<dt><a href="https://github.com/supercollider/supercollider/wiki/Tutorials">Community Learning Resources (Tutorials &amp; Publications)</a><dd>SuperCollider Tutorials Wiki: Community-curated tutorial index and learning resources</dl>
+<p>These are useful starting points for getting help on SuperCollider:<h3><a class='anchor' name='Introduction%20&%20Reference%20Materials'>Introduction &amp; Reference Materials</a></h3>
+<ul>
+<li><a href="./Tutorials/Getting-Started/00-Getting-Started-With-SC.html">Getting Started tutorial series</a><li><a href="./Guides/Glossary.html">Glossary</a><li><a href="./Guides/More-On-Getting-Help.html">More On Getting Help</a>:
+<p>Using Help Files effectively and inspecting class definition files to build more understanding<li><a href="./Browse.html#Tutorials">All tutorials</a>:
+<p>Index of all help files categorized under <em>Tutorials</em><li><a href="./Guides/UserFAQ.html">Common Errors and FAQ</a><li>SuperCollider examples folder:<div class='codeMirrorContainer'><textarea class='editor'>Platform.exampleDir.openOS 
+// Hold down the Shift key and press the Enter key to open the "SuperCollider examples folder".</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</ul>
 <h3><a class='anchor' name='Getting%20Sound'>Getting Sound</a></h3>
 <h4><a class='anchor' name='Generating%20Sound%20from%20Scratch'>Generating Sound from Scratch</a></h4>
 <ul>

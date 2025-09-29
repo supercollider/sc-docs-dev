@@ -100,8 +100,8 @@ p.stop;</textarea>
 <dt>Standard Timing control arguments<dd><dt>id<dd>The node ID(s) must be given explicitly. This may be an integer ID or Synth/Group node object.</dl>
 </dl>
 
-<p>There are two ways to specify argument names: by <em>instrument</em> and by <em>argument array</em>.
-<p>- <em>By instrument</em> :<dl>
+<p>There are two ways to specify argument names: by <em>instrument</em> and by <em>argument array</em>.<ul>
+<li><em>By instrument</em> :<dl>
 <dt>instrument<dd>The SynthDef name should be given again, so that the event knows which event values are relevant for the nodes.<dt>args<dd>By default, the <code>\args</code> key contains the control names for the default synthdef. To take argument names from the instrument name, you must override this default with an empty array (or any non-collection object).<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef(\event_set, { |freq = 440, gate = 1, amp = 0.1, lagTime = 0.1,
         ffreq = 2000, detune = 1.005, out = 0|
@@ -128,8 +128,7 @@ p.stop;
 a.free;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </dl>
-
-<p>- <em>By argument names</em> :<dl>
+<li><em>By argument names</em> :<dl>
 <dt>args<dd>Provide a list of the Synth argument names as an array here, e.g. <code>[\freq, \amp, \pan]</code>. There is no need to provide the instrument name this way.<div class='codeMirrorContainer'><textarea class='editor'>a = Synth(\event_set);
 
 (
@@ -146,6 +145,7 @@ p.stop;
 a.free;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </dl>
+</ul>
 <dl>
 <dt>monoNote<dd><dt>monoOff<dd><dt>monoSet<dd>These event types are used internally by Pmono and PmonoArtic. They should not be used directly.</dl>
 <h3><a class='anchor' name='Server%20control'>Server control</a></h3>
