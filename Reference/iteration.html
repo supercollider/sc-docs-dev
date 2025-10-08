@@ -25,22 +25,21 @@ var scdoc_sc_version = '3.15.0-dev';
 <body onload='fixTOC()'>
 <div id='toc'>
 <div id='toctitle'>Iteration:</div>
-<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#for'>for</a></li>
-<ul class='toc'><li class='toc2'><a href='#Syntax%20(for)'>Syntax (for)</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Example%20(for)'>Example (for)</a></li>
-<ul class='toc'></ul></ul><li class='toc1'><a href='#forBy'>forBy</a></li>
-<ul class='toc'><li class='toc2'><a href='#Syntax%20(forBy)'>Syntax (forBy)</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Example%20(forBy)'>Example (forBy)</a></li>
-<ul class='toc'></ul></ul><li class='toc1'><a href='#do'>do</a></li>
-<ul class='toc'><li class='toc2'><a href='#Syntax%20(do)'>Syntax (do)</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Examples%20(do)'>Examples (do)</a></li>
-<ul class='toc'></ul></ul><li class='toc1'><a href='#loop,%20repeat'>loop, repeat</a></li>
-<ul class='toc'></ul></ul></div><div id='menubar'></div>
+<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#for,%20forBy,%20do'>for, forBy, do</a></li>
+<ul class='toc'><li class='toc2'><a href='#for'>for</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#forBy'>forBy</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#do'>do</a></li>
+<ul class='toc'></ul></ul><li class='toc1'><a href='#Breaking%20from%20a%20loop'>Breaking from a loop</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#There%20is%20no%20continue%20keyword%20in%20SuperCollider'>There is no continue keyword in SuperCollider</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Patterns%20and%20Routines:%20repeat%20and%20loop'>Patterns and Routines: repeat and loop</a></li>
+<ul class='toc'><li class='toc2'><a href='#.repeat'>.repeat</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Apart%20from%20Function.loop,%20the%20.loop%20method%20is%20an%20alias%20for%20.repeat(inf)'>Apart from Function.loop, the .loop method is an alias for .repeat(inf)</a></li>
+<ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
 <div id='label'>
 <span id='folder'>Reference</span>
- | <span id='categories'><a href='./../Browse.html#Core'>Core</a> | <a href='./../Browse.html#Common methods'>Common methods</a> | <a href='./../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a></span>
+ | <span id='categories'><a href='./../Browse.html#Core'>Core</a> | <a href='./../Browse.html#Common methods'>Common methods</a></span>
 </div><h1>Iteration</h1>
 <div id='summary'>for, do, loop, repeat</div>
 </div>
@@ -49,55 +48,46 @@ var scdoc_sc_version = '3.15.0-dev';
 </div>
 
 <p>(This page combines material formerly in the Control Structures and loop/repeat helpfiles.)
-<p>There are a number of ways to implement iteration in SuperCollider. The most familiar ones will be the <a href="./../Classes/Number.html#-for">Number: -for</a> and <a href="./../Classes/Collection.html#-do">Collection: -do</a> methods. The <a href="./../Classes/Function.html#-while">Function: -while</a> method is discussed <a href="./../Reference/Conditional-Execution.html#while">here</a>. For Routines, Streams, and Patterns, special methods exist: <a href="./../Classes/Function.html#-loop">Function: -loop</a> and <a href="./../Classes/Object.html#-repeat">Object: -repeat</a>.<table>
-<tr><td><strong>Thing you want to do</strong><td><strong>method to use</strong><td><strong>returns</strong><tr><td>iterate over a collection<td><a href="#do">do</a><td><code>loopFunc.value(x)</code> for each element <code>x</code> of collection<tr><td>iterate over a numeric range<td><a href="#for">for</a>, <a href="#forBy">forBy</a><td><code>loopFunc.value(n)</code> for each number <code>n</code> in range<tr><td>iterate while some condition is true<td><a href="./../Reference/Conditional-Execution.html#while">Conditional Execution: while</a><td><code>loopFunc.value</code> for each iteration.<tr><td>embed in a stream an infinite number of times<td><a href="#loop">loop</a><td>a <a href="./../Classes/Routine.html">Routine</a><tr><td>embed in a stream n times<td><a href="#repeat">repeat</a>(n) (with argument)<td>a <a href="./../Classes/Routine.html">Routine</a></table>
-<h2><a class='anchor' name='for'>for</a></h2>
+<p>There are a number of ways to implement iteration in SuperCollider. The most familiar ones will be the <a href="./../Classes/Number.html#-for">Number: -for</a> and <a href="./../Classes/Collection.html#-do">Collection: -do</a> methods. The <a href="./../Classes/Function.html#-while">Function: -while</a> method is discussed <a href="./../Reference/Conditional-Execution.html#while">here</a>.
+<p>For Routines (Streams) and Patterns, special methods exist: <a href="#Patterns%20and%20Routines:%20repeat%20and%20loop">.repeat and .loop</a><table>
+<tr><td><strong>Thing you want to do</strong><td><strong>method to use</strong><td><strong>returns</strong><tr><td>iterate over a numeric range<td><a href="#for">for</a>, <a href="#forBy">forBy</a><td><code>loopFunc.value(n)</code> for each number <code>n</code> in range<tr><td>iterate over integers from <span class='math'>0</span> to <span class='math'>n-1</span><td><a href="#do">n.do</a><td><code>loopFunc.value(i)</code> for each integer <code>i</code> between <span class='math'>0</span> and <span class='math'>n-1</span> inclusive.<tr><td>iterate over a collection<td><a href="#do">collection.do</a><td><code>loopFunc.value(x)</code> for each element <code>x</code> of collection<tr><td>iterate while some condition is true<td><a href="./../Reference/Conditional-Execution.html#while">Conditional Execution: while</a><td><code>loopFunc.value</code> for each iteration.<tr><td>embed in a stream n times<td><a href="#.repeat">.repeat</a>(n) (with argument)<td><a href="./../Classes/Routine.html">Routine</a> or <a href="./../Classes/Pn.html">Pn</a><tr><td>embed in a stream an infinite number of times<td><a href="#Apart%20from%20Function.loop,%20the%20.loop%20method%20is%20an%20alias%20for%20.repeat(inf)">.loop</a><td>a <a href="./../Classes/Routine.html">Routine</a> or <a href="./../Classes/Pn.html">Pn</a><tr><td><a href="#Breaking%20from%20a%20loop">break from a loop</a><td><a href="./../Classes/Function.html#-block">Function: -block</a><td><code>nil</code> unless specified; see <a href="#Breaking%20from%20a%20loop">below</a></table>
+<h2><a class='anchor' name='for,%20forBy,%20do'>for, forBy, do</a></h2>
+<h3><a class='anchor' name='for'>for</a></h3>
 
-<p>The <code>.for</code> method implements iteration over an integer series from a starting value to an end value, stepping by one each time. In each iteration, a <code>loopFunc</code> is evaluated with the integer counter value as an argument. In distinction from the <code>testFunc</code> in <code>while</code>, the <code>loopFunc</code> in <code>for</code> usually takes an argument.<h3><a class='anchor' name='Syntax%20(for)'>Syntax (for)</a></h3>
-<div class='codeMirrorContainer'><textarea class='editor'>// function call with trailing argument block
-// reminiscent of C
-for(startValue, endValue) { loopFuncBody };
-
-// function call without trailing argument
-for(startValue, endValue, loopFunc);
-
-// receiver notation
-// hard to read and rarely used in practice
-startValue.for(endValue, loopFunc);</textarea>
-<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Example%20(for)'>Example (for)</a></h3>
-<div class='codeMirrorContainer'><textarea class='editor'>for(3, 7) { |i| i.postln };  // prints values 3 through 7</textarea>
-<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h2><a class='anchor' name='forBy'>forBy</a></h2>
-
-<p>The forBy method works like <code>.for</code>, but takes an additional stepValue argument that defines the increment of the counter.<h3><a class='anchor' name='Syntax%20(forBy)'>Syntax (forBy)</a></h3>
-<div class='codeMirrorContainer'><textarea class='editor'>// Function call with trailing argument block
-// reminiscent of C
-forBy(startValue, endValue, stepValue) { loopFuncBody };
-
-forBy(startValue, endValue, stepValue, loopFunc);
-
-// receiver notation
-// hard to read and rarely used in practice
-startValue.forBy(endValue, stepValue, loopFunc);</textarea>
-<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Example%20(forBy)'>Example (forBy)</a></h3>
-<div class='codeMirrorContainer'><textarea class='editor'>forBy(0, 8, 2) { arg i; i.postln };  // prints values 0 through 8, incrementing by 2</textarea>
-<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h2><a class='anchor' name='do'>do</a></h2>
-
-<p>Do is used to iterate over a <a href="./../Classes/Collection.html">Collection</a>. Positive Integers also respond to <code>do</code> by iterating from zero up to their value. Collections iterate, calling the function for each object they contain. Other kinds of Objects respond to do by passing themselves to the function one time. The function is called with two arguments, the item, and an iteration counter.<h3><a class='anchor' name='Syntax%20(do)'>Syntax (do)</a></h3>
-<div class='codeMirrorContainer'><textarea class='editor'>collection.do { loopBody };
+<p>The for message implements iteration over an integer series from a starting value to an end value stepping by one each time. A function is evaluated each iteration and is passed the iterated numeric value as an argument.
+<p>Syntax<div class='codeMirrorContainer'><textarea class='editor'>for(startValue, endValue) { loopFuncBody }
 
 // alternate
-collection.do(function)
+for(startValue, endValue, loopFunc)
+
+Example
+code::
+for(3, 7) { arg i; i.postln };  // prints values 3 through 7</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h3><a class='anchor' name='forBy'>forBy</a></h3>
+
+<p>The forBy selector implements iteration over an integer series with a variable step size. A function is evaluated each iteration and is passed the iterated numeric value as an argument.
+<p>Syntax<div class='codeMirrorContainer'><textarea class='editor'>forBy(startValue, endValue, stepValue) { loopFuncBody };
+
+forBy(startValue, endValue, stepValue, loopFunc);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>Example<div class='codeMirrorContainer'><textarea class='editor'>forBy(0, 8, 2) { arg i; i.postln };  // prints values 0 through 8 by 2's</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h3><a class='anchor' name='do'>do</a></h3>
+
+<p>Do is used to iterate over a <a href="./../Classes/Collection.html">Collection</a>. Positive Integers also respond to <code>do</code> by iterating from zero up to their value (excluding that value). Collections iterate, calling the function for each object they contain. Other kinds of Objects respond to do by passing themselves to the function one time. The function is called with two arguments, the item, and an iteration counter.
+<p>Syntax<div class='codeMirrorContainer'><textarea class='editor'>collection.do { loopFuncBody };
+
+// alternate
+collection.do(loopFunc)
 
 // alternates, rarely seen
-do(collection, function)
-do(collection) { loopBody };</textarea>
+do(collection, loopFunc)
+do(collection) { loopFuncBody };</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Examples%20(do)'>Examples (do)</a></h3>
-<div class='codeMirrorContainer'><textarea class='editor'>[ 1, 2, "abc", (3@4) ].do { arg item, i; [i, item].postln; };
+
+<p>Example<div class='codeMirrorContainer'><textarea class='editor'>[ 1, 2, "abc", (3@4) ].do { arg item, i; [i, item].postln; };
 
 5.do { arg item; item.postln }; // iterates from zero to four
 
@@ -141,29 +131,114 @@ r.next;
 ERROR: Primitive '_SimpleNumberSeries' failed.
 Wrong type.</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-</div><h2><a class='anchor' name='loop,%20repeat'>loop, repeat</a></h2>
+</div><h2><a class='anchor' name='Breaking%20from%20a%20loop'>Breaking from a loop</a></h2>
 
-<p>Create an object that behaves like a stream that returns values for a limited (or infinite) number of times.
-<p>For a full list of implementing classes, see <a href="./../Overviews/Methods.html#loop">Methods: loop</a> and <a href="./../Overviews/Methods.html#repeat">Methods: repeat</a><dl>
-<dt><a href="./../Classes/Function.html#-loop">Function: -loop</a><dd>repeats the function forever.<div class='codeMirrorContainer'><textarea class='editor'>    f = { 3.yield };
-    x = Routine({ f.loop });
-    10.do({ x.next.postln })</textarea>
+<p>To break from a loop, use the <a href="./../Classes/Function.html#-block">Function: -block</a> method.
+<p>The syntax is somewhat unusual. Consider the following loop:<div class='codeMirrorContainer'><textarea class='editor'>100.do { |i| i.postln; }</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<dt><a href="./../Classes/Object.html#-repeat">Object: -repeat</a> (n)<dd>repeat to yield the object<div class='codeMirrorContainer'><textarea class='editor'>    x = 5;
-    y = x.repeat(6);
-    y.nextN(8);</textarea>
+
+<p>Suppose we want the loop to stop after <code>i == 7</code>. Other languages (e.g. javascript or python) would allow us to write expressions analogous to the following:<div class='codeMirrorContainer'><textarea class='editor'>// this won't work in SC
+100.do { |i| if(i == 7) {break}; i.postln; } // syntax error;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<dt><a href="./../Classes/Pattern.html#-repeat">Pattern: -repeat</a> (n)<dd><div class='codeMirrorContainer'><textarea class='editor'>    x = Prand([1, 2]).repeat(6).asStream;
-    x.nextN(8);</textarea>
+
+<p>However, there is no break keyword in sclang; instead, we have to do three things (not in order, but simultaneously):<ol>
+<li>enclose the looping expression (<code>100.do { ... }</code> here) in another Function block that takes an argument (which we call <code>break</code> here, but which can be called anything);<div class='codeMirrorContainer'><textarea class='editor'>{ |break|   
+    100.do { |i|  // the original expression
+    i.postln;     // from which we 
+    }             // want to break.
+}</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<dt><a href="./../Classes/Pattern.html#-loop">Pattern: -loop</a><dd><div class='codeMirrorContainer'><textarea class='editor'>    x = Prand([1, 2]).loop.asStream;
-    x.nextN(8);</textarea>
+<li>inside the looped Function, call <code>.value</code> on that argument when the relevant condition is true;<div class='codeMirrorContainer'><textarea class='editor'>{ |break|  
+    100.do { |i| 
+    i.postln; 
+    if (i == 7) {   // added lines
+        break.value // ...
+        }           // ...
+    } 
+}</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<dt><a href="./../Classes/Stream.html#-repeat">Stream: -repeat</a> (n)<dd>embeds the stream repeatedly<div class='codeMirrorContainer'><textarea class='editor'>    x = Routine({ 3.do({ arg i; i.yield }) }).repeat(6);
-    x.nextN(8);</textarea>
+<li>on the enclosing Function, call <code>.block.</code><div class='codeMirrorContainer'><textarea class='editor'>block { |break| // block goes at the beginning of this line
+        100.do { |i| 
+                i.postln; 
+                if (i == 7) {
+                    break.value
+                    } 
+        } 
+} 
+// this is the complete expression, at last</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<dt><a href="./../Classes/Stream.html#-loop">Stream: -loop</a><dd>embeds the stream repeatedly<div class='codeMirrorContainer'><textarea class='editor'>    x = Routine({ 3.do({ arg i; i.yield }) }).loop;
-    x.nextN(8);</textarea>
+</ol>
+
+<p>This will return nil once the break condition is reached, but if a specific return value is desired, this can be provided to the <code>.value</code> call:<div class='codeMirrorContainer'><textarea class='editor'>block { |break| 
+        100.do { |i| 
+                i.postln; 
+                if (i == 7) {
+                    break.value("return this")
+                    } 
+        } 
+} 
+//phew</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h2><a class='anchor' name='There%20is%20no%20continue%20keyword%20in%20SuperCollider'>There is no continue keyword in SuperCollider</a></h2>
+
+<p>Some languages permit "skipping" individual iterations of a loop by means of a "continue" keyword. For instance, in python, the following will print <code>0,1,2,  4,5,6,7,8,9</code>, skipping over the <code>3</code>:<pre># this is python, not sclang
+for i in range(10):
+    if i == 3:
+        continue
+    print(i)</pre>
+<p>Note that the remainder of the body of the loop, <code>print(i)</code>, is fully skipped over when the continue keyword is reached. For the same result in sclang, the body of the loop must be moved <em>inside</em> the conditional statement:<div class='codeMirrorContainer'><textarea class='editor'>10.do { |i|
+    if (i == 3) {
+        //no code here.
+    } {
+        i.postln; // the equivalent to print(i) above
+    }
+}
+// the above code is awkward, it merely serves an explanatory purpose.
+// more elegant in pratice is to negate the continue condition:
+10.do { |i|
+    if (i != 3) {
+        i.postln;
+    }
+}</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h2><a class='anchor' name='Patterns%20and%20Routines:%20repeat%20and%20loop'>Patterns and Routines: repeat and loop</a></h2>
+
+<p>The method <code>.repeat(n)</code> can be used to create a Routine or a Pattern which repeats values for a specific number of times. To repeat indefinitely, use either <code>.loop</code>, or use <code>.repeat</code> without supplying an argument.
+<p>Roughly, if <code>pat</code> is some Pattern, then <code>pat.repeat(n)</code> will return <code>Pn(pat, n)</code>. For most other classes, <code>object.repeat(n)</code> will return a Routine equivalent to <code>Pn(object, n).asStream</code>.
+<p>Regarding <code>Function.loop</code>, which should only be used <strong>inside</strong> a Routine,  see <a href="#Apart%20from%20Function.loop,%20the%20.loop%20method%20is%20an%20alias%20for%20.repeat(inf)">below</a>.<h3><a class='anchor' name='.repeat'>.repeat</a></h3>
+<dl>
+<dt><a href="./../Classes/Object.html#-repeat">Object: -repeat</a>(n)<dd>Returns a Routine.
+<p> Embeds the receiver n times by wrapping it in a <a href="./../Classes/Pn.html">Pn</a> and calling <a href="./../Classes/Pattern.html#-.asStream">Pattern: -.asStream</a> on it.  If no argument is provided, the stream will repeat indefinitely.
+<p> Implementation:  <code>repeat { arg n = inf; ^Pn(this, n).asStream }</code>
+<p> Example:<div class='codeMirrorContainer'><textarea class='editor'>    x = [0,1,2]; // an Array
+    y = x.repeat(4); // a Routine that repeats the array 4 times
+    y.nextN(15); // -&gt; [[0,1,2],[0,1,2],[0,1,2],[0,1,2],nil,nil,nil,nil,nil,nil,nil]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<dt><a href="./../Classes/Pattern.html#-repeat">Pattern: -repeat</a>(n)<dd>Returns a <a href="./../Classes/Pn.html">Pn</a>.
+<p> Embeds the receiver n times by wrapping it in a <a href="./../Classes/Pn.html">Pn</a>, but doesn't call <code>.asStream</code> on it.  <a href="./../Classes/Pattern.html#-repeat">pattern.repeat(n)</a> is thus effectively a synonym for <a href="./../Classes/Pn.html">Pn(pattern, n)</a>.  If no argument is provided, the Pattern will repeat indefinitely.
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>    // x is a pattern that counts from 0 to 2
+    x = Pseq([0,1,2]); // -&gt; a Pseq
+    // y is a pattern that does this 4 times in a row
+    y = x.repeat(4); // -&gt; a Pn
+    y.asStream.nextN(15); // -&gt; [0,1,2,0,1,2,0,1,2,0,1,2,nil,nil,nil]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<dt><a href="./../Classes/Routine.html#-repeat">Routine: -repeat</a>(n)<dd>Embeds the receiver in another Routine that repeats it n times, and returns that.  For instance:<div class='codeMirrorContainer'><textarea class='editor'>    // x is a a Routine that counts from 0 to 2
+    x = Routine({ 3.do({ arg i; i.yield }) }); // -&gt; a Routine
+    // y is a Routine that does x four times
+    y = x.repeat(4); // -&gt; a Routine
+    y.nextN(15); // -&gt; [0,1,2,0,1,2,0,1,2,0,1,2,nil,nil,nil]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</dl>
+<h3><a class='anchor' name='Apart%20from%20Function.loop,%20the%20.loop%20method%20is%20an%20alias%20for%20.repeat(inf)'>Apart from Function.loop, the .loop method is an alias for .repeat(inf)</a></h3>
+
+<p><code>.loop</code> is simply an alias for <code>.repeat(inf)</code>. An important exception to this is <a href="./../Classes/Function.html#-.loop">Function: -.loop</a>, which should be treated with care:<dl>
+<dt><a href="./../Classes/Function.html#-loop">Function: -loop</a><dd>Used on a function <em>inside</em> a <a href="./../Classes/Routine.html">Routine</a>,  it will result in a Routine that repeats the receiver function an infinite number of times.  Used on a Function <em>outside</em> a Routine, it will crash the interpreter.
+<p> Example:<div class='codeMirrorContainer'><textarea class='editor'>    f = { 3.yield; }; // -&gt; a Function
+    x = Routine({ f.loop }); // -&gt; a Routine
+    10.do({ x.next.postln }); // -&gt; [3,3,3,3,3,3,3,3,3,3]
+    // Similar outcome:
+    x = Routine(f).loop; // -&gt; a Routine
+    10.do({ x.next.postln }); // -&gt; [3,3,3,3,3,3,3,3,3,3]</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </dl>
 

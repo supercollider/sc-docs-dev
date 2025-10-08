@@ -353,11 +353,17 @@ z.class.postln;
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asInteger' href='./../Overviews/Methods.html#asInteger'>asInteger</a></h3>
 <div class='method'>
-<p>Return an <a href="./../Classes/Integer.html">Integer</a> derived from the String. Strings beginning with non-numeric characters return 0.<div class='codeMirrorContainer'><textarea class='editor'>"4".asInteger.postln;</textarea>
+<p>Returns an <a href="./../Classes/Integer.html">Integer</a> derived from the String. Strings beginning with non-numeric characters return 0. <div class='codeMirrorContainer'><textarea class='editor'>"4".asInteger</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>  The method <code>.asInteger</code> does not understand scientific notation (e.g., <code>2e3</code> for <code>2000</code>),  and simply ignores all characters in the string after its first nonnumeric character  (excepting signs <code>+,-</code> at the beginning of the string).  If you use scientific notation, use <a href="#-asFloat">-asFloat</a> instead.<div class='codeMirrorContainer'><textarea class='editor'>"2e3".asInteger // -&gt; 2</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asFloat' href='./../Overviews/Methods.html#asFloat'>asFloat</a></h3>
 <div class='method'>
-<p>Return a <a href="./../Classes/Float.html">Float</a> derived from the String. Strings beginning with non-numeric characters return 0.<div class='codeMirrorContainer'><textarea class='editor'>"4.3".asFloat.postln;</textarea>
+<p>Returns a <a href="./../Classes/Float.html">Float</a> derived from the String. Strings beginning with non-numeric characters return 0. <div class='codeMirrorContainer'><textarea class='editor'>"4.3".asFloat</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>  The method <code>.asFloat</code> understands scientific notation (e.g., <code>2e3</code> for <code>2000</code>, <code>2e-3</code> for <code>0.002</code>), and accepts uppercase <code>E</code> and lowercase <code>e</code>. By contrast, the method <a href="#-asInteger">-asInteger</a> does <em>not</em> accept scientific notation.<div class='codeMirrorContainer'><textarea class='editor'>"2e3".asFloat // -&gt; 2000.0</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asSecs' href='./../Overviews/Methods.html#asSecs'>asSecs</a>(<span class='argstr'>maxDays: 365</span>)</h3>
 <div class='method'>
