@@ -49,7 +49,8 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul></ul><li class='toc1'><a href='#Audio%20Control%20Structures:%20Do%20not%20use%20.if%20etc.%20in%20Synths!'>Audio Control Structures: Do not use .if etc. in Synths!</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Syntax%20of%20conditional%20expressions'>Syntax of conditional expressions</a></li>
 <ul class='toc'><li class='toc2'><a href='#Trailing%20argument%20blocks'>Trailing argument blocks</a></li>
-<ul class='toc'><li class='toc3'><a href='#Return%20values%20(.if,%20.case,%20.switch)'>Return values (.if, .case, .switch)</a></li>
+<ul class='toc'><li class='toc3'><a href='#Receiver%20blocks%20(.case,%20.while)'>Receiver blocks (.case, .while)</a></li>
+<ul class='toc'></ul><li class='toc3'><a href='#Return%20values%20(.if,%20.case,%20.switch)'>Return values (.if, .case, .switch)</a></li>
 <ul class='toc'></ul></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
@@ -451,23 +452,41 @@ if (condition) {
 <p>The above C-like syntax is enabled in SuperCollider by a syntactic mechanism called "trailing argument blocks".  A <strong>block</strong> is any expression enclosed in curly brackets, e.g. <code>{ trueFuncBody }</code>.  The syntax <code>receiver.method { expr1 } { expr2 }</code> is equivalent to <code>receiver.method({ expr1 }, { expr2 })</code>.  That is, the round brackets and comma are omitted.  This can be combined with the function call syntax such that we can write <code>method(receiver) { expr1 } { expr2 }</code>;  this in turn gives the above form of the if-statement in function call notation with trailing argument block. 
 <p>However, even if the curly brackets now indicate where one argument ends and where the next one starts,  they also retain their usual role of showing that the enclosed expression should serve as the definition of a <a href="./../Classes/Function.html">Function</a> instance. 
 <p>This means, <strong>first</strong>, that the use of trailing argument syntax implies that <code>expr1</code> and <code>expr2</code> <em>define</em> Functions; <strong>second</strong>, that <code>expr1</code> and <code>expr2</code> should not already <em>be</em> Functions in their own right (unless you intend them to be). 
-<p>In examples:<div class='codeMirrorContainer'><textarea class='editor'>::
+<p>In examples:<div class='codeMirrorContainer'><textarea class='editor'>if(condition, trueFunc, falseFunc)
+// is NOT equivalent to
+if (condition) {
+    trueFunc //trueFunc is distinct from trueFuncBody above!
+} {
+    falseFunc //similarly here
+}
+// however, when we write
+t = { trueFuncBody };
+f = { falseFuncBody };
+// then indeed the following two expressions are equivalent
+// (though only the latter will inline):
+if(condition, t, f);
+if (condition) {
+    trueFuncBody 
+} {
+    falseFuncBody
+}
+// On the other hand, the following cases are either wrong
+// or do different things than if(condition, t, f)
+if(condition) t f; //Syntax Error:
+//    there are no curly brackets here that could indicate that t and f are arguments to if;
+if(condition) {t} {f}; //permissible but it may not be what you want to do.
+// equivalent to if(condition, {t}, {f});
+// i.e.will return t rather than t.value as usually intended.
+if(condition, trueFuncBody, falseFuncBody); // the bodies are expressions, not Function objects;
+// whether this works depends on how those expressions respond to the .value method.</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h4><a class='anchor' name='Receiver%20blocks%20(.case,%20.while)'>Receiver blocks (.case, .while)</a></h4>
 
-subsubsection:: Receiver blocks (.case, .while)
-
-If the receiver is itself an expression surrounded by curly brackets, a special version of the trailing argument block syntax can be used:
-Here, not only the arguments can be written as trailing {}-enclosed blocks, but also the receiver itself.
-For instance, code::{ funcBody }.fork:: is often written as code::fork { funcBody }::.
-
-When the method takes arguments, these arguments must also be written as {}-enclosed blocks, and follow the receiver:
-
-code:: method { receiverFuncBody } { arg1FuncBody }  { arg2FuncBody }::
-
-Among the conditional expressions discussed here, this applies to .while and .case (because they are methods of link::Classes/Function::.)
-
-Example:
-code::
-//function call notation with receiver block and trailing argument block
+<p>If the receiver is itself an expression surrounded by curly brackets, a special version of the trailing argument block syntax can be used: Here, not only the arguments can be written as trailing {}-enclosed blocks, but also the receiver itself. For instance, <code>{ funcBody }.fork</code> is often written as <code>fork { funcBody }</code>.
+<p>When the method takes arguments, these arguments must also be written as {}-enclosed blocks, and follow the receiver:
+<p><code>method { receiverFuncBody } { arg1FuncBody }  { arg2FuncBody }</code>
+<p>Among the conditional expressions discussed here, this applies to .while and .case (because they are methods of <a href="./../Classes/Function.html">Function</a>.)
+<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>//function call notation with receiver block and trailing argument block
 while { testFuncBody } { loopFuncBody }; 
 // abbreviation of  function call notation with trailing argument block
 while ({ testFuncBody }) { loopFuncBody };
