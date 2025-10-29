@@ -107,7 +107,7 @@ var scdoc_sc_version = '3.15.0-dev';
 
 <p>Hexidecimal numbers notated with <code>0x</code> may only be expressed as integers.<h3><a class='anchor' name='Scale%20Degrees'>Scale Degrees</a></h3>
 
-<p>Integer numbers as scale degrees supports accidentals notation by adding the suffixes <strong>s</strong> for sharp and <strong>b</strong> for flat. Accidentals are represented as floating point values.<div class='codeMirrorContainer'><textarea class='editor'>2s == 2.1  // scale degree two, sharp
+<p>Integer numbers as scale degrees supports accidentals notation by adding the suffixes <strong>s</strong> for sharp and <strong>b</strong> for flat.  Accidentals are represented as floating point values,  where each 0.1 of difference to the nearest integer corresponds to 100 cents (i.e., a semitone in 12TET). While the digit to the left of the decimal separator is a degree, and thus is affected by tuning and scale,  the digits to the right are not, and are always in cents. (See <a href="./../Classes/Scale.html#-degreeToRatio">Scale: -degreeToRatio</a>)<div class='codeMirrorContainer'><textarea class='editor'>2s == 2.1  // scale degree two, sharp
 2b == 1.9  // scale degree two, flat
 2ss == 2.2 // scale degree two, double sharp
 2bb == 1.8 // scale degree two, double flat</textarea>
