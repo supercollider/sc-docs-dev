@@ -178,8 +178,8 @@ a.size // 9</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>The SuperCollider IDE uses UTF-8 to decode and display strings. See <a href="./../Classes/String.html#Character%20encodings">String: Character encodings</a> for more information.
-<p>A string literal may comprise no more than 8188 characters (bytes). A string object can be larger as a result of string operations.<div class='codeMirrorContainer'><textarea class='editor'>// artificially generate a long string
-a = String.fill(9000, { "abcdefghijklmnopqrstuvwxyz".choose });
+<p>A string literal may comprise no more than 81916 characters (bytes). A string object can be larger as a result of string operations.<div class='codeMirrorContainer'><textarea class='editor'>// artificially generate a long string
+a = String.fill(81920, { "abcdefghijklmnopqrstuvwxyz".choose });
 
 // wrap it in quote marks to make it a literal
 a = "\"" ++ a ++ "\"";
@@ -187,7 +187,7 @@ a = "\"" ++ a ++ "\"";
 // interpret the literal
 b = a.interpret;
 
-b.size;  // 8188 and NOT 9000</textarea>
+b.size;  // 81916 and NOT 81920</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Identifiers'>Identifiers</a></h2>
 
