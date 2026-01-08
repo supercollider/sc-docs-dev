@@ -81,6 +81,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#-isPositive'>isPositive</a> </li>
 <li class='toc3'><a href='#-isStrictlyPositive'>isStrictlyPositive</a> </li>
 <li class='toc3'><a href='#-isNegative'>isNegative</a> </li>
+<li class='toc3'><a href='#-=='>==</a> </li>
 <li class='toc3'><a href='#-|==|'>|==|</a> </li>
 <li class='toc3'><a href='#-@'>@</a> </li>
 <li class='toc3'><a href='#-asComplex'>asComplex</a> </li>
@@ -393,9 +394,11 @@ x = { SinOsc.ar((Line.kr(0, 10, 10).snap(1, 0.3, 1) + 60).poll.midicps, 0, -24.d
 <div class='method'>
 <p>Outputs 1, representing true for positive, 0 representing false for negative or zero input values.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isNegative' href='./../Overviews/Methods.html#isNegative'>isNegative</a></h3>
 <div class='method'>
-<p>Outputs 1, representing true for negative, 0 representing false for positive or zero input values.</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-|==|' href='./../Overviews/Methods.html#|==|'>|==|</a>(<span class='argstr'>that</span>)</h3>
+<p>Outputs 1, representing true for negative, 0 representing false for positive or zero input values.</div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-==' href='./../Overviews/Methods.html#=='>==</a>(<span class='argstr'>obj</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/Object.html'>Object</a></div>
+<div class='method'><div class='note'><span class='notelabel'>NOTE:</span> <code>==</code> compares UGen objects by equality. Use <code>|==|</code> to compare the signals they produce.</div></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-|==|' href='./../Overviews/Methods.html#|==|'>|==|</a>(<span class='argstr'>that</span>)</h3>
 <div class='method'>
-<p>Outputs 1, representing true, when the receiver and argument signal coincide. Note that this may be ambivalent in many cases, because of floating point arithmetic. A special sign is needed, because <code>==</code> compares the UGen objects, and not the signal they produce.<div class='codeMirrorContainer'><textarea class='editor'>// an example of floating point relevance for the |==| operator.
+<p>Returns 1 (true) when the receiver and argument signals are equal. Because of floating‑point arithmetic, results may vary in practice.<div class='note'><span class='notelabel'>NOTE:</span> For object identity comparison, use <code>==</code> instead.</div><div class='codeMirrorContainer'><textarea class='editor'>// an example of floating point relevance for the |==| operator.
 // the rounded signal will match at some point, but not the direct signal
 (
 {
