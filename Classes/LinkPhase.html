@@ -1,0 +1,138 @@
+<!doctype html><html lang='en'><head><title>LinkPhase | SuperCollider 3.15.0-dev Help</title>
+<link rel='stylesheet' href='./../static/scdoc.css' type='text/css' />
+<link rel='stylesheet' href='./../static/codemirror.css' type='text/css' />
+<link rel='stylesheet' href='./../static/editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../static/themes/default.css' type='text/css' />
+<link rel='stylesheet' href='./../frontend.css' type='text/css' />
+<link rel='stylesheet' href='./../custom.css' type='text/css' />
+<link rel='stylesheet' href='./../static/lib/katex/katex.min.css' />
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<script src='./../static/lib/jquery.min.js'></script>
+<script src='./../static/lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
+<script src='./../static/lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../static/lib/katex/katex.min.js' type='text/javascript'></script>
+<script>
+var helpRoot = './..';
+var scdoc_title = 'LinkPhase';
+var scdoc_sc_version = '3.15.0-dev';
+</script>
+<script src='./../static/scdoc.js' type='text/javascript'></script>
+<script src='./../docmap.js' type='text/javascript'></script>
+<script src='./../frontend.js' type='text/javascript'></script>
+<script src='qrc:///qtwebchannel/qwebchannel.js' type='text/javascript'></script>
+</head>
+<body onload='fixTOC()'>
+<div id='toc'>
+<div id='toctitle'>LinkPhase:</div>
+<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#description'>Description</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
+<ul class='toc'><li class='toc3'><a href='#*start'>start</a> </li>
+<li class='toc3'><a href='#*stop'>stop</a> </li>
+<li class='toc3'><a href='#*setTempo'>setTempo</a> </li>
+<li class='toc3'><a href='#*kr'>kr</a> </li>
+<li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
+<li class='toc2'><a href='#Undocumented%20class%20methods'>Undocumented class methods</a></li>
+<ul class='toc'><li class='toc3'><a href='#*startMsg'>startMsg</a> </li>
+</ul></ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
+<ul class='toc'><li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
+</ul></ul></div><div id='menubar'></div>
+<div class='contents'>
+<div class='header'>
+<div id='label'>
+<span id='folder'>Classes</span>
+ | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Clock'>Clock</a> | <a href='./../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a></span>
+</div><h1>LinkPhase<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</h1>
+<div id='summary'>UGen to access the phase of the server's Link clock</div>
+</div>
+<div class='subheader'>
+<div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Audio/LinkUGen.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Audio/LinkUGen.sc'>LinkUGen.sc</a></div><div id='related'>See also: <a href="./../Classes/LinkClock.html">LinkClock</a>, <a href="./../Classes/LinkTempo.html">LinkTempo</a>, <a href="./../Classes/LinkJump.html">LinkJump</a></div>
+</div>
+<h2><a class='anchor' name='description'>Description</a></h2>
+
+<p>LinkPhase allows to access the phase of a shared Link clock. Such a Link clock can be e.g. <a href="./../Classes/LinkClock.html">LinkClock</a> of sclang, allowing to synchronize an sclang pattern with sequencing on the server.<div class='note'><span class='notelabel'>NOTE:</span> Each SuperCollider server only uses one Link clock internally. Multiple units of LinkPhase and other Link clock UGens will use the same shared clock.</div><div class='codeMirrorContainer'><textarea class='editor'>// LinkPhase runs on the server, so the server needs to be started
+s.boot;
+
+// start participating in a Link session - default is 1.0cps / 60bpm if no Link session is available
+LinkPhase.start;
+
+// a Link phase runs from [0, quantum) with the given cps
+(
+Ndef(\l, {
+    var env = Env.perc(0.0, 0.1).kr(gate: LinkPhase.kr(quantum: 2) &lt; 0.5);
+    env * WhiteNoise.ar.dup * 0.2
+}).play;
+)
+
+// change the tempo of the clock - lag will introduce a gradient change
+LinkPhase.setTempo(tempo: 3.0, lag: 4.0);
+
+// spawn a clock on sclang side
+l = LinkClock(1.0).latency_(Server.default.latency);
+
+// pattern is now in sync w/ the server
+(
+Pdef(\p, Pbind(
+    \dur, 0.5,
+    \amp, 0.5,
+    \scale, Scale.minor,
+    \degree, Pwrap(Pseries(0.0, 1.1), lo: 0.0, hi: 8.9),
+)).clock_(l).play;
+)
+
+// now fluctuate the tempo using LinkTempo
+(
+Ndef(\f, {
+    LinkTempo.kr(
+        gate: 1.0,
+        // tempo is in cycles per second (cps) - not bpm!
+        tempo: SinOsc.kr(0.1).exprange(130/60, 230/60),
+    );
+});
+)
+
+(
+Ndef(\f).clear;
+Pdef(\p).clear;
+Ndef(\l).clear;
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>For further information on Link clock see <a href="./../Classes/LinkClock.html">LinkClock</a> and the official Link documentation at <a href="https://ableton.github.io/link/">https://ableton.github.io/link/</a> .<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<h3 class='method-code'><span class='method-prefix'>LinkPhase.</span><a class='method-name' name='*start' href='./../Overviews/Methods.html#start'>start</a>(<span class='argstr'>server</span>)</h3>
+<div class='method'>
+<p>Join or create a Link session within the network.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>server<td class='argumentdesc'>
+<p>A <a href="./../Classes/Server.html">Server</a>, defaults to <a href="./../Classes/Server.html#-default">Server: -default</a>.</table></div><h3 class='method-code'><span class='method-prefix'>LinkPhase.</span><a class='method-name' name='*stop' href='./../Overviews/Methods.html#stop'>stop</a>(<span class='argstr'>server</span>)</h3>
+<div class='method'>
+<p>Exit a Link session within the network. All informations from the Link session will be set to <span class='math'>-1.0</span>.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>server<td class='argumentdesc'>
+<p>A <a href="./../Classes/Server.html">Server</a>, defaults to <a href="./../Classes/Server.html#-default">Server: -default</a>.</table></div><h3 class='method-code'><span class='method-prefix'>LinkPhase.</span><a class='method-name' name='*setTempo' href='./../Overviews/Methods.html#setTempo'>setTempo</a>(<span class='argstr'>tempo</span>, <span class='argstr'>lag: 0.0</span>, <span class='argstr'>curve: 'exp'</span>, <span class='argstr'>server</span>)</h3>
+<div class='method'>
+<p>Helper method to set the tempo of the server's Link clock in cps (cycles per second).<div class='note'><span class='notelabel'>NOTE:</span> See also <a href="./../Classes/LinkTempo.html">LinkTempo</a>.</div>
+<p><h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>tempo<td class='argumentdesc'>
+<p>New tempo of the Link session in cycles per second.<tr><td class='argumentname'>lag<td class='argumentdesc'>
+<p>If <span class='math'>&gt;0.0</span>, the current tempo will be faded into the target tempo over this value in seconds using an <a href="./../Classes/Env.html">Env</a>. If this value is <code>0.0</code>, the clock will jump immediately to the new tempo.<div class='note'><span class='notelabel'>NOTE:</span> Having multiple overlapping cross-fade processes can result in undefined behavior since they publish conflicting values.</div>
+<p><tr><td class='argumentname'>curve<td class='argumentdesc'>
+<p>See <code>curve</code> parameter of <a href="./../Classes/Env.html#-new">Env: -new</a><tr><td class='argumentname'>server<td class='argumentdesc'>
+<p>A <a href="./../Classes/Server.html">Server</a>, defaults to <a href="./../Classes/Server.html#-default">Server: -default</a>.</table></div><h3 class='method-code'><span class='method-prefix'>LinkPhase.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>quantum: 4</span>)</h3>
+<div class='method'>
+<p>Returns the phase of the clock, which goes from <span class='math'>[0, q)</span> where <span class='math'>q</span> is the given quantum. If the server clock has not been enabled via <code>LinkPhase.start</code>, it will return <span class='math'>-1.0</span>.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>quantum<td class='argumentdesc'>
+<p>The quantum is the value that the step count of the clock is taken modulo by. Since the global steps on the Link clock are shared among all clients, clients with the same quantum will share the same phase.
+<p>Instead of choosing small values to get a <em>faster</em> phase, one should apply phase arithmetics, i.e.<div class='codeMirrorContainer'><textarea class='editor'>LinkPhase.kr(quantum: 4)*16 % 1.0 &lt; 0.5</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>For further information, see <a href="https://ableton.github.io/link/">https://ableton.github.io/link/</a> .</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
+<h3 class='method-code'><span class='method-prefix'>LinkPhase.</span><a class='method-name' name='*startMsg' href='./../Overviews/Methods.html#startMsg'>startMsg</a>(<span class='argstr'>enable: true</span>)</h3>
+<h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
+<h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
+<div id='inheritedinstmets'></div><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LinkPhase.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/LinkPhase.schelp</a><br>link::Classes/LinkPhase::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
+</body></html>
