@@ -124,7 +124,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>The number of samples in one control period. The default is 64.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-device' href='./../Overviews/Methods.html#device'>device</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-device' href='./../Overviews/Methods.html#device'>device</a> = <span class='argstr'>dev</span></h3>
 <div class='method'>
-<p>A String that allows you to choose a sound device to use as input and output. The default, <code>nil</code>, will use the system's default input and output device(s). See <a href="./../Reference/AudioDeviceSelection.html">Audio device selection</a> for more details.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-inDevice' href='./../Overviews/Methods.html#inDevice'>inDevice</a></h3>
+<p>A String or a 2-element Array of Strings that allows you to choose a sound device to use as input and output. The default, <code>nil</code>, will use the system's default input and output device(s). See <a href="./../Reference/AudioDeviceSelection.html">Audio device selection</a> for more details.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-inDevice' href='./../Overviews/Methods.html#inDevice'>inDevice</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-inDevice' href='./../Overviews/Methods.html#inDevice'>inDevice</a> = value</h3>
 <div class='method'>
 <p>A String that allows you to choose an input sound device. The default, <code>nil</code>, will use the system's default input device. See <a href="./../Reference/AudioDeviceSelection.html">Audio device selection</a> for more details.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-outDevice' href='./../Overviews/Methods.html#outDevice'>outDevice</a></h3>
@@ -271,6 +271,7 @@ o.numOutputBusChannels = 6; // The next time it boots, this will take effect
 
 o.device = "MOTU Traveler";     // use a specific soundcard
 o.device = nil;            // use the system default soundcard
+o.device = ["MOTU Traveler", "Backhole 16ch"];     // use a specific soundcard of input and another output
 
 // finally, boot the server
 

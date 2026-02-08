@@ -49,7 +49,7 @@ g(x) = x * 2
 g · f = g(f(x)) = (x + 1) * 2</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p><code>g · f</code> means to evaluate <code>f</code> first, then pass its result to <code>g</code>. The <code>·</code> operator is written as <code>&lt;&gt;</code> in SuperCollider.<div class='codeMirrorContainer'><textarea class='editor'>f = { |x| x + 1 };
+<p><code>g · f</code> means to evaluate <code>f</code> first, then pass its result to <code>g</code>. The <code>·</code> operator is written as <code>&lt;&gt;</code> in SuperCollider.<div class='codeMirrorContainer'><textarea class='editor'>f = { |x| x + 1 };
 g = { |x| x * 2 };
 
 h = (g &lt;&gt; f);
