@@ -32,9 +32,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#*inDevices'>inDevices</a> </li>
 <li class='toc3'><a href='#*outDevices'>outDevices</a> </li>
 <li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
-<li class='toc2'><a href='#Undocumented%20class%20methods'>Undocumented class methods</a></li>
-<ul class='toc'><li class='toc3'><a href='#*defaultValues'>defaultValues</a> </li>
-</ul></ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
+</ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
 <ul class='toc'><li class='toc2'><a href='#The%20Options'>The Options</a></li>
 <ul class='toc'><li class='toc3'><a href='#-blockSize'>blockSize</a> </li>
 <li class='toc3'><a href='#-device'>device</a> </li>
@@ -105,7 +103,8 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>ServerOptions encapsulates various options for a server app within an object. This makes it convenient to launch multiple servers with the same options, or to archive different sets of options, etc. Every <a href="./../Classes/Server.html">Server</a> has an instance of ServerOptions created for it if one is not passed as the options argument when the Server object is created. (This is the case for example with the local and internal Servers which are created at startup.)
 <p>A Server's instance of ServerOptions is stored in its options instance variable, which can be accessed through corresponding getter and setter methods.
 <p>N.B. A ServerOptions' instance variables are translated into commandline arguments when a server app is booted. Thus a running Server must be rebooted before changes will take effect. There are also a few commandline options which are not currently encapsulated in ServerOptions. See <a href="./../Reference/Server-Architecture.html">Server Architecture</a> for more details.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
-<h3 class='method-code'><span class='method-prefix'>ServerOptions.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
+<h3 class='method-code'><span class='method-prefix'>ServerOptions.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>maxSize: 0</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/Object.html'>Object</a></div>
 <div class='method'>
 <p>Create and return a new instance of ServerOptions.</div><h3 class='method-code'><span class='method-prefix'>ServerOptions.</span><a class='method-name' name='*devices' href='./../Overviews/Methods.html#devices'>devices</a></h3>
 <div class='method'>
@@ -114,9 +113,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>Return an Array of Strings listing the audio devices currently available on the system which have input channels.</div><h3 class='method-code'><span class='method-prefix'>ServerOptions.</span><a class='method-name' name='*outDevices' href='./../Overviews/Methods.html#outDevices'>outDevices</a></h3>
 <div class='method'>
 <p>Return an Array of Strings listing the audio devices currently available on the system which have output channels.<div class='note'><span class='notelabel'>NOTE:</span> The above three methods are not available if SuperCollider is built with JACK backend (by default on Linux). Also see <a href="./../Reference/AudioDeviceSelection.html">Audio device selection</a> for more information on selecting audio device.</div></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
-<div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
-<h3 class='method-code'><span class='method-prefix'>ServerOptions.</span><a class='method-name' name='*defaultValues' href='./../Overviews/Methods.html#defaultValues'>defaultValues</a></h3>
-<h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
+<div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='The%20Options'>The Options</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-blockSize' href='./../Overviews/Methods.html#blockSize'>blockSize</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-blockSize' href='./../Overviews/Methods.html#blockSize'>blockSize</a> = value</h3>
