@@ -32,6 +32,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
 <li class='toc2'><a href='#Undocumented%20class%20methods'>Undocumented class methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#*defNameFromBytes'>defNameFromBytes</a> </li>
+<li class='toc3'><a href='#*headerMagic'>headerMagic</a> </li>
 <li class='toc3'><a href='#*mdPlugin'>mdPlugin</a> </li>
 <li class='toc3'><a href='#*newFrom'>newFrom</a> </li>
 <li class='toc3'><a href='#*populateMetadataFunc'>populateMetadataFunc</a> </li>
@@ -57,8 +58,10 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#-makeMsgFunc'>makeMsgFunc</a> </li>
 <li class='toc3'><a href='#-metadata'>metadata</a> </li>
 <li class='toc3'><a href='#-msgFuncKeepGate'>msgFuncKeepGate</a> </li>
+<li class='toc3'><a href='#-prReadSynthDef'>prReadSynthDef</a> </li>
 <li class='toc3'><a href='#-readSynthDef'>readSynthDef</a> </li>
 <li class='toc3'><a href='#-readSynthDef2'>readSynthDef2</a> </li>
+<li class='toc3'><a href='#-readSynthDef3'>readSynthDef3</a> </li>
 <li class='toc3'><a href='#-readUGenSpec'>readUGenSpec</a> </li>
 <li class='toc3'><a href='#-readUGenSpec2'>readUGenSpec2</a> </li>
 <li class='toc3'><a href='#-send'>send</a> </li>
@@ -112,6 +115,7 @@ SynthDef("test", { |out, freq, xFade|
 <p>Adds all synthDescs in a path to a dict. You should not use this method or *readFile to read SynthDescs into a SynthDescLib. Use <a href="./../Classes/SynthDescLib.html#read">SynthDescLib: read</a> or <a href="./../Classes/SynthDescLib.html#readStream">SynthDescLib: readStream</a> instead.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>SynthDesc.</span><a class='method-name' name='*defNameFromBytes' href='./../Overviews/Methods.html#defNameFromBytes'>defNameFromBytes</a>(<span class='argstr'>int8Array</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>SynthDesc.</span><a class='method-name' name='*headerMagic' href='./../Overviews/Methods.html#headerMagic'>headerMagic</a></h3>
 <h3 class='method-code'><span class='method-prefix'>SynthDesc.</span><a class='method-name' name='*mdPlugin' href='./../Overviews/Methods.html#mdPlugin'>mdPlugin</a></h3>
 <h3 class='method-code'><span class='method-prefix'>SynthDesc.</span><a class='method-name' name='*mdPlugin' href='./../Overviews/Methods.html#mdPlugin'>mdPlugin</a> = value</h3>
 <h3 class='method-code'><span class='method-prefix'>SynthDesc.</span><a class='method-name' name='*newFrom' href='./../Overviews/Methods.html#newFrom'>newFrom</a>(<span class='argstr'>synthdef</span>)</h3>
@@ -186,8 +190,10 @@ a.desc.outputData;</textarea>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-metadata' href='./../Overviews/Methods.html#metadata'>metadata</a> = value</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-msgFuncKeepGate' href='./../Overviews/Methods.html#msgFuncKeepGate'>msgFuncKeepGate</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-msgFuncKeepGate' href='./../Overviews/Methods.html#msgFuncKeepGate'>msgFuncKeepGate</a> = <span class='argstr'>bool: false</span></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-prReadSynthDef' href='./../Overviews/Methods.html#prReadSynthDef'>prReadSynthDef</a>(<span class='argstr'>stream</span>, <span class='argstr'>version</span>, <span class='argstr'>keepDef</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-readSynthDef' href='./../Overviews/Methods.html#readSynthDef'>readSynthDef</a>(<span class='argstr'>stream</span>, <span class='argstr'>keepDef: false</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-readSynthDef2' href='./../Overviews/Methods.html#readSynthDef2'>readSynthDef2</a>(<span class='argstr'>stream</span>, <span class='argstr'>keepDef: false</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-readSynthDef3' href='./../Overviews/Methods.html#readSynthDef3'>readSynthDef3</a>(<span class='argstr'>stream</span>, <span class='argstr'>keepDef: false</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-readUGenSpec' href='./../Overviews/Methods.html#readUGenSpec'>readUGenSpec</a>(<span class='argstr'>stream</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-readUGenSpec2' href='./../Overviews/Methods.html#readUGenSpec2'>readUGenSpec2</a>(<span class='argstr'>stream</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-send' href='./../Overviews/Methods.html#send'>send</a>(<span class='argstr'>server</span>, <span class='argstr'>completionMsg</span>)</h3>

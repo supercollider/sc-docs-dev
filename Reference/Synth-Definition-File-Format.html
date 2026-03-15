@@ -29,7 +29,8 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul><li class='toc1'><a href='#File%20Format'>File Format</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#File%20Format%20as%20Tree'>File Format as Tree</a></li>
 <ul class='toc'><li class='toc2'><a href='#synth-definition-file'>synth-definition-file</a></li>
-<ul class='toc'></ul></ul><li class='toc1'><a href='#Original%20SynthDef%20format'>Original SynthDef format</a></li>
+<ul class='toc'></ul></ul><li class='toc1'><a href='#SynthDef2%20format'>SynthDef2 format</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Original%20SynthDef%20format'>Original SynthDef format</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Glossary'>Glossary</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Notes'>Notes</a></li>
 <ul class='toc'><li class='toc2'><a href='#For%20greatest%20efficiency:'>For greatest efficiency:</a></li>
@@ -47,20 +48,20 @@ var scdoc_sc_version = '3.15.0-dev';
 </div>
 
 <p>Synth definition files are read by the synth server and define collections of unit generators and their connections. These files are currently written by the SuperCollider language application, but theoretically could be written by any program. Such a program would need knowledge of the SC unit generators and their characteristics, such as number of inputs and outputs and available calculation rates. The code to write these files is open and available in the SuperCollider language app.
-<p>In the current SuperCollider 3.6 development version, there are two versions of SynthDef:<ul>
-<li><strong>SynthDef</strong> - The original SynthDef file format, backward compatible with .scsyndef files saved using earlier versions of SuperCollider.<li><strong>SynthDef2</strong> - A revised version that extends SynthDef's capacity.</ul>
+<p>In the current SuperCollider 3.15 development version, there are three versions of SynthDef:<ul>
+<li><strong>SynthDef</strong> - The original SynthDef file format, backward compatible with .scsyndef files saved using earlier versions of SuperCollider.<li><strong>SynthDef2</strong> - A revised version that extends SynthDef's capacity.<li><strong>SynthDef3</strong> - A another revision that adds new fields and makes the SynthDef format extendable.</ul>
 
-<p>This document describes SynthDef2's format. See <a href="#Original%20SynthDef%20format">Original SynthDef format</a> for the differences between SynthDef and SynthDef2.<h2><a class='anchor' name='Basic%20types'>Basic types</a></h2>
+<p>This document describes SynthDef3's format. See <a href="#SynthDef2%20format">SynthDef2 format</a> and <a href="#Original%20SynthDef%20format">Original SynthDef format</a> for the differences to the SynthDef2 resp. SynthDef1 format.<h2><a class='anchor' name='Basic%20types'>Basic types</a></h2>
 
 <p>All data is stored big endian. All integers, unless otherwise noted, are signed. All data is packed, not padded or aligned.<dl>
 <dt>int32<dd>a 32 bit integer.<dt>int16<dd>a 16 bit integer.<dt>int8<dd>an 8 bit integer.<dt>float32<dd>a 32 bit IEEE floating point number.<dt>pstring<dd>a pascal format string: a byte (an <strong>unsigned</strong> int8) giving the length followed by that many bytes.</dl>
 <h2><a class='anchor' name='File%20Format'>File Format</a></h2>
 
 <p>a <strong>synth-definition-file</strong> is :<ul>
-<li>int32 - four byte file type id containing the ASCII characters: "SCgf"<li>int32 - file version, currently 2.<li>int16 - number of synth definitions in this file (D).<li>[ <strong>synth-definition</strong> ] * D</ul>
+<li>int32 - four byte file type id containing the ASCII characters: "SCgf"<li>int32 - file version, currently 3.<li>int16 - number of synth definitions in this file (D).<li>[ <strong>synth-definition</strong> ] * D</ul>
 
 <p>a <strong>synth-definition</strong> is :<ul>
-<li>pstring - the name of the synth definition<li>int32 - number of constants (K)<li>[float32] * K - constant values<li>int32 - number of parameters (P)<li>[float32] * P - initial parameter values<li>int32 - number of parameter names (N)<li>[ <strong>param-name</strong> ] * N<li>int32 - number of unit generators (U)<li>[ <strong>ugen-spec</strong> ] * U<li>int16 - number of variants (V)<li>[ <strong>variant-spec</strong> ] * V</ul>
+<li>int32 - the size of the synth definition in bytes (including this field)<li>pstring - the name of the synth definition<li>int32 - number of constants (K)<li>[float32] * K - constant values<li>int32 - number of parameters (P)<li>[float32] * P - initial parameter values<li>int32 - number of parameter names (N)<li>[ <strong>param-name</strong> ] * N<li>int32 - number of unit generators (U)<li>[ <strong>ugen-spec</strong> ] * U<li>int16 - number of variants (V)<li>[ <strong>variant-spec</strong> ] * V</ul>
 
 <p>a <strong>param-name</strong> is :<ul>
 <li>pstring - the name of the parameter<li>int32 - its index in the parameter array</ul>
@@ -81,12 +82,12 @@ var scdoc_sc_version = '3.15.0-dev';
 
 <p>a <strong>variant-spec</strong> is :<ul>
 <li>pstring - the name of the variant<li>[float32] * P - variant initial parameter values</ul>
-<h2><a class='anchor' name='File%20Format%20as%20Tree'>File Format as Tree</a></h2>
+<div class='note'><span class='notelabel'>NOTE:</span> Developers can extend the SynthDef3 format by adding new field to the <em>end</em> of the synth definition. Parsers can use the size field to determine how many of these new fields are present.</div><h2><a class='anchor' name='File%20Format%20as%20Tree'>File Format as Tree</a></h2>
 
 <p><span class='soft'>added by Jonatan Liljedahl</span><h3><a class='anchor' name='synth-definition-file'>synth-definition-file</a></h3>
 <ul class='tree'>
-<li>int32 - four byte file type id containing the ASCII characters: "SCgf"<li>int32 - file version, currently 2.<li>int16 - number of synth definitions in this file (D).<li>[ <strong>synth-definition</strong> ] * D<ul class='tree'>
-<li>pstring - the name of the synth definition<li>int32 - number of constants (K)<li>[float32] * K - constant values<li>int32 - number of parameters (P)<li>[float32] * P - initial parameter values<li>int32 - number of parameter names (N)<li>[ <strong>param-name</strong> ] * N<ul class='tree'>
+<li>int32 - four byte file type id containing the ASCII characters: "SCgf"<li>int32 - file version, currently 3.<li>int16 - number of synth definitions in this file (D).<li>[ <strong>synth-definition</strong> ] * D<ul class='tree'>
+<li>int32 - the size of the synth definition in bytes (including this field)<li>pstring - the name of the synth definition<li>int32 - number of constants (K)<li>[float32] * K - constant values<li>int32 - number of parameters (P)<li>[float32] * P - initial parameter values<li>int32 - number of parameter names (N)<li>[ <strong>param-name</strong> ] * N<ul class='tree'>
 <li>pstring - the name of the parameter<li>int32 - its index in the parameter array</ul>
 
 <p><li>int32 - number of unit generators (U)<li>[ <strong>ugen-spec</strong> ] * U<ul class='tree'>
@@ -106,7 +107,9 @@ var scdoc_sc_version = '3.15.0-dev';
 <li>pstring - the name of the variant<li>[float32] * P - variant initial parameter values</ul>
 </ul>
 </ul>
-<h2><a class='anchor' name='Original%20SynthDef%20format'>Original SynthDef format</a></h2>
+<h2><a class='anchor' name='SynthDef2%20format'>SynthDef2 format</a></h2>
+
+<p>The SynthDef2 format omits the size field at the beginning of a synth definition as well as any fields after the variant specs.<h2><a class='anchor' name='Original%20SynthDef%20format'>Original SynthDef format</a></h2>
 
 <p>The original SynthDef format differs in that the following items are <code>int16</code> instead of <code>int32</code>.<div class='note'><span class='notelabel'>NOTE:</span> The following list describes what has changed between SynthDef and SynthDef2. It is not a complete description of the original SynthDef file format.</div><ul>
 <li>int32 - file version, currently 1. (This is <em>2</em> for the new format.)<li>a <strong>synth-definition</strong> is :<ul>
