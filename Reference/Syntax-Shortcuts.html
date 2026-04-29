@@ -28,7 +28,10 @@ var scdoc_sc_version = '3.15.0-dev';
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Introduction'>Introduction</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Defining%20functions%20and%20classes'>Defining functions and classes</a></li>
 <ul class='toc'><li class='toc2'><a href='#shorter%20argument%20lists%20in%20definitions'>shorter argument lists in definitions</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#partial%20application'>partial application</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#ellipsis%20in%20function%20arguments'>ellipsis in function arguments</a></li>
+<ul class='toc'><li class='toc3'><a href='#variable%20arguments%20(varargs)'>variable arguments (varargs)</a></li>
+<ul class='toc'></ul><li class='toc3'><a href='#keyword%20arguments%20(kwargs)'>keyword arguments (kwargs)</a></li>
+<ul class='toc'></ul></ul><li class='toc2'><a href='#partial%20application'>partial application</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#defining%20instance%20variable%20accessor%20methods'>defining instance variable accessor methods</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#Sending%20messages,%20calling%20functions,%20and%20instantiating%20objects'>Sending messages, calling functions, and instantiating objects</a></li>
 <ul class='toc'><li class='toc2'><a href='#function-call%20and%20receiver%20notations'>function-call and receiver notations</a></li>
@@ -95,7 +98,40 @@ collect((1..10), _.squared);  // function call syntax
 <table>
 <tr><td>instead of writing:<td>you can write:<tr><td><code>{ arg x; x &lt; 2 }</code><td><code>{ |x| x &lt; 2 }</code><tr><td><code>{ arg x = 123; x &lt; 2 }</code><td><code>{ |x = 123| x &lt; 2 }</code><tr><td><code>{ arg x = 10.rand; x &lt; 2 }</code><td><code>{ |x = (10.rand)| x &lt; 2 }</code> or <code>{|x(10.rand)| x &lt; 2 }</code></table>
 
-<p><div class='note'><span class='notelabel'>NOTE:</span> When using the new <code>||</code> syntax, the default value needs to be enclosed in parenthesis if it's not a literal.</div><h3><a class='anchor' name='partial%20application'>partial application</a></h3>
+<p><div class='note'><span class='notelabel'>NOTE:</span> When using the new <code>||</code> syntax, the default value needs to be enclosed in parenthesis if it's not a literal.</div><h3><a class='anchor' name='ellipsis%20in%20function%20arguments'>ellipsis in function arguments</a></h3>
+
+<p>The <code>arg</code> and pipe notation (<code>| |</code>) syntaxes are equivalent. The following pairs are identical:<table>
+<tr><td><code>{ arg ... args; args.postln }</code><td><code>{ |... args| args.postln }</code><tr><td><code>{ arg a ... rest; [a, rest].postln }</code><td><code>{ |a ... rest| [a, rest].postln }</code><tr><td><code>{ arg a, b ... rest; [a, b, rest].postln }</code><td><code>{ |a, b ... rest| [a, b, rest].postln }</code><tr><td><code>{ arg a, b ... rest; [a, b, rest].postln }</code><td><code>{ |a b ... rest| [a, b, rest].postln }</code><tr><td>(pipe notation only)<td><code>{ |a, b ... rest, kwargs| [a, b, rest, kwargs].postln }</code></table>
+<div class='note'><span class='notelabel'>NOTE:</span> See:<ul>
+<li><a href="./../Reference/Messages.html#Keyword%20Arguments%20and%20Positional%20Arguments">Messages: Keyword Arguments and Positional Arguments</a><li><a href="./../Classes/FunctionDef.html#numArgs">FunctionDef: numArgs</a><li><a href="./../Classes/FunctionDef.html#numVars">FunctionDef: numVars</a><li><a href="./../Classes/FunctionDef.html#varArgs">FunctionDef: varArgs</a><li><a href="./../Classes/FunctionDef.html#hasKwArgs">FunctionDef: hasKwArgs</a><li><a href="./../Classes/FunctionDef.html#varArgsValue">FunctionDef: varArgsValue</a><li><a href="./../Classes/FunctionDef.html#.hasVarArgs">FunctionDef: .hasVarArgs</a></ul>
+</div><h4><a class='anchor' name='variable%20arguments%20(varargs)'>variable arguments (varargs)</a></h4>
+
+<p>Use <code>...</code> in function argument lists when the number of arguments is not fixed in advance. Arguments matched by <code>...</code> are collected into a single <a href="./../Classes/Array.html">Array</a> instance.<div class='codeMirrorContainer'><textarea class='editor'>// It may collect all arguments:
+x = { |... args| args };
+x.(1, 2, 3);         // -&gt; [ 1, 2, 3 ]
+x.(1, 2, 3, 4, 5);   // -&gt; [ 1, 2, 3, 4, 5 ]
+
+// Or it may collect only the arguments that remain after earlier ones have been matched:
+x = { |a ... rest| [a, rest] };
+x.(1, 2, 3, 4, 5);   // -&gt; [ 1, [ 2, 3, 4, 5 ] ]
+
+x = { |a, b ... rest| [a, b, rest] };
+x.(1, 2, 3, 4, 5);   // -&gt; [ 1, 2, [ 3, 4, 5 ] ]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h4><a class='anchor' name='keyword%20arguments%20(kwargs)'>keyword arguments (kwargs)</a></h4>
+
+<p>Use <code>...args, kwargs</code> to capture arbitrary keyword arguments that are not explicitly named. The keyword arguments are collected into a single <a href="./../Classes/Array.html">Array</a> instance of key-value pairs. Note that kwargs are only supported with the pipe notation (<code>| |</code>), not with <code>arg</code>.<div class='codeMirrorContainer'><textarea class='editor'>// Capture arbitrary keyword arguments:
+f = { |... args, kwargs| kwargs };
+f.(x: 3, y: 4);      // -&gt; [ x, 3, y, 4 ]
+
+// Named arguments are matched first; the rest go into args or kwargs:
+f = { |a, b ... args, kwargs| [a, b, args, kwargs] };
+f.(1, 2, 3, 4, x: 5, y: 6);        // -&gt; [ 1, 2, [ 3, 4 ], [ x, 5, y, 6 ] ]
+f.(1, 2, 3, 4, 5, 6, x: 7, y: 8);  // -&gt; [ 1, 2, [ 3, 4, 5, 6 ], [ x, 7, y, 8 ] ]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='note'><span class='notelabel'>NOTE:</span> See<ul>
+<li><a href="./../Classes/Object.html#performList">Object: performList</a><li><a href="./../Classes/Object.html#performArgs">Object: performArgs</a></ul>
+</div><h3><a class='anchor' name='partial%20application'>partial application</a></h3>
 <table>
 <tr><td>instead of writing:<td>you can write:<tr><td><code>{ |x| object.msg(a, x, b) }</code><td><code>object.msg(a, _, b)</code><tr><td><code>{ |x,y| object.msg(a, x, y) }</code><td><code>object.msg(a, _, _)</code><tr><td><code>{ |x| a + x }</code><td><code>a + _</code><tr><td><code>{ |x| [a, b, x] }</code><td><code>[a, b, _]</code><tr><td><code>{ |x| (a: x) }</code><td><code>(a: _)</code></table>
 

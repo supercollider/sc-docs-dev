@@ -29,6 +29,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'><li class='toc2'><a href='#UGen%20Graph%20Functions%20and%20Special%20Argument%20Forms'>UGen Graph Functions and Special Argument Forms</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Arrayed%20controls'>Arrayed controls</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Static%20versus%20Dynamic%20Elements'>Static versus Dynamic Elements</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Reblocking%20and%20Resampling'>Reblocking and Resampling</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#*new'>new</a> </li>
 <li class='toc3'><a href='#*wrap'>wrap</a> </li>
@@ -96,8 +97,10 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#-numChannels'>numChannels</a> </li>
 <li class='toc3'><a href='#-optimizeGraph'>optimizeGraph</a> </li>
 <li class='toc3'><a href='#-rate'>rate</a> </li>
+<li class='toc3'><a href='#-reblock'>reblock</a> </li>
 <li class='toc3'><a href='#-removeUGen'>removeUGen</a> </li>
 <li class='toc3'><a href='#-replaceUGen'>replaceUGen</a> </li>
+<li class='toc3'><a href='#-resample'>resample</a> </li>
 <li class='toc3'><a href='#-setControlNames'>setControlNames</a> </li>
 <li class='toc3'><a href='#-storeOnce'>storeOnce</a> </li>
 <li class='toc3'><a href='#-topologicalSort'>topologicalSort</a> </li>
@@ -171,7 +174,19 @@ SynthDef(\help_isRand, { |out|
 a = Synth(\help_isRand);
 b = Synth(\help_isRand); // a different randomly selected freq</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<h3><a class='anchor' name='Reblocking%20and%20Resampling'>Reblocking and Resampling</a></h3>
+
+<p>Since SC 3.15, Synths can be downblocked to smaller block sizes and upsampled to higher sample rates than the Server's own block size resp. sample rate. This enables things like single-sample feedback or anti-aliasing through upsampling and filtering.
+<p>Reblocking and resampling is done with the <a href="./../Classes/Reblock.html">Reblock</a> and <a href="./../Classes/Resample.html">Resample</a> objects. You can put these in your SynthDef and either pass a fixed number or a Synth argument/control.<div class='codeMirrorContainer'><textarea class='editor'>(
+SynthDef(\reblock_and_resample, { |out, blockSize=4|
+    Resample(2); // 2x upsampling
+    BlockSize(blockSize); // downblocking
+    Out.ar(out, SinOsc.ar(440) * 0.1);
+}).add;
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>See the respective help files for more information and some practical examples.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>SynthDef.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>name</span>, <span class='argstr'>ugenGraphFunc</span>, <span class='argstr'>rates</span>, <span class='argstr'>prependArgs</span>, <span class='argstr'>variants</span>, <span class='argstr'>metadata</span>)</h3>
 <div class='method'>
 <p>Create a SynthDef instance, evaluate the ugenGraphFunc and build the ugenGraph.<h4>Arguments:</h4>
@@ -322,8 +337,12 @@ SynthDef(\help_synth, { |out, freq = 800, sustain = 1, amp = 0.1|
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-optimizeGraph' href='./../Overviews/Methods.html#optimizeGraph'>optimizeGraph</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rate' href='./../Overviews/Methods.html#rate'>rate</a></h3>
 <div class='extmethod'>From extension in <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/JITLib/ProxySpace/wrapForNodeProxy.sc'>/usr/local/share/SuperCollider/SCClassLibrary/JITLib/ProxySpace/wrapForNodeProxy.sc</a></div>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reblock' href='./../Overviews/Methods.html#reblock'>reblock</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reblock' href='./../Overviews/Methods.html#reblock'>reblock</a> = <span class='argstr'>obj</span></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-removeUGen' href='./../Overviews/Methods.html#removeUGen'>removeUGen</a>(<span class='argstr'>ugen</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-replaceUGen' href='./../Overviews/Methods.html#replaceUGen'>replaceUGen</a>(<span class='argstr'>a</span>, <span class='argstr'>b</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-resample' href='./../Overviews/Methods.html#resample'>resample</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-resample' href='./../Overviews/Methods.html#resample'>resample</a> = <span class='argstr'>obj</span></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-setControlNames' href='./../Overviews/Methods.html#setControlNames'>setControlNames</a>(<span class='argstr'>controlUGens</span>, <span class='argstr'>cn</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-storeOnce' href='./../Overviews/Methods.html#storeOnce'>storeOnce</a>(<span class='argstr'>libname: 'global'</span>, <span class='argstr'>dir</span>, <span class='argstr'>completionMsg</span>, <span class='argstr'>mdPlugin</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-topologicalSort' href='./../Overviews/Methods.html#topologicalSort'>topologicalSort</a></h3>

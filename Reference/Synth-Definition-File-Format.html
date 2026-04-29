@@ -61,7 +61,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <li>int32 - four byte file type id containing the ASCII characters: "SCgf"<li>int32 - file version, currently 3.<li>int16 - number of synth definitions in this file (D).<li>[ <strong>synth-definition</strong> ] * D</ul>
 
 <p>a <strong>synth-definition</strong> is :<ul>
-<li>int32 - the size of the synth definition in bytes (including this field)<li>pstring - the name of the synth definition<li>int32 - number of constants (K)<li>[float32] * K - constant values<li>int32 - number of parameters (P)<li>[float32] * P - initial parameter values<li>int32 - number of parameter names (N)<li>[ <strong>param-name</strong> ] * N<li>int32 - number of unit generators (U)<li>[ <strong>ugen-spec</strong> ] * U<li>int16 - number of variants (V)<li>[ <strong>variant-spec</strong> ] * V</ul>
+<li>int32 - the size of the synth definition in bytes (including this field)<li>pstring - the name of the synth definition<li>int32 - number of constants (K)<li>[float32] * K - constant values<li>int32 - number of parameters (P)<li>[float32] * P - initial parameter values<li>int32 - number of parameter names (N)<li>[ <strong>param-name</strong> ] * N<li>int32 - number of unit generators (U)<li>[ <strong>ugen-spec</strong> ] * U<li>int16 - number of variants (V)<li>[ <strong>variant-spec</strong> ] * V<li>int32 - the synth block size. If the value is 0, the server block size will be used. If the value is -1, the block size is taken from the specified parameter (see next field).<li>int32 - the parameter index for the block size. This is only used if the block size field above is -1.<li>float32 - the synth resampling factor. For no resampling, the value should be 0.0 or 1.0. If the value is -1.0, the resampling factor is taken from the specified parameter (see next field).<li>int32 - the parameter index for the resampling factor. This is only used if the resampling factor field above is -1.0.</ul>
 
 <p>a <strong>param-name</strong> is :<ul>
 <li>pstring - the name of the parameter<li>int32 - its index in the parameter array</ul>
@@ -105,7 +105,8 @@ var scdoc_sc_version = '3.15.0-dev';
 
 <p><li>int16 - number of variants (V)<li>[ <strong>variant-spec</strong> ] * V<ul class='tree'>
 <li>pstring - the name of the variant<li>[float32] * P - variant initial parameter values</ul>
-</ul>
+
+<p><li>int32 - the synth block size. If the value is 0, the server block size will be used.  If the value is -1, the block size is taken from the specified parameter (see next field).<li>int32 - the parameter index for the block size. This is only used if the block size field above is -1.<li>float32 - the synth resampling factor. For no resampling, the value should be 0.0 or 1.0. If the value is -1.0, the resampling factor is taken from the specified parameter (see next field).<li>int32 - the parameter index for the resampling factor. This is only used if the resampling factor field above is -1.0.</ul>
 </ul>
 <h2><a class='anchor' name='SynthDef2%20format'>SynthDef2 format</a></h2>
 

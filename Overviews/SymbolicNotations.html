@@ -244,10 +244,14 @@ abc'def'ghi</textarea>
 <dt><code>|a, b, c|</code><dd>define function/method arguments<dt><code>|a, b ... c|</code><dd>define function/method arguments; arguments after a and b will be placed into c as an array<dt><code>#a, b, c = myArray</code><dd>assign consecutive elements of myArray to multiple variables<dt><code>#a, b ... c = myArray</code><dd>assign first two elements to a and b; the rest as an array into c</dl>
 <h2><a class='anchor' name='Where%20f%20is%20a%20function'>Where f is a function</a></h2>
 <dl>
-<dt><code>f.( )</code><dd>evaluate the function with the arguments in parentheses<dt><code>f.(*argList)</code><dd>evaluate the function with the arguments in an array<dt><code>f.(anArgName: value)</code><dd>keyword addressing of function or method arguments<div class='codeMirrorContainer'><textarea class='editor'>f = { |a, b| a * b };
-f.(2, 4);
-f.(*[2, 4]);
-f.(a: 2, b: 4);</textarea>
+<dt><code>f.( )</code><dd>evaluate the function with the arguments in parentheses<dt><code>f.(*argList)</code><dd>evaluate the function with the arguments in an array<dt><code>f.(anArgName: value)</code><dd>keyword addressing of function or method arguments<div class='codeMirrorContainer'><textarea class='editor'>f = { |a, b| [a, b] };
+
+f.(2, 4);        // -&gt; [ 2, 4 ]
+
+f.(*[2, 4]);     // -&gt; [ 2, 4 ]
+f.([2, 4]);      // -&gt; [ [ 2, 4 ], nil ]
+
+f.(a: 2, b: 4);  // -&gt; [ 2, 4 ]</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p><dt><code>SomeClass.[index]</code><dd>Equivalent to SomeClass.at(index) -- Instr.at is a good example<dt><code>myObject.method(*array)</code><dd>call the method with the arguments in an array<dt><code>obj1 method: obj2</code><dd>same as <code>obj1.method(obj2)</code> or <code>method(obj1, obj2)</code>. This works only with single-argument methods like binary operators.</dl>

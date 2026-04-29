@@ -31,7 +31,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul><li class='toc1'><a href='#Functional%20notation%20messages'>Functional notation messages</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Receiver%20notation%20messages'>Receiver notation messages</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Default%20Argument%20Values'>Default Argument Values</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#Keyword%20Arguments'>Keyword Arguments</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Keyword%20Arguments%20and%20Positional%20Arguments'>Keyword Arguments and Positional Arguments</a></li>
 <ul class='toc'><li class='toc2'><a href='#Cost%20of%20using%20keyword%20arguments'>Cost of using keyword arguments</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
@@ -119,35 +119,44 @@ z = x.value(10);        // z is set to 12. (a is 10, b defaults to 2)
 z = x.value(10, 5);     // z is set to 15. (a is 10, b is 5)
 z = x.value(10, 5, 9);  // z is set to 15. (a is 10, b is 5, 9 is ignored)</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h2><a class='anchor' name='Keyword%20Arguments'>Keyword Arguments</a></h2>
+<h2><a class='anchor' name='Keyword%20Arguments%20and%20Positional%20Arguments'>Keyword Arguments and Positional Arguments</a></h2>
 
-<p>Arguments to Methods may be specified by the name by which they are declared in a method's definition. Such arguments are called keyword arguments. Any argument may be passed as a keyword argument except for the receiver <code>this</code>. Keyword arguments must come after any normal (aka <em>positional</em>) arguments, and may be specified in any order. If a keyword is specified and there is no matching argument then it is ignored and a warning will be printed. This warning may be turned off globally by making the following call:<div class='codeMirrorContainer'><textarea class='editor'>keywordWarnings(false)</textarea>
+<p>Arguments to methods and functions may be specified either by position or by name. Arguments specified by position are called <em>positional arguments</em>, and are interpreted according to the order in which they are declared in the method or function definition. Arguments specified by name (followed by a colon) are called <em>keyword arguments</em>. Any argument may be passed as a keyword argument except for the receiver <code>this</code>.
+<p>Keyword arguments must come after any positional arguments, may be specified in any order among themselves, and once a keyword argument is used, no positional argument may follow. In other words, if you skip any argument defined before the one you want to specify, you must use keyword arguments. So once you use a keyword argument, all subsequent arguments must also be keyword arguments.
+<p>If a keyword is specified and there is no matching argument, it is ignored and a warning will be printed. This warning may be turned off globally by making the following call:<div class='codeMirrorContainer'><textarea class='editor'>keywordWarnings(false)</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>If a keyword argument and a positional argument specify the same argument, then the keyword argument value overrides the positional argument value.
-<p>For example the <code>ar</code> class method of the SinOsc class takes arguments named freq, phase, mul, and add in that order. All of the following are legal calls to that method.<div class='codeMirrorContainer'><textarea class='editor'>SinOsc.ar(800, pi, 0.2, 0); // all normal arguments: freq, phase, mul, add
+<p>If the same argument is specified more than once, whether by positional or keyword arguments, the rightmost value overrides all previous ones. Note that this usage, while legal, is discouraged as it can be confusing.<div class='codeMirrorContainer'><textarea class='editor'>f = { | a | a };
+f.(1, a: 2, a: 3); // -&gt; 3, the rightmost value wins</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>For example, the <code>ar</code> class method of the SinOsc class takes arguments named freq, phase, mul, and add in that order. All of the following are legal calls to that method.<div class='codeMirrorContainer'><textarea class='editor'>SinOsc.ar(800, pi, 0.2, 0); // all positional arguments: freq, phase, mul, add
 
 // freq = 800, mul = 0.2, others get default values.
-SinOsc.ar(800, mul: 0.2);
+SinOsc.ar(800, mul: 0.2); // 800 is a positional argument, and 0.2 is a keyword one
 
 // freq = 800, phase = pi, mul = 0.2, add gets its default value of zero.
-SinOsc.ar(phase: pi, mul: 0.2, freq: 800);
+SinOsc.ar(phase: pi, mul: 0.2, freq: 800); // all keyword arguments
 
-// keyword value of 1200 overrides the positional arg value of 800
-SinOsc.ar(800, freq: 1200);</textarea>
+// the rightmost value of 1200 overrides the positional arg value of 800
+SinOsc.ar(800, freq: 1200); // should not be used.</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p><div class='codeMirrorContainer'><textarea class='editor'>SinOsc.ar(zorg: 999); // invalid keyword prints warning</textarea>
+<p><div class='codeMirrorContainer'><textarea class='editor'>SinOsc.ar(zorg: 999); // invalid keyword prints warning. should not be used.</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>The arguments to a Function may also be specified by keyword arguments when using the 'value' message.<div class='codeMirrorContainer'><textarea class='editor'>// function args may be specified by keyword.
-{ arg a=1, b=2, c=3; [a, b, c].postln }.value(b: 7, c: 8);</textarea>
+<p>The arguments to a <a href="./../Classes/Function.html">Function</a> instance work the same way when using the 'value' message.<div class='codeMirrorContainer'><textarea class='editor'>// function args specified positionally from the first argument defined in the function.
+{ arg a=1, b=2, c=3; [a, b, c].postln }.value(7, 8);
+// -&gt; [ 7, 8, 3 ]
+
+// function args specified by keyword, skipping the first argument defined in the function.
+{ arg a=1, b=2, c=3; [a, b, c].postln }.value(b: 7, c: 8);
+// -&gt; [ 1, 7, 8 ]</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>You may also use keyword arguments when using the 'perform' method.<div class='codeMirrorContainer'><textarea class='editor'>SinOsc.perform('ar', phase: pi, mul: 0.2, freq: 800);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-
-<p><h3><a class='anchor' name='Cost%20of%20using%20keyword%20arguments'>Cost of using keyword arguments</a></h3>
+<h3><a class='anchor' name='Cost%20of%20using%20keyword%20arguments'>Cost of using keyword arguments</a></h3>
 
 <p>When using keyword arguments there is a runtime cost to do the matching that you should be aware of. The cost can be worth the convenience when speed is not critical.<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/Messages.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Reference/Messages.schelp</a><br>link::Reference/Messages::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

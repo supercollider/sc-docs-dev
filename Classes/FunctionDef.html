@@ -117,7 +117,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='method'>
 <p>Returns whether the function has variable keyword arguments<div class='codeMirrorContainer'><textarea class='editor'>{ |a, b, c| a + b * c }.def.hasKwArgs; // false
 { |a, b ... c| a + b * c }.def.hasKwArgs; // false
-{ |a ... b, c| a * b }.def.hasVarArgs; // true</textarea>
+{ |a ... b, c| a * b }.def.hasKwArgs; // true</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-varArgsValue' href='./../Overviews/Methods.html#varArgsValue'>varArgsValue</a></h3>
 <div class='method'>
