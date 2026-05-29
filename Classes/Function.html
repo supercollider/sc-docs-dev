@@ -159,7 +159,7 @@ c.value.postln;    // evaluate c and print the result
 <p>Get the definition (FunctionDef) of the Function.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isClosed' href='./../Overviews/Methods.html#isClosed'>isClosed</a></h3>
 <div class='method'>
 <p>returns true if the function is closed, i.e. has no external references and can thus be converted to a compile string safely.</div><h3><a class='anchor' name='Evaluation'>Evaluation</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a>( <span class='argstr'>... args</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-value' href='./../Overviews/Methods.html#value'>value</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
 <div class='method'>
 <p>Evaluates the FunctionDef referred to by the Function. The Function is passed the args given.<div class='codeMirrorContainer'><textarea class='editor'> // different way of expressing the same:
 { |a, b| a * b }.value(3, 10);
@@ -190,7 +190,7 @@ f.value(1, b:2); // explicitly specify a (the other function warns)
 
 <p>A common syntactic shortcut:<div class='codeMirrorContainer'><textarea class='editor'>{ |a, b, c| ((a * b) + c).postln }.value(*[3, 10, 7]);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-valueEnvir' href='./../Overviews/Methods.html#valueEnvir'>valueEnvir</a>( <span class='argstr'>... args</span>)</h3>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-valueEnvir' href='./../Overviews/Methods.html#valueEnvir'>valueEnvir</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
 <div class='method'>
 <p>As value above. Unsupplied argument names are looked up in the current Environment.<div class='codeMirrorContainer'><textarea class='editor'>(
 Environment.use({

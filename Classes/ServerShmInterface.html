@@ -62,13 +62,13 @@ var scdoc_sc_version = '3.15.0-dev';
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-connect' href='./../Overviews/Methods.html#connect'>connect</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-connect' href='./../Overviews/Methods.html#connect'>connect</a>(<span class='argstr'>portNumber</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-copy' href='./../Overviews/Methods.html#copy'>copy</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-disconnect' href='./../Overviews/Methods.html#disconnect'>disconnect</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-getControlBusValue' href='./../Overviews/Methods.html#getControlBusValue'>getControlBusValue</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-getControlBusValues' href='./../Overviews/Methods.html#getControlBusValues'>getControlBusValues</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-setControlBusValue' href='./../Overviews/Methods.html#setControlBusValue'>setControlBusValue</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-setControlBusValues' href='./../Overviews/Methods.html#setControlBusValues'>setControlBusValues</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-getControlBusValue' href='./../Overviews/Methods.html#getControlBusValue'>getControlBusValue</a>(<span class='argstr'>busNumber</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-getControlBusValues' href='./../Overviews/Methods.html#getControlBusValues'>getControlBusValues</a>(<span class='argstr'>busNumber</span>, <span class='argstr'>count</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-setControlBusValue' href='./../Overviews/Methods.html#setControlBusValue'>setControlBusValue</a>(<span class='argstr'>busNumber</span>, <span class='argstr'>value</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-setControlBusValues' href='./../Overviews/Methods.html#setControlBusValues'>setControlBusValues</a>(<span class='argstr'>busNumber</span>, <span class='argstr'>values</span>)</h3>
 <h2><a class='anchor' name='Help%20template'>Help template</a></h2>
 
 <p>Copy and paste the text below and save to HelpSource/Classes/ServerShmInterface.schelp<div class='codeMirrorContainer'><textarea class='editor'>TITLE:: ServerShmInterface
@@ -96,10 +96,19 @@ INSTANCEMETHODS::
 METHOD:: getControlBusValues
 (describe method here)
 
+ARGUMENT:: busNumber
+(describe argument here)
+
+ARGUMENT:: count
+(describe argument here)
+
 returns:: (describe returnvalue here)
 
 METHOD:: connect
 (describe method here)
+
+ARGUMENT:: portNumber
+(describe argument here)
 
 returns:: (describe returnvalue here)
 
@@ -111,6 +120,9 @@ returns:: (describe returnvalue here)
 METHOD:: getControlBusValue
 (describe method here)
 
+ARGUMENT:: busNumber
+(describe argument here)
+
 returns:: (describe returnvalue here)
 
 METHOD:: copy
@@ -121,10 +133,22 @@ returns:: (describe returnvalue here)
 METHOD:: setControlBusValue
 (describe method here)
 
+ARGUMENT:: busNumber
+(describe argument here)
+
+ARGUMENT:: value
+(describe argument here)
+
 returns:: (describe returnvalue here)
 
 METHOD:: setControlBusValues
 (describe method here)
+
+ARGUMENT:: busNumber
+(describe argument here)
+
+ARGUMENT:: values
+(describe argument here)
 
 returns:: (describe returnvalue here)
 
