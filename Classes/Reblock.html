@@ -52,7 +52,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>For certain algorithms it is necessary to run a <a href="./../Classes/Synth.html">Synth</a> at a small block size. Instead of decreasing the block size of the whole Server, which could be rather wasteful, you can use the Reblock object inside a <a href="./../Classes/SynthDef.html">SynthDef</a> to only change the block size of specific Synths. (Keep in mind that very small block sizes will increase the CPU usage.)
-<p>The block size can be a constant number or it can be set dynamically via a Synth control (except for Supernova). See <a href="#*new">*new</a> for more information.<div class='note'><span class='notelabel'>NOTE:</span> For technical reasons, Supernova requires a fixed resampling factor. Trying to use a Synth control results in a warning.</div>
+<p>The block size can be a constant number or it can be set dynamically via a Synth control (except for Supernova). See <a href="#*new">*new</a> for more information.<div class='note'><span class='notelabel'>NOTE:</span> For technical reasons, Supernova requires a fixed blockSize value. Trying to use a Synth control results in a warning.</div>
 <p>For example, this can be used to implement very short feedback loops:<div class='codeMirrorContainer'><textarea class='editor'>// Karplus-Strong with different block sizes
 (
 SynthDef(\delay, { |out, blockSize|

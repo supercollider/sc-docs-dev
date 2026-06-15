@@ -28,7 +28,9 @@ var scdoc_sc_version = '3.15.0-dev';
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#description'>Description</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#*new'>new</a> </li>
-<li class='toc2'><a href='#Subclassing%20and%20Internal%20Methods'>Subclassing and Internal Methods</a></li>
+<li class='toc3'><a href='#*getInstance'>getInstance</a> </li>
+<li class='toc2'><a href='#Usage%20example'>Usage example</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Subclassing%20and%20Internal%20Methods'>Subclassing and Internal Methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#*scopeOpen'>scopeOpen</a> </li>
 </ul><li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
 </ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
@@ -64,9 +66,10 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>The number of the audio <a href="./../Classes/Bus.html">Bus</a> to be monitored.<tr><td class='argumentname'>scopeColor<td class='argumentdesc'>
 <p>An instance of <a href="./../Classes/Color.html">Color</a>. The drawing color of the scope.<tr><td class='argumentname'>bgColor<td class='argumentdesc'>
 <p>An instance of <a href="./../Classes/Color.html">Color</a>. The background color of the scope.<tr><td class='argumentname'>server<td class='argumentdesc'>
-<p>the server whose buses to show on scope.</table><h4>Discussion:</h4>
-
-<p>Example:<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
+<p>the server whose buses to show on scope.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*getInstance' href='./../Overviews/Methods.html#getInstance'>getInstance</a></h3>
+<div class='method'>
+<p>Returns the (singleton) instance of the FreqScope.</div><h3><a class='anchor' name='Usage%20example'>Usage example</a></h3>
+<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 
 // create a new analyzer
 FreqScope.new(400, 200, 0, server: s);
@@ -81,9 +84,15 @@ FreqScope.new(400, 200, 0, server: s);
 { SinOsc.ar(800, SinOsc.ar(XLine.kr(20, 8000, 10), 0, 2pi), 0.25) }.play(s);
 
 // all harmonics
-{ Blip.ar(200, Line.kr(1, 100, 10), 0.2) }.play(s);</textarea>
+{ Blip.ar(200, Line.kr(1, 100, 10), 0.2) }.play(s);
+
+// access the FreqScopeView object to set properties of the Qt Object:
+FreqScope.getInstance    // get the FreqScope instance
+    .scope                // and its FreqScopeView
+    .setProperty(\updateInterval, 1000)
+    // set updateInterval to 1000 ms because of reasons</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-</div><h3><a class='anchor' name='Subclassing%20and%20Internal%20Methods'>Subclassing and Internal Methods</a></h3>
+<h3><a class='anchor' name='Subclassing%20and%20Internal%20Methods'>Subclassing and Internal Methods</a></h3>
 
 <p>The following methods are usually not used directly or are called by a primitive. Programmers can still call or override these as needed.<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*scopeOpen' href='./../Overviews/Methods.html#scopeOpen'>scopeOpen</a></h3>
 <div class='method'>

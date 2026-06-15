@@ -738,7 +738,7 @@ b.free;</textarea>
 <p>This is more risky than loadToFloatArray but does works with servers on remote machines. In high traffic situations it is possible for data to be lost. If this method has not received all its replies by timeout it will post a warning saying that the method has failed. In general use loadToFloatArray instead wherever possible.<div class='codeMirrorContainer'><textarea class='editor'>s.boot;
 b = Buffer.read(s, ExampleFiles.child);
 // like Buffer.plot
-b.getToFloatArray(wait: 0.01, action: { |array { array.plot }.defer; "done".postln });
+b.getToFloatArray(wait: 0.01, action: { |array| { array.plot }.defer; "done".postln });
 b.free;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-normalize' href='./../Overviews/Methods.html#normalize'>normalize</a>(<span class='argstr'>newmax: 1</span>, <span class='argstr'>asWavetable: false</span>)</h3>
