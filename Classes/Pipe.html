@@ -37,6 +37,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'><li class='toc3'><a href='#-open'>open</a> </li>
 <li class='toc3'><a href='#-openArgv'>openArgv</a> </li>
 <li class='toc3'><a href='#-close'>close</a> </li>
+<li class='toc3'><a href='#-pid'>pid</a> </li>
 <li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 </ul><li class='toc1'><a href='#examples'>Examples</a></li>
 <ul class='toc'></ul></ul></div><div id='menubar'></div>
@@ -88,7 +89,10 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='method'>
 <p>Closes the pipe, waiting for the command to finish. You must do this explicitly before the Pipe object is garbage collected.<h4>Returns:</h4>
 <div class='returnvalue'>
-<p>The exit status of the command (an Integer).</div></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
+<p>The exit status of the command (an Integer).</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pid' href='./../Overviews/Methods.html#pid'>pid</a></h3>
+<div class='method'><h4>Returns:</h4>
+<div class='returnvalue'>
+<p>The operating system's PID (process ID) of the executing command (an Integer).</div></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>
 <div class='codeMirrorContainer'><textarea class='editor'>// this pipes in stdout from ls
 (
