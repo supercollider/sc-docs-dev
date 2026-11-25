@@ -102,7 +102,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Scheduling'>Scheduling</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Scheduling>Clocks'>Clocks</a></span>
-</div><h1>TempoClock<span id='superclasses'> : <a href="../Classes/Clock.html">Clock</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>TempoClock<span id='superclasses'> : <a href="../Classes/Clock.html">Clock</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>tempo based scheduler</div>
 </div>
@@ -254,7 +254,7 @@ t.play({ |beats, time, clock| [beats, time, clock].postln });</textarea>
 <div class='method'>
 <p>Gets or sets the number of beats per bar. The default is 4. Setting the meter must be done from within the same clock's scheduling thread. Scheduled functions and playing Routines (or Tasks) are running on the clock's thread, so both of these are valid.
 <p>Setting beatsPerBar also updates the barline reference (baseBarBeat). Be careful to call <code>beatsPerBar_</code> <em>only</em> on a barline (<a href="#-nextBar">-nextBar</a> below).
-<p><code>thisThread.clock</code> is always the current clock -- so, writing <code>thisThread.clock.beatsPerBar = /* number */</code> as a matter of habit will guarantee that the meter change only ever applies to the current clock.<div class='codeMirrorContainer'><textarea class='editor'>t = TempoClock.new;
+<p><code>thisThread.clock</code> is always the current clock — so, writing <code>thisThread.clock.beatsPerBar = /* number */</code> as a matter of habit will guarantee that the meter change only ever applies to the current clock.<div class='codeMirrorContainer'><textarea class='editor'>t = TempoClock.new;
 
 t.beatsPerBar = 3;  // error! wrong thread
 
@@ -269,7 +269,7 @@ r = Routine {
     // by addressing "this" clock,
     // we are always changing meter in the right place
     var clock = thisThread.clock;
-    
+
     clock.beats.debug("start time");
     clock.timeToNextBeat(-1).wait;
     clock.beats.debug("barline");

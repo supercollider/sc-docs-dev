@@ -27,8 +27,8 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='toctitle'>Stream:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#description'>Description</a></li>
 <ul class='toc'><li class='toc2'><a href='#Overview'>Overview</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#FuncStream(nextFunction,%20resetFunction)'>FuncStream(nextFunction, resetFunction)</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Routine(nextFunction,%20stacksize)'>Routine(nextFunction, stacksize)</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#FuncStream(nextFunction%2C%20resetFunction)'>FuncStream(nextFunction, resetFunction)</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Routine(nextFunction%2C%20stacksize)'>Routine(nextFunction, stacksize)</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Playing%20streams'>Playing streams</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Iteration'>Iteration</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Composite%20Streams'>Composite Streams</a></li>
@@ -79,7 +79,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a></span>
-</div><h1>Stream<span id='superclasses'> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Stream<span id='superclasses'> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Stream is the base class for classes that define streams</div>
 </div>
@@ -93,7 +93,7 @@ var scdoc_sc_version = '3.15.0-dev';
 
 <p>A Stream represents a sequence of values that are obtained incrementally by repeated <strong>next</strong> messages. A Stream can be restarted with a <strong>reset</strong> message. (Not all streams actually implement reset semantics.)
 <p>The class <a href="./../Classes/Object.html">Object</a> defines <strong>next</strong> to return the object itself. Thus every object can be viewed as a stream and most simply stream themselves.
-<p>In SuperCollider, Streams are primarily used for handling text and for generating music.<h3><a class='anchor' name='FuncStream(nextFunction,%20resetFunction)'>FuncStream(nextFunction, resetFunction)</a></h3>
+<p>In SuperCollider, Streams are primarily used for handling text and for generating music.<h3><a class='anchor' name='FuncStream(nextFunction%2C%20resetFunction)'>FuncStream(nextFunction, resetFunction)</a></h3>
 
 <p>A <a href="./../Classes/Function.html">Function</a> defines a stream consisting of the Function itself, a <a href="./../Classes/FuncStream.html">FuncStream</a> defines a stream that consists of <em>evaluations</em> of its nextFunction.<div class='codeMirrorContainer'><textarea class='editor'>// Example 1: a Function vs. a FuncStream
 (
@@ -112,7 +112,7 @@ var scdoc_sc_version = '3.15.0-dev';
     10.do({ [f.next, x.next].postln });
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Routine(nextFunction,%20stacksize)'>Routine(nextFunction, stacksize)</a></h3>
+<h3><a class='anchor' name='Routine(nextFunction%2C%20stacksize)'>Routine(nextFunction, stacksize)</a></h3>
 
 <p>In a <a href="./../Classes/FuncStream.html">FuncStream</a>, the nextFunction runs through to completion for each element of the stream. In a <a href="./../Classes/Routine.html">Routine</a>, the nextFunction returns values with <strong>yield</strong> and resumes execution (when it receives a <strong>next</strong> message) at the expression following the yield. This allows a sequence of expressions in the function definition to represent a sequence of distinct events, like a musical score.<div class='codeMirrorContainer'><textarea class='editor'>// example
 (
@@ -271,7 +271,7 @@ nil;
 a = Routine({ 20.do({ 33.rand.yield }) });
 b = Routine({ [-100, 00, 300, 400].do({ |v| v.yield }) });
 [
-    '+', '-', '*', '/', \div, '%', '**', 
+    '+', '-', '*', '/', \div, '%', '**',
     '&lt;', '&lt;=', '&gt;', '&gt;=', '&amp;', '|', \min, \max,
     \bitXor, \lcm, \gcd, \round, \trunc, \atan2,
     \hypot, '&gt;&gt;', '+&gt;&gt;', \ring1, \ring2, \ring3, \ring4,

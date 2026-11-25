@@ -28,7 +28,10 @@ var scdoc_sc_version = '3.15.0-dev';
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#description'>Description</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
 <ul class='toc'><li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
-</ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
+<li class='toc2'><a href='#Undocumented%20class%20methods'>Undocumented class methods</a></li>
+<ul class='toc'><li class='toc3'><a href='#*new'>new</a> </li>
+<li class='toc3'><a href='#*newCopyArgs'>newCopyArgs</a> </li>
+</ul></ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#-functionDef'>functionDef</a> </li>
 <li class='toc3'><a href='#-caller'>caller</a> </li>
 <li class='toc3'><a href='#-args'>args</a> </li>
@@ -38,13 +41,19 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 <li class='toc2'><a href='#Undocumented%20instance%20methods'>Undocumented instance methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#-asString'>asString</a> </li>
+<li class='toc3'><a href='#-backtracePrintOnto'>backtracePrintOnto</a> </li>
+<li class='toc3'><a href='#-ipIndex'>ipIndex</a> </li>
+<li class='toc3'><a href='#-prAsErrorString'>prAsErrorString</a> </li>
+<li class='toc3'><a href='#-prFirstIndexOf'>prFirstIndexOf</a> </li>
+<li class='toc3'><a href='#-prLastIndexOf'>prLastIndexOf</a> </li>
+<li class='toc3'><a href='#-printOntoBacktrace'>printOntoBacktrace</a> </li>
 </ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Core'>Core</a></span>
-</div><h1>DebugFrame<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>DebugFrame<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>A representation of the call frame</div>
 </div>
@@ -55,7 +64,10 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>A representation of the call frame. Can be used to reconstruct a backtrace by using <a href="#-caller">-caller</a>.
 <p>An instance can be acquired by calling <a href="./../Classes/Object.html#-getBackTrace">Object: -getBackTrace</a>. While this is often not useful due to function inlining, it is useful when called on an <a href="./../Classes/Exception.html">Exception</a>, see the implementation of <a href="./../Classes/Exception.html#-reportError">Exception: -reportError</a> where a call to <a href="./../Classes/Object.html#-dumpBackTrace">Object: -dumpBackTrace</a> can be replaced by a call to <a href="./../Classes/Object.html#-getBackTrace">Object: -getBackTrace</a> and a call stack constructed manually.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
-<div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
+<div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
+<h3 class='method-code'><span class='method-prefix'>DebugFrame.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
+<h3 class='method-code'><span class='method-prefix'>DebugFrame.</span><a class='method-name' name='*newCopyArgs' href='./../Overviews/Methods.html#newCopyArgs'>newCopyArgs</a></h3>
+<h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-functionDef' href='./../Overviews/Methods.html#functionDef'>functionDef</a></h3>
 <div class='method'>
 <p>Returns a <a href="./../Classes/FunctionDef.html">FunctionDef</a> or a <a href="./../Classes/Method.html">Method</a> of the current function or method.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-caller' href='./../Overviews/Methods.html#caller'>caller</a></h3>
@@ -101,5 +113,11 @@ while{ debugFrame.isNil.not }{
 <p>Returns another <a href="./../Classes/DebugFrame.html">DebugFrame</a> of the compiling context, rarely useful.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asString' href='./../Overviews/Methods.html#asString'>asString</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-backtracePrintOnto' href='./../Overviews/Methods.html#backtracePrintOnto'>backtracePrintOnto</a>(<span class='argstr'>stream</span>, <span class='argstr'>prefix: ""</span>, <span class='argstr'>callFrameAnnotations: []</span>, <span class='argstr'>methodBeforeBacktraceStart</span>, <span class='argstr'>methodBacktraceEnd</span>, <span class='argstr'>maxVerboseFrames: 3</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-ipIndex' href='./../Overviews/Methods.html#ipIndex'>ipIndex</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-prAsErrorString' href='./../Overviews/Methods.html#prAsErrorString'>prAsErrorString</a>(<span class='argstr'>prefix</span>, <span class='argstr'>annotation</span>, <span class='argstr'>printArgsAndVars</span>, <span class='argstr'>printSource</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-prFirstIndexOf' href='./../Overviews/Methods.html#prFirstIndexOf'>prFirstIndexOf</a>(<span class='argstr'>collection</span>, <span class='argstr'>predicate</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-prLastIndexOf' href='./../Overviews/Methods.html#prLastIndexOf'>prLastIndexOf</a>(<span class='argstr'>collection</span>, <span class='argstr'>predicate</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-printOntoBacktrace' href='./../Overviews/Methods.html#printOntoBacktrace'>printOntoBacktrace</a>(<span class='argstr'>stream</span>, <span class='argstr'>prefix: ""</span>, <span class='argstr'>annotation</span>, <span class='argstr'>printArgsAndVars</span>, <span class='argstr'>printSource</span>)</h3>
 <div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/DebugFrame.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/DebugFrame.schelp</a><br>link::Classes/DebugFrame::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

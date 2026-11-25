@@ -32,7 +32,7 @@ var scdoc_sc_version = '3.15.0-dev';
 </ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
 <ul class='toc'><li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 </ul><li class='toc1'><a href='#examples'>Examples</a></li>
-<ul class='toc'><li class='toc2'><a href='#Normal%20usage%20(with%20Buffer;%20"Object%20Style")'>Normal usage (with Buffer; "Object Style")</a></li>
+<ul class='toc'><li class='toc2'><a href='#Normal%20usage%20(with%20Buffer;%20%22Object%20Style%22)'>Normal usage (with Buffer; "Object Style")</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#OSC%20Messaging%20Style'>OSC Messaging Style</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
@@ -40,7 +40,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>InOut'>InOut</a> | <a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Buffer'>Buffer</a></span>
-</div><h1>DiskIn<span id='superclasses'> : <a href="../Classes/MultiOutUGen.html">MultiOutUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>DiskIn<span id='superclasses'> : <a href="../Classes/MultiOutUGen.html">MultiOutUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Stream in audio from a file.</div>
 </div>
@@ -57,7 +57,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <table class='arguments'>
 <tr><td class='argumentname'>numChannels<td class='argumentdesc'>
 <p>Number of channels. This must match the number of channels in the buffer. Must be a nonzero, positive integer. This is fixed when the SynthDef is compiled so cannot be assigned to a SynthDef argument.<tr><td class='argumentname'>bufnum<td class='argumentdesc'>
-<p>Buffer number<div class='note'><span class='notelabel'>NOTE:</span> The Buffer's numFrames must be a power of two and is recommended to be at least 65536 -- preferably 131072 or 262144. Smaller buffer sizes mean more frequent disk access, which can cause glitches.</div><tr><td class='argumentname'>loop<td class='argumentdesc'>
+<p>Buffer number<div class='note'><span class='notelabel'>NOTE:</span> The Buffer's numFrames must be a power of two and is recommended to be at least 65536 — preferably 131072 or 262144. Smaller buffer sizes mean more frequent disk access, which can cause glitches.</div><tr><td class='argumentname'>loop<td class='argumentdesc'>
 <p>If set to 1, the soundfile will loop.<div class='note'><span class='notelabel'>NOTE:</span> If the buffer has a larger number of frames than the sound file there will be a noticeable gap between the first and the following loop iterations. In that case chose a smaller buffer size or use <a href="./../Classes/PlayBuf.html">PlayBuf</a> instead</div></table><h4>Discussion:</h4>
 
 <p>This UGen will set the <a href="./../Classes/Done.html">'done' flag</a> when finished playing.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
@@ -73,7 +73,7 @@ SynthDef("help-Diskin", { |out, bufnum = 0|
 }).add
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Normal%20usage%20(with%20Buffer;%20"Object%20Style")'>Normal usage (with Buffer; "Object Style")</a></h3>
+<h3><a class='anchor' name='Normal%20usage%20(with%20Buffer;%20%22Object%20Style%22)'>Normal usage (with Buffer; "Object Style")</a></h3>
 <div class='codeMirrorContainer'><textarea class='editor'>b = Buffer.cueSoundFile(s, ExampleFiles.apollo11, 0, 1);
 
 x = { DiskIn.ar(1, b.bufnum) }.play;

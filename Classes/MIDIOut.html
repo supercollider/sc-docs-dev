@@ -69,7 +69,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#External Control'>External Control</a>&#8201;&gt;&#8201;<a href='./../Browse.html#External Control>MIDI'>MIDI</a></span>
-</div><h1>MIDIOut<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>MIDIOut<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>send MIDI messages</div>
 </div>
@@ -181,7 +181,7 @@ m = MIDIOut(0);  // Linux users: MIDIOut(0, MIDIClient.destinations[0].uid)
 a = Pbind(degree: Prand([1, 2, 3, [0, 5]], inf));
 
 // chain a \midi-type event into the pattern and play it (see link::Classes/Pchain::)
-// this will also take care of noteOffs. 
+// this will also take care of noteOffs.
 (a &lt;&gt; (type: \midi, midiout: m)).play;
 
 // a tidier way to do the same, where we specify the type of midi commands we want to send:
@@ -190,11 +190,11 @@ a = Pbind(midicmd: \noteOn, degree: Prand([1, 2, 3, [0, 5]], inf));
 //again, noteOffs are taken care off by default (but this can be turned off).
 
 //other selected midicmds:
-// for bend messages: 
+// for bend messages:
 b = Pbind(midicmd: \bend, val: Pwhite(0,16383));
 (b &lt;&gt; (type: \midi, midiout: m)).play;
 
-// for CC messages: 
+// for CC messages:
 c = Pbind(midicmd: \control, control: Pwhite(0,127), ctlNum: 0);
 (c &lt;&gt; (type: \midi, midiout: m)).play;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
@@ -220,7 +220,7 @@ m.connect(1);  // connect to MIDIClient.destinations[1]</textarea>
 <p><a href="./../Classes/MIDIOut.html#*newByName">MIDIOut: *newByName</a> locates a device by name and populates the uid in the new MIDIOut object. After successful completion, a MIDIOut object created using this method will have a non-zero uid.<div class='note'><span class='notelabel'>NOTE:</span> A non-zero uid (whether specified in <code>MIDIOut.new</code>, found by <code>MIDIOut.newByName</code>, or set manually later) does not create or use any ALSA MIDI connections. It is not a "connection" at all; rather, it is a parameter that causes outgoing MIDI messages to bypass ALSA MIDI connections and go directly to one specific device. Because it is not a connection, there is nothing to show in MIDI patchbay interfaces; users should not expect to see connections for these MIDIOut objects.
 <p>Also, because a uid bypasses patchbay connections, it is meaningless to specify a uid and use <code>.connect</code> at the same time. A single MIDIOut object should not do both at once. (It does not break anything, but the patchbay connections are ignored.)</div>
 <p><strong>Compatibility</strong><ul>
-<li><code>MIDIOut.newByName("device", "port")</code> -- Should be compatible on all systems.<li><code>MIDIOut(index)</code> -- macOS, Windows (<code>index</code> is the device's index in <code>MIDIClient.destinations</code>). Note that this usage is <em>not</em> compatible with Linux! macOS and Windows users should not expect Linux users to be able to run this style of connection.<li><code>MIDIOut(0, MIDIClient.destinations[index].uid)</code> -- Linux only (<code>index</code> is the device's index in <code>MIDIClient.destinations</code>).</ul>
+<li><code>MIDIOut.newByName("device", "port")</code> — Should be compatible on all systems.<li><code>MIDIOut(index)</code> — macOS, Windows (<code>index</code> is the device's index in <code>MIDIClient.destinations</code>). Note that this usage is <em>not</em> compatible with Linux! macOS and Windows users should not expect Linux users to be able to run this style of connection.<li><code>MIDIOut(0, MIDIClient.destinations[index].uid)</code> — Linux only (<code>index</code> is the device's index in <code>MIDIClient.destinations</code>).</ul>
 <h3><a class='anchor' name='macOS%20specific:%20Sending%20MIDI%20to%20other%20applications'>macOS specific: Sending MIDI to other applications</a></h3>
 
 <p>Open the Audio MIDI Setup application. Double-click on IAC Driver and check "device is online".

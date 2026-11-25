@@ -27,7 +27,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='toctitle'>Pattern Guide Cookbook 01: Basic Sequencing:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Cookbook:%20Sequencing%20basics'>Cookbook: Sequencing basics</a></li>
 <ul class='toc'><li class='toc2'><a href='#Playing%20a%20predefined%20note%20sequence'>Playing a predefined note sequence</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#"Multichannel"%20expansion'>"Multichannel" expansion</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#%22Multichannel%22%20expansion'>"Multichannel" expansion</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Using%20custom%20SynthDefs%20(including%20unpitched%20SynthDefs)'>Using custom SynthDefs (including unpitched SynthDefs)</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
@@ -78,7 +78,7 @@ p = Pbind(
 ).play;
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='"Multichannel"%20expansion'>"Multichannel" expansion</a></h3>
+<h3><a class='anchor' name='%22Multichannel%22%20expansion'>"Multichannel" expansion</a></h3>
 
 <p>In a SynthDef, using an array as the input to a UGen expands the UGen into an array of UGens (see <a href="./../../Guides/Multichannel-Expansion.html">Multichannel Expansion</a>). Something similar happens in patterns. Normally a value sent to a Synth node should be a single number, but if it's an array instead, the pattern expands the event to produce <em>multiple synth nodes instead</em> of just one.
 <p>The <code>\degree</code> pattern applies a set of chord intervals to a melody that's always on top. It's a compound pattern, Pseries(...) + Prand(...), where Pseries returns a single number and Prand returns an array. As with regular math operations, a number plus an array is an array. If the current Pseries value is 7 and Prand returns [0, -3, -5], the result is [7, 4, 2] and you would hear a C major triad in first inversion.<div class='codeMirrorContainer'><textarea class='editor'>(

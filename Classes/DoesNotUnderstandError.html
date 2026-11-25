@@ -32,21 +32,17 @@ var scdoc_sc_version = '3.15.0-dev';
 </ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#-selector'>selector</a> </li>
 <li class='toc3'><a href='#-args'>args</a> </li>
-<li class='toc3'><a href='#-suggestedCorrection'>suggestedCorrection</a> </li>
-<li class='toc3'><a href='#-errorString'>errorString</a> </li>
-<li class='toc3'><a href='#-reportError'>reportError</a> </li>
+<li class='toc3'><a href='#-keywordArgumentPairs'>keywordArgumentPairs</a> </li>
 <li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 <li class='toc2'><a href='#Undocumented%20instance%20methods'>Undocumented instance methods</a></li>
-<ul class='toc'><li class='toc3'><a href='#-adviceLinkPage'>adviceLinkPage</a> </li>
-<li class='toc3'><a href='#-keywordArgumentPairs'>keywordArgumentPairs</a> </li>
-<li class='toc3'><a href='#-suggestion'>suggestion</a> </li>
+<ul class='toc'><li class='toc3'><a href='#-reportStage2'>reportStage2</a> </li>
 </ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Core'>Core</a></span>
-</div><h1>DoesNotUnderstandError<span id='superclasses'> : <a href="../Classes/MethodError.html">MethodError</a> : <a href="../Classes/Error.html">Error</a> : <a href="../Classes/Exception.html">Exception</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>DoesNotUnderstandError<span id='superclasses'> : <a href="../Classes/MethodError.html">MethodError</a> : <a href="../Classes/Error.html">Error</a> : <a href="../Classes/Exception.html">Exception</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Error thrown when calling an unknown method name</div>
 </div>
@@ -76,19 +72,12 @@ var scdoc_sc_version = '3.15.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-args' href='./../Overviews/Methods.html#args'>args</a> = value</h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
-<p>The args passed to new. Typically, an array of arguments passed to the unknown method.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-suggestedCorrection' href='./../Overviews/Methods.html#suggestedCorrection'>suggestedCorrection</a>: METHOD NOT FOUND!</h3>
-<div class='method'><h4>Returns:</h4>
-<div class='returnvalue'>
-<p>If there is a method that the receiver would understand that looks similar to the unknown method name, the the <a href="./../Classes/Method.html">Method</a> object that corresponds to it. Otherwise, <code>nil</code>.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-errorString' href='./../Overviews/Methods.html#errorString'>errorString</a></h3>
-<div class='method'><h4>Returns:</h4>
-<div class='returnvalue'>
-<p>Short-form representation of the error as a <a href="./../Classes/String.html">String</a>, with a suggested replacement if one was found.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reportError' href='./../Overviews/Methods.html#reportError'>reportError</a></h3>
-<div class='method'>
-<p>Print a long-form explanation of the error including backtrace and suggested replacement if one was found.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
-<div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-adviceLinkPage' href='./../Overviews/Methods.html#adviceLinkPage'>adviceLinkPage</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-keywordArgumentPairs' href='./../Overviews/Methods.html#keywordArgumentPairs'>keywordArgumentPairs</a></h3>
+<p>The args passed to new. Typically, an array of arguments passed to the unknown method.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-keywordArgumentPairs' href='./../Overviews/Methods.html#keywordArgumentPairs'>keywordArgumentPairs</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-keywordArgumentPairs' href='./../Overviews/Methods.html#keywordArgumentPairs'>keywordArgumentPairs</a> = value</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-suggestion' href='./../Overviews/Methods.html#suggestion'>suggestion</a></h3>
+<div class='method'><h4>Returns:</h4>
+<div class='returnvalue'>
+<p>The keyword arguments passed to new.</div></div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
+<div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reportStage2' href='./../Overviews/Methods.html#reportStage2'>reportStage2</a>(<span class='argstr'>stream</span>, <span class='argstr'>prefix</span>)</h3>
 <div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/DoesNotUnderstandError.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/DoesNotUnderstandError.schelp</a><br>link::Classes/DoesNotUnderstandError::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

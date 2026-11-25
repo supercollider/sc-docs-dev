@@ -38,7 +38,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Analysis'>Analysis</a></span>
-</div><h1>MFCC<span id='superclasses'> : <a href="../Classes/MultiOutUGen.html">MultiOutUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>MFCC<span id='superclasses'> : <a href="../Classes/MultiOutUGen.html">MultiOutUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Mel frequency cepstral coefficients</div>
 </div>
@@ -259,9 +259,9 @@ a.plot;
 
 // ERBs (rough calculation, only really valid under 6000Hz, real scale goes up to 42 rather than 37 in 22000 Hz)
 (
-a = Array.fill(220, { |i| 
-    var f = i * 100; 
-    11.17 * log((f + 312) / (f + 14675)) + 43.0 
+a = Array.fill(220, { |i|
+    var f = i * 100;
+    11.17 * log((f + 312) / (f + 14675)) + 43.0
 })
 )
 a.plot

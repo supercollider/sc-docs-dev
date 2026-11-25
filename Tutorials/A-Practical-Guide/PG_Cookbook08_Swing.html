@@ -25,7 +25,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <body onload='fixTOC()'>
 <div id='toc'>
 <div id='toctitle'>Pattern Guide Cookbook 08: Swing:</div>
-<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Converting%20equal%20divisions%20into%20"swing"'>Converting equal divisions into "swing"</a></li>
+<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Converting%20equal%20divisions%20into%20%22swing%22'>Converting equal divisions into "swing"</a></li>
 <ul class='toc'><li class='toc2'><a href='#Requirements'>Requirements</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Implementation'>Implementation</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Examples'>Examples</a></li>
@@ -42,7 +42,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='subheader'>
 <div id='related'>See also: <a href="./../../Tutorials/A-Practical-Guide/PG_Cookbook07_Rhythmic_Variations.html">Pattern Guide Cookbook 07: Rhythmic Variations</a>, <a href="./../../Tutorials/A-Practical-Guide/PG_Ref01_Pattern_Internals.html">Pattern Guide Reference 01: Pattern Internals</a></div>
 </div>
-<h2><a class='anchor' name='Converting%20equal%20divisions%20into%20"swing"'>Converting equal divisions into "swing"</a></h2>
+<h2><a class='anchor' name='Converting%20equal%20divisions%20into%20%22swing%22'>Converting equal divisions into "swing"</a></h2>
 
 <p>Most MIDI sequencers have a "swing" feature, which handles a note's timing differently depending on its metric position. A note in a stronger metric position is played on time; a note in a weaker position is delayed by some fraction of the beat.
 <p>In SuperCollider patterns, it's more convenient to express rhythm in terms of equal note durations. To mimic the swing-quantize behavior of conventional sequencers, it's helpful to have a way to modify the output events from a pattern so that the metrically-weaker notes sound later, without requiring the original pattern to be aware of the notes' metric positions.<h3><a class='anchor' name='Requirements'>Requirements</a></h3>
@@ -160,7 +160,7 @@ Pchain(
 <p>As discussed above, there are two factors to decide whether or not this note should be delayed:<dl>
 <dt>Is it close enough to the base rhythm grid?<dd>Round the current time to the grid, and the difference between the actual and rounded times must be less than the threshold: <code>(now absdif: now.round(ev[\swingBase])) &lt;= (ev[\swingThreshold] ? 0)</code>.<dt>Is it in a weaker metrical position?<dd>Dividing by the base value yields an even number for stronger positions, and odd for weaker positions: <code>(now / ev[\swingBase]).round.asInteger.odd</code>.</dl>
 
-<p>There's room also for a slight optimization. In the previous event, we decided whether the next event would need to swing or not. Now, in the current event, we are processing what used to be "next." So we can just copy the old value of <code>nextShouldSwing</code> from last time, instead of redoing the calculation. (Note that this requires <code>nextShouldSwing = false</code> in the beginning -- because <code>now</code> is always 0 for the first event, and consequently can never swing.)<div class='codeMirrorContainer'><textarea class='editor'>        // current this time is what was "next" last time
+<p>There's room also for a slight optimization. In the previous event, we decided whether the next event would need to swing or not. Now, in the current event, we are processing what used to be "next." So we can just copy the old value of <code>nextShouldSwing</code> from last time, instead of redoing the calculation. (Note that this requires <code>nextShouldSwing = false</code> in the beginning — because <code>now</code> is always 0 for the first event, and consequently can never swing.)<div class='codeMirrorContainer'><textarea class='editor'>        // current this time is what was "next" last time
         thisShouldSwing = nextShouldSwing;
         nextShouldSwing = ((nextTime absdif: now.round(ev[\swingBase])) &lt;= (ev[\swingThreshold] ? 0)) and: {
             (nextTime / ev[\swingBase]).round.asInteger.odd

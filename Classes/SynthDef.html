@@ -113,7 +113,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul><li class='toc2'><a href='#Argument%20Rates'>Argument Rates</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Variants'>Variants</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Array%20Arguments'>Array Arguments</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Wrapping%20Example:%20'factory'%20production%20of%20effects%20defs'>Wrapping Example: 'factory' production of effects defs</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Wrapping%20Example:%20%27factory%27%20production%20of%20effects%20defs'>Wrapping Example: 'factory' production of effects defs</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#common%20argument%20names:%20out%20and%20gate'>common argument names: out and gate</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Inline%20ControlSpec%20definitions'>Inline ControlSpec definitions</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
@@ -122,7 +122,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Server'>Server</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Server>Abstractions'>Abstractions</a></span>
-</div><h1>SynthDef<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>SynthDef<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Client-side representation of a synth definition</div>
 </div>
@@ -145,7 +145,7 @@ var scdoc_sc_version = '3.15.0-dev';
 
 <p>In some cases, it is useful to send a group of values to a single control name, for instance, <code>aSynth.set(\freqs, [300, 400, 500])</code>, or for passing envelopes at Synth instantiation. This requires an <em>arrayed control</em> to be defined in the SynthDef.
 <p>There are two ways to define arrayed controls:<ol>
-<li><a href="./../Classes/NamedControl.html">NamedControl</a> -- recommended for flexibility and clarity.<li>Literal arrays (as noted above).</ol>
+<li><a href="./../Classes/NamedControl.html">NamedControl</a> — recommended for flexibility and clarity.<li>Literal arrays (as noted above).</ol>
 
 <p>NamedControl can accept default values determined in code. For example, passing an envelope requires four values per breakpoint. It is easy to create a template for the arrayed control by writing <code>NamedControl.kr(\env, Env.newClear(numSegments: 8).asArray)</code>.
 <p>Literal arrays may be more convenient for very small arrays where all of the default values are known in advance.
@@ -176,7 +176,7 @@ b = Synth(\help_isRand); // a different randomly selected freq</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Reblocking%20and%20Resampling'>Reblocking and Resampling</a></h3>
 
-<p>Since SC 3.15, Synths can be downblocked to smaller block sizes and upsampled to higher sample rates than the Server's own block size resp. sample rate. This enables things like single-sample feedback or anti-aliasing through upsampling and filtering.
+<p>Since SC 3.15, Synths can have block sizes other than the Server block size and they can be upsampled to higher sample rates than the Server sample rate. This enables things like single-sample feedback or anti-aliasing via upsampling and filtering.
 <p>Reblocking and resampling is done with the <a href="./../Classes/Reblock.html">Reblock</a> and <a href="./../Classes/Resample.html">Resample</a> objects. You can put these in your SynthDef and either pass a fixed number or a Synth argument/control.<div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef(\reblock_and_resample, { |out, blockSize=4|
     Resample(2); // 2x upsampling
@@ -222,7 +222,7 @@ d.allControlNames;</textarea>
 <p>Remove the synthdef <code>name</code> from the SynthDescLib named <code>libname</code> and from its servers.</div><h3 class='method-code'><span class='method-prefix'>SynthDef.</span><a class='method-name' name='*writeOnce' href='./../Overviews/Methods.html#writeOnce'>writeOnce</a>(<span class='argstr'>name</span>, <span class='argstr'>func</span>, <span class='argstr'>rates</span>, <span class='argstr'>prependArgs</span>, <span class='argstr'>variants</span>, <span class='argstr'>dir</span>, <span class='argstr'>metadata</span>, <span class='argstr'>mdPlugin</span>)</h3>
 <div class='method'>
 <p>Create a new SynthDef. It is written to disk only if a def file with this name does not already exist. Note that this will not check for differences, so you will need to delete the defFile to get it to rebuild. Default for dir is to use the path specified by <code>SynthDef.synthDefDir</code>.<div class='warning'><span class='warninglabel'>WARNING:</span> <code>SynthDef.writeOnce</code> is a legacy method. Its main use was to improve the efficiency of SynthDefs in quarks, but this is superseded by <a href="./../Classes/SynthDescLib.html">SynthDescLib</a>. Being completely impervious to changes, it can cause difficult-to-diagnose bugs (such as having version 1.1 of a quark but with a SynthDef stuck in version 1.0). Quark developers should now use <a href="#-add">-add</a> instead.
-<p>The exception is very large SynthDefs, where you have a choice between <a href="#-writeDefFile">-writeDefFile</a> and this method. Even then, the efficiency savings of <code>writeOnce</code> are only in disk I/O -- both methods build the SynthDef every time they run.</div></div><h3 class='method-code'><span class='method-prefix'>SynthDef.</span><a class='method-name' name='*warnAboutLargeSynthDefs' href='./../Overviews/Methods.html#warnAboutLargeSynthDefs'>warnAboutLargeSynthDefs</a></h3>
+<p>The exception is very large SynthDefs, where you have a choice between <a href="#-writeDefFile">-writeDefFile</a> and this method. Even then, the efficiency savings of <code>writeOnce</code> are only in disk I/O — both methods build the SynthDef every time they run.</div></div><h3 class='method-code'><span class='method-prefix'>SynthDef.</span><a class='method-name' name='*warnAboutLargeSynthDefs' href='./../Overviews/Methods.html#warnAboutLargeSynthDefs'>warnAboutLargeSynthDefs</a></h3>
 <h3 class='method-code'><span class='method-prefix'>SynthDef.</span><a class='method-name' name='*warnAboutLargeSynthDefs' href='./../Overviews/Methods.html#warnAboutLargeSynthDefs'>warnAboutLargeSynthDefs</a> = value</h3>
 <div class='method'>
 <p>When a SynthDef is too large to be sent to a local server in a standard OSC message, it is written to disk and the server loads it from there instead. If <code>warnAboutLargeSynthDefs</code> is set to true, it will warn that this is happening. There will always be a warning for remote servers.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
@@ -485,7 +485,7 @@ SynthDef(\arrayarg, { |out, amp = 0.1, gate = 1|
 x = Synth(\arrayarg);
 x.setn(\freqs, [440, 441, 442, 443]);
 
-// Values outside of the array bounds are ignored --
+// Values outside of the array bounds are ignored —
 // 0 is dropped
 x.setn(\freqs, [300, 400, 500, 600, 0]);
 
@@ -514,7 +514,7 @@ fork {
 };
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Wrapping%20Example:%20'factory'%20production%20of%20effects%20defs'>Wrapping Example: 'factory' production of effects defs</a></h3>
+<h3><a class='anchor' name='Wrapping%20Example:%20%27factory%27%20production%20of%20effects%20defs'>Wrapping Example: 'factory' production of effects defs</a></h3>
 <div class='codeMirrorContainer'><textarea class='editor'>// The makeEffect function below wraps a simpler function within itself and provides
 // a crossfade into the effect (so you can add it without clicks), control over wet
 // and dry mix, etc.

@@ -42,7 +42,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Server'>Server</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Server>Abstractions'>Abstractions</a></span>
-</div><h1>Reblock<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Reblock<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Change the block size of a SynthDef/Synth</div>
 </div>
@@ -51,14 +51,17 @@ var scdoc_sc_version = '3.15.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>For certain algorithms it is necessary to run a <a href="./../Classes/Synth.html">Synth</a> at a small block size. Instead of decreasing the block size of the whole Server, which could be rather wasteful, you can use the Reblock object inside a <a href="./../Classes/SynthDef.html">SynthDef</a> to only change the block size of specific Synths. (Keep in mind that very small block sizes will increase the CPU usage.)
-<p>The block size can be a constant number or it can be set dynamically via a Synth control (except for Supernova). See <a href="#*new">*new</a> for more information.<div class='note'><span class='notelabel'>NOTE:</span> For technical reasons, Supernova requires a fixed blockSize value. Trying to use a Synth control results in a warning.</div>
+<p>For certain algorithms it is necessary to run a <a href="./../Classes/Synth.html">Synth</a> at a small block size. Instead of decreasing the Server block size, which could be rather wasteful, you can use the Reblock object inside a <a href="./../Classes/SynthDef.html">SynthDef</a> to only change the block size of specific Synths. (Keep in mind that very small block sizes will increase the CPU usage.)
+<p>The block size can be a constant number or it can be set dynamically via a Synth control (except for Supernova). See <a href="#*new">*new</a> for more information.<div class='note'><span class='notelabel'>NOTE:</span> For technical reasons, Supernova requires a fixed block size value. Trying to use a Synth control results in a warning.</div>
 <p>For example, this can be used to implement very short feedback loops:<div class='codeMirrorContainer'><textarea class='editor'>// Karplus-Strong with different block sizes
 (
-SynthDef(\delay, { |out, blockSize|
+SynthDef(\delay, { |out, blockSize, upsample|
     var source, local;
 
     Reblock(blockSize);
+    Resample(upsample);
+    BlockSize.ir.poll(1, "block size");
+    SampleRate.ir.poll(1, "sr");
 
     source = Decay.ar(Impulse.ar(2), 0.1) * WhiteNoise.ar(0.2);
     local = LocalIn.ar(2) + [source, 0]; // read feedback, add to source
@@ -73,12 +76,20 @@ SynthDef(\delay, { |out, blockSize|
 
 // by default, the min. delay length is the Server block size
 Synth(\delay);
+
 // try with smaller block sizes:
 Synth(\delay, [ blockSize: 16 ]);
 Synth(\delay, [ blockSize: 4 ]);
 Synth(\delay, [ blockSize: 1 ]);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+
+<p>When combined with upsampling, you can get even shorter feedback loops:<div class='codeMirrorContainer'><textarea class='editor'>// run the feedback loop at twice the Server sample rate:
+Synth(\delay, [ blockSize: 1, upsample: 2 ]);
+// or even faster:
+Synth(\delay, [ blockSize: 1, upsample: 4 ]);</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>You can also <em>increase</em> the block size, but only up to <code>Server block size * upsample factor</code>. This can be used to save some CPU while upsampling (see <a href="./../Classes/Resample.html">Resample</a>). It can also be beneficial for FFT processing, particularly for convolving the inputs or outputs with an FIR filter kernel. (If the FFT resp. kernel size is the same as the block size, no buffering is needed and the FFT will introduce no delay.)<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Reblock.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>blockSize: 0</span>)</h3>
 <div class='method'>
 <p>Specify the block size of the Synth. You should only create this once per SynthDef. Duplicate instances generate a warning and are ignored.<h4>Arguments:</h4>
@@ -86,7 +97,7 @@ Synth(\delay, [ blockSize: 1 ]);</textarea>
 <tr><td class='argumentname'>blockSize<td class='argumentdesc'>
 <p>the block size. This can either be a constant number (e.g. 1) or a Synth control. With the latter, the block size can be set independently for each Synth. However, it cannot be modulated after the Synth has been instantiated on the Server.
 <p>The block size must be a power of two. A value of 0 means that the Server block size should be used (= no reblocking).
-<p>Currently, only downblocking is supported! A block size greater than the Server block size is ignored and results in a warning.</table><h4>Discussion:</h4>
+<p>At the moment, the block size can not be larger than <code>Server block size * resample factor</code> (see <a href="./../Classes/Resample.html">Resample</a>). For example, with 4x upsampling and a Server block size of 64 samples, the block size can be up to 256 samples. If you try to go higher, you will get a warning.</table><h4>Discussion:</h4>
 
 <p>Note that the Reblock object is <strong>not</strong> a UGen and there are certain restrictions on the types of arguments it accepts. In particular, you cannot use UGen expressions. (UGens are only evaluated after the Synth has been initialized. At this point, the block size must have already been set.) For example, the following does not work and will throw an error:<div class='codeMirrorContainer'><textarea class='editor'>// futile attempt at generating a random block size:
 Reblock(2 ** IRand(0, 4)); // -&gt; throws an error</textarea>

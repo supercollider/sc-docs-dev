@@ -29,7 +29,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul><li class='toc1'><a href='#SynthDefs%20vs.%20Functions'>SynthDefs vs. Functions</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Creating%20Variety%20with%20SynthDefs'>Creating Variety with SynthDefs</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#More%20About%20Synth'>More About Synth</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#Some%20Notes%20on%20Symbols,%20Strings,%20SynthDef%20and%20Arg%20Names'>Some Notes on Symbols, Strings, SynthDef and Arg Names</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Some%20Notes%20on%20Symbols%2C%20Strings%2C%20SynthDef%20and%20Arg%20Names'>Some Notes on Symbols, Strings, SynthDef and Arg Names</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Suggested%20Exercise'>Suggested Exercise</a></li>
 <ul class='toc'></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
@@ -144,7 +144,7 @@ x.set("freq", 660);
 x.set("freq", 880, "out", 1);
 x.free;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h2><a class='anchor' name='Some%20Notes%20on%20Symbols,%20Strings,%20SynthDef%20and%20Arg%20Names'>Some Notes on Symbols, Strings, SynthDef and Arg Names</a></h2>
+<h2><a class='anchor' name='Some%20Notes%20on%20Symbols%2C%20Strings%2C%20SynthDef%20and%20Arg%20Names'>Some Notes on Symbols, Strings, SynthDef and Arg Names</a></h2>
 
 <p>SynthDef names and argument names can be either a String, as we've seen above, or another kind of literal called a Symbol. You write symbols in one of two ways, either enclosed in single quotes: <code>'tutorial_SinOsc'</code> or preceded by a backslash: <code>\tutorial_SinOsc</code>. Like Strings Symbols are made up of alpha-numeric sequences. The difference between Strings and Symbols is that all Symbols with the same text are guaranteed to be identical, i.e. the exact same object, whereas with Strings this might not be the case. You can test for this using '==='. Execute the following and watch the post window.<div class='codeMirrorContainer'><textarea class='editor'>"a String" === "a String";     // this will post false
 \aSymbol === 'aSymbol';        // this will post true</textarea>

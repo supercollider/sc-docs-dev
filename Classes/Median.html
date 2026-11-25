@@ -38,7 +38,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Filters'>Filters</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Filters>Nonlinear'>Nonlinear</a></span>
-</div><h1>Median<span id='superclasses'> : <a href="../Classes/Filter.html">Filter</a> : <a href="../Classes/PureUGen.html">PureUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Median<span id='superclasses'> : <a href="../Classes/Filter.html">Filter</a> : <a href="../Classes/PureUGen.html">PureUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Median filter.</div>
 </div>
@@ -53,7 +53,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <p><h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>length<td class='argumentdesc'>
-<p>Number of input points in which to find the median. Must be an odd number from 1 to 31. If <code>length</code> is 1 then Median has no effect.<tr><td class='argumentname'>in<td class='argumentdesc'>
+<p>Number of input points in which to find the median. Must be an odd number from 1 to 31. If <code>length</code> is 1 then Median has no effect. Values below 1 are clipped to 1, values above 31 are clipped to 31.<tr><td class='argumentname'>in<td class='argumentdesc'>
 <p>The input signal.<tr><td class='argumentname'>mul<td class='argumentdesc'>
 <p>Output will be multiplied by this value.<tr><td class='argumentname'>add<td class='argumentdesc'>
 <p>This value will be added to the output.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>

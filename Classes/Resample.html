@@ -42,7 +42,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Server'>Server</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Server>Abstractions'>Abstractions</a></span>
-</div><h1>Resample<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Resample<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Change the sample rate of a SynthDef/Synth</div>
 </div>
@@ -55,7 +55,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>For example, with a factor of 4.0, the Synth will run at four times the Server's sample rate. Keep in mind that upsampling increases the CPU usage roughly proportionally to the upsampling factor.
 <p>The resampling factor can be a constant number or it can be set dynamically via a Synth control (except for Supernova). See <a href="#*new">*new</a> for more information.<div class='note'><span class='notelabel'>NOTE:</span> For technical reasons, Supernova requires a fixed resampling factor. Trying to use a Synth control results in a warning.</div>
 <p>For example, you can use upsampling + filtering to reduce the effects of aliasing:<div class='codeMirrorContainer'><textarea class='editor'>(
-SynthDef(\hardsync, { |out, upsample|
+SynthDef(\hardsync, { |out, upsample, blocksize|
     var sig, cutoff = 18000;
 
     Resample(upsample);
@@ -71,6 +71,7 @@ SynthDef(\hardsync, { |out, upsample|
 
 // no upsampling -&gt; lots of aliasing
 Synth(\hardsync);
+
 // watch aliasing disappear with increasing upsampling factors
 Synth(\hardsync, [ upsample: 2.0 ]);
 Synth(\hardsync, [ upsample: 4.0 ]);

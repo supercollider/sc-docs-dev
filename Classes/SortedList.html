@@ -44,7 +44,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Collections'>Collections</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Collections>Ordered'>Ordered</a></span>
-</div><h1>SortedList<span id='superclasses'> : <a href="../Classes/List.html">List</a> : <a href="../Classes/SequenceableCollection.html">SequenceableCollection</a> : <a href="../Classes/Collection.html">Collection</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>SortedList<span id='superclasses'> : <a href="../Classes/List.html">List</a> : <a href="../Classes/SequenceableCollection.html">SequenceableCollection</a> : <a href="../Classes/Collection.html">Collection</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>a Collection whose items are kept in a sorted order.</div>
 </div>
@@ -53,7 +53,13 @@ var scdoc_sc_version = '3.15.0-dev';
 <h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>SortedList.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>size: 8</span>, <span class='argstr'>function</span>)</h3>
 <div class='method'>
-<p>Creates a SortedList with the initial capacity given by <strong>size</strong> and a comparison <strong>function</strong>. The SortedList can contain equal / identical elements more than once.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p>Creates a SortedList with the initial capacity given by <strong>size</strong> and a comparison <strong>function</strong>. The SortedList can contain equal / identical elements more than once.
+<p>The function must accept two arguments and return true if and only if the first argument comes before the second argument in the sort order. If omitted, defaults to <code>{|a, b| a &lt; b}</code>. (Note that this is slightly different from what <a href="./../Classes/SequenceableCollection.html#-.sort">SequenceableCollection: -.sort</a> does by default, which uses the <code>&lt;=</code> operator instead.)<div class='codeMirrorContainer'><textarea class='editor'>t = SortedList.new(8, {|a,b| a.first &lt; b.first });
+t.add([10, "last"]);
+t.add([1, "first"]);
+t.postln;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-add' href='./../Overviews/Methods.html#add'>add</a>(<span class='argstr'>item</span>)</h3>
 <div class='method'>

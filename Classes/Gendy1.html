@@ -39,7 +39,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators'>Generators</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators>Stochastic'>Stochastic</a></span>
-</div><h1>Gendy1<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Gendy1<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Dynamic stochastic synthesis generator.</div>
 </div>
@@ -153,7 +153,7 @@ var scdoc_sc_version = '3.15.0-dev';
 
 // try out near the corners especially
     (
-        { 
+        {
             Pan2.ar(Gendy1.ar(6, 6, LFPulse.kr(MouseX.kr(0, 200), 0, 0.4, 1.0),
             SinOsc.kr(MouseY.kr(0, 200), 0, 0.5), mul: 0.2), 0.0)
         }.play

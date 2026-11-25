@@ -27,7 +27,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='toctitle'>Pattern Guide Reference 01: Pattern Internals:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Inner%20workings%20of%20patterns'>Inner workings of patterns</a></li>
 <ul class='toc'><li class='toc2'><a href='#Patterns%20as%20streams'>Patterns as streams</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Streams'%20input%20values%20(inval,%20inevent)'>Streams' input values (inval, inevent)</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Streams%27%20input%20values%20(inval%2C%20inevent)'>Streams' input values (inval, inevent)</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#embedInStream%20vs.%20asStream%20+%20next'>embedInStream vs. asStream + next</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Writing%20patterns:%20other%20factors'>Writing patterns: other factors</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Cleaning%20up%20event%20pattern%20resources'>Cleaning up event pattern resources</a></li>
@@ -105,10 +105,10 @@ p.next;    // no more Pgeom items; Pseq has no more items, so it returns to Rout
 }</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Because of this inheritance, Prand simply expresses its behavior as a <code>do</code> loop, choosing <code>repeats</code> items randomly from the list and embedding them into the stream. When the loop is finished, the method returns the input value (see below).<h3><a class='anchor' name='Streams'%20input%20values%20(inval,%20inevent)'>Streams' input values (inval, inevent)</a></h3>
+<p>Because of this inheritance, Prand simply expresses its behavior as a <code>do</code> loop, choosing <code>repeats</code> items randomly from the list and embedding them into the stream. When the loop is finished, the method returns the input value (see below).<h3><a class='anchor' name='Streams%27%20input%20values%20(inval%2C%20inevent)'>Streams' input values (inval, inevent)</a></h3>
 
 <p>Before discussing input values in patterns, let's take a step back and discuss how it works for Routines.
-<p><a href="./../../Classes/Routine.html">Routine</a>'s <code>next</code> method takes one argument, which is passed into the stream (Routine). The catch is that the routine doesn't start over from the beginning -- if it did, it would lose its unique advantage of remembering its position and resuming on demand. So it isn't sufficient to receive the argument using the routine function's argument variable.
+<p><a href="./../../Classes/Routine.html">Routine</a>'s <code>next</code> method takes one argument, which is passed into the stream (Routine). The catch is that the routine doesn't start over from the beginning — if it did, it would lose its unique advantage of remembering its position and resuming on demand. So it isn't sufficient to receive the argument using the routine function's argument variable.
 <p>In reality, when a Routine yields a value, its execution is interrupted after calling <code>yield</code>, but before <code>yield</code> returns. Then, when the Routine is asked for its next value, execution resumes by providing a return value from the <code>yield</code> method. (This behavior isn't visible in the SuperCollider code in the class library; <code>yield</code> is a primitive in the C++ backend, which is how it's able to do something that is otherwise impossible in the language.)
 <p>For a quick example, consider a routine that is supposed to multiply the input value by two. First, the wrong way, assuming that everything is done by the function argument <code>inval</code>. In reality, the first <code>inval</code> to come in is <code>1</code>. Since nothing in the routine changes the value of <code>inval</code>, the routine yields the same value each time.<div class='codeMirrorContainer'><textarea class='editor'>r = Routine({ |inval|
     loop {
@@ -129,7 +129,7 @@ p.next;    // no more Pgeom items; Pseq has no more items, so it returns to Rout
 (1..3).do { |x| r.next(x).postln };</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>This convention -- receiving the first input value as an argument, and subsequent input values as a result of a method call -- holds true for the <code>embedInStream</code> method in patterns also. The rules are:<ul>
+<p>This convention — receiving the first input value as an argument, and subsequent input values as a result of a method call — holds true for the <code>embedInStream</code> method in patterns also. The rules are:<ul>
 <li><code>embedInStream</code> takes <strong>one argument</strong>, which is the first input value.<li>When the pattern needs to yield a value directly, or embed an item into the stream, it receives the next input value as the result of <code>yield</code> or <code>embedInStream</code> : <code>inval = output.yield</code> or <code>output.embedInStream(inval)</code>.<li>When the pattern exits, it must return the last input value, so that the parent pattern will get the input value as the result of its <code>embedInStream</code> call: <code>^inval</code>.</ul>
 
 <p>By following these rules, <code>embedInStream</code> becomes a near twin of <code>yield</code>. Both do essentially the same thing: spit values out to the user, and come back with the next input value. The only difference is that yield can return only one object to the <code>next</code> caller, while <code>embedInStream</code> can yield several in succession.
@@ -183,7 +183,7 @@ p.nextN(20);    // no matter how long you do this, it'll never be &gt; 9!</texta
         var loStr = lo.asStream;
         var hiStr = hi.asStream;
         var hiVal, loVal;
-            // length.value -- functions allowed for length
+            // length.value — functions allowed for length
             // e.g., Pwhite could give a random number of values for each embed
         length.value.do({
             hiVal = hiStr.next(inval);

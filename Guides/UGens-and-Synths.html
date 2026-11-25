@@ -25,7 +25,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <body onload='fixTOC()'>
 <div id='toc'>
 <div id='toctitle'>Unit Generators and Synths:</div>
-<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Instantiation.%20Audio%20Rate,%20Control%20Rate'>Instantiation. Audio Rate, Control Rate</a></li>
+<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Instantiation.%20Audio%20Rate%2C%20Control%20Rate'>Instantiation. Audio Rate, Control Rate</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#SynthDefs%20and%20Synths'>SynthDefs and Synths</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Building%20Patches'>Building Patches</a></li>
 <ul class='toc'></ul></ul></div><div id='menubar'></div>
@@ -41,7 +41,7 @@ var scdoc_sc_version = '3.15.0-dev';
 </div>
 
 <p>A unit generator is an object that processes or generates sound. There are many classes of unit generators, all of which derive from the class <a href="./../Classes/UGen.html">UGen</a>.
-<p>Unit generators in SuperCollider can have many inputs, but always have a single output. Unit generator classes which would naturally have several outputs such as a panner, return an array of unit generators when instantiated. The convention of having only a single output per unit generator allows the implementation of multiple channels by using arrays of unit generators. (See <a href="./../Guides/Multichannel-Expansion.html">Multichannel Expansion</a> for more details.)<h2><a class='anchor' name='Instantiation.%20Audio%20Rate,%20Control%20Rate'>Instantiation. Audio Rate, Control Rate</a></h2>
+<p>Unit generators in SuperCollider can have many inputs, but always have a single output. Unit generator classes which would naturally have several outputs such as a panner, return an array of unit generators when instantiated. The convention of having only a single output per unit generator allows the implementation of multiple channels by using arrays of unit generators. (See <a href="./../Guides/Multichannel-Expansion.html">Multichannel Expansion</a> for more details.)<h2><a class='anchor' name='Instantiation.%20Audio%20Rate%2C%20Control%20Rate'>Instantiation. Audio Rate, Control Rate</a></h2>
 
 <p>A unit generator is created by sending the 'ar' or 'kr' message to the unit generator's class object. The 'ar' message creates a unit generator that runs at audio rate. The 'kr' message creates a unit generator that runs at control rate. Control rate unit generators are used for low frequency or slowly changing control signals. Control rate unit generators produce only a single sample per control cycle and therefore use less processing power than audio rate unit generators.
 <p>The input parameters for a unit generator are given in the documentation for that class.<div class='codeMirrorContainer'><textarea class='editor'>FSinOsc.ar(800, 0.0, 0.2); // create a sine oscillator at 800 Hz, phase 0.0, amplitude 0.2</textarea>

@@ -1,0 +1,157 @@
+<!doctype html><html lang='en'><head><title>ErrorWrapper | SuperCollider 3.15.0-dev Help</title>
+<link rel='stylesheet' href='./../static/scdoc.css' type='text/css' />
+<link rel='stylesheet' href='./../static/codemirror.css' type='text/css' />
+<link rel='stylesheet' href='./../static/editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../static/themes/default.css' type='text/css' />
+<link rel='stylesheet' href='./../frontend.css' type='text/css' />
+<link rel='stylesheet' href='./../custom.css' type='text/css' />
+<link rel='stylesheet' href='./../static/lib/katex/katex.min.css' />
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<script src='./../static/lib/jquery.min.js'></script>
+<script src='./../static/lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
+<script src='./../static/lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../static/lib/katex/katex.min.js' type='text/javascript'></script>
+<script>
+var helpRoot = './..';
+var scdoc_title = 'ErrorWrapper';
+var scdoc_sc_version = '3.15.0-dev';
+</script>
+<script src='./../static/scdoc.js' type='text/javascript'></script>
+<script src='./../docmap.js' type='text/javascript'></script>
+<script src='./../frontend.js' type='text/javascript'></script>
+<script src='qrc:///qtwebchannel/qwebchannel.js' type='text/javascript'></script>
+</head>
+<body onload='fixTOC()'>
+<div id='toc'>
+<div id='toctitle'>ErrorWrapper:</div>
+<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#description'>Description</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
+<ul class='toc'><li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
+<li class='toc2'><a href='#Undocumented%20class%20methods'>Undocumented class methods</a></li>
+<ul class='toc'><li class='toc3'><a href='#*new'>new</a> </li>
+</ul></ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
+<ul class='toc'><li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
+<li class='toc2'><a href='#Undocumented%20instance%20methods'>Undocumented instance methods</a></li>
+<ul class='toc'><li class='toc3'><a href='#-reportStage1'>reportStage1</a> </li>
+<li class='toc3'><a href='#-reportStage2'>reportStage2</a> </li>
+<li class='toc3'><a href='#-wrapped'>wrapped</a> </li>
+</ul></ul></ul></div><div id='menubar'></div>
+<div class='contents'>
+<div class='header'>
+<div id='label'>
+<span id='folder'>Classes</span>
+ | <span id='categories'><a href='./../Browse.html#Core'>Core</a></span>
+</div><h1>ErrorWrapper<span id='superclasses'> : <a href="../Classes/Error.html">Error</a> : <a href="../Classes/Exception.html">Exception</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
+</h1>
+<div id='summary'>Error used to wrap another error</div>
+</div>
+<div class='subheader'>
+<div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Core/Error.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Core/Error.sc'>Error.sc</a></div><div id='related'>See also: <a href="./../Classes/Error.html">Error</a></div>
+</div>
+<h2><a class='anchor' name='description'>Description</a></h2>
+
+<p>Used to wrap an existing error, providing more context through the <code>what</code> string while preserving the original backtrace. It can be nested.
+<p>Here is an example using two functions <code>f</code> and <code>g</code> and a top level try that catches everything.<div class='codeMirrorContainer'><textarea class='editor'>(
+var f = { |a|
+    if (a &lt; 0 ) {
+        Error("Negative values are not allowed", [nil, "a negative value was passed here"]).throw
+    } {
+        f.(a - 1)
+    }
+};
+
+var g = {
+    try { f.(3) } { |e| ErrorWrapper(e, "Thrown while calling f").throw }
+};
+
+try { g.() } { |e| ErrorWrapper(e, "Thrown at top level").throw }
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>This produces a backtrace as follows.<div class='codeMirrorContainer'><textarea class='editor'>──────────────────────────────────────────────────────────────────────────────────
+ERROR: Thrown at top level
+
+Wrapped error: Thrown at top level
+     Wrapped error: Thrown while calling f
+
+          6   : Anonymous Function
+                              file://interpreted_text:13:14
+                      11 │ var g = {
+                      12 │     try {
+                      13 │         f.(3)
+                         ┆         ^^^^^
+                      14 │     } { |e|
+                      15 │         ErrorWrapper(e, "Thrown while calling f").throw
+                      16 │     }
+          5   : Function Name: 'f'
+          4   : Function Name: 'f'
+          3   : Function Name: 'f'
+                 args: a=Integer(1)
+                              file://interpreted_text:7:18
+                       5 │         Error("Negative values are not allowed", [nil, "a negative value was passed here"]).throw
+                       6 │     } {
+                       7 │         f.(a - 1)
+                         ┆         ^^^^^^^^^
+                       8 │     }
+                       9 │ };
+                      10 │
+          2   : Function Name: 'f'
+                 args: a=Integer(0)
+                              file://interpreted_text:7:18
+                       5 │         Error("Negative values are not allowed", [nil, "a negative value was passed here"]).throw
+                       6 │     } {
+                       7 │         f.(a - 1)
+                         ┆         ^^^^^^^^^ a negative value was passed here
+                       8 │     }
+                       9 │ };
+                      10 │
+          1   : Function Name: 'f'
+                 args: a=Integer(-1)
+                              file://interpreted_text:5:92
+                       3 │ var f = { |a|
+                       4 │     if (a &lt; 0 ) {
+                       5 │         Error("Negative values are not allowed", [nil, "a negative value was passed here"]).throw
+                         ┆         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       6 │     } {
+                       7 │         f.(a - 1)
+                       8 │     }
+     Thrown while calling f
+     1   : Anonymous Function
+            args: e=
+                    file://interpreted_text:15:50
+                 13 │         f.(3)
+                 14 │     } { |e|
+                 15 │         ErrorWrapper(e, "Thrown while calling f").throw
+                    ┆         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 16 │     }
+                 17 │ };
+                 18 │
+Thrown at top level
+1   : Anonymous Function
+       args: e=
+          file://interpreted_text:22:43
+            20 │     g.()
+            21 │ } { |e|
+            22 │     ErrorWrapper(e, "Thrown at top level").throw
+               ┆     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            23 │ }
+            24 │
+            25 │ )
+
+──────────────────────────────────────────────────────────────────────────────────</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
+<h3 class='method-code'><span class='method-prefix'>ErrorWrapper.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>wrapped</span>, <span class='argstr'>what</span>, <span class='argstr'>callFrameAnnotations</span>, <span class='argstr'>methodBeforeBacktraceStart</span>, <span class='argstr'>methodBacktraceEnd</span>)</h3>
+<h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
+<h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
+<div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reportStage1' href='./../Overviews/Methods.html#reportStage1'>reportStage1</a>(<span class='argstr'>stream</span>, <span class='argstr'>prefix</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reportStage2' href='./../Overviews/Methods.html#reportStage2'>reportStage2</a>(<span class='argstr'>stream</span>, <span class='argstr'>prefix</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wrapped' href='./../Overviews/Methods.html#wrapped'>wrapped</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wrapped' href='./../Overviews/Methods.html#wrapped'>wrapped</a> = value</h3>
+<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ErrorWrapper.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/ErrorWrapper.schelp</a><br>link::Classes/ErrorWrapper::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
+</body></html>

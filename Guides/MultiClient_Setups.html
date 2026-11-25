@@ -26,7 +26,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='toc'>
 <div id='toctitle'>Multi-client Setups:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Multi%20client-server%20setups%20-%20discussion%20and%20tests'>Multi client-server setups - discussion and tests</a></li>
-<ul class='toc'><li class='toc2'><a href='#What%20are%20clientIDs,%20and%20how%20do%20servers%20get%20them?'>What are clientIDs, and how do servers get them?</a></li>
+<ul class='toc'><li class='toc2'><a href='#What%20are%20clientIDs%2C%20and%20how%20do%20servers%20get%20them?'>What are clientIDs, and how do servers get them?</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Code%20examples%20and%20tests'>Code examples and tests</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Separate%20defaultGroups'>Separate defaultGroups</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Easy-to-trace%20nodeIDs'>Easy-to-trace nodeIDs</a></li>
@@ -46,7 +46,7 @@ var scdoc_sc_version = '3.15.0-dev';
 </div>
 <a class='anchor' name='kw_server'>&nbsp;</a><a class='anchor' name='kw_multi-client'>&nbsp;</a><h2><a class='anchor' name='Multi%20client-server%20setups%20-%20discussion%20and%20tests'>Multi client-server setups - discussion and tests</a></h2>
 
-<p>OSC communication between SC and its sound server offers many options for network music: Multiple computers can run both supercollider and associated sound servers. For clarity, the "server process" refers to a running scsynth or supernova process. The "server object" AKA "client" is the server's representation in sclang, such as <code>Server.local, s, Server(\elsewhere, NetAddr("163.234.56.78"))</code>.<h3><a class='anchor' name='What%20are%20clientIDs,%20and%20how%20do%20servers%20get%20them?'>What are clientIDs, and how do servers get them?</a></h3>
+<p>OSC communication between SC and its sound server offers many options for network music: Multiple computers can run both supercollider and associated sound servers. For clarity, the "server process" refers to a running scsynth or supernova process. The "server object" AKA "client" is the server's representation in sclang, such as <code>Server.local, s, Server(\elsewhere, NetAddr("163.234.56.78"))</code>.<h3><a class='anchor' name='What%20are%20clientIDs%2C%20and%20how%20do%20servers%20get%20them?'>What are clientIDs, and how do servers get them?</a></h3>
 
 <p>When more than one user plays on a given server, some resources need to be shared between users/clients:<ul>
 <li>permanent and temporary nodeIDs (handled by Server:nodeAllocator),<li>private control and audio bus channels (handled by Server:audioBusAllocator, Server:controlBusAllocator)<li>buffer numbers (handled by Server:bufferAllocator).</ul>

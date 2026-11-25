@@ -27,7 +27,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='toctitle'>jitlib_basic_concepts_03:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#a)%20NodeProxy%20slots'>a) NodeProxy slots</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#b)%20fade%20time'>b) fade time</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#c)%20play/stop,%20send/free,%20pause/resume'>c) play/stop, send/free, pause/resume</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#c)%20play/stop%2C%20send/free%2C%20pause/resume'>c) play/stop, send/free, pause/resume</a></li>
 <ul class='toc'><li class='toc2'><a href='#play/stop'>play/stop</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#send%20/%20release'>send / release</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#pause%20/%20resume'>pause / resume</a></li>
@@ -47,7 +47,7 @@ var scdoc_sc_version = '3.15.0-dev';
 </div>
 
 <p>internal structure of the node proxy, node order and the parameter context<ul>
-<li><a href="#a)%20NodeProxy%20slots">a) slots</a><li><a href="#b)%20fade%20time">b) fadeTime</a><li><a href="#c)%20play/stop,%20send/free,%20pause/resume">c) play/stop, send/release, pause/resume, clear</a><li><a href="#d)%20The%20parameter%20context">d) the parameter context</a></ul>
+<li><a href="#a)%20NodeProxy%20slots">a) slots</a><li><a href="#b)%20fade%20time">b) fadeTime</a><li><a href="#c)%20play/stop%2C%20send/free%2C%20pause/resume">c) play/stop, send/release, pause/resume, clear</a><li><a href="#d)%20The%20parameter%20context">d) the parameter context</a></ul>
 
 <p>A NodeProxy has two internal contexts in which the objects are inserted: The group, which is on the server, and the nodeMap, which is a client side parameter context. As the group can contain an order of synths, there is a client side representation, in which the source objects are stored (see <a href="./../../Classes/Order.html">Order</a>).<div class='codeMirrorContainer'><textarea class='editor'>// make new space
 p = ProxySpace.push(s.boot);
@@ -104,7 +104,7 @@ p = ProxySpace.push(s.boot);
 ~z.fadeTime = 0.2;
 ~z = { max(SinOsc.ar(ExpRand(3, 160)), Saw.ar([304, 304.3])) * 0.1 };</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<div class='note'><span class='notelabel'>NOTE:</span> the fadeTime is also used for the operations xset and xmap. (see below)</div><h2><a class='anchor' name='c)%20play/stop,%20send/free,%20pause/resume'>c) play/stop, send/free, pause/resume</a></h2>
+<div class='note'><span class='notelabel'>NOTE:</span> the fadeTime is also used for the operations xset and xmap. (see below)</div><h2><a class='anchor' name='c)%20play/stop%2C%20send/free%2C%20pause/resume'>c) play/stop, send/free, pause/resume</a></h2>
 
 <p>there are a couple of messages a NodeProxy understands that are related to play, stop etc. Here is what they do.<h3><a class='anchor' name='play/stop'>play/stop</a></h3>
 

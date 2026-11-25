@@ -44,7 +44,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Streams-Patterns-Events>Patterns'>Patterns</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Streams-Patterns-Events>Patterns>Repetition'>Repetition</a></span>
-</div><h1>Psync<span id='superclasses'> : <a href="../Classes/FilterPattern.html">FilterPattern</a> : <a href="../Classes/Pattern.html">Pattern</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Psync<span id='superclasses'> : <a href="../Classes/FilterPattern.html">FilterPattern</a> : <a href="../Classes/Pattern.html">Pattern</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>synchronise and limit pattern duration</div>
 </div>
@@ -53,7 +53,7 @@ var scdoc_sc_version = '3.15.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Psync behaves somewhat like <a href="./../Classes/Pfindur.html">Pfindur</a> -- it has a <code>maxdur</code> argument that limits the total duration of the event stream.
+<p>Psync behaves somewhat like <a href="./../Classes/Pfindur.html">Pfindur</a> — it has a <code>maxdur</code> argument that limits the total duration of the event stream.
 <p>The difference is in what happens if the event pattern stops on its own before <code>maxdur</code> is reached. If the total duration of the event pattern is shorter than the given maximum duration:<ul>
 <li>Pfindur simply ends: no further time manipulation.<li>Psync inserts a rest to round the total duration up to the nearest multiple of the given <code>quant</code>.</ul>
 <table>

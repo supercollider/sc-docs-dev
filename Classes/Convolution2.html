@@ -38,7 +38,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>FFT'>FFT</a> | <a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Convolution'>Convolution</a></span>
-</div><h1>Convolution2<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Convolution2<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Real-time fixed kernel convolver.</div>
 </div>
@@ -181,24 +181,24 @@ b.sine1(1.0/[1, 2, 3, 4, 5, 6], true, true, true);
 (
 x = { |i_kernel, density = 100, trigPeriod = 5.0, cutOff = 1000, minFreq = 200, maxFreq = 2000|
     var input, trigFreq, recTrig, irSig, convTrig, convTrigs, bufFrames, conv1, conv2;
-    
+
     input = LPF.ar(Dust2.ar(density), cutOff);
     trigFreq = trigPeriod.reciprocal;
     recTrig = Impulse.kr(trigFreq);
     irSig = Saw.ar(TExpRand.kr(minFreq, maxFreq, recTrig), 0.4);
     RecordBuf.ar(irSig, i_kernel, recTrig, loop: 0, trigger: recTrig);
-    
+
     convTrig = TDelay.kr(recTrig, BufDur.ir(i_kernel));
-    // split updates across two triggers. 
+    // split updates across two triggers.
     // Note that [1, 0] creates a MultiChannel expansion!
     convTrigs = PulseDivider.kr(convTrig, 2, [1, 0]);
-    
+
     bufFrames = BufFrames.ir(i_kernel);
     // create the two alternatingly updated convolution ugens
     #conv1, conv2 = Convolution2.ar(input, i_kernel, convTrigs, bufFrames);
-    
+
     XFade2.ar(conv1, conv2, LFTri.kr(trigFreq * 0.5, 1)) ! 2;
-    
+
 }.play(s, [\i_kernel, b]);
 )
 

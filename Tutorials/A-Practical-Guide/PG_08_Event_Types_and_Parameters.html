@@ -157,7 +157,7 @@ a.free;</textarea>
 </dl>
 <h3><a class='anchor' name='Buffer%20control'>Buffer control</a></h3>
 
-<p>All of these buffer event types expect the buffer number to be provided. They will not automatically get a buffer number from the server's buffer allocator. A Buffer object is allowed -- you could create the Buffer first using <code>Buffer.alloc</code> or <code>Buffer.new</code> and then use this object in the control events. See also <a href="#Event%20types%20with%20cleanup">Event types with cleanup</a> below for other, user-friendlier Buffer control options.<dl>
+<p>All of these buffer event types expect the buffer number to be provided. They will not automatically get a buffer number from the server's buffer allocator. A Buffer object is allowed — you could create the Buffer first using <code>Buffer.alloc</code> or <code>Buffer.new</code> and then use this object in the control events. See also <a href="#Event%20types%20with%20cleanup">Event types with cleanup</a> below for other, user-friendlier Buffer control options.<dl>
 <dt>alloc<dd>Allocate memory for a buffer on the server. Only one buffer may be allocated per event.<dl>
 <dt>Standard Timing control arguments<dd><dt>bufnum, numchannels, numframes<dd>See the <a href="./../../Classes/Buffer.html">Buffer</a> help file.</dl>
 <dt>free<dd>Deallocate the buffer's memory on the server.<dl>
@@ -244,7 +244,7 @@ m = MIDIOut(0);
 (type: \composite, types: [\note, \midi], midiout: m, degree: 0, dur: 3).play;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <dt>phrase<dd>See <a href="./../../Tutorials/JITLib/recursive_phrasing.html">recursive_phrasing</a>.<dt>setProperties<dd>Set variables belonging to a given object. One possible use is to control a GUI using a pattern.<dl>
-<dt>receiver<dd>The object to be modified.<dt>args<dd>The list of variable names to set in the receiver. The receiver should have a setter method -- variableName_ -- for each of these. New values will be looked up in the event.</dl>
+<dt>receiver<dd>The object to be modified.<dt>args<dd>The list of variable names to set in the receiver. The receiver should have a setter method — variableName_ — for each of these. New values will be looked up in the event.</dl>
 <div class='codeMirrorContainer'><textarea class='editor'>// Visualize Brownian motion
 w = Window("Brownian motion", Rect(10, 100, 500, 50));
 x = Slider(w, Rect(10, 15, 480, 20));

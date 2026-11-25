@@ -38,7 +38,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators'>Generators</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators>Stochastic'>Stochastic</a></span>
-</div><h1>Gendy3<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Gendy3<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Dynamic stochastic synthesis generator.</div>
 </div>
@@ -132,8 +132,8 @@ var scdoc_sc_version = '3.15.0-dev';
 // Gendy1 into Gendy2 into Gendy3...with cartoon side effects
 (
 { Pan2.ar(
-    Gendy3.ar(1, 2, freq: Gendy2.ar(maxfreq: Gendy1.kr(5, 4, 0.3, 0.7, 0.1, MouseY.kr(0.1, 10), 1.0, 1.0, 5, 5, 25, 26), minfreq: 24, knum: MouseX.kr(1, 13), mul: 150, add: 200), durscale: 0.01, ampscale: 0.01, mul: 0.1), 
-    0.0) 
+    Gendy3.ar(1, 2, freq: Gendy2.ar(maxfreq: Gendy1.kr(5, 4, 0.3, 0.7, 0.1, MouseY.kr(0.1, 10), 1.0, 1.0, 5, 5, 25, 26), minfreq: 24, knum: MouseX.kr(1, 13), mul: 150, add: 200), durscale: 0.01, ampscale: 0.01, mul: 0.1),
+    0.0)
 }.play
 )
 
@@ -170,14 +170,14 @@ var scdoc_sc_version = '3.15.0-dev';
 (
 {
     var n = 15;
-    
+
     0.5 * Mix.fill(n, {
         var freq, numcps;
-        
+
         freq = rrand(130, 160.3);
         numcps = rrand(2, 20);
         Pan2.ar(
-            Gendy3.ar(6.rand, 6.rand, 10.0.rand, 10.0.rand, freq*exprand(1.0, 2.0), 10.0.rand, 10.0.rand, numcps, SinOsc.kr(exprand(0.02, 0.2), 0, numcps/2, numcps/2), 0.5/(n.sqrt)), 
+            Gendy3.ar(6.rand, 6.rand, 10.0.rand, 10.0.rand, freq*exprand(1.0, 2.0), 10.0.rand, 10.0.rand, numcps, SinOsc.kr(exprand(0.02, 0.2), 0, numcps/2, numcps/2), 0.5/(n.sqrt)),
             1.0.rand2
         )
     });
@@ -188,15 +188,15 @@ var scdoc_sc_version = '3.15.0-dev';
 (
 {
     var n = 10;
-    
+
     Resonz.ar(
         Mix.fill(n, {
             var freq, numcps;
-            
+
             freq = rrand(50, 560.3);
             numcps = rrand(2, 20);
             Pan2.ar(
-                Gendy3.ar(6.rand, 6.rand, 1.0.rand, 1.0.rand, freq, 1.0.rand, 1.0.rand, numcps, SinOsc.kr(exprand(0.02, 0.2), 0, numcps/2, numcps/2), 0.5/(n.sqrt)), 
+                Gendy3.ar(6.rand, 6.rand, 1.0.rand, 1.0.rand, freq, 1.0.rand, 1.0.rand, numcps, SinOsc.kr(exprand(0.02, 0.2), 0, numcps/2, numcps/2), 0.5/(n.sqrt)),
                 1.0.rand2
             )
         }),

@@ -65,7 +65,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Control'>Control</a> | <a href='./../Browse.html#Server'>Server</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Server>NRT'>NRT</a> | <a href='./../Browse.html#External Control'>External Control</a>&#8201;&gt;&#8201;<a href='./../Browse.html#External Control>OSC'>OSC</a></span>
-</div><h1>Score<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Score<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>score of timed OSC commands</div>
 </div>
@@ -88,7 +88,8 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>Score scheduling defaults to <a href="./../Classes/TempoClock.html">TempoClock</a>. A setting of <code>TempoClock.default.tempo = 1</code> (60 beats per minute), may be used to express score events in seconds if desired.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Score.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>list</span>)</h3>
 <div class='method'>
-<p>returns a new Score object with the supplied list.<h4>Arguments:</h4>
+<p>returns a new Score object with the supplied list.
+<p>The score is automatically sorted by ascending timestamps, so it is not necessary to call <a href="#-sort">-sort</a> unless you modify the score afterwards.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>list<td class='argumentdesc'>
 <p>can be an <a href="./../Classes/Array.html">Array</a>, a <a href="./../Classes/List.html">List</a>, or similar object.</table></div><h3 class='method-code'><span class='method-prefix'>Score.</span><a class='method-name' name='*newFromFile' href='./../Overviews/Methods.html#newFromFile'>newFromFile</a>(<span class='argstr'>path</span>)</h3>
@@ -123,15 +124,20 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>a convenience method to synthesize <strong>list</strong> in non-realtime. This method writes an OSC file to <strong>oscFilePath</strong> (you have to do your own cleanup if desired) and then starts a server app to synthesize it. For details on valid headerFormats and sampleFormats see <a href="./../Classes/SoundFile.html">SoundFile</a>. Use <code>TempoClock.default</code> as a tempo base. Does not return an instance.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>list<td class='argumentdesc'>
-<p>the list.<tr><td class='argumentname'>oscFilePath<td class='argumentdesc'>
-<p>the path to which the binary OSC file will be written.<tr><td class='argumentname'>outputFilePath<td class='argumentdesc'>
-<p>the path of the resultant soundfile.<tr><td class='argumentname'>inputFilePath<td class='argumentdesc'>
-<p>an optional path for an input soundfile.<tr><td class='argumentname'>sampleRate<td class='argumentdesc'>
-<p>the sample rate at which synthesis will occur.<tr><td class='argumentname'>headerFormat<td class='argumentdesc'>
-<p>the header format of the output file. The default is 'AIFF'.<tr><td class='argumentname'>sampleFormat<td class='argumentdesc'>
-<p>the sample format of the output file. The default is 'int16'.<tr><td class='argumentname'>options<td class='argumentdesc'>
-<p>an instance of <a href="./../Classes/ServerOptions.html">ServerOptions</a>. If not supplied the options of the default <a href="./../Classes/Server.html">Server</a> will be used.<tr><td class='argumentname'>completionString<td class='argumentdesc'><tr><td class='argumentname'>duration<td class='argumentdesc'><tr><td class='argumentname'>action<td class='argumentdesc'>
-<p>A function to be evaluated once the NRT server has finished rendering its score.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p>the list. It is sorted automatically by timestamp.<tr><td class='argumentname'>oscFilePath<td class='argumentdesc'>
+<p>the path to which the binary OSC file will be written.
+<p>If <code>nil</code> (= default), Score will generate a temporary filename for you.<tr><td class='argumentname'>outputFilePath<td class='argumentdesc'>
+<p>the path of the resulting soundfile.<tr><td class='argumentname'>inputFilePath<td class='argumentdesc'>
+<p>an optional path for an input soundfile. Its contents will be streamed to the NRT server's hardware input buses.<div class='note'><span class='notelabel'>NOTE:</span> Make sure that <code>numInputBusChannels</code> in the Server options matches the channel count of the input soundfile, otherwise you will get a warning. In case of a mismatch, extra channels are ignored and missing channels are filled with silence.</div><tr><td class='argumentname'>sampleRate<td class='argumentdesc'>
+<p>the sample rate at which synthesis will occur.<div class='note'><span class='notelabel'>NOTE:</span> The <code>sampleRate</code> argument must match the sample rate of the input soundfile, if provided.</div><tr><td class='argumentname'>headerFormat<td class='argumentdesc'>
+<p>the header format of the output file. The default is 'AIFF'. See <a href="./../Classes/SoundFile.html#-headerFormat">SoundFile: -headerFormat</a> for valid format strings.<tr><td class='argumentname'>sampleFormat<td class='argumentdesc'>
+<p>the sample format of the output file. The default is 'int16'. See <a href="./../Classes/SoundFile.html#-sampleFormat">SoundFile: -sampleFormat</a> for valid format strings.<tr><td class='argumentname'>options<td class='argumentdesc'>
+<p>an instance of <a href="./../Classes/ServerOptions.html">ServerOptions</a>. If not supplied the options of the default <a href="./../Classes/Server.html">Server</a> will be used.
+<p>You should at least specify the number of output channels, e.g. <code>ServerOptions.new.numOutputBusChannels_(4)</code>. If you use an input file, make sure to also specify <code>numInputBusChannels</code>!<tr><td class='argumentname'>completionString<td class='argumentdesc'>
+<p>a string that is appended to the Server program command line. (The purpose is not entirely clear.)<tr><td class='argumentname'>duration<td class='argumentdesc'>
+<p>the score duration in seconds. If provided, a dummy command is automatically added to obtain the desired duration; score elements beyond the given duration are silently discarded. If <code>nil</code> (= default), the duration is automatically inferred from the score.<tr><td class='argumentname'>action<td class='argumentdesc'>
+<p>A function to be evaluated once the NRT server has finished rendering its score.
+<p>The action receives the exit code of the Server process as its first argument. 0 means that NRT synthesis has completed without errors. A non-zero exit code means that an error has occurred.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Score.</span><a class='method-name' name='*options' href='./../Overviews/Methods.html#options'>options</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Score.</span><a class='method-name' name='*options' href='./../Overviews/Methods.html#options'>options</a> = value</h3>
@@ -157,7 +163,8 @@ x.score</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sort' href='./../Overviews/Methods.html#sort'>sort</a></h3>
 <div class='method'>
-<p>sort the score time order. This is recommended to do <strong>before recordNRT or write</strong> when you are not sure about the packet order.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-recordNRT' href='./../Overviews/Methods.html#recordNRT'>recordNRT</a>(<span class='argstr'>oscFilePath</span>, <span class='argstr'>outputFilePath</span>, <span class='argstr'>inputFilePath</span>, <span class='argstr'>sampleRate: 44100</span>, <span class='argstr'>headerFormat: "AIFF"</span>, <span class='argstr'>sampleFormat: "int16"</span>, <span class='argstr'>options</span>, <span class='argstr'>completionString: ""</span>, <span class='argstr'>duration</span>, <span class='argstr'>action</span>)</h3>
+<p>sort the score by ascending timestamps. The relative order of bundles with the same timestamp is preserved!
+<p>The initial list passed to the <a href="#*new">*new</a> method is sorted automatically. If you modify the score afterwards, it is recommended to sort it <strong>before recordNRT or write</strong> when you are not sure about the bundle order.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-recordNRT' href='./../Overviews/Methods.html#recordNRT'>recordNRT</a>(<span class='argstr'>oscFilePath</span>, <span class='argstr'>outputFilePath</span>, <span class='argstr'>inputFilePath</span>, <span class='argstr'>sampleRate: 44100</span>, <span class='argstr'>headerFormat: "AIFF"</span>, <span class='argstr'>sampleFormat: "int16"</span>, <span class='argstr'>options</span>, <span class='argstr'>completionString: ""</span>, <span class='argstr'>duration</span>, <span class='argstr'>action</span>)</h3>
 <div class='method'>
 <p>synthesize the score in non-realtime. For details of the arguments see <a href="#*recordNRT">*recordNRT</a> above.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-saveToFile' href='./../Overviews/Methods.html#saveToFile'>saveToFile</a>(<span class='argstr'>path</span>)</h3>
 <div class='method'>
@@ -204,16 +211,17 @@ Score.writeFromFile(Platform.defaultTempDir +/+ "score-test", Platform.defaultTe
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Score also provides methods to do all this more directly:<div class='codeMirrorContainer'><textarea class='editor'>(
-var f, o;
+var g, o;
 g = [
     [0.1, [\s_new, \helpscore, 1000, 0, 0, \freq, 440]],
     [0.2, [\s_new, \helpscore, 1001, 0, 0, \freq, 660],
         [\s_new, \helpscore, 1002, 0, 0, \freq, 880]],
-    [0.3, [\s_new, \helpscore, 1003, 0, 0, \freq, 220]],
-    [1, [\c_set, 0, 0]] // finish
-    ];
+    [0.3, [\s_new, \helpscore, 1003, 0, 0, \freq, 220]]
+    // unlike in the example above, we do not have to add a dummy command
+    // because Score.recordNRT allows us to directly specify the duration.
+];
 o = ServerOptions.new.numOutputBusChannels = 1; // mono output
-Score.recordNRT(g, Platform.defaultTempDir +/+ "help-oscFile", Platform.defaultTempDir +/+ "helpNRT.aiff", options: o); // synthesize
+Score.recordNRT(g, Platform.defaultTempDir +/+ "help-oscFile", Platform.defaultTempDir +/+ "helpNRT.aiff", options: o, duration: 1.0); // synthesize
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Real-time%20Examples'>Real-time Examples</a></h3>

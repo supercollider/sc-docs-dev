@@ -81,7 +81,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <h2><a class='anchor' name='Why%20patterns?'>Why patterns?</a></h2>
 
 <p>Patterns describe calculations without explicitly stating every step. They are a higher-level representation of a computational task. While patterns are not ideally suited for every type of calculation, when they are appropriate they free the user from worrying about every detail of the process. Using patterns, one writes <em>what</em> is supposed to happen, rather than <em>how</em> to accomplish it.
-<p>In SuperCollider, patterns are best for tasks that need to produce sequences, or streams, of information. Often these are numbers, but they don't have to be -- patterns can generate any kind of object.
+<p>In SuperCollider, patterns are best for tasks that need to produce sequences, or streams, of information. Often these are numbers, but they don't have to be — patterns can generate any kind of object.
 <p>For a simple example, let's count upward starting from 0. We don't know how high we will need to count; we just know that every time we ask for values, we should get a continually increasing series.
 <p>Writing everything out, it looks like this. <a href="./../../Classes/Routine.html">Routine</a> is used because this is a control structure that can interrupt what it's doing and remember where it was, so that it can pick up again at exactly that point. You can get some numbers out of it, and call it again later and it will keep counting from the last number returned. (This is an example of a <a href="./../../Classes/Stream.html">Stream</a>. You can find more about Streams in <a href="./../../Tutorials/Streams-Patterns-Events1.html">Understanding Streams, Patterns and Events - Part 1</a>.)<div class='codeMirrorContainer'><textarea class='editor'>a = Routine {
     var    i = 0;
@@ -109,7 +109,7 @@ a.nextN(10);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>What are the advantages of the pattern representation?<ul>
-<li>It's shorter.<li>It's tested and it works. You don't have to debug how Pseries works (whereas, if you write a Routine, you might make a mistake and then have to find it.)<li>With the Routine -- especially if it's complicated -- you will have to decipher it when you come back to the code later. The Pattern states the purpose right there in the code.</ul>
+<li>It's shorter.<li>It's tested and it works. You don't have to debug how Pseries works (whereas, if you write a Routine, you might make a mistake and then have to find it.)<li>With the Routine — especially if it's complicated — you will have to decipher it when you come back to the code later. The Pattern states the purpose right there in the code.</ul>
 
 <p>What are some disadvantages?<ul>
 <li>Patterns are a new vocabulary to learn. Until you know a critical mass of them, it can be hard to trust them. That's the purpose of this guide!<li>If there isn't a pattern that does quite what you want, then it might take some ingenuity to combine patterns into new designs. (Custom behaviors can always be written using Prout.)</ul>
@@ -121,7 +121,7 @@ a.nextN(10);</textarea>
 <p><em>Patterns define behavior; streams execute it.</em>
 <p>A pattern is like a blueprint for a building, showing how all the parts fit together. The building doesn't exist until the contractors go and do what the plans specify. When a stream is made from a pattern, it follows the plans laid out in the pattern's blueprint. Rendering the plans into a real-world result does not change the blueprint in any way, but to get the result, the stream has to go through different states.
 <p>A pattern is supposed to describe behavior, and in general, evaluating the pattern (by way of a stream) should not change anything in the Pattern object itself. In computer science terms, patterns are <em>stateless</em>; their definition does not change over time. The stream is what keeps track of where we are in the pattern's evaluation.
-<p>This explains an easy "gotcha" with patterns -- forgetting to turn the pattern into a stream doesn't get the expected result. Since a pattern doesn't have any concept of a current state, calling <code>next</code> on it is meaningless, so <code>next</code> does what it does for most objects: return the receiver object itself. The method <code>asStream</code> creates the stream conforming to the pattern's specification, and calling <code>next</code> on the stream advances to its next state and returns the new value.<div class='codeMirrorContainer'><textarea class='editor'>p = Pseries(0, 1, 10);
+<p>This explains an easy "gotcha" with patterns — forgetting to turn the pattern into a stream doesn't get the expected result. Since a pattern doesn't have any concept of a current state, calling <code>next</code> on it is meaningless, so <code>next</code> does what it does for most objects: return the receiver object itself. The method <code>asStream</code> creates the stream conforming to the pattern's specification, and calling <code>next</code> on the stream advances to its next state and returns the new value.<div class='codeMirrorContainer'><textarea class='editor'>p = Pseries(0, 1, 10);
 p.next;    // always returns the Pseries, not actual numbers
 
 q = p.asStream;

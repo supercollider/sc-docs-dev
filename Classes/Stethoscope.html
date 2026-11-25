@@ -237,9 +237,9 @@ c.scope;
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Multi-channel%20Lissajou%20plots'>Multi-channel Lissajou plots</a></h3>
 <div class='codeMirrorContainer'><textarea class='editor'>(
-{ 
+{
     var f = { |l,h| SinOsc.kr(0.1, {pi.rand}).range(l, h) } ;
-    Pulse.ar({ f.(20, 1000) }!6, { f.(0.0, 1) }!6, { f.(0.0, 1.0) }!6) 
+    Pulse.ar({ f.(20, 1000) }!6, { f.(0.0, 1) }!6, { f.(0.0, 1.0) }!6)
 }.play;
 )
 

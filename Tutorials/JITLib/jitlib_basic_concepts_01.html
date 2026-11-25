@@ -28,7 +28,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#What%20is%20a%20proxy?'>What is a proxy?</a></li>
 <ul class='toc'><li class='toc2'><a href='#using%20a%20Ref%20as%20a%20proxy'>using a Ref as a proxy</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#using%20a%20Function%20as%20a%20proxy'>using a Function as a proxy</a></li>
-<ul class='toc'></ul></ul><li class='toc1'><a href='#NodeProxy,%20ProxySpace,%20Ndef'>NodeProxy, ProxySpace, Ndef</a></li>
+<ul class='toc'></ul></ul><li class='toc1'><a href='#NodeProxy%2C%20ProxySpace%2C%20Ndef'>NodeProxy, ProxySpace, Ndef</a></li>
 <ul class='toc'></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
@@ -100,7 +100,7 @@ y = 34;
 z.value;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>see also client side proxies like <a href="./../../Classes/Tdef.html">Tdef</a>, <a href="./../../Classes/Pdefn.html">Pdefn</a>, <a href="./../../Classes/Pdef.html">Pdef</a>, <a href="./../../Classes/Fdef.html">Fdef</a><h2><a class='anchor' name='NodeProxy,%20ProxySpace,%20Ndef'>NodeProxy, ProxySpace, Ndef</a></h2>
+<p>see also client side proxies like <a href="./../../Classes/Tdef.html">Tdef</a>, <a href="./../../Classes/Pdefn.html">Pdefn</a>, <a href="./../../Classes/Pdef.html">Pdef</a>, <a href="./../../Classes/Fdef.html">Fdef</a><h2><a class='anchor' name='NodeProxy%2C%20ProxySpace%2C%20Ndef'>NodeProxy, ProxySpace, Ndef</a></h2>
 
 <p>For interactive programming it can be useful to be able to use something before it is there - it makes evaluation order more flexible and allows to postpone decisions to a later moment. Some preparations have to be done usually - like above, a reference has to be created. In other situations this sort of preparation is not enough, for example if one wants to apply mathematical operations on signals of running processes on the server.<div class='note'><span class='notelabel'>NOTE:</span> Wherever examples are given with Ndef, they apply to ProxySpace and NodeProxy: <code>Ndef(\x, 5);</code> is the same as: <code>~x = 5;</code> in ProxySpace, and <code>a = NodeProxy.new; a.source = 5;</code></div><div class='codeMirrorContainer'><textarea class='editor'>// boot the server
 s.boot;

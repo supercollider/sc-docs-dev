@@ -38,7 +38,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators'>Generators</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators>Stochastic'>Stochastic</a></span>
-</div><h1>Gendy2<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Gendy2<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Dynamic stochastic synthesis generator.</div>
 </div>
@@ -86,13 +86,13 @@ var scdoc_sc_version = '3.15.0-dev';
 { Pan2.ar(Gendy2.ar(a: MouseX.kr(0.0, 1.0), c: MouseY.kr(0.0, 1.0))) }.play
 
 (
-{ 
+{
     Pan2.ar(
         Normalizer.ar(
             RLPF.ar(
                 RLPF.ar(
                     Gendy2.ar(
-                        a: SinOsc.kr(0.4, 0, 0.05, 0.05), 
+                        a: SinOsc.kr(0.4, 0, 0.05, 0.05),
                         c: SinOsc.kr(0.3, 0, 0.1, 0.5)
                     ), MouseX.kr(10, 10000, 'exponential'), 0.05
                 ), MouseY.kr(10, 10000, 'exponential'), 0.05
@@ -156,7 +156,7 @@ var scdoc_sc_version = '3.15.0-dev';
 {
     Mix.fill(10, {
         var freq = rrand(130, 160.3);
-        
+
         Pan2.ar(
             SinOsc.ar(
                 Gendy2.ar(
@@ -172,13 +172,13 @@ var scdoc_sc_version = '3.15.0-dev';
 
 // CAREFUL! mouse to far right causes explosion of sound
 (
-{ 
+{
     Pan2.ar(
         CombN.ar(
             Resonz.ar(
                 Gendy2.ar(2, 3, minfreq: 1, maxfreq: MouseX.kr(10, 700), initCPs: 100),
                 MouseY.kr(50, 1000), 0.1
-            ),        
+            ),
             0.1, 0.1, 5, 0.16
         ),
         0.0
@@ -191,19 +191,19 @@ var scdoc_sc_version = '3.15.0-dev';
 {
     var n;
     n = 15;
-    
+
     0.5 * Mix.fill(n, {
         var freq, numcps;
-        
+
         freq = rrand(130, 160.3);
         numcps = rrand(2, 20);
         Pan2.ar(
             Gendy2.ar(
                 6.rand, 6.rand, 10.0.rand, 10.0.rand, freq, freq*exprand(1.0, 2.0),
-                10.0.rand, 10.0.rand, numcps, 
+                10.0.rand, 10.0.rand, numcps,
                 SinOsc.kr(exprand(0.02, 0.2), 0, numcps/2, numcps/2),
                 10.0.rand, 10.0.rand, 0.5/(n.sqrt)
-            ), 
+            ),
             1.0.rand2
         )
     })
@@ -215,23 +215,23 @@ var scdoc_sc_version = '3.15.0-dev';
 {
     var n;
     n = 10;
-    
+
     Resonz.ar(
         Mix.fill(n, {
             var freq, numcps;
-            
+
             freq = rrand(50, 560.3);
             numcps = rrand(2, 20);
             Pan2.ar(
                 Gendy2.ar(
                     6.rand, 6.rand, 1.0.rand, 1.0.rand, freq, freq,
-                    1.0.rand, 1.0.rand, numcps, 
-                    SinOsc.kr(exprand(0.02, 0.2), 0, numcps/2, numcps/2), 
+                    1.0.rand, 1.0.rand, numcps,
+                    SinOsc.kr(exprand(0.02, 0.2), 0, numcps/2, numcps/2),
                     0.5/(n.sqrt)
-                ), 
+                ),
                 1.0.rand2
             )
-        }), 
+        }),
         MouseX.kr(100, 2000), MouseY.kr(0.01, 1.0), 0.3
     )
 }.play

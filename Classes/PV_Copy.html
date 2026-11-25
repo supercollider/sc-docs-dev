@@ -38,7 +38,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>FFT'>FFT</a></span>
-</div><h1>PV_Copy<span id='superclasses'> : <a href="../Classes/PV_MagMul.html">PV_MagMul</a> : <a href="../Classes/PV_ChainUGen.html">PV_ChainUGen</a> : <a href="../Classes/WidthFirstUGen.html">WidthFirstUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>PV_Copy<span id='superclasses'> : <a href="../Classes/PV_MagMul.html">PV_MagMul</a> : <a href="../Classes/PV_ChainUGen.html">PV_ChainUGen</a> : <a href="../Classes/WidthFirstUGen.html">WidthFirstUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Copy an FFT buffer</div>
 </div>
@@ -46,7 +46,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Audio/FFT.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Audio/FFT.sc'>FFT.sc</a></div></div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Copies the spectral frame in <code>bufferA</code> to <code>bufferB</code>. This allows for parallel processing of spectral data without the need for multiple FFT UGens. Further it allows to extract data at a given point in the FFT chain e.g. for monitoring purposes. <div class='note'><span class='notelabel'>NOTE:</span> As of SC 3.7 instances of PV_Copy are added automatically where necessary for parallel processing. Please see <a href="./../Guides/FFT-Overview.html">FFT Overview</a> for the current implementation. 
+<p>Copies the spectral frame in <code>bufferA</code> to <code>bufferB</code>. This allows for parallel processing of spectral data without the need for multiple FFT UGens. Further it allows to extract data at a given point in the FFT chain e.g. for monitoring purposes.<div class='note'><span class='notelabel'>NOTE:</span> As of SC 3.7 instances of PV_Copy are added automatically where necessary for parallel processing. Please see <a href="./../Guides/FFT-Overview.html">FFT Overview</a> for the current implementation.
 <p>This document is provided for legacy purposes only. Existing code explicitly using PV_Copy should continue to work.</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>PV_Copy.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>bufferA</span>, <span class='argstr'>bufferB</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/PV_MagMul.html'>PV_MagMul</a></div>

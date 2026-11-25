@@ -38,7 +38,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators'>Generators</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators>Deterministic'>Deterministic</a> | <a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Filters'>Filters</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Filters>Linear'>Linear</a></span>
-</div><h1>Klank<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Klank<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Bank of resonators</div>
 </div>
@@ -148,7 +148,7 @@ a = Synth(\help_Klank, [
 );</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Advanced examples:<div class='codeMirrorContainer'><textarea class='editor'>// -- overlap texture
+<p>Advanced examples:<div class='codeMirrorContainer'><textarea class='editor'>// — overlap texture
 (
 SynthDef("help-KlankOverlapTexture",
 { |out = 0, freqs = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], rings = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], atk = 5, sus = 8, rel = 5, pan = 0|
@@ -184,7 +184,7 @@ r.stop;    // stop spawning new synths
 
 
 
-// -- frequency and decay scaling
+// — frequency and decay scaling
 (
 SynthDef("help-KlankScaling", { |out = 0, freq = 0, rings = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], pan = 0|
     var e = EnvGen.kr(Env(#[1, 1, 0], #[0.4, 0.01]), doneAction: Done.freeSelf);
@@ -217,7 +217,7 @@ r.play;
 r.stop;
 
 
-// -- overlap texture 2
+// — overlap texture 2
 (
 SynthDef("help-KlankOverlapTexture2",
 { |out = 0, freqs = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], rings = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], atk = 5, sus = 8, rel = 5, pan = 0|
@@ -252,7 +252,7 @@ r.play;
 r.stop;
 
 
-// -- overlap texture 3
+// — overlap texture 3
 (
 SynthDef("help-KlankOverlapTexture3",
 { |out = 0, freqs = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], rings = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], pan = 0|

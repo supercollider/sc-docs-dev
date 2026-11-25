@@ -26,7 +26,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='toc'>
 <div id='toctitle'>IdentityDictionary:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#description'>Description</a></li>
-<ul class='toc'><li class='toc2'><a href='#'parent'%20and%20'proto'%20variables'>'parent' and 'proto' variables</a></li>
+<ul class='toc'><li class='toc2'><a href='#%27parent%27%20and%20%27proto%27%20variables'>'parent' and 'proto' variables</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#*new'>new</a> </li>
 <li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
@@ -59,7 +59,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Collections'>Collections</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Collections>Unordered'>Unordered</a></span>
-</div><h1>IdentityDictionary<span id='superclasses'> : <a href="../Classes/Dictionary.html">Dictionary</a> : <a href="../Classes/Set.html">Set</a> : <a href="../Classes/Collection.html">Collection</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>IdentityDictionary<span id='superclasses'> : <a href="../Classes/Dictionary.html">Dictionary</a> : <a href="../Classes/Set.html">Set</a> : <a href="../Classes/Collection.html">Collection</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>associative collection mapping keys to values</div>
 </div>
@@ -69,7 +69,7 @@ var scdoc_sc_version = '3.15.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>An IdentityDictionary is an associative collection mapping keys to values.  Keys and values can be arbitrary objects, but for keys, often a <a href="./../Classes/Symbol.html">Symbol</a> is used.
+<p>An IdentityDictionary is an associative collection mapping keys to values. Keys and values can be arbitrary objects, but for keys, often a <a href="./../Classes/Symbol.html">Symbol</a> is used.
 <p>An IdentityDictionary can be used to implement prototype objects (<a href="./../Guides/ObjectPrototyping.html">Object Prototyping</a>), which behave like objects whose methods can be programmed at runtime.
 <p>Often, the subclass <a href="./../Classes/Event.html">Event</a> is used as an IdentityDictionary, because there is a syntactical shortcut:<div class='codeMirrorContainer'><textarea class='editor'>a = (); // return a new Event.
 a.put(\foo, 2.718);
@@ -77,12 +77,12 @@ a.at(\foo);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='note'><span class='notelabel'>NOTE:</span> Keys match only if they are <strong>identical objects</strong>. (i.e. === returns true. In Dictionary, keys match if they are equal valued. This makes IdentityDictionary faster than <a href="./../Classes/Dictionary.html">Dictionary</a>)
 <p>The contents of a Dictionary are <strong>unordered</strong>. You must not depend on the order of items in a Dictionary.</div>
-<p>IdentityDictionary is often used to assign names to instances of a particular class. For example, the proxy classes (<a href="./../Classes/Pdef.html">Pdef</a>, <a href="./../Classes/Pdefn.html">Pdefn</a>, <a href="./../Classes/Tdef.html">Tdef</a>, <a href="./../Classes/Ndef.html">Ndef</a>), and <a href="./../Classes/NodeWatcher.html">NodeWatcher</a> all have class variables named all implemented as IdentityDictionaries.<h3><a class='anchor' name=''parent'%20and%20'proto'%20variables'>'parent' and 'proto' variables</a></h3>
+<p>IdentityDictionary is often used to assign names to instances of a particular class. For example, the proxy classes (<a href="./../Classes/Pdef.html">Pdef</a>, <a href="./../Classes/Pdefn.html">Pdefn</a>, <a href="./../Classes/Tdef.html">Tdef</a>, <a href="./../Classes/Ndef.html">Ndef</a>), and <a href="./../Classes/NodeWatcher.html">NodeWatcher</a> all have class variables named all implemented as IdentityDictionaries.<h3><a class='anchor' name='%27parent%27%20and%20%27proto%27%20variables'>'parent' and 'proto' variables</a></h3>
 
 <p>IdentityDictionary has three levels of content: the dictionary itself, a <code>proto</code>, and a <code>parent</code>. <code>proto</code> and <code>parent</code> exist primarily for IdentityDictionary's subclass <a href="./../Classes/Event.html">Event</a>, which uses the <code>parent</code> to store action functions that will be used when an event is played. Users may put additional default values into the <code>proto</code>.
 <p>Looking up a key within a dictionary first checks the dictionary itself. If the key is not found at this level, it looks in the <code>proto</code>, and if still not found, it looks in the parent.
 <p>These extra levels are meant for common, default values that should be the same across many dictionary instances.<ul>
-<li><code>proto</code> and <code>parent</code> values are not shown when posting the dictionary.<li>Copying an IdentityDictionary transfers a reference to the parent and proto into the copy. It is a reference, not a copy: changing the copy's parent also affects the parent of the original. This is for efficiency.<li>Iteration operations (<a href="./../Classes/Dictionary.html#-do">Dictionary: -do</a>, <a href="./../Classes/Dictionary.html#-keysValuesDo">Dictionary: -keysValuesDo</a>) only touch the main-level values.<li><a href="./../Classes/Dictionary.html#-collect">Dictionary: -collect</a>, <a href="./../Classes/Dictionary.html#-select">Dictionary: -select</a>, and <a href="./../Classes/Dictionary.html#-reject">Dictionary: -reject</a> return new dictionaries. The parent and proto will be preserved <em>as is</em> in the new result, but -- as with <code>do</code> -- they will not be processed in the iteration, and as with <code>copy</code>, they are identical references.</ul>
+<li><code>proto</code> and <code>parent</code> values are not shown when posting the dictionary.<li>Copying an IdentityDictionary transfers a reference to the parent and proto into the copy. It is a reference, not a copy: changing the copy's parent also affects the parent of the original. This is for efficiency.<li>Iteration operations (<a href="./../Classes/Dictionary.html#-do">Dictionary: -do</a>, <a href="./../Classes/Dictionary.html#-keysValuesDo">Dictionary: -keysValuesDo</a>) only touch the main-level values.<li><a href="./../Classes/Dictionary.html#-collect">Dictionary: -collect</a>, <a href="./../Classes/Dictionary.html#-select">Dictionary: -select</a>, and <a href="./../Classes/Dictionary.html#-reject">Dictionary: -reject</a> return new dictionaries. The parent and proto will be preserved <em>as is</em> in the new result, but — as with <code>do</code> — they will not be processed in the iteration, and as with <code>copy</code>, they are identical references.</ul>
 <div class='codeMirrorContainer'><textarea class='editor'>// 'b' is not posted
 e = IdentityDictionary(8,
     parent: IdentityDictionary[\b -&gt; 10]
@@ -158,7 +158,7 @@ a.at(\freq); // returns 20
 y = (i: -1);
 b.parent_(y);
 a.at(\i); // returns -1
-a.cs;</textarea>
+a.asCompileString;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='image'><img src='IdentityDictionary_02.png'/><br><b>Setting the parent of a dictionary.</b></div>
 <div class='codeMirrorContainer'><textarea class='editor'>x = (freq: 30);
@@ -167,7 +167,7 @@ y = (freq: 300);
 b = (amp: 0.5).parent_(y);
 a.parent_(b);
 a.at(\freq); // returns 300
-a.cs;</textarea>
+a.asCompileString;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='image'><img src='IdentityDictionary_01.png'/><br><b>Example schema: order of overriding in proto and parent.</b></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-insertParent' href='./../Overviews/Methods.html#insertParent'>insertParent</a>(<span class='argstr'>newParent</span>, <span class='argstr'>insertionDepth: 0</span>, <span class='argstr'>reverseInsertionDepth: inf</span>)</h3>

@@ -27,9 +27,9 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='toctitle'>22_Runtime_errors:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Runtime%20errors'>Runtime errors</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Common%20errors'>Common errors</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#Object%20doesn't%20understand'>Object doesn't understand</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Object%20doesn%27t%20understand'>Object doesn't understand</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Uninitialized%20variable%20(binary%20operation%20fails)'>Uninitialized variable (binary operation fails)</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#True,%20false,%20or%20other'>True, false, or other</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#True%2C%20false%2C%20or%20other'>True, false, or other</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Primitive%20fails'>Primitive fails</a></li>
 <ul class='toc'></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
@@ -48,7 +48,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>Runtime errors occur while a program is executing.<h2><a class='anchor' name='Common%20errors'>Common errors</a></h2>
 <ol>
 <li>an object receives a message which it doesn't understand<li>a binary operation (addition, subtraction, multiplication, etc.) can't be performed<li>a value other than true or false appears in a conditional (boolean) test<li>a file can't be opened (a primitive fails)</ol>
-<h2><a class='anchor' name='Object%20doesn't%20understand'>Object doesn't understand</a></h2>
+<h2><a class='anchor' name='Object%20doesn%27t%20understand'>Object doesn't understand</a></h2>
 
 <p>In the case of<div class='codeMirrorContainer'><textarea class='editor'>3.createRuntimeError</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
@@ -207,7 +207,7 @@ CALL STACK:
         arg inval = 758.000000</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>////////////////////////////////////////////////////////////////////////////////////////////////////<h2><a class='anchor' name='True,%20false,%20or%20other'>True, false, or other</a></h2>
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////<h2><a class='anchor' name='True%2C%20false%2C%20or%20other'>True, false, or other</a></h2>
 
 <p>A value other than true or false in a boolean test, as in<div class='codeMirrorContainer'><textarea class='editor'>if(x=4) { "this is ok"};</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>

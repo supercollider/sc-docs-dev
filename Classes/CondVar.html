@@ -37,8 +37,8 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 </ul><li class='toc1'><a href='#examples'>Examples</a></li>
 <ul class='toc'><li class='toc2'><a href='#Simple%20interactive%20example'>Simple interactive example</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Producer-consumer%20queue:%20single%20producer,%20single%20consumer'>Producer-consumer queue: single producer, single consumer</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Producer-consumer%20queue:%20multiple%20producers,%20multiple%20consumers'>Producer-consumer queue: multiple producers, multiple consumers</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Producer-consumer%20queue:%20single%20producer%2C%20single%20consumer'>Producer-consumer queue: single producer, single consumer</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Producer-consumer%20queue:%20multiple%20producers%2C%20multiple%20consumers'>Producer-consumer queue: multiple producers, multiple consumers</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Using%20timeouts'>Using timeouts</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
@@ -46,7 +46,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Scheduling'>Scheduling</a></span>
-</div><h1>CondVar<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>CondVar<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Condition variable: block one or more threads until some condition is true</div>
 </div>
@@ -60,7 +60,7 @@ var scdoc_sc_version = '3.15.0-dev';
 
 <p>This usually takes the form of a while loop of the form: <code>while { /* condition is false */ } { /* wait on condition */ }</code>.<li>Have CondVar check your condition for you: call wait or waitFor with a predicate, which takes care of the three steps above.</ul>
 
-<p>The following code illustrates these two approaches:<div class='codeMirrorContainer'><textarea class='editor'>// Version 1: `wait` without predicate -- while loop required
+<p>The following code illustrates these two approaches:<div class='codeMirrorContainer'><textarea class='editor'>// Version 1: `wait` without predicate — while loop required
 (
 var c = CondVar();
 // Our resource here will be a "message", which is set to some string
@@ -92,7 +92,7 @@ fork {
 };
 )
 
-// Version 2: `wait` with predicate -- no while loop required
+// Version 2: `wait` with predicate — no while loop required
 (
 var c = CondVar(), message = "";
 var waitThreadDelay = 1;
@@ -182,7 +182,7 @@ Routine {
 // Run this line to unblock the routine
 c.signalOne;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Producer-consumer%20queue:%20single%20producer,%20single%20consumer'>Producer-consumer queue: single producer, single consumer</a></h3>
+<h3><a class='anchor' name='Producer-consumer%20queue:%20single%20producer%2C%20single%20consumer'>Producer-consumer queue: single producer, single consumer</a></h3>
 
 <p>The following example shows a CondVar used to manage a simple producer-consumer queue with one consumer and one producer.
 <p>The producer thread adds "tasks" to the queue, while the consumer thread removes and "processes" them. When there is no work to do, the consumer has to wait until work is available. When there is too much work to do, the producer thread should avoid creating more tasks. Try playing with the wait times for each thread to see what happens.<div class='codeMirrorContainer'><textarea class='editor'>(
@@ -248,7 +248,7 @@ fork {
 };
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Producer-consumer%20queue:%20multiple%20producers,%20multiple%20consumers'>Producer-consumer queue: multiple producers, multiple consumers</a></h3>
+<h3><a class='anchor' name='Producer-consumer%20queue:%20multiple%20producers%2C%20multiple%20consumers'>Producer-consumer queue: multiple producers, multiple consumers</a></h3>
 
 <p>Here is another producer-consumer example with multiple producers and multiple consumers. Note how easily the code above can be generalized.<div class='codeMirrorContainer'><textarea class='editor'>(
 var full = CondVar(), empty = CondVar();

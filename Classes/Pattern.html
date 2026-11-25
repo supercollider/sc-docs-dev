@@ -91,7 +91,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Streams-Patterns-Events>Patterns'>Patterns</a></span>
-</div><h1>Pattern<span id='superclasses'> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Pattern<span id='superclasses'> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>abstract class that holds a list</div>
 </div>
@@ -153,7 +153,7 @@ var scdoc_sc_version = '3.15.0-dev';
 
 <p>An <a href="./../Classes/Event.html">Event</a> is a <a href="./../Classes/Environment.html">Environment</a> with a 'play' method. Typically, an Event consists of a collection of key/value pairs that determine what the play method actually does. The values may be any object including functions defined in terms of other named attributes. Changing those values can generate a succession of sounds sometimes called 'music'... The pattern <a href="./../Classes/Pbind.html">Pbind</a> connects specific patterns with specific names. Consult its help page for details.<h3><a class='anchor' name='Playing%20Event%20Patterns'>Playing Event Patterns</a></h3>
 
-<p>The <a href="#-play">-play</a> method does not return the pattern itself. Instead, it returns the <a href="./../Classes/EventStreamPlayer.html">EventStreamPlayer</a> object that actually runs the pattern. Control instructions -- stop, pause, resume, play, reset -- should be addressed to the EventStreamPlayer. (The same pattern can play many times simultaneously, using different EventStreamPlayers.)<div class='codeMirrorContainer'><textarea class='editor'>p = Pbind(...);
+<p>The <a href="#-play">-play</a> method does not return the pattern itself. Instead, it returns the <a href="./../Classes/EventStreamPlayer.html">EventStreamPlayer</a> object that actually runs the pattern. Control instructions — stop, pause, resume, play, reset — should be addressed to the EventStreamPlayer. (The same pattern can play many times simultaneously, using different EventStreamPlayers.)<div class='codeMirrorContainer'><textarea class='editor'>p = Pbind(...);
 p.play;
 p.stop;    // does not stop because p is not the EventStreamPlayer that is actually playing
 

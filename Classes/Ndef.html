@@ -51,8 +51,8 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul><li class='toc2'><a href='#setting%20and%20mapping%20parameters'>setting and mapping parameters</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Reserved%20parameters'>Reserved parameters</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Specifying%20your%20own%20envelope'>Specifying your own envelope</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Simple%20audio%20routing%20with%20the%20<<>%20operator'>Simple audio routing with the &lt;&lt;&gt; operator</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Embedding%20multi-channel%20Patterns,%20playing%20Streams%20in%20parallel'>Embedding multi-channel Patterns, playing Streams in parallel</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Simple%20audio%20routing%20with%20the%20%3C%3C%3E%20operator'>Simple audio routing with the &lt;&lt;&gt; operator</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Embedding%20multi-channel%20Patterns%2C%20playing%20Streams%20in%20parallel'>Embedding multi-channel Patterns, playing Streams in parallel</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Making%20Copies'>Making Copies</a></li>
 <ul class='toc'><li class='toc3'><a href='#.copy'>copy</a> </li>
 </ul><li class='toc2'><a href='#Recursion'>Recursion</a></li>
@@ -65,7 +65,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#JITLib'>JITLib</a>&#8201;&gt;&#8201;<a href='./../Browse.html#JITLib>NodeProxy'>NodeProxy</a> | <a href='./../Browse.html#Live Coding'>Live Coding</a></span>
-</div><h1>Ndef<span id='superclasses'> : <a href="../Classes/NodeProxy.html">NodeProxy</a> : <a href="../Classes/BusPlug.html">BusPlug</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Ndef<span id='superclasses'> : <a href="../Classes/NodeProxy.html">NodeProxy</a> : <a href="../Classes/BusPlug.html">BusPlug</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>node proxy definition</div>
 </div>
@@ -190,7 +190,7 @@ Ndef(\sound, { |fadeTime = 1, gate = 1|
 }).play
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Simple%20audio%20routing%20with%20the%20<<>%20operator'>Simple audio routing with the &lt;&lt;&gt; operator</a></h3>
+<h3><a class='anchor' name='Simple%20audio%20routing%20with%20the%20%3C%3C%3E%20operator'>Simple audio routing with the &lt;&lt;&gt; operator</a></h3>
 <div class='codeMirrorContainer'><textarea class='editor'>(
 Ndef(\sound, {
     RHPF.ar(
@@ -214,7 +214,7 @@ Ndef(\a) &lt;&lt;&gt;.phase Ndef(\sound);
 Ndef(\a) &lt;&lt;&gt;.phase nil;    // unmap
 Ndef.clear(3);        // fade out and clear all Ndefs</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Embedding%20multi-channel%20Patterns,%20playing%20Streams%20in%20parallel'>Embedding multi-channel Patterns, playing Streams in parallel</a></h3>
+<h3><a class='anchor' name='Embedding%20multi-channel%20Patterns%2C%20playing%20Streams%20in%20parallel'>Embedding multi-channel Patterns, playing Streams in parallel</a></h3>
 
 <p>Controlling multi-channeled sequenced streams and having independent control over filtering and node ordering is a difficult topic in SuperCollider. However, using Ndefs (or their superclass <a href="./../Classes/NodeProxy.html">NodeProxy</a> or a <a href="./../Classes/ProxySpace.html">ProxySpace</a>) may provide a convenient solution.<div class='codeMirrorContainer'><textarea class='editor'>// a SynthDef, creating single-channel grain when instantiated
 (

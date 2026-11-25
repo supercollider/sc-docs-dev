@@ -35,17 +35,21 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#*handling'>handling</a> </li>
 <li class='toc3'><a href='#*inProtectedFunction'>inProtectedFunction</a> </li>
 <li class='toc3'><a href='#*new'>new</a> </li>
+<li class='toc3'><a href='#*reporting'>reporting</a> </li>
 </ul></ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
 <ul class='toc'><li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 <li class='toc2'><a href='#Undocumented%20instance%20methods'>Undocumented instance methods</a></li>
-<ul class='toc'><li class='toc3'><a href='#-adviceLink'>adviceLink</a> </li>
-<li class='toc3'><a href='#-adviceLinkPage'>adviceLinkPage</a> </li>
+<ul class='toc'><li class='toc3'><a href='#-backtrace'>backtrace</a> </li>
+<li class='toc3'><a href='#-callFrameAnnotations'>callFrameAnnotations</a> </li>
 <li class='toc3'><a href='#-errorString'>errorString</a> </li>
 <li class='toc3'><a href='#-isException'>isException</a> </li>
+<li class='toc3'><a href='#-methodBacktraceEnd'>methodBacktraceEnd</a> </li>
+<li class='toc3'><a href='#-methodBeforeBacktraceStart'>methodBeforeBacktraceStart</a> </li>
 <li class='toc3'><a href='#-path'>path</a> </li>
-<li class='toc3'><a href='#-postProtectedBacktrace'>postProtectedBacktrace</a> </li>
-<li class='toc3'><a href='#-protectedBacktrace'>protectedBacktrace</a> </li>
 <li class='toc3'><a href='#-reportError'>reportError</a> </li>
+<li class='toc3'><a href='#-reportStage1'>reportStage1</a> </li>
+<li class='toc3'><a href='#-reportStage2'>reportStage2</a> </li>
+<li class='toc3'><a href='#-throw'>throw</a> </li>
 <li class='toc3'><a href='#-what'>what</a> </li>
 </ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
@@ -53,7 +57,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Core'>Core</a></span>
-</div><h1>Exception<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Exception<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>root error class</div>
 </div>
@@ -64,7 +68,7 @@ var scdoc_sc_version = '3.15.0-dev';
 
 <p>The root of SuperCollider's error handling mechanism.
 <p>Exception is an abstract class, defining basic error behavior. This class is not directly used in SuperCollider. Users may create subclasses of Exception to identify specific types of failure conditions.
-<p>The built-in exception types are actually subclasses of <a href="./../Classes/Error.html">Error</a> -- see its help file for the hierarchy.<div class='note'><span class='notelabel'>NOTE:</span> You should not return ^ from inside of the <code>try</code> or <code>protect</code> function itself, it cannot be caught. Returns in methods called by the receiver are OK.</div><h3><a class='anchor' name='Background:%20General%20exception%20handling'>Background: General exception handling</a></h3>
+<p>The built-in exception types are actually subclasses of <a href="./../Classes/Error.html">Error</a> — see its help file for the hierarchy.<div class='note'><span class='notelabel'>NOTE:</span> You should not return ^ from inside of the <code>try</code> or <code>protect</code> function itself, it cannot be caught. Returns in methods called by the receiver are OK.</div><h3><a class='anchor' name='Background:%20General%20exception%20handling'>Background: General exception handling</a></h3>
 
 <p>An exception is any event that disrupts the normal execution flow of a program. In practice there is not much distinction between an exception and an error; in SuperCollider, we tend to speak of errors where other object-oriented languages (Java, C++) would use exception consistently.
 <p>If a piece of code runs into an unexpected condition, it creates an exception object that holds information about the faulty condition, and then "throws" that object. From there, the interpreter unwinds backward through all the preceding stack frames looking for an exception handler that will "catch" the exception. The exception handler can take an alternate route to resolve the failure and continue normally; if this is not possible, it can re-throw the exception back to the previous stack frame. An exception that never gets caught causes execution to abort. In SuperCollider, this results in the standard error dump (see the Understanding-Errors help file for details); in C++ or Java, the effect is catastrophic, causing the whole program to crash.<h3><a class='anchor' name='Common%20syntax%20in%20other%20languages%20for%20exception%20handling%20is:'>Common syntax in other languages for exception handling is:</a></h3>
@@ -82,7 +86,7 @@ catch { ...exception handler... }</textarea>
 };</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>SuperCollider includes a variant, borrowed from Scheme, in which the exception is always fatal, but the preceding code might have allocated some resources that need to be released before reporting the error. For example, you might open a file and do some processing on it that might encounter an error. Good practice is to close the file before the error halt, which you can do this way:<div class='codeMirrorContainer'><textarea class='editor'>file = File(path, "r");
+<p>In SuperCollider the exception is always fatal and halts execution, but the preceding code might have allocated some resources that need to be released before reporting the error. For example, you might open a file and do some processing on it that might encounter an error. Good practice is to close the file before the error halt, which you can do this way:<div class='codeMirrorContainer'><textarea class='editor'>file = File(path, "r");
 protect {
     work with the file here, which might cause an error
 } {
@@ -90,14 +94,7 @@ protect {
 };</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>With "protect" the second function will execute even if there is no error, and any error will be passed up the chain.
-<p>In Java, you can catch specific classes of exception. You can simulate this usage with the following construction:<div class='codeMirrorContainer'><textarea class='editor'>// Java-style
-
-try { }
-catch { FileNotFoundException e } { console.printLine("File not found: " + e.path) }
-catch { EmptyFileException e } { console.printLine("File is empty: " + e.path) };
-
-// SuperCollider-style (hypothetical; these specific exceptions do not exist in the main library
+<p>With "protect" the second function will execute even if there is no error, and any error will be passed up the chain.<div class='codeMirrorContainer'><textarea class='editor'>// hypothetical; these specific exceptions do not exist in the main library
 
 try { } { |error|
     switch(error.species.name)
@@ -151,20 +148,27 @@ try { } { |error|
 <h3 class='method-code'><span class='method-prefix'>Exception.</span><a class='method-name' name='*handling' href='./../Overviews/Methods.html#handling'>handling</a> = value</h3>
 <h3 class='method-code'><span class='method-prefix'>Exception.</span><a class='method-name' name='*inProtectedFunction' href='./../Overviews/Methods.html#inProtectedFunction'>inProtectedFunction</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Exception.</span><a class='method-name' name='*inProtectedFunction' href='./../Overviews/Methods.html#inProtectedFunction'>inProtectedFunction</a> = value</h3>
-<h3 class='method-code'><span class='method-prefix'>Exception.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>what</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>Exception.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>what: ""</span>, <span class='argstr'>callFrameAnnotations: []</span>, <span class='argstr'>methodBeforeBacktraceStart</span>, <span class='argstr'>methodBacktraceEnd</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>Exception.</span><a class='method-name' name='*reporting' href='./../Overviews/Methods.html#reporting'>reporting</a></h3>
+<h3 class='method-code'><span class='method-prefix'>Exception.</span><a class='method-name' name='*reporting' href='./../Overviews/Methods.html#reporting'>reporting</a> = value</h3>
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-adviceLink' href='./../Overviews/Methods.html#adviceLink'>adviceLink</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-adviceLinkPage' href='./../Overviews/Methods.html#adviceLinkPage'>adviceLinkPage</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-backtrace' href='./../Overviews/Methods.html#backtrace'>backtrace</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-callFrameAnnotations' href='./../Overviews/Methods.html#callFrameAnnotations'>callFrameAnnotations</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-callFrameAnnotations' href='./../Overviews/Methods.html#callFrameAnnotations'>callFrameAnnotations</a> = value</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-errorString' href='./../Overviews/Methods.html#errorString'>errorString</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isException' href='./../Overviews/Methods.html#isException'>isException</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-methodBacktraceEnd' href='./../Overviews/Methods.html#methodBacktraceEnd'>methodBacktraceEnd</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-methodBacktraceEnd' href='./../Overviews/Methods.html#methodBacktraceEnd'>methodBacktraceEnd</a> = value</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-methodBeforeBacktraceStart' href='./../Overviews/Methods.html#methodBeforeBacktraceStart'>methodBeforeBacktraceStart</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-methodBeforeBacktraceStart' href='./../Overviews/Methods.html#methodBeforeBacktraceStart'>methodBeforeBacktraceStart</a> = value</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-path' href='./../Overviews/Methods.html#path'>path</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-path' href='./../Overviews/Methods.html#path'>path</a> = value</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-postProtectedBacktrace' href='./../Overviews/Methods.html#postProtectedBacktrace'>postProtectedBacktrace</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-protectedBacktrace' href='./../Overviews/Methods.html#protectedBacktrace'>protectedBacktrace</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-protectedBacktrace' href='./../Overviews/Methods.html#protectedBacktrace'>protectedBacktrace</a> = value</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reportError' href='./../Overviews/Methods.html#reportError'>reportError</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reportError' href='./../Overviews/Methods.html#reportError'>reportError</a>(<span class='argstr'>stream</span>, <span class='argstr'>prefix: ""</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reportStage1' href='./../Overviews/Methods.html#reportStage1'>reportStage1</a>(<span class='argstr'>stream</span>, <span class='argstr'>prefix</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reportStage2' href='./../Overviews/Methods.html#reportStage2'>reportStage2</a>(<span class='argstr'>stream</span>, <span class='argstr'>prefix</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-throw' href='./../Overviews/Methods.html#throw'>throw</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-what' href='./../Overviews/Methods.html#what'>what</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-what' href='./../Overviews/Methods.html#what'>what</a> = value</h3>
 <div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Exception.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Exception.schelp</a><br>link::Classes/Exception::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>

@@ -39,7 +39,7 @@ var scdoc_sc_version = '3.15.0-dev';
 </ul></ul><li class='toc1'><a href='#examples'>Examples</a></li>
 <ul class='toc'><li class='toc2'><a href='#Setting%20up%20OSCresponderNode%20for%20listening%20to%20a%20remote%20application'>Setting up OSCresponderNode for listening to a remote application</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Listening%20to%20data%20from%20_any_%20client'>Listening to data from _any_ client</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Listening%20to%20data%20from%20_any_%20client,%20but%20from%20a%20specific%20host'>Listening to data from _any_ client, but from a specific host</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Listening%20to%20data%20from%20_any_%20client%2C%20but%20from%20a%20specific%20host'>Listening to data from _any_ client, but from a specific host</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Listening%20to%20data%20from%20the%20server'>Listening to data from the server</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Watching%20for%20something%20specific'>Watching for something specific</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Watching%20for%20errors'>Watching for errors</a></li>
@@ -49,7 +49,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#External Control'>External Control</a>&#8201;&gt;&#8201;<a href='./../Browse.html#External Control>OSC'>OSC</a></span>
-</div><h1>OSCresponderNode<span id='superclasses'> : <a href="../Classes/OSCresponder.html">OSCresponder</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>OSCresponderNode<span id='superclasses'> : <a href="../Classes/OSCresponder.html">OSCresponder</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>client side network responder</div>
 </div>
@@ -101,7 +101,7 @@ o.remove;</textarea>
 o = OSCresponderNode(nil, '/test', { |t, r, msg| msg.postln }).add;
 o.remove;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Listening%20to%20data%20from%20_any_%20client,%20but%20from%20a%20specific%20host'>Listening to data from _any_ client, but from a specific host</a></h3>
+<h3><a class='anchor' name='Listening%20to%20data%20from%20_any_%20client%2C%20but%20from%20a%20specific%20host'>Listening to data from _any_ client, but from a specific host</a></h3>
 <div class='codeMirrorContainer'><textarea class='editor'>// same as above, but we use a NetAddr with a port of nil, so we can receive from a specific host, but from any port
 
 n = NetAddr("127.0.0.1", nil); // the url should be the one of computer of app 2

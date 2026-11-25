@@ -43,7 +43,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Streams-Patterns-Events>Patterns'>Patterns</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Streams-Patterns-Events>Patterns>Data Sharing'>Data Sharing</a></span>
-</div><h1>Pget<span id='superclasses'> : <a href="../Classes/Pattern.html">Pattern</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Pget<span id='superclasses'> : <a href="../Classes/Pattern.html">Pattern</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Retrieve a value within the scope (namespace) of a Plambda</div>
 </div>
@@ -52,7 +52,7 @@ var scdoc_sc_version = '3.15.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p><a href="./../Classes/Pget.html">Pget</a> retrieves the value of a <a href="./../Classes/Plet.html">Plet</a>.  <a href="./../Classes/Plet.html">Plet</a>/<a href="./../Classes/Pget.html">Pget</a> are used to share data between patterns inside of a <a href="./../Classes/Plambda.html">Plambda</a><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p><a href="./../Classes/Pget.html">Pget</a> retrieves the value of a <a href="./../Classes/Plet.html">Plet</a>. <a href="./../Classes/Plet.html">Plet</a>/<a href="./../Classes/Pget.html">Pget</a> are used to share data between patterns inside of a <a href="./../Classes/Plambda.html">Plambda</a><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Pget.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>key</span>, <span class='argstr'>default</span>, <span class='argstr'>repeats: 1</span>)</h3>
 <div class='method'>
 <p><h4>Arguments:</h4>
@@ -81,21 +81,21 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='codeMirrorContainer'><textarea class='editor'>(
     /*
 
-    Two patterns playing in parallel, 
+    Two patterns playing in parallel,
     sharing data between eachother
 
     */
 
     // a melody playing random scale degrees
     a = Pbind(
-        \dur, 0.125, 
+        \dur, 0.125,
         \octave, 4,
         \degree, Plet(\melody, pattern: Pwhite(0, 7))
     );
 
-    // the bass, scale degrees sampled from the \melody variable defined above 
+    // the bass, scale degrees sampled from the \melody variable defined above
     b = Pbind(
-        \dur, 0.5, 
+        \dur, 0.5,
         \octave, 3,
         \degree, Pget(\melody, default: 1, repeats: inf).trace
     );

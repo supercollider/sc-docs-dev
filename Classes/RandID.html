@@ -32,13 +32,14 @@ var scdoc_sc_version = '3.15.0-dev';
 </ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
 <ul class='toc'><li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 </ul><li class='toc1'><a href='#examples'>Examples</a></li>
-<ul class='toc'></ul></ul></div><div id='menubar'></div>
+<ul class='toc'><li class='toc2'><a href='#Multiple%20random%20number%20generators'>Multiple random number generators</a></li>
+<ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators'>Generators</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators>Stochastic'>Stochastic</a> | <a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Random'>Random</a></span>
-</div><h1>RandID<span id='superclasses'> : <a href="../Classes/WidthFirstUGen.html">WidthFirstUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>RandID<span id='superclasses'> : <a href="../Classes/WidthFirstUGen.html">WidthFirstUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Set the synth's random generator ID.</div>
 </div>
@@ -47,7 +48,8 @@ var scdoc_sc_version = '3.15.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Choose which random number generator to use for this synth. All synths that use the same generator reproduce the same sequence of numbers when the same seed is set again.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>Choose which random number generator to use for this synth. All synths that use the same generator reproduce the same sequence of numbers when the same seed is set again.
+<p>In SC 3.15.x and later, <code>RandID.kr</code> will set the random number generator ID on every control block. This is to support the use of different RNG IDs for different parts of the same SynthDef. See <a href="#Multiple%20random%20number%20generators">Multiple random number generators</a> below.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>RandID.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>id: 0</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>RandID.</span><a class='method-name' name='*ir' href='./../Overviews/Methods.html#ir'>ir</a>(<span class='argstr'>id: 0</span>)</h3>
 <div class='method'>
@@ -71,8 +73,8 @@ SynthDef("help-RandID", { |out = 0, id = 1|
 // reset the seed of my rgen at a variable rate
 (
 SynthDef("help-RandSeed", { |seed = 1910, id = 1|
-        RandID.kr(id);
-        RandSeed.kr(Impulse.kr(FSinOsc.kr(0.2, 0, 10, 11)), seed);
+    RandID.kr(id);
+    RandSeed.kr(Impulse.kr(FSinOsc.kr(0.2, 0, 10, 11)), seed);
 }).add;
 
 )
@@ -87,6 +89,54 @@ x = Synth("help-RandSeed", [\id, 1]);
 // change the target randgen to 2 (affects right channel)
 x.set(\id, 2);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h3><a class='anchor' name='Multiple%20random%20number%20generators'>Multiple random number generators</a></h3>
 
+<p>In most cases, randomized UGens in a SynthDef may all pull from the same random number generator. In this typical case, it's likely unnecessary to set the ID or re-seed at all.
+<p>If, however, one needs individual control over separate random-number streams, where each stream is obtained from a different random number generator, then the following sequence of evaluation is needed:<ol>
+<li>Set RNG ID.<li>Calculate some randomized UGens.<li>Set a different RNG ID.<li>Calculate some other randomized UGens.</ol>
+
+<p>This entire sequence needs to be performed, in this order, on every control block.<div class='note'><span class='notelabel'>NOTE:</span> <code>RandID.ir</code> will always evaluate only once, at the start of the synth. If you are using multiple random number generators in the same synth, you must use <code>RandID.kr</code>.</div>
+<p>As of SC 3.15.x, RandID sets the ID on every control block, supporting the above case transparently. This example uses two identically seeded random number generators, ID 0 and ID 1, and subtracts them to demonstrate that both generators are producing equivalent results (as they should, if they are seeded with the same value). SC 3.14.x and earlier would set the ID only when it changed; this case was not supported in those earlier versions.<div class='codeMirrorContainer'><textarea class='editor'>(
+{
+    var a, b;
+    RandID.kr(0);
+    RandSeed.ir(1, 88372);
+    a = LFDNoise0.ar(440);
+    RandID.kr(1);
+    RandSeed.ir(1, 88372);
+    b = LFDNoise0.ar(440);
+    [a, b, a - b]
+}.plot;
+)</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='note'><span class='notelabel'>NOTE:</span> In such cases, use a SynthDef and check the order of UGens carefully.<div class='codeMirrorContainer'><textarea class='editor'>(
+SynthDef(\test, {
+    var a, b;
+    RandID.kr(0, 1);
+    RandSeed.ir(1, 88372);
+    a = LFDNoise0.ar(440);
+    RandID.kr(1, 1);
+    RandSeed.ir(1, 88372);
+    b = LFDNoise0.ar(440);
+    Out.ar(1000, [a, b, a - b])
+}).dumpUGens
+)
+
+// correct order! annotated:
+
+// one RNG chain, id = 0
+[0_RandID, control, [0, 1]]
+[1_RandSeed, scalar, [1, 88372]]
+[2_LFDNoise0, audio, [440]]
+
+// another RNG chain, id = 1
+[3_RandID, control, [1, 1]]
+[4_RandSeed, scalar, [1, 88372]]
+[5_LFDNoise0, audio, [440]]
+
+[6_-, audio, [2_LFDNoise0, 5_LFDNoise0]]
+[7_Out, audio, [1000, 2_LFDNoise0, 5_LFDNoise0, 6_-]]</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div>
 <p><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/RandID.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/RandID.schelp</a><br>link::Classes/RandID::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

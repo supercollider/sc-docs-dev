@@ -26,15 +26,15 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='toc'>
 <div id='toctitle'>play:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc3'><a href='#.play'>play</a> </li>
-<li class='toc1'><a href='#Clocks,%20Routines,%20Streams%20and%20Patterns'>Clocks, Routines, Streams and Patterns</a></li>
+<li class='toc1'><a href='#Clocks%2C%20Routines%2C%20Streams%20and%20Patterns'>Clocks, Routines, Streams and Patterns</a></li>
 <ul class='toc'><li class='toc2'><a href='#clock.play%20(stream)'>clock.play (stream)</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#routine.play%20(clock)'>routine.play (clock)</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#stream.play%20(clock)'>stream.play (clock)</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#pausestream.play%20(clock)%20/%20task.play%20(clock)'>pausestream.play (clock) / task.play (clock)</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#pattern.play%20(clock,%20protoEvent)'>pattern.play (clock, protoEvent)</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#pattern.play%20(clock%2C%20protoEvent)'>pattern.play (clock, protoEvent)</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#Playing%20single%20Synths%20from%20SynthDefs%20on%20the%20server'>Playing single Synths from SynthDefs on the server</a></li>
-<ul class='toc'><li class='toc2'><a href='#function.play%20(target,%20outbus,%20fadeTime,%20addAction,%20args)'>function.play (target, outbus, fadeTime, addAction, args)</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#synthDef.play%20(target,%20args,%20addAction)'>synthDef.play (target, args, addAction)</a></li>
+<ul class='toc'><li class='toc2'><a href='#function.play%20(target%2C%20outbus%2C%20fadeTime%2C%20addAction%2C%20args)'>function.play (target, outbus, fadeTime, addAction, args)</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#synthDef.play%20(target%2C%20args%2C%20addAction)'>synthDef.play (target, args, addAction)</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
@@ -50,7 +50,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='method'>
 <p>The <code>play</code> message is of common use in sc. Different objects respond to it in various ways, but the simple meaning is: <strong>start a process</strong>. It is usually implemented by objects in contributed libraries as well.
 <p>play usually returns the playing object which might not be the same as the one the message was sent to.
-<p>opposite: <code>stop</code></div><h2><a class='anchor' name='Clocks,%20Routines,%20Streams%20and%20Patterns'>Clocks, Routines, Streams and Patterns</a></h2>
+<p>opposite: <code>stop</code></div><h2><a class='anchor' name='Clocks%2C%20Routines%2C%20Streams%20and%20Patterns'>Clocks, Routines, Streams and Patterns</a></h2>
 
 <p>For a full list of which classes that implements <code>play</code>, see <a href="./../Overviews/Methods.html#play">Methods: play</a><h3><a class='anchor' name='clock.play%20(stream)'>clock.play (stream)</a></h3>
 
@@ -84,7 +84,7 @@ a.play;
 a.stop;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>See <a href="./../Classes/Stream.html#-play">Stream: -play</a> and <a href="./../Classes/Task.html#-play">Task: -play</a><h3><a class='anchor' name='pattern.play%20(clock,%20protoEvent)'>pattern.play (clock, protoEvent)</a></h3>
+<p>See <a href="./../Classes/Stream.html#-play">Stream: -play</a> and <a href="./../Classes/Task.html#-play">Task: -play</a><h3><a class='anchor' name='pattern.play%20(clock%2C%20protoEvent)'>pattern.play (clock, protoEvent)</a></h3>
 
 <p>returns: an <a href="./../Classes/EventStreamPlayer.html">EventStreamPlayer</a><div class='codeMirrorContainer'><textarea class='editor'>(
 Pseq([
@@ -99,7 +99,7 @@ Pseq([
 <p>The following play messages both cause a SynthDef to be written, send it to the server and start a synth with it there.<div class='note'><span class='notelabel'>NOTE:</span> Some UGens are added in this process.<ul>
 <li>an <a href="./../Classes/Out.html">Out</a> UGen for playing the audio to the first audio busses. If the function returns an Out UGen, this is omitted.<li>an envelope with a <code>gate</code> control for releasing and crossfading. If the function provides its own releasable envelope, this is omitted.</ul>
 
-<p>Also note that they should not be used in quickly running automated processes, as there are more efficient alternatives ( see <a href="./../Guides/SynthDefsVsSynths.html">SynthDefs versus Synths</a> )</div><h3><a class='anchor' name='function.play%20(target,%20outbus,%20fadeTime,%20addAction,%20args)'>function.play (target, outbus, fadeTime, addAction, args)</a></h3>
+<p>Also note that they should not be used in quickly running automated processes, as there are more efficient alternatives ( see <a href="./../Guides/SynthDefsVsSynths.html">SynthDefs versus Synths</a> )</div><h3><a class='anchor' name='function.play%20(target%2C%20outbus%2C%20fadeTime%2C%20addAction%2C%20args)'>function.play (target, outbus, fadeTime, addAction, args)</a></h3>
 
 <p>returns: a <a href="./../Classes/Synth.html">Synth</a><table>
 <tr><td>outbus<td>on what bus to play (default: 0)<tr><td>fadeTime<td>in what time to fade out when released (default: 0.02)<tr><td>addAction<td>where to add the node (\addToHead by default)<tr><td>args<td>controls to set when starting the synth</table>
@@ -119,7 +119,7 @@ a = { |freq = 500| HPF.ar(PinkNoise.ar([1, 1] * 0.4), freq) }.play(args: [\freq,
 { Out.ar(1, PinkNoise.ar(0.1)) }.play;
 { XOut.ar(0, MouseX.kr(0,1), PinkNoise.ar(0.1*[1,1])) }.play; // mouse x controls level</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='synthDef.play%20(target,%20args,%20addAction)'>synthDef.play (target, args, addAction)</a></h3>
+<h3><a class='anchor' name='synthDef.play%20(target%2C%20args%2C%20addAction)'>synthDef.play (target, args, addAction)</a></h3>
 
 <p>returns: a <a href="./../Classes/Synth.html">Synth</a>
 <p>Note that you need an out ugen to hear the result. Examples of how to write to the busses in the helpfiles: <a href="./../Classes/Out.html">Out</a> / <a href="./../Classes/ReplaceOut.html">ReplaceOut</a> / <a href="./../Classes/XOut.html">XOut</a> / <a href="./../Classes/OffsetOut.html">OffsetOut</a>

@@ -72,7 +72,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Math'>Math</a> | <a href='./../Browse.html#Tuning'>Tuning</a></span>
-</div><h1>Scale<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Scale<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>represents a musical scale</div>
 </div>
@@ -194,7 +194,7 @@ Scale.partch_o1.size; // 6</textarea>
 <div class='method'>
 <p>Returns the size of the pitch class set from which the tuning is drawn.<div class='codeMirrorContainer'><textarea class='editor'>Scale.ionian.pitchesPerOctave; // 12
 Scale.minorPentatonic.pitchesPerOctave; // 12
-Scale.ajam.pitchesPerOctave; // 24--this is a quarter-tone scale
+Scale.ajam.pitchesPerOctave; // 24 — this is a quarter-tone scale
 Scale.partch_o1.pitchesPerOctave; // 43</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-stepsPerOctave' href='./../Overviews/Methods.html#stepsPerOctave'>stepsPerOctave</a></h3>
@@ -203,7 +203,7 @@ Scale.partch_o1.pitchesPerOctave; // 43</textarea>
 Scale.new(#[0, 3, 6, 9, 12], 13, tuning: \bp).stepsPerOctave;    // ~ 19.02</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>but note:<div class='codeMirrorContainer'><textarea class='editor'>Scale.ajam.stepsPerOctave;    // 12 -- quarter-tone scales have normal octaves</textarea>
+<p>but note:<div class='codeMirrorContainer'><textarea class='editor'>Scale.ajam.stepsPerOctave;    // 12 — quarter-tone scales have normal octaves</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-at' href='./../Overviews/Methods.html#at'>at</a>(<span class='argstr'>index</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wrapAt' href='./../Overviews/Methods.html#wrapAt'>wrapAt</a>(<span class='argstr'>index</span>)</h3>
@@ -221,10 +221,10 @@ Scale.major(\just).degreeToFreq(2, 60.midicps, 1);    // 654.06391...</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-degreeToRatio' href='./../Overviews/Methods.html#degreeToRatio'>degreeToRatio</a>(<span class='argstr'>degree</span>, <span class='argstr'>octave: 0</span>)</h3>
 <div class='method'>
-<p>Returns a ratio based on current tuning. If the degree argument is not integer, the difference to the nearest integer is interpreted as an offset in cent, where 0.001 represents 1 cent (the ratio <code>0.01.midiratio</code>, or <code>2.pow(1/1200)</code>);  e.g., 2.1 is scale degree 3 according to tuning, plus one 12TET-semitone.  Maximum offset is 499 cent.<div class='codeMirrorContainer'><textarea class='editor'>Scale.major.degreeToRatio(2, 1).round(0.001);        // 2.52
+<p>Returns a ratio based on current tuning. If the degree argument is not integer, the difference to the nearest integer is interpreted as an offset in cent, where 0.001 represents 1 cent (the ratio <code>0.01.midiratio</code>, or <code>2.pow(1/1200)</code>); e.g., 2.1 is scale degree 3 according to tuning, plus one 12TET-semitone. Maximum offset is 499 cent.<div class='codeMirrorContainer'><textarea class='editor'>Scale.major.degreeToRatio(2, 1).round(0.001);        // 2.52
 Scale.major(\just).degreeToRatio(2, 1).round(0.001);    // 2.5
 // detune by 14 cent to make the 12TET third just (2 - 1.986 = 0.014):
-Scale.major.degreeToRatio(1.986, 1).round(0.001);    // 2.5 
+Scale.major.degreeToRatio(1.986, 1).round(0.001);    // 2.5
 // or to make the just third boring:
 Scale.major(\just).degreeToRatio(2.014, 1).round(0.001);    // 2.52</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>

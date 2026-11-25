@@ -119,7 +119,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Core'>Core</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Core>Kernel'>Kernel</a></span>
-</div><h1>Function<span id='superclasses'> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Function<span id='superclasses'> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Implements a function</div>
 </div>
@@ -127,7 +127,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Core/Function.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Core/Function.sc'>Function.sc</a></div><div id='related'>See also: <a href="./../Reference/Functions.html">Functions</a>, <a href="./../Classes/AbstractFunction.html">AbstractFunction</a>, <a href="./../Classes/FunctionDef.html">FunctionDef</a></div>
 </div>
 
-<p>This document deals with the usage of Function objects.  For a more general introduction and documentation of syntax, see <a href="./../Reference/Functions.html">Functions</a>.<h2><a class='anchor' name='description'>Description</a></h2>
+<p>This document deals with the usage of Function objects. For a more general introduction and documentation of syntax, see <a href="./../Reference/Functions.html">Functions</a>.<h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>A Function is a reference to a FunctionDef and its defining context Frame. When a FunctionDef is encountered in your code it is pushed on the stack as a Function. A Function can be evaluated by using the 'value' method.
 <p>Because it inherits from AbstractFunction, Functions respond to math operations by creating a new Function.<div class='codeMirrorContainer'><textarea class='editor'>// example
@@ -425,7 +425,8 @@ AppClock.play({ "And again".postln; 2 });</textarea>
 <p>A bus number that determines the output channel. This is equivalent to <code>Out.ar(outbus, signal)</code>. The default is 0.<tr><td class='argumentname'>fadeTime<td class='argumentdesc'>
 <p>Crossfade time for attack and release of the synth. The default is 0.02 seconds, which is just enough to avoid a click.<tr><td class='argumentname'>addAction<td class='argumentdesc'>
 <p>The add action for the synth. For a list of valid addActions see <a href="./../Classes/Synth.html">Synth</a><tr><td class='argumentname'>args<td class='argumentdesc'>
-<p>An array of key value pairs of control names and control values which are used when starting the synth.<div class='note'><span class='notelabel'>NOTE:</span> Some UGens are added in this process.<ul>
+<p>An array of key value pairs of control names and control values which are used when starting the synth.</table><h4>Discussion:</h4>
+<div class='note'><span class='notelabel'>NOTE:</span> Some UGens are added in this process.<ul>
 <li>an <a href="./../Classes/Out.html">Out</a> UGen for playing the audio to the first audio busses. If the function returns an Out UGen, this is omitted.<li>an envelope with a <code>\gate</code> control for releasing and crossfading. If the function provides its own releasable envelope, this is omitted.</ul>
 </div><div class='codeMirrorContainer'><textarea class='editor'>x = { |freq = 440| SinOsc.ar(freq, 0, 0.3) }.play; // this returns a Synth object;
 x.set(\freq, 880); // note you can set the freq argument
@@ -438,7 +439,7 @@ x.release(4); // fadeout over 4 seconds</textarea>
 SynthDef(\help_FuncPlay, { Out.ar(0, SinOsc.ar(440, 0, 0.3)) }).play;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Function.play is often more convenient than SynthDef.play, particularly for short examples and quick testing. The latter does have some additional options, such as lagtimes for controls, etc. Where reuse and maximum flexibility are of greater importance, SynthDef and its various methods are usually the better choice.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-scope' href='./../Overviews/Methods.html#scope'>scope</a>: METHOD NOT FOUND!</h3>
+<p>Function.play is often more convenient than SynthDef.play, particularly for short examples and quick testing. The latter does have some additional options, such as lagtimes for controls, etc. Where reuse and maximum flexibility are of greater importance, SynthDef and its various methods are usually the better choice.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-scope' href='./../Overviews/Methods.html#scope'>scope</a>: METHOD NOT FOUND!</h3>
 <div class='method'>
 <p>As play above, and calls Server-scope to open a scope window in which to view the output.<div class='codeMirrorContainer'><textarea class='editor'>{ FSinOsc.ar(440, 0, 0.3) }.scope(1)</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>

@@ -98,7 +98,7 @@ f.(a: 3) // Error: binary operator '+' failed, b is 'nil' and you cannot add a n
 
 <p>See <a href="./../Reference/Literals.html">Literals</a> for more information.<h2><a class='anchor' name='Variable%20Arguments'>Variable Arguments</a></h2>
 
-<p>Variable arguments are how functions catch an unknown number of arguments or keyword arguments.  There are two possible variable arguments, the first for positional arguments, and second for keyword arguments. They are marked by an ellipsis after any normal arguments and separated by a comma.
+<p>Variable arguments are how functions catch an unknown number of arguments or keyword arguments. There are two possible variable arguments, the first for positional arguments, and second for keyword arguments. They are marked by an ellipsis after any normal arguments and separated by a comma.
 <p>The first variable argument (positional) catches all remaining arguments in an <a href="./../Classes/Array.html">Array</a><div class='codeMirrorContainer'><textarea class='editor'>f = { |a ... args| "a: %, args: %".format(a, args) };
 
 f.(1, 2, 3) // a: 1, args: [2, 3]
@@ -123,7 +123,7 @@ f.(1, 2, 3, meow: 10, woof: 20) // args: [1, 2, 3], kwargs: [meow, 10, woof, 20]
 
 <p>The use of variable keyword arguments is often paired with <a href="./../Classes/Object.html#-performArgs">Object: -performArgs</a>.
 <p>While you can pick any name for the variable arguments, they always refer to the unmatched positional and keyword arguments, so it is often best to name them <code>args</code> and <code>kwargs</code>.
-<p>You cannot reassign the value of the variable arguments at the call–site even if they share the same name (see below for example).<div class='codeMirrorContainer'><textarea class='editor'>f = { |...args, kwargs| "args: %, kwargs: %".format(args, kwargs) };
+<p>You cannot reassign the value of the variable arguments at the call-site even if they share the same name (see below for example).<div class='codeMirrorContainer'><textarea class='editor'>f = { |...args, kwargs| "args: %, kwargs: %".format(args, kwargs) };
 f.(args: 10, kwargs: 20) // args: [], kwargs: [args: 10, kwargs: 20]
 
 f = { |...a, b| "a: %, b: %".format(a, b) };

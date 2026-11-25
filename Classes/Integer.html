@@ -84,9 +84,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#-log2Ceil'>log2Ceil</a> </li>
 <li class='toc3'><a href='#-wrap'>wrap</a> </li>
 </ul><li class='toc2'><a href='#Range%20Limiting'>Range Limiting</a></li>
-<ul class='toc'><li class='toc3'><a href='#-clip'>clip</a> </li>
-<li class='toc3'><a href='#-fold'>fold</a> </li>
-<li class='toc3'><a href='#-wrap'>wrap</a> </li>
+<ul class='toc'><li class='toc3'><a href='#-wrap'>wrap</a> </li>
 </ul><li class='toc2'><a href='#Misc'>Misc</a></li>
 <ul class='toc'><li class='toc3'><a href='#-exit'>exit</a> </li>
 <li class='toc3'><a href='#-generate'>generate</a> </li>
@@ -106,7 +104,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Math'>Math</a></span>
-</div><h1>Integer<span id='superclasses'> : <a href="../Classes/SimpleNumber.html">SimpleNumber</a> : <a href="../Classes/Number.html">Number</a> : <a href="../Classes/Magnitude.html">Magnitude</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Integer<span id='superclasses'> : <a href="../Classes/SimpleNumber.html">SimpleNumber</a> : <a href="../Classes/Number.html">Number</a> : <a href="../Classes/Magnitude.html">Magnitude</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>32-bit Integer number</div>
 </div>
@@ -362,19 +360,7 @@ Pbind(\note, mod(Pseries(-15, 1, 25), [3, -4, -5]), \dur, 0.2).play;</textarea>
 <div class='codeMirrorContainer'><textarea class='editor'>(0..12).wrap(0, 3); // returns [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0]</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Range%20Limiting'>Range Limiting</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-clip' href='./../Overviews/Methods.html#clip'>clip</a>(<span class='argstr'>lo</span>, <span class='argstr'>hi</span>)</h3>
-<div class='method'>
-<p>Return this if lo &lt;= this &lt;= hi, otherwise return the nearest boundary: lo if this &lt; lo, hi if this &gt; hi.<h4>Arguments:</h4>
-<table class='arguments'>
-<tr><td class='argumentname'>lo<td class='argumentdesc'>
-<p>The low threshold of clipping.<tr><td class='argumentname'>hi<td class='argumentdesc'>
-<p>The high threshold of clipping.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-fold' href='./../Overviews/Methods.html#fold'>fold</a>(<span class='argstr'>lo</span>, <span class='argstr'>hi</span>)</h3>
-<div class='method'>
-<p>Fold this to [lo, hi].<h4>Arguments:</h4>
-<table class='arguments'>
-<tr><td class='argumentname'>lo<td class='argumentdesc'>
-<p>The low threshold of folding.<tr><td class='argumentname'>hi<td class='argumentdesc'>
-<p>The high threshold of folding.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wrap' href='./../Overviews/Methods.html#wrap'>wrap</a>(<span class='argstr'>lo</span>, <span class='argstr'>hi</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-wrap' href='./../Overviews/Methods.html#wrap'>wrap</a>(<span class='argstr'>lo</span>, <span class='argstr'>hi</span>)</h3>
 <div class='method'>
 <p>Wrap this around [lo, hi] such that it falls in range. Equivalent to (this % (hi - lo + 1)) + lo. Note that this behavior is different from <a href="./../Classes/Float.html#-wrap">Float: -wrap</a>.<h4>Arguments:</h4>
 <table class='arguments'>

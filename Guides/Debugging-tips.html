@@ -360,8 +360,8 @@ f.value(f);</textarea>
 <p>One useful approach is to insert statements that will cause execution to halt. The easiest is .halt, but it provides you with no information about where or how it stopped, or how it got there. If you want a more descriptive message, make up an error and throw it:<div class='codeMirrorContainer'><textarea class='editor'>Error("myFunction-halt").throw;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>When debugging code that crashes, place a line like this somewhere in the code. If you get the error output, you know that the infinite loop is happening after the error--so move the error.throw later and try again. If it crashes, you know the infinite loop is earlier. Eventually, after a lot of heartache, you can zero in on the location.
-<p>Here is a rogues' gallery of infinite loop gotchas--things that don't look like infinite loops, but they will kill your code quicker than you can wish you hadn't just pushed the enter key:<div class='codeMirrorContainer'><textarea class='editor'>i = 0;
+<p>When debugging code that crashes, place a line like this somewhere in the code. If you get the error output, you know that the infinite loop is happening after the error — so move the error.throw later and try again. If it crashes, you know the infinite loop is earlier. Eventually, after a lot of heartache, you can zero in on the location.
+<p>Here is a rogues' gallery of infinite loop gotchas — things that don't look like infinite loops, but they will kill your code quicker than you can wish you hadn't just pushed the enter key:<div class='codeMirrorContainer'><textarea class='editor'>i = 0;
 while (i &lt; 10) { i.postln; i = i+1 };     // crash</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
@@ -379,9 +379,9 @@ r.next;    // crash</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>This looks pretty innocent: iterate repeatedly over an array and yield each item successively. But, if the array is empty, the do loop never executes and yield never gets called. So, the outer loop{} runs forever, doing nothing.
-<p>Recursion is often used to walk through a tree structure. Tree structures are usually finite--no matter which branch you go down, eventually you will reach the end. If you have a data structure that is self-referential, you can easily get infinite recursion:<div class='codeMirrorContainer'><textarea class='editor'>a = (1..10);
+<p>Recursion is often used to walk through a tree structure. Tree structures are usually finite — no matter which branch you go down, eventually you will reach the end. If you have a data structure that is self-referential, you can easily get infinite recursion:<div class='codeMirrorContainer'><textarea class='editor'>a = (1..10);
 a.put(5, a);    // now one of the items of a is a itself
-a.postcs;        // crash--postcs has to walk through the entire collection, which loops on itself</textarea>
+a.postcs;        // crash — postcs has to walk through the entire collection, which loops on itself</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Self-referential data structures are sometimes an indication of poor design. If this is the case, avoid them.<div class='codeMirrorContainer'><textarea class='editor'>a = 0;

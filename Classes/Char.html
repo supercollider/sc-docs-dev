@@ -71,7 +71,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Core'>Core</a></span>
-</div><h1>Char<span id='superclasses'> : <a href="../Classes/Magnitude.html">Magnitude</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Char<span id='superclasses'> : <a href="../Classes/Magnitude.html">Magnitude</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>ASCII character</div>
 </div>
@@ -80,10 +80,15 @@ var scdoc_sc_version = '3.15.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>An ASCII character represented as a signed 8-bit integer (-128 to 127). Valid ASCII values are in the range 0-127. Chars may be written as literals using the $ sign. For example: $a, $b, $c. Some special characters can be expressed as literals using escape sequences (for example, <code>$\n</code> for newline). See <a href="./../Reference/Literals.html#Characters">Literals: Characters</a> for more information.
+<p>A Char is a signed 8-bit integer (-128 to 127) that is used to represent that bytes inside a <a href="./../Classes/String.html">String</a>. You can also make a Char with an ASCII literal by prefixing an ASCII character with a dollar symbol: code:$x:. These ASCII values are in the range 0-127. Some special characters can be expressed as literals using escape sequences (for example, <code>$\n</code> for newline). See <a href="./../Reference/Literals.html#Characters">Literals: Characters</a> for more information.
 <p>Chars may be created from <a href="./../Classes/Integer.html">Integers</a> using the methods <a href="./../Classes/Integer.html#-asAscii">Integer: -asAscii</a> and <a href="./../Classes/Integer.html#-asDigit">Integer: -asDigit</a>.
 <p>Note that, while Char does not support encodings aside from ASCII—such as multi-byte encodings like UTF-8 and UTF-16, or the full Latin-1 (ISO 8859-1) character set—Chars with negative values are perfectly legal, and may be strung together in strings that use these encodings.
-<p>The SuperCollider IDE uses UTF-8 to decode and display strings. See <a href="./../Classes/String.html">String</a> for more information.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>The SuperCollider IDE uses UTF-8 to decode and display strings. See <a href="./../Classes/String.html">String</a> for more information.<div class='note'><span class='notelabel'>NOTE:</span> From version 3.15 onwards one can no longer have a whitespace literal (except the space) after the dollar sign. If you see source code with a dollar followed by some whitespace, it is now always the space character.<div class='codeMirrorContainer'><textarea class='editor'>// This is a compiler error from version 3.15 as there is no space after the dollar.
+a = $
+;
+a == $\n;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Char.</span><a class='method-name' name='*nl' href='./../Overviews/Methods.html#nl'>nl</a></h3>
 <div class='method'>
 <p>Newline <code>($\n)</code>.</div><h3 class='method-code'><span class='method-prefix'>Char.</span><a class='method-name' name='*ret' href='./../Overviews/Methods.html#ret'>ret</a></h3>

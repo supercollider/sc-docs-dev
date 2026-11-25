@@ -46,7 +46,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#External Control'>External Control</a>&#8201;&gt;&#8201;<a href='./../Browse.html#External Control>MIDI'>MIDI</a></span>
-</div><h1>NoteOnResponder<span id='superclasses'> : <a href="../Classes/MIDIResponder.html">MIDIResponder</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>NoteOnResponder<span id='superclasses'> : <a href="../Classes/MIDIResponder.html">MIDIResponder</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>allow functions to be registered to respond to MIDI noteOn events</div>
 </div>
@@ -68,7 +68,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>An <a href="./../Classes/Integer.html">Integer</a> between 0 and 127 that selects which note number to match. nil matches all. May also be a <a href="./../Classes/Function.html">Function</a> which will be evaluated to determine the match. eg: { |val| val &gt;= 4 }<tr><td class='argumentname'>veloc<td class='argumentdesc'>
 <p>An <a href="./../Classes/Integer.html">Integer</a> between 0 and 127 to filter values. nil matches all. May also be a <a href="./../Classes/Function.html">Function</a> which will be evaluated to determine the match. eg: { |val| val &lt; 50 }<tr><td class='argumentname'>install<td class='argumentdesc'>
 <p>If true, install the responder automatically so it is active and ready to respond. If false, then it will be inactive.<tr><td class='argumentname'>swallowEvent<td class='argumentdesc'>
-<p>If true, then if the midi event is matched, cease testing any further responders. Note that doing this will prevent any other responders of this type from responding, including ones added behind the scenes in classes. Note also that this functionality is sensitive to the order in which responders are added. </table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p>If true, then if the midi event is matched, cease testing any further responders. Note that doing this will prevent any other responders of this type from responding, including ones added behind the scenes in classes. Note also that this functionality is sensitive to the order in which responders are added.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>NoteOnResponder.</span><a class='method-name' name='*add' href='./../Overviews/Methods.html#add'>add</a>(<span class='argstr'>resp</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>NoteOnResponder.</span><a class='method-name' name='*initialized' href='./../Overviews/Methods.html#initialized'>initialized</a></h3>

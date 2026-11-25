@@ -51,7 +51,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'><li class='toc3'><a href='#.valueEnvir'>valueEnvir</a> </li>
 <li class='toc3'><a href='#.valueArrayEnvir'>valueArrayEnvir</a> </li>
 </ul><li class='toc1'><a href='#Overview'>Overview</a></li>
-<ul class='toc'><li class='toc2'><a href='#topEnvironment,%20currentEnvironment,%20make%20and%20use'>topEnvironment, currentEnvironment, make and use</a></li>
+<ul class='toc'><li class='toc2'><a href='#topEnvironment%2C%20currentEnvironment%2C%20make%20and%20use'>topEnvironment, currentEnvironment, make and use</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#valueEnvir%20and%20valueArrayEnvir'>valueEnvir and valueArrayEnvir</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Environments%20and%20asynchronous%20functions'>Environments and asynchronous functions</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Using%20Environments%20as%20object%20prototypes'>Using Environments as object prototypes</a></li>
@@ -61,7 +61,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Collections'>Collections</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Collections>Unordered'>Unordered</a></span>
-</div><h1>Environment<span id='superclasses'> : <a href="../Classes/IdentityDictionary.html">IdentityDictionary</a> : <a href="../Classes/Dictionary.html">Dictionary</a> : <a href="../Classes/Set.html">Set</a> : <a href="../Classes/Collection.html">Collection</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Environment<span id='superclasses'> : <a href="../Classes/IdentityDictionary.html">IdentityDictionary</a> : <a href="../Classes/Dictionary.html">Dictionary</a> : <a href="../Classes/Set.html">Set</a> : <a href="../Classes/Collection.html">Collection</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>A dictionary which can serve as a 'name space' for functions</div>
 </div>
@@ -142,7 +142,7 @@ e.pop;  // return to the previous currentEnvironment
 <p>evaluates a function, looking up unspecified arguments in <a href="#currentEnvironment">currentEnvironment</a></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='.valueArrayEnvir' href='./../Overviews/Methods.html#valueArrayEnvir'>valueArrayEnvir</a>(argArray)</h3>
 <div class='method'>
 <p>same as <a href="#valueEnvir">valueEnvir</a>, but with arguments in an array</div><h2><a class='anchor' name='Overview'>Overview</a></h2>
-<h3><a class='anchor' name='topEnvironment,%20currentEnvironment,%20make%20and%20use'>topEnvironment, currentEnvironment, make and use</a></h3>
+<h3><a class='anchor' name='topEnvironment%2C%20currentEnvironment%2C%20make%20and%20use'>topEnvironment, currentEnvironment, make and use</a></h3>
 
 <p>When SuperCollider starts, it creates an Environment that it stores in the pseudovariables <a href="#topEnvironment">topEnvironment</a> and <a href="#currentEnvironment">currentEnvironment</a>. The <a href="#topEnvironment">topEnvironment</a> provides a universally accessible collection of named values similar to the <a href="./../Classes/Interpreter.html">Interpreter</a> variables a, b, c, ....
 <p>The compiler provides a shortcut syntax where ~ is a placeholder for <a href="#currentEnvironment">currentEnvironment</a>. This makes the expression <code>~myvariable;</code> equivalent to <code>currentEnvironment.at(\myvariable);</code> and the expression <code>~myvariable = 888;</code> equivalent to <code>currentEnvironment.put(\myvariable, 888);</code>
@@ -223,7 +223,7 @@ orc = Environment.make {
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Environments%20and%20asynchronous%20functions'>Environments and asynchronous functions</a></h3>
 
-<p>Local variables declared in functions, and class and instance variables, use lexical scope. That is, the context in which they are understood depends on where the declaration is read during compilation. Asynchronous functions -- any function that will execute outside (later than) the current execution flow -- carry their lexically scoped variables with them.<div class='codeMirrorContainer'><textarea class='editor'>f = { var a = "got it"; { a.postln }.defer(0.5) };
+<p>Local variables declared in functions, and class and instance variables, use lexical scope. That is, the context in which they are understood depends on where the declaration is read during compilation. Asynchronous functions — any function that will execute outside (later than) the current execution flow — carry their lexically scoped variables with them.<div class='codeMirrorContainer'><textarea class='editor'>f = { var a = "got it"; { a.postln }.defer(0.5) };
 f.value;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
@@ -250,7 +250,7 @@ e.know = true;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>An object prototype looks up the method selector in the Environment to decide what to do.
-<p>Most objects are simply returned -- the method call behaves like a getter for any other object.<div class='codeMirrorContainer'><textarea class='editor'>e.someVariable;
+<p>Most objects are simply returned — the method call behaves like a getter for any other object.<div class='codeMirrorContainer'><textarea class='editor'>e.someVariable;
 // same as
 e.at('someVariable');
 e['someVariable'];</textarea>
@@ -270,7 +270,7 @@ e['printMe'].value(e, "Oh hai wrldz");</textarea>
 e.mul2;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Environment variables inside a function will refer to the currently active environment -- not to the Environment being addressed. This is to allow the object prototype to interact with the <a href="#currentEnvironment">currentEnvironment</a>.<div class='codeMirrorContainer'><textarea class='editor'>e.mul2 = { |z| ~someVariable * 2 };
+<p>Environment variables inside a function will refer to the currently active environment — not to the Environment being addressed. This is to allow the object prototype to interact with the <a href="#currentEnvironment">currentEnvironment</a>.<div class='codeMirrorContainer'><textarea class='editor'>e.mul2 = { |z| ~someVariable * 2 };
 // this will throw an error because ~someVariable is nil in the currentEnvironment
 e.mul2;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
@@ -279,7 +279,7 @@ e.mul2;</textarea>
 e.mul2;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='note'><span class='notelabel'>NOTE:</span> Be careful to avoid method names that are defined in any of the superclasses of environment (or event). Object prototyping works by trapping method selectors that are not already defined as class library methods. Using a generic method selector such as 'stop' or 'reset' will cause the corresponding class library method to respond, and the items in the environment will never be checked.
-<p>Assigning a value into an environment using a setter -- <strong>name_()</strong> or <strong>.name = ...</strong> -- posts a warning message if the name is already defined in the class library.<div class='codeMirrorContainer'><textarea class='editor'>e.reset = { "My reset function".postln };
+<p>Assigning a value into an environment using a setter — <strong>name_()</strong> or <strong>.name = ...</strong> — posts a warning message if the name is already defined in the class library.<div class='codeMirrorContainer'><textarea class='editor'>e.reset = { "My reset function".postln };
 
 // prints:
 WARNING:

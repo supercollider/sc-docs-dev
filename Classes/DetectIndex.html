@@ -38,7 +38,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Buffer'>Buffer</a></span>
-</div><h1>DetectIndex<span id='superclasses'> : <a href="../Classes/Index.html">Index</a> : <a href="../Classes/PureUGen.html">PureUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>DetectIndex<span id='superclasses'> : <a href="../Classes/Index.html">Index</a> : <a href="../Classes/PureUGen.html">PureUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Search a buffer for a value</div>
 </div>
@@ -46,7 +46,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Audio/Osc.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Audio/Osc.sc'>Osc.sc</a></div></div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>Linearly searches a buffer for a value (i.e., loops over the frames in the buffer from the beginning, checking for float equality), and returns index of first occurrence of said value. Returns -1 if value is not found. The object performs a search whenever a change in the <strong>in</strong> argument is detected;  changes in the <strong>bufnum</strong> argument do not trigger searches. Checks for changes occur at the selected rate (ar or kr).<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>Linearly searches a buffer for a value (i.e., loops over the frames in the buffer from the beginning, checking for float equality), and returns index of first occurrence of said value. Returns -1 if value is not found. The object performs a search whenever a change in the <strong>in</strong> argument is detected; changes in the <strong>bufnum</strong> argument do not trigger searches. Checks for changes occur at the selected rate (ar or kr).<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>DetectIndex.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>bufnum</span>, <span class='argstr'>in: 0.0</span>, <span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
 <div class='supmethod'>From superclass: <a href='./../Classes/Index.html'>Index</a></div>
 <h3 class='method-code'><span class='method-prefix'>DetectIndex.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>bufnum</span>, <span class='argstr'>in: 0.0</span>, <span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>

@@ -28,20 +28,27 @@ var scdoc_sc_version = '3.15.0-dev';
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#description'>Description</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
 <ul class='toc'><li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
-</ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
+<li class='toc2'><a href='#Undocumented%20class%20methods'>Undocumented class methods</a></li>
+<ul class='toc'><li class='toc3'><a href='#*new'>new</a> </li>
+<li class='toc3'><a href='#*newCopyArgs'>newCopyArgs</a> </li>
+<li class='toc3'><a href='#*prThrow'>prThrow</a> </li>
+</ul></ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
 <ul class='toc'><li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 <li class='toc2'><a href='#Undocumented%20instance%20methods'>Undocumented instance methods</a></li>
-<ul class='toc'><li class='toc3'><a href='#-archiveAsCompileString'>archiveAsCompileString</a> </li>
-<li class='toc3'><a href='#-checkCanArchive'>checkCanArchive</a> </li>
-<li class='toc3'><a href='#-inspectorClass'>inspectorClass</a> </li>
-<li class='toc3'><a href='#-shallowCopy'>shallowCopy</a> </li>
+<ul class='toc'><li class='toc3'><a href='#-!?'>!?</a> </li>
+<li class='toc3'><a href='#-?'>?</a> </li>
+<li class='toc3'><a href='#-??'>??</a> </li>
+<li class='toc3'><a href='#-doesNotUnderstand'>doesNotUnderstand</a> </li>
+<li class='toc3'><a href='#-isNil'>isNil</a> </li>
+<li class='toc3'><a href='#-mustBeBoolean'>mustBeBoolean</a> </li>
+<li class='toc3'><a href='#-notNil'>notNil</a> </li>
 </ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Core'>Core</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Core>Kernel'>Kernel</a></span>
-</div><h1>Frame<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Frame<span id='superclasses'> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Stack Frame</div>
 </div>
@@ -56,14 +63,22 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>For error handling routines, the relevant information from a Frame can be transferred into a DebugFrame object which can safely be inspected.<div class='codeMirrorContainer'><textarea class='editor'>    this.getBackTrace.inspect</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>In version &lt;=3.14 it was possible to access the frame of a function object, since 3.15, this will no longer be possible as it can cause crashes.
+<p>If you are working on the sclang interpreter, there are some debug methods provided, these are documented in the source code because they should only be used for development.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
-<div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
+<div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
+<h3 class='method-code'><span class='method-prefix'>Frame.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a></h3>
+<h3 class='method-code'><span class='method-prefix'>Frame.</span><a class='method-name' name='*newCopyArgs' href='./../Overviews/Methods.html#newCopyArgs'>newCopyArgs</a></h3>
+<h3 class='method-code'><span class='method-prefix'>Frame.</span><a class='method-name' name='*prThrow' href='./../Overviews/Methods.html#prThrow'>prThrow</a></h3>
+<h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-archiveAsCompileString' href='./../Overviews/Methods.html#archiveAsCompileString'>archiveAsCompileString</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-checkCanArchive' href='./../Overviews/Methods.html#checkCanArchive'>checkCanArchive</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-inspectorClass' href='./../Overviews/Methods.html#inspectorClass'>inspectorClass</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-shallowCopy' href='./../Overviews/Methods.html#shallowCopy'>shallowCopy</a></h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-!?' href='./../Overviews/Methods.html#!?'>!?</a></h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-?' href='./../Overviews/Methods.html#?'>?</a></h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-??' href='./../Overviews/Methods.html#??'>??</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-doesNotUnderstand' href='./../Overviews/Methods.html#doesNotUnderstand'>doesNotUnderstand</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isNil' href='./../Overviews/Methods.html#isNil'>isNil</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-mustBeBoolean' href='./../Overviews/Methods.html#mustBeBoolean'>mustBeBoolean</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-notNil' href='./../Overviews/Methods.html#notNil'>notNil</a></h3>
 <div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Frame.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Frame.schelp</a><br>link::Classes/Frame::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

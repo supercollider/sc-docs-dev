@@ -80,7 +80,11 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'><li class='toc2'><a href='#Adding%20Views'>Adding Views</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Using%20Decorator'>Using Decorator</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Setting%20Bounds'>Setting Bounds</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Borderless%20Window'>Borderless Window</a></li>
+<ul class='toc'><li class='toc3'><a href='#Adjusting%20bounds%20from%20bottom-left'>Adjusting bounds from bottom-left</a></li>
+<ul class='toc'></ul><li class='toc3'><a href='#Adjusting%20bounds%20from%20top-left'>Adjusting bounds from top-left</a></li>
+<ul class='toc'></ul><li class='toc3'><a href='#Centering%20a%20window'>Centering a window</a></li>
+<ul class='toc'></ul><li class='toc3'><a href='#Applying%20margins'>Applying margins</a></li>
+<ul class='toc'></ul></ul><li class='toc2'><a href='#Borderless%20Window'>Borderless Window</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Window%20with%20Scrollers'>Window with Scrollers</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#onClose'>onClose</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Using%20Layouts'>Using Layouts</a></li>
@@ -112,9 +116,10 @@ var scdoc_sc_version = '3.15.0-dev';
 <p> A <a href="./../Classes/Rect.html">Rect</a> specifying the position and size of the window in screen coordinates.  The size does <strong>not</strong> include the window's border and title bar.
 <p> Position is measured from the <strong>bottom-left</strong> corner of the screen (This differs from <a href="./../Classes/View.html#-bounds">View: -bounds</a>, which uses the top-left corner).  This coordinate convention originates from SuperCollider’s original Cocoa GUI implementation on macOS, which uses a bottom-left origin.
 <p> The default size is 400x400.  If no position is specified, the window is centered on the screen by default.<div class='note'><span class='notelabel'>NOTE:</span> The default position may vary depending on screen resolution, platform, and operating system settings.</div>
-<p><tr><td class='argumentname'>resizable<td class='argumentdesc'>
+<p> See <a href="#Setting%20Bounds">Setting Bounds</a>.<tr><td class='argumentname'>resizable<td class='argumentdesc'>
 <p> A Boolean indicating whether the window is resizable by the user.  The default is <code>true</code>.<tr><td class='argumentname'>border<td class='argumentdesc'>
-<p> A Boolean indicating whether this window has a border. Borderless windows have no title bar and thus can only be closed in code. The default is <code>true</code>.<tr><td class='argumentname'>scroll<td class='argumentdesc'>
+<p> A Boolean indicating whether this window has a border. Borderless windows have no title bar and thus can only be closed in code. The default is <code>true</code>.<tr><td class='argumentname'>deprecatedServerArgument<td class='argumentdesc'>
+<p> This argument is deprecated, it was kept for SwingOSC compatibility.<tr><td class='argumentname'>scroll<td class='argumentdesc'>
 <p> A Boolean indicating whether this window will add scrollbars if its contents exceed its bounds. If this is set to <code>true</code>, then <a href="./../Classes/View.html#-resize">View: -resize</a> settings will be ignored for contained views. The default is false.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*allWindows' href='./../Overviews/Methods.html#allWindows'>allWindows</a></h3>
 <div class='method'>
 <p> An array of all existing Window instances.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='*closeAll' href='./../Overviews/Methods.html#closeAll'>closeAll</a></h3>
@@ -290,14 +295,130 @@ w.front;
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Setting%20Bounds'>Setting Bounds</a></h3>
-<div class='codeMirrorContainer'><textarea class='editor'>// use screenbounds for precise placement from the top
+
+<p>Because screen sizes vary, scaling window coordinates relative to the screen bounds can offer flexibility when using your GUI on different systems.<h4><a class='anchor' name='Adjusting%20bounds%20from%20bottom-left'>Adjusting bounds from bottom-left</a></h4>
+
+<p><a href="./../Classes/Window.html">Window</a> class coordinates use a bottom-left origin. The following examples show how to adjust bounds after creating a window.<div class='codeMirrorContainer'><textarea class='editor'>/* Create a window at the default position and size: */
 (
-x = Window.new("test", Rect(100, Window.screenBounds.height-180, 300, 100)); x.front;
+w = Window.new("test");
+w.front;
 )
 
-// bounds.top refers to the bottom edge of the window,
-// measured from the bottom of the screen. Different than in View.
-x.bounds_(Rect(100, 400, 300, 300));</textarea>
+// Set window position using a fixed pixel offset:
+(
+w.bounds = Rect(100, 100, 400, 400); // 100 avoids collision with OS GUI elements.
+w.front;
+)
+
+// Set window position (and size) with respect to available pixels in display's resolution:
+(
+~factor = 0.037; // 0: bottom, 1: top
+w.bounds_(Rect(0, Window.availableBounds.height * ~factor, 400, 400)).front;
+// Window.availableBounds excludes menu bars (macOS, Linux) and taskbars (Windows).
+// Use this when OS GUI elements are visible.
+)
+
+// The same approach can also be extended to all bounds values:
+(
+var b = Window.availableBounds;
+var x = b.left + (b.width * 0.0);
+var y = b.bottom + (b.height * 0.037);
+var width = b.width * 0.3;
+var height = b.height * 0.3;
+w.bounds_(Rect(x, y, width, height)).front;
+)
+
+// The same can also be written more compactly:
+(
+~factors = [0, 0.037, 0.3, 0.3]; // fractions of respective dimensions
+~bds = Window.availableBounds.asArray[[2, 3, 2, 3]];
+w.bounds_(Rect(*(~factors * ~bds))).front;
+)
+
+// Set window position (and size) with respect to full display bounds:
+(
+~factor = 0.035; // 0: bottom, 1: top
+w.bounds_(Rect(100, Window.screenBounds.height * ~factor, 400, 400)).front;
+// Window.screenBounds includes the full display area.
+// Use this when OS GUI elements are hidden.
+)
+
+w.close;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='note'><span class='notelabel'>NOTE:</span> The origin differs from the coordinate system used inside a <a href="./../Classes/View.html">View</a> or <a href="./../Classes/Window.html">Window</a> class, which use a top-left origin:<div class='codeMirrorContainer'><textarea class='editor'>(
+x = Window("test", Rect(100, 100, 300, 100)); // origin: bottom-left
+
+b = Button(x, Rect(90, 0, 50, 25));           // origin: top-left
+v = View(x, Rect(0, 0, 100, 50));             // origin: top-left
+v.background = Color.gray;
+
+t = TextView(v, Rect(10, 10, 80, 30));        // origin: top-left
+
+c = StaticText(x, Rect(90, 30, 50, 25));      // origin: top-left
+c.string = "test";
+
+x.front;
+)
+
+x.close;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h4><a class='anchor' name='Adjusting%20bounds%20from%20top-left'>Adjusting bounds from top-left</a></h4>
+
+<p>To position a window relative to the top, subtract from the height.<div class='codeMirrorContainer'><textarea class='editor'>/* Example that positions the window using a fixed pixel offset: */
+(
+x = Window("fixed-offset position"",
+    Rect(100, Window.screenBounds.height - 200, 300, 100)
+);
+x.front;
+)
+
+/* Scaling the offset relative to the screen height: */
+(
+~factor = 0; // 0: top, 1: bottom
+~rectHeight = 100;
+~titleHeight = 32; // The title bar height varies depending on OS and display setting.
+~screenHeight = Window.screenBounds.height;
+~normalizedOffset = ~screenHeight * ~factor + ~rectHeight + ~titleHeight;
+
+y = Window("scaled position",
+    Rect(100, ~screenHeight - ~normalizedOffset, 300, ~rectHeight)
+);
+y.front;
+)
+
+(
+~yHeight = y.bounds.height;
+~normalizedOffset  = ~screenHeight * 0.1 + ~yHeight + ~titleHeight;
+y.bounds_(
+    Rect(100, ~screenHeight - ~normalizedOffset, y.bounds.width, ~yHeight)
+).front
+)
+
+x.close;
+y.close;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h4><a class='anchor' name='Centering%20a%20window'>Centering a window</a></h4>
+
+<p>Use <code>Rect.aboutPoint(point, dx, dy)</code> to center a window around a point. Use <code>Window.screenBounds</code> when OS GUI elements are hidden.<div class='codeMirrorContainer'><textarea class='editor'>(
+w = Window("centered window",
+    Rect.aboutPoint(Window.availableBounds.center, 200, 100)
+);
+w.front;
+)
+
+w.close;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<h4><a class='anchor' name='Applying%20margins'>Applying margins</a></h4>
+
+<p>Use <code>Rect.insetBy(h, v)</code> to apply consistent margins from the edges of the available display area.<div class='codeMirrorContainer'><textarea class='editor'>(
+w = Window("window with margins",
+    Window.availableBounds.insetBy(300, 200)
+);
+// Use Window.screenBounds when OS GUI elements are hidden.
+w.front;
+)
+
+w.close;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Borderless%20Window'>Borderless Window</a></h3>
 <div class='codeMirrorContainer'><textarea class='editor'>w = Window.new(border: false).front; // can't be manually closed

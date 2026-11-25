@@ -49,7 +49,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Control'>Control</a></span>
-</div><h1>ContiguousBlockAllocator<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>ContiguousBlockAllocator<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>for better handling of dynamic allocation</div>
 </div>
@@ -71,7 +71,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='method'>
 <p>Free a previously allocated block starting at <em>address</em>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reserve' href='./../Overviews/Methods.html#reserve'>reserve</a>(<span class='argstr'>address</span>, <span class='argstr'>size: 1</span>, <span class='argstr'>warn: true</span>)</h3>
 <div class='method'>
-<p>Mark a specific range of addresses as used so that the alloc method will not return any addresses within that range. </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findAvailable' href='./../Overviews/Methods.html#findAvailable'>findAvailable</a>(<span class='argstr'>n</span>)</h3>
+<p>Mark a specific range of addresses as used so that the alloc method will not return any addresses within that range.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-findAvailable' href='./../Overviews/Methods.html#findAvailable'>findAvailable</a>(<span class='argstr'>n</span>)</h3>
 <div class='method'>
 <p>Given an integer width of a desired block, find and return a <code>ContiguousBlock</code> object whose <code>start</code> is the beginning address of the block and whose <code>size</code> is the width. This method only queries the allocator; it does not change the state. If you obtain an address using <code>findAvailable</code>, there is no guarantee that a later call will not return the same address. So, in general, use <a href="#-alloc">-alloc</a> to request an address. (<code>alloc</code> calls <code>findAvailable</code> and then <code>reserve</code>.)
 <p>This method could be considered "half-private": It may be useful for queries, but in general, you can get everything you need from <a href="#-alloc">-alloc</a>, <a href="#-free">-free</a> and <a href="#-reserve">-reserve</a>.</div><h3><a class='anchor' name='Status%20and%20debugging'>Status and debugging</a></h3>
@@ -91,7 +91,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='codeMirrorContainer'><textarea class='editor'>c = ContiguousBlockAllocator(10);
 c.alloc(5);  // 0 = first available
 c.alloc(2);  // 5
-c.alloc(4);  // nil -- no block of 4 available
+c.alloc(4);  // nil — no block of 4 available
 
 c.free(1);  // no-op: nothing at 1 to free
 

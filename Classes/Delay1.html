@@ -38,7 +38,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Delays'>Delays</a></span>
-</div><h1>Delay1<span id='superclasses'> : <a href="../Classes/Filter.html">Filter</a> : <a href="../Classes/PureUGen.html">PureUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Delay1<span id='superclasses'> : <a href="../Classes/Filter.html">Filter</a> : <a href="../Classes/PureUGen.html">PureUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Single sample delay.</div>
 </div>
@@ -63,7 +63,7 @@ var scdoc_sc_version = '3.15.0-dev';
 out[1] = in[0]</pre>
 <p>For audio-rate signals the delay is one audio frame, and for control-rate signals the delay is one control period.
 <p>Why is the default value of <strong>x1</strong> different depending on the <code>UGen</code>'s rate?
-<p>At audio-rate, an analog delay model is followed—the input signal is preceded by silence (zero). At control-rate, leading with a zero is less appropriate because control signals are often DC or other non zero-mean signals (e.g. a frequency or gain control signal).</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p>At audio-rate, an analog delay model is followed — the input signal is preceded by silence (zero). At control-rate, leading with a zero is less appropriate because control signals are often DC or other non zero-mean signals (e.g. a frequency or gain control signal).</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h2><a class='anchor' name='examples'>Examples</a></h2>

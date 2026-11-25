@@ -25,7 +25,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <body onload='fixTOC()'>
 <div id='toc'>
 <div id='toctitle'>Pattern Guide 06c: Composition of Patterns:</div>
-<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Adding%20values%20to%20a%20base%20event%20pattern%20(Or,%20"Pattern%20Composition")'>Adding values to a base event pattern (Or, "Pattern Composition")</a></li>
+<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Adding%20values%20to%20a%20base%20event%20pattern%20(Or%2C%20%22Pattern%20Composition%22)'>Adding values to a base event pattern (Or, "Pattern Composition")</a></li>
 <ul class='toc'><li class='toc2'><a href='#Pset%20and%20cousins'>Pset and cousins</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
@@ -39,7 +39,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='subheader'>
 <div id='related'>See also: <a href="./../../Tutorials/A-Practical-Guide/PG_06b_Time_Based_Patterns.html">Pattern Guide 06b: Time Based Patterns</a>, <a href="./../../Tutorials/A-Practical-Guide/PG_06d_Parallel_Patterns.html">Pattern Guide 06d: Parallel Patterns</a></div>
 </div>
-<h2><a class='anchor' name='Adding%20values%20to%20a%20base%20event%20pattern%20(Or,%20"Pattern%20Composition")'>Adding values to a base event pattern (Or, "Pattern Composition")</a></h2>
+<h2><a class='anchor' name='Adding%20values%20to%20a%20base%20event%20pattern%20(Or%2C%20%22Pattern%20Composition%22)'>Adding values to a base event pattern (Or, "Pattern Composition")</a></h2>
 
 <p>One way to use patterns is to write everything into the pattern up front. This has the advantage of clarity and ease of understanding. Another way is to modularize the behavior by creating smaller, simpler patterns and combining their results into single events that have keys and values from all the component patterns.
 <p>This is related to the computer science concept of "function composition," in which a complex calculation can be written not as a single large function, but as several smaller functions that are then chained together into a single function. Since Functions are normal objects in SuperCollider, it's easy to do an operation on a function that returns a composite function (which may then be used like any other function). <a href="http://en.wikipedia.org/wiki/Function_composition_(computer_science)">http://en.wikipedia.org/wiki/Function_composition_(computer_science)</a>
@@ -61,7 +61,7 @@ h.value(1);
 (f &lt;&gt; g).value(1)
 --&gt; 3    // == (1*2) + 1
 
-// g · f == g(f(x)) -- f is evaluated first, and its result is passed to g
+// g · f == g(f(x)) — f is evaluated first, and its result is passed to g
 g.value(f.value(1));
 --&gt; 4</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
@@ -112,7 +112,7 @@ p.stop;</textarea>
 <tr><td><code>Psetpre(name, value, pattern)</code><td><code>Pchain(pattern, Pbind(name, value))</code><tr><td><code>Paddpre(name, value, pattern)</code><td><code>Pchain(pattern, Pbind(name, Pkey(name) + value))</code></table>
 
 <p>Similar for <code>Pmulpre</code>.
-<p>A third group -- <a href="./../../Classes/Psetp.html">Psetp</a>, <a href="./../../Classes/Paddp.html">Paddp</a>, <a href="./../../Classes/Pmulp.html">Pmulp</a> -- behave slightly differently, nesting pattern evaluation.
+<p>A third group — <a href="./../../Classes/Psetp.html">Psetp</a>, <a href="./../../Classes/Paddp.html">Paddp</a>, <a href="./../../Classes/Pmulp.html">Pmulp</a> — behave slightly differently, nesting pattern evaluation.
 <p>Previous: <a href="./../../Tutorials/A-Practical-Guide/PG_06b_Time_Based_Patterns.html">Pattern Guide 06b: Time Based Patterns</a>
 <p>Next: <a href="./../../Tutorials/A-Practical-Guide/PG_06d_Parallel_Patterns.html">Pattern Guide 06d: Parallel Patterns</a><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/A-Practical-Guide/PG_06c_Composition_of_Patterns.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Tutorials/A-Practical-Guide/PG_06c_Composition_of_Patterns.schelp</a><br>link::Tutorials/A-Practical-Guide/PG_06c_Composition_of_Patterns::<br></div></div><script src='./../../static/editor.js' type='text/javascript'></script>
 </body></html>

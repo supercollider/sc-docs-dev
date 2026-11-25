@@ -38,17 +38,17 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#-makeFunction'>makeFunction</a> </li>
 <li class='toc3'><a href='#-pattern'>pattern</a> </li>
 </ul></ul><li class='toc1'><a href='#examples'>Examples</a></li>
-<ul class='toc'><li class='toc2'><a href='#Example%201,%20loading%20and%20granulating%20a%20sound%20file.'>Example 1, loading and granulating a sound file.</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Example%202,%20loading%20a%20waveform%20buffer%20and%20modifying%20it%20in%20performance.'>Example 2, loading a waveform buffer and modifying it in performance.</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Example%203,%20loading%20a%20waveshaper%20buffer%20and%20modifying%20it%20in%20performance.'>Example 3, loading a waveshaper buffer and modifying it in performance.</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Example%204,%20using%20an%20effect%20with%20parallel%20control.'>Example 4, using an effect with parallel control.</a></li>
+<ul class='toc'><li class='toc2'><a href='#Example%201%2C%20loading%20and%20granulating%20a%20sound%20file.'>Example 1, loading and granulating a sound file.</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Example%202%2C%20loading%20a%20waveform%20buffer%20and%20modifying%20it%20in%20performance.'>Example 2, loading a waveform buffer and modifying it in performance.</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Example%203%2C%20loading%20a%20waveshaper%20buffer%20and%20modifying%20it%20in%20performance.'>Example 3, loading a waveshaper buffer and modifying it in performance.</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Example%204%2C%20using%20an%20effect%20with%20parallel%20control.'>Example 4, using an effect with parallel control.</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Streams-Patterns-Events>Patterns'>Patterns</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Streams-Patterns-Events>Patterns>Server Control'>Server Control</a></span>
-</div><h1>Pproto<span id='superclasses'> : <a href="../Classes/Pattern.html">Pattern</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Pproto<span id='superclasses'> : <a href="../Classes/Pattern.html">Pattern</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>provide a proto event for an event stream</div>
 </div>
@@ -79,7 +79,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pattern' href='./../Overviews/Methods.html#pattern'>pattern</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-pattern' href='./../Overviews/Methods.html#pattern'>pattern</a> = value</h3>
 <h2><a class='anchor' name='examples'>Examples</a></h2>
-<div class='note'><span class='notelabel'>NOTE:</span> The syntax used for patterns like Pbind and Pmono is a little bit different for making the code more readable. The difference has nothing to do with Pproto. This is the same: <code>Pbind(\freq, 700, \amp, 0.1)</code> and <code>Pbind(*[freq: 700, amp: 0.1])</code></div><h3><a class='anchor' name='Example%201,%20loading%20and%20granulating%20a%20sound%20file.'>Example 1, loading and granulating a sound file.</a></h3>
+<div class='note'><span class='notelabel'>NOTE:</span> The syntax used for patterns like Pbind and Pmono is a little bit different for making the code more readable. The difference has nothing to do with Pproto. This is the same: <code>Pbind(\freq, 700, \amp, 0.1)</code> and <code>Pbind(*[freq: 700, amp: 0.1])</code></div><h3><a class='anchor' name='Example%201%2C%20loading%20and%20granulating%20a%20sound%20file.'>Example 1, loading and granulating a sound file.</a></h3>
 <div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef(\help_playbuf, { |out = 0, bufnum = 0, rate = 1, startPos = 0, amp = 0.1, sustain = 1, pan = 0, loop = 1|
     var audio;
@@ -113,7 +113,7 @@ a.play;
 // a.render("sounds/test.aif", 40)
 // SoundFile.openRead("sounds/test.aif").play</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Example%202,%20loading%20a%20waveform%20buffer%20and%20modifying%20it%20in%20performance.'>Example 2, loading a waveform buffer and modifying it in performance.</a></h3>
+<h3><a class='anchor' name='Example%202%2C%20loading%20a%20waveform%20buffer%20and%20modifying%20it%20in%20performance.'>Example 2, loading a waveform buffer and modifying it in performance.</a></h3>
 <div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef(\osc, { |out = 0, bufnum = 0, numbufs = 8, sustain = 1, freq = 500, amp = 0.1, pan = 0|
     var audio;
@@ -151,7 +151,7 @@ b.play
 // b.render("sounds/test.aif", 40)
 // SoundFile.openRead("sounds/test.aif").play</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Example%203,%20loading%20a%20waveshaper%20buffer%20and%20modifying%20it%20in%20performance.'>Example 3, loading a waveshaper buffer and modifying it in performance.</a></h3>
+<h3><a class='anchor' name='Example%203%2C%20loading%20a%20waveshaper%20buffer%20and%20modifying%20it%20in%20performance.'>Example 3, loading a waveshaper buffer and modifying it in performance.</a></h3>
 <div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef(\shaper, { |out = 0, bufnum = 0, numbufs = 8, sustain = 1, freq = 500, amp = 0.1, pan = 0|
     var audio;
@@ -186,7 +186,7 @@ c.play
 // c.render("sounds/test.aif", 40)
 // SoundFile("sounds/test.aif").play</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Example%204,%20using%20an%20effect%20with%20parallel%20control.'>Example 4, using an effect with parallel control.</a></h3>
+<h3><a class='anchor' name='Example%204%2C%20using%20an%20effect%20with%20parallel%20control.'>Example 4, using an effect with parallel control.</a></h3>
 <div class='codeMirrorContainer'><textarea class='editor'>(
 SynthDef(\echo, { |out = 0, maxdtime = 0.2, dtime = 0.2, decay = 2, gate = 1|
     var env, in;

@@ -35,7 +35,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 </ul><li class='toc1'><a href='#examples'>Examples</a></li>
 <ul class='toc'><li class='toc2'><a href='#Example%20plots'>Example plots</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Min%20and%20max%20values,%20curve%20width'>Min and max values, curve width</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Min%20and%20max%20values%2C%20curve%20width'>Min and max values, curve width</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Sound%20examples'>Sound examples</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Gabor%20Grain'>Gabor Grain</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
@@ -44,7 +44,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators'>Generators</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Generators>Deterministic'>Deterministic</a></span>
-</div><h1>LFGauss<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>LFGauss<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Gaussian function oscillator</div>
 </div>
@@ -72,7 +72,7 @@ var scdoc_sc_version = '3.15.0-dev';
 
 <p>By default, the maximum value of <code>LFGauss</code> is <code>1</code>. The minimum value will depend on the <strong>width</strong>, and can by inspected with <a href="#-minval">-minval</a>.
 <p>The function can be mapped to a specified range with <a href="#-range">-range</a>, which can be useful when using <code>LFGauss</code> as an envelope that may need to span a range of, e.g., <code>[0, 1]</code>.
-<p>See the examples below for understanding and manipulating the <a href="#Min%20and%20max%20values,%20curve%20width">Min and max values, curve width</a>.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+<p>See the examples below for understanding and manipulating the <a href="#Min%20and%20max%20values%2C%20curve%20width">Min and max values, curve width</a>.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-minval' href='./../Overviews/Methods.html#minval'>minval</a></h3>
 <div class='method'>
@@ -100,7 +100,7 @@ var scdoc_sc_version = '3.15.0-dev';
 // several grains
 { LFGauss.ar(0.065, 0.12, 0, loop: 1) }.plot(0.3);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Min%20and%20max%20values,%20curve%20width'>Min and max values, curve width</a></h3>
+<h3><a class='anchor' name='Min%20and%20max%20values%2C%20curve%20width'>Min and max values, curve width</a></h3>
 
 <p><a href="#-minval">-minval</a> for a given <strong>width</strong> (assuming <strong>iphase</strong> <code>= 0</code>) is:
 <p><code>minval = exp(-1.0 / (2.0 * squared(width)))</code>
@@ -185,7 +185,7 @@ sqrt(-1 / (2 * log(-60.dbamp))) // 0.269
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Gabor%20Grain'>Gabor Grain</a></h3>
-<div class='note'><span class='notelabel'>NOTE:</span> The gaussian function doesn't start with <code>0</code> – it asymptotically approaches it at <code>-inf</code> and <code>inf</code>. When using it as an envelope, it has to start at some smaller value, and it has an offset for this value. You can remove this offset by explicitly setting the <a href="#-range">-range</a>, e.g. to <code>[0, 1]</code> (this is the default).</div><div class='codeMirrorContainer'><textarea class='editor'>// first, visualize LFGauss as a granular envelope on a sine oscillator
+<div class='note'><span class='notelabel'>NOTE:</span> The gaussian function doesn't start with <code>0</code> — it asymptotically approaches it at <code>-inf</code> and <code>inf</code>. When using it as an envelope, it has to start at some smaller value, and it has an offset for this value. You can remove this offset by explicitly setting the <a href="#-range">-range</a>, e.g. to <code>[0, 1]</code> (this is the default).</div><div class='codeMirrorContainer'><textarea class='editor'>// first, visualize LFGauss as a granular envelope on a sine oscillator
 (
 var freq = 1000;
 var ncycles = 10;

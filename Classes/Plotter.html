@@ -186,7 +186,7 @@ p.plotMode_([\steps, \linear, \plines, \points]);
 p.superpose_(true);
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<div class='warning'><span class='warninglabel'>WARNING:</span> Plot modes <code>\levels</code>, <code>\steps</code>, and their variants display data in a sample-and-hold manner,  so unless the <a href="#-domainSpecs">-domainSpecs</a> has been set explicitly to extend beyond the last data point, the "step" of the last data point may not be visible.<div class='codeMirrorContainer'><textarea class='editor'>( // Can't see the rightmost data point
+<div class='warning'><span class='warninglabel'>WARNING:</span> Plot modes <code>\levels</code>, <code>\steps</code>, and their variants display data in a sample-and-hold manner, so unless the <a href="#-domainSpecs">-domainSpecs</a> has been set explicitly to extend beyond the last data point, the "step" of the last data point may not be visible.<div class='codeMirrorContainer'><textarea class='editor'>( // Can't see the rightmost data point
 p = [4,2,5,3].plot.minval_(0).maxval_(6).plotMode_(\levels);
 p.parent.alwaysOnTop = true;
 )

@@ -30,7 +30,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul><li class='toc1'><a href='#Using%20an%20Environment'>Using an Environment</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Calling%20Functions%20with%20arguments%20from%20the%20current%20Environment'>Calling Functions with arguments from the current Environment</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Event'>Event</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#Value%20Patterns,%20Event%20Patterns%20and%20Pbind'>Value Patterns, Event Patterns and Pbind</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Value%20Patterns%2C%20Event%20Patterns%20and%20Pbind'>Value Patterns, Event Patterns and Pbind</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#EventStreamPlayer'>EventStreamPlayer</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Changes%20in%20SC3'>Changes in SC3</a></li>
 <ul class='toc'></ul></ul></div><div id='menubar'></div>
@@ -174,7 +174,7 @@ Task({
 <p>The class <a href="./../Classes/Event.html">Event</a> is a subclass of <a href="./../Classes/Environment.html">Environment</a>. Events are mappings of Symbols representing names of parameters for a musical event to their value. This lets you put any information you want into an event.
 <p>The class getter method <strong>default</strong> retrieves the default prototype event which has been initialized with values for many useful parameters. It represents only one possible event model. You are free to create your own, however it would be good to understand the one provided first so that you can see what can be done.
 <p>A prototype event is a default event which will be transformed by the streams returned by patterns. Compositions produced by event patterns are created entirely from transformations of copies of a single protoEvent.
-<p><a class='footnote anchor' name='footnote_org_1' href='#footnote_1'><sup>1</sup></a> <h2><a class='anchor' name='Value%20Patterns,%20Event%20Patterns%20and%20Pbind'>Value Patterns, Event Patterns and Pbind</a></h2>
+<p><a class='footnote anchor' name='footnote_org_1' href='#footnote_1'><sup>1</sup></a> <h2><a class='anchor' name='Value%20Patterns%2C%20Event%20Patterns%20and%20Pbind'>Value Patterns, Event Patterns and Pbind</a></h2>
 
 <p>The patterns discussed in parts 2 and 3 are known as "value patterns" because their streams return a single value for each call to <strong>next</strong>. Here we introduce "event patterns" which once turned into streams, return an <a href="./../Classes/Event.html">Event</a> for each call to <strong>next</strong>.
 <p>The class <a href="./../Classes/Pbind.html">Pbind</a> provides a bridge between value patterns and event patterns. It binds symbols in each event to values obtained from a pattern. Pbind takes arguments in pairs, the first of a pair being a <a href="./../Classes/Symbol.html">Symbol</a> and the second being a value <a href="./../Classes/Pattern.html">Pattern</a>. Any object can act as a Pattern, so you can use constants as the pattern ( see <code>\amp</code> in the example below ).

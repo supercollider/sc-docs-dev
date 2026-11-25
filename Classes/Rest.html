@@ -45,7 +45,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Streams-Patterns-Events'>Streams-Patterns-Events</a></span>
-</div><h1>Rest<span id='superclasses'> : <a href="../Classes/Operand.html">Operand</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Rest<span id='superclasses'> : <a href="../Classes/Operand.html">Operand</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Represents a rest in event patterns</div>
 </div>
@@ -72,7 +72,7 @@ Pbind(\note, Pseq([0, 4, 7, 11], inf), \dur, Pseq([2, 1, Rest(1)], inf) / 5).pla
 <p>Create an instance of Rest, with a value to be used in the resulting rest event.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>value<td class='argumentdesc'>
-<p>The Rest instance's numeric value, to be used in math operations. Note that a Rest's value is ignored for most Event keys (assuming the Event does nothing in response to <code>.play</code>). If a Rest appears in a rhythm key (<code>dur</code> or <code>delta</code>), then the number is the time until the next event. Consequently, numeric Rests are often used for duration -- but there is no requirement that a Rest's value must be a duration.</table><h4>Discussion:</h4>
+<p>The Rest instance's numeric value, to be used in math operations. Note that a Rest's value is ignored for most Event keys (assuming the Event does nothing in response to <code>.play</code>). If a Rest appears in a rhythm key (<code>dur</code> or <code>delta</code>), then the number is the time until the next event. Consequently, numeric Rests are often used for duration — but there is no requirement that a Rest's value must be a duration.</table><h4>Discussion:</h4>
 <div class='codeMirrorContainer'><textarea class='editor'>a = Rest(6);
 b = a * 2; // returns Rest(12)
 b = 2 * a; // the same

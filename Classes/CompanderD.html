@@ -37,7 +37,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Dynamics'>Dynamics</a></span>
-</div><h1>CompanderD<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>CompanderD<span id='superclasses'> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Compressor, expander, limiter, gate, ducker.</div>
 </div>
@@ -54,7 +54,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <tr><td class='argumentname'>in<td class='argumentdesc'>
 <p>The signal to be compressed / expanded / gated.<tr><td class='argumentname'>thresh<td class='argumentdesc'>
 <p>Control signal amplitude threshold, which determines the break point between slopeBelow and slopeAbove. Usually 0..1. The control signal amplitude is calculated using RMS.<tr><td class='argumentname'>slopeBelow<td class='argumentdesc'>
-<p>Slope of the amplitude curve below the threshold. If this slope &gt; 1.0, the amplitude will drop off more quickly the softer the control signal gets; when the control signal is close to 0 amplitude, the output should be exactly zero -- hence, noise gating. Values &lt; 1.0 are possible, but it means that a very low-level control signal will cause the input signal to be amplified, which would raise the noise floor.<tr><td class='argumentname'>slopeAbove<td class='argumentdesc'>
+<p>Slope of the amplitude curve below the threshold. If this slope &gt; 1.0, the amplitude will drop off more quickly the softer the control signal gets; when the control signal is close to 0 amplitude, the output should be exactly zero — hence, noise gating. Values &lt; 1.0 are possible, but it means that a very low-level control signal will cause the input signal to be amplified, which would raise the noise floor.<tr><td class='argumentname'>slopeAbove<td class='argumentdesc'>
 <p>Same thing, but above the threshold. Values &lt; 1.0 achieve compression (louder signals are attenuated); &gt; 1.0, you get expansion (louder signals are made even louder). For 3:1 compression, you would use a value of 1/3 here.<tr><td class='argumentname'>clampTime<td class='argumentdesc'>
 <p>The amount of time it takes for the amplitude adjustment to kick in fully. This is usually pretty small, not much more than 10 milliseconds (the default value). I often set it as low as 2 milliseconds (0.002).<tr><td class='argumentname'>relaxTime<td class='argumentdesc'>
 <p>The amount of time for the amplitude adjustment to be released. Usually a bit longer than clampTime; if both times are too short, you can get some (possibly unwanted) artifacts.<tr><td class='argumentname'>mul<td class='argumentdesc'>

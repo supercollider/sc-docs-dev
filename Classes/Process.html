@@ -31,20 +31,20 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
 <li class='toc2'><a href='#Undocumented%20class%20methods'>Undocumented class methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#*elapsedTime'>elapsedTime</a> </li>
+<li class='toc3'><a href='#*initializedClassesOkay'>initializedClassesOkay</a> </li>
 <li class='toc3'><a href='#*monotonicClockTime'>monotonicClockTime</a> </li>
 </ul></ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#-nowExecutingPath'>nowExecutingPath</a> </li>
 <li class='toc3'><a href='#-startup'>startup</a> </li>
 <li class='toc3'><a href='#-run'>run</a> </li>
 <li class='toc3'><a href='#-mainThread'>mainThread</a> </li>
+<li class='toc3'><a href='#-interpret'>interpret</a> </li>
+<li class='toc3'><a href='#-interpretPrintSelectedText'>interpretPrintSelectedText</a> </li>
 <li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
 <li class='toc2'><a href='#Undocumented%20instance%20methods'>Undocumented instance methods</a></li>
 <ul class='toc'><li class='toc3'><a href='#-archiveAsCompileString'>archiveAsCompileString</a> </li>
 <li class='toc3'><a href='#-argv'>argv</a> </li>
 <li class='toc3'><a href='#-getCurrentSelection'>getCurrentSelection</a> </li>
-<li class='toc3'><a href='#-interpretCmdLine'>interpretCmdLine</a> </li>
-<li class='toc3'><a href='#-interpretPrintCmdLine'>interpretPrintCmdLine</a> </li>
-<li class='toc3'><a href='#-interpretPrintSelectedText'>interpretPrintSelectedText</a> </li>
 <li class='toc3'><a href='#-interpreter'>interpreter</a> </li>
 <li class='toc3'><a href='#-methodReferences'>methodReferences</a> </li>
 <li class='toc3'><a href='#-methodTemplates'>methodTemplates</a> </li>
@@ -62,7 +62,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Core'>Core</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Core>Kernel'>Kernel</a></span>
-</div><h1>Process<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Process<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Runtime environment for the virtual machine and interpreter.</div>
 </div>
@@ -78,6 +78,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>Get or set tail call optimization. The default is on. Setting this to <code>false</code> can help with debugging by including intermediate levels in an error backtrace.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Process.</span><a class='method-name' name='*elapsedTime' href='./../Overviews/Methods.html#elapsedTime'>elapsedTime</a></h3>
+<h3 class='method-code'><span class='method-prefix'>Process.</span><a class='method-name' name='*initializedClassesOkay' href='./../Overviews/Methods.html#initializedClassesOkay'>initializedClassesOkay</a></h3>
 <h3 class='method-code'><span class='method-prefix'>Process.</span><a class='method-name' name='*monotonicClockTime' href='./../Overviews/Methods.html#monotonicClockTime'>monotonicClockTime</a></h3>
 <h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-nowExecutingPath' href='./../Overviews/Methods.html#nowExecutingPath'>nowExecutingPath</a></h3>
@@ -92,7 +93,11 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='method'>
 <p>called when the user chooses the Run menu command. Override this in class <a href="./../Classes/Main.html">Main</a> to do whatever you want.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-mainThread' href='./../Overviews/Methods.html#mainThread'>mainThread</a></h3>
 <div class='method'>
-<p>The top-level <a href="./../Classes/Thread.html">Thread</a>, i.e the <a href="./../Classes/Thread.html#-parent">parent</a> of all other Threads. This instance of Thread always exists and is created with the Process when SuperCollider starts.<h4>Discussion:</h4>
+<p>The top-level <a href="./../Classes/Thread.html">Thread</a>, i.e the <a href="./../Classes/Thread.html#-parent">parent</a> of all other Threads. This instance of Thread always exists and is created with the Process when SuperCollider starts.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-interpret' href='./../Overviews/Methods.html#interpret'>interpret</a>( <span class='argstr'>... a</span>, <span class='argstr'>... k</span>)</h3>
+<div class='method'>
+<p>Redirects to <a href="./../Classes/Interpreter.html#interpret">Interpreter: interpret</a></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-interpretPrintSelectedText' href='./../Overviews/Methods.html#interpretPrintSelectedText'>interpretPrintSelectedText</a></h3>
+<div class='method'>
+<p>Takes the currently selected text from the IDE and interprets it, printing the result.<h4>Discussion:</h4>
 
 <p>All SuperCollider code initially runs in the context of the main Thread:<ul>
 <li>Code evaluated in code editor<li>Code evaluated on command line<li>Tasks scheduled on any <a href="./../Classes/Clock.html">Clock</a><li>Functions evaluated in response to incoming OSC and MIDI messages</ul>
@@ -102,9 +107,6 @@ var scdoc_sc_version = '3.15.0-dev';
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-archiveAsCompileString' href='./../Overviews/Methods.html#archiveAsCompileString'>archiveAsCompileString</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-argv' href='./../Overviews/Methods.html#argv'>argv</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-getCurrentSelection' href='./../Overviews/Methods.html#getCurrentSelection'>getCurrentSelection</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-interpretCmdLine' href='./../Overviews/Methods.html#interpretCmdLine'>interpretCmdLine</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-interpretPrintCmdLine' href='./../Overviews/Methods.html#interpretPrintCmdLine'>interpretPrintCmdLine</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-interpretPrintSelectedText' href='./../Overviews/Methods.html#interpretPrintSelectedText'>interpretPrintSelectedText</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-interpreter' href='./../Overviews/Methods.html#interpreter'>interpreter</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-methodReferences' href='./../Overviews/Methods.html#methodReferences'>methodReferences</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-methodTemplates' href='./../Overviews/Methods.html#methodTemplates'>methodTemplates</a></h3>

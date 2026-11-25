@@ -30,7 +30,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul><li class='toc2'><a href='#Define%20your%20primitive'>Define your primitive</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Write%20your%20primitive'>Write your primitive</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#Guidelines'>Guidelines</a></li>
-<ul class='toc'><li class='toc2'><a href='#Creating%20objects%20in%20primitives,%20and%20GC%20safety'>Creating objects in primitives, and GC safety</a></li>
+<ul class='toc'><li class='toc2'><a href='#Creating%20objects%20in%20primitives%2C%20and%20GC%20safety'>Creating objects in primitives, and GC safety</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Type%20safety'>Type safety</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#FAQ'>FAQ</a></li>
 <ul class='toc'></ul></ul></div><div id='menubar'></div>
@@ -127,7 +127,7 @@ prOpenUDPPort {|portNum|
     return errNone;
 }</pre>
 <p>This example does not set the receiver, so the primitive returns the original receiver unchanged (still an instance of <code>Cocoa</code>). Or set the object at <code>receiver</code> which again is at <code>(g-&gt;sp - numArgsPushed + 1)</code>.<h2><a class='anchor' name='Guidelines'>Guidelines</a></h2>
-<h3><a class='anchor' name='Creating%20objects%20in%20primitives,%20and%20GC%20safety'>Creating objects in primitives, and GC safety</a></h3>
+<h3><a class='anchor' name='Creating%20objects%20in%20primitives%2C%20and%20GC%20safety'>Creating objects in primitives, and GC safety</a></h3>
 
 <p>SuperCollider uses a garbage collector to manage memory allocation and collection where needed.<a class='footnote anchor' name='footnote_org_1' href='#footnote_1'><sup>1</sup></a>  In order to meet the requirements of good real time performance, a small and bounded amount of garbage collection may be triggered each time an object is created. This consists of incrementally examining all objects and determining if they are reachable (see below) or not. Unreachable objects may have their memory reallocated to new objects.
 <p>The following points are important to understanding how the GC works, and how to avoid bugs:<ul>

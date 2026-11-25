@@ -25,15 +25,15 @@ var scdoc_sc_version = '3.15.0-dev';
 <body onload='fixTOC()'>
 <div id='toc'>
 <div id='toctitle'>Tour of Special Mathematical Functions (Boost library):</div>
-<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Boost%20library%20Special%20Functions:%20usage,%20bounds%20and%20plots'>Boost library Special Functions: usage, bounds and plots</a></li>
+<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Boost%20library%20Special%20Functions:%20usage%2C%20bounds%20and%20plots'>Boost library Special Functions: usage, bounds and plots</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Before%20you%20get%20started...'>Before you get started...</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Number%20Series'>Number Series</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Gamma%20Functions'>Gamma Functions</a></li>
-<ul class='toc'><li class='toc2'><a href='#Gamma,%20Log%20Gamma,%20Digamma,%20Trigamma,%20Polygamma'>Gamma, Log Gamma, Digamma, Trigamma, Polygamma</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Gamma%20Ratios,%20Incomplete/Inverses,%20and%20Derivatives%20of%20Gamma%20Functions'>Gamma Ratios, Incomplete/Inverses, and Derivatives of Gamma Functions</a></li>
+<ul class='toc'><li class='toc2'><a href='#Gamma%2C%20Log%20Gamma%2C%20Digamma%2C%20Trigamma%2C%20Polygamma'>Gamma, Log Gamma, Digamma, Trigamma, Polygamma</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Gamma%20Ratios%2C%20Incomplete/Inverses%2C%20and%20Derivatives%20of%20Gamma%20Functions'>Gamma Ratios, Incomplete/Inverses, and Derivatives of Gamma Functions</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#Factorials%20and%20Binomial%20Coefficients'>Factorials and Binomial Coefficients</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Beta%20Functions'>Beta Functions</a></li>
-<ul class='toc'><li class='toc2'><a href='#Beta%20Functions,%20Incomplete%20and%20Derivative'>Beta Functions, Incomplete and Derivative</a></li>
+<ul class='toc'><li class='toc2'><a href='#Beta%20Functions%2C%20Incomplete%20and%20Derivative'>Beta Functions, Incomplete and Derivative</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Incomplete%20Beta%20Function%20Inverses'>Incomplete Beta Function Inverses</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#Error%20Functions'>Error Functions</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Polynomials'>Polynomials</a></li>
@@ -54,8 +54,8 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul><li class='toc1'><a href='#Zeta%20Functions'>Zeta Functions</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Exponential%20Integrals'>Exponential Integrals</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Basic%20Functions'>Basic Functions</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#Sinus%20Cardinal%20(Sinc)%20and%20Hyperbolic%20Sinus%20Cardinal%20Functions,%20Inverse%20Hyperbolic%20Functions'>Sinus Cardinal (Sinc) and Hyperbolic Sinus Cardinal Functions, Inverse Hyperbolic Functions</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#Owen's%20T%20Function'>Owen's T Function</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Sinus%20Cardinal%20(Sinc)%20and%20Hyperbolic%20Sinus%20Cardinal%20Functions%2C%20Inverse%20Hyperbolic%20Functions'>Sinus Cardinal (Sinc) and Hyperbolic Sinus Cardinal Functions, Inverse Hyperbolic Functions</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Owen%27s%20T%20Function'>Owen's T Function</a></li>
 <ul class='toc'></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
@@ -68,11 +68,11 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='subheader'>
 <div id='related'>See also: <a href="./../Classes/SimpleNumber.html">SimpleNumber</a></div>
 </div>
-<a class='anchor' name='kw_special%20functions'>&nbsp;</a><a class='anchor' name='kw_boost'>&nbsp;</a><h2><a class='anchor' name='Boost%20library%20Special%20Functions:%20usage,%20bounds%20and%20plots'>Boost library Special Functions: usage, bounds and plots</a></h2>
+<a class='anchor' name='kw_special%20functions'>&nbsp;</a><a class='anchor' name='kw_boost'>&nbsp;</a><h2><a class='anchor' name='Boost%20library%20Special%20Functions:%20usage%2C%20bounds%20and%20plots'>Boost library Special Functions: usage, bounds and plots</a></h2>
 
-<p>Supercollider provides an array of special functions from mathematics (e.g., Bessel, Chebyshev, etc.) as supplied by the Boost library.  The library's <a href="http://www.boost.org/doc/libs/1_66_0/libs/math/doc/html/special.html">online documentation</a>serves as the primary reference for the following functions.
-<p>Many of the functions are only valid in certain numerical ranges.  The following tour will show you plots that illustrate the behavior of the functions, their ranges and asymptotes.
-<p>Define the plotting functions in the next section,  then you can use the Table of Contents menu to jump between function families.<h2><a class='anchor' name='Before%20you%20get%20started...'>Before you get started...</a></h2>
+<p>Supercollider provides an array of special functions from mathematics (e.g., Bessel, Chebyshev, etc.) as supplied by the Boost library. The library's <a href="http://www.boost.org/doc/libs/1_66_0/libs/math/doc/html/special.html">online documentation</a>serves as the primary reference for the following functions.
+<p>Many of the functions are only valid in certain numerical ranges. The following tour will show you plots that illustrate the behavior of the functions, their ranges and asymptotes.
+<p>Define the plotting functions in the next section, then you can use the Table of Contents menu to jump between function families.<h2><a class='anchor' name='Before%20you%20get%20started...'>Before you get started...</a></h2>
 
 <p>Define the following functions that will lay out the plots for you:<div class='codeMirrorContainer'><textarea class='editor'>(
 var makeColors, getLayout, plotSpecs;
@@ -89,14 +89,14 @@ getLayout = { |plot, text|
     var txt = StaticText()
     .string_(text).font_(Font.defaultMonoFace)
     .maxHeight_(50).align_(\center);
-    
+
     VLayout(plot, txt, 10)
 };
 
 ~multiPlot = { |func, data, txt, min, max|
     var multiChan, params, samps, clumped, plotter;
     var gridcol = Color.gray.alpha_(0.2);
-    
+
     if(data.shape.size == 1) {
         samps = data;
         clumped = data.asList.flop;
@@ -111,11 +111,11 @@ getLayout = { |plot, text|
             samps.collect([param, _, i])
         }
     };
-    
+
     multiChan = clumped.collect({ |bundle, i|
         bundle.collect(func.applyTo(*_)).select(_.notNil)
     });
-    
+
     plotter = multiChan.plot(txt, minval: min, maxval: max)
     .superpose_(true)
     .domainSpecs_([samps.minItem, samps.maxItem].asSpec)
@@ -123,13 +123,13 @@ getLayout = { |plot, text|
         makeColors.(params !? params.size ?? 1, rrand(0, 1.0))
     )
     ;
-    
+
     plotter.plots[0]
     .gridColorX_(gridcol)
     .gridColorY_(gridcol)
     .plotMode_(\lines)
     ;
-    
+
     plotter
 };
 
@@ -140,7 +140,7 @@ getLayout = { |plot, text|
     var cols, win, hl, paletteButton, widthScale;
     var vl = VLayout();
     var sb = Window.screenBounds;
-    
+
     cols = numCols ?? { plotters.size.sqrt.ceil.asInteger };
     widthScale = cols.linlin(1, 4, 0.5, 0.9);
     win = Window(title,
@@ -149,21 +149,21 @@ getLayout = { |plot, text|
         .height_(sb.height)
         .center_(sb.center)
     ).view.layout_(vl).front;
-    
+
     paletteButton = Button().states_([["Light Plots"], ["Dark Plots"]]).maxSize_(Size(80, 15));
     vl.add(HLayout(nil, paletteButton));
-    
+
     plotters.do { |plotter, i|
         var plot = plotter.parent.view.children[0];
         (i % cols == 0).if{ vl.add(hl = HLayout()) };
         hl.add(getLayout.(plot, plotter.name.asString));
         plotter.parent.close;
     };
-    
+
     if(plotters.size % cols &gt; 0) {
         (cols - plotters.size % cols).do{ hl.add(StaticText().string_("")) }
     };
-    
+
     paletteButton.action_({ |but|
         ~paletteBool = but.value.asBoolean;
         plotters.do{ |plotter|
@@ -194,7 +194,7 @@ getLayout = { |plot, text|
 (0 .. 15).do { |i| postf("% %\n", i, tangentT2n(i)) }</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Gamma%20Functions'>Gamma Functions</a></h2>
-<h3><a class='anchor' name='Gamma,%20Log%20Gamma,%20Digamma,%20Trigamma,%20Polygamma'>Gamma, Log Gamma, Digamma, Trigamma, Polygamma</a></h3>
+<h3><a class='anchor' name='Gamma%2C%20Log%20Gamma%2C%20Digamma%2C%20Trigamma%2C%20Polygamma'>Gamma, Log Gamma, Digamma, Trigamma, Polygamma</a></h3>
 
 <p>Be sure to define <code>~layOutPlots</code> and <code>~multiPlot</code> at the <a href="#Before%20you%20get%20started...">top of the page</a>.<div class='codeMirrorContainer'><textarea class='editor'>(
 var checkCall, plotSpecs;
@@ -240,7 +240,7 @@ plotSpecs = [
 ~layOutPlots.(plotSpecs.collect{ |data| ~multiPlot.(*data) }, "Gamma Functions", 2);
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Gamma%20Ratios,%20Incomplete/Inverses,%20and%20Derivatives%20of%20Gamma%20Functions'>Gamma Ratios, Incomplete/Inverses, and Derivatives of Gamma Functions</a></h3>
+<h3><a class='anchor' name='Gamma%20Ratios%2C%20Incomplete/Inverses%2C%20and%20Derivatives%20of%20Gamma%20Functions'>Gamma Ratios, Incomplete/Inverses, and Derivatives of Gamma Functions</a></h3>
 
 <p>Be sure to define <code>~layOutPlots</code> and <code>~multiPlot</code> at the <a href="#Before%20you%20get%20started...">top of the page</a>.<div class='codeMirrorContainer'><textarea class='editor'>(
 var plotSpecs = [
@@ -293,7 +293,7 @@ risingFactorial(9, 4)  // 9 * 10 * 11 ... (9+4-1)
 fallingFactorial(9, 4) // 9 *  8 *  7 ... (9-4+1)</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Beta%20Functions'>Beta Functions</a></h2>
-<h3><a class='anchor' name='Beta%20Functions,%20Incomplete%20and%20Derivative'>Beta Functions, Incomplete and Derivative</a></h3>
+<h3><a class='anchor' name='Beta%20Functions%2C%20Incomplete%20and%20Derivative'>Beta Functions, Incomplete and Derivative</a></h3>
 
 <p>Be sure to define <code>~layOutPlots</code> and <code>~multiPlot</code> at the <a href="#Before%20you%20get%20started...">top of the page</a>.<div class='codeMirrorContainer'><textarea class='editor'>(
 var as = [9, 7, 5, 2, 1];
@@ -888,7 +888,7 @@ var plotSpecs = [
 ~layOutPlots.(plotSpecs.collect{ |data| ~multiPlot.(*data) }, "Basic Functions");
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h2><a class='anchor' name='Sinus%20Cardinal%20(Sinc)%20and%20Hyperbolic%20Sinus%20Cardinal%20Functions,%20Inverse%20Hyperbolic%20Functions'>Sinus Cardinal (Sinc) and Hyperbolic Sinus Cardinal Functions, Inverse Hyperbolic Functions</a></h2>
+<h2><a class='anchor' name='Sinus%20Cardinal%20(Sinc)%20and%20Hyperbolic%20Sinus%20Cardinal%20Functions%2C%20Inverse%20Hyperbolic%20Functions'>Sinus Cardinal (Sinc) and Hyperbolic Sinus Cardinal Functions, Inverse Hyperbolic Functions</a></h2>
 
 <p>Be sure to define <code>~layOutPlots</code> and <code>~multiPlot</code> at the <a href="#Before%20you%20get%20started...">top of the page</a>.<div class='codeMirrorContainer'><textarea class='editor'>(
 var plotSpecs = [
@@ -917,7 +917,7 @@ var plotSpecs = [
 ~layOutPlots.(plotSpecs.collect{ |data| ~multiPlot.(*data) }, "Sinus &amp; Hyperbolic Sinus Cardinal, Inverse Hyperbolic Functions");
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h2><a class='anchor' name='Owen's%20T%20Function'>Owen's T Function</a></h2>
+<h2><a class='anchor' name='Owen%27s%20T%20Function'>Owen's T Function</a></h2>
 
 <p>Be sure to define <code>~layOutPlots</code> and <code>~multiPlot</code> at the <a href="#Before%20you%20get%20started...">top of the page</a>.<div class='codeMirrorContainer'><textarea class='editor'>(
 var plotSpecs = [

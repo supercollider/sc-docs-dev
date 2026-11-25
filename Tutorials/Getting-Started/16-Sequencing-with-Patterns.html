@@ -59,7 +59,7 @@ r = p.asStream;
 while { (m = r.next).notNil } { m.postln };</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Note that the Pseq is not streamable by itself, but it creates a stream (Routine) when you call asStream on it. This routine can then be used exactly like to any other routine -- the while loop used to read out the stream values is exactly the same for both, even though they are written differently.
+<p>Note that the Pseq is not streamable by itself, but it creates a stream (Routine) when you call asStream on it. This routine can then be used exactly like to any other routine — the while loop used to read out the stream values is exactly the same for both, even though they are written differently.
 <p>Thus the 'Over the Rainbow' example could be rewritten, with less clutter:<div class='codeMirrorContainer'><textarea class='editor'>(
 var midi, dur;
 midi = Pseq([60, 72, 71, 67, 69, 71, 72, 60, 69, 67], 1).asStream;
@@ -90,7 +90,7 @@ r = Task({
 <dt><a href="./../../Classes/Pseq.html">Pseq</a>(list, repeats, offset)<dd>return the list's values in order<dt><a href="./../../Classes/Pshuf.html">Pshuf</a>(list, repeats)<dd>scramble the list into random order<dt><a href="./../../Classes/Prand.html">Prand</a>(list, repeats)<dd>choose from the list's values randomly<dt><a href="./../../Classes/Pxrand.html">Pxrand</a>(list, repeats)<dd>choose randomly, but never return the same list item twice in a row<dt><a href="./../../Classes/Pwrand.html">Pwrand</a>(list, weights, repeats)<dd>like Prand, but chooses values according to a list of probabilities/weights</dl>
 
 <p>Other patterns generate values according to various parameters. In addition to these basic patterns, there is a whole set of random number generators that produce specific distributions, and also chaotic functions.<dl>
-<dt><a href="./../../Classes/Pseries.html">Pseries</a>(start, step, length)<dd>arithmetic series, e.g., 1, 2, 3, 4, 5<dt><a href="./../../Classes/Pgeom.html">Pgeom</a>(start, grow, length)<dd>geometric series, e.g., 1, 2, 4, 8, 16<dt><a href="./../../Classes/Pwhite.html">Pwhite</a>(lo, hi, length)<dd>random number generator, uses rrand(lo, hi) -- equal distribution<dt><a href="./../../Classes/Pexprand.html">Pexprand</a>(lo, hi, length)<dd>random number generator, uses exprand(lo, hi) -- exponential distribution</dl>
+<dt><a href="./../../Classes/Pseries.html">Pseries</a>(start, step, length)<dd>arithmetic series, e.g., 1, 2, 3, 4, 5<dt><a href="./../../Classes/Pgeom.html">Pgeom</a>(start, grow, length)<dd>geometric series, e.g., 1, 2, 4, 8, 16<dt><a href="./../../Classes/Pwhite.html">Pwhite</a>(lo, hi, length)<dd>random number generator, uses rrand(lo, hi) — equal distribution<dt><a href="./../../Classes/Pexprand.html">Pexprand</a>(lo, hi, length)<dd>random number generator, uses exprand(lo, hi) — exponential distribution</dl>
 
 <p>Other patterns modify the output of value patterns. These are called FilterPatterns.<dl>
 <dt><a href="./../../Classes/Pn.html">Pn</a>(pattern, repeats)<dd>repeat the pattern as many times as repeats indicates<dt><a href="./../../Classes/Pdup.html">Pdup</a>(n, pattern)<dd>repeat individual values from a pattern <em>n</em> times. <em>n</em> may be a numeric pattern itself.</dl>
@@ -119,7 +119,7 @@ SynthDef(\smooth, { |out, freq = 440, sustain = 1, amp = 0.5|
 p = Pbind(
         // the name of the SynthDef to use for each note
     \instrument, \smooth,
-        // MIDI note numbers -- converted automatically to Hz
+        // MIDI note numbers — converted automatically to Hz
     \midinote, Pseq([60, 72, 71, 67, 69, 71, 72, 60, 69, 67], 1),
         // rhythmic values
     \dur, Pseq([2, 2, 1, 0.5, 0.5, 1, 1, 2, 2, 3], 1)

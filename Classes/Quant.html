@@ -49,7 +49,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Scheduling'>Scheduling</a></span>
-</div><h1>Quant<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Quant<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>encapsulate quantization issues associated with EventStreamPlayer and TempoClock</div>
 </div>
@@ -75,7 +75,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>An offset to push the scheduling time into the middle of the bar. +1 is one beat later, -1 is one beat earlier. A negative phase is legal, but it might result in a scheduling time that is later than the current time, in which case scheduling will be incorrect. It's your responsibility to take this into account.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-timingOffset' href='./../Overviews/Methods.html#timingOffset'>timingOffset</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-timingOffset' href='./../Overviews/Methods.html#timingOffset'>timingOffset</a> = value</h3>
 <div class='method'>
-<p>For use with patterns only -- this enables patterns to run slightly ahead of their sounding time on the clock, giving you control over the order in which threads execute.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
+<p>For use with patterns only — this enables patterns to run slightly ahead of their sounding time on the clock, giving you control over the order in which threads execute.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
 <div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asQuant' href='./../Overviews/Methods.html#asQuant'>asQuant</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-nextTimeOnGrid' href='./../Overviews/Methods.html#nextTimeOnGrid'>nextTimeOnGrid</a>(<span class='argstr'>clock</span>, <span class='argstr'>referenceBeat</span>)</h3>
@@ -99,7 +99,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Timing%20offset%20in%20Patterns'>Timing offset in Patterns</a></h3>
 
-<p>In some cases, you might want two patterns that are sounding at the same time to evaluate in a specific order -- for instance, the second pattern might depend upon data calculated by the first. If they are scheduled on the clock for exactly the same time, you have no control over the order of execution: the second pattern might evaluate first, in which case it would be using stale data for the pattern that should have run first.
+<p>In some cases, you might want two patterns that are sounding at the same time to evaluate in a specific order — for instance, the second pattern might depend upon data calculated by the first. If they are scheduled on the clock for exactly the same time, you have no control over the order of execution: the second pattern might evaluate first, in which case it would be using stale data for the pattern that should have run first.
 <p>The timing offset is a positive number, usually small, that pushes the scheduling time slightly earlier, guaranteeing that patterns with larger timing offsets will execute earlier than others. The timing offset value is saved in the event prototype, which then delays its messages to the server by exactly that number of beats.
 <p>Two patterns, scheduled for the same quant and phase but with different timing offsets, should sound exactly together.<div class='codeMirrorContainer'><textarea class='editor'>(
 // timing offset = 0

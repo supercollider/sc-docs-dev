@@ -29,8 +29,8 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'><li class='toc2'><a href='#Ppar'>Ppar</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Ptpar'>Ptpar</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#FilterPatterns%20and%20transformation'>FilterPatterns and transformation</a></li>
-<ul class='toc'><li class='toc2'><a href='#Padd,%20Pmul,%20Pset,%20Pstretch'>Padd, Pmul, Pset, Pstretch</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Paddp,%20Pmulp,%20Psetp,%20Pstretchp'>Paddp, Pmulp, Psetp, Pstretchp</a></li>
+<ul class='toc'><li class='toc2'><a href='#Padd%2C%20Pmul%2C%20Pset%2C%20Pstretch'>Padd, Pmul, Pset, Pstretch</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Paddp%2C%20Pmulp%2C%20Psetp%2C%20Pstretchp'>Paddp, Pmulp, Psetp, Pstretchp</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Pbindf'>Pbindf</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
@@ -127,7 +127,7 @@ Ptpar([
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='FilterPatterns%20and%20transformation'>FilterPatterns and transformation</a></h2>
 
-<p>FilterPatterns take an existing pattern and apply some modification to its properties.<h3><a class='anchor' name='Padd,%20Pmul,%20Pset,%20Pstretch'>Padd, Pmul, Pset, Pstretch</a></h3>
+<p>FilterPatterns take an existing pattern and apply some modification to its properties.<h3><a class='anchor' name='Padd%2C%20Pmul%2C%20Pset%2C%20Pstretch'>Padd, Pmul, Pset, Pstretch</a></h3>
 
 <p>There is a simpler way to write the modal transposition example given in part 5. In fact the earlier examples are setting the values of <code>mtranspose</code> and <code>ctranspose</code> which is not the best way to change those variables, because it wipes out any modifications to them by parent patterns. It is better to take the current value of those properties and add a value to them.
 <p>The <a href="./../Classes/Padd.html">Padd</a> filter takes the current value of a property and adds a value to it.<div class='codeMirrorContainer'><textarea class='editor'>(
@@ -166,7 +166,7 @@ Pseq([
 ], inf).play
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Paddp,%20Pmulp,%20Psetp,%20Pstretchp'>Paddp, Pmulp, Psetp, Pstretchp</a></h3>
+<h3><a class='anchor' name='Paddp%2C%20Pmulp%2C%20Psetp%2C%20Pstretchp'>Paddp, Pmulp, Psetp, Pstretchp</a></h3>
 
 <p>In fact there is an even shorter version of the modal transposition example. <a href="./../Classes/Paddp.html">Paddp</a> reads one pattern to get values for adding to a property and plays the second pattern once through modified with each new value.<div class='codeMirrorContainer'><textarea class='editor'>(
 // modal transposition

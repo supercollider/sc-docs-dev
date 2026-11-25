@@ -25,10 +25,10 @@ var scdoc_sc_version = '3.15.0-dev';
 <body onload='fixTOC()'>
 <div id='toc'>
 <div id='toctitle'>jitlib_networking:</div>
-<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#1)%20using%20ProxySpace%20with%20more%20than%20one%20client,%20with%20separate%20bus%20spaces'>1) using ProxySpace with more than one client, with separate bus spaces</a></li>
+<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#1)%20using%20ProxySpace%20with%20more%20than%20one%20client%2C%20with%20separate%20bus%20spaces'>1) using ProxySpace with more than one client, with separate bus spaces</a></li>
 <ul class='toc'><li class='toc2'><a href='#before%20you%20start'>before you start</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#a)%20boot%20the%20(remote)%20server%20and%20create%20a%20local%20model'>a) boot the (remote) server and create a local model</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#b)%20from%20each%20client,%20initialize%20the%20default%20node%20and%20set%20notify%20to%20true:'>b) from each client, initialize the default node and set notify to true:</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#b)%20from%20each%20client%2C%20initialize%20the%20default%20node%20and%20set%20notify%20to%20true:'>b) from each client, initialize the default node and set notify to true:</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#c)%20now%20create%20a%20ProxySpace%20from%20the%20server:'>c) now create a ProxySpace from the server:</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
@@ -43,7 +43,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='related'>See also: <a href="./../../Overviews/JITLib.html">JITLib</a></div>
 </div>
 
-<p><em>please note any problems, I'll try to add solutions here.</em><h2><a class='anchor' name='1)%20using%20ProxySpace%20with%20more%20than%20one%20client,%20with%20separate%20bus%20spaces'>1) using ProxySpace with more than one client, with separate bus spaces</a></h2>
+<p><em>please note any problems, I'll try to add solutions here.</em><h2><a class='anchor' name='1)%20using%20ProxySpace%20with%20more%20than%20one%20client%2C%20with%20separate%20bus%20spaces'>1) using ProxySpace with more than one client, with separate bus spaces</a></h2>
 <div class='note'><span class='notelabel'>NOTE:</span> if only one client is using a remote server, only step (a) and step (d) are relevant. The clientID argument can be left out then.</div><h3><a class='anchor' name='before%20you%20start'>before you start</a></h3>
 
 <p>remember to synchronize your system clocks. This can be done by:<dl>
@@ -58,7 +58,7 @@ s.boot; // you cannot directly boot a remote server instance, but this initializ
 <p><dl>
 <dt>serverName<dd>can be any name<dt>hostname<dd>is an ip address, or if you have a name resolution, a network name<dt>port<dd>the port on which the server is listening. default is 57110</dl>
 
-<p>see <a href="./../../Classes/Server.html">Server</a><h3><a class='anchor' name='b)%20from%20each%20client,%20initialize%20the%20default%20node%20and%20set%20notify%20to%20true:'>b) from each client, initialize the default node and set notify to true:</a></h3>
+<p>see <a href="./../../Classes/Server.html">Server</a><h3><a class='anchor' name='b)%20from%20each%20client%2C%20initialize%20the%20default%20node%20and%20set%20notify%20to%20true:'>b) from each client, initialize the default node and set notify to true:</a></h3>
 <div class='codeMirrorContainer'><textarea class='editor'>s.boot; // this will initialize the tree and start notification
 
 // if needed, a server window can be created:

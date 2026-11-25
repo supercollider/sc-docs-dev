@@ -39,7 +39,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul><li class='toc1'><a href='#Special%20Values'>Special Values</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Arrays'>Arrays</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Compiler%20limits'>Compiler limits</a></li>
-<ul class='toc'><li class='toc2'><a href='#What%20counts%20as%20"inside%20the%20function"?'>What counts as "inside the function"?</a></li>
+<ul class='toc'><li class='toc2'><a href='#What%20counts%20as%20%22inside%20the%20function%22?'>What counts as "inside the function"?</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
@@ -100,14 +100,14 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>Binary numbers can be written as follows:<div class='codeMirrorContainer'><textarea class='editor'>2r01101011</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>Floating point values may also be specified in any base. However, only uppercase letters may be used past the decimal point for bases greater than 10. This eliminates ambiguity: if lowercase letters were allowed, <code>36rA.bitNot</code> might be a function call, or it might be <code>36rA.BITNOT == 10.320080118934</code>.<div class='codeMirrorContainer'><textarea class='editor'>12r4a.abc // wrong
-12r4a.ABC // works
-12r4A.ABC // better</textarea>
+<p>Floating point values may also be specified in any base. However, only uppercase letters may be used past the decimal point for bases greater than 10. This eliminates ambiguity: if lowercase letters were allowed, <code>36rA.bitNot</code> might be a function call, or it might be <code>36rA.BITNOT == 10.320080118934</code>.<div class='codeMirrorContainer'><textarea class='editor'>12r4a.ab // wrong
+12r4a.AB // works
+12r4A.AB // better</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Hexidecimal numbers notated with <code>0x</code> may only be expressed as integers.<h3><a class='anchor' name='Scale%20Degrees'>Scale Degrees</a></h3>
 
-<p>Integer numbers as scale degrees supports accidentals notation by adding the suffixes <strong>s</strong> for sharp and <strong>b</strong> for flat.  Accidentals are represented as floating point values,  where each 0.1 of difference to the nearest integer corresponds to 100 cents (i.e., a semitone in 12TET). While the digit to the left of the decimal separator is a degree, and thus is affected by tuning and scale,  the digits to the right are not, and are always in cents. (See <a href="./../Classes/Scale.html#-degreeToRatio">Scale: -degreeToRatio</a>)<div class='codeMirrorContainer'><textarea class='editor'>2s == 2.1  // scale degree two, sharp
+<p>Integer numbers as scale degrees supports accidentals notation by adding the suffixes <strong>s</strong> for sharp and <strong>b</strong> for flat. Accidentals are represented as floating point values, where each 0.1 of difference to the nearest integer corresponds to 100 cents (i.e., a semitone in 12TET). While the digit to the left of the decimal separator is a degree, and thus is affected by tuning and scale, the digits to the right are not, and are always in cents. (See <a href="./../Classes/Scale.html#-degreeToRatio">Scale: -degreeToRatio</a>)<div class='codeMirrorContainer'><textarea class='editor'>2s == 2.1  // scale degree two, sharp
 2b == 1.9  // scale degree two, flat
 2ss == 2.2 // scale degree two, double sharp
 2bb == 1.8 // scale degree two, double flat</textarea>
@@ -141,8 +141,9 @@ $$</textarea>
 $\f  // form feed
 $\v  // vertical tab
 $\n  // newline (linefeed)
-$\r  // return
-$\\  // backslash`</textarea>
+$\r  // carriage return
+$\\  // backslash`
+$    // the space</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Symbols%20and%20Strings'>Symbols and Strings</a></h2>
 <h3><a class='anchor' name='Symbols'>Symbols</a></h3>
@@ -161,6 +162,11 @@ $\\  // backslash`</textarea>
 \Big_Swifty_And_Assoc
 \not really a symbol  // illegal</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>You can also specify integer symbols this way, but if the symbol starts with a digit, it cannot contain letters.<div class='codeMirrorContainer'><textarea class='editor'>\1234;
+\892342534;
+\3456meow // now illegal</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='Strings'>Strings</a></h3>
 
 <p>Strings are written in double quotes:<div class='codeMirrorContainer'><textarea class='editor'>"This is a string."</textarea>
@@ -176,20 +182,8 @@ ng
 "
 a.size // 9</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-
-<p>The SuperCollider IDE uses UTF-8 to decode and display strings. See <a href="./../Classes/String.html#Character%20encodings">String: Character encodings</a> for more information.
-<p>A string literal may comprise no more than 81916 characters (bytes). A string object can be larger as a result of string operations.<div class='codeMirrorContainer'><textarea class='editor'>// artificially generate a long string
-a = String.fill(81920, { "abcdefghijklmnopqrstuvwxyz".choose });
-
-// wrap it in quote marks to make it a literal
-a = "\"" ++ a ++ "\"";
-
-// interpret the literal
-b = a.interpret;
-
-b.size;  // 81916 and NOT 81920</textarea>
-<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h2><a class='anchor' name='Identifiers'>Identifiers</a></h2>
+<div class='note'><span class='notelabel'>NOTE:</span> Since version 3.15, the newline character is guarented to be '\n' regardless of the contents of the source file.</div>
+<p>The SuperCollider IDE uses UTF-8 to decode and display strings. See <a href="./../Classes/String.html#Character%20encodings">String: Character encodings</a> for more information.<h2><a class='anchor' name='Identifiers'>Identifiers</a></h2>
 
 <p>Names of methods and variables begin with a lower case alphabetic character, followed by zero or more alphanumeric or underscore characters.<div class='codeMirrorContainer'><textarea class='editor'>var abc, z123, trigger_func;
 var 1var; // not legal
@@ -259,7 +253,7 @@ table.atAll(#[c4, e4, gs4, c5, e5, gs5, c6])
 <p>Here, there are four selectors: <code>SinOsc</code>, <code>ar</code>, <code>play</code> and the entire function containing SinOsc.
 <p><code>{ SinOsc.ar(440, 0, 0.1) }.play;</code>
 <p>A single function may contain no more than 256 selectors. If this limit is exceeded, a compiler error is printed:
-<p><code>ERROR: Selector table too big: too many classes, method selectors or function definitions in this function. Simplify the function.</code><div class='note'><span class='notelabel'>NOTE:</span> Code submitted for interactive execution is first compiled into a function. A very large block of code, spanning several thousand lines, may run into this limitation if it doesn't break down the tasks into smaller functions. In general, code is easier to maintain if it is reasonably <em>modular</em>, with small functions handling clearly-defined parts of the problem. This error message is a signal that the code has become too complex for a loose or "flat" code structure.</div><h3><a class='anchor' name='What%20counts%20as%20"inside%20the%20function"?'>What counts as "inside the function"?</a></h3>
+<p><code>ERROR: Selector table too big: too many classes, method selectors or function definitions in this function. Simplify the function.</code><div class='note'><span class='notelabel'>NOTE:</span> Code submitted for interactive execution is first compiled into a function. A very large block of code, spanning several thousand lines, may run into this limitation if it doesn't break down the tasks into smaller functions. In general, code is easier to maintain if it is reasonably <em>modular</em>, with small functions handling clearly-defined parts of the problem. This error message is a signal that the code has become too complex for a loose or "flat" code structure.</div><h3><a class='anchor' name='What%20counts%20as%20%22inside%20the%20function%22?'>What counts as "inside the function"?</a></h3>
 
 <p>Selectors are counted only toward the function definition currently being compiled.<div class='codeMirrorContainer'><textarea class='editor'>{ x.foo };
 
@@ -275,7 +269,7 @@ table.atAll(#[c4, e4, gs4, c5, e5, gs5, c6])
 }.value;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>The outer function includes only the selector <code>value</code>. The other selectors -- <code>&gt;</code>, <code>*</code>, <code>-</code> -- belong to the inner function definition and don't affect the outer function's number of selectors.
+<p>The outer function includes only the selector <code>value</code>. The other selectors — <code>&gt;</code>, <code>*</code>, <code>-</code> — belong to the inner function definition and don't affect the outer function's number of selectors.
 <p>So, one possible easy way to work around the limitation is to break up a large block of code into several functions that are value'd successively:<div class='codeMirrorContainer'><textarea class='editor'>{
     ... a bunch of code ...
 }.value;

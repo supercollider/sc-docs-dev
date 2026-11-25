@@ -28,7 +28,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Realtime%20vs.%20Non-Realtime%20Synthesis'>Realtime vs. Non-Realtime Synthesis</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Basic%20usage%20of%20Score'>Basic usage of Score</a></li>
 <ul class='toc'><li class='toc2'><a href='#Timed%20messages'>Timed messages</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Rendering%20a%20Score%20using%20'recordNRT''>Rendering a Score using 'recordNRT'</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Rendering%20a%20Score%20using%20%27recordNRT%27'>Rendering a Score using 'recordNRT'</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Score%20files'>Score files</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Using%20system%20SynthDefs'>Using system SynthDefs</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Server%20instance'>Server instance</a></li>
@@ -127,7 +127,7 @@ x = Score([
 ]);
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Rendering%20a%20Score%20using%20'recordNRT''>Rendering a Score using 'recordNRT'</a></h3>
+<h3><a class='anchor' name='Rendering%20a%20Score%20using%20%27recordNRT%27'>Rendering a Score using 'recordNRT'</a></h3>
 
 <p>To render the Score, use the <a href="./../Classes/Score.html#-recordNRT">Score: -recordNRT</a> method. Here is a rough template, followed by an explanation of the <code>recordNRT</code> parameters.<div class='codeMirrorContainer'><textarea class='editor'>(
 a = Score(...);
@@ -147,7 +147,7 @@ a.recordNRT(
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <dl>
-<dt>oscFilePath<dd>Recommended to omit (leave as <code>nil</code>). Score will generate a temporary filename for you.<dt>outputFilePath<dd>The output audio file that you want (full path).<dt>inputFilePath<dd>Optional. If you provide an existing audio file, its contents will stream to the NRT server's hardware input buses.<dt>sampleRate<dd>Output file sample rate.<dt>headerFormat<dd>See <a href="./../Classes/SoundFile.html#-headerFormat">SoundFile: -headerFormat</a>.<dt>sampleFormat<dd>See <a href="./../Classes/SoundFile.html#-sampleFormat">SoundFile: -sampleFormat</a>.<dt>options<dd>An instance of <a href="./../Classes/ServerOptions.html">ServerOptions</a>. In particular, this is important to set the desired number of output channels, e.g. <code>ServerOptions.new.numOutputBusChannels_(2)</code>.<dt>completionString<dd>Undocumented. No apparent purpose.<dt>duration<dd>The desired total length of the output file, in seconds.<dt>action<dd>A function to evaluate when rendering is complete.</dl>
+<dt>oscFilePath<dd>Recommended to omit (leave as <code>nil</code>). Score will generate a temporary filename for you.<dt>outputFilePath<dd>The output audio file that you want (full path).<dt>inputFilePath<dd>Optional. If you provide an existing audio file, its contents will stream to the NRT server's hardware input buses.<dt>sampleRate<dd>Output file sample rate.<dt>headerFormat<dd>See <a href="./../Classes/SoundFile.html#-headerFormat">SoundFile: -headerFormat</a>.<dt>sampleFormat<dd>See <a href="./../Classes/SoundFile.html#-sampleFormat">SoundFile: -sampleFormat</a>.<dt>options<dd>An instance of <a href="./../Classes/ServerOptions.html">ServerOptions</a>. In particular, it is important to set the desired number of output channels, e.g. <code>ServerOptions.new.numOutputBusChannels_(2)</code>. If you are using an input sound file, you also need to set the number of input channels.<dt>completionString<dd>No apparent purpose.<dt>duration<dd>The desired total length of the output file, in seconds.<dt>action<dd>A function to evaluate when rendering is complete. The action receives the exit code of the Server process.</dl>
 
 <p>Of these, <code>outputFilePath</code>, <code>options</code> and <code>duration</code> are particularly important. Make sure you specify at least these.<div class='note'><span class='notelabel'>NOTE:</span> NRT processing continues until the last timestamp in the score file. If you specify a <code>duration</code> for recordNRT, Score will automatically append a dummy command at the end of the score, with the given timestamp, ensuring that the output file will be at least this long.</div>
 <p>If you are repeatedly rendering NRT scores, you can set <code>Score.options = ServerOptions.new...</code> and <code>recordNRT</code> will use this set of server options by default.<h3><a class='anchor' name='Score%20files'>Score files</a></h3>
@@ -255,26 +255,28 @@ server.remove;
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h3><a class='anchor' name='NRT%20processing%20of%20an%20audio%20file'>NRT processing of an audio file</a></h3>
 
-<p>Applying a custom effect to a very long audio file is an especially good use of NRT: create a Score that defines an effect SynthDef and runs it for the duration of of the input file. You can use <code>recordNRT</code>'s input file parameter to pipe the source audio to the NRT server's hardware inputs, and read it with <a href="./../Classes/SoundIn.html">SoundIn</a>.
+<p>Applying a custom effect to a very long audio file is an especially good use of NRT: create a Score that defines an effect SynthDef and runs it for the duration of the input file. You can use <code>recordNRT</code>'s input file parameter to pipe the source audio to the NRT server's hardware inputs, and read it with <a href="./../Classes/SoundIn.html">SoundIn</a>.
 <p>The example audio file is not very long, but processing here is almost instantaneous.<div class='codeMirrorContainer'><textarea class='editor'>(
-var server,
-inputFile = SoundFile.openRead(ExampleFiles.child);
-
+var server, numChannels;
+var inputFile = SoundFile.openRead(ExampleFiles.child);
+numChannels = inputFile.numChannels;
 inputFile.close;  // doesn't need to stay open; we just need the stats
 
 server = Server(\nrt,
     options: ServerOptions.new
-    .numOutputBusChannels_(2)
-    .numInputBusChannels_(inputFile.numChannels)
+    .numOutputBusChannels_(numChannels)
+    .numInputBusChannels_(numChannels)
 );
 
 x = Score([
     [0.0, ['/d_recv',
         SynthDef(\fft, {
-            var in = SoundIn.ar([0]),
-            fft = FFT(LocalBuf(1024, 1), in);
+            // 'child' is a mono file, but this SynthDef works for any number of channels.
+            var channels = (0..(numChannels-1));
+            var in = SoundIn.ar(channels);
+            var fft = FFT(LocalBuf(1024, 1), in);
             fft = PV_MagFreeze(fft, ToggleFF.kr(Dust.kr(12)));
-            Out.ar(0, IFFT(fft).dup)
+            Out.ar(0, IFFT(fft))
         }).asBytes
     ]],
     [0.0, Synth.basicNew(\fft, server).newMsg]
@@ -283,7 +285,8 @@ x = Score([
 x.recordNRT(
     outputFilePath: "~/nrt.wav".standardizePath,
     inputFilePath: inputFile.path,
-    sampleRate: 44100,
+    // make sure to use the same sample rate as the input file!
+    sampleRate: inputFile.sampleRate,
     headerFormat: "wav",
     sampleFormat: "int16",
     options: server.options,

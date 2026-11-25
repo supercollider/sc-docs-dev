@@ -33,9 +33,9 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul><li class='toc3'><a href='#keyword%20arguments%20(kwargs)'>keyword arguments (kwargs)</a></li>
 <ul class='toc'></ul></ul><li class='toc2'><a href='#partial%20application'>partial application</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#defining%20instance%20variable%20accessor%20methods'>defining instance variable accessor methods</a></li>
-<ul class='toc'></ul></ul><li class='toc1'><a href='#Sending%20messages,%20calling%20functions,%20and%20instantiating%20objects'>Sending messages, calling functions, and instantiating objects</a></li>
+<ul class='toc'></ul></ul><li class='toc1'><a href='#Sending%20messages%2C%20calling%20functions%2C%20and%20instantiating%20objects'>Sending messages, calling functions, and instantiating objects</a></li>
 <ul class='toc'><li class='toc2'><a href='#function-call%20and%20receiver%20notations'>function-call and receiver notations</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#calling%20the%20'value'%20method'>calling the 'value' method</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#calling%20the%20%27value%27%20method'>calling the 'value' method</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#instantiate%20object'>instantiate object</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#calling%20an%20instance%20variable%20setter%20method'>calling an instance variable setter method</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#calling%20performList'>calling performList</a></li>
@@ -145,11 +145,11 @@ f.(1, 2, 3, 4, 5, 6, x: 7, y: 8);  // -&gt; [ 1, 2, [ 3, 4, 5, 6 ], [ x, 7, y, 8
 <td><div class='codeMirrorContainer'><textarea class='editor'>Thing { var &lt;&gt;x; }</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </table>
-<h2><a class='anchor' name='Sending%20messages,%20calling%20functions,%20and%20instantiating%20objects'>Sending messages, calling functions, and instantiating objects</a></h2>
+<h2><a class='anchor' name='Sending%20messages%2C%20calling%20functions%2C%20and%20instantiating%20objects'>Sending messages, calling functions, and instantiating objects</a></h2>
 <h3><a class='anchor' name='function-call%20and%20receiver%20notations'>function-call and receiver notations</a></h3>
 <table>
 <tr><td>instead of writing:<td>you can write:<tr><td><code>f(x, y)</code><td><code>x.f(y)</code><tr><td><code>f(g(x))</code><td><code>x.g.f</code></table>
-<h3><a class='anchor' name='calling%20the%20'value'%20method'>calling the 'value' method</a></h3>
+<h3><a class='anchor' name='calling%20the%20%27value%27%20method'>calling the 'value' method</a></h3>
 <table>
 <tr><td>instead of writing:<td>you can write:<tr><td><code>f.value(x)</code><td><code>f.(x)</code></table>
 <h3><a class='anchor' name='instantiate%20object'>instantiate object</a></h3>

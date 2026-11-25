@@ -88,7 +88,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul><li class='toc2'><a href='#Event%20actions%20(raw%20events)'>Event actions (raw events)</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Event%20actions%20(raw%20slot%20events)'>Event actions (raw slot events)</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Event%20actions%20(symbolic%20slot%20events)'>Event actions (symbolic slot events)</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#LED's'>LED's</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#LED%27s'>LED's</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Closing%20devices'>Closing devices</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Opening%20devices%20with%20alternative%20deviceRoot'>Opening devices with alternative deviceRoot</a></li>
 <ul class='toc'></ul></ul></ul></div><div id='menubar'></div>
@@ -97,7 +97,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Platform'>Platform</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Platform>Linux'>Linux</a> | <a href='./../Browse.html#External Control'>External Control</a>&#8201;&gt;&#8201;<a href='./../Browse.html#External Control>HID'>HID</a></span>
-</div><h1>LID<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>LID<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Linux Input Device</div>
 </div>
@@ -412,7 +412,7 @@ d.slot(0x0002, 0x0001).deltaAction = { |slot|
 
 <p>When a device spec was registered for a given device name, slot actions can be assigned by using the symbolic control name.<div class='codeMirrorContainer'><textarea class='editor'>    d[\x].action = { |slot| [\x, slot.value].postln };</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='LED's'>LED's</a></h3>
+<h3><a class='anchor' name='LED%27s'>LED's</a></h3>
 
 <p>some devices have LEDs which can be turned on and off. These show up with d.caps as events of type 0x0011<div class='codeMirrorContainer'><textarea class='editor'>d = LID("/dev/input/event0");
 // LED's can be turned on:

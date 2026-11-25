@@ -72,7 +72,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Control'>Control</a></span>
-</div><h1>Date<span id='superclasses'> : <a href="../Classes/Magnitude.html">Magnitude</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Date<span id='superclasses'> : <a href="../Classes/Magnitude.html">Magnitude</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>an object describing a point in time</div>
 </div>
@@ -93,14 +93,14 @@ var e = Date(rawSeconds: d.rawSeconds); // create a new Date with the same time
 d == e; // true
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<li>The most typical usage is to create a Date from a year/month/day and possibly hour/minute/second. All of these properties (except <code>year</code>) have default values (<code>month = 1</code>, <code>day = 1</code>, <code>hour = 0</code>, <code>minute = 0</code>, <code>second = 0</code>). <code>rawSeconds</code> is computed based on the other properties. There is no default year -- if no <code>year</code> is provided, an error is thrown.<div class='codeMirrorContainer'><textarea class='editor'>Date(1969, 7, 20, 20, 18); // -&gt; Sun Jul 20 20:18:00 1969
+<li>The most typical usage is to create a Date from a year/month/day and possibly hour/minute/second. All of these properties (except <code>year</code>) have default values (<code>month = 1</code>, <code>day = 1</code>, <code>hour = 0</code>, <code>minute = 0</code>, <code>second = 0</code>). <code>rawSeconds</code> is computed based on the other properties. There is no default year — if no <code>year</code> is provided, an error is thrown.<div class='codeMirrorContainer'><textarea class='editor'>Date(1969, 7, 20, 20, 18); // -&gt; Sun Jul 20 20:18:00 1969
 Date(2016); // -&gt; Fri Jan  1 00:00:00 2016
 d = Date(2010, day: 15, minute: 30); // -&gt; Fri Jan 15 00:30:00 2010
 [d.asString, d.dayOfWeek, d.rawSeconds]; // dayOfWeek and rawSeconds were computed</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <div class='note'><span class='notelabel'>NOTE:</span> On Windows, <code>Date</code> creation fails for dates before Unix epoch, i.e. before January 1st, 1970.</div></ol>
 
-<p>It is possible to specify dates with "out of range" values that will be resolved into a valid range -- this allows simple date offset calculations to be performed (see example below).<div class='codeMirrorContainer'><textarea class='editor'>(
+<p>It is possible to specify dates with "out of range" values that will be resolved into a valid range — this allows simple date offset calculations to be performed (see example below).<div class='codeMirrorContainer'><textarea class='editor'>(
 // Simple date/time offsetting can be performed:
 ("One hundred days before Christmas:" + Date(2010, 12, 25 - 100).format("%B %d")).postln;
 
@@ -158,7 +158,7 @@ thisThread.randSeed = a;
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-rawSeconds' href='./../Overviews/Methods.html#rawSeconds'>rawSeconds</a> = value</h3>
 <div class='method'>
 <p>Get or set the receiver's raw time in seconds (relative to the "epoch" of January 1, 1970).
-<p>If you modify this property, the other properties will not update. See note at <a href="#-resolve">-resolve</a> -- there is no "resolveFromRawSeconds" method, but you can generate a new self-consistent Date instance by passing the <code>rawSeconds</code> as an argument to <a href="#*new">*new</a>.<div class='note'><span class='notelabel'>NOTE:</span> This value is not portable between machines, because of differences in the way the underlying time functions are implemented, and because of time zone differences. To save/restore Date values between runs and on different platforms, it is recommended <strong>not</strong> to use the rawSeconds value. Instead, you should serialize the Date to a string, for example:</div><div class='codeMirrorContainer'><textarea class='editor'>(
+<p>If you modify this property, the other properties will not update. See note at <a href="#-resolve">-resolve</a> — there is no "resolveFromRawSeconds" method, but you can generate a new self-consistent Date instance by passing the <code>rawSeconds</code> as an argument to <a href="#*new">*new</a>.<div class='note'><span class='notelabel'>NOTE:</span> This value is not portable between machines, because of differences in the way the underlying time functions are implemented, and because of time zone differences. To save/restore Date values between runs and on different platforms, it is recommended <strong>not</strong> to use the rawSeconds value. Instead, you should serialize the Date to a string, for example:</div><div class='codeMirrorContainer'><textarea class='editor'>(
 var savedDateStr = Date.localtime.format("%Y%m%d_%H%M%S").postcs;
 var loadedDate = Date.fromString(savedDateStr, "%Y%m%d_%H%M%S").postln;
 )</textarea>
@@ -184,7 +184,7 @@ var loadedDate = Date.fromString(savedDateStr, "%Y%m%d_%H%M%S").postln;
 <p>Returns asctime.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-resolve' href='./../Overviews/Methods.html#resolve'>resolve</a></h3>
 <div class='method'>
 <p>Resolve any inconsistencies in the Date object, updating all the fields (in particular <code>dayOfWeek</code> and <code>rawSeconds</code>) as necessary.
-<p>If the instance properties (<code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>) are modified, the Date will be in an inconsistent state -- its <code>rawSeconds</code> won't reflect the modifications, and the properties may fall outside of "normal" ranges (<code>month: 1-12, day:1-31, hour: 0-23, minute/second: 0-59</code>). Also, using the string conversion methods may give strange results. Calling the <code>resolve</code> method will put things back into a consistent state.<div class='codeMirrorContainer'><textarea class='editor'>// Simple date/time offsetting can be performed:
+<p>If the instance properties (<code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>) are modified, the Date will be in an inconsistent state — its <code>rawSeconds</code> won't reflect the modifications, and the properties may fall outside of "normal" ranges (<code>month: 1-12, day:1-31, hour: 0-23, minute/second: 0-59</code>). Also, using the string conversion methods may give strange results. Calling the <code>resolve</code> method will put things back into a consistent state.<div class='codeMirrorContainer'><textarea class='editor'>// Simple date/time offsetting can be performed:
 d = Date(2017, 9, 30, 10, 30); // -&gt; Sat Sep 30 10:30:00 2017
 [d.dayOfWeek, d.rawSeconds]; // -&gt; [6, 1506760200]
 d.hour = d.hour - 13; // -&gt; Sat Sep 30 -03:30:00 2017

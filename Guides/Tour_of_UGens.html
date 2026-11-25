@@ -26,18 +26,18 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='toc'>
 <div id='toctitle'>Tour of UGens:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Periodic%20Sources:%20Oscillators.'>Periodic Sources: Oscillators.</a></li>
-<ul class='toc'><li class='toc2'><a href='#LF%20-%20"Low%20Frequency"%20Unit%20Generators.'>LF - "Low Frequency" Unit Generators.</a></li>
+<ul class='toc'><li class='toc2'><a href='#LF%20-%20%22Low%20Frequency%22%20Unit%20Generators.'>LF - "Low Frequency" Unit Generators.</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Band%20Limited%20Oscillators'>Band Limited Oscillators</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Table%20Oscillators'>Table Oscillators</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#Aperiodic%20Sources:%20Noise.'>Aperiodic Sources: Noise.</a></li>
-<ul class='toc'><li class='toc2'><a href='#LF%20"Low%20Frequency"%20Noise%20Generators.'>LF "Low Frequency" Noise Generators.</a></li>
+<ul class='toc'><li class='toc2'><a href='#LF%20%22Low%20Frequency%22%20Noise%20Generators.'>LF "Low Frequency" Noise Generators.</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Broad%20Spectrum%20Noise%20Generators'>Broad Spectrum Noise Generators</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Impulse%20Noise%20Generators'>Impulse Noise Generators</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Chaotic%20Noise%20Generators'>Chaotic Noise Generators</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#Filters'>Filters</a></li>
-<ul class='toc'><li class='toc2'><a href='#Low%20Pass,%20High%20Pass'>Low Pass, High Pass</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Band%20Pass,%20Band%20Cut'>Band Pass, Band Cut</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Resonant%20Low%20Pass,%20High%20Pass,%20Band%20Pass'>Resonant Low Pass, High Pass, Band Pass</a></li>
+<ul class='toc'><li class='toc2'><a href='#Low%20Pass%2C%20High%20Pass'>Low Pass, High Pass</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Band%20Pass%2C%20Band%20Cut'>Band Pass, Band Cut</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Resonant%20Low%20Pass%2C%20High%20Pass%2C%20Band%20Pass'>Resonant Low Pass, High Pass, Band Pass</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Simpler%20Filters'>Simpler Filters</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#NonLinear%20Filters'>NonLinear Filters</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Formant%20Filter'>Formant Filter</a></li>
@@ -79,7 +79,7 @@ s.boot;
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 <h2><a class='anchor' name='Periodic%20Sources:%20Oscillators.'>Periodic Sources: Oscillators.</a></h2>
-<h3><a class='anchor' name='LF%20-%20"Low%20Frequency"%20Unit%20Generators.'>LF - "Low Frequency" Unit Generators.</a></h3>
+<h3><a class='anchor' name='LF%20-%20%22Low%20Frequency%22%20Unit%20Generators.'>LF - "Low Frequency" Unit Generators.</a></h3>
 
 <p><a href="./../Classes/LFPar.html">LFPar</a>, <a href="./../Classes/LFCub.html">LFCub</a>, <a href="./../Classes/LFTri.html">LFTri</a>, <a href="./../Classes/Impulse.html">Impulse</a>, <a href="./../Classes/LFSaw.html">LFSaw</a>, <a href="./../Classes/LFPulse.html">LFPulse</a>, <a href="./../Classes/VarSaw.html">VarSaw</a>, <a href="./../Classes/SyncSaw.html">SyncSaw</a> - has geometric waveforms, not band limited. will cause aliasing at higher frequencies.<dl>
 <dt><a href="./../Classes/LFPar.html">LFPar</a>, <a href="./../Classes/LFCub.html">LFCub</a>, <a href="./../Classes/LFTri.html">LFTri</a>, <a href="./../Classes/LFSaw.html">LFSaw</a>, <a href="./../Classes/Impulse.html">Impulse</a><dd>arguments: <code>frequency, phase, mul, add</code><div class='codeMirrorContainer'><textarea class='editor'>// parabolic approximation of sine
@@ -239,7 +239,7 @@ b.sine1({1.0.rand2.cubed}.dup(24).round(1e-3).postln);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </dl>
 <h2><a class='anchor' name='Aperiodic%20Sources:%20Noise.'>Aperiodic Sources: Noise.</a></h2>
-<h3><a class='anchor' name='LF%20"Low%20Frequency"%20Noise%20Generators.'>LF "Low Frequency" Noise Generators.</a></h3>
+<h3><a class='anchor' name='LF%20%22Low%20Frequency%22%20Noise%20Generators.'>LF "Low Frequency" Noise Generators.</a></h3>
 <dl>
 <dt><a href="./../Classes/LFNoise0.html">LFNoise0</a>, <a href="./../Classes/LFNoise1.html">LFNoise1</a>, <a href="./../Classes/LFNoise2.html">LFNoise2</a>, <a href="./../Classes/LFClipNoise.html">LFClipNoise</a><dd>arguments: <code>frequency, mul, add</code><div class='codeMirrorContainer'><textarea class='editor'>{ LFClipNoise.ar(MouseX.kr(200, 10000, 1), 0.125) }.scope(1);
 { LFNoise0.ar(MouseX.kr(200, 10000, 1), 0.25) }.scope(1);
@@ -274,7 +274,7 @@ b.sine1({1.0.rand2.cubed}.dup(24).round(1e-3).postln);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </dl>
 <h2><a class='anchor' name='Filters'>Filters</a></h2>
-<h3><a class='anchor' name='Low%20Pass,%20High%20Pass'>Low Pass, High Pass</a></h3>
+<h3><a class='anchor' name='Low%20Pass%2C%20High%20Pass'>Low Pass, High Pass</a></h3>
 <dl>
 <dt><a href="./../Classes/LPF.html">LPF</a>, <a href="./../Classes/HPF.html">HPF</a> - 12 dB / octave<dd>arguments: <code>in, freq, mul, add</code><div class='codeMirrorContainer'><textarea class='editor'>{ LPF.ar(WhiteNoise.ar, MouseX.kr(1e2,2e4,1), 0.2) }.scope(1);
 { HPF.ar(WhiteNoise.ar, MouseX.kr(1e2,2e4,1), 0.2) }.scope(1);
@@ -282,7 +282,7 @@ b.sine1({1.0.rand2.cubed}.dup(24).round(1e-3).postln);</textarea>
 { HPF.ar(Saw.ar(100), MouseX.kr(1e2,2e4,1), 0.2) }.scope(1);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </dl>
-<h3><a class='anchor' name='Band%20Pass,%20Band%20Cut'>Band Pass, Band Cut</a></h3>
+<h3><a class='anchor' name='Band%20Pass%2C%20Band%20Cut'>Band Pass, Band Cut</a></h3>
 <dl>
 <dt><a href="./../Classes/BPF.html">BPF</a>, <a href="./../Classes/BRF.html">BRF</a> - 12 dB / octave<dd>arguments: <code>in, freq, rq, mul, add</code>
 <p>rq is the reciprocal of the Q of the filter, or in other words: the bandwidth in Hertz = rq * freq.<div class='codeMirrorContainer'><textarea class='editor'>{ BPF.ar(WhiteNoise.ar, MouseX.kr(1e2,2e4,1), 0.4, 0.4) }.scope(1);
@@ -294,7 +294,7 @@ b.sine1({1.0.rand2.cubed}.dup(24).round(1e-3).postln);</textarea>
 { BPF.ar(WhiteNoise.ar, 3000, MouseX.kr(0.01,0.7,1), 0.4) }.scope(1);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </dl>
-<h3><a class='anchor' name='Resonant%20Low%20Pass,%20High%20Pass,%20Band%20Pass'>Resonant Low Pass, High Pass, Band Pass</a></h3>
+<h3><a class='anchor' name='Resonant%20Low%20Pass%2C%20High%20Pass%2C%20Band%20Pass'>Resonant Low Pass, High Pass, Band Pass</a></h3>
 <dl>
 <dt><a href="./../Classes/RLPF.html">RLPF</a>, <a href="./../Classes/RHPF.html">RHPF</a> - 12 dB / octave<dd>arguments: <code>in, freq, rq, mul, add</code><div class='codeMirrorContainer'><textarea class='editor'>{ RLPF.ar(WhiteNoise.ar, MouseX.kr(1e2,2e4,1), 0.2, 0.2) }.scope(1);
 { RHPF.ar(WhiteNoise.ar, MouseX.kr(1e2,2e4,1), 0.2, 0.2) }.scope(1);

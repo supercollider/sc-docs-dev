@@ -95,7 +95,7 @@ ServerOptions.outDevices; // output devices</textarea>
 
 <p>A <code>nil</code> device is equivalent to <code>Server.default.options.device = "default:SuperCollider";</code><h3><a class='anchor' name='Jack%20Environment%20variables'>Jack Environment variables</a></h3>
 
-<p>The JACK connections can be configured via the environment variables <code>SC_JACK_DEFAULT_INPUTS</code> and <code>SC_JACK_DEFAULT_OUTPUTS</code>. These allow SuperCollider to detect system preferences for Jack inputs and outputs to/from the scsynth server. 
+<p>The JACK connections can be configured via the environment variables <code>SC_JACK_DEFAULT_INPUTS</code> and <code>SC_JACK_DEFAULT_OUTPUTS</code>. These allow SuperCollider to detect system preferences for Jack inputs and outputs to/from the scsynth server.
 <p>These variables are written as a string that specifies another jack client or a comma-separated list of jack ports formatted as a string.
 <p>The SuperCollider language client sets these environment variables to "system" by default, so that a server booted from SC language will connect by default.
 <p>If these are not set, the server will not connect to any JACK ports automatically. You may connect them manually, or by issuing <code>jack_connect</code> / <code>jack_disconnect</code> shell commands (<a href="./../Classes/String.html#-unixCmd">String: -unixCmd</a>). A server booted from the command line will thus not auto-connect, unless you set the variables in the same terminal session or shell profile (below).

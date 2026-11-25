@@ -39,8 +39,6 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'><li class='toc3'><a href='#-at'>at</a>  <a href='#-removeAt'>removeAt</a> </li>
 <li class='toc3'><a href='#-put'>put</a> </li>
 <li class='toc3'><a href='#-add'>add</a> </li>
-<li class='toc3'><a href='#-linkDoc'>linkDoc</a> </li>
-<li class='toc3'><a href='#-unlinkDoc'>unlinkDoc</a> </li>
 <li class='toc3'><a href='#-dispatch'>dispatch</a> </li>
 </ul><li class='toc2'><a href='#Behaving%20like%20an%20Environment'>Behaving like an Environment</a></li>
 <ul class='toc'><li class='toc3'><a href='#-push'>push</a>  <a href='#-pop'>pop</a>  <a href='#-clear'>clear</a>  <a href='#-choose'>choose</a> </li>
@@ -65,7 +63,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#JITLib'>JITLib</a>&#8201;&gt;&#8201;<a href='./../Browse.html#JITLib>Environments'>Environments</a> | <a href='./../Browse.html#Collections'>Collections</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Collections>Unordered'>Unordered</a> | <a href='./../Browse.html#Live Coding'>Live Coding</a></span>
-</div><h1>EnvironmentRedirect<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>EnvironmentRedirect<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Base class for environment redirects.</div>
 </div>
@@ -106,17 +104,7 @@ e.envir; // look into the envir itself: for a LazyEnvir it contains instances of
 <div class='method'>
 <p></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-add' href='./../Overviews/Methods.html#add'>add</a>(<span class='argstr'>anAssociation</span>)</h3>
 <div class='method'>
-<p></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-linkDoc' href='./../Overviews/Methods.html#linkDoc'>linkDoc</a>(<span class='argstr'>doc</span>)</h3>
-<div class='method'>
-<p>Links the environment to the current document, so that it is the currentEnvironment only when one document is in focus. See: <a href="./../Classes/Document.html#-envir">Document: -envir</a><h4>Arguments:</h4>
-<table class='arguments'>
-<tr><td class='argumentname'>doc<td class='argumentdesc'>
-<p>The document to link to, defaults to the current document (<a href="./../Classes/Document.html#*current">Document: *current</a>). If the document has focus or no document is given, the environment is pushed immediately.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-unlinkDoc' href='./../Overviews/Methods.html#unlinkDoc'>unlinkDoc</a>(<span class='argstr'>doc</span>)</h3>
-<div class='method'>
-<p>Uninks the environment to the current document, so that it is the currentEnvironment only when one document is in focus. See: <a href="./../Classes/Document.html#-envir">Document: -envir</a><h4>Arguments:</h4>
-<table class='arguments'>
-<tr><td class='argumentname'>doc<td class='argumentdesc'>
-<p>The document to unlink from, defaults to the current document (<a href="./../Classes/Document.html#*current">Document: *current</a>). If the document has focus or no document is given, the environment is popped immediately.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dispatch' href='./../Overviews/Methods.html#dispatch'>dispatch</a></h3>
+<p></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dispatch' href='./../Overviews/Methods.html#dispatch'>dispatch</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dispatch' href='./../Overviews/Methods.html#dispatch'>dispatch</a> = <span class='argstr'>disp</span></h3>
 <div class='method'>
 <p>A function or object that is called when the environment is modified. The key and the changed object are passed as arguments. When an object is removed from the environment, dispatch is called with its key and <code>nil</code>. Note that dispatch is called on removal only if the removed object existed.<div class='codeMirrorContainer'><textarea class='editor'>e = LazyEnvir.new;

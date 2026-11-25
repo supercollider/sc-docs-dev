@@ -26,8 +26,8 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='toc'>
 <div id='toctitle'>Randomness:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Create%20single%20random%20numbers'>Create single random numbers</a></li>
-<ul class='toc'><li class='toc2'><a href='#Between%20zero%20and%20<number>'>Between zero and &lt;number&gt;</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Between%20-<number>%20and%20<number>'>Between -&lt;number&gt; and &lt;number&gt;</a></li>
+<ul class='toc'><li class='toc2'><a href='#Between%20zero%20and%20%3Cnumber%3E'>Between zero and &lt;number&gt;</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Between%20-%3Cnumber%3E%20and%20%3Cnumber%3E'>Between -&lt;number&gt; and &lt;number&gt;</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Within%20a%20given%20range'>Within a given range</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Test%20them%20multiple%20times%20with%20a%20do%20loop'>Test them multiple times with a do loop</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Collect%20the%20results%20in%20an%20array'>Collect the results in an array</a></li>
@@ -41,9 +41,9 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul><li class='toc1'><a href='#Randomize%20the%20order%20of%20a%20Collection'>Randomize the order of a Collection</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Generate%20random%20numbers%20without%20duplicates'>Generate random numbers without duplicates</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#Randomly%20group%20a%20Collection'>Randomly group a Collection</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#Random%20signal%20generators,%20i.e.%20UGens'>Random signal generators, i.e. UGens</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Random%20signal%20generators%2C%20i.e.%20UGens'>Random signal generators, i.e. UGens</a></li>
 <ul class='toc'><li class='toc2'><a href='#Random%20operators%20on%20signals'>Random operators on signals</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#UGens%20that%20generate%20random%20numbers%20once,%20or%20on%20trigger:'>UGens that generate random numbers once, or on trigger:</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#UGens%20that%20generate%20random%20numbers%20once%2C%20or%20on%20trigger:'>UGens that generate random numbers once, or on trigger:</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Seeding'>Seeding</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#UGens%20that%20generate%20random%20numbers%20on%20demand'>UGens that generate random numbers on demand</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#Random%20Patterns'>Random Patterns</a></li>
@@ -62,12 +62,12 @@ var scdoc_sc_version = '3.15.0-dev';
 
 <p>As in any computer program, there are no "truly random" number generators in SC. They are pseudo-random, meaning they use very complex, but deterministic algorithms to generate sequences of numbers that are long enough and complicated enough to seem "random" for human beings. (i.e. the patterns are too complex for us to detect.)
 <p>If you start a random number generator algorithm with the same "seed" number several times, you get the same sequence of random numbers. (See example below, randomSeed)<h2><a class='anchor' name='Create%20single%20random%20numbers'>Create single random numbers</a></h2>
-<h3><a class='anchor' name='Between%20zero%20and%20<number>'>Between zero and &lt;number&gt;</a></h3>
+<h3><a class='anchor' name='Between%20zero%20and%20%3Cnumber%3E'>Between zero and &lt;number&gt;</a></h3>
 <div class='codeMirrorContainer'><textarea class='editor'>5.rand          // evenly distributed.
 
 1.0.linrand     // probability decreases linearly from 0 to &lt;number&gt;.</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='Between%20-<number>%20and%20<number>'>Between -&lt;number&gt; and &lt;number&gt;</a></h3>
+<h3><a class='anchor' name='Between%20-%3Cnumber%3E%20and%20%3Cnumber%3E'>Between -&lt;number&gt; and &lt;number&gt;</a></h3>
 <div class='codeMirrorContainer'><textarea class='editor'>5.0.rand2       // evenly distributed.
 
 10.bilinrand    // probability is highest around 0,
@@ -255,11 +255,11 @@ f.value(8, 0, 7)</textarea>
 
 [ 1, 2, 3, 4, 5, 6, 7, 8 ].curdle(0.75).postln;    // small groups</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h2><a class='anchor' name='Random%20signal%20generators,%20i.e.%20UGens'>Random signal generators, i.e. UGens</a></h2>
+<h2><a class='anchor' name='Random%20signal%20generators%2C%20i.e.%20UGens'>Random signal generators, i.e. UGens</a></h2>
 <ul>
 <li><a href="./../Classes/PinkNoise.html">PinkNoise</a><li><a href="./../Classes/WhiteNoise.html">WhiteNoise</a><li><a href="./../Classes/GrayNoise.html">GrayNoise</a><li><a href="./../Classes/BrownNoise.html">BrownNoise</a><li><a href="./../Classes/ClipNoise.html">ClipNoise</a><li><a href="./../Classes/LFNoise0.html">LFNoise0</a><li><a href="./../Classes/LFNoise1.html">LFNoise1</a><li><a href="./../Classes/LFNoise2.html">LFNoise2</a><li><a href="./../Classes/LFClipNoise.html">LFClipNoise</a><li><a href="./../Classes/LFDNoise0.html">LFDNoise0</a><li><a href="./../Classes/LFDNoise1.html">LFDNoise1</a><li><a href="./../Classes/LFDNoise3.html">LFDNoise3</a><li><a href="./../Classes/LFDClipNoise.html">LFDClipNoise</a><li><a href="./../Classes/Dust.html">Dust</a><li><a href="./../Classes/Dust2.html">Dust2</a><li><a href="./../Classes/Crackle.html">Crackle</a><li><a href="./../Classes/TWChoose.html">TWChoose</a></ul>
 
-<p>Also see UGens&gt;Generators&gt;Stochastic in the <a href="./../Browse.html#UGens>Generators>Stochastic">Browse: UGens&gt;Generators&gt;Stochastic</a> page.<h3><a class='anchor' name='Random%20operators%20on%20signals'>Random operators on signals</a></h3>
+<p>Also see UGens&gt;Generators&gt;Stochastic in the <a href="./../Browse.html#UGens%3EGenerators%3EStochastic">Browse: UGens&gt;Generators&gt;Stochastic</a> page.<h3><a class='anchor' name='Random%20operators%20on%20signals'>Random operators on signals</a></h3>
 
 <p>Unary or binary random method produce a random value for each frame (not implemented in some cases). This can be used to implement tendency masks.<div class='codeMirrorContainer'><textarea class='editor'>{ rrand(SinOsc.ar(0.1), SinOsc.ar(0.42)) * 0.1 }.play
 { linrand(SinOsc.ar(0.1)) * 0.1 }.play
@@ -268,7 +268,7 @@ f.value(8, 0, 7)</textarea>
 { coin(SinOsc.ar(0.1)) * 0.1 }.play
 { exprand(SinOsc.ar(0.1).range(0.1, 1), 0.1) - 1 * 0.1 }.play // exprand must not touch zero</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h3><a class='anchor' name='UGens%20that%20generate%20random%20numbers%20once,%20or%20on%20trigger:'>UGens that generate random numbers once, or on trigger:</a></h3>
+<h3><a class='anchor' name='UGens%20that%20generate%20random%20numbers%20once%2C%20or%20on%20trigger:'>UGens that generate random numbers once, or on trigger:</a></h3>
 <dl>
 <dt><a href="./../Classes/Rand.html">Rand</a><dd>uniform distribution of float between (lo, hi), as for numbers.<dt><a href="./../Classes/IRand.html">IRand</a><dd>uniform distribution of integer numbers.<dt><a href="./../Classes/TRand.html">TRand</a><dd>uniform distribution of float numbers, triggered<dt><a href="./../Classes/TIRand.html">TIRand</a><dd>uniform distribution of integer numbers, triggered<dt><a href="./../Classes/LinRand.html">LinRand</a><dd>skewed distribution of float numbers, triggered<dt><a href="./../Classes/NRand.html">NRand</a><dd>sum of n uniform distributions, approximates gaussian distr. with higher n.<dt><a href="./../Classes/ExpRand.html">ExpRand</a><dd>exponential distribution<dt><a href="./../Classes/TExpRand.html">TExpRand</a><dd>exponential distribution, triggered<dt><a href="./../Classes/CoinGate.html">CoinGate</a><dd>statistical gate for a trigger<dt><a href="./../Classes/TWindex.html">TWindex</a><dd>triggered weighted choice between a list.</dl>
 <h3><a class='anchor' name='Seeding'>Seeding</a></h3>

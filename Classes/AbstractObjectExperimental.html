@@ -1,0 +1,334 @@
+<!doctype html><html lang='en'><head><title>AbstractObjectExperimental | SuperCollider 3.15.0-dev Help</title>
+<link rel='stylesheet' href='./../static/scdoc.css' type='text/css' />
+<link rel='stylesheet' href='./../static/codemirror.css' type='text/css' />
+<link rel='stylesheet' href='./../static/editor.css' type='text/css' />
+<link rel='stylesheet' id='scdoc-theme' href='./../static/themes/default.css' type='text/css' />
+<link rel='stylesheet' href='./../frontend.css' type='text/css' />
+<link rel='stylesheet' href='./../custom.css' type='text/css' />
+<link rel='stylesheet' href='./../static/lib/katex/katex.min.css' />
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<script src='./../static/lib/jquery.min.js'></script>
+<script src='./../static/lib/codemirror-5.39.2.min.js' type='text/javascript'></script>
+<script src='./../static/lib/codemirror-addon-simple-5.39.2.min.js' type='text/javascript'></script>
+<script defer src='./../static/lib/katex/katex.min.js' type='text/javascript'></script>
+<script>
+var helpRoot = './..';
+var scdoc_title = 'AbstractObjectExperimental';
+var scdoc_sc_version = '3.15.0-dev';
+</script>
+<script src='./../static/scdoc.js' type='text/javascript'></script>
+<script src='./../docmap.js' type='text/javascript'></script>
+<script src='./../frontend.js' type='text/javascript'></script>
+<script src='qrc:///qtwebchannel/qwebchannel.js' type='text/javascript'></script>
+</head>
+<body onload='fixTOC()'>
+<div id='toc'>
+<div id='toctitle'>AbstractObjectExperimental:</div>
+<span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#description'>Description</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
+<ul class='toc'><li class='toc2'><a href='#Undocumented%20class%20methods'>Undocumented class methods</a></li>
+<ul class='toc'><li class='toc3'><a href='#*new'>new</a> </li>
+<li class='toc3'><a href='#*newCopyArgs'>newCopyArgs</a> </li>
+</ul></ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
+<ul class='toc'><li class='toc2'><a href='#Undocumented%20instance%20methods'>Undocumented instance methods</a></li>
+<ul class='toc'><li class='toc3'><a href='#-!=='>!==</a> </li>
+<li class='toc3'><a href='#-!?'>!?</a> </li>
+<li class='toc3'><a href='#-==='>===</a> </li>
+<li class='toc3'><a href='#-?'>?</a> </li>
+<li class='toc3'><a href='#-??'>??</a> </li>
+<li class='toc3'><a href='#-doesNotUnderstand'>doesNotUnderstand</a> </li>
+<li class='toc3'><a href='#-identityHash'>identityHash</a> </li>
+<li class='toc3'><a href='#-isNil'>isNil</a> </li>
+<li class='toc3'><a href='#-mustBeBoolean'>mustBeBoolean</a> </li>
+<li class='toc3'><a href='#-notNil'>notNil</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_always_yield'>sc_abstract_object_always_yield</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_copy_deep'>sc_abstract_object_copy_deep</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_copy_immutable'>sc_abstract_object_copy_immutable</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_copy_shallow'>sc_abstract_object_copy_shallow</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_hash'>sc_abstract_object_hash</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_is_kind_of'>sc_abstract_object_is_kind_of</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_perform'>sc_abstract_object_perform</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_perform_args'>sc_abstract_object_perform_args</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_perform_list'>sc_abstract_object_perform_list</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_perform_msg'>sc_abstract_object_perform_msg</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_primitive_failed'>sc_abstract_object_primitive_failed</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_super_perform_args'>sc_abstract_object_super_perform_args</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_yield'>sc_abstract_object_yield</a> </li>
+<li class='toc3'><a href='#-sc_abstract_object_yield_and_reset'>sc_abstract_object_yield_and_reset</a> </li>
+</ul></ul><li class='toc1'><a href='#Help%20template'>Help template</a></li>
+<ul class='toc'></ul></ul></div><div id='menubar'></div>
+<div class='contents'>
+<div class='header'>
+<div id='label'>
+<span id='folder'>Classes</span>
+ | <span id='categories'><a href='./../Browse.html#Undocumented classes'>Undocumented classes</a></span>
+</div><h1>AbstractObjectExperimental</h1>
+<div id='summary'>(Undocumented class)</div>
+</div>
+<div class='subheader'>
+<div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Core/ExperimentalAbstractObject.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Core/ExperimentalAbstractObject.sc'>ExperimentalAbstractObject.sc</a></div><div id='subclasses'>Subclasses: <a href="../Classes/Frame.html">Frame</a>, <a href="../Classes/Object.html">Object</a></div>
+</div>
+<h2><a class='anchor' name='description'>Description</a></h2>
+
+<p>This class is missing documentation.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<h3><a class='anchor' name='Undocumented%20class%20methods'>Undocumented class methods</a></h3>
+<h3 class='method-code'><span class='method-prefix'>AbstractObjectExperimental.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>maxSize: 0</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>AbstractObjectExperimental.</span><a class='method-name' name='*newCopyArgs' href='./../Overviews/Methods.html#newCopyArgs'>newCopyArgs</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
+<h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
+<h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-!==' href='./../Overviews/Methods.html#!=='>!==</a>(<span class='argstr'>obj</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-!?' href='./../Overviews/Methods.html#!?'>!?</a>(<span class='argstr'>obj</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-===' href='./../Overviews/Methods.html#==='>===</a>(<span class='argstr'>obj</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-?' href='./../Overviews/Methods.html#?'>?</a>(<span class='argstr'>obj</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-??' href='./../Overviews/Methods.html#??'>??</a>(<span class='argstr'>obj</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-doesNotUnderstand' href='./../Overviews/Methods.html#doesNotUnderstand'>doesNotUnderstand</a>(<span class='argstr'>selector</span> <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-identityHash' href='./../Overviews/Methods.html#identityHash'>identityHash</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isNil' href='./../Overviews/Methods.html#isNil'>isNil</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-mustBeBoolean' href='./../Overviews/Methods.html#mustBeBoolean'>mustBeBoolean</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-notNil' href='./../Overviews/Methods.html#notNil'>notNil</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_always_yield' href='./../Overviews/Methods.html#sc_abstract_object_always_yield'>sc_abstract_object_always_yield</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_copy_deep' href='./../Overviews/Methods.html#sc_abstract_object_copy_deep'>sc_abstract_object_copy_deep</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_copy_immutable' href='./../Overviews/Methods.html#sc_abstract_object_copy_immutable'>sc_abstract_object_copy_immutable</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_copy_shallow' href='./../Overviews/Methods.html#sc_abstract_object_copy_shallow'>sc_abstract_object_copy_shallow</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_hash' href='./../Overviews/Methods.html#sc_abstract_object_hash'>sc_abstract_object_hash</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_is_kind_of' href='./../Overviews/Methods.html#sc_abstract_object_is_kind_of'>sc_abstract_object_is_kind_of</a>(<span class='argstr'>aClass</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_perform' href='./../Overviews/Methods.html#sc_abstract_object_perform'>sc_abstract_object_perform</a>(<span class='argstr'>selector</span> <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_perform_args' href='./../Overviews/Methods.html#sc_abstract_object_perform_args'>sc_abstract_object_perform_args</a>(<span class='argstr'>selector</span>, <span class='argstr'>args</span>, <span class='argstr'>kwargs</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_perform_list' href='./../Overviews/Methods.html#sc_abstract_object_perform_list'>sc_abstract_object_perform_list</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_perform_msg' href='./../Overviews/Methods.html#sc_abstract_object_perform_msg'>sc_abstract_object_perform_msg</a>(<span class='argstr'>msg</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_primitive_failed' href='./../Overviews/Methods.html#sc_abstract_object_primitive_failed'>sc_abstract_object_primitive_failed</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_super_perform_args' href='./../Overviews/Methods.html#sc_abstract_object_super_perform_args'>sc_abstract_object_super_perform_args</a>(<span class='argstr'>selector</span>, <span class='argstr'>args</span>, <span class='argstr'>kwargs</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_yield' href='./../Overviews/Methods.html#sc_abstract_object_yield'>sc_abstract_object_yield</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-sc_abstract_object_yield_and_reset' href='./../Overviews/Methods.html#sc_abstract_object_yield_and_reset'>sc_abstract_object_yield_and_reset</a>(<span class='argstr'>reset: true</span>)</h3>
+<h2><a class='anchor' name='Help%20template'>Help template</a></h2>
+
+<p>Copy and paste the text below and save to HelpSource/Classes/AbstractObjectExperimental.schelp<div class='codeMirrorContainer'><textarea class='editor'>TITLE:: AbstractObjectExperimental
+summary:: (put short description here)
+categories:: Undocumented classes
+related:: Classes/SomeRelatedClass, Reference/SomeRelatedStuff, etc.
+
+DESCRIPTION::
+(put long description here)
+
+
+CLASSMETHODS::
+
+METHOD:: new
+(describe method here)
+
+ARGUMENT:: maxSize
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: newCopyArgs
+(describe method here)
+
+ARGUMENT:: args
+(describe argument here)
+
+ARGUMENT::  ... kwargs
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+
+INSTANCEMETHODS::
+
+METHOD:: sc_abstract_object_perform
+(describe method here)
+
+ARGUMENT:: selector
+(describe argument here)
+
+ARGUMENT:: args
+(describe argument here)
+
+ARGUMENT::  ... kwargs
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sc_abstract_object_hash
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: mustBeBoolean
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sc_abstract_object_perform_list
+(describe method here)
+
+ARGUMENT:: args
+(describe argument here)
+
+ARGUMENT::  ... kwargs
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: ?
+(describe method here)
+
+ARGUMENT:: obj
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: ??
+(describe method here)
+
+ARGUMENT:: obj
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sc_abstract_object_primitive_failed
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: identityHash
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: isNil
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sc_abstract_object_yield_and_reset
+(describe method here)
+
+ARGUMENT:: reset
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sc_abstract_object_yield
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sc_abstract_object_super_perform_args
+(describe method here)
+
+ARGUMENT:: selector
+(describe argument here)
+
+ARGUMENT:: args
+(describe argument here)
+
+ARGUMENT:: kwargs
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: notNil
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sc_abstract_object_perform_msg
+(describe method here)
+
+ARGUMENT:: msg
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: ===
+(describe method here)
+
+ARGUMENT:: obj
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: !?
+(describe method here)
+
+ARGUMENT:: obj
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: !==
+(describe method here)
+
+ARGUMENT:: obj
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: doesNotUnderstand
+(describe method here)
+
+ARGUMENT:: selector
+(describe argument here)
+
+ARGUMENT:: args
+(describe argument here)
+
+ARGUMENT::  ... kwargs
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sc_abstract_object_copy_deep
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sc_abstract_object_always_yield
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sc_abstract_object_is_kind_of
+(describe method here)
+
+ARGUMENT:: aClass
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sc_abstract_object_perform_args
+(describe method here)
+
+ARGUMENT:: selector
+(describe argument here)
+
+ARGUMENT:: args
+(describe argument here)
+
+ARGUMENT:: kwargs
+(describe argument here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sc_abstract_object_copy_immutable
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+METHOD:: sc_abstract_object_copy_shallow
+(describe method here)
+
+returns:: (describe returnvalue here)
+
+
+EXAMPLES::
+
+code::
+(some example code)
+::
+</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+<div class='doclink'>link::Classes/AbstractObjectExperimental::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
+</body></html>

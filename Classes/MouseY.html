@@ -38,7 +38,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>User interaction'>User interaction</a></span>
-</div><h1>MouseY<span id='superclasses'> : <a href="../Classes/MouseX.html">MouseX</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>MouseY<span id='superclasses'> : <a href="../Classes/MouseX.html">MouseX</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Cursor tracking UGen.</div>
 </div>
@@ -55,7 +55,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <table class='arguments'>
 <tr><td class='argumentname'>minval<td class='argumentdesc'>
 <p>Value corresponding to the bottom edge of the screen.<tr><td class='argumentname'>maxval<td class='argumentdesc'>
-<p>Value corresponding to the top edge of the screen.<tr><td class='argumentname'>warp<td class='argumentdesc'>
+<p>Value corresponding to the top edge of the screen.<div class='note'><span class='notelabel'>NOTE:</span> If the screen resolution changes after the server has booted, mouse coordinates continue to be scaled using the screen height that was in effect at boot time. Reboot the server after changing the screen resolution to ensure correct scaling.</div><tr><td class='argumentname'>warp<td class='argumentdesc'>
 <p>Mapping curve. 0 is linear, 1 is exponential (e. g. for freq or times). Alternatively you can specify: 'linear' or 'exponential'.<tr><td class='argumentname'>lag<td class='argumentdesc'>
 <p>Lag factor to dezipper cursor movement.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>

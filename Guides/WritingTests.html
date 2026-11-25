@@ -42,13 +42,13 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='related'>See also: <a href="./../Reference/SCDocSyntax.html">SCDoc Syntax</a>, <a href="./../Classes/SCDoc.html">SCDoc</a></div>
 </div>
 
-<p>To write, use and develop UnitTests, you need to <ul>
+<p>To write, use and develop UnitTests, you need to<ul>
 <li>install a sourcecode version of SuperCollider<li>change your environment to include only core library functionality<li>run UnitTests</ul>
 <h2><a class='anchor' name='install%20a%20sourcecode%20version%20of%20SuperCollider'>install a sourcecode version of SuperCollider</a></h2>
 
 <p>Download or clone SuperCollider from github: <a href="https://github.com/supercollider/supercollider.">https://github.com/supercollider/supercollider.</a>It is not needed to compile SuperCollider from its sources, you can instead use a pre-compiled binary and include the relevant folders (<code>SCClassLibrary, HelpSource, testsuite/classlibrary</code> in your environment. See below for an example.<h2><a class='anchor' name='Change%20your%20environment%20to%20include%20only%20core%20library%20functionality'>Change your environment to include only core library functionality</a></h2>
 
-<p>In order to mimick the standard SuperCollider installation, make sure that you have only the class library installed. 
+<p>In order to mimick the standard SuperCollider installation, make sure that you have only the class library installed.
 <p>Best practise is to create a separate <code>.yaml</code> configuration file that resides parallel to the default one. You can do this either interactively from within the preferences of your IDE (<code>Preferences&gt;Interpreter</code>), or programatically<div class='codeMirrorContainer'><textarea class='editor'>~sclangConf = "SCLANG_CONF".getenv;
 LanguageConfig.addIncludePath(~scSourceDir +/+ "testsuite/classlibrary");
 +   LanguageConfig.addExcludePath(~scSourceDir +/+ "testsuite/classlibrary/server");
@@ -56,8 +56,7 @@ LanguageConfig.addIncludePath(~scSourceDir +/+ "testsuite/classlibrary");
 +   postf("Writing configuration to %\n", ~sclangConf);
 +   LanguageConfig.store(~sclangConf);</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-
-<p> <h2><a class='anchor' name='Organisation'>Organisation</a></h2>
+<h2><a class='anchor' name='Organisation'>Organisation</a></h2>
 
 <p>Core class <a href="./../Classes/UnitTest.html">UnitTest</a>s are located in the directory:<ol>
 <li><a href="./../Classes/UnitTest.html">UnitTest</a>s go into parrallel directory.<li>server-related tests go into <code>server</code> subdirectory.<li><a href="./../Classes/UnitTest.html">UnitTest</a>s should use <a href="./../Classes/UnitTest.html#-assert">UnitTest: -assert</a> and <a href="./../Classes/UnitTest.html#-assertFloat">UnitTest: -assertFloat</a>.<li>look at existing <a href="./../Classes/UnitTest.html">UnitTest</a>s to understand what are good <a href="./../Classes/UnitTest.html">UnitTest</a>s<li><a href="./../Classes/UnitTest.html">UnitTest</a> setup<li>run <a href="./../Classes/UnitTest.html">UnitTest</a>s either automatically (<code>UnitTest.runAll</code>), interactively (<code>UnitTEst.gui</code>), or individually by class (<code>MyClass.test</code> or <code>TestMyClass.run</code>. They are synonyms)</ol>

@@ -116,7 +116,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <p><code>Object.asInt</code> is deprecated (#4089). Please use <code>Object.asInteger</code> instead.<h2><a class='anchor' name='Class%20library:%20Fixed'>Class library: Fixed</a></h2>
 
 <p><strong>Breaking change</strong>: Fixed an issue with <code>Signal:hammingWindow</code> using incorrect coefficients. <code>Signal:hammingWindow_old</code> can be used for previous behaviour (#4324)
-<p><strong>Breaking change</strong>: <code>Color:asHSV</code> could sometimes return NaN -- grayscale colors returned NaN hue, and black returned NaN hue and saturation. Zero values are now returned in these cases, as is the standard (#4369)
+<p><strong>Breaking change</strong>: <code>Color:asHSV</code> could sometimes return NaN — grayscale colors returned NaN hue, and black returned NaN hue and saturation. Zero values are now returned in these cases, as is the standard (#4369)
 <p>Fixed an issue where NamedControl would erroneously convert <code>name</code> to a String in some cases (#4761).
 <p>Fixed an issue with copying Ndef (#4690)
 <p>Fixed an issue where <code>Document.initAction</code> would fail to run in some cases (#4582)

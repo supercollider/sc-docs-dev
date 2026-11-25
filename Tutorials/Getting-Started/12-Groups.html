@@ -27,10 +27,10 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='toctitle'>12. Groups:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Groups%20as%20Ordering%20Tools'>Groups as Ordering Tools</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#All%20the%20addActions'>All the addActions</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#'queryAllNodes'%20and%20node%20IDs'>'queryAllNodes' and node IDs</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#%27queryAllNodes%27%20and%20node%20IDs'>'queryAllNodes' and node IDs</a></li>
 <ul class='toc'></ul><li class='toc1'><a href='#The%20Root%20Node%20and%20the%20Default%20Group'>The Root Node and the Default Group</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#Groups%20as,%20well,%20groups...'>Groups as, well, groups...</a></li>
-<ul class='toc'></ul><li class='toc1'><a href='#Groups,%20their%20Inheritance,%20and%20More%20on%20Tracking%20Down%20Help'>Groups, their Inheritance, and More on Tracking Down Help</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Groups%20as%2C%20well%2C%20groups...'>Groups as, well, groups...</a></li>
+<ul class='toc'></ul><li class='toc1'><a href='#Groups%2C%20their%20Inheritance%2C%20and%20More%20on%20Tracking%20Down%20Help'>Groups, their Inheritance, and More on Tracking Down Help</a></li>
 <ul class='toc'></ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
@@ -110,7 +110,7 @@ x = Synth.tail(h, \default);    // add x to the tail of h
 s.queryAllNodes;        // this will post a representation of the node hierarchy
 x.free; h.free; g.free;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h2><a class='anchor' name=''queryAllNodes'%20and%20node%20IDs'>'queryAllNodes' and node IDs</a></h2>
+<h2><a class='anchor' name='%27queryAllNodes%27%20and%20node%20IDs'>'queryAllNodes' and node IDs</a></h2>
 
 <p>Server has a method called 'queryAllNodes' which will post a representation of the server's node tree. You should have seen something like the following in the post window when executing the example above:<div class='codeMirrorContainer'><textarea class='editor'>nodes on localhost:
 a Server
@@ -147,7 +147,7 @@ s.queryAllNodes;
 ]
 recording synth</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h2><a class='anchor' name='Groups%20as,%20well,%20groups...'>Groups as, well, groups...</a></h2>
+<h2><a class='anchor' name='Groups%20as%2C%20well%2C%20groups...'>Groups as, well, groups...</a></h2>
 
 <p>The other major use of groups is to allow you to easily treat a number of synths as a whole. If you send a 'set' message to a group, it will apply that message to all nodes contained within it.<div class='codeMirrorContainer'><textarea class='editor'>g = Group.new;
 
@@ -159,7 +159,7 @@ g.set(\amp, 0.005); // turn them all down
 
 g.free;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h2><a class='anchor' name='Groups,%20their%20Inheritance,%20and%20More%20on%20Tracking%20Down%20Help'>Groups, their Inheritance, and More on Tracking Down Help</a></h2>
+<h2><a class='anchor' name='Groups%2C%20their%20Inheritance%2C%20and%20More%20on%20Tracking%20Down%20Help'>Groups, their Inheritance, and More on Tracking Down Help</a></h2>
 
 <p>Now for a little more OOP theory. Both Group and Synth are examples of what are called <em>subclasses</em>. You can think of subclasses as being children of a parent class, called their <em>superclass</em>. All subclasses inherit the methods of their superclass. They may <em>override</em> some methods with their own implementation (taking advantage of <em>polymorphism</em>), but in general subclasses respond to all the methods of their superclass, and some other ones of their own. Some classes are <em>abstract classes</em>, which means that you don't actually make instances of them, they just exist to provide a common set of methods and variables to their subclasses.
 <p>We might for instance imagine an abstract class called Dog, which has a number of subclasses, such as Terrier, BassetHound, etc. These might all have a 'run' method, but not all would need a 'herdSheep' method.

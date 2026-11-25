@@ -28,7 +28,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#Filter%20patterns'>Filter patterns</a></li>
 <ul class='toc'><li class='toc2'><a href='#Repetition%20and%20Constraint%20patterns'>Repetition and Constraint patterns</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Time-based%20patterns'>Time-based patterns</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#Adding%20values%20into%20event%20patterns%20(Or,%20"Pattern%20Composition")'>Adding values into event patterns (Or, "Pattern Composition")</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Adding%20values%20into%20event%20patterns%20(Or%2C%20%22Pattern%20Composition%22)'>Adding values into event patterns (Or, "Pattern Composition")</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Parallelizing%20event%20patterns'>Parallelizing event patterns</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Language%20control%20methods'>Language control methods</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Server%20control%20methods'>Server control methods</a></li>
@@ -58,7 +58,7 @@ var scdoc_sc_version = '3.15.0-dev';
 
 <p><a href="./../../Tutorials/A-Practical-Guide/PG_06b_Time_Based_Patterns.html">Pattern Guide 06b: Time Based Patterns</a><dl>
 <dt><code>Ptime(repeats)</code><dd>Returns the amount of time elapsed since embedding.<dt><code>Pstep(levels, durs, repeats)</code><dd>Repeat a <code>level</code> value for its corresponding duration, then move to the next.<dt><code>Pseg(levels, durs, curves, repeats)</code><dd>Similar to Pstep, but interpolates to the next value instead of stepping abruptly at the end of the duration. Interpolation is linear by default, but any envelope segment curve can be used. <code>levels</code>, <code>durs</code> and <code>curves</code> should be patterns. Related: Use of <a href="./../../Classes/Env.html">Env</a> as a pattern.</dl>
-<h3><a class='anchor' name='Adding%20values%20into%20event%20patterns%20(Or,%20"Pattern%20Composition")'>Adding values into event patterns (Or, "Pattern Composition")</a></h3>
+<h3><a class='anchor' name='Adding%20values%20into%20event%20patterns%20(Or%2C%20%22Pattern%20Composition%22)'>Adding values into event patterns (Or, "Pattern Composition")</a></h3>
 
 <p><a href="./../../Tutorials/A-Practical-Guide/PG_06c_Composition_of_Patterns.html">Pattern Guide 06c: Composition of Patterns</a><dl>
 <dt><code>Pbindf(pattern, pairs)</code><dd>Adds new key-value pairs onto a pre-existing Pbind-style pattern.<dt><code>Pchain(patterns)</code><dd>Chains separate Pbind-style patterns together, so that all their key-value pairs go into the same event.</dl>

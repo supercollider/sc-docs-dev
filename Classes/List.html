@@ -92,7 +92,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Collections'>Collections</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Collections>Ordered'>Ordered</a></span>
-</div><h1>List<span id='superclasses'> : <a href="../Classes/SequenceableCollection.html">SequenceableCollection</a> : <a href="../Classes/Collection.html">Collection</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>List<span id='superclasses'> : <a href="../Classes/SequenceableCollection.html">SequenceableCollection</a> : <a href="../Classes/Collection.html">Collection</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>list of items of variable size</div>
 </div>
@@ -109,14 +109,14 @@ var scdoc_sc_version = '3.15.0-dev';
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
 <p>Example:<div class='codeMirrorContainer'><textarea class='editor'>// Create a new empty collections with size 3:
-x = Array.new(3); 
-y = Array.new(3); 
+x = Array.new(3);
+y = Array.new(3);
 z = List.new(3);
 
 // Try to add 7 items to the array and list.
 // If the array exceeds maxSize, it will only
 // grow to an internally specified max size.
-( 
+(
 7.do { |i|
     x.add(i);
     y = y.add(i); // reassign array y on each add

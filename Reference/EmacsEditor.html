@@ -39,9 +39,9 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul><li class='toc2'><a href='#Navigating%20and%20selecting'>Navigating and selecting</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Formatting'>Formatting</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#Marks'>Marks</a></li>
-<ul class='toc'><li class='toc2'><a href='#set-mark-command%20(`C-SPC')'>set-mark-command (`C-SPC')</a></li>
-<ul class='toc'></ul><li class='toc2'><a href='#pop-global-mark%20(`C-x%20C-SPC')'>pop-global-mark (`C-x C-SPC')</a></li>
-<ul class='toc'></ul></ul><li class='toc1'><a href='#Customizing%20Emacs'%20behavior'>Customizing Emacs' behavior</a></li>
+<ul class='toc'><li class='toc2'><a href='#set-mark-command%20(%60C-SPC%27)'>set-mark-command (`C-SPC')</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#pop-global-mark%20(%60C-x%20C-SPC%27)'>pop-global-mark (`C-x C-SPC')</a></li>
+<ul class='toc'></ul></ul><li class='toc1'><a href='#Customizing%20Emacs%27%20behavior'>Customizing Emacs' behavior</a></li>
 <ul class='toc'><li class='toc2'><a href='#Customize%20w3m'>Customize w3m</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Automatically%20complete%20brackets%20and%20parentheses'>Automatically complete brackets and parentheses</a></li>
 <ul class='toc'></ul><li class='toc2'><a href='#Scrollwheel%20support'>Scrollwheel support</a></li>
@@ -112,14 +112,14 @@ var scdoc_sc_version = '3.15.0-dev';
 <dt>M-x show-paren-mode<dd>Paren match highlighting. Can also be set from the options menu.<dt>M-;<dd>Add comment. If you have a text selected, then that text will become a comment. It will remove the commenting // when you have selected a commented text.<dt>C-M-j<dd>Continue the comment on the next line.<dt>C-u M-;<dd>Remove comment. This removes the whole comment, so also the text!<dt>M-x comment-region<dd>Comments the selected region<dt>M-x uncomment-region<dd>Uncomments the selected region<dt>TAB<dd>Auto-aligns tabs according to code.</dl>
 <h2><a class='anchor' name='Marks'>Marks</a></h2>
 
-<p>(info from EmacsWiki)<h3><a class='anchor' name='set-mark-command%20(`C-SPC')'>set-mark-command (`C-SPC')</a></h3>
+<p>(info from EmacsWiki)<h3><a class='anchor' name='set-mark-command%20(%60C-SPC%27)'>set-mark-command (`C-SPC')</a></h3>
 
 <p>A nice feature that not all know about is what happens if you feed it with a universal argument: ‘C-u C-SPC’. It’s an easy way to navigate back to your previous editing spots by jumping to the positions stored in the buffer’s local mark ring. Repeated calls will cycle through the ring of marks.
-<p>If you use TransientMarkMode and you want to set the mark but don’t want to subsequently see the region highlighting, you can use ‘C-SPC C-g’ to set the mark and then deactivate it.<h3><a class='anchor' name='pop-global-mark%20(`C-x%20C-SPC')'>pop-global-mark (`C-x C-SPC')</a></h3>
+<p>If you use TransientMarkMode and you want to set the mark but don’t want to subsequently see the region highlighting, you can use ‘C-SPC C-g’ to set the mark and then deactivate it.<h3><a class='anchor' name='pop-global-mark%20(%60C-x%20C-SPC%27)'>pop-global-mark (`C-x C-SPC')</a></h3>
 
 <p>In addition to the ordinary mark ring that belongs to each buffer, Emacs has a single global mark ring. It records a sequence of buffers in which you have recently set the mark, so you can go back to those buffers.
 <p>Setting the mark always makes an entry on the current buffer’s mark ring. If you have switched buffers since the previous mark setting, the new mark position makes an entry on the global mark ring also. The result is that the global mark ring records a sequence of buffers that you have been in, and, for each buffer, a place where you set the mark.
-<p>‘C-x C-SPC’ (‘pop-global-mark’) jumps to the buffer and position of the latest entry in the global mark ring. It also rotates the ring, so that successive uses of ‘C-x C-SPC’ take you to earlier and earlier buffers.<h2><a class='anchor' name='Customizing%20Emacs'%20behavior'>Customizing Emacs' behavior</a></h2>
+<p>‘C-x C-SPC’ (‘pop-global-mark’) jumps to the buffer and position of the latest entry in the global mark ring. It also rotates the ring, so that successive uses of ‘C-x C-SPC’ take you to earlier and earlier buffers.<h2><a class='anchor' name='Customizing%20Emacs%27%20behavior'>Customizing Emacs' behavior</a></h2>
 
 <p>You can customize the behaviour of Emacs, by putting things in the startup file of emacs. This file is <code>~/.emacs</code>. You can define options there, for example:<div class='codeMirrorContainer'><textarea class='editor'>(custom-set-variables
  '(case-fold-search t)

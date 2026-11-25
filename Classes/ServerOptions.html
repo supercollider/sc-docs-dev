@@ -90,7 +90,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Server'>Server</a></span>
-</div><h1>ServerOptions<span id='superclasses'> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>ServerOptions<span id='superclasses'> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Encapsulates commandline and other options for a Server</div>
 </div>
@@ -104,7 +104,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <p>A Server's instance of ServerOptions is stored in its options instance variable, which can be accessed through corresponding getter and setter methods.
 <p>N.B. A ServerOptions' instance variables are translated into commandline arguments when a server app is booted. Thus a running Server must be rebooted before changes will take effect. There are also a few commandline options which are not currently encapsulated in ServerOptions. See <a href="./../Reference/Server-Architecture.html">Server Architecture</a> for more details.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>ServerOptions.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>maxSize: 0</span>)</h3>
-<div class='supmethod'>From superclass: <a href='./../Classes/Object.html'>Object</a></div>
+<div class='supmethod'>From superclass: <a href='./../Classes/AbstractObjectExperimental.html'>AbstractObjectExperimental</a></div>
 <div class='method'>
 <p>Create and return a new instance of ServerOptions.</div><h3 class='method-code'><span class='method-prefix'>ServerOptions.</span><a class='method-name' name='*devices' href='./../Overviews/Methods.html#devices'>devices</a></h3>
 <div class='method'>
@@ -208,7 +208,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div class='method'>
 <p>Tells supernova whether to sync to the driver's sample clock, or to the system clock.<div class='note'><span class='notelabel'>NOTE:</span> scsynth always uses system clock and this value is ignored.</div>
 <p><ul>
-<li><code>true</code> (default) -- Use the system clock. Timestamped messages will maintain consistent latency over long sessions, but may not be perfectly sample-accurate.<li><code>false</code> -- Use the sample clock. This helps to support sample-accurate scheduling; however, messaging latency from the SuperCollider language will drift over long periods of time.</ul>
+<li><code>true</code> (default) — Use the system clock. Timestamped messages will maintain consistent latency over long sessions, but may not be perfectly sample-accurate.<li><code>false</code> — Use the sample clock. This helps to support sample-accurate scheduling; however, messaging latency from the SuperCollider language will drift over long periods of time.</ul>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-memoryLocking' href='./../Overviews/Methods.html#memoryLocking'>memoryLocking</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-memoryLocking' href='./../Overviews/Methods.html#memoryLocking'>memoryLocking</a> = value</h3>
 <div class='method'>

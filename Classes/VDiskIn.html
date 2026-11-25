@@ -38,7 +38,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>InOut'>InOut</a> | <a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Buffer'>Buffer</a></span>
-</div><h1>VDiskIn<span id='superclasses'> : <a href="../Classes/MultiOutUGen.html">MultiOutUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>VDiskIn<span id='superclasses'> : <a href="../Classes/MultiOutUGen.html">MultiOutUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Stream in audio from a file, with variable rate</div>
 </div>
@@ -54,7 +54,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <table class='arguments'>
 <tr><td class='argumentname'>numChannels<td class='argumentdesc'>
 <p>number of channels. Must be a nonzero, positive integer. This is fixed when the SynthDef is compiled so cannot be assigned to a SynthDef argument.<tr><td class='argumentname'>bufnum<td class='argumentdesc'>
-<p>buffer number<div class='note'><span class='notelabel'>NOTE:</span> The Buffer's numFrames must be a power of two and is recommended to be at least 65536 -- preferably 131072 or 262144. Smaller buffer sizes mean more frequent disk access, which can cause glitches.</div><tr><td class='argumentname'>rate<td class='argumentdesc'>
+<p>buffer number<div class='note'><span class='notelabel'>NOTE:</span> The Buffer's numFrames must be a power of two and is recommended to be at least 65536 — preferably 131072 or 262144. Smaller buffer sizes mean more frequent disk access, which can cause glitches.</div><tr><td class='argumentname'>rate<td class='argumentdesc'>
 <p>controls the rate of playback. Values below 4 are probably fine, but the higher the value, the more disk activity there is, and the more likelihood there will be a problem.<div class='warning'><span class='warninglabel'>WARNING:</span> the rate does have a practical limit. The following must be true: rate &lt; Buffer's size / (2 * s.options.blockSize) e.g with typical default values, this will be 32768 / (2 * 64) = 256.</div>
 <p>If the rate is too high, the UGen will not execute, posting a warning.<tr><td class='argumentname'>loop<td class='argumentdesc'>
 <p>If loop is set to 1, the soundfile will loop.<tr><td class='argumentname'>sendID<td class='argumentdesc'>

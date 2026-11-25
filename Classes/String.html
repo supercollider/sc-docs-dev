@@ -59,6 +59,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#-interpretPrint'>interpretPrint</a> </li>
 </ul><li class='toc2'><a href='#Converting%20strings'>Converting strings</a></li>
 <ul class='toc'><li class='toc3'><a href='#-asCompileString'>asCompileString</a> </li>
+<li class='toc3'><a href='#-cs'>cs</a> </li>
 <li class='toc3'><a href='#-asSymbol'>asSymbol</a> </li>
 <li class='toc3'><a href='#-asInteger'>asInteger</a> </li>
 <li class='toc3'><a href='#-asFloat'>asFloat</a> </li>
@@ -117,12 +118,13 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#-unsetenv'>unsetenv</a> </li>
 <li class='toc3'><a href='#-mkdir'>mkdir</a> </li>
 <li class='toc3'><a href='#-pathMatch'>pathMatch</a> </li>
-<li class='toc3'><a href='#-load'>load</a> </li>
-<li class='toc3'><a href='#-loadPaths'>loadPaths</a> </li>
-<li class='toc3'><a href='#-loadRelative'>loadRelative</a> </li>
 <li class='toc3'><a href='#-resolveRelative'>resolveRelative</a> </li>
 <li class='toc3'><a href='#-standardizePath'>standardizePath</a> </li>
 <li class='toc3'><a href='#-openOS'>openOS</a> </li>
+</ul><li class='toc2'><a href='#Loading%20and%20executing%20.scd%20files'>Loading and executing .scd files</a></li>
+<ul class='toc'><li class='toc3'><a href='#-load'>load</a> </li>
+<li class='toc3'><a href='#-loadRelative'>loadRelative</a> </li>
+<li class='toc3'><a href='#-loadPaths'>loadPaths</a> </li>
 </ul><li class='toc2'><a href='#Pathname%20Support'>Pathname Support</a></li>
 <ul class='toc'><li class='toc3'><a href='#-shellQuote'>shellQuote</a> </li>
 <li class='toc3'><a href='#-absolutePath'>absolutePath</a> </li>
@@ -138,6 +140,9 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#-parseYAMLFile'>parseYAMLFile</a> </li>
 <li class='toc3'><a href='#-parseJSON'>parseJSON</a> </li>
 <li class='toc3'><a href='#-parseJSONFile'>parseJSONFile</a> </li>
+</ul><li class='toc2'><a href='#Quarks%20Support'>Quarks Support</a></li>
+<ul class='toc'><li class='toc3'><a href='#-include'>include</a> </li>
+<li class='toc3'><a href='#-exclude'>exclude</a> </li>
 </ul><li class='toc2'><a href='#Document%20Support'>Document Support</a></li>
 <ul class='toc'><li class='toc3'><a href='#-newTextWindow'>newTextWindow</a> </li>
 <li class='toc3'><a href='#-openDocument'>openDocument</a> </li>
@@ -164,10 +169,8 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#-asString'>asString</a> </li>
 <li class='toc3'><a href='#-codegen_UGenCtorArg'>codegen_UGenCtorArg</a> </li>
 <li class='toc3'><a href='#-die'>die</a> </li>
-<li class='toc3'><a href='#-exclude'>exclude</a> </li>
 <li class='toc3'><a href='#-fformat'>fformat</a> </li>
 <li class='toc3'><a href='#-gethostbyname'>gethostbyname</a> </li>
-<li class='toc3'><a href='#-include'>include</a> </li>
 <li class='toc3'><a href='#-insert'>insert</a> </li>
 <li class='toc3'><a href='#-isString'>isString</a> </li>
 <li class='toc3'><a href='#-multiChannelPerform'>multiChannelPerform</a> </li>
@@ -183,7 +186,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Collections'>Collections</a>&#8201;&gt;&#8201;<a href='./../Browse.html#Collections>Ordered'>Ordered</a></span>
-</div><h1>String<span id='superclasses'> : <a href="../Classes/RawArray.html">RawArray</a> : <a href="../Classes/ArrayedCollection.html">ArrayedCollection</a> : <a href="../Classes/SequenceableCollection.html">SequenceableCollection</a> : <a href="../Classes/Collection.html">Collection</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>String<span id='superclasses'> : <a href="../Classes/RawArray.html">RawArray</a> : <a href="../Classes/ArrayedCollection.html">ArrayedCollection</a> : <a href="../Classes/SequenceableCollection.html">SequenceableCollection</a> : <a href="../Classes/Collection.html">Collection</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>array of Chars</div>
 </div>
@@ -340,9 +343,13 @@ var f;
 f = "myString";
 f.postln;
 f.asCompileString.postln;
+f.cs.postln; // .cs is the short form for .asCompileString.
 )</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asSymbol' href='./../Overviews/Methods.html#asSymbol'>asSymbol</a></h3>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-cs' href='./../Overviews/Methods.html#cs'>cs</a></h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/Object.html'>Object</a></div>
+<div class='method'>
+<p>See <a href="#-asCompileString">-asCompileString</a></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asSymbol' href='./../Overviews/Methods.html#asSymbol'>asSymbol</a></h3>
 <div class='method'>
 <p>Return a <a href="./../Classes/Symbol.html">Symbol</a> derived from the String.<div class='codeMirrorContainer'><textarea class='editor'>(
 var z;
@@ -352,17 +359,17 @@ z.class.postln;
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asInteger' href='./../Overviews/Methods.html#asInteger'>asInteger</a></h3>
 <div class='method'>
-<p>Returns an <a href="./../Classes/Integer.html">Integer</a> derived from the String. Strings beginning with non-numeric characters return 0. <div class='codeMirrorContainer'><textarea class='editor'>"4".asInteger</textarea>
+<p>Returns an <a href="./../Classes/Integer.html">Integer</a> derived from the String. Strings beginning with non-numeric characters return 0.<div class='codeMirrorContainer'><textarea class='editor'>"4".asInteger</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>  The method <code>.asInteger</code> does not understand scientific notation (e.g., <code>2e3</code> for <code>2000</code>),  and simply ignores all characters in the string after its first nonnumeric character  (excepting signs <code>+,-</code> at the beginning of the string).  If you use scientific notation, use <a href="#-asFloat">-asFloat</a> instead.<div class='codeMirrorContainer'><textarea class='editor'>"2e3".asInteger // -&gt; 2</textarea>
+<p>The method <code>.asInteger</code> does not understand scientific notation (e.g., <code>2e3</code> for <code>2000</code>), and simply ignores all characters in the string after its first nonnumeric character (excepting signs <code>+,-</code> at the beginning of the string). If you use scientific notation, use <a href="#-asFloat">-asFloat</a> instead.<div class='codeMirrorContainer'><textarea class='editor'>"2e3".asInteger // -&gt; 2</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asFloat' href='./../Overviews/Methods.html#asFloat'>asFloat</a></h3>
 <div class='method'>
-<p>Returns a <a href="./../Classes/Float.html">Float</a> derived from the String. Strings beginning with non-numeric characters return 0. <div class='codeMirrorContainer'><textarea class='editor'>"4.3".asFloat</textarea>
+<p>Returns a <a href="./../Classes/Float.html">Float</a> derived from the String. Strings beginning with non-numeric characters return 0.<div class='codeMirrorContainer'><textarea class='editor'>"4.3".asFloat</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 
-<p>  The method <code>.asFloat</code> understands scientific notation (e.g., <code>2e3</code> for <code>2000</code>, <code>2e-3</code> for <code>0.002</code>), and accepts uppercase <code>E</code> and lowercase <code>e</code>. By contrast, the method <a href="#-asInteger">-asInteger</a> does <em>not</em> accept scientific notation.<div class='codeMirrorContainer'><textarea class='editor'>"2e3".asFloat // -&gt; 2000.0</textarea>
+<p>The method <code>.asFloat</code> understands scientific notation (e.g., <code>2e3</code> for <code>2000</code>, <code>2e-3</code> for <code>0.002</code>), and accepts uppercase <code>E</code> and lowercase <code>e</code>. By contrast, the method <a href="#-asInteger">-asInteger</a> does <em>not</em> accept scientific notation.<div class='codeMirrorContainer'><textarea class='editor'>"2e3".asFloat // -&gt; 2000.0</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asSecs' href='./../Overviews/Methods.html#asSecs'>asSecs</a>(<span class='argstr'>maxDays: 365</span>)</h3>
 <div class='method'>
@@ -734,33 +741,8 @@ Post &lt;&lt;&lt; "Store this on Post";</textarea>
 <div class='method'>
 <p>Returns an <a href="./../Classes/Array.html">Array</a> containing all paths matching this String. Wildcards apply, non-recursive.<div class='codeMirrorContainer'><textarea class='editor'>Post &lt;&lt; "Help/*".pathMatch;</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-load' href='./../Overviews/Methods.html#load'>load</a></h3>
-<div class='method'>
-<p>Load and execute the file at the path represented by the receiver.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-loadPaths' href='./../Overviews/Methods.html#loadPaths'>loadPaths</a>(<span class='argstr'>warn: true</span>, <span class='argstr'>action</span>)</h3>
-<div class='method'>
-<p>Perform <a href="#-pathMatch">-pathMatch</a> on this String, then load and execute all paths in the resultant <a href="./../Classes/Array.html">Array</a>.<div class='codeMirrorContainer'><textarea class='editor'>// first prepare a file with some code...
-(
-File.use(Platform.defaultTempDir +/+ "loadPaths_example.scd", "w", { |file|
-    file &lt;&lt; "\"This text is the result of a postln command which was loaded and executed by loadPaths\".postln;";
-    file &lt;&lt;    "\"I will now throw a dice for you: \".post; 7.rand;"
-})
-)
 
-// then load the file...
-// ... it posts some text, and the return value of loadPaths is an array of the return values of each file
-(Platform.defaultTempDir +/+ "loadPaths_example.scd").loadPaths;</textarea>
-<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-<h4>Arguments:</h4>
-<table class='arguments'>
-<tr><td class='argumentname'>warn<td class='argumentdesc'>
-<p>Post a warning if path doesn't point to any file.<tr><td class='argumentname'>action<td class='argumentdesc'>
-<p>If a function is passed, it is called with each path as argument.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-loadRelative' href='./../Overviews/Methods.html#loadRelative'>loadRelative</a>(<span class='argstr'>warn: true</span>, <span class='argstr'>action</span>)</h3>
-<div class='method'>
-<p>Load and execute the file at the path represented by the receiver, interpreting the path as relative to the current document or text file. Requires that the file has been saved. This can be used e.g. to load initialization code from files in the same folder.<h4>Arguments:</h4>
-<table class='arguments'>
-<tr><td class='argumentname'>warn<td class='argumentdesc'>
-<p>Warn if a file is not found.<tr><td class='argumentname'>action<td class='argumentdesc'>
-<p>A function that is called for each file path that is found.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-resolveRelative' href='./../Overviews/Methods.html#resolveRelative'>resolveRelative</a></h3>
+<p></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-resolveRelative' href='./../Overviews/Methods.html#resolveRelative'>resolveRelative</a></h3>
 <div class='method'>
 <p>Convert the receiver from a relative path to an absolute path, relative to the current document or text file. Requires that the current text file has been saved. Absolute paths are left untransformed.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-standardizePath' href='./../Overviews/Methods.html#standardizePath'>standardizePath</a></h3>
 <div class='method'>
@@ -771,6 +753,48 @@ File.use(Platform.defaultTempDir +/+ "loadPaths_example.scd", "w", { |file|
 <div class='method'>
 <p>Open file, directory or URL via the operating system. On macOS this is implemented via <code>open</code>, on Linux via <code>xdg-open</code> and on Windows via <code>start</code>.<div class='codeMirrorContainer'><textarea class='editor'>Platform.userConfigDir.openOS;
 "http://supercollider.sf.net".openOS;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3><a class='anchor' name='Loading%20and%20executing%20.scd%20files'>Loading and executing .scd files</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-load' href='./../Overviews/Methods.html#load'>load</a>( <span class='argstr'>... args</span>, <span class='argstr'>... kwargs</span>)</h3>
+<div class='method'>
+<p>Load and <a href="./../Classes/Interpreter.html#-executeFile">execute</a> the file at the path represented by the receiver, and (optionally) pass positional and keyword arguments to the result.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-loadRelative' href='./../Overviews/Methods.html#loadRelative'>loadRelative</a>(<span class='argstr'>warn: true</span>, <span class='argstr'>action</span>, <span class='argstr'>args</span>, <span class='argstr'>kwargs</span>)</h3>
+<div class='method'>
+<p>Load and execute the file at the path represented by the receiver, interpreting the path as relative to the current document or text file. Requires that the file has been saved. This can be used e.g. to load initialization code from files in the same folder. Additional positional and keyword arguments can also be supplied (but must be in arrays, as with <a href="./../Classes/Object.html#-performArgs">Object: -performArgs</a>).</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-loadPaths' href='./../Overviews/Methods.html#loadPaths'>loadPaths</a>(<span class='argstr'>warn: true</span>, <span class='argstr'>action</span>, <span class='argstr'>args</span>, <span class='argstr'>kwargs</span>)</h3>
+<div class='method'>
+<p>Perform <a href="#-pathMatch">-pathMatch</a> on this String, then load and execute all paths in the resultant <a href="./../Classes/Array.html">Array</a>. Additional positional and keyword arguments can also be supplied (but must be in arrays, as with <a href="./../Classes/Object.html#-performArgs">Object: -performArgs</a>).<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>warn<td class='argumentdesc'>
+<p>Warn if a file is not found.<tr><td class='argumentname'>action<td class='argumentdesc'>
+<p>A function that is called for each file path that is found.<tr><td class='argumentname'>args<td class='argumentdesc'>
+<p>An array of positonal arguments that can be passed to the resulting object.<tr><td class='argumentname'>kwargs<td class='argumentdesc'>
+<p>An array of keyword arguments that can be passed to the resulting object.</table><h4>Discussion:</h4>
+
+<p>.loadPaths example<div class='codeMirrorContainer'><textarea class='editor'>// prepare a directory with files containing code:
+(
+~dir = (Platform.defaultTempDir +/+ "loadPaths_exampleDir").mkdir;
+5.do { |i|
+    var filename = "example_0%.scd".format(i);
+    var lo = i * 5;
+    var hi = lo + 4;
+    File.use(~dir +/+ filename, "w", { |file|
+        file &lt;&lt; "\"The following line was generated by file %:\".postln ;".format(filename);
+        file &lt;&lt;    "\"random integer between % and %: \".post;".format(lo, hi);
+        file &lt;&lt; "rrand(%,%).postln".format(lo, hi)
+    })
+}
+)
+// then load all five files using .loadPaths.
+// notice the wildcard * at the end of the string, which permits all files in the folder to match:
+(~dir +/+ "*").loadPaths
+// ... each file posts some text;
+// the return value of loadPaths is an array of the return values of each file.
+
+// loadPaths can also used to load only a single file:
+(~dir +/+ "example_01.scd").loadPaths
+// in which case it does nearly the same thing as .load:
+(~dir +/+ "example_01.scd").load
+// the difference is that loadPaths always returns an Array of return values,
+// even if there is only one return value.</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3><a class='anchor' name='Pathname%20Support'>Pathname Support</a></h3>
 
@@ -796,11 +820,52 @@ File.use(Platform.defaultTempDir +/+ "loadPaths_example.scd", "w", { |file|
 <div class='method'>
 <p>Removes a trailing path separator if one is present.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-basename' href='./../Overviews/Methods.html#basename'>basename</a></h3>
 <div class='method'>
-<p>Return the filename from a filesystem path.<div class='codeMirrorContainer'><textarea class='editor'>"Imaginary/Directory/fish.rtf".basename;</textarea>
+<p>Return the filename from a filesystem path.
+<p>The behavior matches that of POSIX' <code>basename</code>:<ul>
+<li>Trailing slashes are ignored (except for the root)<li>"/" is returned as is.<li>An empty path returns "."</ul>
+
+<p><div class='codeMirrorContainer'><textarea class='editor'>"Imaginary/Directory/fish.rtf".basename; // -&gt; fish.rft
+"Imaginary/Directory/SubDirectory".basename; // -&gt; SubDirectory
+// trailing slashes are ignored:
+"Imaginary/Directory/SubDirectory/".basename; // -&gt; SubDirectory
+// special cases:
+"/".basename; // -&gt; /
+"".basename; // -&gt; .</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>Windows:<div class='codeMirrorContainer'><textarea class='editor'>// both forward and backward slashes are supported
+"Imaginary/Directory\\fish.rtf".basename; // -&gt; fish.rft
+// a drive without filename:
+"C:/".basename; // -&gt; .
+// this is actually a UNC path (without a filename):
+"//Imaginary".basename; // -&gt; .</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-dirname' href='./../Overviews/Methods.html#dirname'>dirname</a></h3>
 <div class='method'>
-<p>Return the directory name from a filesystem path.<div class='codeMirrorContainer'><textarea class='editor'>"Imaginary/Directory/fish.rtf".dirname;</textarea>
+<p>Return the directory name from a filesystem path.
+<p>The behavior matches that of POSIX' <code>dirname</code>:<ul>
+<li>Trailing slashes are ignored.<li>"/" is returned as is.<li>An empty directory returns "."</ul>
+
+<p><div class='codeMirrorContainer'><textarea class='editor'>"Imaginary/Directory/fish.rtf".dirname; // -&gt; Imaginary/Directory
+"Imaginary/Directory/SubDirectory".dirname; // -&gt; Imaginary/Directory
+// trailing slashes are ignored:
+"Imaginary/Directory/SubDirectory/".dirname; // -&gt; Imaginary/Directory
+// empty directory:
+"fish.rtf".dirname; // -&gt; .
+// special cases:
+"/".dirname; // -&gt; /
+"".dirname; // -&gt; .</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>Windows:<div class='codeMirrorContainer'><textarea class='editor'>// both forward and backward slashes are supported and preserved
+"Imaginary/Directory\\SubDirectory/fish.rtf".dirname; // -&gt; Imaginary/Directory\SubDirectory
+// a drive path (without further components) is returned with a single slash
+"C:/fish.rft".dirname; // -&gt; C:/
+"C:\\///fish.rft".dirname; // -&gt; C:\
+// a drive without filename:
+"C:/".dirname; // -&gt; C:/
+// this is actually a UNC path (without a filename):
+"//Imaginary".dirname; // -&gt; //Imaginary</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-splitext' href='./../Overviews/Methods.html#splitext'>splitext</a></h3>
 <div class='method'>
@@ -823,7 +888,20 @@ File.use(Platform.defaultTempDir +/+ "loadPaths_example.scd", "w", { |file|
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
 </div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-parseJSONFile' href='./../Overviews/Methods.html#parseJSONFile'>parseJSONFile</a></h3>
 <div class='method'>
-<p>This method is currently just an alias for <a href="#-parseYAMLFile">-parseYAMLFile</a>, in the future it will only accept valid JSON files.</div><h3><a class='anchor' name='Document%20Support'>Document Support</a></h3>
+<p>This method is currently just an alias for <a href="#-parseYAMLFile">-parseYAMLFile</a>, in the future it will only accept valid JSON files.</div><h3><a class='anchor' name='Quarks%20Support'>Quarks Support</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-include' href='./../Overviews/Methods.html#include'>include</a></h3>
+<div class='method'>
+<p>Installs the <a href="./../Classes/Quark.html">quark</a> specified by the receiver <a href="./../Classes/String.html">String</a> (either a quark name or a repository URL), if it is not already installed. This process adds the quark path to the <a href="./../Classes/LanguageConfig.html">language config file</a>. If the quark is already downloaded to the local quark folder (i.e., <code>Quarks.folder</code>) but not installed, this method only registers it in the configuration file. Recompiling the class library is required for newly installed classes to become available.<div class='codeMirrorContainer'><textarea class='editor'>// Example 1: Installing a quark directly from a remote repository URL.
+"https://github.com/supercollider-quarks/MathLib".include;
+
+// Example 2: Installing a known quark by name.
+"MathLib".include;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-exclude' href='./../Overviews/Methods.html#exclude'>exclude</a></h3>
+<div class='method'>
+<p>Uninstalls the <a href="./../Classes/Quark.html">quark</a> specified by the receiver <a href="./../Classes/String.html">String</a>, if it is currently installed. This process removes the quark from <a href="./../Classes/LanguageConfig.html">language config file</a>. Recompiling the class library is required after uninstalling a quark.<div class='codeMirrorContainer'><textarea class='editor'>"MathLib".exclude;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</div><h3><a class='anchor' name='Document%20Support'>Document Support</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-newTextWindow' href='./../Overviews/Methods.html#newTextWindow'>newTextWindow</a>: METHOD NOT FOUND!</h3>
 <div class='method'>
 <p>Create a new <a href="./../Classes/Document.html">Document</a> with this.<div class='codeMirrorContainer'><textarea class='editor'>"Here is a new Document".newTextWindow;</textarea>
@@ -967,10 +1045,8 @@ w.refresh;
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-asString' href='./../Overviews/Methods.html#asString'>asString</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-codegen_UGenCtorArg' href='./../Overviews/Methods.html#codegen_UGenCtorArg'>codegen_UGenCtorArg</a>(<span class='argstr'>stream</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-die' href='./../Overviews/Methods.html#die'>die</a>( <span class='argstr'>... culprits</span>)</h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-exclude' href='./../Overviews/Methods.html#exclude'>exclude</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-fformat' href='./../Overviews/Methods.html#fformat'>fformat</a>( <span class='argstr'>... args</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-gethostbyname' href='./../Overviews/Methods.html#gethostbyname'>gethostbyname</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-include' href='./../Overviews/Methods.html#include'>include</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-insert' href='./../Overviews/Methods.html#insert'>insert</a>(<span class='argstr'>index</span>, <span class='argstr'>string</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isString' href='./../Overviews/Methods.html#isString'>isString</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-multiChannelPerform' href='./../Overviews/Methods.html#multiChannelPerform'>multiChannelPerform</a>(<span class='argstr'>selector</span> <span class='argstr'>... args</span>)</h3>

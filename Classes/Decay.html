@@ -38,7 +38,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Filters'>Filters</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Filters>Linear'>Linear</a> | <a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>Envelopes'>Envelopes</a></span>
-</div><h1>Decay<span id='superclasses'> : <a href="../Classes/Filter.html">Filter</a> : <a href="../Classes/PureUGen.html">PureUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Decay<span id='superclasses'> : <a href="../Classes/Filter.html">Filter</a> : <a href="../Classes/PureUGen.html">PureUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Exponential decay</div>
 </div>
@@ -47,7 +47,7 @@ var scdoc_sc_version = '3.15.0-dev';
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
-<p>An integrating filter which, if given an impulse, will produce an exponentially decaying envelope. <code>Decay</code> is essentially the same as <a href="./../Classes/Integrator.html">Integrator</a>, but instead of specifying the integration coefficient directly, it is calculated from the <strong>decayTime</strong>—the time required for input signal to attentuate 60 dB, or decay to 99.9% of its value.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<p>An integrating filter which, if given an impulse, will produce an exponentially decaying envelope. <code>Decay</code> is essentially the same as <a href="./../Classes/Integrator.html">Integrator</a>, but instead of specifying the integration coefficient directly, it is calculated from the <strong>decayTime</strong> — the time required for input signal to attentuate 60 dB, or decay to 99.9% of its value.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
 <h3 class='method-code'><span class='method-prefix'>Decay.</span><a class='method-name' name='*ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>in: 0.0</span>, <span class='argstr'>decayTime: 1.0</span>, <span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
 <h3 class='method-code'><span class='method-prefix'>Decay.</span><a class='method-name' name='*kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>in: 0.0</span>, <span class='argstr'>decayTime: 1.0</span>, <span class='argstr'>mul: 1.0</span>, <span class='argstr'>add: 0.0</span>)</h3>
 <div class='method'>

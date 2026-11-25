@@ -27,25 +27,31 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='toctitle'>Error:</div>
 <span class='toc_search'>Filter: <input id='toc_search'></span><ul class='toc'><li class='toc1'><a href='#description'>Description</a></li>
 <ul class='toc'><li class='toc2'><a href='#Error%20hierarchy'>Error hierarchy</a></li>
+<ul class='toc'></ul><li class='toc2'><a href='#Changing%20how%20a%20custom%20error%20is%20displayed'>Changing how a custom error is displayed</a></li>
 <ul class='toc'></ul></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
-<ul class='toc'><li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
+<ul class='toc'><li class='toc3'><a href='#*new'>new</a> </li>
+<li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
 </ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
-<ul class='toc'><li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
-<li class='toc2'><a href='#Undocumented%20instance%20methods'>Undocumented instance methods</a></li>
-<ul class='toc'><li class='toc3'><a href='#-errorPathString'>errorPathString</a> </li>
+<ul class='toc'><li class='toc3'><a href='#-throw'>throw</a> </li>
+<li class='toc3'><a href='#-reportStage1'>reportStage1</a> </li>
+<li class='toc3'><a href='#-reportStage2'>reportStage2</a> </li>
+<li class='toc3'><a href='#-reportError'>reportError</a> </li>
 <li class='toc3'><a href='#-errorString'>errorString</a> </li>
-</ul></ul></ul></div><div id='menubar'></div>
+<li class='toc3'><a href='#-path'>path</a> </li>
+<li class='toc3'><a href='#-backtrace'>backtrace</a> </li>
+<li class='toc2'><a href='#Inherited%20instance%20methods'>Inherited instance methods</a></li>
+</ul></ul></div><div id='menubar'></div>
 <div class='contents'>
 <div class='header'>
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Core'>Core</a></span>
-</div><h1>Error<span id='superclasses'> : <a href="../Classes/Exception.html">Exception</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>Error<span id='superclasses'> : <a href="../Classes/Exception.html">Exception</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>superclass of all Errors</div>
 </div>
 <div class='subheader'>
-<div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Core/Error.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Core/Error.sc'>Error.sc</a></div><div id='subclasses'>Subclasses: <a href="../Classes/MethodError.html">MethodError</a></div>
+<div id='filename'>Source: <a href='https://github.com/supercollider/supercollider/tree/develop/SCClassLibrary/Common/Core/Error.sc' title='/usr/local/share/SuperCollider/SCClassLibrary/Common/Core/Error.sc'>Error.sc</a></div><div id='subclasses'>Subclasses: <a href="../Classes/ErrorWrapper.html">ErrorWrapper</a>, <a href="../Classes/MethodError.html">MethodError</a></div>
 </div>
 <h2><a class='anchor' name='description'>Description</a></h2>
 
@@ -67,10 +73,11 @@ if((file = File(path, "r")).isOpen) {
 <p>Throwing an error object gives the caller the opportunity to catch, and possibly recover from, the error. See the Exception help file for more information about this.<h3><a class='anchor' name='Error%20hierarchy'>Error hierarchy</a></h3>
 
 <p>The following error classes exist in the main library.<ul>
-<li><a href="./../Classes/Error.html">Error</a><li><a href="./../Classes/DeprecatedError.html">DeprecatedError</a> : this method is no longer supported.<li><a href="./../Classes/MethodError.html">MethodError</a> : generic error occurring within a method.<li><a href="./../Classes/DoesNotUnderstandError.html">DoesNotUnderstandError</a> : the receiver does not understand the method name.<li><a href="./../Classes/BinaryOpFailureError.html">BinaryOpFailureError</a> : a binary operator cannot work with the operand classes.<li><a href="./../Classes/ImmutableError.html">ImmutableError</a> : attempted to modify an immutable object.<li><a href="./../Classes/MustBeBooleanError.html">MustBeBooleanError</a> : a test (in if or while) returned a non-Boolean value.<li><a href="./../Classes/NotYetImplementedError.html">NotYetImplementedError</a> : the method name exists, but isn't implemented yet.<li><a href="./../Classes/OutOfContextReturnError.html">OutOfContextReturnError</a> : a method return by ^ took place outside of a method.<li><a href="./../Classes/PrimitiveFailedError.html">PrimitiveFailedError</a> : an error occurred inside a primitive.<li><a href="./../Classes/ShouldNotImplementError.html">ShouldNotImplementError</a> : you called a method on a class that has no business implementing it.<li><a href="./../Classes/SubclassResponsibilityError.html">SubclassResponsibilityError</a> : you called a method on an abstract class.</ul>
+<li><a href="./../Classes/Error.html">Error</a><li><a href="./../Classes/ErrorWrapper.html">ErrorWrapper</a> : wraps an existing error in another.<li><a href="./../Classes/DeprecatedError.html">DeprecatedError</a> : this method is no longer supported.<li><a href="./../Classes/MethodError.html">MethodError</a> : generic error occurring within a method.<li><a href="./../Classes/DoesNotUnderstandError.html">DoesNotUnderstandError</a> : the receiver does not understand the method name.<li><a href="./../Classes/BinaryOpFailureError.html">BinaryOpFailureError</a> : a binary operator cannot work with the operand classes.<li><a href="./../Classes/ImmutableError.html">ImmutableError</a> : attempted to modify an immutable object.<li><a href="./../Classes/MustBeBooleanError.html">MustBeBooleanError</a> : a test (in if or while) returned a non-Boolean value.<li><a href="./../Classes/NotYetImplementedError.html">NotYetImplementedError</a> : the method name exists, but isn't implemented yet.<li><a href="./../Classes/OutOfContextReturnError.html">OutOfContextReturnError</a> : a method return by ^ took place outside of a method.<li><a href="./../Classes/PrimitiveFailedError.html">PrimitiveFailedError</a> : an error occurred inside a primitive.<li><a href="./../Classes/ShouldNotImplementError.html">ShouldNotImplementError</a> : you called a method on a class that has no business implementing it.<li><a href="./../Classes/SubclassResponsibilityError.html">SubclassResponsibilityError</a> : you called a method on an abstract class.</ul>
 
 <p>The exact inheritance tree looks like this:<ul class='tree'><li> <a href='./../Classes/Error.html'>Error</a> - superclass of all Errors
 <ul class='tree'>
+<li> <a href='./../Classes/ErrorWrapper.html'>ErrorWrapper</a> - Error used to wrap another error
 <li> <a href='./../Classes/MethodError.html'>MethodError</a> - (Undocumented class)
 <ul class='tree'>
 <li> <a href='./../Classes/DeprecatedError.html'>DeprecatedError</a> - (Undocumented class)
@@ -87,12 +94,103 @@ if((file = File(path, "r")).isOpen) {
 <li> <a href='./../Classes/SubclassResponsibilityError.html'>SubclassResponsibilityError</a> - (Undocumented class)
 </ul>
 </ul>
-</ul><h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
-<h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
+</ul><h3><a class='anchor' name='Changing%20how%20a%20custom%20error%20is%20displayed'>Changing how a custom error is displayed</a></h3>
+
+<p>The only reason you should ever need to write an new type of error is if you intend to catch it and do some custom recovery logic with it. Otherwise, you just should use <a href="./../Classes/Error.html">Error</a>
+<p>There are two places you can change how an error is displayed, when it is constructed, and through overloading two specific methods.
+<p>If you only need to change the constructor arguments, consider using <a href="./../Classes/Error.html">Error</a> directly.
+<p>The constructor of <code>Error</code> takes 4 arguments.
+<p>First, a string saying what went wrong, this should describe the type of error.
+<p>Second, <code>callFrameAnnotations</code>, this is an array of <code>nil</code> or strings. Working up the call stack, the text is shown next to the source code. This is best shown by example.<div class='codeMirrorContainer'><textarea class='editor'>MyError : Error {
+    *new { |what|
+        ^super.new(what, [
+            "Here is where we called throw on the error.",
+            "This is the call above that, in this case, it is where we invoked `g`!",
+            "And finally, this is where we invoked the function `f`.",
+        ]);
+    }
+}
+
+g = { var foo = 10; MyError("what??").throw };
+f = { var bar = \meow; g.(); };
+f.()</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>This produced an error report like this... remember, in the post window, this is read bottom to top!<div class='codeMirrorContainer'><textarea class='editor'>──────────────────────────────────────────────────────────────────────────────────
+ERROR: what??
+
+3   : Anonymous Function
+          file://interpreted_text:3:5
+             1 │ g = { var foo = 10; MyError("what??").throw };
+             2 │ f = { var bar = \meow; g.(); };
+             3 │ f.()
+               ┆ ^^^^ And finally, this is where we invoked the function `f`.
+2   : Function Name: 'f'
+       vars: bar='meow'
+          file://interpreted_text:2:28
+             1 │ g = { var foo = 10; MyError("what??").throw };
+             2 │ f = { var bar = \meow; g.(); };
+               ┆                        ^^^^ This is the call above that, in this case, it is where we invoked `g`!
+             3 │ f.()
+1   : Function Name: 'g'
+       vars: foo=10
+          file://interpreted_text:1:44
+             1 │ g = { var foo = 10; MyError("what??").throw };
+               ┆                     ^^^^^^^^^^^^^^^^^^^^^^^ Here is where we called throw on the error.
+             2 │ f = { var bar = \meow; g.(); };
+             3 │ f.()
+
+
+──────────────────────────────────────────────────────────────────────────────────</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>Third, <code>methodBeforeBacktraceStart</code> this is a function that returns true when encountering a method in the call trace which we would like to start printing after. The simplest example is skipping everything before the throw method of the exception (the default), but it the case of <a href="./../Classes/DoesNotUnderstandError.html">DoesNotUnderstandError</a> it is also used to skip <code>Object:doesNotUnderstand</code> too.
+<p>Fourth, <code>MethodBacktraceEnd</code> this is a function that return true when encountering the method one past the final backtrace we would like to print. The default here will stop printing when we get to a <code>try</code>, <code>protect</code>, or go up into the interpreter methods.
+<p>When it comes to overriding methods, the two (and only two) that are allowed are <code>reportStage1</code> and <code>reportStage2</code>. These are responsible for printing the backtrace and adding any additional information. If you only want to add additionally information at the end of the report, you can just overload <code>reportStage2</code>. See the definition below for more information on these.<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>
+<h3 class='method-code'><span class='method-prefix'>Error.</span><a class='method-name' name='*new' href='./../Overviews/Methods.html#new'>new</a>(<span class='argstr'>what: ""</span>, <span class='argstr'>callFrameAnnotations: []</span>, <span class='argstr'>methodBeforeBacktraceStart</span>, <span class='argstr'>methodBacktraceEnd</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/Exception.html'>Exception</a></div>
+<div class='method'><h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>what<td class='argumentdesc'>
+<p>A <a href="./../Classes/String.html">String</a> describing the error. In some cases a subclass may alter this, appending information as needed.<tr><td class='argumentname'>callFrameAnnotations<td class='argumentdesc'>
+<p>An <a href="./../Classes/Array.html">Array</a> containing either a <a href="./../Classes/Nil.html">Nil</a> or a <a href="./../Classes/String.html">String</a>. Working up the call stack, the text (if present) is printing next to the source code. See the example above for an example.<tr><td class='argumentname'>methodBeforeBacktraceStart<td class='argumentdesc'>
+<p>A <a href="./../Classes/Function.html">Function</a> that accepts a <a href="./../Classes/FunctionDef.html">FunctionDef</a> that returns a <a href="./../Classes/Boolean.html">Boolean</a>. Internally, we walk up the call frame, if this function returns <code>true</code>, it means we will skip all the previous frames and this one, starting the trace on the next method. This is often used to skip the creating and throwing of the error, and sometimes a helper function that is used to create it.<tr><td class='argumentname'>methodBacktraceEnd<td class='argumentdesc'>
+<p>A <a href="./../Classes/Function.html">Function</a> that accepts a <a href="./../Classes/FunctionDef.html">FunctionDef</a> that returns a <a href="./../Classes/Boolean.html">Boolean</a>. When walking up the call frame, if this returns true, we stop printing the backtrace. This is often used to skip printing above a try block and to stop printing the internal interpreter details.</table></div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
-<h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
-<div id='inheritedinstmets'></div><h3><a class='anchor' name='Undocumented%20instance%20methods'>Undocumented instance methods</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-errorPathString' href='./../Overviews/Methods.html#errorPathString'>errorPathString</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-errorString' href='./../Overviews/Methods.html#errorString'>errorString</a></h3>
-<div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Error.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Error.schelp</a><br>link::Classes/Error::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-throw' href='./../Overviews/Methods.html#throw'>throw</a></h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/Exception.html'>Exception</a></div>
+<div class='method'>
+<p>Throw the error, creating a backtrace. This will not override the previous, if you would like to store where you rethrow the error or add additional information, see <a href="./../Classes/ErrorWrapper.html">ErrorWrapper</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reportStage1' href='./../Overviews/Methods.html#reportStage1'>reportStage1</a>(<span class='argstr'>stream</span>, <span class='argstr'>prefix</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/Exception.html'>Exception</a></div>
+<div class='method'>
+<p>This is used to print the backtrace, there is little reason to override this.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>stream<td class='argumentdesc'>
+<p>The stream we are writing to<tr><td class='argumentname'>prefix<td class='argumentdesc'>
+<p>The prefix that must be inserted after each new line.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reportStage2' href='./../Overviews/Methods.html#reportStage2'>reportStage2</a>(<span class='argstr'>stream</span>, <span class='argstr'>prefix</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/Exception.html'>Exception</a></div>
+<div class='method'>
+<p>This is used to print any custom message an exception might have. If you want to add some information to your own error, this is where you place it.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>stream<td class='argumentdesc'>
+<p>The stream we are writing to<tr><td class='argumentname'>prefix<td class='argumentdesc'>
+<p>The prefix that must be inserted after each new line.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-reportError' href='./../Overviews/Methods.html#reportError'>reportError</a>(<span class='argstr'>stream</span>, <span class='argstr'>prefix: ""</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/Exception.html'>Exception</a></div>
+<div class='method'><div class='warning'><span class='warninglabel'>WARNING:</span> Do not override this! Instead see reportStage1 and reportStage2.</div>
+<p><h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>stream<td class='argumentdesc'>
+<p>The stream to write to, by default this is <a href="./../Classes/Post.html">Post</a><tr><td class='argumentname'>prefix<td class='argumentdesc'>
+<p>The prefix that must be inserted after each new line.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-errorString' href='./../Overviews/Methods.html#errorString'>errorString</a></h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/Exception.html'>Exception</a></div>
+<div class='method'>
+<p>This returns the <code>what</code> of the error. See <a href="./../Classes/ErrorWrapper.html">ErrorWrapper</a>.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-path' href='./../Overviews/Methods.html#path'>path</a></h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-path' href='./../Overviews/Methods.html#path'>path</a> = value</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/Exception.html'>Exception</a></div>
+<div class='method'>
+<p>Returns the result of <code>thisProcess.nowExecutingPath</code> as evaluated when the exception was created. Looking at the backtrace is a more reliable way to see where the exception was thrown from.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-backtrace' href='./../Overviews/Methods.html#backtrace'>backtrace</a></h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/Exception.html'>Exception</a></div>
+<div class='method'>
+<p>Returns the underlying backtrace created when the exception was thrown. Returns <code>nil</code> if it was never thrown.</div><h3><a class='anchor' name='Inherited%20instance%20methods'>Inherited instance methods</a></h3>
+<div id='inheritedinstmets'></div><div class='doclink'>helpfile source: <a href='https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Error.schelp'>https://github.com/supercollider/supercollider/tree/develop/HelpSource/Classes/Error.schelp</a><br>link::Classes/Error::<br></div></div><script src='./../static/editor.js' type='text/javascript'></script>
 </body></html>

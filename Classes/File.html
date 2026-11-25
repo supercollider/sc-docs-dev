@@ -67,7 +67,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#Files'>Files</a></span>
-</div><h1>File<span id='superclasses'> : <a href="../Classes/UnixFILE.html">UnixFILE</a> : <a href="../Classes/IOStream.html">IOStream</a> : <a href="../Classes/Stream.html">Stream</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>File<span id='superclasses'> : <a href="../Classes/UnixFILE.html">UnixFILE</a> : <a href="../Classes/IOStream.html">IOStream</a> : <a href="../Classes/Stream.html">Stream</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>A class for reading and writing files</div>
 </div>
@@ -123,19 +123,19 @@ File.readAllString("~/test.txt".standardizePath);</textarea>
 <p>Create directory at path, including any missing parent directories.<h4>Returns:</h4>
 <div class='returnvalue'>
 <p>a <a href="./../Classes/Boolean.html">Boolean</a>, as follows:<ul>
-<li><code>true</code> -- A new directory was created at <code>path</code>.<li><code>false</code> -- A directory already existed at <code>path</code>; a new one was not created.</ul>
+<li><code>true</code> — A new directory was created at <code>path</code>.<li><code>false</code> — A directory already existed at <code>path</code>; a new one was not created.</ul>
 </div></div><h3 class='method-code'><span class='method-prefix'>File.</span><a class='method-name' name='*delete' href='./../Overviews/Methods.html#delete'>delete</a>(<span class='argstr'>pathName</span>)</h3>
 <div class='method'>
 <p>Deletes the file at that path. Use only for good, never for evil.<h4>Returns:</h4>
 <div class='returnvalue'>
 <p>a <a href="./../Classes/Boolean.html">Boolean</a>, as follows:<ul>
-<li><code>true</code> -- You can assume that the path no longer exists. (Either it existed and was deleted, or it didn't exist and it still doesn't exist.)<li><code>false</code> -- The file could not be deleted (probably a permissions error). Your code should assume that the path still exists.</ul>
+<li><code>true</code> — You can assume that the path no longer exists. (Either it existed and was deleted, or it didn't exist and it still doesn't exist.)<li><code>false</code> — The file could not be deleted (probably a permissions error). Your code should assume that the path still exists.</ul>
 </div></div><h3 class='method-code'><span class='method-prefix'>File.</span><a class='method-name' name='*deleteAll' href='./../Overviews/Methods.html#deleteAll'>deleteAll</a>(<span class='argstr'>pathName</span>)</h3>
 <div class='method'>
 <p>Deletes the file and all children at that path. Use only for good, never for evil.<h4>Returns:</h4>
 <div class='returnvalue'>
 <p>a <a href="./../Classes/Boolean.html">Boolean</a>, as follows:<ul>
-<li><code>true</code> -- At least one file was deleted.<li><code>false</code> -- No files were deleted.</ul>
+<li><code>true</code> — At least one file was deleted.<li><code>false</code> — No files were deleted.</ul>
 
 <p>If deletion fails, a PrimitiveFailedError object will be thrown.</div></div><h3 class='method-code'><span class='method-prefix'>File.</span><a class='method-name' name='*realpath' href='./../Overviews/Methods.html#realpath'>realpath</a>(<span class='argstr'>pathName</span>)</h3>
 <div class='method'>

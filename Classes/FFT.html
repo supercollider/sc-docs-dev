@@ -40,7 +40,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <div id='label'>
 <span id='folder'>Classes</span>
  | <span id='categories'><a href='./../Browse.html#UGens'>UGens</a>&#8201;&gt;&#8201;<a href='./../Browse.html#UGens>FFT'>FFT</a></span>
-</div><h1>FFT<span id='superclasses'> : <a href="../Classes/PV_ChainUGen.html">PV_ChainUGen</a> : <a href="../Classes/WidthFirstUGen.html">WidthFirstUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a></span>
+</div><h1>FFT<span id='superclasses'> : <a href="../Classes/PV_ChainUGen.html">PV_ChainUGen</a> : <a href="../Classes/WidthFirstUGen.html">WidthFirstUGen</a> : <a href="../Classes/UGen.html">UGen</a> : <a href="../Classes/AbstractFunction.html">AbstractFunction</a> : <a href="../Classes/Object.html">Object</a> : <a href="../Classes/AbstractObjectExperimental.html">AbstractObjectExperimental</a></span>
 </h1>
 <div id='summary'>Fast Fourier Transform</div>
 </div>
@@ -50,7 +50,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <h2><a class='anchor' name='description'>Description</a></h2>
 
 <p>The fast fourier transform analyzes the frequency content of a signal, which can be useful for audio analysis or for frequency-domain sound processing (phase vocoder).<div class='note'><span class='notelabel'>NOTE:</span> FFT and <a href="./../Classes/IFFT.html">IFFT</a> UGens require a buffer to store the frequency-domain data. This buffer must have exactly one channel. <em>Multichannel buffers are never supported.</em>
-<p>To do FFT processing on a multichannel signal, provide an array of mono buffers, one for each channel. Then, FFT/IFFT will perform <a href="./../Guides/Multichannel-Expansion.html">Multichannel Expansion</a>, to process each channel separately.<div class='codeMirrorContainer'><textarea class='editor'>// NO: The buffer has two channels -- this will not work
+<p>To do FFT processing on a multichannel signal, provide an array of mono buffers, one for each channel. Then, FFT/IFFT will perform <a href="./../Guides/Multichannel-Expansion.html">Multichannel Expansion</a>, to process each channel separately.<div class='codeMirrorContainer'><textarea class='editor'>// NO: The buffer has two channels — this will not work
 fft = FFT(LocalBuf(2048, 2), aStereoSignal);
 
 // YES: Use an array of two single-channel buffers
@@ -101,7 +101,7 @@ fft = FFT(LocalBuf(2048.dup(2), 1), aStereoSignal);</textarea>
     var in, chain;
     in = WhiteNoise.ar(0.1);
     chain = FFT(LocalBuf(2048), in);
-    chain.inspect; 
+    chain.inspect;
     IFFT(chain) // inverse FFT
 }.play;
 )

@@ -8,7 +8,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ControlName","Classes/Control" ],
 'methods': [ "_*tr","_*kr","_*ar","_*ir","_*new","?-control","?-spec","?-lags","?-values","?-name","?-rate","?-fixedLag","?*initDict" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Pnaryop": {
 'title': "Pnaryop",
@@ -19,7 +19,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pbinop","Classes/Punop","Classes/NAryOpFunction" ],
 'methods': [ "_*new","?-arglist","?-a","?-operator","?-asStream","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PdegreeToKey" ],
 },
 "Classes/PanB2": {
@@ -31,7 +31,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BiPanB2","Classes/DecodeB2","Classes/PanB","Classes/Rotate2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MeterSync": {
 'title': "MeterSync",
@@ -42,7 +42,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LinkClock" ],
 'methods': [ "_-ports","_-clock","_-repeats","_-free","_-id","_-enabled","_-queryMeter","_-resyncMeter","_-adjustMeterBase","_-delta","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/DegreeToKey": {
 'title': "DegreeToKey",
@@ -53,7 +53,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/FFTTrigger": {
 'title': "FFTTrigger",
@@ -64,7 +64,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pfindur": {
 'title': "Pfindur",
@@ -75,7 +75,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pfinval","Classes/Pfin","Classes/Pconst" ],
 'methods': [ "_*new","?-dur","?-tolerance","?-embedInStream" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ProxyNodeMap": {
 'title': "ProxyNodeMap",
@@ -86,7 +86,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Bus" ],
 'methods': [ "?-wakeUpParentsToBundle","?-parents","?-put","?-proxy","?-ratesFor","?-changed","?-mapEnvir","?-controlNames","?-mappingKeys","?-asCode","?-setRates","?-hasRates","?-settingKeys","?-clear" ],
-'superclasses': [ "NodeMap","IdentityDictionary","Dictionary","Set","Collection","Object" ],
+'superclasses': [ "NodeMap","IdentityDictionary","Dictionary","Set","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/SharedIn": {
 'title': "SharedIn",
@@ -97,7 +97,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SharedOut" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "AbstractIn","MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "AbstractIn","MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/HelpBrowser": {
 'title': "HelpBrowser",
@@ -107,7 +107,7 @@ docmap = {
 'categories': "HelpSystem, GUI>Interfaces",
 'keywords': [  ],
 'related': [ "Classes/SCDoc" ],
-'methods': [ "_-goForward","_-goBack","_-homeUrl","_-goTo","_-window","_-goHome","_*instance","_*openSearchPage","_*goTo","_*openBrowsePage","_*new","_*openHelpForMethod","_*openHelpFor","_*defaultHomeUrl","_*openNewWindows" ],
+'methods': [ "_-goForward","_-goBack","_-homeUrl","_-goTo","_-window","_-goHome","_*redirectEnabled","_*instance","_*openSearchPage","_*goTo","_*redirectPattern","_*openBrowsePage","_*new","_*openHelpForMethod","_*openHelpFor","_*defaultHomeUrl","_*openNewWindows" ],
 },
 "Classes/Pseries": {
 'title': "Pseries",
@@ -118,7 +118,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pgeom" ],
 'methods': [ "_*new","?-length","?-step","?-embedInStream","?-start" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NAryOpFunction": {
 'title': "NAryOpFunction",
@@ -129,7 +129,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BinaryOpFunction","Classes/UnaryOpFunction","Classes/NAryOpStream","Classes/Pnaryop","Overviews/Operators" ],
 'methods': [ "?-valueArrayEnvir","?-functionPerformList","?-valueEnvir","?-valueArray","?-value","?*new" ],
-'superclasses': [ "AbstractFunction","Object" ],
+'superclasses': [ "AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "NAryOpFunctionProxy" ],
 },
 "Classes/LinXFade2": {
@@ -141,7 +141,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/XFade2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Streams-Patterns-Events4": {
 'title': "Understanding Streams, Patterns and Events - Part 4",
@@ -162,7 +162,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-remove","_-numChannels","_-notNil","_-rate","_-++","_-appendStream","_-dependants","_-awake","_-?","_-asQuant","_-handleError","_-push","_-addFunc","_-nextTimeOnGrid","_-add","_-isPlaying","_-get","_-asCollection","_-isNil","_-addAll","_-asSpec","_-matchItem","_-??","_-booleanValue","_-removeFunc","_-transformEvent","?-asTarget","?-asOSCArgArray","?-collectCopy","?-asMIDIInPortUID","?-replaceFunc","?-collectInPlace","?-asEvent","?-schedBundle","?-asBoolean","?-seconds","?-asNodeID","?-asGroup","?-asBus","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/DelayN": {
 'title': "DelayN",
@@ -173,7 +173,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Delay1","Classes/Delay2","Classes/DelayC","Classes/DelayL","Classes/BufDelayN" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "DelayL","DelayC" ],
 },
 "Classes/AnalogIn": {
@@ -185,7 +185,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AnalogOut","Classes/DigitalIn","Classes/DigitalOut","Classes/DigitalIO" ],
 'methods': [ "_*kr","_*ar","?-signalRange" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Logistic": {
 'title': "Logistic",
@@ -196,7 +196,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Crackle","Classes/LatoocarfianN" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PriorityQueue": {
 'title': "PriorityQueue",
@@ -207,7 +207,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-notEmpty","_-removeValue","_-topPriority","_-put","_-isEmpty","_-clear","_-pop","?-postpone","?-do" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/UGen": {
 'title': "UGen",
@@ -218,7 +218,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Browse#UGens","Guides/Tour_of_UGens","Guides/UGens-and-Synths" ],
 'methods': [ "_-lag3","_-raddeg","_-if","_-rate","_-init","_-poll","_-bilin","_-wrap","_-|==|","_-==","_-explin","_-name","_-varlag","_-isStrictlyPositive","_-prune","_-linexp","_-blend","_-range","_-checkBadValues","_-lag2ud","_-clip","_-lag3ud","_-belaScope","_-methodSelectorForRate","_-curvelin","_-isNegative","_-curverange","_-softRound","_-signalRange","_-degrad","_-binaryValue","_-lag2","_-bipolar","_-numChannels","_-expexp","_-dpoll","_-copy","_-degreeToKey","_-inputs","_-fold","_-minNyquist","_-linlin","_-madd","_-asUGenInput","_-isValidUGenInput","_-exprange","_-snap","_-isPositive","_-unipolar","_-synthDef","_-numInputs","_-numOutputs","_-@","_-lincurve","_-asComplex","_-lag","_-scope","_-slew","_-dumpArgs","_-lagud","_*multiNew","_*new1","_*multiNewList","_*methodSelectorForRate","_*replaceZeroesWithSilence","_*buildSynthDef","?-removeAntecedent","?-performDeadCodeElimination","?-reverseComposeBinaryOp","?-checkValidInputs","?-writesToBus","?-optimizeGraph","?-writeOutputSpecs","?-writeDef","?-isUGen","?-collectConstants","?-synthIndex","?-argNameForInputAt","?-writeInputSpecOld","?-dumpName","?-writeInputSpec","?-composeBinaryOp","?-schedule","?-checkNInputs","?-composeNAryOp","?-addToSynth","?-initTopoSort","?-rateNumber","?-writeOutputSpec","?-writeDefOld","?-makeAvailable","?-composeUnaryOp","?-performBinaryOpOnComplex","?-specialIndex","?-checkSameRateAsFirstInput","?-widthFirstAntecedents","?-sanitize","?-prReverseLazyEquals","?-moddif","?-descendants","?-outputIndex","?-asControlInput","?-antecedents","?*newFromDesc" ],
-'superclasses': [ "AbstractFunction","Object" ],
+'superclasses': [ "AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Line","Pulse","DigitalOut","InBus","NRand","EnvGen","DigitalIn","Sum3","WidthFirstUGen","MostChange","SplayAz","OutputProxy","DigitalIO","Klank","BufCombN","Logistic","InfoUGenBase","Free","Unpack1FFT","Pluck","Dust2","MantissaMask","PeakFollower","BufWr","WhiteNoise","TBall","DUGen","Spring","DemandEnvGen","PulseDivider","Normalizer","PauseSelfWhenDone","Saw","Amplitude","LFGauss","ExpRand","FreeSelf","SpecPcile","ScopeOut2","SendTrig","LastValue","FreqShift","BufInfoUGenBase","TExpRand","ZeroCrossing","Dunique","DynKlank","Tap","PauseSelf","Duty","LFNoise0","HilbertFIR","TRand","FreeSelfWhenDone","IRand","LinkJump","Done","DynKlang","MouseX","MultiOutUGen","ChaosGen","LinRand","ToggleFF","Convolution2","SendPeakRMS","InRect","Linen","Peak","UnitCmdDemo","Loudness","Blip","Timer","PureUGen","PitchShift","Compander","PSinGrain","Pause","MaxLocalBufs","CompanderD","BasicOpUGen","Ball","DelTapRd","RecordBuf","PartConv","Phasor","Stepper","Convolution3","InRange","Trig1","FSinOsc","Poll","ScopeOut","Sweep","CoinGate","AnalogOut","CheckBadValues","XFade2","LinkTempo","Dust","ModDif","Splay","Gendy3","Crackle","KeyTrack","XLine","Sanitize","Sum4","DiskOut","Convolution","TWindex","IEnvGen","KeyState","Gendy2","PulseCount","MulAdd","AnalogIn","Latch","RunningSum","SpecFlatness","DelTapWr","BufDelayN","TIRand","Klang","Convolution2L","AbstractOut","Hasher","MouseButton","Onsets","Rand","SpecCentroid","LinkPhase","MultiplexAnalogIn","Gendy1","LinXFade2" ],
 },
 "Tutorials/Mark_Polishook_tutorial/Japanese_version/00": {
@@ -250,7 +250,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/COsc","Classes/Osc","Classes/OscN","Classes/VOsc" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/News-3_5": {
 'title': "News in 3.5",
@@ -291,7 +291,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SinOsc","Classes/SinOscFB" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Linen": {
 'title': "Linen",
@@ -302,7 +302,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/EnvGen" ],
 'methods': [ "_*kr","?-canFreeSynth" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Ref": {
 'title': "Ref",
@@ -313,7 +313,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-put","_-asRef","_-get","_-at","_-seq","_-set","_-dereference","_-asControlInput","_-asUGenInput","_-value","_*new","?-next","?-valueArrayEnvir","?-valueEnvir","?-asOSCArgEmbeddedArray","?-valueArray","?-multichannelExpandRef","?-asBufWithValues","_.multichannelExpandRef" ],
-'superclasses': [ "AbstractFunction","Object" ],
+'superclasses': [ "AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "RefCopy","Maybe" ],
 },
 "Classes/PdurStutter": {
@@ -325,7 +325,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Psubdivide","Classes/Pdup" ],
 'methods': [ "?*new" ],
-'superclasses': [ "Pdup","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pdup","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Penvir": {
 'title': "Penvir",
@@ -336,7 +336,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pkey" ],
 'methods': [ "_*new","?-pattern","?-envir","?-independent","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NAryOpStream": {
 'title': "NAryOpStream",
@@ -347,7 +347,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/UnaryOpStream","Classes/BinaryOpStream" ],
 'methods': [ "?-arglist","?-next","?-a","?-operator","?-reset","?*new" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BufRd": {
 'title': "BufRd",
@@ -358,7 +358,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufWr" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PauseStream": {
 'title': "PauseStream",
@@ -369,7 +369,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-pause","?-resume","?-streamHasEnded","?-reset","?-refresh","?-isPlaying","?-next","?-originalStream","?-play","?-nextBeat","?-prStop","?-removedFromScheduler","?-start","?-clock","?-awake","?-xplay","?-threadPlayer","?-wasStopped","?-canPause","?-stream","?-proxyControlClass","?-streamError","?-stop","?-buildForProxy","?-reschedule","?-xstop","?*new" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "EventStreamPlayer","Task" ],
 },
 "Classes/NAryOpFunctionProxy": {
@@ -381,7 +381,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-composeUnaryOp","?-embedInStream","?-valueFuncProxy","?-composeNAryOp","?-valueArray","?-value","?-reverseComposeBinaryOp","?-composeBinaryOp","?-reduceFuncProxy" ],
-'superclasses': [ "NAryOpFunction","AbstractFunction","Object" ],
+'superclasses': [ "NAryOpFunction","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "NAryValueProxy" ],
 },
 "Classes/BufDur": {
@@ -393,7 +393,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufChannels","Classes/BufFrames","Classes/BufRateScale","Classes/BufSampleRate","Classes/BufSamples" ],
 'methods': [ "_*kr","_*ir" ],
-'superclasses': [ "BufInfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BufInfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Tdef": {
 'title': "Tdef",
@@ -404,7 +404,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/TaskProxy","Classes/Task","Classes/Routine" ],
 'methods': [ "_-condition","_-embed","_-pause","_-clock","_-envir","_-embedInStream","_-clear","_-isPlaying","_-count","_-reset","_-quant","_-player","_-set","_-resume","_-stop","_-play","_-fork","_-endless","_*default","_*all","_*removeAll","_*clear","_*new","_*defaultQuant","?-copy","?-prAdd","?-dup","?-key","?*hasGlobalDictionary" ],
-'superclasses': [ "TaskProxy","PatternProxy","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "TaskProxy","PatternProxy","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/QuadN": {
 'title': "QuadN",
@@ -415,7 +415,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/QuadL","Classes/QuadC" ],
 'methods': [ "_*ar","?*equation" ],
-'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "QuadL","QuadC" ],
 },
 "Classes/Drand": {
@@ -427,7 +427,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Demand","Classes/Dseq","Classes/Dser","Classes/Duty","Classes/Dxrand","Classes/TDuty" ],
 'methods': [ "_*new" ],
-'superclasses': [ "ListDUGen","DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ListDUGen","DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pmono": {
 'title': "Pmono",
@@ -438,7 +438,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pbind","Classes/PmonoArtic" ],
 'methods': [ "?-synthName","?-embedInStream","?-patternpairs","?*new" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PmonoArtic" ],
 },
 "Classes/Convolution3": {
@@ -450,7 +450,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Convolution","Classes/Convolution2","Classes/Convolution2L" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Git": {
 'title': "Git",
@@ -461,7 +461,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Quarks","Classes/Quark" ],
 'methods': [ "_-branch","_-isDirty","_-remote","_-shaForTag","_-remoteLatest","_-url","_-tag","_-localPath","_-sha","_-clone","_-fetch","_-tags","_-remoteAsHttpUrl","_-pull","_-checkout","_*isGit","_*new","_*checkForGit","?-defaultBranchName" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Pipe": {
 'title': "Pipe",
@@ -472,7 +472,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/UnixFILE" ],
 'methods': [ "_-open","_-close","_-pid","_-openArgv","_*argv","_*new","?*call","?*callSync" ],
-'superclasses': [ "UnixFILE","IOStream","Stream","AbstractFunction","Object" ],
+'superclasses': [ "UnixFILE","IOStream","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dibrown": {
 'title': "Dibrown",
@@ -483,7 +483,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Dbrown","Classes/Demand","Classes/Duty","Classes/TDuty" ],
 'methods': [ "_*new" ],
-'superclasses': [ "Dbrown","DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Dbrown","DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pbinop": {
 'title': "Pbinop",
@@ -494,7 +494,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pnaryop","Classes/Punop","Classes/BinaryOpFunction" ],
 'methods': [ "_*new","?-a","?-operator","?-asStream","?-b","?-adverb" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/Japanese_version/07": {
 'title': "07",
@@ -515,7 +515,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/DelTapRd" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NoteOnResponder": {
 'title': "NoteOnResponder",
@@ -526,7 +526,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MIDIFunc","Classes/MIDIdef","Classes/MIDIResponder","Classes/CCResponder" ],
 'methods': [ "_-learn","_*new","?*initialized","?*responders","?*add","?*remove","?*nonr","?*norinit" ],
-'superclasses': [ "MIDIResponder","Object" ],
+'superclasses': [ "MIDIResponder","Object","AbstractObjectExperimental" ],
 'subclasses': [ "NoteOffResponder" ],
 },
 "Classes/SoundIn": {
@@ -538,7 +538,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/In","Classes/ServerOptions" ],
 'methods': [ "_*ar","?*channelOffset" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "AudioIn" ],
 },
 "Reference/NodeEvent": {
@@ -551,16 +551,6 @@ docmap = {
 'related': [ "Classes/Event" ],
 'methods': [ "_.pause","_.before","_.map","_.after","_.set","_.resume","_.stop","_.play","_.headOf","_.split","_.tailOf" ],
 },
-"Classes/SCImageFilter": {
-'title': "SCImageFilter",
-'path': "Classes/SCImageFilter",
-'summary': "filter class to use with SCImage",
-'installed': "standard",
-'categories': "GUI>Views",
-'keywords': [  ],
-'related': [ "Classes/SCImage","Classes/SCImageKernel" ],
-'methods': [ "_-enable","_-values","_-attributes","_-attributeRange","_-set","_*new","_*filterCategories" ],
-},
 "Classes/NotYetImplementedError": {
 'title': "NotYetImplementedError",
 'path': "Classes/NotYetImplementedError",
@@ -569,8 +559,8 @@ docmap = {
 'categories': "Undocumented classes",
 'keywords': [  ],
 'related': [  ],
-'methods': [  ],
-'superclasses': [ "MethodError","Error","Exception","Object" ],
+'methods': [ "?*new" ],
+'superclasses': [ "MethodError","Error","Exception","Object","AbstractObjectExperimental" ],
 },
 "Classes/HIDElementDispatcher": {
 'title': "HIDElementDispatcher",
@@ -581,7 +571,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-getKeysForFuncProxy","?-wrapFunc","?-value" ],
-'superclasses': [ "HIDUsageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object" ],
+'superclasses': [ "HIDUsageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/TExpRand": {
 'title': "TExpRand",
@@ -592,7 +582,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ExpRand","Classes/IRand","Classes/LinRand","Classes/NRand","Classes/Rand","Classes/TIRand","Classes/TRand" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDIIn": {
 'title': "MIDIIn",
@@ -603,7 +593,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MIDIClient","Classes/MIDIOut","Classes/MIDIFunc","Classes/MIDIdef","Guides/MIDI","Guides/UsingMIDI" ],
 'methods': [ "_*program","_*noteOn","_*replaceFuncTo","_*noteOff","_*sysrt","_*polytouch","_*findPort","_*noteOnZeroAsNoteOff","_*connectAll","_*control","_*touch","_*smpte","_*removeFuncFrom","_*sysex","_*disconnectAll","_*addFuncTo","_*bend","?*doNoteOnAction","?*doPolyTouchAction","?*waitTouch","?*waitProgram","?*waitControl","?*disconnect","?*waitPoly","?*doProgramAction","?*doSMPTEaction","?*noteOnList","?*waitBend","?*waitNoteOff","?*doTouchAction","?*programList","?*action","?*doAction","?*waitNoteOn","?*controlList","?*invalid","?*bendList","?*connect","?*doSysexAction","?*doInvalidSysexAction","?*doNoteOffAction","?*noteOffList","?*doControlAction","?*doBendAction","?*polyList","?*doSysrtAction","?*touchList" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_03_What_Is_Pbind": {
 'title': "Pattern Guide 03: What Is Pbind",
@@ -624,7 +614,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFCub","Classes/LFPar","Classes/LFPulse","Classes/LFSaw" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LFSaw","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LFSaw","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BundleNetAddr": {
 'title': "BundleNetAddr",
@@ -635,7 +625,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-hasBundle","?-sendRaw","?-async","?-sendClumpedBundles","?-sync","?-recover","?-sendStatusMsg","?-bundle","?-closeBundle","?-splitBundles","?-saveAddr","?-sendMsg","?-sendBundle","?*copyFrom" ],
-'superclasses': [ "NetAddr","Object" ],
+'superclasses': [ "NetAddr","Object","AbstractObjectExperimental" ],
 },
 "Classes/LPZ2": {
 'title': "LPZ2",
@@ -646,7 +636,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BPZ2","Classes/BRZ2","Classes/HPZ2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "HPZ2","BRZ2","BPZ2" ],
 },
 "Classes/FreeVerb2": {
@@ -658,7 +648,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FreeVerb","Classes/GVerb" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pselect": {
 'title': "Pselect",
@@ -669,7 +659,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pcollect","Classes/Preject","Classes/Collection#-select" ],
 'methods': [ "_*new","?-asStream","?-embedInStream" ],
-'superclasses': [ "FuncFilterPattern","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FuncFilterPattern","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LeastChange": {
 'title': "LeastChange",
@@ -680,7 +670,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MostChange","Classes/LastValue" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "MostChange","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MostChange","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dreset": {
 'title': "Dreset",
@@ -691,7 +681,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dgeom": {
 'title': "Dgeom",
@@ -702,7 +692,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Demand","Classes/Dseries","Classes/Duty","Classes/TDuty" ],
 'methods': [ "_*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/FaderWarp": {
 'title': "FaderWarp",
@@ -713,7 +703,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-map","?-unmap" ],
-'superclasses': [ "Warp","Object" ],
+'superclasses': [ "Warp","Object","AbstractObjectExperimental" ],
 },
 "Guides/News-Qt-GUI": {
 'title': "What's new in Qt GUI",
@@ -734,7 +724,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Padd","Classes/Paddp" ],
 'methods': [ "_*new","?-filterEvent" ],
-'superclasses': [ "Psetpre","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Psetpre","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/EnvGen": {
 'title': "EnvGen",
@@ -745,7 +735,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Linen","Classes/Env" ],
 'methods': [ "_*kr","_*ar","?-canFreeSynth" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/TreeView": {
 'title': "TreeView",
@@ -765,7 +755,7 @@ docmap = {
 'categories': "GUI>Accessories",
 'keywords': [  ],
 'related': [ "Classes/GridLines","Classes/AbstractGridLines","Classes/ExponentialGridLines","Classes/DrawGrid","Classes/ControlSpec","Classes/Plotter","Reference/plot" ],
-'methods': [ "_-spec","_-formatLabel","_-niceNum","_-getParams","_-looseRange","_-asGrid","_*new" ],
+'methods': [ "_-spec","_-formatLabel","_-asGrid","_-niceNum","_-getParams","_-looseRange","_*new" ],
 },
 "Classes/LocalIn": {
 'title': "LocalIn",
@@ -776,7 +766,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LocalOut" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "AbstractIn","MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "AbstractIn","MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pstretchp": {
 'title': "Pstretchp",
@@ -787,7 +777,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "Pstretch","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pstretch","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDIFuncSrcSysMessageMatcherND": {
 'title': "MIDIFuncSrcSysMessageMatcherND",
@@ -798,7 +788,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-value" ],
-'superclasses': [ "MIDIFuncSrcMessageMatcher","AbstractMessageMatcher","Object" ],
+'superclasses': [ "MIDIFuncSrcMessageMatcher","AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/Crackle": {
 'title': "Crackle",
@@ -809,7 +799,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LatoocarfianN","Classes/Logistic" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dstutter": {
 'title': "Dstutter",
@@ -820,7 +810,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ddup" ],
 'methods': [ "_*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/DbFaderWarp": {
 'title': "DbFaderWarp",
@@ -831,7 +821,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-map","?-unmap" ],
-'superclasses': [ "Warp","Object" ],
+'superclasses': [ "Warp","Object","AbstractObjectExperimental" ],
 },
 "Classes/RecNodeProxy": {
 'title': "RecNodeProxy",
@@ -852,7 +842,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pspawner","Classes/Spawner" ],
 'methods': [ "_*new","?-embedInStream","?-spawnProtoEvent" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/CondVar": {
 'title': "CondVar",
@@ -863,7 +853,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-waitFor","_-deepCopy","_-copy","_-signalAll","_-wait","_-signalOne","_-shallowCopy","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/ClipNoise": {
 'title': "ClipNoise",
@@ -874,7 +864,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BrownNoise","Classes/GrayNoise","Classes/PinkNoise","Classes/WhiteNoise" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "WhiteNoise","UGen","AbstractFunction","Object" ],
+'superclasses': [ "WhiteNoise","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pgpar": {
 'title': "Pgpar",
@@ -885,7 +875,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ppar","Classes/Pbus","Classes/Pgroup" ],
 'methods': [ "_*new","?-wrapPatterns","?-embedInStream","?-numberOfGroups","?*implClass" ],
-'superclasses': [ "Ppar","ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Ppar","ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pgtpar" ],
 },
 "Tutorials/Getting-Started/01-Introductory-Remarks": {
@@ -907,7 +897,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?*notNodeType","?*initClass","?*cleanup","?*cleanupTypes","?*ugenInputTypes" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Guides/WritingTests": {
 'title': "Writing tests",
@@ -928,7 +918,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Tuning" ],
 'methods': [ "_-wrapAt","_-size","_-tuning","_-at","_-semitones","_-ratios","_-pitchesPerOctave","_-stepsPerOctave","_-degreeToRatio","_-as","_-degreeToFreq","_-cents","_*all","_*at","_*new","_*choose","_*chromatic","?-performNearestInList","?-performNearestInScale","?-octaveRatio","?-performKeyToDegree","?-degrees","?-guessPPO","?-==","?-checkTuningForMismatch","?-name","?-performDegreeToKey","?-hash","?*doesNotUnderstand","?*newFromKey","?*directory","?*names","?*chooseFromSelected" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "ScaleAD" ],
 },
 "Classes/CompanderD": {
@@ -940,7 +930,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Amplitude","Classes/Compander","Classes/Normalizer","Classes/Limiter" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Index": {
 'title': "Index",
@@ -951,7 +941,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/WrapIndex","Classes/Shaper" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "IndexL","DetectIndex","WrapIndex","IndexInBetween","FoldIndex","Shaper" ],
 },
 "Classes/Window": {
@@ -973,7 +963,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/InBus","Classes/In","Classes/InFeedback","Classes/XInFeedback" ],
 'methods': [ "?*kr","?*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/13_BinaryOp_synthesis": {
 'title': "13_BinaryOp_synthesis",
@@ -1004,7 +994,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HID","Classes/HIDFunc","Classes/OSCdef","Classes/MIDIdef","Guides/Working_with_HID" ],
 'methods': [ "_-free","_-key","_*usage","_*freeAll","_*usageID","_*all","_*device","_*proto","_*new","_*element" ],
-'superclasses': [ "HIDFunc","AbstractResponderFunc","Object" ],
+'superclasses': [ "HIDFunc","AbstractResponderFunc","Object","AbstractObjectExperimental" ],
 },
 "Classes/NotificationCenter": {
 'title': "NotificationCenter",
@@ -1015,7 +1005,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SimpleController","Classes/NodeWatcher" ],
 'methods': [ "_*notify","_*register","_*registerOneShot","_*unregister","_*registrationExists","?*removeForListener","?*clear" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Pcollect": {
 'title': "Pcollect",
@@ -1026,7 +1016,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pselect","Classes/Preject" ],
 'methods': [ "_*new","?-asStream","?-embedInStream" ],
-'superclasses': [ "FuncFilterPattern","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FuncFilterPattern","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Ppoisson": {
 'title': "Ppoisson",
@@ -1037,7 +1027,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pgauss" ],
 'methods': [ "_*new","?-length","?-mean","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/InBus": {
 'title': "InBus",
@@ -1048,7 +1038,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/In","Classes/XIn","Classes/InFeedback","Classes/XInFeedback" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/HiliteGradient": {
 'title': "HiliteGradient",
@@ -1079,7 +1069,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BeatTrack2" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Harmonics": {
 'title': "Harmonics",
@@ -1090,7 +1080,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-coin","_-ramp","_-geom","_-cutoff","_-exprand","_-decay","_-sine","_-linrand","_-rand2","_-shelf","_-rand","_-teeth","_-pulse","_-formant","_*new","?-size" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/AbstractOut": {
 'title': "AbstractOut",
@@ -1101,7 +1091,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-numOutputs","?-numAudioChannels","?-writesToBus","?-writeOutputSpecs","?*numFixedArgs","?*isOutputUGen" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "BelaScopeOut","LocalOut","Out","SharedOut","XOut" ],
 },
 "Classes/Dwhite": {
@@ -1113,7 +1103,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Diwhite","Classes/Demand","Classes/Duty","Classes/TDuty" ],
 'methods': [ "_*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Diwhite" ],
 },
 "Classes/Sweep": {
@@ -1125,7 +1115,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/StereoConvolution2L": {
 'title': "StereoConvolution2L",
@@ -1136,7 +1126,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Convolution","Classes/Convolution2L" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/Randomness": {
 'title': "Randomness",
@@ -1177,7 +1167,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pn","Classes/Pattern#-dup" ],
 'methods': [ "_*new","?-n","?-embedInStream" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Psubdivide","PdurStutter" ],
 },
 "Classes/MIDIOut": {
@@ -1189,7 +1179,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MIDIClient","Classes/MIDIIn","Guides/MIDI","Guides/UsingMIDI","Overviews/MidiPatterns" ],
 'methods': [ "_-latency","_-sysex","_*findPort","_*disconnect","_*newByName","_*new","_*connect","?-disconnect","?-program","?-noteOn","?-allNotesOff","?-uid","?-noteOff","?-continue","?-port","?-midiClock","?-start","?-write","?-reset","?-polyTouch","?-connect","?-control","?-songPtr","?-stop","?-smpte","?-touch","?-songSelect","?-bend" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/RawArray": {
 'title': "RawArray",
@@ -1200,7 +1190,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-powerset","?-shape","?-rate","?-isRectangular","?-debug","?-readFromStream","?-rank" ],
-'superclasses': [ "ArrayedCollection","SequenceableCollection","Collection","Object" ],
+'superclasses': [ "ArrayedCollection","SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "DoubleArray","FloatArray","String","SymbolArray","Int32Array","Int16Array","Int8Array" ],
 },
 "Classes/HenonL": {
@@ -1212,7 +1202,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HenonC","Classes/HenonN" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "HenonN","ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "HenonN","ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Method": {
 'title': "Method",
@@ -1223,7 +1213,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Class" ],
 'methods': [ "_-ownerClass","_-name","_-primitiveName","_-filenameSymbol","?-charPos","?-checkCanArchive","?-help","?-findReferences","?-archiveAsObject","?-isExtensionOf","?-inspectorClass","?-keyValuePairsFromArgs","?-openCodeFile","?-package","?-hasHelpFile","_.thisMethod" ],
-'superclasses': [ "FunctionDef","Object" ],
+'superclasses': [ "FunctionDef","Object","AbstractObjectExperimental" ],
 },
 "Classes/Ptrace": {
 'title': "Ptrace",
@@ -1234,7 +1224,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Stream","Classes/FilterPattern" ],
 'methods': [ "_-storeArgs","_-embedInStream","_-key","_*new" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NdefGui": {
 'title': "NdefGui",
@@ -1255,7 +1245,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LinCongL","Classes/LinCongC" ],
 'methods': [ "_*ar","?*equation" ],
-'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "LinCongC","LinCongL" ],
 },
 "Classes/LIDGui": {
@@ -1277,7 +1267,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/DynKlank","Classes/Klang" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/FileReader": {
 'title': "FileReader",
@@ -1288,7 +1278,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/File" ],
 'methods': [ "?-next","?-close","?-reset","?-delimiter","?-read","?-stream","?*readInterpret","?*read","?*new","?*delim" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "SemiColonFileReader","CSVFileReader","TabFileReader" ],
 },
 "Tutorials/Mark_Polishook_tutorial/10_Controls": {
@@ -1310,7 +1300,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AbstractFunction","Classes/Maybe","Classes/Ref","Classes/Rest" ],
 'methods': [ "_-hash","_-==","_-value","_-dereferenceOperand","_*new" ],
-'superclasses': [ "AbstractFunction","Object" ],
+'superclasses': [ "AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Rest" ],
 },
 "Classes/Paddp": {
@@ -1322,7 +1312,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Padd","Classes/Pmulp" ],
 'methods': [ "_*new","?-filterEvent" ],
-'superclasses': [ "Psetp","Pset","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Psetp","Pset","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDISysexDispatcher": {
 'title': "MIDISysexDispatcher",
@@ -1333,7 +1323,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-getKeysForFuncProxy","?-wrapFunc","?-value" ],
-'superclasses': [ "MIDIMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object" ],
+'superclasses': [ "MIDIMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object","AbstractObjectExperimental" ],
 'subclasses': [ "MIDIMTCtoSMPTEDispatcher" ],
 },
 "Classes/AppClock": {
@@ -1345,7 +1335,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SystemClock","Classes/TempoClock" ],
 'methods': [ "_*schedAbs","_*sched","_*play","_*clear","_*tick" ],
-'superclasses': [ "Clock","Object" ],
+'superclasses': [ "Clock","Object","AbstractObjectExperimental" ],
 },
 "Classes/SemiColonFileReader": {
 'title': "SemiColonFileReader",
@@ -1356,7 +1346,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/File" ],
 'methods': [ "?*delim" ],
-'superclasses': [ "FileReader","Stream","AbstractFunction","Object" ],
+'superclasses': [ "FileReader","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Resonz": {
 'title': "Resonz",
@@ -1367,7 +1357,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Formlet","Classes/RHPF","Classes/RLPF","Classes/Ringz" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/UnaryOpStream": {
 'title': "UnaryOpStream",
@@ -1378,7 +1368,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BinaryOpStream","Classes/NAryOpStream" ],
 'methods': [ "?-next","?-a","?-reset","?-operator","?*new" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Frame": {
 'title': "Frame",
@@ -1388,8 +1378,8 @@ docmap = {
 'categories': "Core>Kernel",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "?-checkCanArchive","?-archiveAsCompileString","?-inspectorClass","?-shallowCopy" ],
-'superclasses': [ "Object" ],
+'methods': [ "?-mustBeBoolean","?-!?","?-doesNotUnderstand","?-notNil","?-?","?-??","?-isNil","?*prThrow","?*newCopyArgs","?*new" ],
+'superclasses': [ "AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/Japanese_version/10": {
 'title': "10",
@@ -1410,7 +1400,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*next","_*initClass","?*id" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Overviews/GenericCollectors": {
 'title': "Generic Collectors",
@@ -1431,7 +1421,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AbstractMessageMatcher","Classes/OSCFuncAddrMessageMatcher","Classes/OSCFuncRecvPortMessageMatcher","Classes/OSCFuncBothMessageMatcher" ],
 'methods': [ "_-value","_*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/Server": {
 'title': "Server",
@@ -1442,7 +1432,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Guides/Server-Guide","Guides/MultiClient_Setups","Classes/ServerOptions","Reference/Server-Architecture","Reference/Server-Command-Reference","Classes/ServerStatusWatcher","Reference/AudioDeviceSelection" ],
 'methods': [ "_-freePermNodeID","_-stopRecording","_-recBufSize","_-makeBundle","_-sendSynthDef","_-bootSync","_-doWhenBooted","_-defaultGroups","_-boot","_-ping","_-options","_-freqscope","_-nextNodeID","_-listSendMsg","_-plotTreeView","_-freeAll","_-serverRunning","_-userSpecifiedClientID","_-sync","_-dumpOSC","_-pauseRecording","_-wait","_-listSendBundle","_-clientID","_-initTree","_-pid","_-record","_-status","_-unresponsive","_-waitForBoot","_-remoteControlled","_-recSampleFormat","_-prepareForRecord","_-outputBus","_-sampleRate","_-latency","_-numSynths","_-loadSynthDef","_-getSharedControl","_-makeWindow","_-reboot","_-isLocal","_-numGroups","_-recHeaderFormat","_-queryAllNodes","_-sendRaw","_-unmute","_-avgCPU","_-hasBooted","_-sendMsgSync","_-notify","_-serverBooting","_-reorder","_-numUGens","_-belaScope","_-loadDirectory","_-mute","_-inputBus","_-recChannels","_-rtMemoryStatus","_-plotTree","_-setSharedControl","_-meter","_-hasShmInterface","_-quitSync","_-volume","_-makeGui","_-sendBundle","_-bind","_-nodeTreeView","_-allocSharedControls","_-actualSampleRate","_-sendMsg","_-peakCPU","_-nextPermNodeID","_-numSynthDefs","_-defaultGroup","_-quit","_-maxNumClients","_-scope","_-addr","_*freeAll","_*local","_*remote","_*all","_*quitAll","_*scsynth","_*hardFreeAll","_*new","_*sync_s","_*named","_*default","_*allRunningServers","_*supernova","_*internal","_*killAll","_*allBootedServers","?-getControlBusValues","?-bootInProcess","?-ifRunning","?-syncTasks","?-onBootRemove","?-cachedBuffersDo","?-name","?-isRecording","?-freeDefaultGroups","?-openBundle","?-asTarget","?-onBootAdd","?-makeDefaultGroups","?-setControlBusValues","?-nodeAllocator","?-controlBusAllocator","?-recordNode","?-startAliveThread","?-sendDefaultGroupsForClientIDs","?-aliveThreadPeriod","?-defaultGroupID","?-freeAllBuffers","?-remove","?-inProcess","?-notified","?-getControlBusValue","?-sendQuit","?-closeBundle","?-scopeWindow","?-bufferAllocator","?-ifNotRunning","?-bootInit","?-stopAliveThread","?-applicationRunning","?-cmdPeriod","?-tree","?-recorder","?-connectToServerAddr","?-window","?-bootServerApp","?-archiveAsObject","?-connectSharedMemory","?-dumpMode","?-newAllocators","?-newNodeAllocators","?-warnIfNotRunning","?-onQuitAdd","?-serverMeter","?-freeMyDefaultGroup","?-setControlBusValue","?-cachedBufferAt","?-onQuitRemove","?-newScopeBufferAllocators","?-aliveThreadIsRunning","?-sendStatusMsg","?-disconnectSharedMemory","?-syncThread","?-quitInProcess","?-scopeBufferAllocator","?-nextBufferNumber","?-newBufferAllocators","?-schedSync","?-audioBusAllocator","?-statusWatcher","?-asNodeID","?-asGroup","?-newBusAllocators","?-archiveAsCompileString","?-emacsbuf","?-sendDefaultGroups","?-asBus","?*busAllocClass","?*bufferAllocClass","?*program","?*fromName","?*defaultOptionsClass","?*nodeAllocClass","?*resumeThreads","?*set" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "ScoreStreamPlayer" ],
 },
 "Classes/UnaryOpFunction": {
@@ -1454,7 +1444,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/UnaryOpStream","Classes/Punop","Classes/BinaryOpFunction","Classes/NAryOpFunction","Overviews/Operators" ],
 'methods': [ "?-valueArrayEnvir","?-functionPerformList","?-valueEnvir","?-valueArray","?-value","?*new" ],
-'superclasses': [ "AbstractFunction","Object" ],
+'superclasses': [ "AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "UnaryOpFunctionProxy" ],
 },
 "Overviews/GUI-Classes": {
@@ -1496,7 +1486,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Bus" ],
 'methods': [ "_-send","_-asOSCArgArray","_-map","_-at","_-get","_-set","_-setMsg","_-addToEvent","_-addToBundle","_-unset","_-unmap","_-sendToNode","_-clear","_-unmapArgsToBundle" ],
-'superclasses': [ "IdentityDictionary","Dictionary","Set","Collection","Object" ],
+'superclasses': [ "IdentityDictionary","Dictionary","Set","Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "ProxyNodeMap" ],
 },
 "Classes/HilbertFIR": {
@@ -1508,7 +1498,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Hilbert","Classes/FreqShift" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PmonoArtic": {
 'title': "PmonoArtic",
@@ -1519,7 +1509,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pbind","Classes/Pmono" ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "Pmono","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pmono","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/RefCopy": {
 'title': "RefCopy",
@@ -1530,7 +1520,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-next" ],
-'superclasses': [ "Ref","AbstractFunction","Object" ],
+'superclasses': [ "Ref","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/CleanupStream": {
 'title': "CleanupStream",
@@ -1541,7 +1531,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-stream","?-cleanup","?-next","?-reset","?*new" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PanB": {
 'title': "PanB",
@@ -1552,7 +1542,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BiPanB2","Classes/DecodeB2","Classes/PanB2","Classes/Rotate2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Exception": {
 'title': "Exception",
@@ -1562,8 +1552,8 @@ docmap = {
 'categories': "Core",
 'keywords': [ "try protect catch" ],
 'related': [  ],
-'methods': [ "?-reportError","?-errorString","?-what","?-postProtectedBacktrace","?-path","?-isException","?-protectedBacktrace","?-adviceLink","?-adviceLinkPage","?*inProtectedFunction","?*debug","?*new","?*handling" ],
-'superclasses': [ "Object" ],
+'methods': [ "?-reportError","?-errorString","?-throw","?-reportStage1","?-callFrameAnnotations","?-reportStage2","?-what","?-backtrace","?-path","?-isException","?-methodBeforeBacktraceStart","?-methodBacktraceEnd","?*reporting","?*inProtectedFunction","?*debug","?*new","?*handling" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "Error" ],
 },
 "Classes/TempoBusClock": {
@@ -1575,7 +1565,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/TempoClock" ],
 'methods': [ "_*new","?-control","?-setTempoAtBeat","?-setTempoAtSec","?*default" ],
-'superclasses': [ "TempoClock","Clock","Object" ],
+'superclasses': [ "TempoClock","Clock","Object","AbstractObjectExperimental" ],
 },
 "Classes/BufAllpassN": {
 'title': "BufAllpassN",
@@ -1586,7 +1576,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufAllpassC","Classes/BufAllpassL","Classes/AllpassN" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "BufCombN","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BufCombN","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PulseDivider": {
 'title': "PulseDivider",
@@ -1597,7 +1587,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LIDInfo": {
 'title': "LIDInfo",
@@ -1608,7 +1598,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LID" ],
 'methods': [ "_-vendorID","_-unique","_-productID","_-findArgs","_-name","_-path","_-physical","_-postInfo","_-open","_-version","_-bustype" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/LatoocarfianN": {
 'title': "LatoocarfianN",
@@ -1619,7 +1609,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LatoocarfianL","Classes/LatoocarfianC" ],
 'methods': [ "_*ar","?*equation" ],
-'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "LatoocarfianC","LatoocarfianL" ],
 },
 "Classes/Median": {
@@ -1631,7 +1621,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/EZText": {
 'title': "EZText",
@@ -1662,7 +1652,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LinkedList" ],
 'methods': [ "_-add","_-do","_-writable","_-size","_-array","_-writePos","_-readable","_-overwrite","_-readPos","_-maxSize","_-pop","_*new" ],
-'superclasses': [ "SequenceableCollection","Collection","Object" ],
+'superclasses': [ "SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/UnaryOpPlug": {
 'title': "UnaryOpPlug",
@@ -1673,7 +1663,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-envirCompileString","?-prepareForProxySynthDef","?-numChannels","?-rate","?-operator","?-isNeutral","?-asControlInput","?-initBus","?-value","?-a","?-wakeUp","?*new" ],
-'superclasses': [ "AbstractOpPlug","AbstractFunction","Object" ],
+'superclasses': [ "AbstractOpPlug","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/OSC_communication": {
 'title': "OSC Communication",
@@ -1694,7 +1684,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-value","_*new","?-setMsg","?-group","?-stopReadFromBus","?-name","?-node","?-server","?-readFromBus" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_Cookbook01_Basic_Sequencing": {
 'title': "Pattern Guide Cookbook 01: Basic Sequencing",
@@ -1735,7 +1725,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/COsc","Classes/OscN","Classes/VOsc","Classes/VOsc3","Classes/Wavetable" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Reference/Messages": {
 'title': "Messages",
@@ -1756,7 +1746,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PlazyEnvir","Classes/PlazyEnvirN","Classes/Pfunc" ],
 'methods': [ "_*new","?-func","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PlazyEnvir" ],
 },
 "Classes/Pplayer": {
@@ -1768,7 +1758,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-storeArgs","?-subPattern","?-playerPattern","?-embedInStream","?*new" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ZeroCrossing": {
 'title': "ZeroCrossing",
@@ -1779,7 +1769,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/00_Introductory_tutorial": {
 'title': "00_Introductory tutorial",
@@ -1800,7 +1790,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-traverse","_-do","_-depth","_-size","_-depthFirstPostOrderTraversal","_-depthFirstPreOrderTraversal","_*new","_*newFrom","?-linkAcross","?-remove","?-add","?-linkDown" ],
-'superclasses': [ "Collection","Object" ],
+'superclasses': [ "Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/TWChoose": {
 'title': "TWChoose",
@@ -1811,7 +1801,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/TChoose" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Guides/WritingClasses": {
 'title': "Writing Classes",
@@ -1842,7 +1832,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/List","Classes/Dictionary" ],
 'methods': [ "_-remove","_-add","_-do","_-findMatch","?-scanFor" ],
-'superclasses': [ "Set","Collection","Object" ],
+'superclasses': [ "Set","Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "OrderedIdentitySet" ],
 },
 "Classes/FlowView": {
@@ -1864,7 +1854,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new","?*canBeMulAdd" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/HIDValueMatcher": {
 'title': "HIDValueMatcher",
@@ -1875,7 +1865,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-value","?-init","?*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/Gradient": {
 'title': "Gradient",
@@ -1896,7 +1886,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Prand","Classes/Pwrand" ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/HID_permissions": {
 'title': "HID permissions",
@@ -1927,7 +1917,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-/","_-for","_-**","_-forSeries","_-div","_-*","_--","_-modSeaside","_-imag","_-theta","_-rho","_-@","_-real","_-complex","_-%","_-polar","_-+","_-forBy","?-half","?-twice","?-performBinaryOpOnSeqColl","?-isNumber","?-pow","?-performBinaryOpOnPoint","?-mod" ],
-'superclasses': [ "Magnitude","Object" ],
+'superclasses': [ "Magnitude","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Complex","Polar","SimpleNumber" ],
 },
 "Guides/Multichannel-Expansion": {
@@ -1949,7 +1939,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-at","_-put","_-asArray","_*reduceArray","_*newClear","?-putSeries","?-sparseAddAll","?-collect","?-copy","?-++","?-removeAt","?-sum","?-sparseReject","?-defaultSize","?-indexOf","?-default","?-sparseSelect","?-maxItem","?-lastIndex","?-select","?-putIfNotDefault","?-clear","?-sparseSum","?-do","?-firstGap","?-size","?-minItem","?-pos","?-sparseRemove","?-sparseCollect","?-sparseRemoveAt","?-atSeries","?-compress","?-pop","?-reject" ],
-'superclasses': [ "Order","SequenceableCollection","Collection","Object" ],
+'superclasses': [ "Order","SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/Clip": {
 'title': "Clip",
@@ -1960,7 +1950,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Fold","Classes/Wrap" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "InRange","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InRange","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LFNoise2": {
 'title': "LFNoise2",
@@ -1971,7 +1961,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFClipNoise","Classes/LFDClipNoise","Classes/LFDNoise0","Classes/LFDNoise1","Classes/LFDNoise3","Classes/LFNoise0","Classes/LFNoise1" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/StackLayout": {
 'title': "StackLayout",
@@ -1992,7 +1982,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/RadiansPerSample","Classes/SampleDur","Classes/SampleRate","Classes/SubsampleOffset" ],
 'methods': [ "_*ir" ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Preject": {
 'title': "Preject",
@@ -2003,7 +1993,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pselect","Classes/Pcollect","Classes/Collection#-reject" ],
 'methods': [ "_*new","?-asStream","?-embedInStream" ],
-'superclasses': [ "FuncFilterPattern","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FuncFilterPattern","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Plotter": {
 'title': "Plotter",
@@ -2024,7 +2014,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pseg" ],
 'methods': [ "_*new","?-durs","?-repeats","?-embedInStream","?-list" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pseg" ],
 },
 "Guides/WritingUGens": {
@@ -2037,16 +2027,6 @@ docmap = {
 'related': [ "Reference/ServerPluginAPI" ],
 'methods': [  ],
 },
-"Classes/SCDragView": {
-'title': "SCDragView",
-'path': "Classes/SCDragView",
-'summary': "An abstract superclass for drag views",
-'installed': "standard",
-'categories': "GUI>Kits>Cocoa",
-'keywords': [  ],
-'related': [ "Classes/DragSource","Classes/DragSink","Classes/DragBoth" ],
-'methods': [ "_-defaultGetDrag" ],
-},
 "Classes/KeyTrack": {
 'title': "KeyTrack",
 'path': "Classes/KeyTrack",
@@ -2056,7 +2036,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BeatTrack","Classes/Loudness","Classes/MFCC","Classes/Onsets","Classes/Pitch" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NodeProxyEditor": {
 'title': "NodeProxyEditor",
@@ -2077,7 +2057,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SCDoc" ],
 'methods': [ "_-children","_-merge","_-text","_-findChild","_-id","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Guides/Intro-to-Objects": {
 'title': "Introduction to Objects",
@@ -2098,7 +2078,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MouseButton","Classes/MouseX","Classes/MouseY" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Library": {
 'title': "Library",
@@ -2109,7 +2089,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Archive","Classes/LibraryBase" ],
 'methods': [ "_*postTree","_*put","?*global" ],
-'superclasses': [ "LibraryBase","MultiLevelIdentityDictionary","Collection","Object" ],
+'superclasses': [ "LibraryBase","MultiLevelIdentityDictionary","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/GrainSin": {
 'title': "GrainSin",
@@ -2120,7 +2100,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/GrainIn","Classes/GrainFM","Classes/GrainBuf" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pbus": {
 'title': "Pbus",
@@ -2131,7 +2111,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pfx","Classes/Pfxb","Classes/Pgroup" ],
 'methods': [ "_*new","?-dur","?-numChannels","?-fadeTime","?-rate","?-embedInStream" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PstepNfunc": {
 'title': "PstepNfunc",
@@ -2142,7 +2122,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PstepNadd" ],
 'methods': [ "?-patterns","?-embedInStream","?-function","?*new" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PstepNadd" ],
 },
 "Classes/FlowLayout": {
@@ -2164,7 +2144,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SelectX","Classes/SelectXFocus","Classes/LinSelectX" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/HenonC": {
 'title': "HenonC",
@@ -2175,7 +2155,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HenonN","Classes/HenonL" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "HenonN","ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "HenonN","ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dwrand": {
 'title': "Dwrand",
@@ -2186,7 +2166,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Demand" ],
 'methods': [ "_*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/JITGui": {
 'title': "JITGui",
@@ -2217,7 +2197,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OneZero" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "OneZero" ],
 },
 "Guides/News-3_13": {
@@ -2239,7 +2219,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-formatPathForCmdLine","?-arch","?-pathSeparator","?-pathDelimiter","?-killAll","?-clearMetadata","?-defaultTempDir","?-isPathSeparator" ],
-'superclasses': [ "Platform","Object" ],
+'superclasses': [ "Platform","Object","AbstractObjectExperimental" ],
 'subclasses': [ "LinuxPlatform" ],
 },
 "Classes/CustomViewAction": {
@@ -2271,7 +2251,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/IdentitySet","Classes/List","Classes/Dictionary" ],
 'methods': [ "_-findMatch","_-remove","_-add","_-do","_-isSubsetOf","_--","_---","_-keyAt","_-|","_-difference","_-includes","_-symmetricDifference","_-&","_-union","_-sect","?-asSet","?-size","?-array","?-copy","?-fixCollisionsFrom","?-makeEmpty","?-species","?-scanFor","?-unify","?-clear","?-pop","?-choose","?*new" ],
-'superclasses': [ "Collection","Object" ],
+'superclasses': [ "Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Dictionary","IdentitySet" ],
 },
 "Classes/PulseCount": {
@@ -2283,7 +2263,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Stepper" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "SetResetFF" ],
 },
 "Guides/GUI-Layout-Management": {
@@ -2335,7 +2315,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/CmdPeriod" ],
 'methods': [ "_-dt","_-clock","_-start","_-updateFunc","_-stop","_-stopTest","_-name","_-task","_-play","_*stop","_*verbose","_*all","_*stopAll","_*defaultClock","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Wrap": {
 'title': "Wrap",
@@ -2346,7 +2326,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Clip","Classes/Fold" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "InRange","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InRange","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_MagAbove": {
 'title': "PV_MagAbove",
@@ -2357,7 +2337,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_LocalMax","Classes/PV_MagBelow","Classes/PV_MagClip" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PV_MagClip","PV_LocalMax","PV_MagBelow" ],
 },
 "Classes/InRect": {
@@ -2369,7 +2349,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/InRange","Classes/Schmidt" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDIFuncBothCAMessageMatcher": {
 'title': "MIDIFuncBothCAMessageMatcher",
@@ -2380,7 +2360,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AbstractMessageMatcher","Classes/MIDIFuncSrcMessageMatcher","Classes/MIDIFuncChanMessageMatcher","Classes/MIDIFuncChanArrayMessageMatcher","Classes/MIDIFuncSrcMessageMatcherNV","Classes/MIDIFuncBothMessageMatcher" ],
 'methods': [ "_-value","_*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/ModDif": {
 'title': "ModDif",
@@ -2391,7 +2371,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Clip","Classes/Wrap" ],
 'methods': [ "_*ir","_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/OSCFuncRecvPortMessageMatcher": {
 'title': "OSCFuncRecvPortMessageMatcher",
@@ -2402,7 +2382,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AbstractMessageMatcher","Classes/OSCFuncAddrMessageMatcher","Classes/OSCFuncRecvPortMessageMatcher","Classes/OSCFuncBothMessageMatcher" ],
 'methods': [ "_-value","_*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Guides/Non-Realtime-Synthesis": {
 'title': "Non-Realtime Synthesis (NRT)",
@@ -2453,7 +2433,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BeatTrack" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Range": {
 'title': "Range",
@@ -2464,7 +2444,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-split","?-do","?-size","?-includes","?-end","?-printOn","?-put","?-storeArgs","?-remove","?-add","?-start","?-storeOn","?-at","?*new" ],
-'superclasses': [ "Collection","Object" ],
+'superclasses': [ "Collection","Object","AbstractObjectExperimental" ],
 },
 "Guides/WritingHelp": {
 'title': "Writing Help",
@@ -2485,7 +2465,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AnalogIn","Classes/AnalogOut","Classes/DigitalOut","Classes/DigitalIO" ],
 'methods': [ "_*kr","_*ar","?-signalRange" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/False": {
 'title': "False",
@@ -2496,7 +2476,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-not","?-asInteger","?-if","?-or","?-&&","?-||","?-binaryValue","?-nand","?-and" ],
-'superclasses': [ "Boolean","Object" ],
+'superclasses': [ "Boolean","Object","AbstractObjectExperimental" ],
 },
 "Guides/News-3_9": {
 'title': "News in 3.9",
@@ -2517,7 +2497,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-isEmpty","?-maxPathSize","?-pathResponders","?-initPathSize","?-value","?-addChild","?-removeChild","?*cmdPathIndices","?*new" ],
-'superclasses': [ "OSCMultiResponder","OSCresponder","Object" ],
+'superclasses': [ "OSCMultiResponder","OSCresponder","Object","AbstractObjectExperimental" ],
 },
 "Classes/BelaScopeOut": {
 'title': "BelaScopeOut",
@@ -2528,7 +2508,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*ar","?-writesToBus","?-checkValidInputs","?*numFixedArgs" ],
-'superclasses': [ "AbstractOut","UGen","AbstractFunction","Object" ],
+'superclasses': [ "AbstractOut","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PfinQuant": {
 'title': "PfinQuant",
@@ -2539,7 +2519,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-embedInStream","?-quant","?-clock","?*new" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Prand": {
 'title': "Prand",
@@ -2550,7 +2530,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pxrand","Classes/Pwrand" ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/FloatArray": {
 'title': "FloatArray",
@@ -2561,7 +2541,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/DoubleArray","Classes/Signal" ],
 'methods': [ "_-readFromStream" ],
-'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object" ],
+'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Wavetable","Signal" ],
 },
 "Classes/LFDNoise1": {
@@ -2573,7 +2553,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFClipNoise","Classes/LFDClipNoise","Classes/LFDNoise0","Classes/LFDNoise3","Classes/LFNoise0","Classes/LFNoise1","Classes/LFNoise2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/Debugging-tips": {
 'title': "Debugging tips",
@@ -2594,7 +2574,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pdup" ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "Pdup","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pdup","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Spring": {
 'title': "Spring",
@@ -2605,7 +2585,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ball","Classes/TBall" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PstepNadd": {
 'title': "PstepNadd",
@@ -2616,7 +2596,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pstep3add" ],
 'methods': [ "?*new" ],
-'superclasses': [ "PstepNfunc","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "PstepNfunc","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDIEndPoint": {
 'title': "MIDIEndPoint",
@@ -2627,7 +2607,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-uid","?-name","?-device","?-printOn","?-asMIDIInPortUID","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/XOut": {
 'title': "XOut",
@@ -2638,7 +2618,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OffsetOut","Classes/Out","Classes/ReplaceOut" ],
 'methods': [ "_*kr","_*ar","?-writesToBus","?*numFixedArgs" ],
-'superclasses': [ "AbstractOut","UGen","AbstractFunction","Object" ],
+'superclasses': [ "AbstractOut","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/EventStreamPlayer": {
 'title': "EventStreamPlayer",
@@ -2649,7 +2629,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Event","Classes/Pbind" ],
 'methods': [ "_-resume","_-pause","_-stop","_-play","_-reschedule","_-start","_-reset","_*new","?-next","?-removedFromScheduler","?-muteCount","?-asEventStreamPlayer","?-canPause","?-routine","?-unmute","?-mute","?-xplay","?-event","?-cleanup","?-xstop" ],
-'superclasses': [ "PauseStream","Stream","AbstractFunction","Object" ],
+'superclasses': [ "PauseStream","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ObjectTable": {
 'title': "ObjectTable",
@@ -2660,7 +2640,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-add","_*getID","_*add","_*at","_*put","?*remove","?*new","?*global","?*objPerform" ],
-'superclasses': [ "TwoWayIdentityDictionary","Collection","Object" ],
+'superclasses': [ "TwoWayIdentityDictionary","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/MouseX": {
 'title': "MouseX",
@@ -2671,7 +2651,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/KeyState","Classes/MouseButton","Classes/MouseY" ],
 'methods': [ "_*kr","?-signalRange" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "MouseY" ],
 },
 "Classes/Stream": {
@@ -2683,7 +2663,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Routine","Classes/FuncStream","Classes/EventStreamPlayer" ],
 'methods': [ "_-do","_-collect","_-embedInStream","_-appendStream","_-trace","_-interlace","_-play","_-select","_-reject","_-dot","?-composeNAryOp","?-next","?-collate","?-reverseComposeBinaryOp","?-proxyControlClass","?-put","?-generate","?-valueArray","?-++","?-iter","?-streamArg","?-composeUnaryOp","?-repeat","?-all","?-asEventStreamPlayer","?-subSample","?-fastForward","?-composeBinaryOp","?-<>","?-putAll","?-parent","?-buildForProxy","?-value","?-putN" ],
-'superclasses': [ "AbstractFunction","Object" ],
+'superclasses': [ "AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "EmbedOnce","OneShotStream","PmonoStream","FileReader","BinaryOpXStream","UnaryOpStream","IOStream","NAryOpStream","FuncStream","BinaryOpStream","PauseStream","CleanupStream","StreamClutch","Thread" ],
 },
 "Tutorials/Getting-Started/09-Getting-Help": {
@@ -2705,7 +2685,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OSCFunc","Guides/OSC_communication" ],
 'methods': [ "_-value","_*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/MouseButton": {
 'title': "MouseButton",
@@ -2716,7 +2696,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/KeyState","Classes/MouseX","Classes/MouseY" ],
 'methods': [ "_*kr","?-signalRange" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pretty": {
 'title': "Pretty",
@@ -2727,7 +2707,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-out","?-close","?-put","?-level","?-state","?*new" ],
-'superclasses': [ "IOStream","Stream","AbstractFunction","Object" ],
+'superclasses': [ "IOStream","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/FuncStream": {
 'title': "FuncStream",
@@ -2738,7 +2718,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pfunc" ],
 'methods': [ "_-next","_-nextFunc","_-reset","_-resetFunc","_-envir","_*new" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BLowPass4": {
 'title': "BLowPass4",
@@ -2749,7 +2729,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SOS","Classes/BLowPass","Classes/BHiPass","Classes/BHiPass4","Classes/BPeakEQ","Classes/BLowShelf","Classes/BHiShelf","Classes/BBandPass","Classes/BBandStop","Classes/BAllPass" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Phasor": {
 'title': "Phasor",
@@ -2760,7 +2740,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_02_Basic_Vocabulary": {
 'title': "Pattern Guide 02: Basic Vocabulary",
@@ -2791,7 +2771,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pgpar","Classes/Ptpar","Classes/Pbus","Classes/Pgroup" ],
 'methods': [ "_*new","?-wrapPatterns","?-numberOfGroups","?*implClass" ],
-'superclasses': [ "Pgpar","Ppar","ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pgpar","Ppar","ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/JITLib/jitlib_networking": {
 'title': "jitlib_networking",
@@ -2812,7 +2792,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Dbufwr" ],
 'methods': [ "_*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/GUI-Introduction": {
 'title': "Introduction to GUI",
@@ -2832,8 +2812,8 @@ docmap = {
 'categories': "Collections>Ordered",
 'keywords': [  ],
 'related': [ "Reference/Literals","Classes/List" ],
-'methods': [ "_-foldAt","_-at","_-addAll","_-normalize","_-wrapExtend","_-size","_-asCompileString","_-wrapAt","_-windex","_-stutter","_-poll","_-dupEach","_-asRawOSC","_-clipExtend","_-clipPut","_-clipAt","_-pyramidg","_-mirror2","_-source","_-asString","_-foldPut","_-add","_-pyramid","_-multiChannelExpand","_-addFirst","_-collect","_-do","_-reverseDo","_-containsSeqColl","_-plot","_-scramble","_-mirror1","_-belaScope","_-slide","_-removeAt","_-deepCollect","_-atIdentityHashInPairs","_-allTuples","_-atIdentityHash","_-permute","_-flop","_-powerset","_-dpoll","_-mirror","_-envirPairs","_-rotate","_-swap","_-reverse","_-++","_-normalizeSum","_-isValidUGenInput","_-hungarianSolve","_-foldExtend","_-insert","_-put","_-reshape","_-lace","_-boundedInsert","_-replace","_-shift","_-wrapPut","_-fork","_-sputter","_*fillND","_*exprand","_*fill","_*fib","_*fill2D","_*new","_*newFrom","_*iota","_*rand","_*geom","_*newClear","_*rand2","_*linrand","_*series","_*with","_*interpolation","?-prUnarchive","?-numChannels","?-proxyControlClass","?-asAudioRateInput","?-envAt","?-asSpec","?-unlace","?-deinterlace","?-prUnlace","?-madd","?-asControlInput","?-interlace","?-asUGenInput","?-buildForProxy" ],
-'superclasses': [ "ArrayedCollection","SequenceableCollection","Collection","Object" ],
+'methods': [ "_-wrapExtend","_-deepCollect","_-size","_-asCompileString","_-stutter","_-poll","_-addAll","_-windex","_-dupEach","_-clipExtend","_-asRawOSC","_-pyramidg","_-wrapAt","_-foldAt","_-mirror2","_-replace","_-source","_-++","_-asString","_-pyramid","_-multiChannelExpand","_-normalizeSum","_-containsSeqColl","_-foldPut","_-scramble","_-mirror1","_-do","_-belaScope","_-slide","_-atIdentityHashInPairs","_-add","_-allTuples","_-atIdentityHash","_-boundedInsert","_-plot","_-normalize","_-collect","_-at","_-addFirst","_-removeAt","_-permute","_-powerset","_-put","_-mirror","_-flop","_-envirPairs","_-dpoll","_-swap","_-rotate","_-reverse","_-reshape","_-isValidUGenInput","_-hungarianSolve","_-foldExtend","_-clipPut","_-lace","_-insert","_-shift","_-fork","_-sputter","_-wrapPut","_-reverseDo","_-clipAt","_*geom","_*fib","_*linrand","_*new","_*newFrom","_*fillND","_*iota","_*exprand","_*fill2D","_*rand","_*newClear","_*fill","_*series","_*interpolation","_*with","_*rand2","?-prUnarchive","?-numChannels","?-proxyControlClass","?-asAudioRateInput","?-envAt","?-asSpec","?-unlace","?-deinterlace","?-prUnlace","?-madd","?-asControlInput","?-interlace","?-asUGenInput","?-buildForProxy" ],
+'superclasses': [ "ArrayedCollection","SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/Monitor": {
 'title': "Monitor",
@@ -2844,7 +2824,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Reference/playN","Classes/NodeProxy","Classes/Bus" ],
 'methods': [ "_-numChannels","_-fadeTimes","_-isPlaying","_-copy","_-playToBundle","_-out","_-vol","_-stop","_-outs","_-amps","_-play","_-fadeTime","_-group","_-ins","_-clear","_-playN" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/ServerMeter": {
 'title': "ServerMeter",
@@ -2865,7 +2845,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/DC" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/History": {
 'title': "History",
@@ -2876,7 +2856,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Archive" ],
 'methods': [ "_-makeCurrent","_-isCurrent","_-keys","_-indicesFor","_-addLine","_-player","_*keep","_*rewrite","_*localOn","_*ignoreErrors","_*loadStory","_*makeWin","_*recordLocally","_*clear","_*localOff","_*drop","_*start","_*startTimeStamp","_*removeLast","_*evalLineAt","_*document","_*readFromDoc","_*removeAt","_*new","_*started","_*current","_*forwardFunc","_*saveStory","_*end","_*showLogFolder","_*lineShorts","_*keepsLog","_*enter","_*unformatTime","_*showLogFile","_*saveCS","_*loadCS","_*prettyString","_*lines","_*eval","_*stop","_*formatTime","_*verbose","_*play","_*shorten","?*playCmdPeriod" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Decay": {
 'title': "Decay",
@@ -2887,7 +2867,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Decay2","Classes/Integrator" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/FFT": {
 'title': "FFT",
@@ -2898,7 +2878,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/IFFT","Guides/FFT-Overview" ],
 'methods': [ "_*new","?-fftSize" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MainMenu": {
 'title': "MainMenu",
@@ -2919,7 +2899,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/IdentityBag","Classes/Set" ],
 'methods': [ "_-remove","_-add","_-do","_-includes","_-itemCount","_-contents","_-countsDo","_*new","?-put","?-take","?-atFail","?-copy","?-asBag","?-at","?-choose","?-wchoose" ],
-'superclasses': [ "Collection","Object" ],
+'superclasses': [ "Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "IdentityBag" ],
 },
 "Classes/NodeIDAllocator": {
@@ -2931,7 +2911,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-numIDs","?-allocPerm","?-user","?-idOffset","?-alloc","?-reset","?-freePerm","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/IFFT": {
 'title': "IFFT",
@@ -2942,7 +2922,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Guides/FFT-Overview" ],
 'methods': [ "_*new","_*kr","_*ar" ],
-'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NumberBox": {
 'title': "NumberBox",
@@ -2963,7 +2943,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pwhile" ],
 'methods': [ "_*new","?-condition","?-asStream","?-default","?-iffalse","?-iftrue" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/VarLag": {
 'title': "VarLag",
@@ -2974,7 +2954,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Lag","Classes/Ramp","Classes/Slew" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pstep2add": {
 'title': "Pstep2add",
@@ -2985,7 +2965,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-storeArgs","?-pattern1","?-pattern2","?-embedInStream","?*new" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/GUI/things_you_wanna_know": {
 'title': "GUI: Things you probably want to know",
@@ -3006,7 +2986,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFDClipNoise","Classes/LFDNoise0","Classes/LFDNoise1","Classes/LFDNoise3","Classes/LFNoise0","Classes/LFNoise1","Classes/LFNoise2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pexprand": {
 'title': "Pexprand",
@@ -3017,7 +2997,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pkey" ],
 'methods': [ "_*new","?-embedInStream" ],
-'superclasses': [ "Pwhite","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pwhite","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Out": {
 'title': "Out",
@@ -3028,7 +3008,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OffsetOut","Classes/ReplaceOut","Classes/XOut" ],
 'methods': [ "_*kr","_*ar","?-writesToBus","?*numFixedArgs" ],
-'superclasses': [ "AbstractOut","UGen","AbstractFunction","Object" ],
+'superclasses': [ "AbstractOut","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "OffsetOut","ReplaceOut" ],
 },
 "Guides/standalones": {
@@ -3050,7 +3030,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-postString","?-reverseComposeBinaryOp","?-reduceFuncProxy","?-valueFuncProxy","?-composeUnaryOp","?-composeBinaryOp","?-value","?-composeNAryOp","?-embedInStream","?-valueArray" ],
-'superclasses': [ "UnaryOpFunction","AbstractFunction","Object" ],
+'superclasses': [ "UnaryOpFunction","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/SerialPort": {
 'title': "SerialPort",
@@ -3061,7 +3041,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-rxErrors","_-next","_-doneAction","_-close","_-put","_-putAll","_-read","_-isOpen","_*devices","_*listDevices","_*cleanupAll","_*new","_*closeAll","_*devicePattern" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Control": {
 'title': "Control",
@@ -3072,7 +3052,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/NamedControl","Classes/LagControl","Classes/TrigControl" ],
 'methods': [ "_*ir","_*names","_*kr","?-values","?*isControlUGen" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "TrigControl","LagControl" ],
 },
 "Classes/Download": {
@@ -3094,7 +3074,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pdef","Classes/Pbind" ],
 'methods': [ "_*new","?-repositoryArgs","?-quant","?*hasGlobalDictionary" ],
-'superclasses': [ "Pdef","EventPatternProxy","TaskProxy","PatternProxy","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pdef","EventPatternProxy","TaskProxy","PatternProxy","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MaxLocalBufs": {
 'title': "MaxLocalBufs",
@@ -3105,7 +3085,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-increment","?*new" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_MagMul": {
 'title': "PV_MagMul",
@@ -3116,7 +3096,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_Add","Classes/PV_CopyPhase","Classes/PV_Max","Classes/PV_Min","Classes/PV_Mul" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PV_Max","PV_Mul","PV_Min","PV_CopyPhase","PV_Div","PV_Copy","PV_Add" ],
 },
 "Classes/T2A": {
@@ -3128,7 +3108,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/T2K","Classes/K2A","Classes/A2K" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "K2A","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "K2A","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Reference/KeyboardShortcuts": {
 'title': "Keyboard Shortcuts",
@@ -3149,7 +3129,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pbind" ],
 'methods': [ "?-default","?-dict","?-repeats","?-which","?-embedInStream","?*new" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BinaryOpFailureError": {
 'title': "BinaryOpFailureError",
@@ -3159,8 +3139,8 @@ docmap = {
 'categories': "Undocumented classes",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "?-errorString" ],
-'superclasses': [ "DoesNotUnderstandError","MethodError","Error","Exception","Object" ],
+'methods': [  ],
+'superclasses': [ "DoesNotUnderstandError","MethodError","Error","Exception","Object","AbstractObjectExperimental" ],
 },
 "Classes/Delay2": {
 'title': "Delay2",
@@ -3171,7 +3151,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Delay1","Classes/TDelay" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PopUpMenu": {
 'title': "PopUpMenu",
@@ -3192,7 +3172,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/File" ],
 'methods': [ "?*delim" ],
-'superclasses': [ "FileReader","Stream","AbstractFunction","Object" ],
+'superclasses': [ "FileReader","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/News-3_8": {
 'title': "News in 3.8",
@@ -3223,7 +3203,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pser" ],
 'methods': [ "?-offset","?-embedInStream","?*new" ],
-'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Ppatlace","Pser","Place" ],
 },
 "Classes/TdefAllGui": {
@@ -3245,7 +3225,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Amplitude","Classes/Compander","Classes/CompanderD","Classes/Normalizer" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "Normalizer","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Normalizer","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pindex": {
 'title': "Pindex",
@@ -3256,7 +3236,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pswitch" ],
 'methods': [ "_*new","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/AllpassL": {
 'title': "AllpassL",
@@ -3267,7 +3247,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AllpassC","Classes/AllpassN","Classes/BufAllpassL" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "CombN","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "CombN","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/CmdPeriod": {
 'title': "CmdPeriod",
@@ -3278,7 +3258,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ShutDown","Classes/ServerQuit" ],
 'methods': [ "_*remove","_*add","_*doOnce","_*removeAll","_*objects","_*era","?*hardRun","?*clearClocks","?*run","?*freeRemote","?*freeServers" ],
-'superclasses': [ "AbstractSystemAction","Object" ],
+'superclasses': [ "AbstractSystemAction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pconst": {
 'title': "Pconst",
@@ -3289,7 +3269,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pfindur","Classes/Pfin","Classes/Pfinval" ],
 'methods': [ "_*new","?-tolerance","?-embedInStream","?-sum" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pprob": {
 'title': "Pprob",
@@ -3300,7 +3280,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ppoisson" ],
 'methods': [ "_*new","?-hi","?-length","?-distribution","?-tableSize","?-lo","?-table","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dbrown": {
 'title': "Dbrown",
@@ -3311,7 +3291,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Dibrown","Classes/Demand","Classes/Duty","Classes/TDuty" ],
 'methods': [ "_*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Dibrown" ],
 },
 "Reference/gui": {
@@ -3333,7 +3313,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Penvir" ],
 'methods': [ "_*new","?-repeats","?-asStream","?-embedInStream","?-key" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ScopeOut2": {
 'title': "ScopeOut2",
@@ -3344,7 +3324,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?*kr","?*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BufDelayC": {
 'title': "BufDelayC",
@@ -3355,7 +3335,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufDelayL","Classes/BufDelayN","Classes/DelayC" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "BufDelayN","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BufDelayN","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Group": {
 'title': "Group",
@@ -3366,7 +3346,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-addToHeadMsg","_-freeAll","_-moveNodeToTailMsg","_-dumpTree","_-addBeforeMsg","_-freeAllMsg","_-addReplaceMsg","_-addToTailMsg","_-newMsg","_-addAfterMsg","_-moveNodeToHead","_-queryTree","_-deepFree","_-moveNodeToHeadMsg","_-moveNodeToTail","_-deepFreeMsg","_*head","_*replace","_*before","_*after","_*basicNew","_*tail","_*new" ],
-'superclasses': [ "AbstractGroup","Node","Object" ],
+'superclasses': [ "AbstractGroup","Node","Object","AbstractObjectExperimental" ],
 'subclasses': [ "RootNode" ],
 },
 "Classes/Dser": {
@@ -3378,7 +3358,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Demand","Classes/Drand","Classes/Dseq","Classes/Duty","Classes/Dxrand","Classes/TDuty" ],
 'methods': [ "_*new" ],
-'superclasses': [ "ListDUGen","DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ListDUGen","DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BHiPass4": {
 'title': "BHiPass4",
@@ -3389,7 +3369,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SOS","Classes/BLowPass","Classes/BLowPass4","Classes/BHiPass","Classes/BPeakEQ","Classes/BLowShelf","Classes/BHiShelf","Classes/BBandPass","Classes/BBandStop","Classes/BAllPass" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/RootNode": {
 'title': "RootNode",
@@ -3400,7 +3380,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Group","Reference/default_group" ],
 'methods': [ "?*roots","?*freeAll","?*new" ],
-'superclasses': [ "Group","AbstractGroup","Node","Object" ],
+'superclasses': [ "Group","AbstractGroup","Node","Object","AbstractObjectExperimental" ],
 },
 "Classes/LIDSlot": {
 'title': "LIDSlot",
@@ -3411,7 +3391,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LID" ],
 'methods': [ "_-next","_-bus","_-action","_-kr","_-key","_-debug","_-createBus","_-code","_-spec","_-device","_-postInfo","_-rawValue","_-value","_-type","_-freeBus","_*slotTypeStrings" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "LIDRelSlot","LIDMscSlot","LIDLedSlot","LIDKeySlot","LIDAbsSlot" ],
 },
 "Classes/ReadableNodeIDAllocator": {
@@ -3423,7 +3403,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Server","Guides/MultiClient_Setups" ],
 'methods': [ "_-isPerm","_-numClients","_-clientID","_-alloc","_-idOffset","_-reset","_-lowestTempID","_-numIDs","_-freePerm","_-maxPermID","_-allocPerm","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/BufWr": {
 'title': "BufWr",
@@ -3434,7 +3414,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufRd" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Task": {
 'title': "Task",
@@ -3445,7 +3425,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Routine" ],
 'methods': [ "_-resume","_-pause","_-stop","_-play","_-reschedule","_-start","_-reset","_*new","?-refresh" ],
-'superclasses': [ "PauseStream","Stream","AbstractFunction","Object" ],
+'superclasses': [ "PauseStream","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Lag3": {
 'title': "Lag3",
@@ -3456,7 +3436,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Lag","Classes/Lag2","Classes/Ramp","Classes/Lag3UD" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Lag","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Lag","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MethodOverride": {
 'title': "MethodOverride",
@@ -3467,7 +3447,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-overriddenPath","?-ownerClass","?-selector","?-openFiles","?-activePath","?*all","?*new","?*printAll","?*printAllShort","?*fromLine" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/LinExp": {
 'title': "LinExp",
@@ -3478,7 +3458,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LinLin" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_Cookbook02_Manipulating_Patterns": {
 'title': "Pattern Guide Cookbook 02: Manipulating Patterns",
@@ -3499,7 +3479,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/GbmanL" ],
 'methods': [ "_*ar","?*equation" ],
-'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "GbmanL" ],
 },
 "Classes/QtGUI": {
@@ -3531,7 +3511,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ExpRand","Classes/IRand","Classes/LinRand","Classes/NRand","Classes/TExpRand","Classes/TIRand","Classes/TRand" ],
 'methods': [ "_*new" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/XFade2": {
 'title': "XFade2",
@@ -3542,7 +3522,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LinXFade2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Reblock": {
 'title': "Reblock",
@@ -3553,7 +3533,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Resample","Classes/SynthDef" ],
 'methods': [ "_*new","?-blockSize","?-controlIndex","?-synthDef","?-writeDef" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/FreqScopeView": {
 'title': "FreqScopeView",
@@ -3574,7 +3554,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-unmute","_-mute","_-volume","_-lag","_-setVolumeRange","_-gui","_*new","?-ampSynth","?-updateSynth","?-max","?-numChannels","?-startListener","?-window","?-sendSynthDef","?-defName","?-group","?-startBus","?-isMuted","?-numChans","?-close","?-listener","?-server","?-persist","?-reset","?-numOutputChannels","?-min","?-freeSynth" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/14_Subtractive_synthesis": {
 'title': "14_Subtractive_synthesis",
@@ -3595,7 +3575,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HPZ1" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "HPZ1" ],
 },
 "Guides/SuperColliderAU": {
@@ -3617,7 +3597,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FloatArray","Classes/Int8Array","Classes/Int16Array","Classes/DoubleArray","Classes/SymbolArray" ],
 'methods': [ "_-readFromStream" ],
-'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object" ],
+'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/Unix": {
 'title': "Unix",
@@ -3628,7 +3608,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?*errno" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Poll": {
 'title': "Poll",
@@ -3639,7 +3619,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SendTrig","Classes/OSCFunc" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Integrator": {
 'title': "Integrator",
@@ -3650,7 +3630,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/04_Help": {
 'title': "04_Help",
@@ -3681,7 +3661,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-rawValue","?-initSpec","?-value" ],
-'superclasses': [ "LIDSlot","Object" ],
+'superclasses': [ "LIDSlot","Object","AbstractObjectExperimental" ],
 },
 "Classes/SharedOut": {
 'title': "SharedOut",
@@ -3692,7 +3672,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SharedIn" ],
 'methods': [ "_*kr","?-writesToBus","?*numFixedArgs" ],
-'superclasses': [ "AbstractOut","UGen","AbstractFunction","Object" ],
+'superclasses': [ "AbstractOut","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/AbstractOpPlug": {
 'title': "AbstractOpPlug",
@@ -3703,7 +3683,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-composeNAryOp","?-prepareForProxySynthDef","?-writeInputSpec","?-composeBinaryOp","?-reverseComposeBinaryOp","?-asUGenInput","?-composeUnaryOp" ],
-'superclasses': [ "AbstractFunction","Object" ],
+'superclasses': [ "AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "BinaryOpPlug","UnaryOpPlug" ],
 },
 "Classes/Environment": {
@@ -3715,7 +3695,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Event","Classes/IdentityDictionary" ],
 'methods': [ "_-make","_-linkDoc","_-push","_-use","_-pop","_-unlinkDoc","_*make","_*push","_*use","_*stack","_*pop","?-composeEvents","?-eventAt","_.currentEnvironment","_.topEnvironment","_.valueArrayEnvir","_.valueEnvir" ],
-'superclasses': [ "IdentityDictionary","Dictionary","Set","Collection","Object" ],
+'superclasses': [ "IdentityDictionary","Dictionary","Set","Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Event" ],
 },
 "Classes/Rotate2": {
@@ -3727,7 +3707,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BiPanB2","Classes/DecodeB2","Classes/PanB","Classes/PanB2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDIFuncSrcMessageMatcherNV": {
 'title': "MIDIFuncSrcMessageMatcherNV",
@@ -3738,7 +3718,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AbstractMessageMatcher","Classes/MIDIFuncSrcMessageMatcher","Classes/MIDIFuncChanMessageMatcher","Classes/MIDIFuncChanArrayMessageMatcher","Classes/MIDIFuncBothMessageMatcher","Classes/MIDIFuncBothCAMessageMatcher" ],
 'methods': [ "_-value" ],
-'superclasses': [ "MIDIFuncSrcMessageMatcher","AbstractMessageMatcher","Object" ],
+'superclasses': [ "MIDIFuncSrcMessageMatcher","AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Getting-Started/15-Sequencing-with-Routines-and-Tasks": {
 'title': "15. Sequencing with Routines and Tasks",
@@ -3759,7 +3739,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/DecodeB2","Classes/PanB","Classes/PanB2","Classes/Rotate2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/WidthFirstUGen": {
 'title': "WidthFirstUGen",
@@ -3770,7 +3750,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-addToSynth","?-addCopiesIfNeeded" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PV_ChainUGen","LocalBuf","RandSeed","SetBuf","ClearBuf","RandID","IFFT" ],
 },
 "Classes/Pmeanrand": {
@@ -3782,7 +3762,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Plprand","Classes/Phprand" ],
 'methods': [ "_*new","?-embedInStream" ],
-'superclasses': [ "Pwhite","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pwhite","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ServerMeterView": {
 'title': "ServerMeterView",
@@ -3803,7 +3783,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Server","Classes/SynthDef" ],
 'methods': [ "_*maxTempDefNames","_*synthDefs","_*numChannels","_*tempNamePrefix","_*generateTempName" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/AbstractMDPlugin": {
 'title': "AbstractMDPlugin",
@@ -3814,7 +3794,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?*readMetadata","?*writeMetadataFile","?*mdExtension","?*writeMetadata","?*clearMetadata","?*readMetadataFile","?*applyExtension" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "TextArchiveMDPlugin" ],
 },
 "Classes/Prewrite": {
@@ -3826,7 +3806,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pfsm" ],
 'methods': [ "_*new","?-dict","?-levels","?-embedInStream","?-rewriteList" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Menu": {
 'title': "Menu",
@@ -3857,7 +3837,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-exit","_-terminate","_-update","_-functions","_-addFunction","_-clear","_*new","?-copy","?-addNodeCleanup" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/VarSaw": {
 'title': "VarSaw",
@@ -3868,7 +3848,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Saw","Classes/SyncSaw","Classes/LFSaw" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/IRand": {
 'title': "IRand",
@@ -3879,7 +3859,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ExpRand","Classes/LinRand","Classes/NRand","Classes/Rand","Classes/TExpRand","Classes/TIRand","Classes/TRand" ],
 'methods': [ "_*new" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pnsym1": {
 'title': "Pnsym1",
@@ -3890,7 +3870,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "Pnsym","Psym","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pnsym","Psym","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/UserFAQ": {
 'title': "User FAQ",
@@ -3911,7 +3891,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MIDIIn","Classes/MIDIOut","Classes/MIDIFunc","Classes/MIDIdef","Guides/MIDI","Guides/UsingMIDI","Classes/MIDIEndPoint" ],
 'methods': [ "_*disposeClient","_*myoutports","_*externalSources","_*init","_*getClientID","_*sources","_*list","_*initialized","_*restart","_*myinports","_*destinations","_*externalDestinations" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/EZGui": {
 'title': "EZGui",
@@ -3952,7 +3932,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Plambda","Classes/Pget" ],
 'methods': [ "_-silent","_-pattern","_-storeArgs","_-key","_-return","_-embedInStream","_*new" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/DecodeB2": {
 'title': "DecodeB2",
@@ -3963,7 +3943,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BiPanB2","Classes/PanB","Classes/PanB2","Classes/Rotate2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/RecordBuf": {
 'title': "RecordBuf",
@@ -3974,7 +3954,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PlayBuf" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Psym1": {
 'title': "Psym1",
@@ -3985,7 +3965,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "Psym","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Psym","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Integer": {
 'title': "Integer",
@@ -3995,8 +3975,8 @@ docmap = {
 'categories': "Math",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "_-numBits","_-leadingZeroes","_-generate","_-indexOfPrime","_-asAscii","_-wrap","_-xrand","_-isNumPad","_-collectAs","_-hash","_-odd","_-fold","_-isCtrl","_-asUnicode","_-xrand2","_-asBinaryString","_-do","_--","_-to","_-modSeaside","_-clip","_-isCaps","_-asHexString","_-isAlt","_-log2Ceil","_-forBy","_-asStringToBase","_-isPowerOfTwo","_-+","_-trailingZeroes","_-clip","_-isInteger","_-prevPrime","_-isCmd","_-exit","_-collect","_-grayCode","_-degreeToKey","_-reverseDo","_-isHelp","_-fold","_-nextPrime","_-for","_-asBinaryDigits","_-asIPString","_-factors","_-geom","_-asDigits","_-even","_-*","_-pidRunning","_-nthPrime","_-isPrime","_-nextPowerOfTwo","_-asDigit","_-setBit","_-isShift","_-fib","_-isFun","_-factorial","?-asTarget","?-schedBundle","?-asNodeID","?-asGroup","?-asBus" ],
-'superclasses': [ "SimpleNumber","Number","Magnitude","Object" ],
+'methods': [ "_-numBits","_-leadingZeroes","_-generate","_-indexOfPrime","_-asAscii","_-wrap","_-xrand","_-isNumPad","_-collectAs","_-hash","_-fold","_-odd","_-isCtrl","_-asUnicode","_-xrand2","_-asBinaryString","_-do","_--","_-to","_-modSeaside","_-clip","_-isCaps","_-asHexString","_-isAlt","_-log2Ceil","_-forBy","_-asStringToBase","_-isPowerOfTwo","_-+","_-trailingZeroes","_-isInteger","_-prevPrime","_-isCmd","_-exit","_-collect","_-grayCode","_-degreeToKey","_-reverseDo","_-isHelp","_-fold","_-nextPrime","_-for","_-asBinaryDigits","_-asIPString","_-factors","_-clip","_-geom","_-asDigits","_-even","_-*","_-pidRunning","_-nthPrime","_-isPrime","_-nextPowerOfTwo","_-asDigit","_-setBit","_-isShift","_-fib","_-isFun","_-factorial","?-asTarget","?-schedBundle","?-asNodeID","?-asGroup","?-asBus" ],
+'superclasses': [ "SimpleNumber","Number","Magnitude","Object","AbstractObjectExperimental" ],
 },
 "Overviews/JITLib": {
 'title': "JITLib",
@@ -4026,8 +4006,9 @@ docmap = {
 'categories': "Core>Kernel, Language>OOP",
 'keywords': [  ],
 'related': [ "Classes/Class","Guides/Intro-to-Objects","Reference/Classes" ],
-'methods': [ "_-superPerformArgs","_-postcs","_-asCompileString","_-notNil","_-isMemberOf","_-isNumber","_-performArgs","_-isFloat","_-addUniqueMethod","_-changed","_-embedInStream","_-loop","_-==","_-functionPerformList","_-awake","_-hash","_-cs","_-identityHash","_-shouldNotImplement","_-fuzzyEqual","_-blend","_-idle","_-writeArchive","_-===","_-performMsg","_-doesNotUnderstand","_-??","_-dup","_-|!=|","_-next","_-post","_-yield","_-copy","_-gcInfo","_-performWithEnvir","_-fin","_-performList","_-deepCopy","_-tryPerform","_-class","_-streamArg","_-subclassResponsibility","_-?","_-shallowCopy","_-perform","_-obtain","_-instVarHash","_-throw","_-isNil","_-addDependant","_-update","_-as","_-rank","_-removeDependant","_-generate","_-postcln","_-pointsTo","_-isKindOf","_-|==|","_-superPerformList","_-dependants","_-asInt","_-postc","_-repeat","_-cyc","_-do","_-shape","_-size","_-copyImmutable","_-removeUniqueMethod","_-performKeyValuePairs","_-postln","_-release","_-superPerform","_-isInteger","_-nextN","_-multiChannelPerform","_-removeUniqueMethods","_-!?","_-respondsTo","_-frozen","_-switch","_-compareObject","_-yieldAndReset","_-alwaysYield","_-iter","_-!==","_-addFunc","_-deprecated","_-asArray","_-dump","_-reset","_-!=","_-mutable","_-removeFuncFrom","_-removeFunc","_-instill","_-addFuncTo","_*newCopyArgs","_*new","_*readArchive","?-nodeMapMapsToControl","?-slotIndex","?-equals","?-makeProxyControl","?-printClassNameOn","?-isString","?-eventAt","?-render","?-isUGen","?-asTextArchive","?-getContainedObjects","?-containsSeqColl","?-slotValuesDo","?-pairs","?-immutableError","?-isPlaying","?-performBinaryOpOnSomething","?-valueArgs","?-asCollection","?-asStringff","?-writeDefFile","?-inspectorClass","?-asOSCArgEmbeddedArray","?-value","?-initFromArchive","?-slotsDo","?-totalFree","?-asSequenceableCollection","?-isCollection","?-<!","?-performBinaryOpOnComplex","?-writeDefFileOld","?-**","?-valueEnvir","?-isArray","?-valueArrayEnvir","?-asArchive","?-dumpStack","?-releaseDependants","?-postString","?-falseAt","?-basicHash","?-archiveAsObject","?-indexedSize","?-storeModifiersOn","?-performBinaryOpOnUGen","?-asString","?-largestFreeBlock","?-outOfContextReturn","?-clear","?-slotPut","?-argNames","?-stackDepth","?-gcDumpGrey","?-deepCollect","?-%","?-dereference","?-composeEvents","?-instVarAt","?-isOutputUGen","?-clock","?-envirKey","?-<<","?-gcSanity","?-asUGenInput","?-&","?-isValidUGenInput","?-->","?-performBinaryOpOnSeqColl","?-beats","?-wakeUp","?-prepareForProxySynthDef","?-asAudioRateInput","?-prReverseLazyEquals","?-canCallOS","?-isRest","?-threadPlayer","?-archiveAsCompileString","?-gcDumpSet","?-freeze","?-writeBinaryArchive","?-reportError","?-storeParamsOn","?-checkCanArchive","?-doOnCmdPeriod","?-source","?-halt","?-dumpBackTrace","?-reduceFuncProxy","?-isNeutral","?-instVarPut","?-asSynthDef","?-!","?-trueAt","?-bubble","?-wakeUpToBundle","?-inspect","?-asOSCArgArray","?-performBinaryOpOnSimpleNumber","?-mustBeBoolean","?-proxyControlClass","?-asStream","?-primitiveFailed","?-numChannels","?-setSlots","?-debug","?-slice","?-dereferenceOperand","?-asDefName","?-postff","?-performBinaryOpOnSignal","?-asRef","?-free","?-while","?->>","?-isSequenceableCollection","?-valueFuncProxy","?-canFreeSynth","?-isFunction","?-isControlUGen","?-dumpDetailedBackTrace","?-envirCompileString","?-unbubble","?-asOSCArgBundle","?-poll","?-slotSize","?-valueArray","?-getSlots","?-simplifyStoreArgs","?-asBinaryArchive","?-|","?-reference","?-initBus","?-removedFromScheduler","?-instVarSize","?-slotAt","?-deepDo","?-defaultArgs","?-crash","?-finishEvent","?-species","?-replaceFunc","?-slotKey","?-buildForProxy","?-+>>","?-inspector","?-blendAt","?-getBackTrace","?-prHalt","?-writeTextArchive","?-pair","?-blendPut","?-notYetImplemented","?-asNodeArg","?-help","?-asSymbol","?-stop","?-asControlInput","?-isException","?-flatSize","?-matchItem","?-first","?-contentsCopy","?-isInputUGen","?-atLimit","?*dependantsDictionary","?*readBinaryArchive","?*readTextArchive","?*uniqueMethods" ],
-'subclasses': [ "FlowVar","Condition","LIDSlot","SynthDef","LIDInfo","HIDUsage","Unix","XInFeedback","Scheduler","MethodQuote","TestDependant","PowerOfTwoAllocator","LanguageConfig","CondVar","BelaScope","Score","MIDIEndPoint","LRUNumberAllocator","Color","HIDInfo","HIDProto","SystemSynthDefs","LIDAbsInfo","SCDocHTMLRenderer","EventTypesWithCleanup","MIDIClient","Monitor","LinLin","Clock","Point","MIDIOut","Env","NamedControl","EventStreamCleanup","ControlName","Harmonics","SelectXFocus","History","Tuning","HIDCollection","ServerStatusWatcher","UnitTest","SoundFile","PrettyState","Server","ServerOptions","AbstractResponderFunc","BLowPass4","AbstractMDPlugin","BHiPass4","PathName","SCDocNode","Quark","Git","LinkedListNode","UnitTestResult","PowerOfTwoBlock","Spec","MIDIEvent","SplayZ","Quant","IODesc","XIn","NotificationCenter","NodeControl","NodeIDAllocator","SCDocEntry","GraphBuilder","AbstractNodeWatcher","SerialPort","PMOsc","AbstractDispatcher","OSCresponder","NetAddr","LevelComp","ReadableNodeIDAllocator","AbstractSystemAction","PriorityQueue","HIDElement","Warp","LID","Platform","Message","MIDIIn","DebugFrame","ScaleStream","MeterSync","SkipJack","OSCBundle","AbstractMessageMatcher","NumChannels","URI","Reblock","EnvironmentRedirect","Node","NotificationRegistration","SelectX","SimpleController","Exception","PatternConductor","AbstractPlayControl","StackNumberAllocator","Scale","RingNumberAllocator","MultiTap","EnvGate","SCDoc","Post","SynthDesc","SynthDescLib","HIDElementProto","Silent","Size","ScopeBuffer","TChoose","MIDIResponder","MethodOverride","SoundIn","Rect","UniqueID","Quarks","Volume","ContiguousBlock","ExampleFiles","PingPong","Help","VolumeGui","Mix","HID","Buffer","Recorder","ContiguousBlockAllocator","Bus","TWChoose","Semaphore","Resample","ServerShmInterface","RawPointer","Magnitude","Boolean","Nil","Symbol","Finalizer","AbstractFunction","Interpreter","Process","Frame","FunctionDef","Collection","Class" ],
+'methods': [ "_-superPerformArgs","_-postcs","_-asCompileString","_-notNil","_-isMemberOf","_-isNumber","_-performArgs","_-isFloat","_-addUniqueMethod","_-changed","_-embedInStream","_-loop","_-==","_-functionPerformList","_-awake","_-hash","_-cs","_-identityHash","_-shouldNotImplement","_-fuzzyEqual","_-blend","_-idle","_-writeArchive","_-===","_-performMsg","_-doesNotUnderstand","_-??","_-dup","_-|!=|","_-next","_-post","_-yield","_-copy","_-gcInfo","_-performWithEnvir","_-fin","_-performList","_-deepCopy","_-tryPerform","_-class","_-streamArg","_-subclassResponsibility","_-?","_-shallowCopy","_-perform","_-obtain","_-instVarHash","_-throw","_-isNil","_-addDependant","_-update","_-as","_-rank","_-removeDependant","_-generate","_-postcln","_-pointsTo","_-isKindOf","_-|==|","_-superPerformList","_-dependants","_-asInt","_-postc","_-repeat","_-cyc","_-do","_-shape","_-size","_-copyImmutable","_-removeUniqueMethod","_-performKeyValuePairs","_-postln","_-release","_-superPerform","_-isInteger","_-nextN","_-multiChannelPerform","_-removeUniqueMethods","_-!?","_-respondsTo","_-frozen","_-switch","_-compareObject","_-yieldAndReset","_-alwaysYield","_-iter","_-!==","_-addFunc","_-deprecated","_-asArray","_-dump","_-reset","_-!=","_-mutable","_-removeFuncFrom","_-removeFunc","_-instill","_-addFuncTo","_*newCopyArgs","_*new","_*readArchive","?-nodeMapMapsToControl","?-slotIndex","?-makeProxyControl","?-equals","?-printClassNameOn","?-isString","?-eventAt","?-render","?-isUGen","?-asTextArchive","?-getContainedObjects","?-containsSeqColl","?-slotValuesDo","?-pairs","?-isPlaying","?-immutableError","?-valueArgs","?-performBinaryOpOnSomething","?-asCollection","?-asStringff","?-inspectorClass","?-writeDefFile","?-asOSCArgEmbeddedArray","?-value","?-initFromArchive","?-slotsDo","?-totalFree","?-asSequenceableCollection","?-isCollection","?-<!","?-performBinaryOpOnComplex","?-writeDefFileOld","?-**","?-valueEnvir","?-isArray","?-valueArrayEnvir","?-asArchive","?-dumpStack","?-releaseDependants","?-postString","?-falseAt","?-basicHash","?-outOfContextReturn","?-indexedSize","?-performBinaryOpOnUGen","?-storeModifiersOn","?-asString","?-largestFreeBlock","?-archiveAsObject","?-slotPut","?-clear","?-argNames","?-stackDepth","?-gcDumpGrey","?-deepCollect","?-%","?-dereference","?-composeEvents","?-instVarAt","?-isOutputUGen","?-clock","?-envirKey","?-<<","?-gcSanity","?-asUGenInput","?-&","?-isValidUGenInput","?-->","?-performBinaryOpOnSeqColl","?-beats","?-wakeUp","?-prepareForProxySynthDef","?-asAudioRateInput","?-prReverseLazyEquals","?-canCallOS","?-isRest","?-threadPlayer","?-archiveAsCompileString","?-gcDumpSet","?-freeze","?-writeBinaryArchive","?-reportError","?-storeParamsOn","?-checkCanArchive","?-doOnCmdPeriod","?-source","?-dumpBackTrace","?-halt","?-reduceFuncProxy","?-isNeutral","?-instVarPut","?-asSynthDef","?-!","?-trueAt","?-bubble","?-inspect","?-wakeUpToBundle","?-asOSCArgArray","?-performBinaryOpOnSimpleNumber","?-numChannels","?-asStream","?-proxyControlClass","?-primitiveFailed","?-mustBeBoolean","?-setSlots","?-debug","?-dereferenceOperand","?-slice","?-asDefName","?-postff","?-performBinaryOpOnSignal","?-asRef","?-free","?-while","?->>","?-isSequenceableCollection","?-valueFuncProxy","?-canFreeSynth","?-isFunction","?-isControlUGen","?-dumpDetailedBackTrace","?-envirCompileString","?-unbubble","?-asOSCArgBundle","?-getSlots","?-valueArray","?-slotSize","?-poll","?-simplifyStoreArgs","?-asBinaryArchive","?-|","?-initBus","?-reference","?-removedFromScheduler","?-instVarSize","?-slotAt","?-deepDo","?-defaultArgs","?-crash","?-finishEvent","?-species","?-replaceFunc","?-slotKey","?-buildForProxy","?-inspector","?-blendAt","?-+>>","?-getBackTrace","?-prHalt","?-writeTextArchive","?-pair","?-blendPut","?-notYetImplemented","?-asNodeArg","?-help","?-asSymbol","?-stop","?-asControlInput","?-isException","?-flatSize","?-matchItem","?-first","?-contentsCopy","?-isInputUGen","?-atLimit","?*dependantsDictionary","?*uniqueMethods","?*readBinaryArchive","?*readTextArchive" ],
+'superclasses': [ "AbstractObjectExperimental" ],
+'subclasses': [ "FlowVar","Condition","LIDSlot","SynthDef","LIDInfo","HIDUsage","Unix","XInFeedback","Scheduler","MethodQuote","TestDependant","PowerOfTwoAllocator","LanguageConfig","CondVar","BelaScope","Score","MIDIEndPoint","LRUNumberAllocator","Color","HIDInfo","HIDProto","SystemSynthDefs","LIDAbsInfo","SCDocHTMLRenderer","EventTypesWithCleanup","MIDIClient","Monitor","LinLin","Clock","Point","MIDIOut","Env","NamedControl","EventStreamCleanup","ControlName","Harmonics","SelectXFocus","History","Tuning","HIDCollection","ServerStatusWatcher","UnitTest","SoundFile","PrettyState","Server","ServerOptions","AbstractResponderFunc","BLowPass4","AbstractMDPlugin","BHiPass4","PathName","SCDocNode","Quark","Git","LinkedListNode","UnitTestResult","PowerOfTwoBlock","Spec","MIDIEvent","SplayZ","Quant","IODesc","XIn","NotificationCenter","NodeControl","NodeIDAllocator","SCDocEntry","GraphBuilder","AbstractNodeWatcher","SerialPort","PMOsc","AbstractDispatcher","OSCresponder","NetAddr","LevelComp","ReadableNodeIDAllocator","AbstractSystemAction","PriorityQueue","HIDElement","Warp","LID","Platform","Message","MIDIIn","ScaleStream","MeterSync","SkipJack","OSCBundle","AbstractMessageMatcher","NumChannels","URI","Reblock","EnvironmentRedirect","Node","NotificationRegistration","SelectX","SimpleController","Exception","PatternConductor","AbstractPlayControl","StackNumberAllocator","Scale","RingNumberAllocator","MultiTap","EnvGate","SCDoc","Post","SynthDesc","SynthDescLib","HIDElementProto","Silent","Size","ScopeBuffer","TChoose","MIDIResponder","MethodOverride","SoundIn","Rect","UniqueID","Quarks","Volume","ContiguousBlock","ExampleFiles","PingPong","Help","VolumeGui","Mix","HID","Buffer","Recorder","ContiguousBlockAllocator","Bus","TWChoose","Semaphore","Resample","DebugFrame","ServerShmInterface","RawPointer","Magnitude","Boolean","Nil","Symbol","Finalizer","AbstractFunction","Interpreter","Process","FunctionDef","Collection","Class" ],
 },
 "Classes/Pfx": {
 'title': "Pfx",
@@ -4038,7 +4019,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pfxb","Classes/Pbus","Classes/Pgroup" ],
 'methods': [ "?-pairs","?-isolate","?-embedInStream","?-fxname","?*new" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pfxb" ],
 },
 "Guides/Spawning": {
@@ -4060,7 +4041,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Peak" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pclump": {
 'title': "Pclump",
@@ -4071,7 +4052,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SequenceableCollection#-clump" ],
 'methods': [ "_*new","?-n","?-embedInStream" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pflatten" ],
 },
 "Classes/ProxyMixer": {
@@ -4093,7 +4074,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Lag2","Classes/Lag3","Classes/VarLag","Classes/LagUD" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Lag2","Ramp","Lag3" ],
 },
 "Classes/Ppar": {
@@ -4105,7 +4086,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ptpar","Classes/Pgpar","Classes/Pbus","Classes/Pgroup" ],
 'methods': [ "_*new","?-embedInStream","?-initStreams" ],
-'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pgpar","Ptpar" ],
 },
 "Classes/MultiTap": {
@@ -4117,7 +4098,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Tap" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/OSCpathResponder": {
 'title': "OSCpathResponder",
@@ -4128,7 +4109,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OSCFunc","Classes/OSCdef","Guides/OSC_communication","Classes/OSCresponderNode" ],
 'methods': [ "_*new","?-==","?-add","?-remove","?-path","?-hash","?-dispatcher","?-findDispatcher" ],
-'superclasses': [ "OSCresponder","Object" ],
+'superclasses': [ "OSCresponder","Object","AbstractObjectExperimental" ],
 },
 "Classes/Sum4": {
 'title': "Sum4",
@@ -4139,7 +4120,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Mix" ],
 'methods': [ "_*new" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Thunk": {
 'title': "Thunk",
@@ -4150,7 +4131,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-value","_*new","?-valueArrayEnvir","?-valueEnvir","?-valueArray","?-clear","?-didEvaluate" ],
-'superclasses': [ "AbstractFunction","Object" ],
+'superclasses': [ "AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "UGenThunk","CallOnce" ],
 },
 "Classes/Int16Array": {
@@ -4162,7 +4143,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FloatArray","Classes/Int8Array","Classes/Int32Array","Classes/DoubleArray","Classes/SymbolArray" ],
 'methods': [ "_-readFromStream" ],
-'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object" ],
+'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_MagBelow": {
 'title': "PV_MagBelow",
@@ -4173,7 +4154,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_MagAbove","Classes/PV_LocalMax","Classes/PV_MagClip" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagAbove","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagAbove","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BelaScope": {
 'title': "BelaScope",
@@ -4184,7 +4165,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*monitorBus","_*scope","?-bus","?-node","?-server","?*serverScopes","?*prInputAsAudioRateUGens" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Guides/ClientVsServer": {
 'title': "Client vs Server",
@@ -4225,7 +4206,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LinkPhase","Classes/LinkClock","Classes/LinkJump" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/Japanese_version/01": {
 'title': "01",
@@ -4246,7 +4227,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-addToTailMsg","?-deepFreeMsg","?-moveNodeToHead","?-addBeforeMsg","?-newMsg","?-addAfterMsg","?-moveNodeToHeadMsg","?-deepFree","?-queryTree","?-addReplaceMsg","?-freeAllMsg","?-moveNodeToTailMsg","?-dumpTree","?-asGroup","?-freeAll","?-addToHeadMsg","?-moveNodeToTail","?*before","?*new","?*replace","?*creationCmd","?*after","?*tail","?*head" ],
-'superclasses': [ "Node","Object" ],
+'superclasses': [ "Node","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Group","ParGroup" ],
 },
 "Classes/Error": {
@@ -4257,9 +4238,9 @@ docmap = {
 'categories': "Core",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "?-errorString","?-errorPathString" ],
-'superclasses': [ "Exception","Object" ],
-'subclasses': [ "MethodError" ],
+'methods': [ "_-reportStage2","_-reportError","_-errorString","_-path","_-backtrace","_-throw","_-reportStage1","_*new" ],
+'superclasses': [ "Exception","Object","AbstractObjectExperimental" ],
+'subclasses': [ "MethodError","ErrorWrapper" ],
 },
 "Classes/SplayAz": {
 'title': "SplayAz",
@@ -4270,7 +4251,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Splay","Classes/PanAz","Classes/SelectXFocus","Classes/LevelComp","Guides/Level_Compensation" ],
 'methods': [ "_*kr","_*arFill","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/QPenPrinter": {
 'title': "QPenPrinter",
@@ -4301,7 +4282,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "Env","Object" ],
+'superclasses': [ "Env","Object","AbstractObjectExperimental" ],
 },
 "Classes/InterplEnv": {
 'title': "InterplEnv",
@@ -4322,7 +4303,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SOS" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Help": {
 'title': "Help",
@@ -4333,7 +4314,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-root","?*global","?*methodArgs","?*filterUserDirEntries","?*cachePath","?*gui","?*dir" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Guides/SCIde": {
 'title': "SuperCollider IDE",
@@ -4354,7 +4335,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SOS","Classes/BLowPass","Classes/BLowPass4","Classes/BHiPass","Classes/BHiPass4","Classes/BPeakEQ","Classes/BLowShelf","Classes/BHiShelf","Classes/BBandStop","Classes/BAllPass" ],
 'methods': [ "_*ar","?*sc" ],
-'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MustBeBooleanError": {
 'title': "MustBeBooleanError",
@@ -4364,8 +4345,8 @@ docmap = {
 'categories': "Undocumented classes",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "?-errorString" ],
-'superclasses': [ "MethodError","Error","Exception","Object" ],
+'methods': [ "?*new" ],
+'superclasses': [ "MethodError","Error","Exception","Object","AbstractObjectExperimental" ],
 },
 "Guides/Sync-Async": {
 'title': "Synchronous and Asynchronous Execution",
@@ -4396,7 +4377,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Demand","Classes/TDuty" ],
 'methods': [ "_*kr","_*ar","?-canFreeSynth" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "TDuty" ],
 },
 "Classes/LFCub": {
@@ -4408,7 +4389,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFPar","Classes/LFPulse","Classes/LFSaw","Classes/LFTri" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LFSaw","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LFSaw","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Demand": {
 'title': "Demand",
@@ -4419,7 +4400,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Duty","Classes/TDuty" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dust2": {
 'title': "Dust2",
@@ -4430,7 +4411,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Dust" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_PhaseShift90": {
 'title': "PV_PhaseShift90",
@@ -4441,7 +4422,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_PhaseShift","Classes/PV_PhaseShift270","Classes/PV_Diffuser" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagSquared","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagSquared","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/VLayoutView": {
 'title': "VLayoutView",
@@ -4462,7 +4443,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?*readMetadataFile","?*writeMetadataFile","?*mdExtension" ],
-'superclasses': [ "AbstractMDPlugin","Object" ],
+'superclasses': [ "AbstractMDPlugin","Object","AbstractObjectExperimental" ],
 },
 "Classes/Font": {
 'title': "Font",
@@ -4483,7 +4464,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-pattern2","?-pattern3","?-storeArgs","?-embedInStream","?-pattern1","?*new" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Gendy2": {
 'title': "Gendy2",
@@ -4494,7 +4475,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Gendy1","Classes/Gendy3" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PrimitiveFailedError": {
 'title': "PrimitiveFailedError",
@@ -4504,8 +4485,8 @@ docmap = {
 'categories': "Undocumented classes",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "?-failedPrimitiveName","?-errorString","?*new" ],
-'superclasses': [ "MethodError","Error","Exception","Object" ],
+'methods': [ "?-failedPrimitiveName","?*new" ],
+'superclasses': [ "MethodError","Error","Exception","Object","AbstractObjectExperimental" ],
 },
 "Classes/SCDocHTMLRenderer": {
 'title': "SCDocHTMLRenderer",
@@ -4516,7 +4497,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SCDoc","Guides/WritingHelp","Reference/SCDocSyntax","Reference/SCDocStyling" ],
 'methods': [ "_*renderOnStream","_*htmlForLink","_*makeArgString","_*renderToFile","?*renderChildren","?*renderClassTree","?*prLinkTextForInternalLink","?*renderMethod","?*renderHeader","?*renderFooter","?*renderFootNotes","?*prLinkTargetForInternalLink","?*prLinkTargetForExternalLink","?*escapeSpecialChars","?*renderSubTree","?*addUndocumentedMethods","?*binaryOperatorCharacters","?*escapeSpacesInAnchor","?*renderTOC" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Signal": {
 'title': "Signal",
@@ -4527,7 +4508,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Wavetable" ],
 'methods': [ "_-offset","_-sqrt","_-/","_-cosh","_-ring4","_-blend","_--","_-normalize","_-absdif","_-waveFill","_-ring1","_-peak","_-fft","_-plot","_-excess","_-softclip","_-scale","_-exp","_-<!","_-sin","_-ring2","_-**","_-tan","_-div","_-overWrite","_-*","_-fill","_-sqrdif","_-clip2","_-acos","_-scaleneg","_-asWavetable","_-ifft","_-thresh","_-overDub","_-neg","_-sign","_-atan","_-cubed","_-abs","_-isStrictlyPositive","_-wrap2","_-sinh","_-squared","_-asin","_-normalizeTransfer","_-%","_-invert","_-fade","_-isNegative","_-+","_-mod","_-max","_-amclip","_-distort","_-integral","_-tanh","_-sumsqr","_-reverse","_-isPositive","_-cos","_-log10","_-log","_-ring3","_-difsqr","_-min","_-play","_-log2","_-pow","_*rectWindow","_*hammingWindow_old","_*hammingWindow","_*fftCosTable","_*hanningWindow","_*chebyFill","_*welchWindow","_*sineFill","?-sqrsum","?-scurve","?-ramp","?-addSine","?-wrap","?-addChebyshev","?-rectWindow","?-fold","?-rotate","?-==","?-sineFill2","?-asWavetableNoWrap","?-sineFill","?-welWindow","?-asInteger","?-modSeaside","?-chebyFill","?-imag","?-asSignal","?-clip","?-chebyFill_old","?-asComplex","?-firstArg","?-real","?-triWindow","?-!=","?-fold2","?-fftCosTable","?-hanWindow","?-zeroPad","?-asFloat","?*readNew" ],
-'superclasses': [ "FloatArray","RawArray","ArrayedCollection","SequenceableCollection","Collection","Object" ],
+'superclasses': [ "FloatArray","RawArray","ArrayedCollection","SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/JITLib/basic_live_coding_techniques": {
 'title': "basic_live_coding_techniques",
@@ -4568,7 +4549,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-value" ],
-'superclasses': [ "Thunk","AbstractFunction","Object" ],
+'superclasses': [ "Thunk","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Getting-Started/03-Start-Your-Engines": {
 'title': "03. Start Your Engines",
@@ -4589,7 +4570,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-rawValue","?-initSpec","?-value" ],
-'superclasses': [ "LIDSlot","Object" ],
+'superclasses': [ "LIDSlot","Object","AbstractObjectExperimental" ],
 },
 "Classes/Lag3UD": {
 'title': "Lag3UD",
@@ -4600,7 +4581,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Lag","Classes/Lag2","Classes/Lag3","Classes/LagUD","Classes/Lag2UD" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LagUD","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LagUD","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ScelDocument": {
 'title': "ScelDocument",
@@ -4621,7 +4602,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Impulse" ],
 'methods': [ "_*ar","?*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BufAllpassC": {
 'title': "BufAllpassC",
@@ -4632,7 +4613,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufAllpassL","Classes/BufAllpassN","Classes/AllpassC" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "BufCombN","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BufCombN","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Onsets": {
 'title': "Onsets",
@@ -4643,7 +4624,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BeatTrack","Classes/Loudness","Classes/MFCC","Classes/Pitch","Classes/KeyTrack" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NRand": {
 'title': "NRand",
@@ -4654,7 +4635,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ExpRand","Classes/IRand","Classes/LinRand","Classes/Rand","Classes/TExpRand","Classes/TIRand","Classes/TRand" ],
 'methods': [ "_*new" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/RandSeed": {
 'title': "RandSeed",
@@ -4665,7 +4646,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/RandID" ],
 'methods': [ "_*kr","_*ir","?*ar" ],
-'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MethodQuote": {
 'title': "MethodQuote",
@@ -4676,7 +4657,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-selector","?-value","?-storeArgs","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Guides/Bundled-Messages": {
 'title': "Bundled Server Messages",
@@ -4697,7 +4678,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pswitch1" ],
 'methods': [ "_*new","?-which","?-embedInStream","?-list" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pswitch1" ],
 },
 "Classes/LevelIndicator": {
@@ -4719,7 +4700,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FBSineN","Classes/FBSineL" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "FBSineN","ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "FBSineN","ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pdiff": {
 'title': "Pdiff",
@@ -4730,7 +4711,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pseries" ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/Tour_of_UGens": {
 'title': "Tour of UGens",
@@ -4771,7 +4752,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-asTuning","_-tr","_-kr","_-envirPut","_-asScale","_-isIdentifier","_-isMetaClassName","_-isBinaryOp","_-asString","_-ir","_-asGetter","_-isSetter","_-asInteger","_-isPrimitiveName","_-isPrefix","_-asClass","_-asSpec","_-envirGet","_-applyTo","_-ascii","_-ar","_-isClassName","_-asSetter","?-sqrt","?-midiratio","?-bilinrand","?-scurve","?-/","?-doComplexOp","?-asCompileString","?-cosh","?-floor","?-roundUp","?-rectWindow","?->=","?-octcps","?-odd","?-welWindow","?-blend","?-round","?-performBinaryOpOnSomething","?--","?-sum3rand","?-hanWindow","?-bitHammingDistance","?-degrad","?-asFloat","?-hypotApx","?-hammingDistance","?-softclip","?-lcm","?-trunc","?-proxyControlClass","?-cpsoct","?-bitAnd","?-degreeToKey","?-exp","?-asDefName","?-<=","?-midicps","?-sin","?-tan","?-leftShift","?-*","?-hypot","?-primitiveIndex","?-asWarp","?-rand2","?-linrand","?-acos","?-frac","?-doSignalOp","?-isBasicOperator","?-codegen_UGenCtorArg","?-ampdb","?-ramp","?-atan2","?-raddeg","?-isPrimitive","?-++","?-asBinOpString","?-neg","?-sign","?-atan","?-doNumberOp","?-abs","?-bitXor","?-doListOp","?-coin","?-rightShift","?-sinh","?-modSeaside","?-asin","?-matchOSCAddressPattern","?-+","?-buildForProxy","?-dbamp","?-mod","?-unsignedRightShift","?-max","?-exprand","?-distort","?-ratiomidi","?-tanh","?-rrand","?-<","?-gcd","?->","?-bitNot","?-bitOr","?-specialIndex","?-ceil","?-even","?-isRest","?-cos","?-log10","?-help","?-log","?-asSymbol","?-cpsmidi","?-rand","?-triWindow","?-min","?-archiveAsCompileString","?-log2","?-pow","?-isMap" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Overviews/Collections": {
 'title': "Collections",
@@ -4792,7 +4773,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pfsm" ],
 'methods': [ "_*new","?-startState","?-embedInStream" ],
-'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LocalBuf": {
 'title': "LocalBuf",
@@ -4803,7 +4784,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Buffer","Classes/SetBuf","Classes/ClearBuf" ],
 'methods': [ "_-clear","_-set","_*new","_*newFrom","?-numChannels","?-numFrames" ],
-'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Node": {
 'title': "Node",
@@ -4814,7 +4795,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Reference/Server-Architecture","Classes/Synth","Classes/Group","Classes/RootNode" ],
 'methods': [ "_-freeMsg","_-map","_-moveBefore","_-mapnMsg","_-moveToTailMsg","_-isRunning","_-mapn","_-group","_-==","_-moveBeforeMsg","_-moveToHeadMsg","_-moveAfter","_-hash","_-asTarget","_-printOn","_-isPlaying","_-waitForFree","_-set","_-trace","_-setMsg","_-release","_-nodeID","_-mapMsg","_-moveAfterMsg","_-moveToHead","_-moveToTail","_-releaseMsg","_-register","_-onFree","_-server","_-run","_-free","_-setnMsg","_-fill","_-runMsg","_-query","_-setn","_-fillMsg","_*addActions","?-unregister","?-asUGenInput","?-asNodeID","?-asControlInput","?*setnMsgArgs","?*basicNew","?*actionNumberFor","?*orderNodesMsg" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "AbstractGroup","Synth" ],
 },
 "Classes/Pget": {
@@ -4826,7 +4807,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Plambda","Classes/Plet" ],
 'methods': [ "_-default","_-storeArgs","_-key","_-repeats","_-embedInStream","_*new" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Ptpar": {
 'title': "Ptpar",
@@ -4837,7 +4818,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ppar" ],
 'methods': [ "_*new","?-initStreams" ],
-'superclasses': [ "Ppar","ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Ppar","ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_Cookbook07_Rhythmic_Variations": {
 'title': "Pattern Guide Cookbook 07: Rhythmic Variations",
@@ -4858,7 +4839,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AmpCompA" ],
 'methods': [ "_*ir","_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "AmpCompA" ],
 },
 "Classes/Pprotect": {
@@ -4870,7 +4851,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ptrace" ],
 'methods': [ "_*new","?-func","?-embedInStream" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/TDuty": {
 'title': "TDuty",
@@ -4881,7 +4862,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Demand","Classes/Duty" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Duty","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Duty","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LimitedWriteStream": {
 'title': "LimitedWriteStream",
@@ -4892,7 +4873,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-atLimit","?-putAll","?-limitFunc","?-limit","?-put" ],
-'superclasses': [ "CollStream","IOStream","Stream","AbstractFunction","Object" ],
+'superclasses': [ "CollStream","IOStream","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ImmutableError": {
 'title': "ImmutableError",
@@ -4902,8 +4883,8 @@ docmap = {
 'categories': "Undocumented classes",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "?-errorString","?-value","?*new" ],
-'superclasses': [ "MethodError","Error","Exception","Object" ],
+'methods': [ "?-value","?*new" ],
+'superclasses': [ "MethodError","Error","Exception","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pen": {
 'title': "Pen",
@@ -4924,7 +4905,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Fdef","Overviews/JITLib" ],
 'methods': [ "_-source","_-<>","_-doesNotUnderstand","_-do","_-apply","_-value","_-clear","_-o","_*new","?-composeNAryOp","?-reverseComposeBinaryOp","?-put","?-valueArray","?-postString","?-embedInStream","?-composeUnaryOp","?-functionPerformList","?-atAll","?-catchRecursion","?-add","?-all","?-valueEnvir","?-reduceFuncProxy","?-infoString","?-at","?-addAll","?-composeBinaryOp","?-valueFuncProxy","?-putAll","?-includedInCallers","?-findKey","?-valueArrayEnvir","?*current","?*protected","?*verbose","?*callFunc","?*callers","?*defaultValue" ],
-'superclasses': [ "Ref","AbstractFunction","Object" ],
+'superclasses': [ "Ref","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Fdef" ],
 },
 "Classes/HenonN": {
@@ -4936,7 +4917,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HenonL","Classes/HenonC" ],
 'methods': [ "_*ar","?*equation" ],
-'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "HenonL","HenonC" ],
 },
 "Classes/RandID": {
@@ -4948,7 +4929,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/RandSeed" ],
 'methods': [ "_*kr","_*ir" ],
-'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PureMultiOutUGen": {
 'title': "PureMultiOutUGen",
@@ -4959,7 +4940,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-optimizeGraph" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "DC" ],
 },
 "Classes/File": {
@@ -4971,7 +4952,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FileReader" ],
 'methods': [ "_-close","_-length","_-readAllStringHTML","_-pos","_-readAllStringRTF","_-open","_-readAllSignal","_-readAllString","_-seek","_*exists","_*copy","_*new","_*readAllStringRTF","_*existsCaseSensitive","_*mtime","_*systemIsCaseSensitive","_*open","_*getcwd","_*readAllSignal","_*delete","_*type","_*fileSize","_*use","_*readAllStringHTML","_*deleteAll","_*realpath","_*readAllString","_*mkdir" ],
-'superclasses': [ "UnixFILE","IOStream","Stream","AbstractFunction","Object" ],
+'superclasses': [ "UnixFILE","IOStream","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/CollStream": {
 'title': "CollStream",
@@ -4982,7 +4963,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-putPascalString","?-pos","?-getInt32","?-rewind","?-getInt8","?-putInt16","?-getPascalString","?-collection","?-putDoubleLE","?-putInt8","?-putInt32","?-next","?-nextN","?-putFloat","?-putString","?-getChar","?-contents","?-putInt32LE","?-getInt16","?-putChar","?-putFloatLE","?-putAll","?-putDouble","?-reset","?-put","?-on","?-getDouble","?-read","?-peek","?-putInt16LE","?-getFloat","?*on","?*new" ],
-'superclasses': [ "IOStream","Stream","AbstractFunction","Object" ],
+'superclasses': [ "IOStream","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "LimitedWriteStream" ],
 },
 "Classes/Psync": {
@@ -4994,7 +4975,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pfindur" ],
 'methods': [ "_*new","?-tolerance","?-mindur","?-maxdur","?-quant","?-embedInStream" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/VOsc": {
 'title': "VOsc",
@@ -5005,7 +4986,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/COsc","Classes/Osc","Classes/OscN","Classes/VOsc3" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Knob": {
 'title': "Knob",
@@ -5036,7 +5017,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-asString","?-init","?-asLocalPath","?-path","?-fragment","?-scheme","?-authority","?-query","?*fromLocalPath","?*tolerant","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Pwalk": {
 'title': "Pwalk",
@@ -5047,7 +5028,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pbrown" ],
 'methods': [ "_*new","?-startPos","?-directionPattern","?-embedInStream","?-stepPattern" ],
-'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/CombN": {
 'title': "CombN",
@@ -5058,7 +5039,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/CombC","Classes/CombL","Classes/BufCombN" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "CombL","AllpassC","AllpassL","CombC","AllpassN" ],
 },
 "Guides/ListComprehensions": {
@@ -5080,7 +5061,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/CombL","Classes/CombN","Classes/BufCombC" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "CombN","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "CombN","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PAbstractGroup": {
 'title': "PAbstractGroup",
@@ -5091,7 +5072,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-embedInStream","?*embedLoop" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PparGroup","Pgroup" ],
 },
 "Classes/Schmidt": {
@@ -5103,7 +5084,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/InRange","Classes/InRect" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "InRange","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InRange","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/HIDUsageDispatcher": {
 'title': "HIDUsageDispatcher",
@@ -5114,7 +5095,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-unregister","?-getKeysForFuncProxy","?-register","?-wrapFunc","?-typeKey","?-value","?*new" ],
-'superclasses': [ "AbstractWrappingDispatcher","AbstractDispatcher","Object" ],
+'superclasses': [ "AbstractWrappingDispatcher","AbstractDispatcher","Object","AbstractObjectExperimental" ],
 'subclasses': [ "HIDElementDispatcher","HIDDeviceDispatcher" ],
 },
 "Classes/PowerOfTwoAllocator": {
@@ -5126,7 +5107,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-blocks","?-alloc","?-free","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/EZNumber": {
 'title': "EZNumber",
@@ -5157,7 +5138,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-storeOn","_-==","_-printOn","_-key","_-hash","_-value","_-<","_*new","?-buildForProxy","?-transformEvent","?-proxyControlClass","?-embedInStream" ],
-'superclasses': [ "Magnitude","Object" ],
+'superclasses': [ "Magnitude","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_01_Introduction": {
 'title': "Pattern Guide 01: Introduction",
@@ -5178,7 +5159,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-object","?-message","?-remove","?-listener","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_MagSmear": {
 'title': "PV_MagSmear",
@@ -5189,7 +5170,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/TouchResponder": {
 'title': "TouchResponder",
@@ -5200,7 +5181,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MIDIFunc","Classes/MIDIdef","Classes/MIDIResponder","Classes/CCResponder" ],
 'methods': [ "_-learn","_*new","?-value","?*initialized","?*responders","?*add","?*remove","?*touchinit","?*touchr" ],
-'superclasses': [ "MIDIResponder","Object" ],
+'superclasses': [ "MIDIResponder","Object","AbstractObjectExperimental" ],
 'subclasses': [ "BendResponder" ],
 },
 "Tutorials/JITLib/recursive_phrasing": {
@@ -5222,7 +5203,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FreeVerb2","Classes/GVerb" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ServerStatusWatcher": {
 'title': "ServerStatusWatcher",
@@ -5233,7 +5214,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Server" ],
 'methods': [ "_*new","?-numGroups","?-prHandleLoginWhenAlreadyRegistered","?-watchQuit","?-notified","?-unresponsive","?-updateRunningState","?-stopStatusWatcher","?-doWhenBooted","?-sampleRate","?-hasBooted","?-avgCPU","?-actualSampleRate","?-sendNotifyRequest","?-timeoutBeforeConsideredDeadOnExit","?-addStatusWatcher","?-notify","?-peakCPU","?-resumeThread","?-serverBooting","?-numSynths","?-aliveThread","?-serverRunning","?-numUGens","?-numSynthDefs","?-startAliveThread","?-quit","?-stopAliveThread","?-aliveThreadPeriod" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/CurveWarp": {
 'title': "CurveWarp",
@@ -5244,7 +5225,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-curve","?-asSpecifier","?-hash","?-==","?-map","?-unmap","?-init","?*new" ],
-'superclasses': [ "Warp","Object" ],
+'superclasses': [ "Warp","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pshuf": {
 'title': "Pshuf",
@@ -5255,7 +5236,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Prand" ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BelaServerOptions": {
 'title': "BelaServerOptions",
@@ -5266,7 +5247,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-adcLevel","?-belaMaxScopeChannels","?-dacLevel","?-numMultiplexChannels","?-belaPRU","?-pgaGainRight","?-numAnalogInChannels","?-speakerMuted","?-headphoneLevel","?-asOptionsString","?-numDigitalChannels","?-pgaGainLeft","?-numAnalogOutChannels" ],
-'superclasses': [ "ServerOptions","Object" ],
+'superclasses': [ "ServerOptions","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/18_Frequency_modulation": {
 'title': "18_Frequency_modulation",
@@ -5297,7 +5278,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/CuspN" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "CuspN","ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "CuspN","ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/FBSineL": {
 'title': "FBSineL",
@@ -5308,7 +5289,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FBSineC","Classes/FBSineN" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "FBSineN","ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "FBSineN","ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BLowShelf": {
 'title': "BLowShelf",
@@ -5319,7 +5300,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SOS","Classes/BLowPass","Classes/BLowPass4","Classes/BHiPass","Classes/BHiPass4","Classes/BPeakEQ","Classes/BHiShelf","Classes/BBandPass","Classes/BBandStop","Classes/BAllPass" ],
 'methods': [ "_*ar","?*sc" ],
-'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/EnvironmentRedirect": {
 'title': "EnvironmentRedirect",
@@ -5329,8 +5310,8 @@ docmap = {
 'categories': "JITLib>Environments, Collections>Unordered, Live Coding",
 'keywords': [  ],
 'related': [ "Classes/Environment" ],
-'methods': [ "_-know","_-localRemoveAt","_-put","_-removeAt","_-envir","_-keysValuesDo","_-doFunctionPerform","_-keysValuesArrayDo","_-push","_-sortedKeysValuesDo","_-linkDoc","_-clear","_-choose","_-dispatch","_-add","_-findKeyForValue","_-do","_-keys","_-use","_-at","_-unlinkDoc","_-make","_-values","_-putAll","_-doesNotUnderstand","_-pop","_-localPut","_*make","_*push","_*use","_*new","_*pop","_*newFrom","?-linkDoc","?-unlinkDoc" ],
-'superclasses': [ "Object" ],
+'methods': [ "_-know","_-localRemoveAt","_-put","_-removeAt","_-envir","_-keysValuesDo","_-doFunctionPerform","_-keysValuesArrayDo","_-push","_-sortedKeysValuesDo","_-clear","_-choose","_-dispatch","_-add","_-findKeyForValue","_-do","_-keys","_-use","_-linkDoc","_-at","_-make","_-values","_-putAll","_-doesNotUnderstand","_-unlinkDoc","_-pop","_-localPut","_*make","_*push","_*use","_*new","_*pop","_*newFrom","?-linkDoc","?-unlinkDoc" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "LazyEnvir" ],
 },
 "Classes/LFSaw": {
@@ -5342,7 +5323,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFCub","Classes/LFPar","Classes/LFPulse","Classes/LFTri","Classes/Saw" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "LFCub","LFTri","LFPar" ],
 },
 "Tutorials/Mark_Polishook_tutorial/21_Syntax_errors": {
@@ -5364,7 +5345,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-pretty","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "PrettyEat","PrettyEcho" ],
 },
 "Classes/BAllPass": {
@@ -5376,7 +5357,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SOS","Classes/BLowPass","Classes/BLowPass4","Classes/BHiPass","Classes/BHiPass4","Classes/BPeakEQ","Classes/BLowShelf","Classes/BHiShelf","Classes/BBandPass","Classes/BBandStop" ],
 'methods': [ "_*ar","?*sc" ],
-'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/EZKnob": {
 'title': "EZKnob",
@@ -5397,7 +5378,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-init","?-free","?-alloc","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/VLayout": {
 'title': "VLayout",
@@ -5418,7 +5399,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Convolution","Classes/Convolution2L","Classes/Convolution3" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NodeTreeView": {
 'title': "NodeTreeView",
@@ -5439,7 +5420,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Saw","Classes/VarSaw","Classes/LFSaw" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/InterplPairs": {
 'title': "InterplPairs",
@@ -5470,7 +5451,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-unregister","?-getKeysForFuncProxy","?-register","?-wrapFunc","?-typeKey","?-value","?*new" ],
-'superclasses': [ "AbstractWrappingDispatcher","AbstractDispatcher","Object" ],
+'superclasses': [ "AbstractWrappingDispatcher","AbstractDispatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/GUI": {
 'title': "GUI",
@@ -5491,7 +5472,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-value","?-init","?*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/TDelay": {
 'title': "TDelay",
@@ -5502,7 +5483,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Trig1","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Trig1","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/DelTapRd": {
 'title': "DelTapRd",
@@ -5513,7 +5494,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/DelTapWr" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Reference/if": {
 'title': "if",
@@ -5534,7 +5515,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SinOsc","Classes/FSinOsc","Classes/PMOsc" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/WhiteNoise": {
 'title': "WhiteNoise",
@@ -5545,7 +5526,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BrownNoise","Classes/GrayNoise","Classes/ClipNoise","Classes/PinkNoise" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PinkNoise","BrownNoise","GrayNoise","ClipNoise" ],
 },
 "Classes/Diwhite": {
@@ -5557,7 +5538,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Dwhite","Classes/Demand","Classes/Duty","Classes/TDuty" ],
 'methods': [ "_*new" ],
-'superclasses': [ "Dwhite","DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Dwhite","DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/DrawGrid": {
 'title': "DrawGrid",
@@ -5578,7 +5559,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/GrainSin","Classes/GrainFM","Classes/GrainBuf" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Array2D": {
 'title': "Array2D",
@@ -5589,7 +5570,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Array" ],
 'methods': [ "_-asArray","_-rowAt","_-rowsDo","_-put","_-colsDo","_-at","_-colAt","_*new","_*fromArray","?-remove","?-add","?-do","?-rows","?-cols","?-array","?-with" ],
-'superclasses': [ "Collection","Object" ],
+'superclasses': [ "Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/LazyEnvir": {
 'title': "LazyEnvir",
@@ -5600,7 +5581,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Maybe","Classes/Fdef","Classes/Environment","Classes/ProxySpace","Overviews/JITLib" ],
 'methods': [ "_-localRemoveAt","_-makeProxy","_-put","_-proxyClass","_-copy","_-removeAt","_-at","_-localPut" ],
-'superclasses': [ "EnvironmentRedirect","Object" ],
+'superclasses': [ "EnvironmentRedirect","Object","AbstractObjectExperimental" ],
 'subclasses': [ "ProxySpace" ],
 },
 "Classes/LFDNoise0": {
@@ -5612,7 +5593,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFClipNoise","Classes/LFDClipNoise","Classes/LFDNoise1","Classes/LFDNoise3","Classes/LFNoise0","Classes/LFNoise1","Classes/LFNoise2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pn": {
 'title': "Pn",
@@ -5623,7 +5604,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pdup" ],
 'methods': [ "_*new","?-repeats","?-embedInStream","?-key" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pgate" ],
 },
 "Tutorials/Streams-Patterns-Events1": {
@@ -5645,7 +5626,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/StartUp","Classes/ShutDown","Classes/ServerQuit","Classes/ServerTree","Classes/CmdPeriod" ],
 'methods': [ "_*run","?*objects" ],
-'superclasses': [ "AbstractSystemAction","Object" ],
+'superclasses': [ "AbstractSystemAction","Object","AbstractObjectExperimental" ],
 },
 "Classes/SymbolArray": {
 'title': "SymbolArray",
@@ -5656,7 +5637,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Int8Array","Classes/Int16Array","Classes/Int32Array","Classes/FloatArray","Classes/DoubleArray" ],
 'methods': [ "_-readFromStream" ],
-'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object" ],
+'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDISysNoDataDispatcher": {
 'title': "MIDISysNoDataDispatcher",
@@ -5667,7 +5648,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-wrapFunc","?-value" ],
-'superclasses': [ "MIDISysDataDispatcher","MIDIMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object" ],
+'superclasses': [ "MIDISysDataDispatcher","MIDIMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/GridLines": {
 'title': "GridLines",
@@ -5688,7 +5669,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Done","Classes/PauseSelfWhenDone","Classes/Done" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Process": {
 'title': "Process",
@@ -5698,8 +5679,8 @@ docmap = {
 'categories': "Core>Kernel",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "_-run","_-nowExecutingPath","_-startup","_-mainThread","_*tailCallOptimize","?-interpretPrintCmdLine","?-argv","?-openWinCodeFile","?-interpretPrintSelectedText","?-methodTemplates","?-getCurrentSelection","?-openCodeFile","?-methodReferences","?-tick","?-shallowCopy","?-showHelp","?-stop","?-interpretCmdLine","?-archiveAsCompileString","?-interpreter","?-shutdown","?-prSchedulerQueue","?*monotonicClockTime","?*elapsedTime" ],
-'superclasses': [ "Object" ],
+'methods': [ "_-interpretPrintSelectedText","_-run","_-nowExecutingPath","_-startup","_-mainThread","_-interpret","_*tailCallOptimize","?-shallowCopy","?-argv","?-showHelp","?-stop","?-archiveAsCompileString","?-interpreter","?-openWinCodeFile","?-methodTemplates","?-getCurrentSelection","?-shutdown","?-openCodeFile","?-prSchedulerQueue","?-methodReferences","?-tick","?*monotonicClockTime","?*initializedClassesOkay","?*elapsedTime" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "Main" ],
 },
 "Classes/ShouldNotImplementError": {
@@ -5710,8 +5691,8 @@ docmap = {
 'categories': "Undocumented classes",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "?-class","?-method","?-errorString","?*new" ],
-'superclasses': [ "MethodError","Error","Exception","Object" ],
+'methods': [ "?-method","?-class","?*new" ],
+'superclasses': [ "MethodError","Error","Exception","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pwhile": {
 'title': "Pwhile",
@@ -5722,7 +5703,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new","?-embedInStream" ],
-'superclasses': [ "FuncFilterPattern","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FuncFilterPattern","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LocalOut": {
 'title': "LocalOut",
@@ -5733,7 +5714,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LocalIn" ],
 'methods': [ "_*kr","_*ar","?-writesToBus","?*numFixedArgs" ],
-'superclasses': [ "AbstractOut","UGen","AbstractFunction","Object" ],
+'superclasses': [ "AbstractOut","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/MultiClient_Setups": {
 'title': "Multi-client Setups",
@@ -5763,8 +5744,8 @@ docmap = {
 'categories': "Collections>Ordered",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "_-cosh","_-sortBy","_-tgammaUpper","_-floor","_-convertRhythm","_-ellintRd","_-odd","_-erfInv","_-jacobiDc","_-ring4","_-checkBadValues","_-blend","_-round","_-reciprocal","_-trigamma","_-zeta","_-reduce","_-sinPi","_-jacobiNs","_-indicesOfEqual","_-asFloat","_-cylBesselKPrime","_-flop","_-chebyshevT","_-cpsoct","_-legendreQ","_-lgamma","_-exp","_-<=","_-putLast","_-midicps","_-airyAiPrime","_-**","_-beta","_-sphNeumannPrime","_-unipolar","_-hypot","_-minIndex","_-rho","_-linrand","_-rand2","_-sqrdif","_-ibetaInvA","_-clip2","_-chebyshevU","_-resamp0","_-airyAiZero","_-powm1","_-atan","_-airyBiPrime","_-prune","_-sphHankel1","_-magnitude","_-squared","_-asin","_-gammaQ","_-dbamp","_-differentiate","_-ibetaCInv","_-erfCInv","_-max","_-flatten2","_-distort","_-erf","_-sumsqr","_-&","_-exprange","_-gammaPDerivative","_-jacobiCn","_-even","_-cylNeumann","_-maxIndex","_-rejectIndicesAs","_-ellint1","_-log","_-lincurve","_-cpsmidi","_-gammaQDerivative","_-legendrePZeros","_-tgammaDeltaRatio","_-copyRange","_-expm1","_-sqrt","_-midiratio","_-/","_-wrap","_->=","_-flatten","_-ibetaInv","_-choose","_-legendrePPrime","_-linexp","_-laguerre","_-jacobiDn","_-clip","_-expintEi","_-last","_-flopWith","_-performBinaryOp","_-lag2","_-excess","_-convertDigits","_-acosh","_-expexp","_-ibetaInvB","_-ring2","_-hermite","_-magnitudeApx","_-cosPi","_-tgamma","_-owensT","_->>","_-jacobiSn","_-swap","_-neg","_-cubed","_-multichannelExpandRef","_-sphNeumann","_-isStrictlyPositive","_-find","_-flatBelow","_-sinh","_-lag2ud","_-lag3ud","_-real","_-bernouliB2n","_-bipolar","_-exprand","_-ratiomidi","_-jacobiCs","_-flopTogether","_-ellint2","_-cylBesselI","_-cylBesselJZero","_-cylBesselJPrime","_-maxDepth","_-unixCmd","_-jacobiSd","_-editDistance","_-ring3","_-gammaQInv","_-difsqr","_-airyBiZero","_-gammaPInv","_-putFirst","_-indexOfGreaterThan","_-first","_-binomialCoefficient","_-instill","_-ellintRf","_-ibetaCInvB","_-ellintDC","_-selectIndices","_-ellint1C","_-legendrePAssoc","_-isSeries","_-tgammaLower","_-@@","_-maxSizeAtDepth","_--","_-absdif","_-ellint2C","_-ring1","_-curvelin","_-sum3rand","_-jacobiNc","_-gammaP","_-hammingDistance","_-remove","_-softclip","_-sinhcPi","_-trunc","_-jacobiDs","_-chebyshevTZeros","_-jacobiZeta","_-order","_-<!","_-doubleFactorial","_-tan","_-div","_-*","_-unixCmdGetStdOut","_-flopDeep","_-imag","_-theta","_-sphericalHarmonicR","_-sphBessel","_-clumps","_-jacobiNd","_-lag","_-scaleneg","_-frac","_-lagud","_-ampdb","_-atan2","_-sign","_-indexOf","_-abs","_-erfC","_-risingFactorial","_-varlag","_-ellintRg","_-clump","_-coin","_-sphericalHarmonicI","_-indexOfEqual","_-ellint3","_-betaFull","_-jacobiCd","_-pairsDo","_-tgamma1pm1","_-%","_-isNegative","_-similarity","_-amclip","_-integrate","_-indexInBetween","_-cylHankel2","_-tanh","_-<","_-gammaPInvA","_-sphericalHarmonic","_-ellintD","_-biexp","_-bitNot","_-ibetaC","_-flat","_-cylBesselJ","_-isPositive","_-log10","_-min","_-separate","_-slew","_-bilinrand","_-betaFullC","_-|@|","_-keep","_-indexIn","_-explin","_-octcps","_-sphBesselPrime","_-curdle","_-cylNeumannPrime","_-airyBi","_-@|@","_-cbrt","_-sort","_-copyToEnd","_-wchoosen","_-lcm","_-sqrt1pm1","_-expintEn","_-ellint3C","_-heumanLambda","_-fold","_-sphHankel2","_-sin","_-rejectIndices","_-obtain","_-asInteger","_-sincPi","_-performUnaryOp","_-ellintRj","_-tangentT2n","_-gammaQInvA","_-acos","_-ibetaCInvA","_-asinh","_-lag3","_-take","_-jacobiSc","_-bilin","_-cylNeumannZero","_-|","_-fallingFactorial","_-atanh","_-join","_-bitXor","_-wchoose","_-laguerreAssoc","_-doAdjacentPairs","_-drop","_-chebyshevTPrime","_-airyAi","_-range","_-tgammaRatio","_-modSeaside","_-ellintRc","_-angle","_-+","_-cylBesselIPrime","_-blendAt","_-+>>","_-ibetaDerivative","_-copyFromStart","_-factorial","_-resamp1","_-rrand","_-ibeta","_-gcd","_->","_-digamma","_-selectIndicesAs","_-cylHankel1","_-linlin","_-ceil","_-phase","_-polygamma","_-cos","_-findAll","_-rand","_-log2","_-log1p","_-legendreP","_-cylBesselK","_*geom","_*exprand","_*series","_*linrand","_*rand2","_*rand","_*fib","_*fill","_*interpolation","?-sqrsum","?-scurve","?-performKeyToDegree","?-median","?-roundUp","?-rectWindow","?-sortedMedian","?-==","?-keysValuesDo","?-prFlat","?-hash","?-asQuant","?-wrapAt","?-welWindow","?-containsSeqColl","?-flatIf","?-hanWindow","?-bitHammingDistance","?-asOSCArgEmbeddedArray","?-degrad","?-ascii","?-hypotApx","?-prevPrime","?-asOSCArgArray","?-mergeSortTemp","?-performBinaryOpOnSimpleNumber","?-convertOneRhythm","?-asSequenceableCollection","?-bitAnd","?-degreeToKey","?-nextPrime","?-performBinaryOpOnComplex","?-sumRhythmDivisions","?-leftShift","?-sanitize","?-nextTimeOnGrid","?-nthPrime","?-moddif","?-hoareMedian","?-isSequenceableCollection","?-canFreeSynth","?-wrapAtDepth","?-nearestInScale","?-raddeg","?-ramp","?-mode","?-asOSCArgBundle","?-sortMap","?-rate","?-asRect","?-++","?-thresh","?-indexOfPrime","?-middle","?-+++","?-hoarePartition","?-wrapPut","?-top","?-mergeSort","?-quickSort","?-wrap2","?-rightShift","?-keyToDegree","?-performNearestInList","?-performNearestInScale","?-fold2","?-firstArg","?-asPoint","?-curverange","?-nearestInList","?-insertionSort","?-multiChannelPerform","?-mod","?-unsignedRightShift","?-schedBundleArrayOnClock","?-asMIDIInPortUID","?-removeAt","?-mergeTemp","?-minNyquist","?-removing","?-unlace","?-quickSortRange","?-bitOr","?-performDegreeToKey","?-lastIndex","?-isAssociationArray","?-performBinaryOpOnSeqColl","?-insertionSortRange","?-prepareForProxySynthDef","?-hoareFind","?-asFraction","?-middleIndex","?-triWindow","?-delimit","?-transposeKey","?*streamContents","?*streamContentsLimit" ],
-'superclasses': [ "Collection","Object" ],
+'methods': [ "_-legendreP","_-tgammaDeltaRatio","_-cosh","_-sortBy","_-floor","_-convertRhythm","_-ellint3","_-sphHankel1","_-odd","_-ring4","_-checkBadValues","_-blend","_-round","_-reciprocal","_-reduce","_-gammaPDerivative","_-indicesOfEqual","_-asFloat","_-erfInv","_-flop","_-cpsoct","_-ibetaInvB","_-tangentT2n","_-exp","_-<=","_-putLast","_-midicps","_-airyBiZero","_-**","_-ibetaInv","_-ellintD","_-legendreQ","_-zeta","_-unipolar","_-hypot","_-ellint1","_-rho","_-linrand","_-rand2","_-sqrdif","_-clip2","_-bernouliB2n","_-resamp0","_-atanh","_-atan","_-polygamma","_-trigamma","_-erfC","_-laguerre","_-prune","_-magnitude","_-squared","_-asin","_-sphHankel2","_-jacobiSd","_-chebyshevTZeros","_-ellint1C","_-dbamp","_-differentiate","_-max","_-flatten2","_-distort","_-cylNeumann","_-sinPi","_-gammaQInvA","_-ibeta","_-sphericalHarmonicI","_-log1p","_-sumsqr","_-cylNeumannPrime","_-&","_-exprange","_-even","_-tgamma1pm1","_-airyBiPrime","_-rejectIndicesAs","_-legendrePZeros","_-log","_-lincurve","_-cpsmidi","_-copyRange","_-tgamma","_-doubleFactorial","_-sqrt","_-midiratio","_-/","_-jacobiNs","_-erfCInv","_-wrap","_-digamma","_->=","_-flatten","_-ellintDC","_-choose","_-linexp","_-legendrePAssoc","_-clip","_-jacobiCd","_-last","_-flopWith","_-performBinaryOp","_-lag2","_-excess","_-convertDigits","_-expexp","_-sincPi","_-gammaPInv","_-ring2","_-magnitudeApx","_-jacobiZeta","_-heumanLambda","_-cylHankel1","_->>","_-jacobiCs","_-jacobiNc","_-cylBesselKPrime","_-jacobiDc","_-swap","_-neg","_-maxIndex","_-ibetaDerivative","_-cubed","_-multichannelExpandRef","_-isStrictlyPositive","_-find","_-flatBelow","_-sinh","_-lag2ud","_-lag3ud","_-cylBesselJZero","_-real","_-bipolar","_-exprand","_-binomialCoefficient","_-ellintRj","_-ratiomidi","_-chebyshevU","_-cosPi","_-flopTogether","_-fallingFactorial","_-expintEn","_-beta","_-maxDepth","_-unixCmd","_-editDistance","_-ring3","_-difsqr","_-cylBesselK","_-ibetaInvA","_-putFirst","_-indexOfGreaterThan","_-first","_-instill","_-airyAiPrime","_-selectIndices","_-ibetaCInvB","_-expm1","_-isSeries","_-acosh","_-@@","_-gammaQ","_-maxSizeAtDepth","_-ibetaCInv","_--","_-absdif","_-ring1","_-ellintRf","_-gammaQDerivative","_-cylBesselJ","_-sum3rand","_-airyBi","_-curvelin","_-betaFullC","_-laguerreAssoc","_-hammingDistance","_-remove","_-softclip","_-trunc","_-hermite","_-order","_-<!","_-erf","_-tan","_-jacobiDs","_-div","_-*","_-ellint3C","_-unixCmdGetStdOut","_-flopDeep","_-imag","_-jacobiDn","_-theta","_-clumps","_-powm1","_-lag","_-scaleneg","_-frac","_-ellint2","_-lagud","_-ampdb","_-atan2","_-cylNeumannZero","_-sign","_-indexOf","_-abs","_-varlag","_-clump","_-coin","_-indexOfEqual","_-lgamma","_-pairsDo","_-%","_-isNegative","_-ellint2C","_-similarity","_-amclip","_-integrate","_-indexInBetween","_-sphBessel","_-tanh","_-<","_-sphBesselPrime","_-biexp","_-bitNot","_-factorial","_-sphericalHarmonic","_-legendrePPrime","_-flat","_-isPositive","_-cylHankel2","_-chebyshevTPrime","_-log10","_-gammaP","_-sqrt1pm1","_-airyAiZero","_-min","_-separate","_-ellintRg","_-slew","_-bilinrand","_-cbrt","_-|@|","_-keep","_-indexIn","_-tgammaLower","_-jacobiSn","_-tgammaRatio","_-cylBesselIPrime","_-ibetaC","_-jacobiNd","_-explin","_-octcps","_-expintEi","_-curdle","_-@|@","_-jacobiSc","_-sphNeumann","_-sort","_-sphericalHarmonicR","_-copyToEnd","_-risingFactorial","_-minIndex","_-wchoosen","_-lcm","_-tgammaUpper","_-ellintRd","_-fold","_-sin","_-rejectIndices","_-obtain","_-asInteger","_-performUnaryOp","_-acos","_-ibetaCInvA","_-lag3","_-owensT","_-take","_-bilin","_-|","_-join","_-bitXor","_-gammaPInvA","_-wchoose","_-doAdjacentPairs","_-asinh","_-drop","_-ellintRc","_-range","_-chebyshevT","_-modSeaside","_-sphNeumannPrime","_-angle","_-+","_-blendAt","_-+>>","_-copyFromStart","_-betaFull","_-cylBesselI","_-airyAi","_-resamp1","_-rrand","_-gcd","_->","_-linlin","_-selectIndicesAs","_-ceil","_-phase","_-cos","_-cylBesselJPrime","_-findAll","_-jacobiCn","_-rand","_-log2","_-gammaQInv","_-sinhcPi","_*geom","_*exprand","_*series","_*fill","_*linrand","_*rand2","_*rand","_*fib","_*interpolation","?-sqrsum","?-scurve","?-performKeyToDegree","?-median","?-roundUp","?-rectWindow","?-sortedMedian","?-==","?-keysValuesDo","?-prFlat","?-hash","?-asQuant","?-wrapAt","?-welWindow","?-containsSeqColl","?-flatIf","?-hanWindow","?-bitHammingDistance","?-asOSCArgEmbeddedArray","?-degrad","?-ascii","?-hypotApx","?-prevPrime","?-asOSCArgArray","?-mergeSortTemp","?-performBinaryOpOnSimpleNumber","?-convertOneRhythm","?-asSequenceableCollection","?-bitAnd","?-degreeToKey","?-nextPrime","?-performBinaryOpOnComplex","?-sumRhythmDivisions","?-leftShift","?-sanitize","?-nextTimeOnGrid","?-nthPrime","?-moddif","?-hoareMedian","?-isSequenceableCollection","?-canFreeSynth","?-wrapAtDepth","?-nearestInScale","?-raddeg","?-ramp","?-mode","?-asOSCArgBundle","?-sortMap","?-rate","?-asRect","?-++","?-thresh","?-indexOfPrime","?-middle","?-+++","?-hoarePartition","?-wrapPut","?-top","?-mergeSort","?-quickSort","?-wrap2","?-rightShift","?-keyToDegree","?-performNearestInList","?-performNearestInScale","?-fold2","?-firstArg","?-asPoint","?-curverange","?-nearestInList","?-insertionSort","?-multiChannelPerform","?-mod","?-unsignedRightShift","?-schedBundleArrayOnClock","?-asMIDIInPortUID","?-removeAt","?-mergeTemp","?-minNyquist","?-removing","?-unlace","?-quickSortRange","?-bitOr","?-performDegreeToKey","?-lastIndex","?-isAssociationArray","?-performBinaryOpOnSeqColl","?-insertionSortRange","?-prepareForProxySynthDef","?-hoareFind","?-asFraction","?-middleIndex","?-triWindow","?-delimit","?-transposeKey","?*streamContents","?*streamContentsLimit" ],
+'superclasses': [ "Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "RingBuffer","LinkedList","Order","List","ArrayedCollection" ],
 },
 "Classes/Gendy3": {
@@ -5776,7 +5757,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Gendy1","Classes/Gendy2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/SendReply": {
 'title': "SendReply",
@@ -5787,7 +5768,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SendTrig","Classes/OSCFunc" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "SendTrig","UGen","AbstractFunction","Object" ],
+'superclasses': [ "SendTrig","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/TreeViewItem": {
 'title': "TreeViewItem",
@@ -5808,7 +5789,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LeakDC" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureMultiOutUGen","MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureMultiOutUGen","MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PbindProxy": {
 'title': "PbindProxy",
@@ -5819,7 +5800,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pbindef","Classes/Pdef" ],
 'methods': [ "_-source","_-at","_-quant","_-set","_*new","?-pairs","?-find","?-clear","?-envir","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/SubsampleOffset": {
 'title': "SubsampleOffset",
@@ -5830,7 +5811,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ControlRate","Classes/RadiansPerSample","Classes/SampleDur","Classes/SampleRate","Classes/OffsetOut" ],
 'methods': [ "_*ir" ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BPZ2": {
 'title': "BPZ2",
@@ -5841,7 +5822,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BRZ2","Classes/HPZ2","Classes/LPZ2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LPZ2","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LPZ2","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ExponentialGridLines": {
 'title': "ExponentialGridLines",
@@ -5851,7 +5832,7 @@ docmap = {
 'categories': "GUI>Accessories",
 'keywords': [  ],
 'related': [ "Classes/GridLines","Classes/AbstractGridLines","Classes/LinearGridLines","Classes/DrawGrid","Classes/ControlSpec","Classes/Plotter","Reference/plot" ],
-'methods': [ "_-asGrid","_-looseRange","_-niceNum","_-spec","_-formatLabel","_-getParams","_*new" ],
+'methods': [ "_-spec","_-looseRange","_-asGrid","_-formatLabel","_-niceNum","_-getParams","_*new" ],
 },
 "Classes/EZLists": {
 'title': "EZLists",
@@ -5872,7 +5853,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Blip" ],
 'methods': [ "_*kr","_*ar","?-signalRange" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Plprand": {
 'title': "Plprand",
@@ -5883,7 +5864,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Phprand" ],
 'methods': [ "_*new","?-embedInStream" ],
-'superclasses': [ "Pwhite","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pwhite","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/QuartzComposerView": {
 'title': "QuartzComposerView",
@@ -5914,7 +5895,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BrownNoise","Classes/ClipNoise","Classes/PinkNoise","Classes/WhiteNoise" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "WhiteNoise","UGen","AbstractFunction","Object" ],
+'superclasses': [ "WhiteNoise","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MixedBundleTester": {
 'title': "MixedBundleTester",
@@ -5925,7 +5906,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-clumpedSendNow","?-prSend","?-includesDefName","?-defNames","?*report","?*reset","?*findMessage","?*bundlesSent","?*findPreparationMessage" ],
-'superclasses': [ "MixedBundle","OSCBundle","Object" ],
+'superclasses': [ "MixedBundle","OSCBundle","Object","AbstractObjectExperimental" ],
 },
 "Classes/PmonoArticStream": {
 'title': "PmonoArticStream",
@@ -5936,7 +5917,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "PmonoStream","Stream","AbstractFunction","Object" ],
+'superclasses': [ "PmonoStream","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Reference/Adverbs": {
 'title': "Adverbs for Binary Operators",
@@ -5957,7 +5938,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pbind","Classes/Event","Classes/AbstractFunction" ],
 'methods': [ "_-isRest","_-unwrapBoolean","_*new","?-asEvent" ],
-'superclasses': [ "Operand","AbstractFunction","Object" ],
+'superclasses': [ "Operand","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PparGroup": {
 'title': "PparGroup",
@@ -5968,7 +5949,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ParGroup","Classes/Pgroup" ],
 'methods': [ "?*eventType" ],
-'superclasses': [ "PAbstractGroup","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "PAbstractGroup","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pnsym": {
 'title': "Pnsym",
@@ -5979,7 +5960,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pdefn" ],
 'methods': [ "_-dict","_*new","?-lookupClass" ],
-'superclasses': [ "Psym","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Psym","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pnsym1" ],
 },
 "Classes/ExponentialWarp": {
@@ -5991,7 +5972,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-gridClass","?-unmap","?-map" ],
-'superclasses': [ "Warp","Object" ],
+'superclasses': [ "Warp","Object","AbstractObjectExperimental" ],
 },
 "Classes/BPF": {
 'title': "BPF",
@@ -6002,7 +5983,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BRF","Classes/HPF","Classes/LPF" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "BRF" ],
 },
 "Tutorials/JITLib/jitlib_fading": {
@@ -6024,7 +6005,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*<<<","_*ff","_*nl","_*comma","_*tab","_*<<","_*space","?*close","?*<<<*","?*putAll","?*put","?*<<*","?*formats" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_04_Words_to_Phrases": {
 'title': "Pattern Guide 04: Words to Phrases",
@@ -6055,7 +6036,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MIDIFunc","Classes/MIDIdef","Classes/MIDIIn","Guides/MIDI","Guides/UsingMIDI" ],
 'methods': [ "?-function","?-remove","?-matchEvent","?-match","?-respond","?-value","?-swallowEvent","?*removeAll" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "CCResponder","ProgramChangeResponder","NoteOnResponder","TouchResponder" ],
 },
 "Classes/DUGen": {
@@ -6067,7 +6048,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-linexp","?-explin","?-linlin","?-expexp" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Dreset","ListDUGen","Dbrown","Dseries","Dwhite","Dbufrd","Dbufwr","Dstutter","Dwrand","Ddup","Dconst","Dswitch1","Dpoll","Dgeom" ],
 },
 "Classes/LevelComp": {
@@ -6079,7 +6060,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Splay","Classes/SplayAz","Guides/Level_Compensation" ],
 'methods': [ "_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/ControlName": {
 'title': "ControlName",
@@ -6090,7 +6071,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SynthDesc","Classes/SynthDef" ],
 'methods': [ "_-spec","_-name","_-numChannels","_-rate","_-index","_-defaultValue","?-argNum","?-lag","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Saw": {
 'title': "Saw",
@@ -6101,7 +6082,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SyncSaw","Classes/VarSaw","Classes/LFSaw" ],
 'methods': [ "_*ar","?*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BufAllpassL": {
 'title': "BufAllpassL",
@@ -6112,7 +6093,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufAllpassC","Classes/BufAllpassN","Classes/AllpassL" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "BufCombN","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BufCombN","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PMOsc": {
 'title': "PMOsc",
@@ -6123,7 +6104,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Pbeta": {
 'title': "Pbeta",
@@ -6134,7 +6115,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new","?-hi","?-prob2","?-length","?-lo","?-prob1","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/True": {
 'title': "True",
@@ -6145,7 +6126,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-not","?-asInteger","?-if","?-or","?-&&","?-||","?-binaryValue","?-nand","?-and" ],
-'superclasses': [ "Boolean","Object" ],
+'superclasses': [ "Boolean","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dbufwr": {
 'title': "Dbufwr",
@@ -6156,7 +6137,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Dbufrd" ],
 'methods': [ "_*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/EnvGate": {
 'title': "EnvGate",
@@ -6167,7 +6148,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/EnvGen" ],
 'methods': [ "_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/MenuAction": {
 'title': "MenuAction",
@@ -6188,7 +6169,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LatoocarfianC","Classes/LatoocarfianN" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "LatoocarfianN","ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LatoocarfianN","ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_Diffuser": {
 'title': "PV_Diffuser",
@@ -6199,7 +6180,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_PhaseShift","Classes/PV_PhaseShift90","Classes/PV_PhaseShift270" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LagUD": {
 'title': "LagUD",
@@ -6210,7 +6191,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Lag","Classes/Lag2","Classes/Lag3","Classes/Lag2UD","Classes/Lag3UD" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Lag2UD","Lag3UD" ],
 },
 "Classes/EZScroller": {
@@ -6232,7 +6213,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_MagAbove","Classes/PV_LocalMax","Classes/PV_MagBelow" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagAbove","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagAbove","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Polar": {
 'title': "Polar",
@@ -6243,7 +6224,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Point","Classes/Complex" ],
 'methods': [ "_-/","_-phase","_-scale","_-*","_--","_-magnitude","_-imag","_-neg","_-real","_-asComplex","_-rotate","_-asPoint","_-angle","_-+","_*new","?-==","?-performBinaryOpOnUGen","?-hash","?-performBinaryOpOnSomething","?-theta","?-asPolar","?-rho" ],
-'superclasses': [ "Number","Magnitude","Object" ],
+'superclasses': [ "Number","Magnitude","Object","AbstractObjectExperimental" ],
 },
 "Classes/IODesc": {
 'title': "IODesc",
@@ -6254,7 +6235,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SynthDesc" ],
 'methods': [ "_-rate","_-startingChannel","_-numberOfChannels","_-type" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Delay1": {
 'title': "Delay1",
@@ -6265,7 +6246,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Delay2","Classes/TDelay" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/T2K": {
 'title': "T2K",
@@ -6276,7 +6257,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/T2A","Classes/K2A","Classes/A2K" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "A2K","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "A2K","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/UnitCmdDemo": {
 'title': "UnitCmdDemo",
@@ -6287,7 +6268,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/JITLib/jitlib_basic_concepts_03": {
 'title': "jitlib_basic_concepts_03",
@@ -6318,7 +6299,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Demand","Classes/Drand","Classes/Dser","Classes/Duty","Classes/Dxrand","Classes/TDuty" ],
 'methods': [ "_*new" ],
-'superclasses': [ "ListDUGen","DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ListDUGen","DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/News-3_7": {
 'title': "News in 3.7",
@@ -6339,7 +6320,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/QuadC","Classes/QuadN" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "QuadN","ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "QuadN","ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MultiOutUGen": {
 'title': "MultiOutUGen",
@@ -6350,7 +6331,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OutputProxy" ],
 'methods': [ "_-initOutputs","?-channels","?-numOutputs","?-synthIndex","?-writeOutputSpecs","?*newFromDesc" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "StereoConvolution2L","MFCC","PureMultiOutUGen","BeatTrack","PanAz","Hilbert","DiskIn","GVerb","Warp1","PanB","AbstractIn","Balance2","UnpackFFT","BufRd","BiPanB2","FreeVerb2","AudioControl","GrainBuf","Pan2","PlayBuf","GrainFM","Control","PanB2","Rotate2","DecodeB2","Pan4","GrainSin","Pitch","BeatTrack2","GrainIn","Demand","TGrains","VDiskIn" ],
 },
 "Classes/MIDIFuncSrcMessageMatcher": {
@@ -6362,7 +6343,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AbstractMessageMatcher","Classes/MIDIFuncChanMessageMatcher","Classes/MIDIFuncChanArrayMessageMatcher","Classes/MIDIFuncSrcMessageMatcherNV","Classes/MIDIFuncBothMessageMatcher","Classes/MIDIFuncBothCAMessageMatcher" ],
 'methods': [ "_-value","_*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 'subclasses': [ "MIDIFuncSrcSysMessageMatcherND","MIDIFuncSrcMessageMatcherNV","MIDIFuncSrcSysMessageMatcher" ],
 },
 "Classes/PV_BinScramble": {
@@ -6374,7 +6355,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/OSCdef": {
 'title': "OSCdef",
@@ -6385,7 +6366,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Guides/OSC_communication","Classes/OSCFunc","Classes/NetAddr" ],
 'methods': [ "_-free","_-key","_*freeAll","_*new","_*all","_*newMatching" ],
-'superclasses': [ "OSCFunc","AbstractResponderFunc","Object" ],
+'superclasses': [ "OSCFunc","AbstractResponderFunc","Object","AbstractObjectExperimental" ],
 },
 "Classes/PdefnAllGui": {
 'title': "PdefnAllGui",
@@ -6406,7 +6387,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pseries" ],
 'methods': [ "_*new","?-embedInStream","?-length","?-grow","?-start" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Reference/loop": {
 'title': "loop / repeat",
@@ -6427,7 +6408,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Point","Classes/Rect","Classes/Image","Classes/QPenPrinter" ],
 'methods': [ "_-storeArgs","_-printOn","_-asRect","_-asSize","_-height","_-asPoint","_-==","_-width","_-hash","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_MagSquared": {
 'title': "PV_MagSquared",
@@ -6438,7 +6419,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PV_PhaseShift270","PV_MagNoise","PV_Conj","PV_PhaseShift90" ],
 },
 "Classes/PageLayout": {
@@ -6460,7 +6441,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFClipNoise","Classes/LFDNoise0","Classes/LFDNoise1","Classes/LFDNoise3","Classes/LFNoise0","Classes/LFNoise1","Classes/LFNoise2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/QuadC": {
 'title': "QuadC",
@@ -6471,17 +6452,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/QuadN","Classes/QuadL" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "QuadN","ChaosGen","UGen","AbstractFunction","Object" ],
-},
-"Classes/SCEnvelopeEdit": {
-'title': "SCEnvelopeEdit",
-'path': "Classes/SCEnvelopeEdit",
-'summary': "An envelope editor view",
-'installed': "standard",
-'categories': "GUI>Kits>Cocoa",
-'keywords': [  ],
-'related': [ "Classes/EnvelopeView" ],
-'methods': [ "_-refresh","_-insertAtTime","_-minLevel","_-minTime","_-redraw","_-initSCEnvelopeEdit","_-env","_-pointsPerSegment","_-addBreakPoint","_-updateAll","_-defaultMouseDownAction","_-maxTime","_-updateSegment","_-clear","_*paletteExample","_*viewClass","_*new" ],
+'superclasses': [ "QuadN","ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/16_Playbuf": {
 'title': "16_Playbuf",
@@ -6502,7 +6473,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/UnitTest","Classes/UnitTestResult" ],
 'methods': [ "?-run","?-runTestMethod" ],
-'superclasses': [ "UnitTest","Object" ],
+'superclasses': [ "UnitTest","Object","AbstractObjectExperimental" ],
 },
 "Classes/PfadeOut": {
 'title': "PfadeOut",
@@ -6513,7 +6484,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PfadeIn" ],
 'methods': [ "_-holdTime","_-tolerance","_-storeArgs","_-fadeTime","_-embedInStream","_*new" ],
-'superclasses': [ "PfadeIn","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "PfadeIn","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pgroup": {
 'title': "Pgroup",
@@ -6524,7 +6495,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Group","Classes/Pbus" ],
 'methods': [ "?*eventType" ],
-'superclasses': [ "PAbstractGroup","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "PAbstractGroup","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ContiguousBlockAllocator": {
 'title': "ContiguousBlockAllocator",
@@ -6535,7 +6506,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Server","Classes/PowerOfTwoAllocator","Guides/MultiClient_Setups" ],
 'methods': [ "_-alloc","_-size","_-free","_-debug","_-pos","_-addrOffset","_-reserve","_-findAvailable","_-top","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/SynthDef": {
 'title': "SynthDef",
@@ -6546,7 +6517,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Synth","Reference/Synth-Definition-File-Format","Classes/SynthDesc" ],
 'methods': [ "_-variants","_-add","_-send","_-specs","_-store","_-load","_-name","_-play","_-writeDefFile","_-func","_-allControlNames","_*writeOnce","_*synthDefDir","_*warnAboutLargeSynthDefs","_*removeAt","_*wrap","_*new","?-writeOnce","?-constants","?-topologicalSort","?-controlNames","?-rate","?-dumpUGens","?-asBytes","?-desc","?-buildUgenGraph","?-findSpecFor","?-build","?-optimizeGraph","?-writeDef","?-hasGateControl","?-addCopiesIfNeeded","?-addControlName","?-collectConstants","?-cleanupTopoSort","?-addAr","?-removeUGen","?-asSynthDef","?-buildControls","?-canReleaseSynth","?-controls","?-addControlsFromArgsOfFunc","?-writeConstants","?-addUGen","?-indexUGens","?-buildForProxy","?-replaceUGen","?-finishBuild","?-initTopoSort","?-numChannels","?-reblock","?-loadReconstructed","?-initBuild","?-setControlNames","?-metadata","?-asDefName","?-doSend","?-addKr","?-constantSet","?-addConstant","?-storeOnce","?-addTr","?-controlIndex","?-maxLocalBufs","?-addNonControl","?-available","?-widthFirstUGens","?-children","?-canFreeSynth","?-asSynthDesc","?-resample","?-addIr" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "SynthDefOld","ProxySynthDef" ],
 },
 "Classes/Pwhite": {
@@ -6558,7 +6529,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pgauss" ],
 'methods': [ "_*new","?-hi","?-length","?-lo","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pmeanrand","Plprand","Pexprand","Phprand" ],
 },
 "Tutorials/Mark_Polishook_tutorial/11_Test_functions": {
@@ -6580,7 +6551,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-unregister","?-getKeysForFuncProxy","?-value","?-wrapFunc","?-register" ],
-'superclasses': [ "MIDIMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object" ],
+'superclasses': [ "MIDIMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object","AbstractObjectExperimental" ],
 'subclasses': [ "MIDISysNoDataDispatcher","MIDISysDataDropIndDispatcher" ],
 },
 "Classes/BufCombC": {
@@ -6592,7 +6563,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufCombL","Classes/BufCombN","Classes/CombC" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "BufCombN","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BufCombN","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/SystemClock": {
 'title': "SystemClock",
@@ -6603,7 +6574,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AppClock","Classes/TempoClock" ],
 'methods': [ "_*schedAbs","_*sched","_*clear","_*play" ],
-'superclasses': [ "Clock","Object" ],
+'superclasses': [ "Clock","Object","AbstractObjectExperimental" ],
 },
 "Classes/BufInfoUGenBase": {
 'title': "BufInfoUGenBase",
@@ -6614,7 +6585,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?*kr","?*ir" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "BufRateScale","BufFrames","BufChannels","BufSampleRate","BufSamples","BufDur" ],
 },
 "Classes/DiskIn": {
@@ -6626,7 +6597,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PlayBuf","Classes/VDiskIn","Classes/DiskOut" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Done": {
 'title': "Done",
@@ -6637,7 +6608,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/UGen","Classes/FreeSelfWhenDone","Classes/PauseSelfWhenDone" ],
 'methods': [ "_*kr","?*none","?*freeSelfAndNext","?*freeSelfToTail","?*freeAllInGroup","?*freeSelfAndDeepFreePrev","?*pauseSelf","?*freeSelfAndPrev","?*freeSelf","?*freeSelfPausePrev","?*freeSelfPauseNext","?*freeSelfAndFreeAllInPrev","?*freeSelfAndFreeAllInNext","?*freeSelfAndDeepFreeNext","?*freeGroup","?*freeSelfToHead","?*freeSelfResumeNext" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Getting-Started/07-Mix-it-Up": {
 'title': "07. Mix it Up",
@@ -6668,7 +6639,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [  ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "BLowShelf","BPeakEQ","BHiShelf","BLowPass","BHiPass","BBandPass","BBandStop","BAllPass" ],
 },
 "Classes/Lag2": {
@@ -6680,7 +6651,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Lag","Classes/Lag3","Classes/Ramp","Classes/Lag2UD" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Lag","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Lag","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/WritingPrimitives": {
 'title': "Writing Primitives",
@@ -6700,8 +6671,8 @@ docmap = {
 'categories': "Undocumented classes",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "?-method","?-errorString","?-result","?*new" ],
-'superclasses': [ "MethodError","Error","Exception","Object" ],
+'methods': [ "?-method","?-result","?*new" ],
+'superclasses': [ "MethodError","Error","Exception","Object","AbstractObjectExperimental" ],
 },
 "Classes/PackFFT": {
 'title': "PackFFT",
@@ -6712,7 +6683,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/UnpackFFT" ],
 'methods': [ "_*new","?-fftSize" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MouseY": {
 'title': "MouseY",
@@ -6723,7 +6694,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/KeyState","Classes/MouseButton","Classes/MouseX" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "MouseX","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MouseX","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Boolean": {
 'title': "Boolean",
@@ -6734,7 +6705,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Reference/Conditional-Execution" ],
 'methods': [ "_-keywordWarnings","_-not","_-asInteger","_-if","_-or","_-&&","_-||","_-asBoolean","_-xor","_-binaryValue","_-booleanValue","_-nand","_-and","?*new","?*newCopyArgs" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "False","True" ],
 },
 "Classes/BHiPass": {
@@ -6746,7 +6717,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SOS","Classes/BLowPass","Classes/BLowPass4","Classes/BHiPass4","Classes/BPeakEQ","Classes/BLowShelf","Classes/BHiShelf","Classes/BBandPass","Classes/BBandStop","Classes/BAllPass" ],
 'methods': [ "_*sc","_*ar" ],
-'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Fdef": {
 'title': "Fdef",
@@ -6757,7 +6728,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Maybe","Classes/LazyEnvir","Classes/Pdef","Classes/Tdef","Classes/Pdefn","Classes/Ndef" ],
 'methods': [ "_*new","?*all" ],
-'superclasses': [ "Maybe","Ref","AbstractFunction","Object" ],
+'superclasses': [ "Maybe","Ref","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/COsc": {
 'title': "COsc",
@@ -6768,7 +6739,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Osc","Classes/OscN","Classes/VOsc","Classes/VOsc3" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/17_Delays_reverbs": {
 'title': "17_Delays_reverbs",
@@ -6789,7 +6760,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-embedInStream","?-initStreams" ],
-'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pgauss": {
 'title': "Pgauss",
@@ -6800,7 +6771,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ppoisson" ],
 'methods': [ "_*new","?-length","?-dev","?-mean","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pan2": {
 'title': "Pan2",
@@ -6811,7 +6782,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Balance2","Classes/LinPan2","Classes/Pan4","Classes/PanAz" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "LinPan2" ],
 },
 "Classes/StandardN": {
@@ -6823,7 +6794,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/StandardL" ],
 'methods': [ "_*ar","?*equation" ],
-'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "StandardL" ],
 },
 "Classes/HIDUsage": {
@@ -6835,7 +6806,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HID","Classes/HIDElement","Classes/HIDCollection","Guides/Working_with_HID" ],
 'methods': [ "_*hutDirectory","_*getUsageDescription","_*usageNameToIDs","_*idsToName","_*getUsageIds","_*readHUTFile","_*usageIDsToName" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/SynthDesc": {
 'title': "SynthDesc",
@@ -6846,7 +6817,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SynthDef","Classes/Synth" ],
 'methods': [ "_-outputs","_-controlNames","_-outputData","_-specs","_-hasGate","_-inputs","_-controls","_-msgFunc","_-name","_-canFreeSynth","_-controlDict","_*read","?-readSynthDef","?-constants","?-readUGenSpec","?-readSynthDef2","?-msgFuncKeepGate","?-specs","?-hasVariants","?-readSynthDef3","?-metadata","?-hasArrayArgs","?-writeMetadata","?-send","?-def","?-prReadSynthDef","?-readUGenSpec2","?-makeMsgFunc","?-prMakeOneMsgFunc","?*defNameFromBytes","?*headerMagic","?*populateMetadataFunc","?*newFrom","?*mdPlugin","?*readFile" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/AbstractDispatcher": {
 'title': "AbstractDispatcher",
@@ -6857,7 +6828,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AbstractWrappingDispatcher","Classes/OSCMessageDispatcher","Classes/OSCMessagePatternDispatcher","Classes/MIDIMessageDispatcher","Classes/OSCFunc","Classes/OSCdef","Classes/MIDIFunc","Classes/MIDIdef","Classes/AbstractResponderFunc" ],
 'methods': [ "_-register","_-remove","_-add","_-typeKey","_-valueArray","_-free","_-update","_-unregister","_-value","_*new","_*all" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "AbstractWrappingDispatcher" ],
 },
 "Classes/TaskProxyGui": {
@@ -6879,7 +6850,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-value","?-devProto","?-init","?-checkMatchingDev","?-matchingDevs","?-notMatchingDevs","?-initMatching","?-checkMatchingDevs","?*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/NumOutputBuses": {
 'title': "NumOutputBuses",
@@ -6890,7 +6861,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/NumAudioBuses","Classes/NumControlBuses","Classes/NumBuffers","Classes/NumInputBuses","Classes/NumRunningSynths" ],
 'methods': [ "_*ir" ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/TextField": {
 'title': "TextField",
@@ -6931,7 +6902,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Free" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/XInFeedback": {
 'title': "XInFeedback",
@@ -6942,7 +6913,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/InBus","Classes/In","Classes/InFeedback","Classes/XIn" ],
 'methods': [ "?*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Pattern": {
 'title': "Pattern",
@@ -6953,7 +6924,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Stream","Classes/FilterPattern","Classes/ListPattern" ],
 'methods': [ "_-record","_-asStream","_-play","_-embedInStream","?-db","?-reverseComposeBinaryOp","?-++","?-keep","?-stutter","?-dupEach","?-flatten","?-mtranspose","?-finDur","?-select","?-repeat","?-clump","?-drop","?-do","?-ctranspose","?-composeBinaryOp","?-trace","?-legato","?-buildForProxy","?-differentiate","?-asScore","?-composeNAryOp","?-lock","?-proxyControlClass","?-collect","?-integrate","?-scaleDur","?-fin","?-iter","?-streamArg","?-composeUnaryOp","?-detune","?-gtranspose","?-asEventStreamPlayer","?-stretch","?-lag","?-<>","?-reject","?-addDur" ],
-'superclasses': [ "AbstractFunction","Object" ],
+'superclasses': [ "AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pseries","Pfunc","Pstep","Pevent","Pstep3add","Pstep2add","Pif","Pindex","Pgeom","Pchain","PstepNfunc","Punop","Pprob","Pbrown","Ppoisson","Spawner","Pget","Pmono","PbindProxy","Pkey","FilterPattern","Pcauchy","Pdict","Peventmod","PatternProxy","Pbeta","Pgauss","Penvir","Pnaryop","Ptime","Pbind","Pproto","ListPattern","Pswitch","Pbinop","Pwhite","Pfuncn","Ppatmod","Prout","Plet","Plazy" ],
 },
 "Classes/Unpack1FFT": {
@@ -6965,7 +6936,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PackFFT","Classes/UnpackFFT","Guides/FFT-Overview" ],
 'methods': [ "_*new" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/XLine": {
 'title': "XLine",
@@ -6976,7 +6947,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Line" ],
 'methods': [ "_*kr","_*ar","?-canFreeSynth" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/09_Buses": {
 'title': "09_Buses",
@@ -6997,7 +6968,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Lag","Classes/Lag2","Classes/Lag3","Classes/LagUD","Classes/Lag3UD" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LagUD","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LagUD","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/08_Rates": {
 'title': "08_Rates",
@@ -7018,7 +6989,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Routine","Classes/FuncStream","Classes/EventStreamPlayer" ],
 'methods': [ "_*new","?-next","?-lastValue","?-step","?-reset","?-connected","?-stream" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/OSCFunc": {
 'title': "OSCFunc",
@@ -7029,7 +7000,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Guides/OSC_communication","Classes/OSCdef","Classes/NetAddr" ],
 'methods': [ "_-recvPort","_-path","_*trace","_*defaultDispatcher","_*defaultMatchingDispatcher","_*new","_*newMatching","?-argTemplate" ],
-'superclasses': [ "AbstractResponderFunc","Object" ],
+'superclasses': [ "AbstractResponderFunc","Object","AbstractObjectExperimental" ],
 'subclasses': [ "OSCdef" ],
 },
 "Classes/HIDFunc": {
@@ -7041,7 +7012,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HID","Classes/HIDdef","Classes/HIDProto","Classes/HIDElementProto","Classes/OSCFunc","Classes/MIDIFunc","Guides/Working_with_HID" ],
 'methods': [ "_-deviceTemplate","_-argTemplateType","_-elUsage","_-argTemplate","_-elementTemplate","_-type","_-devUsage","_*usage","_*usageID","_*trace","_*device","_*defaultDispatchers","_*proto","_*element" ],
-'superclasses': [ "AbstractResponderFunc","Object" ],
+'superclasses': [ "AbstractResponderFunc","Object","AbstractObjectExperimental" ],
 'subclasses': [ "HIDdef" ],
 },
 "Classes/LinearWarp": {
@@ -7053,7 +7024,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-map","?-unmap" ],
-'superclasses': [ "Warp","Object" ],
+'superclasses': [ "Warp","Object","AbstractObjectExperimental" ],
 'subclasses': [ "SineWarp","CosineWarp" ],
 },
 "Classes/InRange": {
@@ -7065,7 +7036,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/InRect","Classes/Schmidt" ],
 'methods': [ "_*ir","_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Fold","Schmidt","Wrap","Clip" ],
 },
 "Classes/PauseSelf": {
@@ -7077,7 +7048,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FreeSelf" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/StartUp": {
 'title': "StartUp",
@@ -7088,7 +7059,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ShutDown","Classes/ServerBoot","Classes/ServerTree","Classes/CmdPeriod" ],
 'methods': [ "_*remove","_*add","_*defer","_*run","?*done","?*objects" ],
-'superclasses': [ "AbstractSystemAction","Object" ],
+'superclasses': [ "AbstractSystemAction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PSinGrain": {
 'title': "PSinGrain",
@@ -7099,7 +7070,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/K2A": {
 'title': "K2A",
@@ -7110,7 +7081,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/A2K" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "T2A" ],
 },
 "Classes/Pwrand": {
@@ -7122,7 +7093,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Prand","Classes/Pxrand" ],
 'methods': [ "?-weights","?-embedInStream","?*new" ],
-'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/AmpCompA": {
 'title': "AmpCompA",
@@ -7133,7 +7104,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AmpComp" ],
 'methods': [ "_*ir","_*kr","_*ar" ],
-'superclasses': [ "AmpComp","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "AmpComp","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/GridLayout": {
 'title': "GridLayout",
@@ -7154,7 +7125,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Server" ],
 'methods': [ "_-numChannels","_-kr","_-rate","_-setPairs","_-asMap","_-getnSynchronous","_-getMsg","_-setnSynchronous","_-subBus","_-server","_-plotAudio","_-getn","_-free","_-getSynchronous","_-get","_-setAt","_-setSynchronous","_-set","_-setnMsg","_-setnAt","_-setMsg","_-belaScope","_-setn","_-ar","_-getnMsg","_-index","_-scope","_-value","_-plot","_-fillMsg","_*control","_*alloc","_*audio","_*new","_*newFrom","?-alloc","?-realloc","?-prepareForProxySynthDef","?-isSettable","?-fill","?-setAll","?-==","?-play","?-asControlInput","?-asUGenInput","?-hash","?-isAudioOut","?-asBus" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/TBall": {
 'title': "TBall",
@@ -7165,7 +7136,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ball","Classes/Spring" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Peventmod": {
 'title': "Peventmod",
@@ -7176,7 +7147,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-storeArgs","?-event","?-repeats","?-func","?-embedInStream","?*new" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pfuncn": {
 'title': "Pfuncn",
@@ -7187,7 +7158,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pfunc","Classes/FuncStream" ],
 'methods': [ "_*new","?-repeats","?-func","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pan4": {
 'title': "Pan4",
@@ -7198,7 +7169,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Balance2","Classes/LinPan2","Classes/Pan2","Classes/PanAz" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LPF": {
 'title': "LPF",
@@ -7209,7 +7180,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BPF","Classes/BRF","Classes/HPF" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "HPF" ],
 },
 "Classes/CSVFileReader": {
@@ -7221,7 +7192,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/File" ],
 'methods': [ "?*delim" ],
-'superclasses': [ "FileReader","Stream","AbstractFunction","Object" ],
+'superclasses': [ "FileReader","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pproto": {
 'title': "Pproto",
@@ -7232,7 +7203,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pattern" ],
 'methods': [ "?-cleanupFunc","?-makeFunction","?-pattern","?-embedInStream","?*new" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/How-to-Use-the-Interpreter": {
 'title': "How to Use the Interpreter",
@@ -7273,7 +7244,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HID","Classes/LIDInfo","Classes/LIDSlot","Classes/LIDGui" ],
 'methods': [ "_-caps","_-dumpCaps","_-makeGui","_-postSlots","_-debug","_-spec","_-closeAction","_-postInfo","_-ungrab","_-isOpen","_-close","_-vendor","_-action","_-slots","_-at","_-grab","_-slot","_-info","_-path","_-isGrabbed","_-product","_*openAt","_*openPath","_*initializeLID","_*specs","_*removeRecvFunc","_*debug","_*new","_*openDevices","_*addRecvFunc","_*open","_*mouseDeviceSpec","_*keyboardDeviceSpec","_*running","_*closeAll","_*register","_*postAvailable","_*action","_*available","_*findBy","_*findAvailable","_*deviceRoot" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Psetpre": {
 'title': "Psetpre",
@@ -7284,7 +7255,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pset","Classes/Psetp" ],
 'methods': [ "_*new","?-value","?-name","?-filterEvent","?-embedInStream" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Paddpre","Pmulpre" ],
 },
 "Classes/MostChange": {
@@ -7296,7 +7267,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LeastChange","Classes/LastValue" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "LeastChange" ],
 },
 "Classes/PV_Min": {
@@ -7308,7 +7279,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_Add","Classes/PV_CopyPhase","Classes/PV_MagMul","Classes/PV_Max","Classes/PV_Mul" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Other/JITLibChanges3.7": {
 'title': "JITLib Changes in 3.7",
@@ -7329,7 +7300,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OSCFunc","Classes/OSCdef","Classes/MIDIFunc","Classes/MIDIdef","Classes/AbstractDispatcher" ],
 'methods': [ "_-remove","_-add","_-dispatcher","_-srcID","_-free","_-enabled","_-enable","_-fix","_-permanent","_-disable","_-gui","_-clear","_-func","_-oneShot","_*allFuncProxies","_*allEnabled","_*allDisabled" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "OSCFunc","HIDFunc","MIDIFunc" ],
 },
 "Classes/Recorder": {
@@ -7341,7 +7312,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Server","Classes/DiskOut","Guides/Non-Realtime-Synthesis" ],
 'methods': [ "_-recBufSize","_-stopRecording","_-numChannels","_-recHeaderFormat","_-record","_-recSampleFormat","_-prepareForRecord","_-numFrames","_-notifyServer","_-isRecording","_-server","_-paused","_-duration","_-filePrefix","_-path","_-pauseRecording","_-resumeRecording","_*new","?-recordBus" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Pfunc": {
 'title': "Pfunc",
@@ -7352,7 +7323,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pfuncn","Classes/FuncStream" ],
 'methods': [ "_*new","?-nextFunc","?-resetFunc","?-asStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LinCongL": {
 'title': "LinCongL",
@@ -7363,7 +7334,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LinCongC","Classes/LinCongN" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "LinCongN","ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LinCongN","ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Sanitize": {
 'title': "Sanitize",
@@ -7374,7 +7345,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/19_Scheduling": {
 'title': "19_Scheduling",
@@ -7405,7 +7376,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagSquared","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagSquared","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Ddup": {
 'title': "Ddup",
@@ -7416,7 +7387,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Formant": {
 'title': "Formant",
@@ -7427,7 +7398,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/GUI/create_window": {
 'title': "GUI: Create a Window",
@@ -7448,7 +7419,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_Div": {
 'title': "PV_Div",
@@ -7459,7 +7430,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PV_Mul","Classes/PV_MagDiv" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ScopeOut": {
 'title': "ScopeOut",
@@ -7470,7 +7441,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/AnalogOut": {
 'title': "AnalogOut",
@@ -7481,7 +7452,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AnalogIn","Classes/DigitalIn","Classes/DigitalOut","Classes/DigitalIO" ],
 'methods': [ "_*kr","_*ar","?-numOutputs","?-writeOutputSpecs" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/EnvirGui": {
 'title': "EnvirGui",
@@ -7512,7 +7483,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pitch": {
 'title': "Pitch",
@@ -7523,7 +7494,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/FilterPattern": {
 'title': "FilterPattern",
@@ -7534,7 +7505,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ListPattern" ],
 'methods': [ "?-pattern","?*new" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Psetpre","Pstutter","PfinQuant","Pbus","Plambda","Pbindf","Pdiff","FuncFilterPattern","Psym","Prorate","Pstretch","Pfin","Pfindur","PfadeIn","Pavaroh","Pdrop","Pclump","Pwrap","Pdup","Ptrace","Prewrite","Pprotect","Psync","Pplayer","Plag","Pseed","Pset","Pclutch","PAbstractGroup","Pn","Pspawn","Pfx","Pconst" ],
 },
 "Classes/BrownNoise": {
@@ -7546,7 +7517,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ClipNoise","Classes/GrayNoise","Classes/PinkNoise","Classes/WhiteNoise" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "WhiteNoise","UGen","AbstractFunction","Object" ],
+'superclasses': [ "WhiteNoise","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/GVerb": {
 'title': "GVerb",
@@ -7557,7 +7528,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FreeVerb","Classes/FreeVerb2" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/02_Evaluating_code": {
 'title': "02_Evaluating_code",
@@ -7598,7 +7569,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/List","Classes/Array","Classes/Dictionary","Classes/Bag","Classes/Set","Classes/SortedList" ],
 'methods': [ "_-storeOn","_-injectr","_-difference","_-atAll","_-maxSizeAtDepth","_-detectIndex","_-detectLast","_-maxIndex","_-collectCopy","_-removeAllSuchThat","_-every","_-detect","_-asDict","_-remove","_-inject","_-collect","_-lastIndexForWhich","_-includesEqual","_-sect","_-add","_-count","_-addAll","_-putEach","_-asEvent","_-mean","_-includes","_-reject","_-histo","_-flopDict","_-sum","_-collectInPlace","_-asList","_-maxItem","_-asSortedList","_-storeItemsOn","_-symmetricDifference","_-select","_-asPairs","_-union","_-asAssociations","_-do","_-asSet","_-size","_-printOn","_-isSubsetOf","_-removeAll","_-minIndex","_-any","_-invert","_-occurrencesOf","_-asBag","_-product","_-powerset","_-removeEvery","_-iter","_-includesAll","_-lastForWhich","_-asDictWith","_-isEmpty","_-maxDepth","_-includesAny","_-minItem","_-detectLastIndex","_-printItemsOn","_-matchItem","_*fill2D","_*fillND","_*fill","_*newFrom","_*with","_*fill3D","?-doMsg","?-++","?-sumabs","?-rejectMsg","?-==","?-collectAs","?-hash","?-writeDef","?-detectMsg","?-deepDo","?-case","?-minValue","?-writeInputSpecOld","?-asCollection","?-deepCollect","?-writeInputSpec","?-species","?-isCollection","?-debug","?-maxValue","?-writeDefOld","?-dumpAll","?-notEmpty","?-isAssociationArray","?-makeEnvirValPairs","?-asArray","?-printAll","?-selectAs","?-@","?-detectIndexMsg","?-collectMsg","?-selectMsg","?-flatSize","?-rejectAs","?-printcsAll" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "Set","Range","MultiLevelIdentityDictionary","Interval","TwoWayIdentityDictionary","Array2D","Pair","Bag","SequenceableCollection" ],
 },
 "Classes/PV_Add": {
@@ -7610,7 +7581,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_CopyPhase","Classes/PV_MagMul","Classes/PV_Max","Classes/PV_Min","Classes/PV_Mul" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PitchShift": {
 'title': "PitchShift",
@@ -7621,7 +7592,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/AbstractMessageMatcher": {
 'title': "AbstractMessageMatcher",
@@ -7632,7 +7603,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AbstractResponderFunc","Classes/AbstractWrappingDispatcher" ],
 'methods': [ "_-valueArray","_-value","_-func" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "OSCArgsMatcher","MIDIFuncChanMessageMatcher","MIDIFuncBothCAMessageMatcher","HIDRawValueMatcher","HIDFuncElementProtoMatcher","MIDISMPTEAssembler","OSCFuncRecvPortMessageMatcher","HIDValueMatcher","OSCFuncBothMessageMatcher","MIDIFuncSrcMessageMatcher","HIDFuncDeviceProtoMatcher","MIDIValueMatcher","OSCFuncAddrMessageMatcher","MIDIFuncChanArrayMessageMatcher","MIDIFuncBothMessageMatcher" ],
 },
 "Guides/UGens-and-Synths": {
@@ -7664,7 +7635,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SOS","Classes/BLowPass","Classes/BLowPass4","Classes/BHiPass","Classes/BHiPass4","Classes/BPeakEQ","Classes/BLowShelf","Classes/BHiShelf","Classes/BBandPass","Classes/BAllPass" ],
 'methods': [ "_*ar","?*sc" ],
-'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/TempoClock": {
 'title': "TempoClock",
@@ -7675,7 +7646,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AppClock","Classes/SystemClock" ],
 'methods': [ "_-timeToNextBeat","_-beatsPerBar","_-bar","_-beatInBar","_-isRunning","_-beats2secs","_-sched","_-permanent","_-playNextBar","_-baseBarBeat","_-clear","_-queue","_-baseBar","_-bars2beats","_-beatDur","_-beats","_-schedAbs","_-nextTimeOnGrid","_-beats2bars","_-secs2beats","_-elapsedBeats","_-etempo","_-stop","_-play","_-nextBar","_-seconds","_-tempo","_*timeToNextBeat","_*setTempoAtBeat","_*beatsPerBar","_*bar","_*new","_*beatInBar","_*isRunning","_*beats2secs","_*sched","_*default","_*setTempoAtSec","_*playNextBar","_*baseBarBeat","_*clear","_*baseBar","_*bars2beats","_*beatDur","_*schedAbs","_*beats","_*nextTimeOnGrid","_*beats2bars","_*secs2beats","_*setMeterAtBeat","_*elapsedBeats","_*etempo","_*stop","_*play","_*nextBar","_*tempo","?-setTempoAtBeat","?-setMeterAtBeat","?-setTempoAtSec","?-archiveAsCompileString","?*all","?*cmdPeriod" ],
-'superclasses': [ "Clock","Object" ],
+'superclasses': [ "Clock","Object","AbstractObjectExperimental" ],
 'subclasses': [ "TempoBusClock" ],
 },
 "Classes/APF": {
@@ -7687,7 +7658,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "TwoPole","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "TwoPole","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/SimpleController": {
 'title': "SimpleController",
@@ -7698,7 +7669,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Object" ],
 'methods': [ "_-put","_-remove","_*new","?-removeAt" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_05_Math_on_Patterns": {
 'title': "Pattern Guide 05: Math on Patterns",
@@ -7719,7 +7690,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-window","?-model","?-init","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Line": {
 'title': "Line",
@@ -7730,7 +7701,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/XLine" ],
 'methods': [ "_*kr","_*ar","?-canFreeSynth" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PureUGen": {
 'title': "PureUGen",
@@ -7741,7 +7712,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/UGen" ],
 'methods': [  ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "DegreeToKey","AmpComp","LFPulse","LinExp","Formant","VOsc","Impulse","K2A","Select","SyncSaw","COsc","LFSaw","Index","A2K","DelayN","VOsc3","SinOsc","Osc","Filter","Vibrato","CombN","SinOscFB","VarSaw","OscN" ],
 },
 "Classes/SCViewHolder": {
@@ -7763,7 +7734,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Lag","Classes/VarLag","Classes/Slew" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Lag","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Lag","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/Working_with_HID": {
 'title': "Working with HID",
@@ -7784,7 +7755,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Clip","Classes/Wrap" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "InRange","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InRange","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/EZListView": {
 'title': "EZListView",
@@ -7805,7 +7776,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-map","?-unmap" ],
-'superclasses': [ "LinearWarp","Warp","Object" ],
+'superclasses': [ "LinearWarp","Warp","Object","AbstractObjectExperimental" ],
 },
 "Classes/AllpassN": {
 'title': "AllpassN",
@@ -7816,7 +7787,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AllpassC","Classes/AllpassL","Classes/BufAllpassN" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "CombN","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "CombN","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ProxyMonitorGui": {
 'title': "ProxyMonitorGui",
@@ -7837,7 +7808,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-value" ],
-'superclasses': [ "MIDIFuncSrcMessageMatcher","AbstractMessageMatcher","Object" ],
+'superclasses': [ "MIDIFuncSrcMessageMatcher","AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/Archive": {
 'title': "Archive",
@@ -7848,7 +7819,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Library","Classes/Object","Classes/LibraryBase" ],
 'methods': [ "_*archiveDir","_*read","_*global","_*write" ],
-'superclasses': [ "LibraryBase","MultiLevelIdentityDictionary","Collection","Object" ],
+'superclasses': [ "LibraryBase","MultiLevelIdentityDictionary","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/AbstractIn": {
 'title': "AbstractIn",
@@ -7859,7 +7830,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?*isInputUGen" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "SharedIn","LagIn","InFeedback","LocalIn","InTrig","In" ],
 },
 "Classes/SetBuf": {
@@ -7871,7 +7842,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?*new" ],
-'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/JITLib/proxyspace_examples": {
 'title': "ProxySpace examples",
@@ -7902,7 +7873,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Demand","Classes/Drand","Classes/Dser","Classes/Duty","Classes/Dxrand","Classes/TDuty" ],
 'methods': [ "_*new","?-asUGenInput","?-protected" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/HIDFuncElementProtoMatcher": {
 'title': "HIDFuncElementProtoMatcher",
@@ -7913,7 +7884,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-value","?-init","?*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/MultiplexAnalogIn": {
 'title': "MultiplexAnalogIn",
@@ -7924,7 +7895,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AnalogIn","Classes/AnalogOut","Classes/DigitalIn","Classes/DigitalOut","Classes/DigitalIO" ],
 'methods': [ "_*kr","_*ar","?-signalRange" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LinuxPlatform": {
 'title': "LinuxPlatform",
@@ -7935,7 +7906,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*getTerminalEmulatorCmd","_*runInTerminalCmd","?-initPlatform","?-name","?-killProcessByID","?-startupFiles","?-startup","?-version" ],
-'superclasses': [ "UnixPlatform","Platform","Object" ],
+'superclasses': [ "UnixPlatform","Platform","Object","AbstractObjectExperimental" ],
 },
 "Classes/PdefAllGui": {
 'title': "PdefAllGui",
@@ -7966,7 +7937,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LatoocarfianN","Classes/LatoocarfianL" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "LatoocarfianN","ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LatoocarfianN","ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Reference/Scope": {
 'title': "Scoping and Closure",
@@ -7987,7 +7958,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Osc","Classes/FSinOsc","Classes/SinOscFB","Classes/PMOsc","Classes/Klang" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LFPar": {
 'title': "LFPar",
@@ -7998,7 +7969,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFCub","Classes/LFPulse","Classes/LFSaw","Classes/LFTri" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LFSaw","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LFSaw","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/News-3_10": {
 'title': "News in 3.10",
@@ -8019,7 +7990,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_MagAbove","Classes/PV_MagBelow","Classes/PV_MagClip" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagAbove","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagAbove","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ExpRand": {
 'title': "ExpRand",
@@ -8030,7 +8001,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/IRand","Classes/LinRand","Classes/NRand","Classes/Rand","Classes/TExpRand","Classes/TIRand","Classes/TRand" ],
 'methods': [ "_*new" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/SampleRate": {
 'title': "SampleRate",
@@ -8041,7 +8012,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ControlRate","Classes/RadiansPerSample","Classes/SampleDur","Classes/SubsampleOffset" ],
 'methods': [ "_*ir" ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Sum3": {
 'title': "Sum3",
@@ -8052,7 +8023,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Mix" ],
 'methods': [ "_*new" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/OSCBundle": {
 'title': "OSCBundle",
@@ -8063,7 +8034,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Guides/OSC_communication" ],
 'methods': [ "_-add","_-send","_-addPrepare","_-schedSend","_-addAll","?-doPrepare","?-cancel","?-addCancel","?-sendAtTime","?-messages","?-preparationMessages" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "MixedBundle" ],
 },
 "Tutorials/Mark_Polishook_tutorial/Japanese_version/05": {
@@ -8085,7 +8056,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-writeConstants","?-asBytes","?-writeDefFile","?-writeDef" ],
-'superclasses': [ "SynthDef","Object" ],
+'superclasses': [ "SynthDef","Object","AbstractObjectExperimental" ],
 },
 "Classes/A2K": {
 'title': "A2K",
@@ -8096,7 +8067,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/K2A" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "T2K" ],
 },
 "Classes/DelayC": {
@@ -8108,7 +8079,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/DelayL","Classes/DelayN","Classes/BufDelayC" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "DelayN","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DelayN","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/StandardL": {
 'title': "StandardL",
@@ -8119,7 +8090,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/StandardN" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "StandardN","ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "StandardN","ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/DelayL": {
 'title': "DelayL",
@@ -8130,7 +8101,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/DelayC","Classes/DelayN","Classes/BufDelayL" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "DelayN","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DelayN","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Plag": {
 'title': "Plag",
@@ -8141,7 +8112,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-lag","?-storeArgs","?-embedInStream","?*new" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/InTrig": {
 'title': "InTrig",
@@ -8152,7 +8123,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr" ],
-'superclasses': [ "AbstractIn","MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "AbstractIn","MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Ptsym": {
 'title': "Ptsym",
@@ -8163,7 +8134,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-dur","?-tolerance","?-storeArgs","?-quant","?-embedInStream","?*new" ],
-'superclasses': [ "Psym","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Psym","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/HPF": {
 'title': "HPF",
@@ -8174,7 +8145,18 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BPF","Classes/BRF","Classes/LPF" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LPF","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LPF","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
+},
+"Classes/ErrorWrapper": {
+'title': "ErrorWrapper",
+'path': "Classes/ErrorWrapper",
+'summary': "Error used to wrap another error",
+'installed': "standard",
+'categories': "Core",
+'keywords': [  ],
+'related': [ "Classes/Error" ],
+'methods': [ "?-reportStage1","?-wrapped","?-reportStage2","?*new" ],
+'superclasses': [ "Error","Exception","Object","AbstractObjectExperimental" ],
 },
 "Classes/TextView": {
 'title': "TextView",
@@ -8216,16 +8198,6 @@ docmap = {
 'related': [ "Overviews/JITLib","Tutorials/JITLib/jitlib_basic_concepts_03" ],
 'methods': [  ],
 },
-"Classes/SCContainerView": {
-'title': "SCContainerView",
-'path': "Classes/SCContainerView",
-'summary': "An abstract superclass for container views",
-'installed': "standard",
-'categories': "GUI>Kits>Cocoa",
-'keywords': [  ],
-'related': [ "Classes/CompositeView","Classes/HLayoutView","Classes/VLayoutView","Classes/ScrollView" ],
-'methods': [ "_-decorator","_-add","_-children","_-init","_-prRemoveChild","_-addFlowLayout","_-removeAll","_-prClose" ],
-},
 "Tutorials/Mark_Polishook_tutorial/12_UnaryOp_synthesis": {
 'title': "12_UnaryOp_synthesis",
 'path': "Tutorials/Mark_Polishook_tutorial/12_UnaryOp_synthesis",
@@ -8245,7 +8217,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-test","_-unhang","_-wait","_-signal","_-hang","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/EventPatternProxy": {
 'title': "EventPatternProxy",
@@ -8256,7 +8228,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pdef" ],
 'methods': [ "_-pause","_-clock","_-isPlaying","_-reset","_-envir","_-quant","_-embedInStream","_-set","_-player","_-resume","_-stop","_-source","_-play","_-fadeTime","_-clear","_*new","_*default","_*defaultQuant","?-outset","?-proxyControlClass","?-constrainStream","?-fork","?-playOnce","?-buildForProxy","?*parallelise","?*defaultValue" ],
-'superclasses': [ "TaskProxy","PatternProxy","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "TaskProxy","PatternProxy","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pdef" ],
 },
 "Classes/SubclassResponsibilityError": {
@@ -8267,8 +8239,8 @@ docmap = {
 'categories': "Undocumented classes",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "?-class","?-method","?-errorString","?*new" ],
-'superclasses': [ "MethodError","Error","Exception","Object" ],
+'methods': [ "?-method","?-class","?*new" ],
+'superclasses': [ "MethodError","Error","Exception","Object","AbstractObjectExperimental" ],
 },
 "Classes/ScopeView": {
 'title': "ScopeView",
@@ -8309,7 +8281,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PeakFollower" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "RunningMin","RunningMax" ],
 },
 "Classes/Thread": {
@@ -8321,7 +8293,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Routine" ],
 'methods': [ "_-beats","_-clock","_-isPlaying","_-randData","_-randSeed","_-state","_-parent","_-seconds","_-deferAwayFrom","_*new","?-next","?-copy","?-checkCanArchive","?-valueArray","?-nextBeat","?-handleError","?-failedPrimitiveName","?-oldExecutingPath","?-findThreadPlayer","?-endBeat","?-exceptionHandler","?-primitiveIndex","?-primitiveError","?-threadPlayer","?-archiveAsCompileString","?-endValue","?-value","?-executingPath","?*primitiveError","?*primitiveErrorString","_.thisThread" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Routine" ],
 },
 "Classes/EZRanger": {
@@ -8343,7 +8315,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-max","_-exclusivelyBetween","_-clip","_-<","_->=","_-<=","_-min","_-inclusivelyBetween","_->","?-hash","?-==","?-!=" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "Association","Date","Number","Char" ],
 },
 "Tutorials/A-Practical-Guide/PG_06g_Data_Sharing": {
@@ -8365,7 +8337,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Reblock","Classes/SynthDef" ],
 'methods': [ "_*new","?-factor","?-controlIndex","?-synthDef","?-writeDef" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_MagFreeze": {
 'title': "PV_MagFreeze",
@@ -8376,7 +8348,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Reference/Control-Structures": {
 'title': "Control Structures",
@@ -8397,7 +8369,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Guides/MIDI","Classes/MIDIFunc" ],
 'methods': [ "_-free","_-key","_*program","_*cc","_*noteOn","_*new","_*noteOff","_*sysrt","_*continue","_*tick","_*midiClock","_*freeAll","_*polytouch","_*mtcQuarterFrame","_*tuneRequest","_*all","_*start","_*reset","_*activeSense","_*stop","_*touch","_*smpte","_*sysex","_*songPosition","_*songSelect","_*bend" ],
-'superclasses': [ "MIDIFunc","AbstractResponderFunc","Object" ],
+'superclasses': [ "MIDIFunc","AbstractResponderFunc","Object","AbstractObjectExperimental" ],
 },
 "Classes/FuncStreamAsRoutine": {
 'title': "FuncStreamAsRoutine",
@@ -8408,7 +8380,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-nextFunc","?-resetFunc","?-reset","?*new" ],
-'superclasses': [ "Routine","Thread","Stream","AbstractFunction","Object" ],
+'superclasses': [ "Routine","Thread","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ProxySpace": {
 'title': "ProxySpace",
@@ -8419,7 +8391,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/NodeProxy","Classes/ProxyMixer","Overviews/JITLib" ],
 'methods': [ "_-remove","_-clock","_-kr","_-put","_-document","_-copy","_-record","_-end","_-clear","_-wakeUp","_-add","_-free","_-at","_-quant","_-clean","_-reduce","_-asCode","_-stop","_-play","_-fadeTime","_-ar","_-release","_*push","_*new","_*pop","_*clearAll","?-initProxy","?-makeProxy","?-doOnServerBoot","?-unregisterServer","?-group","?-rebuild","?-name","?-doFunctionPerform","?-awake","?-krProxyNames","?-playingProxies","?-getStructure","?-copyState","?-reshaping","?-size","?-makeTempoClock","?-existingProxies","?-server","?-postln","?-removeNeutral","?-proxyNames","?-doOnServerQuit","?-activeProxies","?-registerServer","?-includes","?-arProxyNames","?-monitors","?-gcList","?-documentOutput","?*all","?*findSpace" ],
-'superclasses': [ "LazyEnvir","EnvironmentRedirect","Object" ],
+'superclasses': [ "LazyEnvir","EnvironmentRedirect","Object","AbstractObjectExperimental" ],
 },
 "Reference/Expression-Sequence": {
 'title': "Expression Sequence",
@@ -8440,7 +8412,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PV_JensenAndersen" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Platform": {
 'title': "Platform",
@@ -8451,7 +8423,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-systemExtensionDir","_-helpDir","_-resourceDir","_-userAppSupportDir","_-startupFiles","_-loadStartupFiles","_-userHomeDir","_-recordingsDir","_-systemAppSupportDir","_-name","_-userExtensionDir","_-hasFeature","_-platformDir","_-killAll","_-userConfigDir","_-formatPathForCmdLine","_-killProcessByID","_-pathSeparator","_-classLibraryDir","_-recompile","_-defaultTempDir","_-when","_-declareFeature","_-pathDelimiter","_*hasQtWebEngine","_*systemExtensionDir","_*helpDir","_*resourceDir","_*ideName","_*userAppSupportDir","_*userHomeDir","_*architecture","_*recordingsDir","_*systemAppSupportDir","_*exampleDir","_*userExtensionDir","_*platformDir","_*hasQt","_*userConfigDir","_*case","_*classLibraryDir","_*pathSeparator","_*systemInformation","_*defaultTempDir","_*postBugReportInfo","_*when","?-devLoc","?-isSleeping","?-devpath","?-ideName","?-defaultGUIScheme","?-initPlatform","?-writeClientCSS","?-clearMetadata","?-isPathSeparator","?*openHTMLFileAction","?*makeServerWindowAction","?*openHelpFileAction","?*makeSynthDescWindowAction","?*pathDelimiter","?*clearMetadata","?*deprecatedStartupFiles","?*isPathSeparator","?*hasBelaSupport" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "UnixPlatform" ],
 },
 "Classes/Psym": {
@@ -8463,7 +8435,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pdef" ],
 'methods': [ "_-dict","_*new","?-lookUp","?-lookupClass","?-embedInStream","?-getPattern" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Psym1","Ptsym","Pnsym" ],
 },
 "Classes/Shaper": {
@@ -8475,7 +8447,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Index","Classes/WrapIndex","Classes/Wavetable" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Index","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Index","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ReplaceOut": {
 'title': "ReplaceOut",
@@ -8486,7 +8458,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OffsetOut","Classes/Out","Classes/XOut" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Out","AbstractOut","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Out","AbstractOut","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/DoesNotUnderstandError": {
 'title': "DoesNotUnderstandError",
@@ -8496,8 +8468,8 @@ docmap = {
 'categories': "Core",
 'keywords': [  ],
 'related': [ "Classes/Error" ],
-'methods': [ "_-selector","_-reportError","_-args","_-errorString","_-suggestedCorrection","_*new","?-keywordArgumentPairs","?-suggestion","?-adviceLinkPage" ],
-'superclasses': [ "MethodError","Error","Exception","Object" ],
+'methods': [ "_-keywordArgumentPairs","_-selector","_-args","_*new","?-reportStage2" ],
+'superclasses': [ "MethodError","Error","Exception","Object","AbstractObjectExperimental" ],
 'subclasses': [ "BinaryOpFailureError" ],
 },
 "Classes/Pcauchy": {
@@ -8509,7 +8481,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BrownNoise","Classes/Pbrown" ],
 'methods': [ "_*new","?-length","?-spread","?-mean","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Interpreter": {
 'title': "Interpreter",
@@ -8519,8 +8491,8 @@ docmap = {
 'categories': "Core>Kernel",
 'keywords': [  ],
 'related': [ "Guides/How-to-Use-the-Interpreter" ],
-'methods': [ "_-d","_-y","_-g","_-e","_-preProcessor","_-compile","_-b","_-q","_-z","_-codeDump","_-w","_-functionCompileContext","_-interpret","_-executeFile","_-a","_-j","_-u","_-k","_-clearAll","_-t","_-compileFile","_-interpretPrint","_-v","_-s","_-c","_-r","_-x","_-h","_-f","_-i","_-n","_-cmdLine","_-m","_-l","_-p","_-o","?-interpretPrintCmdLine","?-interpretCmdLine","?-shallowCopy" ],
-'superclasses': [ "Object" ],
+'methods': [ "_-d","_-y","_-g","_-e","_-preProcessor","_-compile","_-b","_-q","_-z","_-codeDump","_-w","_-interpret","_-executeFile","_-a","_-j","_-u","_-k","_-clearAll","_-t","_-compileFile","_-interpretPrint","_-v","_-s","_-c","_-r","_-x","_-h","_-f","_-i","_-n","_-cmdLine","_-m","_-l","_-p","_-o","?-shallowCopy","?-interpretPrintCmdLine","?-prCompileUsingMembers","?-interpretCmdLine","?-prCompile" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Pfsm": {
 'title': "Pfsm",
@@ -8531,7 +8503,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pdfsm" ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/SOS": {
 'title': "SOS",
@@ -8542,7 +8514,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FOS" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Streams-Patterns-Events2": {
 'title': "Understanding Streams, Patterns and Events - Part 2",
@@ -8563,7 +8535,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ExpRand","Classes/IRand","Classes/NRand","Classes/Rand","Classes/TExpRand","Classes/TIRand","Classes/TRand" ],
 'methods': [ "_*new" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MultiSliderView": {
 'title': "MultiSliderView",
@@ -8585,16 +8557,6 @@ docmap = {
 'related': [ "Classes/Document" ],
 'methods': [  ],
 },
-"Classes/SCImage": {
-'title': "SCImage",
-'path': "Classes/SCImage",
-'summary': "image component",
-'installed': "standard",
-'categories': "GUI>Views",
-'keywords': [  ],
-'related': [ "Classes/SCImageFilter","Classes/SCImageKernel" ],
-'methods': [ "_-accelerated","_-addFilter","_-url","_-pixels","_-drawInRect","_-flatten","_-drawAtPoint","_-width","_-removeFilter","_-unlockFocus","_-setSize","_-setPixel","_-scalesWhenResized","_-write","_-setPixels","_-filters","_-draw","_-invert","_-loadPixels","_-plot","_-interpolation","_-filteredWith","_-lockFocus","_-getColor","_-crop","_-applyFilters","_-bounds","_-applyKernel","_-tileInRect","_-drawStringAtPoint","_-setColor","_-free","_-height","_-getPixel","_*color","_*interpolations","_*fromImage","_*new","_*closeAllPlotWindows","_*fromWindow","_*open","_*formats","_*compositingOperations","_*openURL" ],
-},
 "Classes/PfadeIn": {
 'title': "PfadeIn",
 'path': "Classes/PfadeIn",
@@ -8604,7 +8566,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PfadeOut" ],
 'methods': [ "_-holdTime","_-tolerance","_-storeArgs","_-fadeTime","_-embedInStream","_*new" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PfadeOut" ],
 },
 "Classes/DebugNodeWatcher": {
@@ -8616,7 +8578,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Reference/Server-Command-Reference","Classes/Node","Classes/NodeWatcher" ],
 'methods': [ "?-cmds","?-doPost","?-n_on","?-n_go","?-n_off","?-n_end" ],
-'superclasses': [ "BasicNodeWatcher","AbstractNodeWatcher","Object" ],
+'superclasses': [ "BasicNodeWatcher","AbstractNodeWatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/Padd": {
 'title': "Padd",
@@ -8627,7 +8589,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Paddp","Classes/Pmul" ],
 'methods': [ "_*new","?-filterEvent" ],
-'superclasses': [ "Pset","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pset","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Prout": {
 'title': "Prout",
@@ -8638,7 +8600,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Routine" ],
 'methods': [ "_*new","?-routineFunc","?-asStream","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pspawner" ],
 },
 "Classes/MIDIFuncChanArrayMessageMatcher": {
@@ -8650,7 +8612,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AbstractMessageMatcher","Classes/MIDIFuncSrcMessageMatcher","Classes/MIDIFuncChanMessageMatcher","Classes/MIDIFuncSrcMessageMatcherNV","Classes/MIDIFuncBothMessageMatcher","Classes/MIDIFuncBothCAMessageMatcher" ],
 'methods': [ "_-value","_*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/OutputProxy": {
 'title': "OutputProxy",
@@ -8661,7 +8623,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-source","?-spec","?-addToSynth","?-name","?-outputIndex","?-controlName","?-controlIndex","?-dumpName","?*new" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_ConformalMap": {
 'title': "PV_ConformalMap",
@@ -8672,7 +8634,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NumAudioBuses": {
 'title': "NumAudioBuses",
@@ -8683,7 +8645,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/NumBuffers","Classes/NumControlBuses","Classes/NumInputBuses","Classes/NumOutputBuses","Classes/NumRunningSynths" ],
 'methods': [ "_*ir" ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dictionary": {
 'title': "Dictionary",
@@ -8694,7 +8656,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Environment","Classes/Event" ],
 'methods': [ "_-put","_-falseAt","_-embedInStream","_-keysValuesDo","_-putPairs","_-atAll","_-keysDo","_-select","_-asPairs","_-asSortedArray","_-blend","_-do","_-associationAt","_-pairsDo","_-trueAt","_-matchAt","_-putAll","_-invert","_-associationsDo","_-asDict","_-powerset","_-collect","_-removeAt","_-includesKey","_-order","_-atFail","_-getPairs","_-findKeyForValue","_-add","_-keys","_-merge","_-keysValuesChange","_-at","_-values","_-asKeyValuePairs","_-includes","_-reject","_*new","_*newFrom","?-remove","?-grow","?-++","?-associationAtFail","?-mergeItem","?-==","?-storeItemsOn","?-keysValuesArrayDo","?-hash","?-isAssociationArray","?-sortedKeysValuesDo","?-choose","?-removeFail","?-removeAtFail","?-fixCollisionsFrom","?-scanFor","?-printItemsOn","?-transformEvent" ],
-'superclasses': [ "Set","Collection","Object" ],
+'superclasses': [ "Set","Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "IdentityDictionary" ],
 },
 "Classes/OSCMessageDispatcher": {
@@ -8706,7 +8668,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OSCFunc","Classes/OSCdef","Classes/AbstractWrappingDispatcher","Classes/AbstractDispatcher","Classes/AbstractMessageMatcher","Classes/OSCMessagePatternDispatcher","Classes/OSCFuncAddrMessageMatcher","Classes/OSCFuncRecvPortMessageMatcher","Classes/OSCFuncBothMessageMatcher","Guides/OSC_communication" ],
 'methods': [ "_-register","_-wrapFunc","_-getKeysForFuncProxy","_-typeKey","_-unregister","_-value" ],
-'superclasses': [ "AbstractWrappingDispatcher","AbstractDispatcher","Object" ],
+'superclasses': [ "AbstractWrappingDispatcher","AbstractDispatcher","Object","AbstractObjectExperimental" ],
 'subclasses': [ "OSCMessagePatternDispatcher" ],
 },
 "Classes/UserView": {
@@ -8727,8 +8689,8 @@ docmap = {
 'categories': "Undocumented classes",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "?-reportError","?-receiver","?-adviceLinkPage","?*new" ],
-'superclasses': [ "Error","Exception","Object" ],
+'methods': [ "?-receiver","?-reportStage2","?*new" ],
+'superclasses': [ "Error","Exception","Object","AbstractObjectExperimental" ],
 'subclasses': [ "MustBeBooleanError","ImmutableError","NotYetImplementedError","ShouldNotImplementError","OutOfContextReturnError","DeprecatedError","PrimitiveFailedError","SubclassResponsibilityError","DoesNotUnderstandError" ],
 },
 "Classes/BlockSize": {
@@ -8740,7 +8702,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [  ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BinaryOpFunction": {
 'title': "BinaryOpFunction",
@@ -8751,7 +8713,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/UnaryOpFunction","Classes/NAryOpFunction","Classes/BinaryOpStream","Classes/Pbinop","Overviews/Operators" ],
 'methods': [ "_-valueArray","_-value","?-valueArrayEnvir","?-functionPerformList","?-valueEnvir","?*new" ],
-'superclasses': [ "AbstractFunction","Object" ],
+'superclasses': [ "AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "BinaryOpFunctionProxy" ],
 },
 "Classes/IndexL": {
@@ -8763,7 +8725,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Index","Classes/IndexInBetween" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Index","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Index","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/HIDDeviceDispatcher": {
 'title': "HIDDeviceDispatcher",
@@ -8774,7 +8736,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-wrapFunc" ],
-'superclasses': [ "HIDUsageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object" ],
+'superclasses': [ "HIDUsageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/MFCC": {
 'title': "MFCC",
@@ -8785,7 +8747,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BeatTrack","Classes/Loudness","Classes/Onsets","Classes/Pitch","Classes/KeyTrack" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Getting-Started/05-Functions-and-Sound": {
 'title': "05. Functions and Sound",
@@ -8805,8 +8767,8 @@ docmap = {
 'categories': "Server>Nodes, Server>Abstractions",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "_*after","_*basicNew","_*before","_*new","_*tail","_*head","_*replace" ],
-'superclasses': [ "AbstractGroup","Node","Object" ],
+'methods': [ "_*tail","_*after","_*head","_*basicNew","_*new","_*replace","_*before" ],
+'superclasses': [ "AbstractGroup","Node","Object","AbstractObjectExperimental" ],
 },
 "Classes/SampleDur": {
 'title': "SampleDur",
@@ -8817,7 +8779,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ControlRate","Classes/RadiansPerSample","Classes/SampleRate","Classes/SubsampleOffset" ],
 'methods': [ "_*ir" ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Color": {
 'title': "Color",
@@ -8828,7 +8790,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Object" ],
 'methods': [ "_-vary","_-asHSV","_-screen","_-complementary","_-multiply","_-red","_-==","_-hexString","_-setStroke","_-symmetricDifference","_-lighten","_-asArray","_-add","_-blend","_-divide","_-storeArgs","_-setFill","_-round","_-blue","_-alpha","_-subtract","_-set","_-green","_-valueBlend","_-saturationBlend","_-hueBlend","_-scaleByAlpha","_-darken","_*white","_*hsv","_*new255","_*yellow","_*red","_*new","_*cyan","_*magenta","_*fromHexString","_*fromArray","_*gray","_*clear","_*grey","_*blue","_*green","_*black","_*rand" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Getting-Started/11-Busses": {
 'title': "11. Busses",
@@ -8849,7 +8811,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AbstractMessageMatcher","Classes/MIDIFuncSrcMessageMatcher","Classes/MIDIFuncChanArrayMessageMatcher","Classes/MIDIFuncSrcMessageMatcherNV","Classes/MIDIFuncBothMessageMatcher","Classes/MIDIFuncBothCAMessageMatcher" ],
 'methods': [ "_-value","_*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Guides/Tour-of-Special-Functions": {
 'title': "Tour of Special Mathematical Functions (Boost library)",
@@ -8870,7 +8832,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Convolution2","Classes/Convolution2L","Classes/Convolution3" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_Copy": {
 'title': "PV_Copy",
@@ -8881,7 +8843,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NAryValueProxy": {
 'title': "NAryValueProxy",
@@ -8892,7 +8854,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-storeOn","?-reduceFuncProxy","?*new" ],
-'superclasses': [ "NAryOpFunctionProxy","NAryOpFunction","AbstractFunction","Object" ],
+'superclasses': [ "NAryOpFunctionProxy","NAryOpFunction","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/AbstractSystemAction": {
 'title': "AbstractSystemAction",
@@ -8903,7 +8865,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/CmdPeriod","Classes/StartUp","Classes/ShutDown","Classes/ServerBoot","Classes/ServerTree","Classes/ServerQuit" ],
 'methods': [ "_*removeAll","?*remove","?*add","?*objects" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "OnError","AbstractServerAction","ShutDown","CmdPeriod","StartUp" ],
 },
 "Classes/TwoWayIdentityDictionary": {
@@ -8915,7 +8877,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/IdentityDictionary" ],
 'methods': [ "_-getID","?-remove","?-add","?-do","?-storeItemsOn","?-printItemsOn","?-put","?-removeAt","?-at","?*new" ],
-'superclasses': [ "Collection","Object" ],
+'superclasses': [ "Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "ObjectTable" ],
 },
 "Classes/Float": {
@@ -8927,7 +8889,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-coin","_-xrand2","_-dump","_-do","_-asCompileString","_-low32Bits","_-modSeaside","_-clip","_-wrap","_-reverseDo","_-isFloat","_-as32Bits","_-fold","_-high32Bits","_-asFloat","_-asStringPrec","_*from32Bits","_*from64Bits","?-archiveAsCompileString","?-*","?-schedBundle","?-+","?-switch","?--" ],
-'superclasses': [ "SimpleNumber","Number","Magnitude","Object" ],
+'superclasses': [ "SimpleNumber","Number","Magnitude","Object","AbstractObjectExperimental" ],
 },
 "Classes/ObjectGui": {
 'title': "ObjectGui",
@@ -8948,7 +8910,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pdup","Classes/Pn","Classes/Pattern#-dup" ],
 'methods': [ "_*new","?-n" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Decay2": {
 'title': "Decay2",
@@ -8959,7 +8921,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Decay","Classes/Integrator" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LinSelectX": {
 'title': "LinSelectX",
@@ -8970,7 +8932,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Select","Classes/SelectX","Classes/SelectXFocus" ],
 'methods': [ "_*kr","_*ar","?*crossfadeClass" ],
-'superclasses': [ "SelectX","Object" ],
+'superclasses': [ "SelectX","Object","AbstractObjectExperimental" ],
 },
 "Classes/SplayZ": {
 'title': "SplayZ",
@@ -8981,7 +8943,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PanAz","Classes/SplayAz" ],
 'methods': [ "_*arFill","_*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Punop": {
 'title': "Punop",
@@ -8992,7 +8954,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pbinop","Classes/Pnaryop","Classes/UnaryOpFunction","Overviews/Operators" ],
 'methods': [ "_*new","?-a","?-operator","?-asStream","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Ndef": {
 'title': "Ndef",
@@ -9003,7 +8965,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ProxySpace","Classes/Tdef" ],
 'methods': [ "_-proxyspace","_*clearDict","_*defaultServer","_*kr","_*all","_*ar","_*clear","_*new","_*dictFor","?-copy","?-dup","?-key","_.copy" ],
-'superclasses': [ "NodeProxy","BusPlug","AbstractFunction","Object" ],
+'superclasses': [ "NodeProxy","BusPlug","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Slider2D": {
 'title': "Slider2D",
@@ -9024,7 +8986,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-descScale","?-asStream","?-embedInStream","?*new" ],
-'superclasses': [ "Scale","Object" ],
+'superclasses': [ "Scale","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Getting-Started/10-SynthDefs-and-Synths": {
 'title': "10. SynthDefs and Synths",
@@ -9045,7 +9007,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Demand","Classes/Duty","Classes/TDuty" ],
 'methods': [ "_*kr","_*ar","?-canFreeSynth" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Trig": {
 'title': "Trig",
@@ -9056,7 +9018,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Trig1" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Trig1","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Trig1","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/UsingExtensions": {
 'title': "Using Extensions",
@@ -9087,7 +9049,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Formlet","Classes/RHPF","Classes/Resonz","Classes/Ringz" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "RHPF" ],
 },
 "Classes/Latch": {
@@ -9099,7 +9061,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Gate" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Gate" ],
 },
 "Classes/PV_ChainUGen": {
@@ -9111,7 +9073,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-pvcalc","_-pvcollect","_-fftSize","_-pvcalc2" ],
-'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PV_MagShift","PV_MagDiv","PV_JensenAndersen","PV_MagFreeze","PV_RandWipe","FFT","PV_MagAbove","PV_Diffuser","PV_HainsworthFoote","PV_RectComb","PV_BinShift","PV_BinScramble","PV_BrickWall","FFTTrigger","PV_BinWipe","PV_RandComb","PV_MagSquared","PV_MagSmear","PackFFT","PV_RectComb2","PV_PhaseShift","PV_MagMul","PV_ConformalMap" ],
 },
 "Classes/PV_RectComb": {
@@ -9123,7 +9085,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_RectComb2" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Reference/asTarget": {
 'title': "asTarget",
@@ -9154,7 +9116,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Dust2" ],
 'methods': [ "_*kr","_*ar","?-signalRange" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/OSCFuncAddrMessageMatcher": {
 'title': "OSCFuncAddrMessageMatcher",
@@ -9165,7 +9127,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AbstractMessageMatcher","Classes/OSCFuncRecvPortMessageMatcher","Classes/OSCFuncBothMessageMatcher" ],
 'methods': [ "_-value","_*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/NumChannels": {
 'title': "NumChannels",
@@ -9176,7 +9138,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Rect": {
 'title': "Rect",
@@ -9187,7 +9149,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-left","_-origin","_-bottom","_-|","_-extent","_-width","_-top","_-&","_-rightTop","_-leftBottom","_-resizeBy","_-union","_-sect","_-contains","_-moveToPoint","_-moveTo","_-height","_-set","_-moveBy","_-insetAll","_-resizeTo","_-right","_-setExtent","_-rightBottom","_-insetBy","_-leftTop","_-minSize","_*newSides","_*new","_*fromPoints","?-containsPoint","?-centerIn","?-insetByRect","?-asRect","?-layout","?-==","?-centerSquare","?-bounds","?-hash","?-anchorTo","?-center","?-asArray","?-size","?-performBinaryOpOnSomething","?-intersects","?--","?-asSize","?-containsRect","?-+","?*aboutPoint","?*fromRect","?*fromArray" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/NodeProxy": {
 'title': "NodeProxy",
@@ -9197,8 +9159,8 @@ docmap = {
 'categories': "JITLib>NodeProxy, Live Coding",
 'keywords': [  ],
 'related': [ "Classes/ProxySpace" ],
-'methods': [ "_-pause","_-mold","_-parentGroup","_-put","_-controlNames","_-rate","_-map","_-controlKeysValues","_-group","_-source","_-orderNodes","_-awake","_-<<>","_-clear","_-seti","_-getKeysValues","_-ar,","_-edit","_-copyState","_-<--","_-reshaping","_-isNeutral","_-sources","_-<>>","_-quant","_-paused","_-set","_-xset","_-stop","_-controlKeys","_-asCode","_-release","_-removeLast","_-unmap","_-clock","_-numChannels","_-copy","_-sendAll","_-removeAt","_-specs","_-rebuild","_-prime","_-setRates","_-end","_-playN","_-play","_-unset","_-add","_-bus","_-send","_-monitor","_-findControlName","_-server","_-wakeUp","_-loaded","_-free","_-resume","_-quantize","_-lag","_-fadeTime","_-setn","_-schedAfterFade","_-sendEach","_*audio","_*defaultNumControl","_*for","_*control","_*new","_*defaultNumAudio","_*defaultFadeTime","?-key","?-mapEnvir","?-readFromBus","?-setNodeMap","?-reallocBusIfNeeded","?-xmap","?-sendEachToBundle","?-freeBus","?-asTarget","?-isPlaying","?-playString","?-setBus","?-nodeMap","?-cleanNodeMap","?-sendAllToBundle","?-trace","?-playEditString","?-getBundle","?-putAll","?-nodeID","?-objects","?-defaultGroupID","?-wakeUpToBundle","?-deepWakeUp","?-putSeries","?-putNewObject","?-filter","?-setGroup","?-wakeUpParentsToBundle","?-stopAllToBundle","?-removeAllToBundle","?-findInOpenDocuments","?-xunset","?-prepareOtherObjects","?-addChild","?-rebuildToBundle","?-removeToBundle","?-xsetn","?-moveBeforeMsg","?-rebuildDeepToBundle","?-xFadePerform","?-getFamily","?-removeAll","?-resetNodeMap","?-shouldAddObject","?-playNDialog","?-prepareToBundle","?-findFirstSpecFor","?-document","?-servStr","?-read","?-typeStr","?-supplementNodeMap","?-serverQuit","?-spawn","?-asNodeID","?-unsetToBundle","?-asGroup","?-removeChild","?-getStructure","?-addNodeMapControlNames","?-nameDef","?-at","?-sendObjectToBundle","?-playNString","?-removeFirst","?-children","?-loadToBundle","?-internalKeys" ],
-'superclasses': [ "BusPlug","AbstractFunction","Object" ],
+'methods': [ "_-pause","_-mold","_-parentGroup","_-put","_-controlNames","_-rate","_-map","_-controlKeysValues","_-group","_-source","_-orderNodes","_-awake","_-<<>","_-clear","_-seti","_-getKeysValues","_-stop","_-edit","_-copyState","_-<--","_-reshaping","_-isNeutral","_-sources","_-<>>","_-quant","_-paused","_-set","_-xset","_-asCode","_-controlKeys","_-release","_-removeLast","_-playN","_-unmap","_-clock","_-numChannels","_-copy","_-play","_-removeAt","_-specs","_-sendAll","_-ar,","_-rebuild","_-prime","_-setRates","_-end","_-unset","_-add","_-bus","_-send","_-monitor","_-findControlName","_-server","_-wakeUp","_-loaded","_-free","_-resume","_-quantize","_-lag","_-fadeTime","_-setn","_-schedAfterFade","_-sendEach","_*control","_*defaultNumAudio","_*defaultNumControl","_*audio","_*for","_*new","_*defaultFadeTime","?-key","?-mapEnvir","?-readFromBus","?-setNodeMap","?-reallocBusIfNeeded","?-xmap","?-sendEachToBundle","?-freeBus","?-asTarget","?-isPlaying","?-playString","?-setBus","?-nodeMap","?-cleanNodeMap","?-sendAllToBundle","?-trace","?-playEditString","?-getBundle","?-putAll","?-nodeID","?-objects","?-defaultGroupID","?-wakeUpToBundle","?-deepWakeUp","?-putSeries","?-putNewObject","?-filter","?-setGroup","?-wakeUpParentsToBundle","?-stopAllToBundle","?-removeAllToBundle","?-findInOpenDocuments","?-xunset","?-prepareOtherObjects","?-addChild","?-rebuildToBundle","?-removeToBundle","?-xsetn","?-moveBeforeMsg","?-rebuildDeepToBundle","?-xFadePerform","?-getFamily","?-removeAll","?-resetNodeMap","?-shouldAddObject","?-playNDialog","?-prepareToBundle","?-findFirstSpecFor","?-document","?-servStr","?-read","?-typeStr","?-supplementNodeMap","?-serverQuit","?-spawn","?-asNodeID","?-unsetToBundle","?-asGroup","?-removeChild","?-getStructure","?-addNodeMapControlNames","?-nameDef","?-at","?-sendObjectToBundle","?-playNString","?-removeFirst","?-children","?-loadToBundle","?-internalKeys" ],
+'superclasses': [ "BusPlug","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Ndef" ],
 },
 "Classes/SimpleNumber": {
@@ -9210,7 +9172,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Polar","Classes/Complex","Classes/Float","Classes/Integer","Classes/UnaryOpUGen","Classes/BinaryOpUGen","Guides/Tour-of-Special-Functions" ],
 'methods': [ "_-storeOn","_-chebyshevT","_-ellint1C","_-cylBesselJ","_-cosh","_-seriesIter","_-gammaPInvA","_-roundUp","_-floor","_-sphNeumannPrime","_-rectWindow","_-ellintDC","_-==","_-isNaN","_-risingFactorial","_-hash","_-sphBessel","_-ring4","_-tgammaUpper","_-round","_-reciprocal","_-asFloat","_-ellint1","_-sphHankel2","_-sphericalHarmonicI","_-cpsoct","_-exp","_-<=","_-midicps","_-**","_-nextPowerOfThree","_-series","_-hypot","_-linrand","_-asComplex","_-sqrdif","_-rand2","_-expm1","_-clip2","_-digamma","_-nearestInScale","_-cylBesselK","_-atan","_-jacobiSn","_-magnitude","_-squared","_-asin","_-jacobiCd","_-asBoolean","_-nearestInList","_-dbamp","_-jacobiSd","_-jacobiCs","_-max","_-distort","_-binomialCoefficient","_-<<","_-ibetaCInv","_-doubleFactorial","_-jacobiNs","_-sinhcPi","_-owensT","_-sumsqr","_-&","_-asAudioRateInput","_-log","_-lincurve","_-cpsmidi","_-cylHankel1","_-gammaP","_-pow","_-ibetaInvB","_-/","_-sqrt","_-midiratio","_-laguerreAssoc","_-ibetaC","_->=","_-cylNeumannZero","_-ibetaDerivative","_-airyBiZero","_-gammaQDerivative","_-asinh","_-linexp","_-gammaPDerivative","_-trigamma","_-gammaQInvA","_-hanWindow","_-lag2","_-excess","_-airyBi","_-expexp","_-erfInv","_-legendreQ","_-log1p","_-sinPi","_-ibeta","_-ring2","_-sphHankel1","_-cylNeumann","_-nextPowerOfTwo","_-gammaQ","_->>","_-tgammaLower","_-jacobiNd","_-cylHankel2","_-cylBesselI","_-raddeg","_-sincPi","_-erfC","_-thresh","_-neg","_-cubed","_-waitUntil","_-partition","_-airyAiZero","_-isStrictlyPositive","_-wrap2","_-sinh","_-lag2ud","_-lag3ud","_-asPoint","_-tangentT2n","_-beta","_-gammaPInv","_-ibetaCInvB","_-exprand","_-ratiomidi","_-ellintRf","_-legendreP","_-ellintRc","_-nextPowerOf","_-expintEi","_-ring3","_-difsqr","_-quantize","_-jacobiSc","_-tgammaDeltaRatio","_-booleanValue","_-asTimeString","_-fallingFactorial","_-gauss","_-hermite","_-equalWithPrecision","_-asQuant","_-lcurve","_-jacobiCn","_--","_-absdif","_-ring1","_-curvelin","_-sum3rand","_-softRound","_-ibetaInv","_-wait","_-sphBesselPrime","_-softclip","_-trunc","_-tgamma","_-bitAnd","_-zeta","_-airyAi","_-cbrt","_-<!","_-tan","_-leftShift","_-sphericalHarmonicR","_-div","_-jacobiDs","_-*","_-moddif","_-jacobiNc","_-ellintRd","_-lag","_-scaleneg","_-gammaQInv","_-frac","_-cylBesselIPrime","_-lagud","_-atan2","_-ramp","_-ampdb","_-previousPowerOf","_-erfCInv","_-jacobiDc","_-polygamma","_-sign","_-legendrePPrime","_-abs","_-laguerre","_-varlag","_-ibetaCInvA","_-coin","_-printOn","_-gaussCurve","_-cylBesselKPrime","_-fold2","_-cylNeumannPrime","_-%","_-isNegative","_-mod","_-unsignedRightShift","_-schedBundleArrayOnClock","_-ellintD","_-amclip","_-bernouliB2n","_-atanh","_-biexp","_-<","_-tanh","_-ellint3C","_-madd","_-bitNot","_-bitOr","_-ellint2C","_-isValidUGenInput","_-isPositive","_-cylBesselJZero","_-log10","_-triWindow","_-min","_-tgamma1pm1","_-ellint3","_-slew","_-sqrsum","_-scurve","_-bitTest","_-bilinrand","_-chebyshevTPrime","_-explin","_-octcps","_-sqrt1pm1","_-welWindow","_-bitHammingDistance","_-degrad","_-lcm","_-powm1","_-airyBiPrime","_-degreeToKey","_-erf","_-sin","_-nextTimeOnGrid","_-betaFullC","_-ibetaInvA","_-asInteger","_-smallButNotZero","_-jacobiDn","_-asWarp","_-chebyshevU","_-lgamma","_-acos","_-factorial","_-cosPi","_-sphericalHarmonic","_-lag3","_-asRect","_-bilin","_-cylBesselJPrime","_-|","_-bitXor","_-betaFull","_-ellintRj","_-jacobiZeta","_-acosh","_-ellint2","_-keyToDegree","_-rightShift","_-legendrePAssoc","_-sphNeumann","_-angle","_-+","_-tgammaRatio","_-+>>","_-chebyshevTZeros","_-rrand","_-legendrePZeros","_-gcd","_->","_-linlin","_-sleep","_-airyAiPrime","_-snap","_-ceil","_-heumanLambda","_-ellintRg","_-cos","_-asFraction","_-!=","_-expintEn","_-rand","_-log2","_*new","?-numChannels","?-performBinaryOpOnSimpleNumber","?-proxyControlClass","?-rate","?-asMIDIInPortUID","?-poll","?-performBinaryOpOnComplex","?-performBinaryOpOnSignal","?-delta","?-playAndDelta","?-writeInputSpecOld","?-asSize","?-writeInputSpec","?-firstArg","?-asEvent","?-binaryValue","?-asBufWithValues","?-buildForProxy","?-hypotApx" ],
-'superclasses': [ "Number","Magnitude","Object" ],
+'superclasses': [ "Number","Magnitude","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Float","Integer" ],
 },
 "Tutorials/A-Practical-Guide/PG_06f_Server_Control": {
@@ -9232,7 +9194,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Server","Classes/ServerBoot","Classes/ServerTree","Classes/ShutDown" ],
 'methods': [ "?*objects","?*functionSelector" ],
-'superclasses': [ "AbstractServerAction","AbstractSystemAction","Object" ],
+'superclasses': [ "AbstractServerAction","AbstractSystemAction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Getting-Started/12-Groups": {
 'title': "12. Groups",
@@ -9253,7 +9215,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FBSineL","Classes/FBSineC" ],
 'methods': [ "_*ar","?*equation" ],
-'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "FBSineL","FBSineC" ],
 },
 "Classes/Slope": {
@@ -9265,7 +9227,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/CuspN": {
 'title': "CuspN",
@@ -9276,7 +9238,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/CuspL" ],
 'methods': [ "_*ar","?*equation" ],
-'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "CuspL" ],
 },
 "Classes/PV_Conj": {
@@ -9288,7 +9250,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagSquared","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagSquared","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Getting-Started/02-First-Steps": {
 'title': "02. First Steps",
@@ -9309,7 +9271,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_Add","Classes/PV_CopyPhase","Classes/PV_MagMul","Classes/PV_Max","Classes/PV_Min" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BufSamples": {
 'title': "BufSamples",
@@ -9320,7 +9282,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufChannels","Classes/BufDur","Classes/BufFrames","Classes/BufRateScale","Classes/BufSampleRate" ],
 'methods': [ "_*kr","_*ir" ],
-'superclasses': [ "BufInfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BufInfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/EnvelopeView": {
 'title': "EnvelopeView",
@@ -9341,7 +9303,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Select","Classes/SelectX","Classes/LinSelectX" ],
 'methods': [ "_*kr","_*ar","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/PdefGui": {
 'title': "PdefGui",
@@ -9372,7 +9334,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MIDIFunc","Classes/MIDIdef","Classes/MIDIResponder","Classes/NoteOnResponder" ],
 'methods': [ "_-learn","_*new","?-matchEvent","?*initialized","?*responders","?*add","?*remove","?*ccnumr","?*ccr","?*ccinit" ],
-'superclasses': [ "MIDIResponder","Object" ],
+'superclasses': [ "MIDIResponder","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pmulpre": {
 'title': "Pmulpre",
@@ -9383,7 +9345,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pmul","Classes/Pmulp" ],
 'methods': [ "_*new","?-filterEvent" ],
-'superclasses': [ "Psetpre","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Psetpre","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pspawner": {
 'title': "Pspawner",
@@ -9394,7 +9356,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pspawn" ],
 'methods': [ "_*new","?-asStream","?-embedInStream" ],
-'superclasses': [ "Prout","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Prout","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Main": {
 'title': "Main",
@@ -9405,7 +9367,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/StartUp" ],
 'methods': [ "_-platform","_-recompile","_-run","_-pid","_-startup","_-openUDPPort","_-openPorts","_-argv","_-replaceOSCRecvFunc","_-removeOSCRecvFunc","_-addOSCRecvFunc","_-shutdown","_*versionAtLeast","_*scVersionMajor","_*scVersionMinor","_*scVersionPatch","_*versionAtMost","_*version","_*scVersionPostfix","_*scVersionTweak","?-addRawRecvFunc","?-replaceRawRecvFunc","?-prOpenOSCUDPPort","?-removeRawRecvFunc","?-escapeWindow","?-recvRawMessage","?-showHelpSearch","?-showHelp","?-exitFullScreen","?-stop","?-hardStop","?-prOpenRawUDPPort","?-platformClass","?-showClassBrowser","?-showHelpBrowser","?-recvOSCmessage","?*overwriteMsg","?*packages","?*scBuildString","_.thisProcess" ],
-'superclasses': [ "Process","Object" ],
+'superclasses': [ "Process","Object","AbstractObjectExperimental" ],
 },
 "Reference/default_group": {
 'title': "Default Group",
@@ -9426,7 +9388,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_JensenAndersen": {
 'title': "PV_JensenAndersen",
@@ -9437,7 +9399,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PV_HainsworthFoote" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/OneZero": {
 'title': "OneZero",
@@ -9448,7 +9410,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OnePole" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "OnePole","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "OnePole","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_Cookbook05_Using_Samples": {
 'title': "Pattern Guide Cookbook 05: Using Samples",
@@ -9469,7 +9431,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SpecCentroid","Classes/SpecPcile" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/OSCresponderNode": {
 'title': "OSCresponderNode",
@@ -9480,7 +9442,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OSCFunc","Classes/OSCdef","Guides/OSC_communication","Classes/OSCpathResponder","Classes/NetAddr" ],
 'methods': [ "?-remove","?-add","?-added","?-removeWhenDone","?-value" ],
-'superclasses': [ "OSCresponder","Object" ],
+'superclasses': [ "OSCresponder","Object","AbstractObjectExperimental" ],
 },
 "Classes/TwoPole": {
 'title': "TwoPole",
@@ -9491,7 +9453,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/TwoZero" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "TwoZero","APF" ],
 },
 "Classes/ListView": {
@@ -9533,7 +9495,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pbindf" ],
 'methods': [ "_-<>","_*new","?-patterns","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LanguageConfig": {
 'title': "LanguageConfig",
@@ -9544,7 +9506,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*addIncludePath","_*excludePaths","_*removeExcludePath","_*excludeDefaultPaths","_*store","_*addExcludePath","_*currentPath","_*postInlineWarnings","_*removeIncludePath","_*includePaths" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Normalizer": {
 'title': "Normalizer",
@@ -9555,7 +9517,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Amplitude","Classes/Compander","Classes/CompanderD","Classes/Limiter" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Limiter" ],
 },
 "Classes/Ptime": {
@@ -9567,7 +9529,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pkey" ],
 'methods': [ "?-repeats","?-embedInStream","?*new" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Slew": {
 'title': "Slew",
@@ -9578,7 +9540,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Slope","Classes/Ramp","Classes/Lag","Classes/VarLag" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_Cookbook08_Swing": {
 'title': "Pattern Guide Cookbook 08: Swing",
@@ -9599,7 +9561,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Balance2","Classes/LinPan2","Classes/Pan2","Classes/Pan4" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ListPattern": {
 'title': "ListPattern",
@@ -9610,7 +9572,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FilterPattern" ],
 'methods': [ "?-copy","?-repeats","?-list","?*new" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pwalk","Ppar","Pwrand","Pdfsm","Pshuf","Pseq","Pslide","Ptuple","Prand","Pfpar","Pxrand","Pfsm" ],
 },
 "Overviews/Operators": {
@@ -9642,7 +9604,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/EventStreamCleanup" ],
 'methods': [ "_-value","_-clear","_-didEvaluate","_*new","?-valueArray","?-valueArrayEnvir","?-prEvaluate","?-valueEnvir" ],
-'superclasses': [ "Thunk","AbstractFunction","Object" ],
+'superclasses': [ "Thunk","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NetAddr": {
 'title': "NetAddr",
@@ -9653,7 +9615,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OSCFunc" ],
 'methods': [ "_-sendRaw","_-isLocal","_-ip","_-disconnect","_-sendBundle","_-sendMsg","_-connect","_*fromIP","_*new","_*localEndPoint","_*matchLangIP","_*localAddr","_*connections","_*broadcastFlag","_*disconnectAll","_*langPort","_*localIP","_*localIPs","?-tryConnectTCP","?-hostname","?-sendClumpedBundles","?-sendStatusMsg","?-makeSyncResponder","?-socket","?-hasBundle","?-==","?-sync","?-matches","?-port","?-isConnected","?-hash","?-tryDisconnectTCP","?-addr","?*useDoubles" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "BundleNetAddr" ],
 },
 "Classes/LibraryBase": {
@@ -9665,7 +9627,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*putList","_*put","_*clear","_*at","_*atList","_*global","?*create","?*postTree" ],
-'superclasses': [ "MultiLevelIdentityDictionary","Collection","Object" ],
+'superclasses': [ "MultiLevelIdentityDictionary","Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Archive","Library" ],
 },
 "Classes/MIDISysDataDropIndDispatcher": {
@@ -9677,7 +9639,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-value" ],
-'superclasses': [ "MIDISysDataDispatcher","MIDIMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object" ],
+'superclasses': [ "MIDISysDataDispatcher","MIDIMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/AbstractNodeWatcher": {
 'title': "AbstractNodeWatcher",
@@ -9688,7 +9650,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-isWatching","?-start","?-respond","?-clear","?-cmds","?-stop","?-ninit","?-responders","?-server","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "BasicNodeWatcher" ],
 },
 "Classes/SetResetFF": {
@@ -9700,7 +9662,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ToggleFF" ],
 'methods': [ "_*kr","_*ar","?-signalRange" ],
-'superclasses': [ "PulseCount","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PulseCount","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ControlDur": {
 'title': "ControlDur",
@@ -9711,7 +9673,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ControlRate" ],
 'methods': [ "_*ir" ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LFNoise0": {
 'title': "LFNoise0",
@@ -9722,7 +9684,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFClipNoise","Classes/LFDClipNoise","Classes/LFDNoise0","Classes/LFDNoise1","Classes/LFDNoise3","Classes/LFNoise1","Classes/LFNoise2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "LFNoise1","LFDNoise0","LFClipNoise","LFDNoise3","LFDNoise1","LFNoise2","LFDClipNoise" ],
 },
 "Classes/GrainBuf": {
@@ -9734,7 +9696,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/GrainIn","Classes/GrainFM","Classes/GrainSin","Classes/TGrains" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BinaryOpXStream": {
 'title': "BinaryOpXStream",
@@ -9745,7 +9707,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-reset","?-storeOn","?-next","?*new" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/SCDocEntry": {
 'title': "SCDocEntry",
@@ -9756,7 +9718,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SCDoc" ],
 'methods': [ "_-undocimethods","_-doccmethods","_-categories","_-isExtension","_-destPath","_-isUndocumentedClass","_-mtime","_-title","_-related","_-privcmethods","_-docimethods","_-implKlass","_-implements","_-klass","_-keywords","_-isClassDoc","_-privimethods","_-redirect","_-docmethods","_-makeMethodList","_-path","_-undoccmethods","_-toJSON","_-fullPath","_-summary","_-additions","_*new","_*newUndocClass","?-oldHelp" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Reference/Synth-Definition-File-Format": {
 'title': "Synth Definition File Format",
@@ -9777,7 +9739,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufChannels","Classes/BufDur","Classes/BufRateScale","Classes/BufSampleRate","Classes/BufSamples" ],
 'methods': [ "_*kr","_*ir" ],
-'superclasses': [ "BufInfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BufInfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Score": {
 'title': "Score",
@@ -9788,7 +9750,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Guides/Non-Realtime-Synthesis" ],
 'methods': [ "_-add","_-write","_-addSystemSynthDefs","_-stop","_-play","_-recordNRT","_-sort","_-score","_-saveToFile","_*playFromFile","_*play","_*recordNRT","_*write","_*writeFromFile","_*new","_*newFromFile","?-asScore","?-writeOSCFile","?-endTime","?-startTime","?-section","?*program","?*options" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/LineLayout": {
 'title': "LineLayout",
@@ -9819,7 +9781,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/AbstractServerAction": {
 'title': "AbstractServerAction",
@@ -9830,7 +9792,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Server","Classes/ServerBoot","Classes/ServerTree","Classes/ServerQuit" ],
 'methods': [ "_*remove","_*add","_*functionSelector","_*removeServer","?*run","?*addToAll","?*performFunction" ],
-'superclasses': [ "AbstractSystemAction","Object" ],
+'superclasses': [ "AbstractSystemAction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "ServerQuit","ServerBoot","ServerTree" ],
 },
 "Classes/BufDelayL": {
@@ -9842,7 +9804,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufDelayC","Classes/BufDelayN","Classes/DelayL" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "BufDelayN","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BufDelayN","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/RadiansPerSample": {
 'title': "RadiansPerSample",
@@ -9853,7 +9815,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ControlRate","Classes/SampleDur","Classes/SampleRate","Classes/SubsampleOffset" ],
 'methods': [ "_*ir" ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Clock": {
 'title': "Clock",
@@ -9864,7 +9826,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AppClock","Classes/SystemClock","Classes/TempoClock" ],
 'methods': [ "?*beats","?*nextTimeOnGrid","?*timeToNextBeat","?*beats2bars","?*secs2beats","?*beats2secs","?*play","?*seconds","?*bars2beats" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "AppClock","TempoClock","SystemClock" ],
 },
 "Classes/MultiLevelIdentityDictionary": {
@@ -9876,7 +9838,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/IdentityDictionary" ],
 'methods': [ "_-putTree","_-removeEmptyAt","_-put","_-removeAt","_-at","_-choose","?-doSortedTreeDo","?-removeEmptyAtPath","?-doTreeCollect","?-sortedTreeDo","?-treeDo","?-doTreeDo","?-doLeafDo","?-atPathFail","?-newInternalNode","?-atPath","?-treeCollect","?-leafDo","?-create","?-nodeType","?-do","?-dictionary","?-removeAtPath","?-treeDoFrom","?-postTree","?-putAtPath","?-leafDoInBranch","?-leafDoFrom","?*new" ],
-'superclasses': [ "Collection","Object" ],
+'superclasses': [ "Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "LibraryBase" ],
 },
 "Classes/FlowVar": {
@@ -9888,7 +9850,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ref","Classes/Thunk","Classes/Condition","Classes/Routine" ],
 'methods': [ "_-value","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Amplitude": {
 'title': "Amplitude",
@@ -9899,7 +9861,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/15_Groups": {
 'title': "15_Groups",
@@ -9920,7 +9882,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/NumAudioBuses","Classes/NumBuffers","Classes/NumInputBuses","Classes/NumOutputBuses","Classes/NumRunningSynths" ],
 'methods': [ "_*ir" ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/Japanese_version/02": {
 'title': "02",
@@ -9941,7 +9903,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SplayAz","Classes/SplayZ","Classes/LevelComp","Guides/Level_Compensation" ],
 'methods': [ "_*kr","_*arFill","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/TGrains": {
 'title': "TGrains",
@@ -9952,7 +9914,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/GrainBuf" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Ringz": {
 'title': "Ringz",
@@ -9963,7 +9925,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Formlet","Classes/RHPF","Classes/RLPF","Classes/Resonz" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDIMessageDispatcherNV": {
 'title': "MIDIMessageDispatcherNV",
@@ -9974,7 +9936,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MIDIFunc","Classes/MIDIdef","Classes/AbstractWrappingDispatcher","Classes/AbstractDispatcher","Classes/MIDIMessageDispatcher","Classes/AbstractMessageMatcher","Classes/MIDIFuncSrcMessageMatcher","Classes/MIDIFuncChanMessageMatcher","Classes/MIDIFuncChanArrayMessageMatcher","Classes/MIDIFuncSrcMessageMatcherNV","Classes/MIDIFuncBothMessageMatcher","Classes/MIDIFuncBothCAMessageMatcher","Guides/MIDI" ],
 'methods': [ "_-value","_-getKeysForFuncProxy","_-wrapFunc" ],
-'superclasses': [ "MIDIMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object" ],
+'superclasses': [ "MIDIMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDIFunc": {
 'title': "MIDIFunc",
@@ -9985,7 +9947,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Guides/MIDI","Classes/MIDIdef" ],
 'methods': [ "_-msgNum","_-argTemplate","_-msgType","_-chan","_-learn","_*program","_*cc","_*noteOn","_*new","_*noteOff","_*sysrt","_*continue","_*defaultDispatchers","_*tick","_*midiClock","_*polytouch","_*mtcQuarterFrame","_*tuneRequest","_*start","_*reset","_*activeSense","_*trace","_*stop","_*touch","_*smpte","_*sysex","_*songPosition","_*songSelect","_*bend","?-learnFunc" ],
-'superclasses': [ "AbstractResponderFunc","Object" ],
+'superclasses': [ "AbstractResponderFunc","Object","AbstractObjectExperimental" ],
 'subclasses': [ "MIDIdef" ],
 },
 "Classes/Mix": {
@@ -9997,7 +9959,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new","_*fill","?*krFill","?*kr","?*arFill","?*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Tutorials/GUI/compose_complex_view": {
 'title': "GUI: Composing views with basic components",
@@ -10018,7 +9980,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/In","Classes/LagIn","Classes/LocalIn" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "AbstractIn","MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "AbstractIn","MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dconst": {
 'title': "Dconst",
@@ -10029,7 +9991,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/FreeSelf": {
 'title': "FreeSelf",
@@ -10040,7 +10002,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PauseSelf","Classes/Free" ],
 'methods': [ "_*kr","?-canFreeSynth" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PlazyEnvirN": {
 'title': "PlazyEnvirN",
@@ -10051,7 +10013,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Plazy","Classes/PlazyEnvir","Classes/Pfunc" ],
 'methods': [ "_*new","?-makeGenFunc","?-embedInStream" ],
-'superclasses': [ "PlazyEnvir","Plazy","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "PlazyEnvir","Plazy","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/WrapIndex": {
 'title': "WrapIndex",
@@ -10062,7 +10024,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Index","Classes/Shaper" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Index","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Index","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/JITLib/audio_rate_mapping": {
 'title': "audio_rate_mapping",
@@ -10083,7 +10045,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?*new" ],
-'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/SpecCentroid": {
 'title': "SpecCentroid",
@@ -10094,7 +10056,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SpecFlatness","Classes/SpecPcile" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/SynthDefsVsSynths": {
 'title': "SynthDefs versus Synths",
@@ -10115,7 +10077,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-add","?*new" ],
-'superclasses': [ "Point","Object" ],
+'superclasses': [ "Point","Object","AbstractObjectExperimental" ],
 },
 "Classes/HPZ2": {
 'title': "HPZ2",
@@ -10126,7 +10088,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BPZ2","Classes/BRZ2","Classes/LPZ2","Classes/HPZ1" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LPZ2","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LPZ2","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NumRunningSynths": {
 'title': "NumRunningSynths",
@@ -10137,7 +10099,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/NumAudioBuses","Classes/NumControlBuses","Classes/NumBuffers","Classes/NumInputBuses","Classes/NumOutputBuses" ],
 'methods': [ "_*ir","?*kr" ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_07_Value_Conversions": {
 'title': "Pattern Guide 07: Value Conversions",
@@ -10158,7 +10120,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-readyForPlay","?-copyState","?-resume","?-channelOffset","?-source","?-playToBundle","?-makeProxyControl","?-paused","?-controlNames","?-distributable","?-wakeUpParentsToBundle","?-addParent","?-parents","?-set","?-store","?-loadToBundle","?-build","?-pause","?-spawnToBundle","?-play","?-copy","?-nodeID","?-stopToBundle","?-storeOn","?-freeToBundle","?-stop","?*proxyControlClasses","?*initClass","?*new","?*buildMethods" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "SynthControl","StreamControl" ],
 },
 "Classes/ScaleStream": {
@@ -10170,7 +10132,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-curDegree","?-performDegreeToKey","?-chooseScale","?-performNearestInList","?-scale","?-performNearestInScale","?-performKeyToDegree","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/DynKlang": {
 'title': "DynKlang",
@@ -10181,7 +10143,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Klang","Classes/DynKlank","Classes/Klank" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/DetectSilence": {
 'title': "DetectSilence",
@@ -10192,7 +10154,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar","?-optimizeGraph","?-canFreeSynth" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LFDNoise3": {
 'title': "LFDNoise3",
@@ -10203,7 +10165,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFClipNoise","Classes/LFDClipNoise","Classes/LFDNoise0","Classes/LFDNoise1","Classes/LFNoise0","Classes/LFNoise1","Classes/LFNoise2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_BinWipe": {
 'title': "PV_BinWipe",
@@ -10214,7 +10176,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ProgramChangeResponder": {
 'title': "ProgramChangeResponder",
@@ -10225,7 +10187,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MIDIFunc","Classes/MIDIdef","Classes/MIDIResponder","Classes/CCResponder" ],
 'methods': [ "_*new","?-value","?*initialized","?*responders","?*add","?*remove","?*pcinit","?*pcr" ],
-'superclasses': [ "MIDIResponder","Object" ],
+'superclasses': [ "MIDIResponder","Object","AbstractObjectExperimental" ],
 },
 "Classes/Tuning": {
 'title': "Tuning",
@@ -10236,7 +10198,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Scale" ],
 'methods': [ "_-semitones","_-ratios","_-cents","_*et","_*new","_*choose","?-wrapAt","?-asTuning","?-octaveRatio","?-size","?-at","?-tuning","?-==","?-name","?-stepsPerOctave","?-hash","?-as","?*all","?*directory","?*names","?*chooseFromSelected","?*at","?*etName","?*newFromKey","?*default","?*doesNotUnderstand","?*calcET" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Guides/LID_permissions": {
 'title': "LID permissions",
@@ -10257,7 +10219,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SinOsc" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/StackNumberAllocator": {
 'title': "StackNumberAllocator",
@@ -10268,7 +10230,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ContiguousBlockAllocator","Classes/PowerOfTwoAllocator" ],
 'methods': [ "_-free","_-alloc","_-init","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/PatternConductor": {
 'title': "PatternConductor",
@@ -10279,7 +10241,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pattern" ],
 'methods': [ "_-pause","_-stop","_-tempo","_-play","?-clock","?-defaultStopTempo","?-defaultPauseTempo","?-eventStreamPlayers","?-quant","?-resume","?-patterns","?-event","?-cmdPeriod","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/FunctionDef": {
 'title': "FunctionDef",
@@ -10289,8 +10251,8 @@ docmap = {
 'categories': "Core>Kernel",
 'keywords': [  ],
 'related': [ "Classes/Function" ],
-'methods': [ "_-dumpByteCodes","_-prototypeFrame","_-numArgs","_-findReferences","_-code","_-sourceCode","_-varArgsValue","_-numVars","_-argNames","_-makeFuncModifierString","_-varNames","_-makeEnvirFromArgs","_-hasVarArgs","_-argumentString","_-context","_-hasKwArgs","_-varArgs","?-constants","?-dumpContexts","?-asFunction","?-checkCanArchive","?-selectors","?-hasPartialApplication","?-archiveAsCompileString","?-inspectorClass","?-keyValuePairsFromArgs","?-shallowCopy","_.thisFunctionDef" ],
-'superclasses': [ "Object" ],
+'methods': [ "_-dumpByteCodes","_-prototypeFrame","_-numArgs","_-findReferences","_-code","_-sourceCode","_-varArgsValue","_-numVars","_-argNames","_-makeFuncModifierString","_-varNames","_-makeEnvirFromArgs","_-hasVarArgs","_-argumentString","_-context","_-hasKwArgs","_-varArgs","?-constants","?-dumpContexts","?-sourceCodeStartIndex","?-checkCanArchive","?-filenameSymbol","?-selectors","?-byteCodeLocations","?-name","?-keyValuePairsFromArgs","?-shallowCopy","?-sourceCodeEndIndex","?-asFunction","?-hasPartialApplication","?-sourceCodeFileOrSnippet","?-archiveAsCompileString","?-inspectorClass","?-isClosed","_.thisFunctionDef" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "Method" ],
 },
 "Classes/NdefMixerOld": {
@@ -10312,7 +10274,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Index","Classes/Shaper" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Index","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Index","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ScopeBuffer": {
 'title': "ScopeBuffer",
@@ -10323,7 +10285,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-==","?-numChannels","?-bufnum","?-storeOn","?-free","?-index","?-printOn","?-hash","?-server","?*new","?*alloc" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/SynthControl": {
 'title': "SynthControl",
@@ -10334,7 +10296,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-asDefName","?-distributable","?-prCancelPrevBundle","?-run","?-spawnToBundle","?-stopToBundle","?-synthDefPath","?-pause","?-resume","?-freeToBundle","?-canFreeSynth","?-server","?-nodeID","?-playToBundle","?-synthDesc","?-set","?-hasFadeTimeControl","?-controlNames","?-loadToBundle","?-copyState","?-store","?-build","?-canReleaseSynth" ],
-'superclasses': [ "AbstractPlayControl","Object" ],
+'superclasses': [ "AbstractPlayControl","Object","AbstractObjectExperimental" ],
 'subclasses': [ "SynthDefControl" ],
 },
 "Classes/BRZ2": {
@@ -10346,7 +10308,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BPZ2","Classes/HPZ2","Classes/LPZ2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LPZ2","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LPZ2","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Ptuple": {
 'title': "Ptuple",
@@ -10357,7 +10319,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ppar" ],
 'methods': [ "_*new","?-embedInStream" ],
-'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/TIRand": {
 'title': "TIRand",
@@ -10368,7 +10330,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ExpRand","Classes/IRand","Classes/LinRand","Classes/NRand","Classes/Rand","Classes/TExpRand","Classes/TRand","Classes/TChoose" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LinCongC": {
 'title': "LinCongC",
@@ -10379,7 +10341,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LinCongN","Classes/LinCongL" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "LinCongN","ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LinCongN","ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Reference/palette_color_roles": {
 'title': "Color roles",
@@ -10400,7 +10362,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ExpRand","Classes/IRand","Classes/LinRand","Classes/NRand","Classes/Rand","Classes/TExpRand","Classes/TIRand" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_PhaseShift270": {
 'title': "PV_PhaseShift270",
@@ -10411,7 +10373,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_PhaseShift","Classes/PV_PhaseShift90","Classes/PV_Diffuser" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagSquared","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagSquared","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/DiskOut": {
 'title': "DiskOut",
@@ -10422,7 +10384,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/RecordBuf","Classes/DiskIn","Classes/VDiskIn" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/IdentityBag": {
 'title': "IdentityBag",
@@ -10433,7 +10395,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-remove","_-add","_-do","_-contents" ],
-'superclasses': [ "Bag","Collection","Object" ],
+'superclasses': [ "Bag","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pbindf": {
 'title': "Pbindf",
@@ -10444,7 +10406,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pattern","Classes/Event","Classes/Pbind","Classes/Pchain" ],
 'methods': [ "_*new","?-embedInStream","?-patternpairs" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_06c_Composition_of_Patterns": {
 'title': "Pattern Guide 06c: Composition of Patterns",
@@ -10465,7 +10427,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-playStream","?-stopStreams","?-stopToBundle","?-resume","?-array","?-playToBundle","?-stop","?-build","?-pause" ],
-'superclasses': [ "StreamControl","AbstractPlayControl","Object" ],
+'superclasses': [ "StreamControl","AbstractPlayControl","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pstretch": {
 'title': "Pstretch",
@@ -10476,7 +10438,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-value","?-storeArgs","?-embedInStream","?*new" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pstretchp" ],
 },
 "Classes/DoubleArray": {
@@ -10488,7 +10450,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FloatArray","Classes/Signal" ],
 'methods': [ "_-readFromStream" ],
-'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object" ],
+'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 },
 "Reference/Assignment": {
 'title': "Assignment Statements",
@@ -10509,7 +10471,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/NumAudioBuses","Classes/NumControlBuses","Classes/NumBuffers","Classes/NumOutputBuses","Classes/NumRunningSynths" ],
 'methods': [ "_*ir" ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/Tracing-Processes": {
 'title': "Tracing Processes",
@@ -10530,7 +10492,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/UnaryOpStream","Classes/NAryOpStream" ],
 'methods': [ "?-next","?-a","?-operator","?-reset","?-b","?*new" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/IEnvGen": {
 'title': "IEnvGen",
@@ -10541,7 +10503,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Env" ],
 'methods': [ "_*kr","_*ar","?*convertEnv" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/AbstractFunction": {
 'title': "AbstractFunction",
@@ -10552,7 +10514,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/UGen","Classes/Pattern","Classes/Function","Overviews/Operators" ],
 'methods': [ "_-sqrt","_-midiratio","_-bilinrand","_-/","_-sqrsum","_-cosh","_-floor","_-wrap","_->=","_-explin","_-octcps","_-odd","_-ring4","_-linexp","_-blend","_-round","_--","_-reciprocal","_-clip","_-plotGraph","_-absdif","_-ring1","_-sum3rand","_-bitHammingDistance","_-asFloat","_-hypotApx","_-excess","_-softclip","_-lcm","_-trunc","_-expexp","_-cpsoct","_-bitAnd","_-exp","_-fold","_-<=","_-midicps","_-dist","_-<!","_-sin","_-ring2","_-**","_-tan","_-div","_-asInteger","_-*","_-hypot","_-moddif","_-theta","_-rho","_-linrand","_-rand2","_-sqrdif","_-@","_->>","_-clip2","_-acos","_-scaleneg","_-frac","_-ampdb","_-atan2","_-neg","_-sign","_-atan","_-|","_-cubed","_-asInt","_-abs","_-bitXor","_-isStrictlyPositive","_-coin","_-sinh","_-squared","_-sampled","_-asin","_-%","_-isNegative","_-+","_-+>>","_-dbamp","_-max","_-amclip","_-exprand","_-distort","_-ratiomidi","_-tanh","_-<","_-rrand","_-rotate","_-gcd","_->","_-sumsqr","_-bitNot","_-bitOr","_-linlin","_-asUGenInput","_-&","_-ceil","_-isPositive","_-even","_-cos","_-log10","_-log","_-ring3","_-cpsmidi","_-difsqr","_-rand","_-min","_-log2","_-applyTo","?-ne","?-ramp","?-scurve","?-reverseComposeBinaryOp","?-raddeg","?-not","?-bilin","?-roundUp","?-thresh","?-|==|","?-rectWindow","?-eq","?-ref","?-||","?-welWindow","?-wrap2","?-rightShift","?-reduceFuncProxy","?-modSeaside","?-composeBinaryOp","?-fold2","?-real","?-firstArg","?-&&","?-curvelin","?-hanWindow","?-xor","?-binaryValue","?-degrad","?-nand","?-mod","?-composeNAryOp","?-unsignedRightShift","?-performBinaryOpOnSimpleNumber","?-degreeToKey","?-biexp","?-composeUnaryOp","?-performBinaryOpOnComplex","?-performBinaryOpOnSignal","?-isValidUGenInput","?-leftShift","?-performBinaryOpOnSeqColl","?-prepareForProxySynthDef","?-asAudioRateInput","?-prReverseLazyEquals","?-imag","?-lincurve","?-triWindow","?-<>","?-asControlInput","?-pow" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "Thunk","UnaryOpFunction","UGen","AbstractOpPlug","Pattern","BinaryOpFunction","Operand","NAryOpFunction","BusPlug","Ref","FunctionList","Function","Stream" ],
 },
 "Classes/PathName": {
@@ -10564,7 +10526,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/File","Classes/String" ],
 'methods': [ "_-fileNameWithoutExtension","_-pathOnly","_-diskName","_-files","_-extension","_-isRelativePath","_-isAbsolutePath","_-fileName","_-asAbsolutePath","_-folders","_-folderName","_-noEndNumbers","_-isFolder","_-filesDo","_-nextName","_-endNumber","_-+/+","_-asRelativePath","_-fullPath","_-entries","_-isFile","_-allFolders","_*new","_*tmp","?-endNumberIndex","?-streamTree","?-parentPath","?-absolutePath","?-fileNameWithoutDoubleExtension","?-deepFiles","?-colonIndices","?-lastColonIndex","?-pathMatch","?-dumpTree","?-dumpToDoc","?*scroot" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/BufDelayN": {
 'title': "BufDelayN",
@@ -10575,7 +10537,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufDelayC","Classes/BufDelayL","Classes/DelayN" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "BufDelayL","BufDelayC" ],
 },
 "Classes/Finalizer": {
@@ -10587,7 +10549,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-notFinalized","?-isFinalized" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/ContiguousBlock": {
 'title': "ContiguousBlock",
@@ -10598,7 +10560,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ContiguousBlockAllocator" ],
 'methods': [ "_-start","_-size","_-address","_-nextAddress","_-join","_-split","_-lastAddress","_-used","_-adjoins","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/FunctionList": {
 'title': "FunctionList",
@@ -10609,7 +10571,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-array","_-removeFunc","_-addFunc","_*new","?-flopped","?-flop","?-envirFlop","?-do","?-valueEnvir","?-copy","?-valueArray","?-replaceFunc","?-valueArrayEnvir","?-value" ],
-'superclasses': [ "AbstractFunction","Object" ],
+'superclasses': [ "AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NumBuffers": {
 'title': "NumBuffers",
@@ -10620,7 +10582,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/NumAudioBuses","Classes/NumControlBuses","Classes/NumInputBuses","Classes/NumOutputBuses","Classes/NumRunningSynths" ],
 'methods': [ "_*ir" ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Order": {
 'title': "Order",
@@ -10631,7 +10593,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SparseArray" ],
 'methods': [ "_-pos","_-doRange","_*new","_*newFromIndices","?-rejectInPlace","?-selectInPlace","?-put","?-collect","?-copy","?-removeAt","?-keysValuesDo","?-removeAtSlot","?-lastIndex","?-select","?-clear","?-choose","?-asArray","?-indicesDo","?-add","?-do","?-size","?-array","?-indices","?-makeEmpty","?-at","?-species","?-removeAllSuchThat","?-reject","?-pop" ],
-'superclasses': [ "SequenceableCollection","Collection","Object" ],
+'superclasses': [ "SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "SparseArray" ],
 },
 "Reference/softVol_": {
@@ -10653,7 +10615,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Reference/Server-Command-Reference","Classes/Node","Classes/DebugNodeWatcher" ],
 'methods': [ "_-stop","_-start","_*register","_*unregister","_*new","_*newFrom","?-register","?-n_go","?-n_off","?-n_end","?-cmds","?-n_on","?-respond","?-unregister","?-clear","?*cmdPeriod","?*doOnServerQuit","?*doOnServerBoot","?*all" ],
-'superclasses': [ "BasicNodeWatcher","AbstractNodeWatcher","Object" ],
+'superclasses': [ "BasicNodeWatcher","AbstractNodeWatcher","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Streams-Patterns-Events6": {
 'title': "Understanding Streams, Patterns and Events - Part 6",
@@ -10674,7 +10636,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/UnaryOpUGen","Classes/BinaryOpFunction","Classes/Pbinop","Overviews/Operators" ],
 'methods': [ "_*new","?-optimizeSub","?-determineRate","?-optimizeAddNeg","?-optimizeToMulAdd","?-optimizeToSum4","?-optimizeUpdateDescendants","?-optimizeAdd","?-optimizeToSum3" ],
-'superclasses': [ "BasicOpUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BasicOpUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/TrigControl": {
 'title': "TrigControl",
@@ -10685,7 +10647,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Control","Classes/LagControl" ],
 'methods': [ "_*ir","_*names","_*kr" ],
-'superclasses': [ "Control","MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Control","MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ExampleFiles": {
 'title': "ExampleFiles",
@@ -10696,7 +10658,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Buffer","Classes/SoundFile","Classes/File","Classes/PathName" ],
 'methods': [ "_*apollo11","_*sinedPink","_*child" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Pevent": {
 'title': "Pevent",
@@ -10707,7 +10669,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pkey","Classes/Pchain" ],
 'methods': [ "_*new","?-pattern","?-event","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/String": {
 'title': "String",
@@ -10717,8 +10679,8 @@ docmap = {
 'categories': "Collections>Ordered",
 'keywords': [  ],
 'related': [ "Classes/Char" ],
-'methods': [ "_-storeOn","_-tr","_-postcs","_-asCompileString","_-load","_->=","_-==","_-systemCmd","_-beginsWith","_-compile","_-replace","_-scatList","_-scramble","_-warn","_-interpret","_-compare","_-draw","_-inspectorClass","_-splitext","_-standardizePath","_-ascii","_-openOS","_-asFloat","_-loadRelative","_-asSecs","_-drawRightJustIn","_-post","_-padLeft","_-findAllRegexp","_-quote","_-findSimilarIn","_-scatArgs","_-ccatList","_-<=","_-format","_-interpretPrint","_-bounds","_-pathMatch","_-parseJSON","_-inform","_-basename","_-replaceRegexp","_-findHelpFile","_-containsi","_-asInteger","_-contains","_-unixCmdGetStdOut","_-absolutePath","_-drawLeftJustIn","_-@","_-underlined","_-endsWith","_-ccatArgs","_-asRelativePath","_-getenv","_-catList","_-padRight","_-postcln","_-stripWhiteSpace","_-++","_-catArgs","_-shellQuote","_-drawInRect","_-drawAtPoint","_-matchRegexp","_-postc","_-parseJSONFile","_-openDocument","_-unixCmdGetStdOutLines","_-findBackwards","_-find","_-printOn","_-postf","_-icontainsStringAt","_-asAbsolutePath","_-containsStringAt","_-error","_-runInTerminal","_-resolveRelative","_-postln","_-findRegexpAt","_-withTrailingSlash","_-drawCenteredIn","_-+","_-zeroPad","_-withoutTrailingSlash","_-mkdir","_-escapeChar","_-loadPaths","_-<","_-setenv","_-rotate","_->","_-split","_-parseYAMLFile","_-parseYAML","_-unixCmd","_-newTextWindow","_-dirname","_-at","_-toUpper","_-!=","_-asSymbol","_-findAll","_-toLower","_-help","_-+/+","_-findRegexp","_-stripRTF","_-unsetenv","_*readNew","_*scDir","?-codegen_UGenCtorArg","?-wrapExtend","?-asOSCArgArray","?-stripHTML","?-performBinaryOpOnSimpleNumber","?-isString","?-asDefName","?-performBinaryOpOnComplex","?-gethostbyname","?-asString","?-die","?-fformat","?-include","?-exclude","?-prAsCompileString","?-ugenCodeString","?-asOSCArgEmbeddedArray","?-insert","?-multiChannelPerform" ],
-'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object" ],
+'methods': [ "_-storeOn","_-tr","_-postcs","_-asCompileString","_-load","_->=","_-==","_-systemCmd","_-beginsWith","_-compile","_-cs","_-replace","_-scatList","_-scramble","_-warn","_-interpret","_-compare","_-draw","_-inspectorClass","_-splitext","_-standardizePath","_-ascii","_-openOS","_-asFloat","_-loadRelative","_-asSecs","_-drawRightJustIn","_-post","_-padLeft","_-findAllRegexp","_-quote","_-findSimilarIn","_-scatArgs","_-ccatList","_-<=","_-format","_-interpretPrint","_-bounds","_-pathMatch","_-parseJSON","_-inform","_-basename","_-replaceRegexp","_-findHelpFile","_-containsi","_-asInteger","_-contains","_-unixCmdGetStdOut","_-absolutePath","_-include","_-drawLeftJustIn","_-@","_-underlined","_-endsWith","_-ccatArgs","_-asRelativePath","_-getenv","_-catList","_-padRight","_-postcln","_-stripWhiteSpace","_-++","_-catArgs","_-shellQuote","_-drawInRect","_-drawAtPoint","_-matchRegexp","_-postc","_-parseJSONFile","_-openDocument","_-unixCmdGetStdOutLines","_-findBackwards","_-find","_-printOn","_-postf","_-icontainsStringAt","_-asAbsolutePath","_-containsStringAt","_-error","_-runInTerminal","_-resolveRelative","_-postln","_-findRegexpAt","_-withTrailingSlash","_-drawCenteredIn","_-+","_-zeroPad","_-withoutTrailingSlash","_-mkdir","_-escapeChar","_-loadPaths","_-<","_-setenv","_-rotate","_->","_-split","_-parseYAMLFile","_-parseYAML","_-unixCmd","_-newTextWindow","_-dirname","_-at","_-toUpper","_-!=","_-asSymbol","_-findAll","_-toLower","_-exclude","_-help","_-+/+","_-findRegexp","_-stripRTF","_-unsetenv","_*readNew","_*scDir","?-codegen_UGenCtorArg","?-wrapExtend","?-asOSCArgArray","?-stripHTML","?-performBinaryOpOnSimpleNumber","?-isString","?-asDefName","?-performBinaryOpOnComplex","?-gethostbyname","?-asString","?-die","?-fformat","?-prAsCompileString","?-ugenCodeString","?-asOSCArgEmbeddedArray","?-insert","?-multiChannelPerform" ],
+'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 },
 "Guides/Glossary": {
 'title': "Glossary",
@@ -10739,7 +10701,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PulseCount" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/AudioIn": {
 'title': "AudioIn",
@@ -10750,7 +10712,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/In","Classes/SoundIn" ],
 'methods': [ "_*ar","?*channelOffset" ],
-'superclasses': [ "SoundIn","Object" ],
+'superclasses': [ "SoundIn","Object","AbstractObjectExperimental" ],
 },
 "Classes/Free": {
 'title': "Free",
@@ -10761,7 +10723,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pause","Classes/FreeSelf" ],
 'methods': [ "_*kr","?-canFreeSynth" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Tap": {
 'title': "Tap",
@@ -10772,7 +10734,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MultiTap","Classes/PlayBuf" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Filter": {
 'title': "Filter",
@@ -10783,7 +10745,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*scopeResponse" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "MoogFF","Median","Slew","TwoPole","DetectSilence","Lag","FreeVerb","RLPF","MidEQ","Changed","VarLag","LPZ2","Resonz","LPZ1","Delay2","FOS","Formlet","BPF","LPF","Decay2","SOS","LagUD","Decay","OnePole","Integrator","Delay1","Ringz","LeakDC","BEQSuite","Slope" ],
 },
 "Classes/DigitalOut": {
@@ -10795,7 +10757,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AnalogIn","Classes/AnalogOut","Classes/DigitalIn","Classes/DigitalIO" ],
 'methods': [ "_*kr","_*ar","?-numOutputs","?-writeOutputSpecs" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/RunningMin": {
 'title': "RunningMin",
@@ -10806,7 +10768,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/RunningMax","Classes/RunningSum" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Peak","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Peak","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/OSCMessagePatternDispatcher": {
 'title': "OSCMessagePatternDispatcher",
@@ -10817,7 +10779,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OSCFunc","Classes/OSCdef","Classes/AbstractWrappingDispatcher","Classes/AbstractDispatcher","Classes/AbstractMessageMatcher","Classes/OSCMessageDispatcher","Classes/OSCFuncAddrMessageMatcher","Classes/OSCFuncRecvPortMessageMatcher","Classes/OSCFuncBothMessageMatcher","Guides/OSC_communication" ],
 'methods': [ "_-typeKey","_-value" ],
-'superclasses': [ "OSCMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object" ],
+'superclasses': [ "OSCMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/PartConv": {
 'title': "PartConv",
@@ -10828,7 +10790,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Convolution","Classes/Convolution2","Classes/Convolution2L","Classes/Convolution3" ],
 'methods': [ "_*ar","?*calcBufSize","?*calcNumPartitions" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Compander": {
 'title': "Compander",
@@ -10839,7 +10801,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Normalizer","Classes/CompanderD","Classes/Limiter" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Streams-Patterns-Events3": {
 'title': "Understanding Streams, Patterns and Events - Part 3",
@@ -10870,7 +10832,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LinPan2","Classes/Pan2","Classes/Pan4","Classes/PanAz" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/FreqShift": {
 'title': "FreqShift",
@@ -10881,7 +10843,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Hilbert","Classes/HilbertFIR" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/EZPopUpMenu": {
 'title': "EZPopUpMenu",
@@ -10912,7 +10874,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pdef" ],
 'methods': [ "_*default","_*all","_*removeAll","_*clear","_*new","?-copy","?-map","?-dup","?-key","?*hasGlobalDictionary" ],
-'superclasses': [ "PatternProxy","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "PatternProxy","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/VDiskIn": {
 'title': "VDiskIn",
@@ -10923,7 +10885,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PlayBuf","Classes/BufRd","Classes/DiskIn" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/RunningSum": {
 'title': "RunningSum",
@@ -10934,7 +10896,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar","?*rms" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ServerTree": {
 'title': "ServerTree",
@@ -10945,7 +10907,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Server","Classes/ServerQuit","Classes/ServerBoot","Classes/CmdPeriod" ],
 'methods': [ "?*objects","?*functionSelector" ],
-'superclasses': [ "AbstractServerAction","AbstractSystemAction","Object" ],
+'superclasses': [ "AbstractServerAction","AbstractSystemAction","Object","AbstractObjectExperimental" ],
 },
 "Classes/SoundFileView": {
 'title': "SoundFileView",
@@ -10966,7 +10928,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Balance2","Classes/Pan2","Classes/Pan4","Classes/PanAz" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Pan2","MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Pan2","MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dseries": {
 'title': "Dseries",
@@ -10977,7 +10939,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Demand","Classes/Dgeom","Classes/Duty","Classes/TDuty" ],
 'methods': [ "_*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Scheduler": {
 'title': "Scheduler",
@@ -10988,7 +10950,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-schedAbs","_-advance","_-recursive","_-sched","_-play","_-seconds","_-isEmpty","_-clear","_-queue","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/SelectX": {
 'title': "SelectX",
@@ -10999,7 +10961,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Select","Classes/SelectXFocus","Classes/LinSelectX" ],
 'methods': [ "_*kr","_*ar","?*crossfadeClass" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "LinSelectX" ],
 },
 "Tutorials/A-Practical-Guide/PG_060_Filter_Patterns": {
@@ -11021,7 +10983,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pmul","Classes/Paddp" ],
 'methods': [ "_*new","?-filterEvent" ],
-'superclasses': [ "Psetp","Pset","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Psetp","Pset","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LastValue": {
 'title': "LastValue",
@@ -11032,7 +10994,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LeastChange","Classes/MostChange" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/UGen-Changelog": {
 'title': "UGen Changelog",
@@ -11053,7 +11015,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Timer": {
 'title': "Timer",
@@ -11064,7 +11026,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dshuf": {
 'title': "Dshuf",
@@ -11075,7 +11037,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*new" ],
-'superclasses': [ "ListDUGen","DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ListDUGen","DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/JITLib/jitlib_asCompileString": {
 'title': "jitlib_asCompileString",
@@ -11096,7 +11058,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "Pclump","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pclump","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/UnitTestResult": {
 'title': "UnitTestResult",
@@ -11107,7 +11069,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-testMethod","?-testClass","?-report","?-message","?-debug","?-details","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/HLayoutView": {
 'title': "HLayoutView",
@@ -11128,7 +11090,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/RLPF","Classes/LPF" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/20_Debugging": {
 'title': "20_Debugging",
@@ -11140,6 +11102,17 @@ docmap = {
 'related': [ "Tutorials/Mark_Polishook_tutorial/00_Introductory_tutorial" ],
 'methods': [  ],
 },
+"Classes/AbstractObjectExperimental": {
+'title': "AbstractObjectExperimental",
+'path': "Classes/AbstractObjectExperimental",
+'summary': "(Undocumented class)",
+'installed': "standard",
+'categories': "Undocumented classes",
+'keywords': [  ],
+'related': [  ],
+'methods': [ "?-sc_abstract_object_perform","?-sc_abstract_object_hash","?-mustBeBoolean","?-sc_abstract_object_perform_list","?-?","?-??","?-sc_abstract_object_primitive_failed","?-identityHash","?-isNil","?-sc_abstract_object_yield_and_reset","?-sc_abstract_object_yield","?-sc_abstract_object_super_perform_args","?-notNil","?-sc_abstract_object_perform_msg","?-===","?-!?","?-!==","?-doesNotUnderstand","?-sc_abstract_object_copy_deep","?-sc_abstract_object_always_yield","?-sc_abstract_object_is_kind_of","?-sc_abstract_object_perform_args","?-sc_abstract_object_copy_immutable","?-sc_abstract_object_copy_shallow","?*new","?*newCopyArgs" ],
+'subclasses': [ "Frame","Object" ],
+},
 "Classes/LinkedList": {
 'title': "LinkedList",
 'path': "Classes/LinkedList",
@@ -11149,7 +11122,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-remove","_-add","_-put","_-removeAt","_-at","_-popFirst","_-last","_-first","_-addFirst","_-pop","?-do","?-nodeAt","?-size","?-copy","?-reverseDo","?-species","?-findNodeOfObj" ],
-'superclasses': [ "SequenceableCollection","Collection","Object" ],
+'superclasses': [ "SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/ListDUGen": {
 'title': "ListDUGen",
@@ -11160,7 +11133,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Drand","Dser","Dseq","Dshuf","Dxrand" ],
 },
 "Classes/Pseed": {
@@ -11172,7 +11145,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Reference/randomSeed" ],
 'methods': [ "_*new","?-embedInStream","?-randSeed" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Overviews/ClassTree": {
 'title': "Class Tree",
@@ -11223,7 +11196,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-rawValue","?-deltaAction","?-delta","?-initSpec","?-value","?-debug" ],
-'superclasses': [ "LIDSlot","Object" ],
+'superclasses': [ "LIDSlot","Object","AbstractObjectExperimental" ],
 },
 "Classes/RHPF": {
 'title': "RHPF",
@@ -11234,7 +11207,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Formlet","Classes/RLPF","Classes/Resonz","Classes/Ringz" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "RLPF","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "RLPF","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LinkedListNode": {
 'title': "LinkedListNode",
@@ -11245,7 +11218,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-obj","?-next","?-prev","?-remove","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Reference/SCDocSyntax": {
 'title': "SCDoc Syntax",
@@ -11266,7 +11239,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SOS","Classes/BLowPass","Classes/BLowPass4","Classes/BHiPass","Classes/BHiPass4","Classes/BPeakEQ","Classes/BLowShelf","Classes/BBandPass","Classes/BBandStop","Classes/BAllPass" ],
 'methods': [ "_*ar","?*sc" ],
-'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/DynKlank": {
 'title': "DynKlank",
@@ -11277,7 +11250,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Klang","Classes/DynKlang","Classes/Klank" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PrettyEat": {
 'title': "PrettyEat",
@@ -11288,7 +11261,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-put" ],
-'superclasses': [ "PrettyState","Object" ],
+'superclasses': [ "PrettyState","Object","AbstractObjectExperimental" ],
 },
 "Classes/DetectIndex": {
 'title': "DetectIndex",
@@ -11299,7 +11272,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Index","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Index","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BPeakEQ": {
 'title': "BPeakEQ",
@@ -11310,7 +11283,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SOS","Classes/BLowPass","Classes/BLowPass4","Classes/BHiPass","Classes/BHiPass4","Classes/BPeakEQ","Classes/BLowShelf","Classes/BHiShelf","Classes/BBandPass","Classes/BBandStop","Classes/BAllPass" ],
 'methods': [ "_*ar","?*sc" ],
-'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/DragSink": {
 'title': "DragSink",
@@ -11331,7 +11304,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [  ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "HenonN","LatoocarfianN","FBSineN","CuspN","QuadN","LinCongN","LorenzL","StandardN","GbmanN" ],
 },
 "Classes/Semaphore": {
@@ -11343,7 +11316,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-count","_-wait","_-clear","_-signal","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/TdefGui": {
 'title': "TdefGui",
@@ -11364,7 +11337,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-phase","_-quant","_-timingOffset","_*new","?-asQuant","?-nextTimeOnGrid","?*default" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Reference/randomSeed": {
 'title': "Random Seed",
@@ -11395,7 +11368,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/GbmanN" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "GbmanN","ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "GbmanN","ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ControlSpec": {
 'title': "ControlSpec",
@@ -11406,7 +11379,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Warp" ],
 'methods': [ "_-constrain","_-range","_-map","_-gridClass","_-grid","_-unmap","_-clipLo","_-clipHi","_-guessNumberStep","_*new","?-copy","?-step","?-warp","?-maxval","?-default","?-setFrom","?-calcRange","?-minval","?-looseRange","?-gridValues","?-normalize","?-roundRange","?-hasZeroCrossing","?-ratio","?-shift","?-zoom","?-units","?*newFrom" ],
-'superclasses': [ "Spec","Object" ],
+'superclasses': [ "Spec","Object","AbstractObjectExperimental" ],
 },
 "Reference/playN": {
 'title': "playN",
@@ -11427,7 +11400,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SpecCentroid","Classes/SpecFlatness" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/AudioControl": {
 'title': "AudioControl",
@@ -11438,7 +11411,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-values","?-init","?*names","?*isAudioControlUGen","?*isControlUGen","?*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/News-3_12": {
 'title': "News in 3.12",
@@ -11469,7 +11442,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HIDFunc","Guides/Working_with_HID","Classes/HIDElement","Classes/HIDCollection","Classes/HIDUsage","Classes/HIDInfo" ],
 'methods': [ "_-postUsages","_-deviceAction","_-usages","_-collections","_-debug","_-postInputElements","_-postFeatureElements","_-closeAction","_-postElements","_-postInfo","_-postCollections","_-isOpen","_-elements","_-close","_-postOutputElements","_-action","_-usagePage","_-vendor","_-getElementWithID","_-findElementWithUsage","_-pageName","_-info","_-usage","_-usageName","_-product","_*openAt","_*openPath","_*deviceAction","_*removeRecvFunc","_*debug","_*new","_*openDevices","_*addRecvFunc","_*open","_*running","_*closeAll","_*postAvailable","_*action","_*availableUsages","_*addDevFunc","_*removeDevFunc","_*available","_*findBy","_*postAvailableUsages","_*findAvailable","_*initializeHID" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Tutorials/GUI/tutorial_intro": {
 'title': "GUI: Tutorial introduction",
@@ -11490,7 +11463,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Server","Classes/ServerQuit","Classes/ServerTree","Classes/StartUp" ],
 'methods': [ "?*objects","?*functionSelector" ],
-'superclasses': [ "AbstractServerAction","AbstractSystemAction","Object" ],
+'superclasses': [ "AbstractServerAction","AbstractSystemAction","Object","AbstractObjectExperimental" ],
 },
 "Classes/CompositeView": {
 'title': "CompositeView",
@@ -11511,7 +11484,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-update" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/BinaryOpPlug": {
 'title': "BinaryOpPlug",
@@ -11522,7 +11495,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-asControlInput","?-value","?-isNeutral","?-operator","?-numChannels","?-wakeUp","?-rate","?-envirCompileString","?-initBus","?-a","?-b","?*new" ],
-'superclasses': [ "AbstractOpPlug","AbstractFunction","Object" ],
+'superclasses': [ "AbstractOpPlug","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LorenzL": {
 'title': "LorenzL",
@@ -11533,7 +11506,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*ar","?*equation" ],
-'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ChaosGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/CombL": {
 'title': "CombL",
@@ -11544,7 +11517,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/CombC","Classes/CombN","Classes/BufCombL" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "CombN","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "CombN","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_RectComb2": {
 'title': "PV_RectComb2",
@@ -11555,7 +11528,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_RectComb" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pulse": {
 'title': "Pulse",
@@ -11566,7 +11539,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFPulse" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Place": {
 'title': "Place",
@@ -11577,7 +11550,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ppatlace" ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "Pseq","ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pseq","ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Prorate": {
 'title': "Prorate",
@@ -11588,7 +11561,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pattern" ],
 'methods': [ "_*new","?-embedInStream","?-proportion" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dswitch1": {
 'title': "Dswitch1",
@@ -11599,7 +11572,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Demand","Classes/Duty","Classes/TDuty","Classes/Dswitch" ],
 'methods': [ "_*new" ],
-'superclasses': [ "DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Dswitch" ],
 },
 "Classes/PV_Max": {
@@ -11611,7 +11584,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_Add","Classes/PV_CopyPhase","Classes/PV_MagMul","Classes/PV_Min","Classes/PV_Mul" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/UnpackFFT": {
 'title': "UnpackFFT",
@@ -11622,7 +11595,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PackFFT","Classes/Unpack1FFT" ],
 'methods': [ "_*new" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Reference/Partial-Application": {
 'title': "Partial Application",
@@ -11643,7 +11616,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDIMTCtoSMPTEDispatcher": {
 'title': "MIDIMTCtoSMPTEDispatcher",
@@ -11654,7 +11627,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-wrapFunc","?-value" ],
-'superclasses': [ "MIDISysexDispatcher","MIDIMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object" ],
+'superclasses': [ "MIDISysexDispatcher","MIDIMessageDispatcher","AbstractWrappingDispatcher","AbstractDispatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_RandWipe": {
 'title': "PV_RandWipe",
@@ -11665,7 +11638,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PV_RandComb" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ServerOptions": {
 'title': "ServerOptions",
@@ -11676,7 +11649,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Server","Reference/Server-Architecture","Reference/Server-Command-Reference","Reference/AudioDeviceSelection" ],
 'methods': [ "_-outputStreamsEnabled","_-verbosity","_-asOptionsString","_-memSize","_-numControlBusChannels","_-numWireBufs","_-maxLogins","_-useSystemClock","_-numOutputBusChannels","_-hardwareBufferSize","_-zeroConf","_-remoteControlVolume","_-memoryLocking","_-inputStreamsEnabled","_-restrictedPath","_-maxSynthDefs","_-numAudioBusChannels","_-device","_-outDevice","_-firstPrivateBus","_-initialNodeID","_-inDevice","_-safetyClipThreshold","_-sampleRate","_-blockSize","_-protocol","_-pingsBeforeConsideredDead","_-loadDefs","_-ugenPluginsPath","_-bindAddress","_-threads","_-threadPinning","_-numInputBusChannels","_-numRGens","_-numBuffers","_-maxNodes","_*outDevices","_*new","_*inDevices","_*devices","?-recBufSize","?-bootInProcess","?-recHeaderFormat","?-reservedNumControlBusChannels","?-recalcChannels","?-recSampleFormat","?-recChannels","?-reservedNumBuffers","?-reservedNumAudioBusChannels","?-numPrivateAudioBusChannels" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "BelaServerOptions" ],
 },
 "Classes/Ppatmod": {
@@ -11688,7 +11661,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Plazy" ],
 'methods': [ "_*new","?-repeats","?-pattern","?-func","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDIEvent": {
 'title': "MIDIEvent",
@@ -11699,7 +11672,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-ctlval","?-note","?-status","?-port","?-match","?-veloc","?-chan","?-c","?-ctlnum","?-thread","?-set","?-b","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/DebugFrame": {
 'title': "DebugFrame",
@@ -11709,8 +11682,8 @@ docmap = {
 'categories': "Core",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "_-functionDef","_-args","_-vars","_-caller","_-address","_-context","?-asString" ],
-'superclasses': [ "Object" ],
+'methods': [ "_-functionDef","_-args","_-vars","_-caller","_-address","_-context","?-ipIndex","?-prAsErrorString","?-prLastIndexOf","?-asString","?-printOntoBacktrace","?-prFirstIndexOf","?-backtracePrintOnto","?*new","?*newCopyArgs" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Ball": {
 'title': "Ball",
@@ -11721,7 +11694,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/TBall","Classes/Spring" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LFPulse": {
 'title': "LFPulse",
@@ -11732,7 +11705,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFSaw" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/TChoose": {
 'title': "TChoose",
@@ -11743,7 +11716,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/TWChoose" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/PmonoStream": {
 'title': "PmonoStream",
@@ -11754,7 +11727,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-prInit","?-embedInStream","?-prInitNode","?-prDoStreams","?-prSetNextEvent","?*new" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PmonoArticStream" ],
 },
 "Classes/Env": {
@@ -11766,7 +11739,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/EnvGen","Classes/IEnvGen","Classes/Pseg" ],
 'methods': [ "_-test","_-asStream","_-kr","_-isSustained","_-circle","_-embedInStream","_-exprange","_-asArray","_-asMultichannelArray","_-blend","_-delay","_-totalDuration","_-range","_-asSignal","_-duration","_-at","_-ar","_-curverange","_-plot","_*shapeNames","_*cutoff","_*sine","_*shapeNumber","_*pairs","_*xyc","_*step","_*asr","_*circle","_*new","_*perc","_*linen","_*triangle","_*dadsr","_*newClear","_*adsr","?-offset","?-releaseTime","?-asPseg","?-loopNode","?-asMultichannelSignal","?-==","?-streamArg","?-levels","?-hash","?-discretize","?-asArrayForInterpolation","?-times","?-array","?-curves","?-releaseNode","?-curveValue","?-asControlInput","?-asOSCArgEmbeddedArray","_.streamArg" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "Penv" ],
 },
 "Classes/Function": {
@@ -11778,7 +11751,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Reference/Functions","Classes/AbstractFunction","Classes/FunctionDef" ],
 'methods': [ "_-loop","_-valueArray","_-forkIfNeeded","_-inEnvirWithArgs","_-sum","_-getToFloatArray","_-functionPerformList","_-awake","_-choose","_-loadToFloatArray","_-case","_-def","_-asSynthDef","_-belaScope","_-performKeyValuePairs","_-!","_-isClosed","_-dup","_-value","_-try","_-plot","_-flop","_-envirFlop","_-block","_-performWithEnvir","_-asDefName","_-inEnvir","_-asRoutine","_-thunk","_-performDegreeToKey","_-r","_-bench","_-valueEnvir","_-defer","_-valueWithEnvir","_-asBuffer","_-valueArrayEnvir","_-protect","_-play","_-scope","_-fork","_-flop1","_-matchItem","_-p","?-cmdPeriod","?-doOnServerBoot","?-checkCanArchive","?-postString","?-doOnServerTree","?-numArgs","?-doOnCmdPeriod","?-archiveAsObject","?-doOnShutDown","?-handleError","?-numVars","?-argNames","?-shallowCopy","?-prepareForProxySynthDef","?-defaultArgs","?-makeFlopFunc","?-get","?-set","?-archiveAsCompileString","?-doOnServerQuit","?-update","?-doOnError","?-isFunction","?-varArgs","?-transformEvent","?-doOnStartUp","?-prTry","_.thisFunction" ],
-'superclasses': [ "AbstractFunction","Object" ],
+'superclasses': [ "AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Image": {
 'title': "Image",
@@ -11799,7 +11772,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/HIDElement": {
 'title': "HIDElement",
@@ -11810,7 +11783,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HID","Guides/Working_with_HID","Classes/HIDCollection","Classes/HIDUsage" ],
 'methods': [ "_-logicalMax","_-physicalMin","_-getUsages","_-id","_-typeSpec","_-ioType","_-unitExponent","_-usageMax","_-arrayValue","_-collection","_-logicalMin","_-reportSize","_-reportID","_-repeat","_-type","_-physicalMax","_-usagePage","_-action","_-usageMin","_-physicalValue","_-pageName","_-logicalValue","_-reportIndex","_-usage","_-device","_-rawValue","_-usageName","_-iotypeName","_-value","_-unit","_-postElement" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/InfoUGenBase": {
 'title': "InfoUGenBase",
@@ -11821,7 +11794,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?*ir" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "ControlDur","NodeID","BlockSize","SampleDur","NumInputBuses","NumRunningSynths","NumControlBuses","SampleRate","ControlRate","NumBuffers","SubsampleOffset","RadiansPerSample","NumAudioBuses","NumOutputBuses" ],
 },
 "Classes/Plambda": {
@@ -11833,7 +11806,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Penvir","Classes/Pkey" ],
 'methods': [ "_*new","?-embedInStream","?-scope" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PatternProxy": {
 'title': "PatternProxy",
@@ -11844,7 +11817,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pdefn" ],
 'methods': [ "_-condition","_-asStream","_-envir","_-quant","_-embedInStream","_-set","_-source","_-clear","_-endless","_*defaultValue","_*new","_*default","_*defaultQuant","?-embed","?-remove","?-clock","?-copy","?-receiveEvent","?-quantBeat","?-pattern","?-sched","?-defaultEvent","?-unset","?-setSource","?-isEventPattern","?-phase","?-copyState","?-count","?-reset","?-place","?-repositoryArgs","?-get","?-asCode","?-convertFunction","?-timingOffset","?-constrainStream","?-buildForProxy" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pdefn","TaskProxy" ],
 },
 "Guides/Internal-Snooping": {
@@ -11866,7 +11839,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MIDIFunc","Classes/MIDIdef","Classes/MIDIResponder","Classes/CCResponder" ],
 'methods': [ "_-learn","_*new","?*initialized","?*remove","?*add","?*responders","?*bendr","?*bendinit" ],
-'superclasses': [ "TouchResponder","MIDIResponder","Object" ],
+'superclasses': [ "TouchResponder","MIDIResponder","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pwrap": {
 'title': "Pwrap",
@@ -11877,7 +11850,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SimpleNumber" ],
 'methods': [ "?-hi","?-lo","?-embedInStream","?*new" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_06d_Parallel_Patterns": {
 'title': "Pattern Guide 06d: Parallel Patterns",
@@ -11898,7 +11871,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-<<<","?-<<*","?-ff","?-<<<*","?-<<","?-flush","?-reset","?-skip","?-comma","?-space","?-nl","?-readUpTo","?-tab","?-pos" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pretty","CollStream","UnixFILE" ],
 },
 "Reference/Server-Architecture": {
@@ -11930,7 +11903,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BeatTrack","Classes/MFCC","Classes/Onsets","Classes/Pitch","Classes/KeyTrack" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Reference/softPut": {
 'title': "softPut",
@@ -11951,7 +11924,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Demand","Classes/Drand","Classes/Dseq","Classes/Dser","Classes/Duty","Classes/TDuty" ],
 'methods': [ "_*new" ],
-'superclasses': [ "ListDUGen","DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "ListDUGen","DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/RunningMax": {
 'title': "RunningMax",
@@ -11962,7 +11935,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/RunningMin","Classes/RunningSum" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Peak","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Peak","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BasicOpUGen": {
 'title': "BasicOpUGen",
@@ -11973,7 +11946,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/UnaryOpUGen","Classes/BinaryOpUGen","Overviews/Operators" ],
 'methods': [ "_-operator","?-dumpArgs","?-dumpName","?-argNameForInputAt" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "BinaryOpUGen","UnaryOpUGen" ],
 },
 "Classes/Pgate": {
@@ -11985,7 +11958,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pn" ],
 'methods': [ "_*new","?-embedInStream" ],
-'superclasses': [ "Pn","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pn","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/UnitTest": {
 'title': "UnitTest",
@@ -11996,7 +11969,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/UnitTestResult","Classes/UnitTestScript" ],
 'methods': [ "_-assert","_-assertArrayFloatEquals","_-debug","_-runTestMethod","_-assertNoException","_-assertEquals","_-assertException","_-failed","_-passed","_-assertFloatEquals","_-ifAsserts","_-wait","_-bootServer","_*passVerbosity","_*runTest","_*reportPasses","_*runAll","_*run","_*gui","?-asynchAssert","?*prRunAllTestMethods","?*full","?*tearDownClass","?*runTestClassForClass","?*setUpClass","?*brief","?*prRunWithinSetUpClass" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "UnitTestScript" ],
 },
 "Classes/Pfset": {
@@ -12008,7 +11981,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pset" ],
 'methods': [ "_*new","?-cleanupFunc","?-embedInStream" ],
-'superclasses': [ "FuncFilterPattern","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FuncFilterPattern","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Ppatlace": {
 'title': "Ppatlace",
@@ -12019,7 +11992,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Place" ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "Pseq","ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pseq","ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/OSCresponder": {
 'title': "OSCresponder",
@@ -12030,7 +12003,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OSCFunc","Classes/OSCdef","Guides/OSC_communication","Classes/OSCresponderNode","Classes/NetAddr" ],
 'methods': [ "_*new","?-remove","?-add","?-action","?-removeWhenDone","?-cmdName","?-==","?-hash","?-value","?-addr","?-cmdNameWithoutSlash","?*remove","?*add","?*all","?*removeAddr","?*respond" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "OSCMultiResponder","OSCpathResponder","OSCresponderNode" ],
 },
 "Classes/Wavetable": {
@@ -12042,7 +12015,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Signal" ],
 'methods': [ "_-plot","_-asSignal","_*chebyFill","_*sineFill","?-blend","?-write","?*newClear","?*new","?*chebyFill_old","?*readNew" ],
-'superclasses': [ "FloatArray","RawArray","ArrayedCollection","SequenceableCollection","Collection","Object" ],
+'superclasses': [ "FloatArray","RawArray","ArrayedCollection","SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 },
 "Overviews/SymbolicNotations": {
 'title': "Symbolic Notations",
@@ -12063,7 +12036,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-value","?-isEmpty","?-nodes" ],
-'superclasses': [ "OSCresponder","Object" ],
+'superclasses': [ "OSCresponder","Object","AbstractObjectExperimental" ],
 'subclasses': [ "OSCpathDispatcher" ],
 },
 "Classes/CoinGate": {
@@ -12075,7 +12048,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Warp": {
 'title': "Warp",
@@ -12086,7 +12059,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ControlSpec","Classes/Spec" ],
 'methods': [ "_-map","_-unmap","?-spec","?-==","?-asSpecifier","?-hash","?-gridClass","?-asWarp","?*warps","?*new","?*asWarp" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "DbFaderWarp","ExponentialWarp","LinearWarp","FaderWarp","CurveWarp" ],
 },
 "Overviews/SC3vsSC2": {
@@ -12128,7 +12101,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Trig" ],
 'methods': [ "_*kr","_*ar","?-signalRange" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Trig","TDelay" ],
 },
 "Classes/SortedList": {
@@ -12140,7 +12113,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-addAll","_-add","_*new","?-copySeries","?-sortRange","?-copyRange","?-sort","?-function" ],
-'superclasses': [ "List","SequenceableCollection","Collection","Object" ],
+'superclasses': [ "List","SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/Synth": {
 'title': "Synth",
@@ -12151,7 +12124,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Node","Classes/SynthDef" ],
 'methods': [ "_-addToHeadMsg","_-addBeforeMsg","_-getn","_-addReplaceMsg","_-addToTailMsg","_-newMsg","_-get","_-set","_-defName","_-addAfterMsg","_-getnMsg","_-getMsg","_-seti","_*replace","_*before","_*after","_*basicNew","_*tail","_*new","_*newPaused","_*head","_*grain","?-replace","?-asGroup" ],
-'superclasses': [ "Node","Object" ],
+'superclasses': [ "Node","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Getting-Started/04-Functions-and-Other-Functionality": {
 'title': "04. Functions and Other Functionality",
@@ -12172,7 +12145,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ExampleFiles" ],
 'methods': [ "_-freeMsg","_-closeMsg","_-getToFloatArray","_-cueSoundFileMsg","_-numFrames","_-zeroMsg","_-updateInfo","_-loadToFloatArray","_-copyMsg","_-close","_-alloc","_-sine2","_-write","_-getn","_-normalize","_-sine1","_-sine2Msg","_-zero","_-chebyMsg","_-set","_-setMsg","_-writeMsg","_-path","_-setSampleRate","_-normalizeMsg","_-plot","_-allocRead","_-readChannelMsg","_-numChannels","_-readMsg","_-read","_-copyData","_-allocReadChannelMsg","_-sine3","_-allocReadChannel","_-sampleRate","_-sendCollection","_-allocMsg","_-getMsg","_-cueSoundFile","_-cheby","_-readChannel","_-bufnum","_-allocReadMsg","_-loadCollection","_-genMsg","_-server","_-sine3Msg","_-fill","_-free","_-setnMsg","_-get","_-duration","_-gen","_-sine1Msg","_-query","_-play","_-setn","_-getnMsg","_-fillMsg","_*alloc","_*loadCollection","_*loadChannelDialog","_*read","_*new","_*allocConsecutive","_*cachedBufferAt","_*loadDialog","_*cachedBuffersDo","_*readNoUpdate","_*sendCollection","_*cueSoundFile","_*readChannel","?-streamCollection","?-setSampleRateMsg","?-queryMsg","?-cache","?-startFrame","?-doOnInfo","?-queryDone","?-asControlInput","?-readNoUpdate","?-asUGenInput","?-setnMsgArgs","?-asBufWithValues","?-uncache","?-preparePartConv","?*freeAll" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Pslide": {
 'title': "Pslide",
@@ -12183,7 +12156,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ptuple" ],
 'methods': [ "_*new","?-len","?-wrapAtEnd","?-start","?-step","?-embedInStream" ],
-'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/List": {
 'title': "List",
@@ -12194,7 +12167,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Array" ],
 'methods': [ "_-wrapExtend","_-put","_-grow","_-stutter","_-dupEach","_-mirror2","_-wrapPut","_-pyramid","_-clear","_-foldAt","_-wrapAt","_-do","_-array","_-boundedInsert","_-scramble","_-mirror1","_-slide","_-pairsDo","_-pop","_-copySeries","_-permute","_-putSeries","_-foldPut","_-removeAt","_-mirror","_-reverseDo","_-rotate","_-reverse","_-addFirst","_-asArray","_-add","_-dump","_-foldExtend","_-fill","_-at","_-clipPut","_-lace","_-copyRange","_-clipAt","_-insert","_*newClear","_*copyInstance","_*newUsing","_*new","?-doAdjacentPairs","?-setCollection","?-size","?-copy","?-swap","?-indexOf","?-asList","?-last","?-first" ],
-'superclasses': [ "SequenceableCollection","Collection","Object" ],
+'superclasses': [ "SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "SortedList" ],
 },
 "Classes/PdefEditor": {
@@ -12226,7 +12199,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [  ],
-'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "InfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/HIDInfo": {
 'title': "HIDInfo",
@@ -12237,7 +12210,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HID","Guides/Working_with_HID" ],
 'methods': [ "_-usagePage","_-productName","_-pageName","_-interfaceNumber","_-vendorID","_-usage","_-vendorName","_-productID","_-path","_-postInfo","_-open","_-usageName","_-serialNumber","_-releaseNumber" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/HPZ1": {
 'title': "HPZ1",
@@ -12248,7 +12221,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LPZ1","Classes/HPZ2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LPZ1","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LPZ1","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Getting-Started/06-Presented-in-Living-Stereo": {
 'title': "06. Presented in Living Stereo",
@@ -12269,7 +12242,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/COsc","Classes/Osc","Classes/VOsc","Classes/VOsc3" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/NoteOffResponder": {
 'title': "NoteOffResponder",
@@ -12280,7 +12253,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MIDIFunc","Classes/MIDIdef","Classes/MIDIResponder","Classes/NoteOnResponder" ],
 'methods': [ "_-learn","_*new","?*initialized","?*remove","?*responders","?*add","?*noffinit","?*noffr" ],
-'superclasses': [ "NoteOnResponder","MIDIResponder","Object" ],
+'superclasses': [ "NoteOnResponder","MIDIResponder","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pdrop": {
 'title': "Pdrop",
@@ -12291,7 +12264,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pclutch" ],
 'methods': [ "_*new","?-count","?-embedInStream" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/Japanese_version/03": {
 'title': "03",
@@ -12322,7 +12295,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LIDAbsSlot": {
 'title': "LIDAbsSlot",
@@ -12333,7 +12306,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-info","?-initSpec" ],
-'superclasses': [ "LIDSlot","Object" ],
+'superclasses': [ "LIDSlot","Object","AbstractObjectExperimental" ],
 },
 "Guides/UsingMIDI": {
 'title': "Using MIDI",
@@ -12354,7 +12327,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-initSpec" ],
-'superclasses': [ "LIDSlot","Object" ],
+'superclasses': [ "LIDSlot","Object","AbstractObjectExperimental" ],
 },
 "Classes/IdentityDictionary": {
 'title': "IdentityDictionary",
@@ -12365,7 +12338,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Environment","Classes/Event","Guides/ObjectPrototyping" ],
 'methods': [ "_-findKeyForValue","_-know","_-insertParent","_-putGet","_-nextTimeOnGrid","_-freezeAsParent","_-proto","_-includesKey","_-parent","_-timingOffset","_-asQuant","_*new","?-collect","?-put","?-at","?-scanFor","?-==","?-storeItemsOn","?-doesNotUnderstand","?-hash","?-select","?-reject" ],
-'superclasses': [ "Dictionary","Set","Collection","Object" ],
+'superclasses': [ "Dictionary","Set","Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Environment","NodeMap" ],
 },
 "Classes/OffsetOut": {
@@ -12377,7 +12350,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Out","Classes/ReplaceOut","Classes/XOut" ],
 'methods': [ "_*ar","?*kr" ],
-'superclasses': [ "Out","AbstractOut","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Out","AbstractOut","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Server_Tutorial": {
 'title': "Server Tutorial",
@@ -12398,7 +12371,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Done","Classes/FreeSelfWhenDone" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Quarks": {
 'title': "Quarks",
@@ -12409,7 +12382,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Guides/UsingQuarks","Classes/Quark" ],
 'methods': [ "_*installQuark","_*isInstalled","_*addFolder","_*fetchDirectory","_*initClass","_*directory","_*save","_*unlink","_*uninstall","_*openFolder","_*quarkNameAsLocalPath","_*load","_*folder","_*checkForUpdates","_*gui","_*clear","_*install","_*classesInPackage","_*installed","_*asAbsolutePath","_*all","_*at","_*link","_*directoryUrl","_*update","_*findQuarkURL","?*pathIsInstalled","?*clearCache","?*additionalFolders","?*isPath","?*prFetchDirectory","?*installedPaths","?*asRelativePath","?*uninstallQuark" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Reference/play": {
 'title': "play",
@@ -12450,7 +12423,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Stream" ],
 'methods': [ "_-next","_-beats","_-clock","_-reschedule","_-reset","_-resume","_-stop","_-play","_-awake","_-p","_-seconds","_-value","_*new","?-run","?-valueArray","?-prStart","?-prStop","?*run" ],
-'superclasses': [ "Thread","Stream","AbstractFunction","Object" ],
+'superclasses': [ "Thread","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "FuncStreamAsRoutine" ],
 },
 "Classes/AllpassC": {
@@ -12462,7 +12435,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AllpassL","Classes/AllpassN","Classes/BufAllpassC" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "CombN","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "CombN","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pmul": {
 'title': "Pmul",
@@ -12473,7 +12446,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Padd","Classes/Pmulp" ],
 'methods': [ "_*new","?-filterEvent" ],
-'superclasses': [ "Pset","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pset","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/UnaryOpUGen": {
 'title': "UnaryOpUGen",
@@ -12484,7 +12457,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BinaryOpUGen","Classes/UnaryOpFunction","Classes/Punop","Overviews/Operators" ],
 'methods': [ "_*new","?-optimizeGraph" ],
-'superclasses': [ "BasicOpUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BasicOpUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BRF": {
 'title': "BRF",
@@ -12495,7 +12468,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BPF","Classes/HPF","Classes/LPF" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "BPF","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BPF","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LIDAbsInfo": {
 'title': "LIDAbsInfo",
@@ -12506,7 +12479,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-max","?-flat","?-fuzz","?-printOn","?-min","?-value" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/PowerOfTwoBlock": {
 'title': "PowerOfTwoBlock",
@@ -12517,7 +12490,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-next","?-address","?-size","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/ProxySynthDef": {
 'title': "ProxySynthDef",
@@ -12528,7 +12501,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/NodeProxy" ],
 'methods': [ "_*new","_*sampleAccurate","?-rate","?-numChannels","?-canFreeSynth","?-canReleaseSynth" ],
-'superclasses': [ "SynthDef","Object" ],
+'superclasses': [ "SynthDef","Object","AbstractObjectExperimental" ],
 },
 "Classes/Warp1": {
 'title': "Warp1",
@@ -12539,7 +12512,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/MIDI": {
 'title': "MIDI",
@@ -12570,7 +12543,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SOS","Classes/BLowPass4","Classes/BHiPass","Classes/BHiPass4","Classes/BPeakEQ","Classes/BLowShelf","Classes/BHiShelf","Classes/BBandPass","Classes/BBandStop","Classes/BAllPass" ],
 'methods': [ "_*sc","_*ar" ],
-'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BEQSuite","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pset": {
 'title': "Pset",
@@ -12581,7 +12554,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pbindf","Classes/Psetp" ],
 'methods': [ "_*new","?-value","?-name","?-filterEvent","?-embedInStream" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pmul","Padd","Psetp" ],
 },
 "Reference/matchItem": {
@@ -12603,7 +12576,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-map","?-unmap" ],
-'superclasses': [ "LinearWarp","Warp","Object" ],
+'superclasses': [ "LinearWarp","Warp","Object","AbstractObjectExperimental" ],
 },
 "Reference/Resize": {
 'title': "Resize behaviour",
@@ -12624,7 +12597,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-aroh","?-avaroh","?-stepsPerOctave","?-embedInStream","?*new" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dswitch": {
 'title': "Dswitch",
@@ -12635,7 +12608,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Demand","Classes/Dswitch1" ],
 'methods': [ "_*new" ],
-'superclasses': [ "Dswitch1","DUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Dswitch1","DUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pgbrown": {
 'title': "Pgbrown",
@@ -12646,7 +12619,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BrownNoise","Classes/Pbrown" ],
 'methods': [ "_*new","?-calcNext" ],
-'superclasses': [ "Pbrown","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pbrown","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ShutDown": {
 'title': "ShutDown",
@@ -12657,7 +12630,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/StartUp","Classes/ServerQuit","Classes/ServerTree","Classes/CmdPeriod" ],
 'methods': [ "_*run","?*objects" ],
-'superclasses': [ "AbstractSystemAction","Object" ],
+'superclasses': [ "AbstractSystemAction","Object","AbstractObjectExperimental" ],
 },
 "Reference/EmacsEditor": {
 'title': "Emacs Editor",
@@ -12678,7 +12651,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Plazy","Classes/PlazyEnvirN","Classes/Pfunc" ],
 'methods': [ "_*new","?-passEvent","?-embedInStream" ],
-'superclasses': [ "Plazy","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Plazy","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PlazyEnvirN" ],
 },
 "Classes/Event": {
@@ -12689,8 +12662,8 @@ docmap = {
 'categories': "Collections>Unordered, Streams-Patterns-Events>Events",
 'keywords': [  ],
 'related': [ "Classes/Pattern","Classes/Environment","Classes/IdentityDictionary" ],
-'methods': [ "_-pause","_-next","_-playAndDelta","_-isRest","_-set","_-resume","_-group","_-stop","_-play","_-asControlInput","_-synth","_-embedInStream","_-asUGenInput","_-delta","_-release","_*silent","_*removeEventType","_*makeDefaultSynthDef","_*addParentType","_*new","_*removeParentType","_*default","_*partialEvents","_*parentEvents","_*addEventType","?-asOSC","?-proxyControlClass","?-asEventStreamPlayer","?-isPlaying","?-synchWithQuant","?-free","?-isRunning","?-sendOSC","?-asEvent","?-nodeID","?-split","?-buildForProxy","?-asGroup","?*checkIDs","?*eventTypes","?*parentTypes","?*makeParentEvents","_.defaultParentEvent" ],
-'superclasses': [ "Environment","IdentityDictionary","Dictionary","Set","Collection","Object" ],
+'methods': [ "_-pause","_-next","_-playAndDelta","_-embedInStream","_-isRest","_-set","_-resume","_-group","_-stop","_-play","_-asControlInput","_-synth","_-asUGenInput","_-release","_-delta","_*silent","_*removeEventType","_*makeDefaultSynthDef","_*addParentType","_*new","_*removeParentType","_*default","_*partialEvents","_*parentEvents","_*addEventType","?-asOSC","?-proxyControlClass","?-asEventStreamPlayer","?-isPlaying","?-synchWithQuant","?-free","?-isRunning","?-sendOSC","?-asEvent","?-nodeID","?-split","?-buildForProxy","?-asGroup","?*checkIDs","?*eventTypes","?*parentTypes","?*makeParentEvents","_.defaultParentEvent" ],
+'superclasses': [ "Environment","IdentityDictionary","Dictionary","Set","Collection","Object","AbstractObjectExperimental" ],
 },
 "Reference/NodeProxy_roles": {
 'title': "NodeProxy roles",
@@ -12711,7 +12684,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?*makeFadeEnv","?*wrapOut" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/ProxyMixerOld": {
 'title': "ProxyMixerOld",
@@ -12732,7 +12705,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufChannels","Classes/BufDur","Classes/BufFrames","Classes/BufRateScale","Classes/BufSamples" ],
 'methods': [ "_*kr","_*ir" ],
-'superclasses': [ "BufInfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BufInfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Klang": {
 'title': "Klang",
@@ -12743,7 +12716,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Klank","Classes/DynKlang" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ToggleFF": {
 'title': "ToggleFF",
@@ -12754,7 +12727,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SetResetFF" ],
 'methods': [ "_*kr","_*ar","?-signalRange" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Class": {
 'title': "Class",
@@ -12764,9 +12737,9 @@ docmap = {
 'categories': "Core>Kernel, Language>OOP",
 'keywords': [  ],
 'related': [ "Guides/WritingClasses","Reference/Classes" ],
-'methods': [ "_-findMethod","_-dumpByteCodes","_-classVarNames","_-nextclass","_-dumpInterface","_-dumpFullInterface","_-filenameSymbol","_-findRespondingSubclasses","_-helpFileForMethod","_-instVarNames","_-name","_-subclasses","_-browse","_-methods","_-asString","_-findRespondingUpperSubclasses","_-instancesRespondTo","_-dumpClassSubtree","_-cprototype","_-superclasses","_-findSimilarSelectors","_-allSubclasses","_-helpFilePath","_-dumpAllMethods","_-help","_-asClass","_-iprototype","_-superclassesDo","_-findRespondingMethodFor","_-respondingMethods","_-superclass","_*allClasses","_*initClass","_*initClassTree","?-collectMethods","?-charPos","?-dumpSubclassList","?-constValues","?-isMetaClass","?-findReferences","?-classIndex","?-openCodeFile","?-package","?-shallowCopy","?-hasHelpFile","?-classVarIndex","?-findOverriddenMethod","?-openHelpFile","?-classVars","?-dumpMethodList","?-archiveAsCompileString","?-inspectorClass","?-constNames","?-maxSubclassIndex","?*classesInited","?*findAllReferences" ],
-'superclasses': [ "Object" ],
-'subclasses': [ "Meta_Object" ],
+'methods': [ "_*findMethod","_*dumpByteCodes","_*classVarNames","_*nextclass","_*dumpFullInterface","_*instVarNames","_*name","_*methods","_*asString","_*findRespondingUpperSubclasses","_*instancesRespondTo","_*dumpClassSubtree","_*superclasses","_*findSimilarSelectors","_*dumpAllMethods","_*iprototype","_*superclassesDo","_*initClassTree","_*findRespondingMethodFor","_*respondingMethods","_*superclass","_*initClass","_*dumpInterface","_*filenameSymbol","_*allClasses","_*findRespondingSubclasses","_*helpFileForMethod","_*subclasses","_*cprototype","_*allSubclasses","_*helpFilePath","_*help","_*asClass","?-findMethod","?-classVarNames","?-dumpByteCodes","?-charPos","?-dumpSubclassList","?-nextclass","?-dumpFullInterface","?-findReferences","?-instVarNames","?-name","?-methods","?-asString","?-findRespondingUpperSubclasses","?-openCodeFile","?-instancesRespondTo","?-package","?-dumpClassSubtree","?-superclasses","?-findSimilarSelectors","?-dumpAllMethods","?-iprototype","?-superclassesDo","?-inspectorClass","?-findRespondingMethodFor","?-respondingMethods","?-superclass","?-maxSubclassIndex","?-collectMethods","?-constValues","?-dumpInterface","?-isMetaClass","?-filenameSymbol","?-helpFileForMethod","?-findRespondingSubclasses","?-subclasses","?-classIndex","?-shallowCopy","?-hasHelpFile","?-cprototype","?-classVarIndex","?-findOverriddenMethod","?-allSubclasses","?-openHelpFile","?-classVars","?-helpFilePath","?-dumpMethodList","?-help","?-asClass","?-archiveAsCompileString","?-constNames","?*classesInited","?*findAllReferences" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
+'subclasses': [ "Meta_AbstractObjectExperimental" ],
 },
 "Classes/FreqScope": {
 'title': "FreqScope",
@@ -12787,7 +12760,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-put" ],
-'superclasses': [ "PrettyState","Object" ],
+'superclasses': [ "PrettyState","Object","AbstractObjectExperimental" ],
 },
 "Classes/Char": {
 'title': "Char",
@@ -12798,7 +12771,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/String" ],
 'methods': [ "_-isSpace","_-isVowel","_-++","_-asAscii","_-<","_-==","_-isControl","_-hash","_-isFileSafe","_-isPathSeparator","_-asUnicode","_-isUpper","_-digit","_-isAlphaNum","_-isLower","_-toUpper","_-toLower","_-isAlpha","_-ascii","_-isPrint","_-isDecDigit","_-isPunct","_*binaryOpCharacters","_*bullet","_*tab","_*comma","_*ret","_*ff","_*nl","_*space","_*vtab","?*new" ],
-'superclasses': [ "Magnitude","Object" ],
+'superclasses': [ "Magnitude","Object","AbstractObjectExperimental" ],
 },
 "Classes/RawPointer": {
 'title': "RawPointer",
@@ -12809,7 +12782,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [  ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Pser": {
 'title': "Pser",
@@ -12820,7 +12793,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pseq" ],
 'methods': [ "?-embedInStream" ],
-'superclasses': [ "Pseq","ListPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pseq","ListPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LinkPhase": {
 'title': "LinkPhase",
@@ -12831,7 +12804,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LinkClock","Classes/LinkTempo","Classes/LinkJump" ],
 'methods': [ "_*setTempo","_*stop","_*kr","_*start","?*startMsg" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LFGauss": {
 'title': "LFGauss",
@@ -12842,7 +12815,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-range","_-minval","_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/Mark_Polishook_tutorial/Japanese_version/11": {
 'title': "11",
@@ -12863,7 +12836,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ControlSpec","Classes/Warp" ],
 'methods': [ "_*add","?-asSpec","?-==","?-defaultControl","?-findKey","?-hash","?-gridClass","?*specs" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "ControlSpec" ],
 },
 "Help": {
@@ -12885,7 +12858,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Polar","Classes/SimpleNumber","Classes/Float","Classes/Integer" ],
 'methods': [ "_-/","_-sqrt","_-neg","_-==","_-performBinaryOpOnUGen","_-cubed","_-abs","_-hash","_-printOn","_--","_-squared","_-reciprocal","_-magnitude","_-real","_-asPoint","_-angle","_-+","_-asFloat","_-coerce","_-performBinaryOpOnSimpleNumber","_-<","_-exp","_-performBinaryOpOnComplex","_-performBinaryOpOnSignal","_-**","_-magnitudeApx","_-phase","_-*","_-conjugate","_-asInteger","_-imag","_-theta","_-rho","_-asComplex","_-pow","_-asPolar","_*new","?-round" ],
-'superclasses': [ "Number","Magnitude","Object" ],
+'superclasses': [ "Number","Magnitude","Object","AbstractObjectExperimental" ],
 },
 "Classes/Interval": {
 'title': "Interval",
@@ -12896,7 +12869,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-do","_-start","_-size","_-step","_-end","_-at","_*new","?-wrapAt","?-remove","?-add","?-put","?-clipAt" ],
-'superclasses': [ "Collection","Object" ],
+'superclasses': [ "Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/SynthDescLib": {
 'title': "SynthDescLib",
@@ -12907,7 +12880,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/SynthDesc" ],
 'methods': [ "_-add","?-send","?-addServer","?-removeAt","?-readStream","?-at","?-read","?-name","?-match","?-synthDescs","?-servers","?-readDescFromDef","?-removeServer","?*send","?*all","?*at","?*new","?*read","?*global","?*match","?*default","?*getLib" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Pdef": {
 'title': "Pdef",
@@ -12918,7 +12891,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pdefn","Classes/PdefGui" ],
 'methods': [ "_-condition","_-embed","_-pause","_-clock","_-map","_-envir","_-embedInStream","_-clear","_-isPlaying","_-count","_-reset","_-quant","_-player","_-set","_-resume","_-stop","_-play","_-fadeTime","_-fork","_-endless","_*default","_*all","_*removeAll","_*clear","_*new","_*defaultQuant","?-copy","?-dup","?-key","?*hasGlobalDictionary" ],
-'superclasses': [ "EventPatternProxy","TaskProxy","PatternProxy","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "EventPatternProxy","TaskProxy","PatternProxy","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pbindef" ],
 },
 "Classes/LinLin": {
@@ -12930,7 +12903,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LinExp" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Formlet": {
 'title': "Formlet",
@@ -12941,7 +12914,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/RHPF","Classes/RLPF","Classes/Resonz","Classes/Ringz" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pfin": {
 'title': "Pfin",
@@ -12952,7 +12925,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pfinval","Classes/Pfindur","Classes/Pconst" ],
 'methods': [ "_*new","?-count","?-embedInStream" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pfinval" ],
 },
 "Classes/Quark": {
@@ -12964,7 +12937,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Guides/UsingQuarks","Classes/Quarks" ],
 'methods': [ "_-branch","_-isInstalled","_-isCompatible","_-definesClasses","_-init","_-changed","_-uninstall","_-url","_-refspec","_-name","_-data","_-version","_-runHook","_-deepDependencies","_-parseQuarkFile","_-install","_-definesExtensionMethods","_-printOn","_-git","_-help","_-localPath","_-isDownloaded","_-tags","_-dependencies","_-summary","_-checkout","_*parseQuarkName","_*fromDirectoryEntry","_*new","_*fromLocalPath","_*parseDependency","?-checkForUpdates","?-validateRefspec","?-isGit","?-update" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/Pbrown": {
 'title': "Pbrown",
@@ -12975,7 +12948,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BrownNoise","Classes/Pgbrown" ],
 'methods': [ "_*new","?-hi","?-length","?-step","?-calcNext","?-lo","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pgbrown" ],
 },
 "Classes/DigitalIO": {
@@ -12987,7 +12960,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AnalogIn","Classes/AnalogOut","Classes/DigitalIn","Classes/DigitalOut" ],
 'methods': [ "_*kr","_*ar","?-signalRange" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/SendPeakRMS": {
 'title': "SendPeakRMS",
@@ -12998,7 +12971,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Peak","Classes/PeakFollower","Classes/OSCFunc" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDISMPTEAssembler": {
 'title': "MIDISMPTEAssembler",
@@ -13009,7 +12982,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-mtc_r","?-mtctime","?-init","?-mtc_v","?-dropFrame","?-value","?-mtc_t","?*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/FuncFilterPattern": {
 'title': "FuncFilterPattern",
@@ -13020,7 +12993,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FilterPattern" ],
 'methods': [ "?-func","?*new" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pselect","Pfset","Pwhile","Preject","Pcollect" ],
 },
 "Classes/HIDRawValueMatcher": {
@@ -13032,7 +13005,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-value","?-init","?*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_BrickWall": {
 'title': "PV_BrickWall",
@@ -13043,7 +13016,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pfxb": {
 'title': "Pfxb",
@@ -13054,7 +13027,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pfx","Classes/Pbus","Classes/Pgroup" ],
 'methods': [ "?*new" ],
-'superclasses': [ "Pfx","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pfx","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ScoreStreamPlayer": {
 'title': "ScoreStreamPlayer",
@@ -13065,7 +13038,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-secs2beats","?-bundleList","?-beats2secs","?-makeScore","?-beats","?-initScoreStreamPlayer","?-prepareEvent","?-maxTime","?-tempo","?-add","?*new" ],
-'superclasses': [ "Server","Object" ],
+'superclasses': [ "Server","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_CopyPhase": {
 'title': "PV_CopyPhase",
@@ -13076,7 +13049,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_Add","Classes/PV_MagMul","Classes/PV_Max","Classes/PV_Min","Classes/PV_Mul" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_MagMul","PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/HIDCollection": {
 'title': "HIDCollection",
@@ -13087,7 +13060,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HID","Guides/Working_with_HID","Classes/HIDElement","Classes/HIDUsage" ],
 'methods': [ "_-usagePage","_-numElements","_-pageName","_-id","_-usage","_-postCollection","_-device","_-parent","_-numCollections","_-usageName","_-firstElement","_-firstCollection","_-type" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/CheckBadValues": {
 'title': "CheckBadValues",
@@ -13098,7 +13071,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/UnixFILE": {
 'title': "UnixFILE",
@@ -13109,7 +13082,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/File","Classes/Pipe" ],
 'methods': [ "_-putString","_-putInt8","_-getChar","_-getFloat","_-getInt16","_-putChar","_-getInt32","_-putDouble","_-isOpen","_-putInt16","_-putFloat","_-write","_-pos","_-getLine","_-putPascalString","_-putInt32","_-getInt8","_-getPascalString","_-getDouble","_-putString0","?-next","?-putDoubleLE","?-put","?-read","?-flush","?-putInt32LE","?-readLE","?-putFloatLE","?-getDoubleLE","?-writeLE","?-getInt32LE","?-getFloatLE","?-putAll","?-putInt16LE","?-getInt16LE","?-nextN","?-contents","?*openFiles","?*closeAll" ],
-'superclasses': [ "IOStream","Stream","AbstractFunction","Object" ],
+'superclasses': [ "IOStream","Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Pipe","File" ],
 },
 "Classes/IndexInBetween": {
@@ -13121,7 +13094,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Index","Classes/IndexL","Classes/SequenceableCollection#-indexInBetween" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Index","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Index","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Vibrato": {
 'title': "Vibrato",
@@ -13132,7 +13105,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_BinShift": {
 'title': "PV_BinShift",
@@ -13143,7 +13116,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_MagShift" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ArrayedCollection": {
 'title': "ArrayedCollection",
@@ -13154,7 +13127,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-asRandomTable","_-move","_-seriesFill","_-put","_-grow","_-extend","_-++","_-swap","_-asciiPlot","_-takeAt","_-indexOf","_-wrapPut","_-foldAt","_-wrapAt","_-replace","_-do","_-shape","_-find","_-size","_-boundedInsert","_-normalize","_-deepCollect","_-msgSize","_-maxSize","_-isRectangular","_-plot","_-pop","_-copySeries","_-tableRand","_-putSeries","_-foldPut","_-collect","_-growClear","_-removeAt","_-takeThese","_-reverseDo","_-reverse","_-performInPlace","_-bundleSize","_-addFirst","_-windex","_-add","_-perfectShuffle","_-fill","_-at","_-clipPut","_-putEach","_-addAll","_-reshape","_-copyRange","_-clipAt","_-includes","_-indexOfGreaterThan","_-insert","_-rank","_-normalizeSum","_*geom","_*series","_*newClear","_*iota","_*with","?-unbubble","?-slotIndex","?-atInc","?-getSlots","?-slotSize","?-setSlots","?-slice","?-addIfNotNil","?-clipExtend","?-indexedSize","?-atDec","?-atModify","?-prBundleSize","?-slotPut","?-asArray","?-slotAt","?-overWrite","?-deepDo","?-reshapeLike","?-isArray","?-bubble","?-clumpBundles","?-slotKey" ],
-'superclasses': [ "SequenceableCollection","Collection","Object" ],
+'superclasses': [ "SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 'subclasses': [ "RawArray","Array" ],
 },
 "Classes/Message": {
@@ -13166,7 +13139,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MethodQuote" ],
 'methods': [ "_-selector","_-value","_-receiver","_-args","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/StaticText": {
 'title': "StaticText",
@@ -13187,7 +13160,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Control","Classes/TrigControl" ],
 'methods': [ "_*kr","?*ar" ],
-'superclasses': [ "Control","MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Control","MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Gendy1": {
 'title': "Gendy1",
@@ -13198,7 +13171,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Gendy2","Classes/Gendy3" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/Understanding-Errors": {
 'title': "Understanding errors",
@@ -13219,7 +13192,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_*ar" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/OneShotStream": {
 'title': "OneShotStream",
@@ -13230,7 +13203,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-reset","?-storeArgs","?-next","?*new" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Gate": {
 'title': "Gate",
@@ -13241,7 +13214,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Latch" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "Latch","UGen","AbstractFunction","Object" ],
+'superclasses': [ "Latch","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/In": {
 'title': "In",
@@ -13252,7 +13225,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/InFeedback","Classes/LagIn","Classes/SoundIn" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "AbstractIn","MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "AbstractIn","MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/A-Practical-Guide/PG_06b_Time_Based_Patterns": {
 'title': "Pattern Guide 06b: Time Based Patterns",
@@ -13273,7 +13246,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/PV_RandWipe" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pswitch1": {
 'title': "Pswitch1",
@@ -13284,7 +13257,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pswitch" ],
 'methods': [ "_*new","?-embedInStream" ],
-'superclasses': [ "Pswitch","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pswitch","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BasicNodeWatcher": {
 'title': "BasicNodeWatcher",
@@ -13295,7 +13268,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-nodeIsPlaying","?-n_end","?-n_go","?-cmds","?-nodes","?-clear" ],
-'superclasses': [ "AbstractNodeWatcher","Object" ],
+'superclasses': [ "AbstractNodeWatcher","Object","AbstractObjectExperimental" ],
 'subclasses': [ "NodeWatcher","DebugNodeWatcher" ],
 },
 "Classes/EmbedOnce": {
@@ -13307,7 +13280,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-stream","?-cleanup","?-next","?-reset","?-storeArgs","?*new" ],
-'superclasses': [ "Stream","AbstractFunction","Object" ],
+'superclasses': [ "Stream","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDIMessageDispatcher": {
 'title': "MIDIMessageDispatcher",
@@ -13318,7 +13291,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/MIDIFunc","Classes/MIDIdef","Classes/AbstractWrappingDispatcher","Classes/AbstractDispatcher","Classes/MIDIMessageDispatcherNV","Classes/AbstractMessageMatcher","Classes/MIDIFuncSrcMessageMatcher","Classes/MIDIFuncChanMessageMatcher","Classes/MIDIFuncChanArrayMessageMatcher","Classes/MIDIFuncSrcMessageMatcherNV","Classes/MIDIFuncBothMessageMatcher","Classes/MIDIFuncBothCAMessageMatcher","Guides/MIDI" ],
 'methods': [ "_-register","_-messageType","_-getKeysForFuncProxy","_-wrapFunc","_-typeKey","_-unregister","_-value","_*new" ],
-'superclasses': [ "AbstractWrappingDispatcher","AbstractDispatcher","Object" ],
+'superclasses': [ "AbstractWrappingDispatcher","AbstractDispatcher","Object","AbstractObjectExperimental" ],
 'subclasses': [ "MIDISysexDispatcher","MIDIMessageDispatcherNV","MIDISysDataDispatcher" ],
 },
 "Tutorials/Mark_Polishook_tutorial/06_Prerequisites": {
@@ -13340,7 +13313,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufChannels","Classes/BufDur","Classes/BufFrames","Classes/BufSampleRate","Classes/BufSamples" ],
 'methods': [ "_*kr","_*ir" ],
-'superclasses': [ "BufInfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BufInfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Guides/Order-of-execution": {
 'title': "Order of execution",
@@ -13371,7 +13344,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Tdef" ],
 'methods': [ "_-condition","_-pause","_-clock","_-isPlaying","_-reset","_-envir","_-quant","_-embedInStream","_-set","_-player","_-resume","_-stop","_-source","_-play","_-clear","_-endless","_*new","_*default","_*defaultQuant","?-hasSource","?-proxyControlClass","?-isPaused","?-hasPlayer","?-canPause","?-hasEnvir","?-align","?-isActive","?-asProtected","?-isEventPattern","?-wakeUp","?-playQuant","?-playOnce","?-hasEnded","?-convertFunction","?-constrainStream","?-fork","?-buildForProxy" ],
-'superclasses': [ "PatternProxy","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "PatternProxy","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Tdef","EventPatternProxy" ],
 },
 "Classes/PV_MagShift": {
@@ -13383,7 +13356,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_BinShift" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/SendTrig": {
 'title': "SendTrig",
@@ -13394,7 +13367,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/OSCFunc","Classes/SendReply" ],
 'methods': [ "_*kr","_*ar","?-writeOutputSpecs","?-numOutputs" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "SendReply" ],
 },
 "Classes/Int8Array": {
@@ -13406,7 +13379,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FloatArray","Classes/Int16Array","Classes/Int32Array","Classes/DoubleArray","Classes/SymbolArray" ],
 'methods': [ "_-parseOSC","_-readFromStream","?-unarchive" ],
-'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object" ],
+'superclasses': [ "RawArray","ArrayedCollection","SequenceableCollection","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/StreamControl": {
 'title': "StreamControl",
@@ -13417,7 +13390,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-playToBundle","?-stop","?-copyState","?-play","?-pause","?-build","?-resume","?-readyForPlay","?-copyRequiresRebuild","?-clock","?-controlNames" ],
-'superclasses': [ "AbstractPlayControl","Object" ],
+'superclasses': [ "AbstractPlayControl","Object","AbstractObjectExperimental" ],
 'subclasses': [ "PatternControl" ],
 },
 "Classes/HIDElementProto": {
@@ -13429,7 +13402,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HIDFunc","Classes/HIDdef","Classes/HIDProto","Classes/HID","Classes/HIDElement","Classes/HIDInfo","Guides/Working_with_HID" ],
 'methods': [ "_-usagePage","_-usageMin","_-pageName","_-shouldMatch","_-id","_-typeSpec","_-ioType","_-usage","_-usageMax","_-matches","_-addTypeIDMatch","_-usageName","_-iotypeName","_-addTypeMatch","_-addDictionaryMatch","_-type","_*newTypeID","_*newFromDict","_*newType","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Reference/ServerPluginAPI": {
 'title': "Server Plugin API",
@@ -13450,7 +13423,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Scale" ],
 'methods': [ "_*new" ],
-'superclasses': [ "Pnaryop","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pnaryop","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Button": {
 'title': "Button",
@@ -13471,7 +13444,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufDur","Classes/BufFrames","Classes/BufRateScale","Classes/BufSampleRate","Classes/BufSamples" ],
 'methods': [ "_*kr","_*ir" ],
-'superclasses': [ "BufInfoUGenBase","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BufInfoUGenBase","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Dialog": {
 'title': "Dialog",
@@ -13492,7 +13465,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Ptime","Classes/Pstep","Classes/Env" ],
 'methods': [ "_*new","?-curves","?-embedInStream" ],
-'superclasses': [ "Pstep","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pstep","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Reference/palette_color_groups": {
 'title': "Color groups",
@@ -13512,8 +13485,8 @@ docmap = {
 'categories': "Undocumented classes",
 'keywords': [  ],
 'related': [  ],
-'methods': [ "?-class","?-reportError","?-method","?-alternateMethod","?-errorString","?-throw","?-adviceLinkPage","?*new" ],
-'superclasses': [ "MethodError","Error","Exception","Object" ],
+'methods': [ "?-method","?-alternateMethod","?-throw","?*new" ],
+'superclasses': [ "MethodError","Error","Exception","Object","AbstractObjectExperimental" ],
 },
 "Classes/TwoZero": {
 'title': "TwoZero",
@@ -13524,7 +13497,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/TwoPole" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "TwoPole","Filter","PureUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "TwoPole","Filter","PureUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/GrainFM": {
 'title': "GrainFM",
@@ -13535,7 +13508,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/GrainIn","Classes/GrainSin","Classes/GrainBuf" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Reference/Conditional-Execution": {
 'title': "Conditional Execution",
@@ -13566,7 +13539,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HIDFunc","Classes/HIDdef","Classes/HIDElementProto","Classes/HID","Classes/HIDInfo","Guides/Working_with_HID" ],
 'methods': [ "_-productName","_-interfaceNumber","_-shouldMatch","_-vendorID","_-id","_-addTypeMatch","_-addProductMatch","_-releaseNumber","_-usagePage","_-pageName","_-usage","_-vendorName","_-productID","_-matches","_-path","_-usageName","_-addDictionaryMatch","_-serialNumber","_*newFromDict","_*newType","_*new","_*newProduct" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Reference/Literals": {
 'title': "Literals",
@@ -13586,8 +13559,8 @@ docmap = {
 'categories': "HelpSystem",
 'keywords': [  ],
 'related': [ "Reference/SCDocSyntax","Guides/WritingHelp","Classes/SCDocHTMLRenderer","Classes/SCDocNode","Classes/SCDocEntry" ],
-'methods': [ "_*verbosity","_*parseAndRender","_*helpSourceDirs","_*renderAll","_*parseFileMetaData","_*classHasArKrIr","_*documents","_*prepareHelpForURL","_*parseDoc","_*didIndexDocuments","_*findHelpFile","_*renderer","_*helpSourceDir","_*parseFilePartial","_*indexAllDocuments","_*getMethodDoc","_*parseFileFull","_*refreshStaticFiles","_*makeClassTemplate","_*helpTargetDir","?*helpTargetUrl","?*getOldWrapUrl","?*prRescanHelpSourceDirs","?*indexOldHelp" ],
-'superclasses': [ "Object" ],
+'methods': [ "_*verbosity","_*parseAndRender","_*helpSourceDirs","_*renderAll","_*parseFileMetaData","_*classHasArKrIr","_*documents","_*prepareHelpForURL","_*parseDoc","_*didIndexDocuments","_*findHelpFile","_*renderer","_*helpSourceDir","_*parseFilePartial","_*indexAllDocuments","_*getMethodDoc","_*parseFileFull","_*refreshStaticFiles","_*makeClassTemplate","_*helpTargetDir","?*prRescanHelpSourceDirs","?*parseErrors","?*helpTargetUrl","?*getOldWrapUrl","?*prGatherParseErrors","?*indexOldHelp" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/MixedBundle": {
 'title': "MixedBundle",
@@ -13598,7 +13571,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-functions","?-addFunction","?-doFunctions","?-sched","?-sendFunctions","?-onSend","?-addMessage","?-doSendFunctions","?-addOnSendMessage","?-prSend" ],
-'superclasses': [ "OSCBundle","Object" ],
+'superclasses': [ "OSCBundle","Object","AbstractObjectExperimental" ],
 'subclasses': [ "MixedBundleTester" ],
 },
 "Classes/SynthDefControl": {
@@ -13610,7 +13583,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-loadToBundle","?-copyState","?-asDefName","?-addParent","?-writeSynthDefFile","?-build","?-specs","?-synthDef","?-parents","?-wakeUpParentsToBundle","?-readyForPlay","?-freeToBundle","?-findSpecFor","?-bytes","?-controlNames" ],
-'superclasses': [ "SynthControl","AbstractPlayControl","Object" ],
+'superclasses': [ "SynthControl","AbstractPlayControl","Object","AbstractObjectExperimental" ],
 },
 "Tutorials/JITLib/the_lazy_proxy": {
 'title': "the_lazy_proxy",
@@ -13631,7 +13604,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufCombC","Classes/BufCombL","Classes/CombN" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "BufCombL","BufCombC","BufAllpassN","BufAllpassC","BufAllpassL" ],
 },
 "Guides/ServerTiming": {
@@ -13683,7 +13656,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-postString","?-reverseComposeBinaryOp","?-reduceFuncProxy","?-valueFuncProxy","?-composeUnaryOp","?-composeBinaryOp","?-value","?-composeNAryOp","?-embedInStream","?-valueArray" ],
-'superclasses': [ "BinaryOpFunction","AbstractFunction","Object" ],
+'superclasses': [ "BinaryOpFunction","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/AbstractWrappingDispatcher": {
 'title': "AbstractWrappingDispatcher",
@@ -13694,7 +13667,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AbstractDispatcher","Classes/AbstractMessageMatcher","Classes/OSCMessageDispatcher","Classes/OSCMessagePatternDispatcher","Classes/MIDIMessageDispatcher","Classes/OSCFunc","Classes/OSCdef","Classes/MIDIFunc","Classes/MIDIdef","Classes/AbstractResponderFunc" ],
 'methods': [ "_-updateFuncForFuncProxy","_-remove","_-wrappedFuncs","_-add","_-wrapFunc","_-getKeysForFuncProxy","_-update","_-free" ],
-'superclasses': [ "AbstractDispatcher","Object" ],
+'superclasses': [ "AbstractDispatcher","Object","AbstractObjectExperimental" ],
 'subclasses': [ "OSCMessageDispatcher","HIDUsageDispatcher","MIDIMessageDispatcher","HIDElementProtoDispatcher" ],
 },
 "Classes/Date": {
@@ -13706,7 +13679,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "_-stamp","_-secStamp","_-asctime","_-<","_->=","_-==","_-<=","_-format","_->","_-asString","_-gmtime","_-hourStamp","_-asSortableString","_-dayStamp","_-resolve","_-!=","_-rawSeconds","_-localtime","_*getDate","_*seed","_*gmtime","_*localtime","_*new","_*fromString","?-hour","?-month","?-dayOfWeek","?-prFromString","?-second","?-day","?-prResolveFromRawSeconds","?-minute","?-schedBundle","?-prInitialize","?-hash","?-year" ],
-'superclasses': [ "Magnitude","Object" ],
+'superclasses': [ "Magnitude","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pclutch": {
 'title': "Pclutch",
@@ -13717,7 +13690,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/StreamClutch","Classes/Pdup","Classes/Latch" ],
 'methods': [ "_*new","?-connected","?-embedInStream" ],
-'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Psetp": {
 'title': "Psetp",
@@ -13728,7 +13701,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pbindf","Classes/Pset" ],
 'methods': [ "_*new","?-embedInStream" ],
-'superclasses': [ "Pset","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pset","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "Paddp","Pmulp" ],
 },
 "Classes/Hilbert": {
@@ -13740,17 +13713,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/HilbertFIR","Classes/FreqShift" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
-},
-"Classes/SCImageKernel": {
-'title': "SCImageKernel",
-'path': "Classes/SCImageKernel",
-'summary': "kernel class to use with SCImage",
-'installed': "standard",
-'categories': "GUI>Views",
-'keywords': [  ],
-'related': [ "Classes/SCImage","Classes/SCImageFilter" ],
-'methods': [ "_-isValid","_-shader","_-values","_-compile","_*new" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Stethoscope": {
 'title': "Stethoscope",
@@ -13771,7 +13734,7 @@ docmap = {
 'keywords': [  ],
 'related': [  ],
 'methods': [ "?-getControlBusValues","?-connect","?-disconnect","?-getControlBusValue","?-copy","?-setControlBusValue","?-setControlBusValues","?*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/LinkJump": {
 'title': "LinkJump",
@@ -13782,7 +13745,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LinkClock","Classes/LinkTempo","Classes/LinkPhase" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/PinkNoise": {
 'title': "PinkNoise",
@@ -13793,7 +13756,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BrownNoise","Classes/GrayNoise","Classes/ClipNoise","Classes/WhiteNoise" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "WhiteNoise","UGen","AbstractFunction","Object" ],
+'superclasses': [ "WhiteNoise","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pbind": {
 'title': "Pbind",
@@ -13804,7 +13767,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pattern","Classes/Event","Classes/Pmono","Classes/Rest" ],
 'methods': [ "_-embedInStream","_-patternpairs","_*new" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BufCombL": {
 'title': "BufCombL",
@@ -13815,7 +13778,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/BufCombC","Classes/BufCombN","Classes/CombL" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "BufCombN","UGen","AbstractFunction","Object" ],
+'superclasses': [ "BufCombN","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/LagIn": {
 'title': "LagIn",
@@ -13826,7 +13789,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/In","Classes/InFeedback" ],
 'methods': [ "_*kr" ],
-'superclasses': [ "AbstractIn","MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "AbstractIn","MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Point": {
 'title': "Point",
@@ -13837,7 +13800,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Polar","Classes/Complex" ],
 'methods': [ "_-/","_-scale","_-trunc","_-y","_-==","_-rotate","_-dist","_-abs","_-hash","_-asString","_-transpose","_-round","_-x","_-*","_-translate","_--","_-theta","_-rho","_-set","_-asPoint","_-asComplex","_-+","_*new","?-asArray","?-div","?-conjugate","?-performBinaryOpOnSomething","?-asRect","?-modSeaside","?-asSize","?-swap","?-@","?-asPolar","?-mod","?*big" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 'subclasses': [ "PointArray" ],
 },
 "Classes/LFNoise1": {
@@ -13849,7 +13812,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/LFClipNoise","Classes/LFDClipNoise","Classes/LFDNoise0","Classes/LFDNoise1","Classes/LFDNoise3","Classes/LFNoise0","Classes/LFNoise2" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object" ],
+'superclasses': [ "LFNoise0","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Spawner": {
 'title': "Spawner",
@@ -13860,7 +13823,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pspawner" ],
 'methods': [ "_-par","_-wait","_-suspendAll","_-suspend","_-seq","_*new","?-embedInStream" ],
-'superclasses': [ "Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/MIDIFuncBothMessageMatcher": {
 'title': "MIDIFuncBothMessageMatcher",
@@ -13871,7 +13834,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/AbstractMessageMatcher","Classes/MIDIFuncSrcMessageMatcher","Classes/MIDIFuncChanMessageMatcher","Classes/MIDIFuncChanArrayMessageMatcher","Classes/MIDIFuncSrcMessageMatcherNV","Classes/MIDIFuncBothCAMessageMatcher" ],
 'methods': [ "_-value","_*new" ],
-'superclasses': [ "AbstractMessageMatcher","Object" ],
+'superclasses': [ "AbstractMessageMatcher","Object","AbstractObjectExperimental" ],
 },
 "Reference/Modifiers": {
 'title': "Modifier Keys",
@@ -13892,7 +13855,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/IdentitySet","Classes/List","Classes/Dictionary" ],
 'methods': [ "_-do","?-remove","?-copy","?-sort","?-clear","?-items" ],
-'superclasses': [ "IdentitySet","Set","Collection","Object" ],
+'superclasses': [ "IdentitySet","Set","Collection","Object","AbstractObjectExperimental" ],
 },
 "Classes/PV_PhaseShift": {
 'title': "PV_PhaseShift",
@@ -13903,7 +13866,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/FFT","Classes/IFFT","Classes/PV_PhaseShift90","Classes/PV_PhaseShift270","Classes/PV_Diffuser" ],
 'methods': [ "_*new" ],
-'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "PV_ChainUGen","WidthFirstUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Pfinval": {
 'title': "Pfinval",
@@ -13914,7 +13877,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Pfindur","Classes/Pfin","Classes/Pconst" ],
 'methods': [ "_*new","?-embedInStream" ],
-'superclasses': [ "Pfin","FilterPattern","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pfin","FilterPattern","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Phprand": {
 'title': "Phprand",
@@ -13925,7 +13888,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Plprand" ],
 'methods': [ "_*new","?-embedInStream" ],
-'superclasses': [ "Pwhite","Pattern","AbstractFunction","Object" ],
+'superclasses': [ "Pwhite","Pattern","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/Convolution2L": {
 'title': "Convolution2L",
@@ -13936,7 +13899,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Convolution","Classes/Convolution2","Classes/Convolution3","Classes/StereoConvolution2L" ],
 'methods': [ "_*ar" ],
-'superclasses': [ "UGen","AbstractFunction","Object" ],
+'superclasses': [ "UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/BusPlug": {
 'title': "BusPlug",
@@ -13947,7 +13910,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/Bus","Classes/Monitor","Classes/InBus","Classes/NodeProxy","Classes/Ndef" ],
 'methods': [ "_-kr","_-copy","_-embedInStream","_-asUGenInput","_-clear","_-playN","_-initBus","_-bus","_-monitor","_-copyState","_-reshaping","_-server","_-isPlaying","_-isNeutral","_-setBus","_-stop","_-play","_-asControlInput","_-ar","_-isMonitoring","_-defineBus","_*control","_*defaultReshaping","_*for","_*defaultNumControl","_*audio","_*defaultNumAudio","_*new","?-composeNAryOp","?-shared","?-nodeMapMapsToControl","?-parentGroup","?-numChannels","?-busArg","?-asStream","?-rate","?-reverseComposeBinaryOp","?-monitorGroup","?-prepareOutput","?-serverQuit","?-composeUnaryOp","?-fixedBus","?-asMap","?-freeBus","?-asNodeArg","?-wakeUp","?-asAudioRateInput","?-monitorIndex","?-quant","?-composeBinaryOp","?-vol","?-homeServer","?-fadeTime","?-scope","?-index","?-asOSCArgEmbeddedArray","?-value","?-plot","?-initMonitor","?-asBus" ],
-'superclasses': [ "AbstractFunction","Object" ],
+'superclasses': [ "AbstractFunction","Object","AbstractObjectExperimental" ],
 'subclasses': [ "NodeProxy" ],
 },
 "Classes/SoundFile": {
@@ -13959,7 +13922,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/File","Classes/Buffer" ],
 'methods': [ "_-close","_-numChannels","_-openWrite","_-normalize","_-duration","_-openRead","_-readData","_-numFrames","_-path","_-sampleRate","_-cue","_-sampleFormat","_-writeData","_-isOpen","_-headerFormat","_*openRead","_*collect","_*openWrite","_*writeArray","_*use","_*normalize","_*new","?-channelPeaks","?-scaleAndWrite","?-fileptr","?-toCSV","?-info","?-asBuffer","?-readHeaderAsString","?-asEvent","?-play","?-seek","?*openFiles","?*groupNormalize","?*closeAll","?*collectIntoBuffers" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 "Classes/PlayBuf": {
 'title': "PlayBuf",
@@ -13970,7 +13933,7 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/RecordBuf","Classes/DiskIn","Classes/BufRd" ],
 'methods': [ "_*kr","_*ar" ],
-'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object" ],
+'superclasses': [ "MultiOutUGen","UGen","AbstractFunction","Object","AbstractObjectExperimental" ],
 },
 "Classes/ScIDE": {
 'title': "ScIDE",
@@ -13980,7 +13943,7 @@ docmap = {
 'categories': "Frontends",
 'keywords': [  ],
 'related': [ "Classes/Document" ],
-'methods': [  ],
+'methods': [ "_*clearPostWindow" ],
 },
 "Classes/RingNumberAllocator": {
 'title': "RingNumberAllocator",
@@ -13991,6 +13954,6 @@ docmap = {
 'keywords': [  ],
 'related': [ "Classes/ContiguousBlockAllocator","Classes/PowerOfTwoAllocator","Classes/StackNumberAllocator" ],
 'methods': [ "_-alloc","_-init","_*new" ],
-'superclasses': [ "Object" ],
+'superclasses': [ "Object","AbstractObjectExperimental" ],
 },
 }
