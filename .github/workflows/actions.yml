@@ -7,6 +7,11 @@ on:
     - main
   schedule:
     - cron: "0 0 */7 * *"
+  # manual triggering via button via actions tab
+  workflow_dispatch:
+  # trigger via curl push from sc main repo
+  repository_dispatch:
+    types: [build-docs]
 
 jobs:
   build_docs:
