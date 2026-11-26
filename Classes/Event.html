@@ -49,6 +49,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'><li class='toc3'><a href='#-play'>play</a> </li>
 <li class='toc3'><a href='#-delta'>delta</a> </li>
 <li class='toc3'><a href='#-next'>next</a> </li>
+<li class='toc3'><a href='#-embedInStream'>embedInStream</a> </li>
 <li class='toc3'><a href='#-playAndDelta'>playAndDelta</a> </li>
 <li class='toc3'><a href='#-isRest'>isRest</a> </li>
 <li class='toc3'><a href='#-asUGenInput'>asUGenInput</a> </li>
@@ -235,7 +236,53 @@ Event.makeDefaultSynthDef; // reset default
 <div class='method'>
 <p>Combines an event given in the argument with the current event. This is used to enable events to be composed.<div class='codeMirrorContainer'><textarea class='editor'>(a: 6, b: 7).next((c: 100));</textarea>
 <button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
-</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-playAndDelta' href='./../Overviews/Methods.html#playAndDelta'>playAndDelta</a>(<span class='argstr'>cleanup</span>, <span class='argstr'>mute</span>)</h3>
+</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-embedInStream' href='./../Overviews/Methods.html#embedInStream'>embedInStream</a>(<span class='argstr'>event</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/Dictionary.html'>Dictionary</a></div>
+<div class='method'>
+<p><h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>event<td class='argumentdesc'>
+<p>The inval, usually in an event stream. See also <a href="./../Classes/Event.html">Event</a>.
+<p>If the event is not nil, yields a copy, adding all the elements of the receiver event (this leaves the receiver unchanged). If it is nil, return the receiver.
+<p>Because this pattern is mostly used in the context of events, the following code examples use the shortcut for the subclass <a href="./../Classes/Event.html">Event</a> instead of the Dictionary.<div class='codeMirrorContainer'><textarea class='editor'>a = (note: 2);
+b = (note: [3, 5]);
+Pseq([a, b]).play;</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>If a key "embedInStream" is given, use this function instead. The behaviour of the event can be configured easily this way.
+<p>The arguments event (the receiver) and inevent (the inevent) are passed to the function.<div class='note'><span class='notelabel'>NOTE:</span> In infinite patterns, you <strong>must</strong> call yield or embedInStream in the function, otherwise it will loop forever.</div><div class='codeMirrorContainer'><textarea class='editor'>(
+a = (
+    pattern: Pbind(\note, Pgeom(1, 1.1, { 20.rand }), \dur, 0.05),
+    embedInStream: { |event, inevent| event[\pattern].embedInStream(inevent) }
+);
+b = (note: [3, 5]);
+c = (freq: 402, dur: 0.3);
+Prand([a, b, c], inf).trace.play;
+)
+
+// change the events while playing
+c[\freq] = [900, 1002, 1102];
+c[\freq] = [200, 101, 1102];</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+
+<p>A generator for dictionaries:<div class='codeMirrorContainer'><textarea class='editor'>(
+d = (
+    a: 5, b: 7, c: 1,
+    rout: Routine { |inval|
+        inf.do { |i|
+            var event = d.copy.put(\count, i);
+            inval = event.embedInStream(inval);
+        }
+    }
+);
+)
+
+// draw new values
+d.rout.((z: 999));
+d.rout.((z: 1, a: 0));
+d.rout.(());</textarea>
+<button class='copy-button' aria-label='Copy code'><span class='copy-ico'>⧉</span><span class='check-ico'>✔</span></button></div>
+</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-playAndDelta' href='./../Overviews/Methods.html#playAndDelta'>playAndDelta</a>(<span class='argstr'>cleanup</span>, <span class='argstr'>mute</span>)</h3>
 <div class='method'>
 <p>Used by <a href="./../Classes/EventStreamPlayer.html">EventStreamPlayer</a> to play Events and obtain a time increment.</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-isRest' href='./../Overviews/Methods.html#isRest'>isRest</a></h3>
 <div class='method'>

@@ -44,6 +44,7 @@ var scdoc_sc_version = '3.15.0-dev';
 <li class='toc3'><a href='#-controlNames'>controlNames</a> </li>
 <li class='toc3'><a href='#-outputs'>outputs</a> </li>
 <li class='toc3'><a href='#-inputs'>inputs</a> </li>
+<li class='toc3'><a href='#-specs'>specs</a> </li>
 <li class='toc3'><a href='#-hasGate'>hasGate</a> </li>
 <li class='toc3'><a href='#-canFreeSynth'>canFreeSynth</a> </li>
 <li class='toc3'><a href='#-outputData'>outputData</a> </li>
@@ -149,7 +150,9 @@ SynthDef("test", { |out, freq, xFade|
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-inputs' href='./../Overviews/Methods.html#inputs'>inputs</a> = value</h3>
 <div class='method'><h4>Returns:</h4>
 <div class='returnvalue'>
-<p>an array of <a href="./../Classes/IODesc.html">IODesc</a> that describes the available inputs.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-hasGate' href='./../Overviews/Methods.html#hasGate'>hasGate</a></h3>
+<p>an array of <a href="./../Classes/IODesc.html">IODesc</a> that describes the available inputs.</div></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-specs' href='./../Overviews/Methods.html#specs'>specs</a></h3>
+<div class='method'>
+<p>A <a href="./../Classes/Dictionary.html">Dictionary</a> of <a href="./../Classes/ControlSpec.html">ControlSpec</a>s for a SynthDef. Equivalent to: <code>d.metadata[\specs]</code></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-hasGate' href='./../Overviews/Methods.html#hasGate'>hasGate</a></h3>
 <h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-hasGate' href='./../Overviews/Methods.html#hasGate'>hasGate</a> = value</h3>
 <div class='method'>
 <p>is true if the Synthdef has a gate input</div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-canFreeSynth' href='./../Overviews/Methods.html#canFreeSynth'>canFreeSynth</a></h3>

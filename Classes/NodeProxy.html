@@ -31,14 +31,23 @@ var scdoc_sc_version = '3.15.0-dev';
 <ul class='toc'></ul></ul><li class='toc1'><a href='#classmethods'>Class methods</a></li>
 <ul class='toc'><li class='toc2'><a href='#Creation'>Creation</a></li>
 <ul class='toc'><li class='toc3'><a href='#*new'>new</a> </li>
+<li class='toc3'><a href='#*audio'>audio</a> </li>
+<li class='toc3'><a href='#*control'>control</a> </li>
+<li class='toc3'><a href='#*for'>for</a> </li>
 </ul><li class='toc2'><a href='#Accessing%20Class%20Variables'>Accessing Class Variables</a></li>
-<ul class='toc'><li class='toc3'><a href='#*defaultFadeTime'>defaultFadeTime</a> </li>
+<ul class='toc'><li class='toc3'><a href='#*defaultNumAudio'>defaultNumAudio</a> </li>
+<li class='toc3'><a href='#*defaultNumControl'>defaultNumControl</a> </li>
+<li class='toc3'><a href='#*defaultFadeTime'>defaultFadeTime</a> </li>
 </ul><li class='toc2'><a href='#Inherited%20class%20methods'>Inherited class methods</a></li>
 </ul><li class='toc1'><a href='#instancemethods'>Instance methods</a></li>
 <ul class='toc'><li class='toc2'><a href='#Listening%20to%20the%20output'>Listening to the output</a></li>
-<ul class='toc'><li class='toc3'><a href='#-end'>end</a> </li>
+<ul class='toc'><li class='toc3'><a href='#-play'>play</a> </li>
+<li class='toc3'><a href='#-playN'>playN</a> </li>
+<li class='toc3'><a href='#-stop'>stop</a> </li>
+<li class='toc3'><a href='#-end'>end</a> </li>
 </ul><li class='toc2'><a href='#Embedding%20and%20Combining%20the%20proxy'>Embedding and Combining the proxy</a></li>
-<ul class='toc'><li class='toc3'><a href='#-<--'>&lt;--</a> </li>
+<ul class='toc'><li class='toc3'><a href='#-ar'>ar</a>  <a href='#-kr'>kr</a> </li>
+<li class='toc3'><a href='#-<--'>&lt;--</a> </li>
 <li class='toc3'><a href='#-<<>'>&lt;&lt;&gt;</a> </li>
 <li class='toc3'><a href='#-<>>'>&lt;&gt;&gt;</a> </li>
 </ul><li class='toc2'><a href='#Setting%20the%20source'>Setting the source</a></li>
@@ -235,20 +244,79 @@ a.numChannels; // nil.</textarea>
 <p>The server on which to run and where the bus is allocated (default: <code>Server.default</code>)<tr><td class='argumentname'>rate<td class='argumentdesc'>
 <p>If given, proxy is initialized to this rate<tr><td class='argumentname'>numChannels<td class='argumentdesc'>
 <p>If given, proxy is initialized to this number of channels<tr><td class='argumentname'>inputs<td class='argumentdesc'>
-<p>If given, proxy is initialized with the given inputs as objects on subsequent slots.</table></div><h3><a class='anchor' name='Accessing%20Class%20Variables'>Accessing Class Variables</a></h3>
-<h3 class='method-code'><span class='method-prefix'>NodeProxy.</span><a class='method-name' name='*defaultFadeTime' href='./../Overviews/Methods.html#defaultFadeTime'>defaultFadeTime</a></h3>
+<p>If given, proxy is initialized with the given inputs as objects on subsequent slots.</table></div><h3 class='method-code'><span class='method-prefix'>NodeProxy.</span><a class='method-name' name='*audio' href='./../Overviews/Methods.html#audio'>audio</a>(<span class='argstr'>server</span>, <span class='argstr'>numChannels</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/BusPlug.html'>BusPlug</a></div>
+<div class='method'>
+<p>Create a new audio rate instance on the given server.</div><h3 class='method-code'><span class='method-prefix'>NodeProxy.</span><a class='method-name' name='*control' href='./../Overviews/Methods.html#control'>control</a>(<span class='argstr'>server</span>, <span class='argstr'>numChannels</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/BusPlug.html'>BusPlug</a></div>
+<div class='method'>
+<p>Create a new control rate instance on the given server.</div><h3 class='method-code'><span class='method-prefix'>NodeProxy.</span><a class='method-name' name='*for' href='./../Overviews/Methods.html#for'>for</a>(<span class='argstr'>bus</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/BusPlug.html'>BusPlug</a></div>
+<div class='method'>
+<p>Create an instance with a given <a href="./../Classes/Bus.html">Bus</a>.</div><h3><a class='anchor' name='Accessing%20Class%20Variables'>Accessing Class Variables</a></h3>
+<h3 class='method-code'><span class='method-prefix'>NodeProxy.</span><a class='method-name' name='*defaultNumAudio' href='./../Overviews/Methods.html#defaultNumAudio'>defaultNumAudio</a></h3>
+<h3 class='method-code'><span class='method-prefix'>NodeProxy.</span><a class='method-name' name='*defaultNumAudio' href='./../Overviews/Methods.html#defaultNumAudio'>defaultNumAudio</a> = value</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/BusPlug.html'>BusPlug</a></div>
+<div class='method'>
+<p>Default number of channels when initializing in audio rate and no specific number is given (default: 2).</div><h3 class='method-code'><span class='method-prefix'>NodeProxy.</span><a class='method-name' name='*defaultNumControl' href='./../Overviews/Methods.html#defaultNumControl'>defaultNumControl</a></h3>
+<h3 class='method-code'><span class='method-prefix'>NodeProxy.</span><a class='method-name' name='*defaultNumControl' href='./../Overviews/Methods.html#defaultNumControl'>defaultNumControl</a> = value</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/BusPlug.html'>BusPlug</a></div>
+<div class='method'>
+<p>Default number of channels when initializing in control rate and no specific number is given (default: 1).</div><h3 class='method-code'><span class='method-prefix'>NodeProxy.</span><a class='method-name' name='*defaultFadeTime' href='./../Overviews/Methods.html#defaultFadeTime'>defaultFadeTime</a></h3>
 <div class='method'>
 <p>The overlap time between successive source replacements which all instances have by default. Each instance has its own value which can be set via <code>fadeTime_</code>.</div><h3><a class='anchor' name='Inherited%20class%20methods'>Inherited class methods</a></h3>
 <div id='inheritedclassmets'></div><h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>
 <h3><a class='anchor' name='Listening%20to%20the%20output'>Listening to the output</a></h3>
-<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-end' href='./../Overviews/Methods.html#end'>end</a>(<span class='argstr'>fadeTime</span>, <span class='argstr'>reset: false</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-play' href='./../Overviews/Methods.html#play'>play</a>(<span class='argstr'>out</span>, <span class='argstr'>numChannels</span>, <span class='argstr'>group</span>, <span class='argstr'>multi: false</span>, <span class='argstr'>vol</span>, <span class='argstr'>fadeTime</span>, <span class='argstr'>addAction</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/BusPlug.html'>BusPlug</a></div>
+<div class='method'>
+<p>Play from a bus index with a number of channels to another index with a number of channels, within a <a href="./../Classes/Group.html">Group</a> (i.e. a target group or server).<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>out<td class='argumentdesc'>
+<p>bus index<tr><td class='argumentname'>numChannels<td class='argumentdesc'>
+<p>number of channels to output. If BusPlug is neutral or reshaping is elastic, initialize it to this number. If this is more than the available channels, wrap around. If this is not given, and reshaping is elastic, it will automatically expand.<tr><td class='argumentname'>group<td class='argumentdesc'>
+<p>target <a href="./../Classes/Group.html">Group</a> or <a href="./../Classes/Server.html">Server</a> in which to play the monitor synths.<tr><td class='argumentname'>multi<td class='argumentdesc'>
+<p>keep old playback links and add new one<tr><td class='argumentname'>vol<td class='argumentdesc'>
+<p>overall volume at which to monitor<tr><td class='argumentname'>fadeTime<td class='argumentdesc'>
+<p>fade in / fade out time<tr><td class='argumentname'>addAction<td class='argumentdesc'>
+<p>Where in the node tree to play the monitor synths</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-playN' href='./../Overviews/Methods.html#playN'>playN</a>(<span class='argstr'>outs</span>, <span class='argstr'>amps</span>, <span class='argstr'>ins</span>, <span class='argstr'>vol</span>, <span class='argstr'>fadeTime</span>, <span class='argstr'>group</span>, <span class='argstr'>addAction</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/BusPlug.html'>BusPlug</a></div>
+<div class='method'>
+<p>Play back on non-contiguous channels. See: <a href="./../Classes/Monitor.html">Monitor</a> and <a href="./../Reference/playN.html">playN</a><h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>outs<td class='argumentdesc'>
+<p>array of destination channels (or single value)<tr><td class='argumentname'>amps<td class='argumentdesc'>
+<p>array of amplitudes for each channel (or single value)<tr><td class='argumentname'>ins<td class='argumentdesc'>
+<p>array of source channel offsets within the bus (or single value)<tr><td class='argumentname'>vol<td class='argumentdesc'>
+<p>Overall volume (multiplied by amps)<tr><td class='argumentname'>fadeTime<td class='argumentdesc'>
+<p>array of fadeTimes (or single value) for fade in / fade out<tr><td class='argumentname'>group<td class='argumentdesc'>
+<p>target <a href="./../Classes/Group.html">Group</a> or <a href="./../Classes/Server.html">Server</a> in which to play the monitor synths.<tr><td class='argumentname'>addAction<td class='argumentdesc'>
+<p>Where in the node tree to play the monitor synths</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-stop' href='./../Overviews/Methods.html#stop'>stop</a>(<span class='argstr'>fadeTime</span>, <span class='argstr'>reset: false</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/BusPlug.html'>BusPlug</a></div>
+<div class='method'>
+<p>stop to play out public channels.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>fadeTime<td class='argumentdesc'>
+<p>decay time for this action<tr><td class='argumentname'>reset<td class='argumentdesc'>
+<p>if set to true, reset all monitor state. Otherwise, the previous play arguments are kept.</table></div><h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-end' href='./../Overviews/Methods.html#end'>end</a>(<span class='argstr'>fadeTime</span>, <span class='argstr'>reset: false</span>)</h3>
 <div class='method'>
 <p>releases the synths and stops playback.<h4>Arguments:</h4>
 <table class='arguments'>
 <tr><td class='argumentname'>fadeTime<td class='argumentdesc'>
 <p>cross fade time for this action.<tr><td class='argumentname'>reset<td class='argumentdesc'>
 <p>if set to true, reset all monitor state. Otherwise, the previous play arguments are kept.</table></div><h3><a class='anchor' name='Embedding%20and%20Combining%20the%20proxy'>Embedding and Combining the proxy</a></h3>
-<h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-<--' href='./../Overviews/Methods.html#&lt;--'>&lt;--</a>(<span class='argstr'>proxy</span>)</h3>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-ar' href='./../Overviews/Methods.html#ar'>ar</a>(<span class='argstr'>numChannels</span>, <span class='argstr'>offset: 0</span>, <span class='argstr'>clip: 'wrap'</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/BusPlug.html'>BusPlug</a></div>
+<h3 class='method-code'><span class='method-prefix'>.</span><a class='method-name' name='-kr' href='./../Overviews/Methods.html#kr'>kr</a>(<span class='argstr'>numChannels</span>, <span class='argstr'>offset: 0</span>, <span class='argstr'>clip: 'wrap'</span>)</h3>
+<div class='supmethod'>From superclass: <a href='./../Classes/BusPlug.html'>BusPlug</a></div>
+<div class='method'>
+<p>Return a link to numChannels of my output. If uninitialized, creates a matching bus. Normally, <strong>ar defaults to stereo, kr to mono</strong>. This can be set in the classvars: <a href="#*defaultNumAudio">*defaultNumAudio</a>, <a href="#*defaultNumControl">*defaultNumControl</a>
+<p>For consistency, it always returns an array of signals when no numChannels are given. To make it a single ugen output, use <code>numChannels = 1</code> . See also: <a href="./../Classes/InBus.html">InBus</a>.<h4>Arguments:</h4>
+<table class='arguments'>
+<tr><td class='argumentname'>numChannels<td class='argumentdesc'>
+<p>Number of channels returned. If the receiver is neutral or reshaping is elastic, initialize it to this number. If this is more than the available channels, use the clip behaviour (below). If set to <code>1</code>, it will return an instance of <a href="./../Classes/InBus.html">InBus</a>, otherwise an Array of one or more instances of InBus.<tr><td class='argumentname'>offset<td class='argumentdesc'>
+<p>Channel offset when reading a bus that has more channels than numChannels, cross fading between adjacent channels.<tr><td class='argumentname'>clip<td class='argumentdesc'>
+<p>If set to 'wrap', exceeding channels will wrap around, if set to 'clip', repeat the last one.</table></div><h3 class='method-code'><span class='method-prefix'></span><a class='method-name' name='-<--' href='./../Overviews/Methods.html#&lt;--'>&lt;--</a>(<span class='argstr'>proxy</span>)</h3>
 <div class='method'>
 <p>Usage: <strong>proxyA &lt;-- proxyB</strong>. Set proxyA source to proxyB and play proxyA. If proxyB was playing, fade it out. This is convenient in the following situation:<div class='codeMirrorContainer'><textarea class='editor'>b = NodeProxy.new.play;
 b.source = { PinkNoise.ar(0.2.dup) };
